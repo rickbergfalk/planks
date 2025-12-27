@@ -10,11 +10,12 @@
     "skipLibCheck": true,
     "declaration": true,
     "declarationMap": true,
+    "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "tests/**/*", "vitest.config.ts"],
   "exclude": ["node_modules", "reference"]
 }

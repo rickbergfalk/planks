@@ -14,14 +14,32 @@
     "url": "https://github.com/rickbergfalk/planks.git"
   },
   "scripts": {
+    "test": "vitest",
+    "test:run": "vitest run",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.2.4",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "lit": "^3.3.2",
+    "lucide-react": "^0.562.0",
     "tailwind-merge": "^3.0.1"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.1.18",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.1",
     "@types/node": "^20.11.27",
-    "typescript": "^5.5.3"
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitest/browser": "^4.0.16",
+    "@vitest/browser-playwright": "^4.0.16",
+    "playwright": "^1.57.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.5.3",
+    "vitest": "^4.0.16"
   }
 }

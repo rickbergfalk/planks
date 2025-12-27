@@ -4,13 +4,36 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Planks is a hard fork of shadcn/ui with a different goal: converting React components to framework-agnostic web components. Like the Ship of Theseus, we're replacing each React component "plank by plank" until we have something entirely new.
+Planks is a hard fork of shadcn/ui with a different goal: converting React components to framework-agnostic web components using **Lit**. Like the Ship of Theseus, we're replacing each React component "plank by plank" until we have something entirely new.
 
-**Current state**: 55 React components in `src/components/` that need to be converted to web components.
+**Target audience**: Developers already using shadcn/ui and Tailwind who want to use web components alongside their existing setup.
+
+## Key Decisions
+
+- **Lit** for web components
+- **Light DOM** (not Shadow DOM) for easy Tailwind integration
+- **Tailwind required** in consumer's build - components emit Tailwind classes
+- **Element prefix**: `plank-` (e.g., `<plank-button>`, class `PlankButton`)
+- **Test-driven conversion** - write tests for React component first, then implement web component to pass equivalent tests
+- **React components are READ-ONLY** - never modify `src/components/`, they serve as the specification
+
+## Styling
+
+- **shadcn style**: "New York" (smaller border radius, more compact than "Default")
+- **Theme**: Default shadcn theme with OKLCH colors
+- **Tailwind v4**: Uses `@theme inline` directive for CSS variable mapping
+
+The test CSS (`tests/styles.css`) contains the complete theme definition that matches shadcn's default theme.
+
+## Deferred/Punted
+
+- **`asChild` pattern** - Radix's Slot-based composition doesn't translate to web components. Users needing a button-styled link should use the React version or apply classes manually.
 
 ## Commands
 
 ```bash
+npm test             # Run tests in watch mode (Vitest browser mode)
+npm run test:run     # Run tests once
 npm run typecheck    # Type-check the codebase
 ```
 
@@ -18,61 +41,67 @@ npm run typecheck    # Type-check the codebase
 
 ### Directory Structure
 
-- `src/components/` - 55 UI components (currently React, to be converted to web components)
-- `src/hooks/` - React hooks (e.g., `use-mobile.ts`)
-- `src/lib/utils.ts` - Utility functions (primarily `cn()` for class name merging)
-- `reference/examples/` - 230+ component usage examples (React, for reference only)
-- `reference/blocks/` - 32 pre-composed UI patterns (React, for reference only)
+```
+src/
+├── components/        # React components (READ-ONLY reference)
+├── web-components/    # Lit web component implementations
+├── hooks/             # React hooks
+└── lib/utils.ts       # Utilities (cn function)
+
+tests/
+├── react/             # Tests for React components
+└── web-components/    # Tests for web components
+
+reference/
+├── examples/          # 230+ React usage examples
+└── blocks/            # 32 pre-composed UI patterns
+```
 
 ### Import Aliases
 
 - `@/*` maps to `./src/*`
 
-### Component Patterns
+### React Component Patterns (Reference)
 
-Current React components use:
-- **Radix UI primitives** - Headless UI primitives that will need web component alternatives
-- **class-variance-authority (cva)** - Variant-based styling with Tailwind classes
-- **data-slot attributes** - Each component has `data-slot="component-name"` for styling hooks
+The React components use:
+- **Radix UI primitives** - Headless UI primitives (to be replicated in Lit)
+- **class-variance-authority (cva)** - Variant-based styling
+- **data-slot attributes** - `data-slot="component-name"` for styling hooks
 - **Tailwind CSS** - All styling via utility classes
 
-Example component structure:
-```tsx
-import { cn } from "@/lib/utils"
-import { cva, type VariantProps } from "class-variance-authority"
+### Web Component Patterns (Target)
 
-const buttonVariants = cva("base-classes", {
-  variants: {
-    variant: { default: "...", destructive: "..." },
-    size: { default: "...", sm: "...", lg: "..." },
-  },
-  defaultVariants: { variant: "default", size: "default" },
-})
+Web components should:
+- Use Lit's `@property` decorators for reactive attributes
+- Emit the same Tailwind classes as React equivalents
+- Use `<slot>` for content projection (replaces `children`)
+- Fire custom events (e.g., `open-change`) instead of callback props
+- Preserve `data-slot` attributes for styling consistency
 
-function Button({ className, variant, size, ...props }) {
-  return (
-    <button
-      data-slot="button"
-      className={cn(buttonVariants({ variant, size, className }))}
-      {...props}
-    />
-  )
-}
-```
+## API Mapping
 
-### Dependencies to Replace
+| React | Web Component (Lit) |
+|-------|---------------------|
+| `variant="destructive"` | `variant="destructive"` attribute |
+| `disabled={true}` | `disabled` boolean attribute |
+| `onClick={fn}` | `@click` / `addEventListener('click', fn)` |
+| `onOpenChange={fn}` | `@open-change` / custom event |
+| `children` | `<slot></slot>` |
+| `className="..."` | `class="..."` |
+| `asChild` | Not supported (see Deferred section) |
 
-When converting to web components, these React-specific dependencies need alternatives:
-- `@radix-ui/*` - Radix primitives (accessibility, behavior)
-- `react-hook-form` - Form state management
-- `lucide-react` - Icons
-- `class-variance-authority` - May keep for variant logic
-- `clsx` + `tailwind-merge` - Can keep for `cn()` utility
+## Conversion Workflow
 
-## Conversion Goals
+See `CONVERSION-STRATEGY.md` for the full test-driven approach:
 
-The end goal is web components that:
-1. Work in any framework (React, Vue, Svelte, vanilla JS)
-2. Maintain the same Tailwind-based styling approach
-3. Preserve accessibility features from Radix primitives
-4. Keep the variant-based API pattern
+1. Write behavioral + visual tests for React component
+2. Create equivalent test stubs for web component (all failing)
+3. Implement Lit component until tests pass
+4. Compare visual snapshots
+
+## Starting Order
+
+Begin with simple leaf components:
+1. button, badge, separator, skeleton, label
+2. Then components with state/interaction
+3. Finally compound components (Dialog, Sheet, etc.)
