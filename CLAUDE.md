@@ -185,12 +185,16 @@ describe("plank-newcomponent", () => {
 
 ## Conversion Workflow
 
-1. Write behavioral + visual tests for React component
-2. **Add semantic structure test** if component uses native semantic elements
-3. Create equivalent test stubs for web component (all failing)
-4. Implement Lit component until tests pass
-5. Compare visual snapshots
-6. Verify semantic structure test passes
+1. **Analyze React component structure**
+   - What native semantic elements does it render? (`<label>`, `<button>`, `<input>`, etc.)
+   - Must children be inside those elements for accessibility?
+   - This determines which implementation pattern to use
+
+2. Write behavioral + visual tests for React component
+3. **Add semantic structure test** for any native semantic elements identified in step 1
+4. Create equivalent test stubs for web component (all failing)
+5. Implement Lit component until tests pass
+6. Compare visual snapshots
 
 ## Conversion Progress
 
@@ -254,3 +258,16 @@ describe("plank-newcomponent", () => {
 - [ ] input-otp
 - [ ] sonner
 - [ ] chart
+
+## Open Questions
+
+- [ ] How to replicate Radix accessibility patterns in Lit?
+- [ ] Bundle/distribution format?
+
+## References
+
+- [Simon Willison: Porting via LLM with TDD](https://simonwillison.net/2025/Dec/15/porting-justhtml/)
+- [Frontend Masters: Light-DOM-Only Web Components](https://frontendmasters.com/blog/light-dom-only/)
+- [Vitest Browser Mode](https://vitest.dev/guide/browser.html)
+- [Lit Documentation](https://lit.dev/docs/)
+- [Lit Light DOM](https://lit.dev/docs/components/shadow-dom/#implementing-createrenderroot)
