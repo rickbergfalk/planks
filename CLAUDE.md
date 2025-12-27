@@ -113,7 +113,7 @@ See `CONVERSION-STRATEGY.md` for the full test-driven approach:
 
 ### Tier 2 - Simple styled elements (no Radix, no state)
 - [x] input
-- [ ] textarea
+- [x] textarea
 - [ ] card (multi-part)
 - [ ] alert
 - [ ] kbd
