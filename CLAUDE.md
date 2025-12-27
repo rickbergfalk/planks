@@ -78,6 +78,7 @@ Web components should:
 - Fire custom events (e.g., `open-change`) instead of callback props
 - Preserve `data-slot` attributes for styling consistency
 - **Gotcha**: `disabled:` Tailwind variants don't work on custom elements - add `opacity-50 pointer-events-none` explicitly when disabled
+- **Gotcha**: Custom elements are `display: inline` by default - add `block` class when the React equivalent is a block-level element
 
 ## API Mapping
 
