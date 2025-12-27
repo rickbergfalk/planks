@@ -6,12 +6,12 @@ Like the [Ship of Theseus](https://en.wikipedia.org/wiki/Ship_of_Theseus), we're
 
 ## Tech Choices
 
-| Choice | Why |
-|--------|-----|
-| **Lit** | Lightweight, fast, great DX with decorators and reactive properties |
-| **Light DOM** | Tailwind classes apply directly - no shadow DOM styling headaches |
+| Choice                | Why                                                                         |
+| --------------------- | --------------------------------------------------------------------------- |
+| **Lit**               | Lightweight, fast, great DX with decorators and reactive properties         |
+| **Light DOM**         | Tailwind classes apply directly - no shadow DOM styling headaches           |
 | **Tailwind required** | Components emit Tailwind classes; consumers provide Tailwind in their build |
-| **Test-driven** | React components are the spec; visual snapshot tests ensure pixel parity |
+| **Test-driven**       | React components are the spec; visual snapshot tests ensure pixel parity    |
 
 ## Structure
 
@@ -38,6 +38,10 @@ npm test              # Run tests in watch mode
 npm run test:ui       # Open Vitest UI
 npm run test:run      # Run tests once
 ```
+
+## On AI Use
+
+This project was developed with AI assistance. The author is [really conflicted about it](./AI-DISCLOSURE.md).
 
 ## License
 
