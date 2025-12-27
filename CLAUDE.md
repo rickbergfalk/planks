@@ -77,6 +77,7 @@ Web components should:
 - Use `<slot>` for content projection (replaces `children`)
 - Fire custom events (e.g., `open-change`) instead of callback props
 - Preserve `data-slot` attributes for styling consistency
+- **Gotcha**: `disabled:` Tailwind variants don't work on custom elements - add `opacity-50 pointer-events-none` explicitly when disabled
 
 ## API Mapping
 

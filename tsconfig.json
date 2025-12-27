@@ -11,6 +11,8 @@
     "declaration": true,
     "declarationMap": true,
     "jsx": "react-jsx",
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false,
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
