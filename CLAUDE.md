@@ -264,6 +264,30 @@ describe("plank-newcomponent", () => {
 - [ ] How to replicate Radix accessibility patterns in Lit?
 - [ ] Bundle/distribution format?
 
+## Web Component Library Landscape
+
+Reference comparison of major web component libraries (as of late 2025):
+
+| Library | Maintainer | Framework | Testing | DOM | Opinionated | TS |
+|---------|------------|-----------|---------|-----|-------------|-----|
+| [Shoelace](https://shoelace.style/) | Font Awesome | Lit | Web Test Runner | Shadow | Yes (design system) | ✓ |
+| [FAST](https://www.fast.design/) | Microsoft | FAST Element | Jest + custom | Shadow | Adaptive | ✓ |
+| [Spectrum](https://opensource.adobe.com/spectrum-web-components/) | Adobe | Lit | Web Test Runner | Shadow | Yes (Adobe design) | ✓ |
+| [Lion](https://github.com/ing-bank/lion) | ING Bank | Lit | Web Test Runner | Mixed* | No (white-label) | ✓ |
+| [Vaadin](https://vaadin.com/) | Vaadin | Lit | TestBench | Shadow | Yes (Lumo theme) | ✓ |
+| [Carbon](https://github.com/carbon-design-system/carbon-web-components) | IBM | Lit | Karma | Shadow | Yes (IBM design) | ✓ |
+| [PatternFly Elements](https://patternflyelements.org/) | Red Hat | Lit | Web Test Runner | Shadow | Yes (Red Hat design) | ✓ |
+| [Stencil](https://stenciljs.com/) | Ionic | Stencil | Jest (built-in) | Shadow | No (compiler) | ✓ |
+
+*Lion uses light DOM for components where shadow DOM breaks accessibility (aria relations).
+
+**Where Planks fits:**
+- **Framework**: Lit (like most modern libraries)
+- **Testing**: Vitest Browser Mode (uncommon - most use Web Test Runner)
+- **DOM**: Light DOM (rare - only Lion does this selectively)
+- **Opinionated**: No - inherits shadcn styles but fully customizable
+- **Unique angle**: Tailwind-native styling without shadow DOM complexity
+
 ## References
 
 - [Simon Willison: Porting via LLM with TDD](https://simonwillison.net/2025/Dec/15/porting-justhtml/)
@@ -271,3 +295,6 @@ describe("plank-newcomponent", () => {
 - [Vitest Browser Mode](https://vitest.dev/guide/browser.html)
 - [Lit Documentation](https://lit.dev/docs/)
 - [Lit Light DOM](https://lit.dev/docs/components/shadow-dom/#implementing-createrenderroot)
+- [Open Web Components Testing](https://open-wc.org/docs/testing/testing-package/)
+- [Shoelace Documentation](https://shoelace.style/)
+- [Stencil Documentation](https://stenciljs.com/docs/introduction)
