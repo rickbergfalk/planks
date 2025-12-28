@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Progress - Planks</title>
+    <script type="module" src="../src/main.ts"></script>
+  </head>
+  <body class="min-h-screen">
+    <header class="border-b">
+      <div class="container mx-auto px-4 py-4 flex items-center gap-4">
+        <a href="../" class="text-2xl font-bold">Planks</a>
+        <span class="text-muted-foreground">/</span>
+        <span>Progress</span>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+      <h1 class="text-4xl font-bold mb-4">Progress</h1>
+      <p class="text-xl text-muted-foreground mb-8">
+        Displays an indicator showing the completion progress of a task.
+      </p>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Default Progress</h2>
+        <div class="max-w-md mb-4">
+          <plank-progress value="33"></plank-progress>
+        </div>
+        <pre><code>&lt;plank-progress value="33"&gt;&lt;/plank-progress&gt;</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Progress Values</h2>
+        <div class="max-w-md space-y-4 mb-4">
+          <div class="flex items-center gap-4">
+            <span class="text-sm w-12">0%</span>
+            <plank-progress value="0" class="flex-1"></plank-progress>
+          </div>
+          <div class="flex items-center gap-4">
+            <span class="text-sm w-12">25%</span>
+            <plank-progress value="25" class="flex-1"></plank-progress>
+          </div>
+          <div class="flex items-center gap-4">
+            <span class="text-sm w-12">50%</span>
+            <plank-progress value="50" class="flex-1"></plank-progress>
+          </div>
+          <div class="flex items-center gap-4">
+            <span class="text-sm w-12">75%</span>
+            <plank-progress value="75" class="flex-1"></plank-progress>
+          </div>
+          <div class="flex items-center gap-4">
+            <span class="text-sm w-12">100%</span>
+            <plank-progress value="100" class="flex-1"></plank-progress>
+          </div>
+        </div>
+        <pre><code>&lt;plank-progress value="0"&gt;&lt;/plank-progress&gt;
+&lt;plank-progress value="25"&gt;&lt;/plank-progress&gt;
+&lt;plank-progress value="50"&gt;&lt;/plank-progress&gt;
+&lt;plank-progress value="75"&gt;&lt;/plank-progress&gt;
+&lt;plank-progress value="100"&gt;&lt;/plank-progress&gt;</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Accessibility</h2>
+        <p class="text-muted-foreground mb-4">
+          The progress bar implements the ARIA progressbar role with
+          <code>aria-valuemin</code>, <code>aria-valuemax</code>, and
+          <code>aria-valuenow</code> attributes for screen reader support.
+        </p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Props</h2>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b">
+              <th class="text-left py-2 pr-4">Prop</th>
+              <th class="text-left py-2 pr-4">Type</th>
+              <th class="text-left py-2 pr-4">Default</th>
+              <th class="text-left py-2">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">value</td>
+              <td class="py-2 pr-4 font-mono">number</td>
+              <td class="py-2 pr-4 font-mono">0</td>
+              <td class="py-2">Progress value from 0 to 100</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </body>
+</html>

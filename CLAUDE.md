@@ -233,7 +233,7 @@ describe("plank-newcomponent", () => {
 - [x] card (multi-part)
 - [x] alert
 - [x] kbd
-- [ ] progress
+- [x] progress
 - [ ] aspect-ratio
 
 ### Tier 3 - Components with state
