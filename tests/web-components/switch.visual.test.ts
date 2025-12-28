@@ -21,7 +21,9 @@ describe("PlankSwitch (Web Component) - Visual", () => {
     const switchEl = container.querySelector("plank-switch") as PlankSwitch
     await switchEl.updateComplete
 
-    await expect(page.getByTestId("switch")).toMatchScreenshot("switch-unchecked")
+    await expect(page.getByTestId("switch")).toMatchScreenshot(
+      "switch-unchecked"
+    )
   })
 
   it("checked state", async () => {

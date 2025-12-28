@@ -97,11 +97,15 @@ describe("Switch (React)", () => {
 
   it("thumb has correct data-state", () => {
     const { rerender } = render(<Switch />)
-    let thumb = screen.getByRole("switch").querySelector('[data-slot="switch-thumb"]')
+    let thumb = screen
+      .getByRole("switch")
+      .querySelector('[data-slot="switch-thumb"]')
     expect(thumb?.getAttribute("data-state")).toBe("unchecked")
 
     rerender(<Switch checked />)
-    thumb = screen.getByRole("switch").querySelector('[data-slot="switch-thumb"]')
+    thumb = screen
+      .getByRole("switch")
+      .querySelector('[data-slot="switch-thumb"]')
     expect(thumb?.getAttribute("data-state")).toBe("checked")
   })
 })

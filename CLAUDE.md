@@ -202,6 +202,11 @@ describe("plank-newcomponent", () => {
    - Add link card to `docs/index.html`
    - Verify with `npm run docs:dev` that component renders correctly
 
+8. **Run formatting and checks**
+   - Run `npm run format` to fix any Prettier issues
+   - Run `npm run lint` to verify no ESLint errors
+   - Run `npm run typecheck` to verify TypeScript compiles
+
 ## Conversion Progress
 
 ### Tier 1 - Simple leaf components ✅

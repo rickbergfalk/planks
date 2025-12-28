@@ -6,7 +6,9 @@ import { Switch } from "@/components/switch"
 describe("Switch (React) - Visual", () => {
   it("unchecked state", async () => {
     render(<Switch data-testid="switch" />)
-    await expect(page.getByTestId("switch")).toMatchScreenshot("switch-unchecked")
+    await expect(page.getByTestId("switch")).toMatchScreenshot(
+      "switch-unchecked"
+    )
   })
 
   it("checked state", async () => {
