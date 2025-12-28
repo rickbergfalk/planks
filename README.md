@@ -43,7 +43,8 @@ See [CLAUDE.md](./CLAUDE.md#conversion-progress) for the full checklist.
 
 ## TODO
 
-- Add github actions to validate tests, lint, formatting
+- ~~Add github actions to validate tests~~ ✅ (typecheck + tests run on push/PR)
+- Add linting and formatting (ESLint, Prettier)
 - Add workflow step to compare implementation to other component libraries
 - Add simple demo pages, with note on setting up a real docs site using web components once done
 - Add workflow step to add a demo page
@@ -57,6 +58,7 @@ npm install
 npm test              # Run tests in watch mode
 npm run test:ui       # Open Vitest UI
 npm run test:run      # Run tests once
+npm run typecheck     # TypeScript validation
 ```
 
 ## License
