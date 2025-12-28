@@ -232,7 +232,7 @@ describe("plank-newcomponent", () => {
 - [x] textarea
 - [x] card (multi-part)
 - [x] alert
-- [ ] kbd
+- [x] kbd
 - [ ] progress
 - [ ] aspect-ratio
 

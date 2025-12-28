@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kbd - Planks</title>
+    <script type="module" src="../src/main.ts"></script>
+  </head>
+  <body class="min-h-screen">
+    <header class="border-b">
+      <div class="container mx-auto px-4 py-4 flex items-center gap-4">
+        <a href="../" class="text-2xl font-bold">Planks</a>
+        <span class="text-muted-foreground">/</span>
+        <span>Kbd</span>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+      <h1 class="text-4xl font-bold mb-4">Kbd</h1>
+      <p class="text-xl text-muted-foreground mb-8">
+        Displays keyboard shortcuts and key indicators.
+      </p>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Single Keys</h2>
+        <div class="flex gap-4 mb-4">
+          <plank-kbd>K</plank-kbd>
+          <plank-kbd>Enter</plank-kbd>
+          <plank-kbd>Esc</plank-kbd>
+        </div>
+        <pre><code>&lt;plank-kbd&gt;K&lt;/plank-kbd&gt;
+&lt;plank-kbd&gt;Enter&lt;/plank-kbd&gt;
+&lt;plank-kbd&gt;Esc&lt;/plank-kbd&gt;</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Modifier Keys</h2>
+        <div class="mb-4">
+          <plank-kbd-group>
+            <plank-kbd>⌘</plank-kbd>
+            <plank-kbd>⇧</plank-kbd>
+            <plank-kbd>⌥</plank-kbd>
+            <plank-kbd>⌃</plank-kbd>
+          </plank-kbd-group>
+        </div>
+        <pre><code>&lt;plank-kbd-group&gt;
+  &lt;plank-kbd&gt;⌘&lt;/plank-kbd&gt;
+  &lt;plank-kbd&gt;⇧&lt;/plank-kbd&gt;
+  &lt;plank-kbd&gt;⌥&lt;/plank-kbd&gt;
+  &lt;plank-kbd&gt;⌃&lt;/plank-kbd&gt;
+&lt;/plank-kbd-group&gt;</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Key Combinations</h2>
+        <div class="flex flex-col gap-4 mb-4">
+          <plank-kbd-group>
+            <plank-kbd>Ctrl</plank-kbd>
+            <span>+</span>
+            <plank-kbd>B</plank-kbd>
+          </plank-kbd-group>
+          <plank-kbd-group>
+            <plank-kbd>⌘</plank-kbd>
+            <span>+</span>
+            <plank-kbd>Shift</plank-kbd>
+            <span>+</span>
+            <plank-kbd>P</plank-kbd>
+          </plank-kbd-group>
+        </div>
+        <pre><code>&lt;plank-kbd-group&gt;
+  &lt;plank-kbd&gt;Ctrl&lt;/plank-kbd&gt;
+  &lt;span&gt;+&lt;/span&gt;
+  &lt;plank-kbd&gt;B&lt;/plank-kbd&gt;
+&lt;/plank-kbd-group&gt;</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">In Context</h2>
+        <div class="mb-4">
+          <p class="text-muted-foreground text-sm">
+            Press
+            <plank-kbd-group>
+              <plank-kbd>⌘</plank-kbd>
+              <plank-kbd>K</plank-kbd>
+            </plank-kbd-group>
+            to open the command palette.
+          </p>
+        </div>
+        <pre><code>&lt;p&gt;
+  Press
+  &lt;plank-kbd-group&gt;
+    &lt;plank-kbd&gt;⌘&lt;/plank-kbd&gt;
+    &lt;plank-kbd&gt;K&lt;/plank-kbd&gt;
+  &lt;/plank-kbd-group&gt;
+  to open the command palette.
+&lt;/p&gt;</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Components</h2>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b">
+              <th class="text-left py-2 pr-4">Component</th>
+              <th class="text-left py-2">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">plank-kbd</td>
+              <td class="py-2">A single keyboard key indicator</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">plank-kbd-group</td>
+              <td class="py-2">Groups multiple keys together</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </body>
+</html>
