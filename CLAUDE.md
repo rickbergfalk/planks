@@ -195,6 +195,11 @@ describe("plank-newcomponent", () => {
 4. Create equivalent test stubs for web component (all failing)
 5. Implement Lit component until tests pass
 6. Compare visual snapshots
+7. **Add docs page**
+   - Create `docs/components/{component}.html` (copy existing page as template)
+   - Add component import to `docs/src/main.ts`
+   - Add link card to `docs/index.html`
+   - Verify with `npm run docs:dev` that component renders correctly
 
 ## Conversion Progress
 

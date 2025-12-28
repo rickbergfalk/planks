@@ -43,8 +43,6 @@ See [CLAUDE.md](./CLAUDE.md#conversion-progress) for the full checklist.
 
 ## TODO
 
-- Add simple demo pages, with note on setting up a real docs site using web components once done
-- Add workflow step to add a demo page
 - Add workflow step to compare implementation to other component libraries
 - Add contributing guide on how to contribute (ideall someone has claude code)
 - Distribution/demo repo
