@@ -16,6 +16,7 @@ export default defineConfig({
       "@radix-ui/react-collapsible",
       "@radix-ui/react-accordion",
       "@radix-ui/react-tabs",
+      "@radix-ui/react-radio-group",
       "lucide-react",
     ],
   },

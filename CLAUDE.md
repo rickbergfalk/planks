@@ -250,7 +250,7 @@ describe("plank-newcomponent", () => {
 - [x] collapsible
 - [x] accordion
 - [x] tabs
-- [ ] radio-group
+- [x] radio-group
 - [ ] toggle-group
 - [ ] slider
 
