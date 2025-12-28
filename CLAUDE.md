@@ -234,7 +234,7 @@ describe("plank-newcomponent", () => {
 - [x] alert
 - [x] kbd
 - [x] progress
-- [ ] aspect-ratio
+- [x] aspect-ratio
 
 ### Tier 3 - Components with state
 - [x] switch

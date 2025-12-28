@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aspect Ratio - Planks</title>
+    <script type="module" src="../src/main.ts"></script>
+  </head>
+  <body class="min-h-screen">
+    <header class="border-b">
+      <div class="container mx-auto px-4 py-4 flex items-center gap-4">
+        <a href="../" class="text-2xl font-bold">Planks</a>
+        <span class="text-muted-foreground">/</span>
+        <span>Aspect Ratio</span>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+      <h1 class="text-4xl font-bold mb-4">Aspect Ratio</h1>
+      <p class="text-xl text-muted-foreground mb-8">
+        Maintains a desired aspect ratio for content.
+      </p>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">16:9 Widescreen</h2>
+        <div class="max-w-md mb-4">
+          <plank-aspect-ratio ratio="16/9" class="bg-muted rounded-lg">
+            <div
+              class="flex items-center justify-center h-full text-muted-foreground"
+            >
+              16:9
+            </div>
+          </plank-aspect-ratio>
+        </div>
+        <pre><code>&lt;plank-aspect-ratio ratio="16/9" class="bg-muted rounded-lg"&gt;
+  &lt;!-- content --&gt;
+&lt;/plank-aspect-ratio&gt;</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">4:3 Standard</h2>
+        <div class="max-w-md mb-4">
+          <plank-aspect-ratio ratio="4/3" class="bg-muted rounded-lg">
+            <div
+              class="flex items-center justify-center h-full text-muted-foreground"
+            >
+              4:3
+            </div>
+          </plank-aspect-ratio>
+        </div>
+        <pre><code>&lt;plank-aspect-ratio ratio="4/3" class="bg-muted rounded-lg"&gt;
+  &lt;!-- content --&gt;
+&lt;/plank-aspect-ratio&gt;</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">1:1 Square</h2>
+        <div class="max-w-xs mb-4">
+          <plank-aspect-ratio ratio="1/1" class="bg-muted rounded-lg">
+            <div
+              class="flex items-center justify-center h-full text-muted-foreground"
+            >
+              1:1
+            </div>
+          </plank-aspect-ratio>
+        </div>
+        <pre><code>&lt;plank-aspect-ratio ratio="1/1" class="bg-muted rounded-lg"&gt;
+  &lt;!-- content --&gt;
+&lt;/plank-aspect-ratio&gt;</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">With Image</h2>
+        <div class="max-w-md mb-4">
+          <plank-aspect-ratio ratio="16/9" class="bg-muted rounded-lg">
+            <img
+              src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80"
+              alt="Photo by Drew Beamer"
+              class="h-full w-full rounded-lg object-cover"
+            />
+          </plank-aspect-ratio>
+        </div>
+        <pre><code>&lt;plank-aspect-ratio ratio="16/9" class="rounded-lg"&gt;
+  &lt;img src="..." class="h-full w-full object-cover" /&gt;
+&lt;/plank-aspect-ratio&gt;</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Props</h2>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b">
+              <th class="text-left py-2 pr-4">Prop</th>
+              <th class="text-left py-2 pr-4">Type</th>
+              <th class="text-left py-2 pr-4">Default</th>
+              <th class="text-left py-2">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">ratio</td>
+              <td class="py-2 pr-4 font-mono">string</td>
+              <td class="py-2 pr-4 font-mono">"1/1"</td>
+              <td class="py-2">
+                Aspect ratio in "width/height" format (e.g., "16/9", "4/3")
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </body>
+</html>
