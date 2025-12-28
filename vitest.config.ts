@@ -9,6 +9,9 @@ export default defineConfig({
       "@": new URL("./src", import.meta.url).pathname,
     },
   },
+  optimizeDeps: {
+    include: ["@radix-ui/react-checkbox", "lucide-react"],
+  },
   test: {
     browser: {
       enabled: true,
