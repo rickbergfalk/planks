@@ -15,6 +15,7 @@ export default defineConfig({
       "@radix-ui/react-avatar",
       "@radix-ui/react-collapsible",
       "@radix-ui/react-accordion",
+      "@radix-ui/react-tabs",
       "lucide-react",
     ],
   },

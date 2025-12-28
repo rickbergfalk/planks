@@ -326,6 +326,29 @@
             </plank-accordion-item>
           </plank-accordion>
         </a>
+
+        <!-- Tabs -->
+        <a
+          href="./components/tabs.html"
+          class="block p-6 border rounded-lg hover:border-foreground transition-colors"
+        >
+          <h3 class="font-semibold mb-2">Tabs</h3>
+          <p class="text-sm text-muted-foreground mb-4">
+            Layered sections showing one panel.
+          </p>
+          <plank-tabs value="tab1" class="w-full">
+            <plank-tabs-list>
+              <plank-tabs-trigger value="tab1">Tab 1</plank-tabs-trigger>
+              <plank-tabs-trigger value="tab2">Tab 2</plank-tabs-trigger>
+            </plank-tabs-list>
+            <plank-tabs-content value="tab1">
+              <span class="text-sm">Content 1</span>
+            </plank-tabs-content>
+            <plank-tabs-content value="tab2">
+              <span class="text-sm">Content 2</span>
+            </plank-tabs-content>
+          </plank-tabs>
+        </a>
       </div>
     </main>
 

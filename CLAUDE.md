@@ -249,7 +249,7 @@ describe("plank-newcomponent", () => {
 ### Tier 4 - Multi-part with state
 - [x] collapsible
 - [x] accordion
-- [ ] tabs
+- [x] tabs
 - [ ] radio-group
 - [ ] toggle-group
 - [ ] slider

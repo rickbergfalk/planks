@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabs - Planks</title>
+    <script type="module" src="../src/main.ts"></script>
+  </head>
+  <body class="min-h-screen">
+    <!-- Header -->
+    <header class="border-b">
+      <div class="container mx-auto px-4 py-4 flex items-center gap-4">
+        <a href="../" class="text-2xl font-bold">Planks</a>
+        <span class="text-muted-foreground">/</span>
+        <span>Tabs</span>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+      <h1 class="text-4xl font-bold mb-4">Tabs</h1>
+      <p class="text-xl text-muted-foreground mb-8">
+        A set of layered sections of content that display one panel at a time.
+      </p>
+
+      <!-- Basic Usage -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Basic Usage</h2>
+        <div class="mb-4 w-full max-w-md">
+          <plank-tabs value="account" class="w-full">
+            <plank-tabs-list>
+              <plank-tabs-trigger value="account">Account</plank-tabs-trigger>
+              <plank-tabs-trigger value="password">Password</plank-tabs-trigger>
+            </plank-tabs-list>
+            <plank-tabs-content value="account">
+              <div class="p-4 border rounded-md mt-2">
+                Make changes to your account here. Click save when you're done.
+              </div>
+            </plank-tabs-content>
+            <plank-tabs-content value="password">
+              <div class="p-4 border rounded-md mt-2">
+                Change your password here. After saving, you'll be logged out.
+              </div>
+            </plank-tabs-content>
+          </plank-tabs>
+        </div>
+        <pre><code>&lt;plank-tabs value="account"&gt;
+  &lt;plank-tabs-list&gt;
+    &lt;plank-tabs-trigger value="account"&gt;Account&lt;/plank-tabs-trigger&gt;
+    &lt;plank-tabs-trigger value="password"&gt;Password&lt;/plank-tabs-trigger&gt;
+  &lt;/plank-tabs-list&gt;
+  &lt;plank-tabs-content value="account"&gt;
+    Account content...
+  &lt;/plank-tabs-content&gt;
+  &lt;plank-tabs-content value="password"&gt;
+    Password content...
+  &lt;/plank-tabs-content&gt;
+&lt;/plank-tabs&gt;</code></pre>
+      </section>
+
+      <!-- Multiple Tabs -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Multiple Tabs</h2>
+        <div class="mb-4 w-full max-w-md">
+          <plank-tabs value="overview" class="w-full">
+            <plank-tabs-list>
+              <plank-tabs-trigger value="overview">Overview</plank-tabs-trigger>
+              <plank-tabs-trigger value="analytics"
+                >Analytics</plank-tabs-trigger
+              >
+              <plank-tabs-trigger value="reports">Reports</plank-tabs-trigger>
+              <plank-tabs-trigger value="notifications"
+                >Notifications</plank-tabs-trigger
+              >
+            </plank-tabs-list>
+            <plank-tabs-content value="overview">
+              <div class="p-4 border rounded-md mt-2">
+                Overview content goes here.
+              </div>
+            </plank-tabs-content>
+            <plank-tabs-content value="analytics">
+              <div class="p-4 border rounded-md mt-2">
+                Analytics content goes here.
+              </div>
+            </plank-tabs-content>
+            <plank-tabs-content value="reports">
+              <div class="p-4 border rounded-md mt-2">
+                Reports content goes here.
+              </div>
+            </plank-tabs-content>
+            <plank-tabs-content value="notifications">
+              <div class="p-4 border rounded-md mt-2">
+                Notifications content goes here.
+              </div>
+            </plank-tabs-content>
+          </plank-tabs>
+        </div>
+        <pre><code>&lt;plank-tabs value="overview"&gt;
+  &lt;plank-tabs-list&gt;
+    &lt;plank-tabs-trigger value="overview"&gt;Overview&lt;/plank-tabs-trigger&gt;
+    &lt;plank-tabs-trigger value="analytics"&gt;Analytics&lt;/plank-tabs-trigger&gt;
+    &lt;plank-tabs-trigger value="reports"&gt;Reports&lt;/plank-tabs-trigger&gt;
+    &lt;plank-tabs-trigger value="notifications"&gt;Notifications&lt;/plank-tabs-trigger&gt;
+  &lt;/plank-tabs-list&gt;
+  ...
+&lt;/plank-tabs&gt;</code></pre>
+      </section>
+
+      <!-- Disabled Tab -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Disabled Tab</h2>
+        <div class="mb-4 w-full max-w-md">
+          <plank-tabs value="active" class="w-full">
+            <plank-tabs-list>
+              <plank-tabs-trigger value="active">Active</plank-tabs-trigger>
+              <plank-tabs-trigger value="disabled" disabled
+                >Disabled</plank-tabs-trigger
+              >
+            </plank-tabs-list>
+            <plank-tabs-content value="active">
+              <div class="p-4 border rounded-md mt-2">This tab is active.</div>
+            </plank-tabs-content>
+            <plank-tabs-content value="disabled">
+              <div class="p-4 border rounded-md mt-2">
+                This tab cannot be accessed.
+              </div>
+            </plank-tabs-content>
+          </plank-tabs>
+        </div>
+        <pre><code>&lt;plank-tabs-trigger value="disabled" disabled&gt;Disabled&lt;/plank-tabs-trigger&gt;</code></pre>
+      </section>
+
+      <!-- API -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">API</h2>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">plank-tabs</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Property</th>
+                <th class="text-left py-2 pr-4">Type</th>
+                <th class="text-left py-2 pr-4">Default</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">value</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  string
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">""</td>
+                <td class="py-2">The value of the currently selected tab</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">Events</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Event</th>
+                <th class="text-left py-2 pr-4">Detail</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">value-change</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  { value: string }
+                </td>
+                <td class="py-2">Fired when the selected tab changes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">plank-tabs-list</h3>
+        <p class="text-muted-foreground mb-4">
+          Container for tab triggers. Has role="tablist" for accessibility.
+        </p>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">plank-tabs-trigger</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Property</th>
+                <th class="text-left py-2 pr-4">Type</th>
+                <th class="text-left py-2 pr-4">Default</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">value</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  string
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">""</td>
+                <td class="py-2">Unique identifier matching a content panel</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">disabled</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  boolean
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">false</td>
+                <td class="py-2">Prevents selection of this tab</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">plank-tabs-content</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Property</th>
+                <th class="text-left py-2 pr-4">Type</th>
+                <th class="text-left py-2 pr-4">Default</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">value</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  string
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">""</td>
+                <td class="py-2">Unique identifier matching a trigger</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Accessibility -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Accessibility</h2>
+        <ul class="list-disc list-inside space-y-2 text-muted-foreground">
+          <li>Tab list has role="tablist"</li>
+          <li>Each trigger has role="tab" with aria-selected state</li>
+          <li>
+            Each panel has role="tabpanel" with aria-labelledby pointing to its
+            trigger
+          </li>
+          <li>Triggers have aria-controls pointing to their panels</li>
+          <li>
+            Keyboard navigation with Arrow Left/Right to move between tabs
+          </li>
+          <li>Space and Enter keys activate the focused tab</li>
+          <li>Focus wraps from last to first tab and vice versa</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
