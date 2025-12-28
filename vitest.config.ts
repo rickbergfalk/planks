@@ -17,6 +17,7 @@ export default defineConfig({
       "@radix-ui/react-accordion",
       "@radix-ui/react-tabs",
       "@radix-ui/react-radio-group",
+      "@radix-ui/react-toggle-group",
       "lucide-react",
     ],
   },

@@ -251,7 +251,7 @@ describe("plank-newcomponent", () => {
 - [x] accordion
 - [x] tabs
 - [x] radio-group
-- [ ] toggle-group
+- [x] toggle-group
 - [ ] slider
 
 ### Tier 5 - Positioned/Portal components

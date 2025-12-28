@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toggle Group - Planks</title>
+    <script type="module" src="../src/main.ts"></script>
+  </head>
+  <body class="min-h-screen">
+    <!-- Header -->
+    <header class="border-b">
+      <div class="container mx-auto px-4 py-4 flex items-center gap-4">
+        <a href="../" class="text-2xl font-bold">Planks</a>
+        <span class="text-muted-foreground">/</span>
+        <span>Toggle Group</span>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+      <h1 class="text-4xl font-bold mb-4">Toggle Group</h1>
+      <p class="text-xl text-muted-foreground mb-8">
+        A set of two-state buttons that can be toggled on or off.
+      </p>
+
+      <!-- Multiple Selection -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Multiple Selection</h2>
+        <p class="text-muted-foreground mb-4">
+          Multiple items can be selected at once.
+        </p>
+        <div class="mb-4">
+          <plank-toggle-group type="multiple" value="bold">
+            <plank-toggle-group-item value="bold" aria-label="Toggle bold"
+              >B</plank-toggle-group-item
+            >
+            <plank-toggle-group-item value="italic" aria-label="Toggle italic"
+              >I</plank-toggle-group-item
+            >
+            <plank-toggle-group-item
+              value="underline"
+              aria-label="Toggle underline"
+              >U</plank-toggle-group-item
+            >
+          </plank-toggle-group>
+        </div>
+        <pre><code>&lt;plank-toggle-group type="multiple" value="bold"&gt;
+  &lt;plank-toggle-group-item value="bold"&gt;B&lt;/plank-toggle-group-item&gt;
+  &lt;plank-toggle-group-item value="italic"&gt;I&lt;/plank-toggle-group-item&gt;
+  &lt;plank-toggle-group-item value="underline"&gt;U&lt;/plank-toggle-group-item&gt;
+&lt;/plank-toggle-group&gt;</code></pre>
+      </section>
+
+      <!-- Single Selection -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Single Selection</h2>
+        <p class="text-muted-foreground mb-4">
+          Only one item can be selected at a time.
+        </p>
+        <div class="mb-4">
+          <plank-toggle-group type="single" value="center">
+            <plank-toggle-group-item value="left" aria-label="Align left"
+              >L</plank-toggle-group-item
+            >
+            <plank-toggle-group-item value="center" aria-label="Align center"
+              >C</plank-toggle-group-item
+            >
+            <plank-toggle-group-item value="right" aria-label="Align right"
+              >R</plank-toggle-group-item
+            >
+          </plank-toggle-group>
+        </div>
+        <pre><code>&lt;plank-toggle-group type="single" value="center"&gt;
+  &lt;plank-toggle-group-item value="left"&gt;L&lt;/plank-toggle-group-item&gt;
+  &lt;plank-toggle-group-item value="center"&gt;C&lt;/plank-toggle-group-item&gt;
+  &lt;plank-toggle-group-item value="right"&gt;R&lt;/plank-toggle-group-item&gt;
+&lt;/plank-toggle-group&gt;</code></pre>
+      </section>
+
+      <!-- Outline Variant -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Outline Variant</h2>
+        <div class="mb-4">
+          <plank-toggle-group type="multiple" variant="outline" value="bold">
+            <plank-toggle-group-item value="bold" aria-label="Toggle bold"
+              >B</plank-toggle-group-item
+            >
+            <plank-toggle-group-item value="italic" aria-label="Toggle italic"
+              >I</plank-toggle-group-item
+            >
+            <plank-toggle-group-item
+              value="underline"
+              aria-label="Toggle underline"
+              >U</plank-toggle-group-item
+            >
+          </plank-toggle-group>
+        </div>
+        <pre><code>&lt;plank-toggle-group variant="outline"&gt;...&lt;/plank-toggle-group&gt;</code></pre>
+      </section>
+
+      <!-- Sizes -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Sizes</h2>
+        <div class="flex flex-col gap-4 mb-4">
+          <div class="flex items-center gap-4">
+            <span class="text-sm w-16">Small</span>
+            <plank-toggle-group type="multiple" size="sm" value="bold">
+              <plank-toggle-group-item value="bold">B</plank-toggle-group-item>
+              <plank-toggle-group-item value="italic"
+                >I</plank-toggle-group-item
+              >
+              <plank-toggle-group-item value="underline"
+                >U</plank-toggle-group-item
+              >
+            </plank-toggle-group>
+          </div>
+          <div class="flex items-center gap-4">
+            <span class="text-sm w-16">Default</span>
+            <plank-toggle-group type="multiple" value="bold">
+              <plank-toggle-group-item value="bold">B</plank-toggle-group-item>
+              <plank-toggle-group-item value="italic"
+                >I</plank-toggle-group-item
+              >
+              <plank-toggle-group-item value="underline"
+                >U</plank-toggle-group-item
+              >
+            </plank-toggle-group>
+          </div>
+          <div class="flex items-center gap-4">
+            <span class="text-sm w-16">Large</span>
+            <plank-toggle-group type="multiple" size="lg" value="bold">
+              <plank-toggle-group-item value="bold">B</plank-toggle-group-item>
+              <plank-toggle-group-item value="italic"
+                >I</plank-toggle-group-item
+              >
+              <plank-toggle-group-item value="underline"
+                >U</plank-toggle-group-item
+              >
+            </plank-toggle-group>
+          </div>
+        </div>
+        <pre><code>&lt;plank-toggle-group size="sm"&gt;...&lt;/plank-toggle-group&gt;
+&lt;plank-toggle-group&gt;...&lt;/plank-toggle-group&gt;
+&lt;plank-toggle-group size="lg"&gt;...&lt;/plank-toggle-group&gt;</code></pre>
+      </section>
+
+      <!-- Disabled -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Disabled</h2>
+        <div class="flex flex-col gap-4 mb-4">
+          <div>
+            <p class="text-sm text-muted-foreground mb-2">Disabled item:</p>
+            <plank-toggle-group type="multiple" value="bold">
+              <plank-toggle-group-item value="bold">B</plank-toggle-group-item>
+              <plank-toggle-group-item value="italic" disabled
+                >I</plank-toggle-group-item
+              >
+              <plank-toggle-group-item value="underline"
+                >U</plank-toggle-group-item
+              >
+            </plank-toggle-group>
+          </div>
+          <div>
+            <p class="text-sm text-muted-foreground mb-2">Disabled group:</p>
+            <plank-toggle-group type="multiple" value="bold" disabled>
+              <plank-toggle-group-item value="bold">B</plank-toggle-group-item>
+              <plank-toggle-group-item value="italic"
+                >I</plank-toggle-group-item
+              >
+              <plank-toggle-group-item value="underline"
+                >U</plank-toggle-group-item
+              >
+            </plank-toggle-group>
+          </div>
+        </div>
+        <pre><code>&lt;plank-toggle-group-item disabled&gt;...&lt;/plank-toggle-group-item&gt;
+&lt;plank-toggle-group disabled&gt;...&lt;/plank-toggle-group&gt;</code></pre>
+      </section>
+
+      <!-- API -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">API</h2>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">plank-toggle-group</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Property</th>
+                <th class="text-left py-2 pr-4">Type</th>
+                <th class="text-left py-2 pr-4">Default</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">type</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  "single" | "multiple"
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  "multiple"
+                </td>
+                <td class="py-2">Selection mode</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">value</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  string
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">""</td>
+                <td class="py-2">
+                  Selected value(s), comma-separated for multiple
+                </td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">variant</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  "default" | "outline"
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  "default"
+                </td>
+                <td class="py-2">Visual variant</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">size</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  "default" | "sm" | "lg"
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  "default"
+                </td>
+                <td class="py-2">Size of items</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">disabled</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  boolean
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">false</td>
+                <td class="py-2">Disables all items</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">Events</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Event</th>
+                <th class="text-left py-2 pr-4">Detail</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">value-change</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  { value: string }
+                </td>
+                <td class="py-2">Fired when selection changes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">plank-toggle-group-item</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Property</th>
+                <th class="text-left py-2 pr-4">Type</th>
+                <th class="text-left py-2 pr-4">Default</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">value</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  string
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">""</td>
+                <td class="py-2">Unique identifier for the item</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">disabled</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  boolean
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">false</td>
+                <td class="py-2">Disables this item</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Accessibility -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Accessibility</h2>
+        <ul class="list-disc list-inside space-y-2 text-muted-foreground">
+          <li>Toggle group has role="group"</li>
+          <li>Each item has role="button" with aria-pressed state</li>
+          <li>Space and Enter keys toggle the focused item</li>
+          <li>Items are focusable via Tab key navigation</li>
+          <li>Disabled items are removed from tab order</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
