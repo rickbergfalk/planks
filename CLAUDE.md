@@ -246,13 +246,13 @@ describe("plank-newcomponent", () => {
 - [x] toggle
 - [x] avatar (multi-part)
 
-### Tier 4 - Multi-part with state
+### Tier 4 - Multi-part with state ✅
 - [x] collapsible
 - [x] accordion
 - [x] tabs
 - [x] radio-group
 - [x] toggle-group
-- [ ] slider
+- [x] slider
 
 ### Tier 5 - Positioned/Portal components
 - [ ] tooltip

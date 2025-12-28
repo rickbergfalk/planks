@@ -18,6 +18,7 @@ export default defineConfig({
       "@radix-ui/react-tabs",
       "@radix-ui/react-radio-group",
       "@radix-ui/react-toggle-group",
+      "@radix-ui/react-slider",
       "lucide-react",
     ],
   },
