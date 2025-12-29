@@ -1,5 +1,6 @@
 import { defineConfig } from "vite"
 import tailwindcss from "@tailwindcss/vite"
+import react from "@vitejs/plugin-react"
 import { resolve } from "path"
 import { readdirSync } from "fs"
 
@@ -18,17 +19,45 @@ const componentPages = readdirSync(resolve(__dirname, "components"))
 export default defineConfig({
   // Base path for GitHub Pages (repo name)
   base: process.env.CI ? "/planks/" : "/",
-  plugins: [tailwindcss()],
+  plugins: [tailwindcss(), react()],
   resolve: {
     alias: {
       "@": resolve(__dirname, "../src"),
+      // Use React from root node_modules to avoid duplicate instances
+      react: resolve(__dirname, "../node_modules/react"),
+      "react-dom": resolve(__dirname, "../node_modules/react-dom"),
     },
+  },
+  optimizeDeps: {
+    include: [
+      "react",
+      "react-dom",
+      "react/jsx-runtime",
+      "@radix-ui/react-switch",
+      "@radix-ui/react-checkbox",
+      "@radix-ui/react-toggle",
+      "@radix-ui/react-progress",
+      "@radix-ui/react-slider",
+      "@radix-ui/react-avatar",
+      "@radix-ui/react-collapsible",
+      "@radix-ui/react-accordion",
+      "@radix-ui/react-tabs",
+      "@radix-ui/react-radio-group",
+      "@radix-ui/react-toggle-group",
+      "@radix-ui/react-label",
+      "@radix-ui/react-separator",
+      "class-variance-authority",
+      "clsx",
+      "tailwind-merge",
+      "lucide-react",
+    ],
   },
   build: {
     outDir: "dist",
     rollupOptions: {
       input: {
         main: resolve(__dirname, "index.html"),
+        compare: resolve(__dirname, "compare.html"),
         ...componentPages,
       },
     },
