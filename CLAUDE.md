@@ -190,34 +190,40 @@ describe("plank-newcomponent", () => {
    - Must children be inside those elements for accessibility?
    - This determines which implementation pattern to use
 
-2. **Research existing web component libraries**
+2. **Examine Radix UI source code** (for components using Radix primitives)
+   - Read the Radix source in `node_modules/@radix-ui/react-{component}/dist/index.mjs`
+   - Understand how positioning, state management, and edge cases are handled
+   - Note any helper functions (e.g., `getThumbInBoundsOffset` for slider)
+   - This prevents subtle bugs from reimplementing without understanding the original
+
+3. **Research existing web component libraries**
    - Check how Shoelace, Spectrum, Carbon, Lion implement the same component
    - Note accessibility features (ARIA attributes, keyboard interactions)
    - Note any events, properties, or behaviors we should consider
    - Reference: [MDN ARIA roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles)
    - Not all features need to be implemented (match shadcn scope), but ensure accessibility is covered
 
-3. Write behavioral + visual tests for React component
-4. **Add semantic structure test** for any native semantic elements identified in step 1
-5. **Add accessibility tests** based on research from step 2
+4. Write behavioral + visual tests for React component
+5. **Add semantic structure test** for any native semantic elements identified in step 1
+6. **Add accessibility tests** based on research from steps 2-3
    - ARIA attributes (role, aria-live, aria-label, etc.)
    - Keyboard interactions where applicable
    - Focus management (or verify no focus for passive elements like alerts)
-6. Create equivalent test stubs for web component (all failing)
-7. Implement Lit component until tests pass
-8. Compare visual snapshots
-9. **Add docs page**
-   - Create `docs/components/{component}.html` (copy existing page as template)
-   - Add component import to `docs/src/main.ts`
-   - Add link card to `docs/index.html`
-   - Verify with `npm run docs:dev` that component renders correctly
+7. Create equivalent test stubs for web component (all failing)
+8. Implement Lit component until tests pass
+9. Compare visual snapshots
+10. **Add docs page**
+    - Create `docs/components/{component}.html` (copy existing page as template)
+    - Add component import to `docs/src/main.ts`
+    - Add link card to `docs/index.html`
+    - Verify with `npm run docs:dev` that component renders correctly
 
-10. **Run formatting and checks**
+11. **Run formatting and checks**
     - Run `npm run format` to fix any Prettier issues
     - Run `npm run lint` to verify no ESLint errors
     - Run `npm run typecheck` to verify TypeScript compiles
 
-11. **Commit and push**
+12. **Commit and push**
     - Update CLAUDE.md to mark component as complete
     - Commit all changes with descriptive message
     - Push to remote
