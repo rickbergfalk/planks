@@ -1,10 +1,20 @@
-import { describe, it, expect, vi } from "vitest"
-import { render, screen, waitFor } from "@testing-library/react"
+import { describe, it, expect, vi, afterEach } from "vitest"
+import { render, screen, waitFor, cleanup } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { Popover, PopoverTrigger, PopoverContent } from "@/components/popover"
 import { Button } from "@/components/button"
 
 describe("Popover (React)", () => {
+  afterEach(() => {
+    cleanup()
+    // Clean up any portaled popovers - required due to Radix portal + RTL cleanup conflicts
+    document.querySelectorAll('[data-slot="popover-content"]').forEach((el) => {
+      el.remove()
+    })
+    document.querySelectorAll('[role="dialog"]').forEach((el) => {
+      el.remove()
+    })
+  })
   it("renders trigger with correct data-slot", () => {
     render(
       <Popover>
