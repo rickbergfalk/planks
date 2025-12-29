@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dialog - Planks</title>
+    <script type="module" src="../src/main.ts"></script>
+  </head>
+  <body class="min-h-screen">
+    <!-- Header -->
+    <header class="border-b">
+      <div class="container mx-auto px-4 py-4 flex items-center gap-4">
+        <a href="../" class="text-2xl font-bold">Planks</a>
+        <span class="text-muted-foreground">/</span>
+        <span>Dialog</span>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+      <h1 class="text-4xl font-bold mb-4">Dialog</h1>
+      <p class="text-xl text-muted-foreground mb-8">
+        A modal dialog that interrupts the user with important content and
+        expects a response.
+      </p>
+
+      <!-- Basic Usage -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Basic Usage</h2>
+        <div class="mb-4 flex items-center gap-4">
+          <plank-dialog>
+            <plank-dialog-trigger>
+              <plank-button variant="outline">Edit Profile</plank-button>
+            </plank-dialog-trigger>
+            <plank-dialog-content>
+              <plank-dialog-header>
+                <plank-dialog-title>Edit profile</plank-dialog-title>
+                <plank-dialog-description>
+                  Make changes to your profile here. Click save when you're
+                  done.
+                </plank-dialog-description>
+              </plank-dialog-header>
+              <div class="py-4">
+                <p class="text-sm">Dialog content goes here.</p>
+              </div>
+              <plank-dialog-footer>
+                <plank-button variant="outline">Cancel</plank-button>
+                <plank-button>Save changes</plank-button>
+              </plank-dialog-footer>
+            </plank-dialog-content>
+          </plank-dialog>
+        </div>
+        <pre><code>&lt;plank-dialog&gt;
+  &lt;plank-dialog-trigger&gt;
+    &lt;plank-button variant="outline"&gt;Edit Profile&lt;/plank-button&gt;
+  &lt;/plank-dialog-trigger&gt;
+  &lt;plank-dialog-content&gt;
+    &lt;plank-dialog-header&gt;
+      &lt;plank-dialog-title&gt;Edit profile&lt;/plank-dialog-title&gt;
+      &lt;plank-dialog-description&gt;
+        Make changes to your profile here. Click save when you're done.
+      &lt;/plank-dialog-description&gt;
+    &lt;/plank-dialog-header&gt;
+    &lt;div class="py-4"&gt;
+      &lt;p class="text-sm"&gt;Dialog content goes here.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;plank-dialog-footer&gt;
+      &lt;plank-button variant="outline"&gt;Cancel&lt;/plank-button&gt;
+      &lt;plank-button&gt;Save changes&lt;/plank-button&gt;
+    &lt;/plank-dialog-footer&gt;
+  &lt;/plank-dialog-content&gt;
+&lt;/plank-dialog&gt;</code></pre>
+      </section>
+
+      <!-- Simple Dialog -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Simple Dialog</h2>
+        <p class="text-muted-foreground mb-4">
+          A dialog with just a title and content.
+        </p>
+        <div class="mb-4 flex items-center gap-4">
+          <plank-dialog>
+            <plank-dialog-trigger>
+              <plank-button variant="outline">View Details</plank-button>
+            </plank-dialog-trigger>
+            <plank-dialog-content>
+              <plank-dialog-header>
+                <plank-dialog-title>Details</plank-dialog-title>
+              </plank-dialog-header>
+              <p class="text-sm">This is a simple dialog with just a title.</p>
+            </plank-dialog-content>
+          </plank-dialog>
+        </div>
+        <pre><code>&lt;plank-dialog&gt;
+  &lt;plank-dialog-trigger&gt;
+    &lt;plank-button variant="outline"&gt;View Details&lt;/plank-button&gt;
+  &lt;/plank-dialog-trigger&gt;
+  &lt;plank-dialog-content&gt;
+    &lt;plank-dialog-header&gt;
+      &lt;plank-dialog-title&gt;Details&lt;/plank-dialog-title&gt;
+    &lt;/plank-dialog-header&gt;
+    &lt;p class="text-sm"&gt;This is a simple dialog with just a title.&lt;/p&gt;
+  &lt;/plank-dialog-content&gt;
+&lt;/plank-dialog&gt;</code></pre>
+      </section>
+
+      <!-- Without Close Button -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Without Close Button</h2>
+        <p class="text-muted-foreground mb-4">
+          Use show-close-button="false" to hide the default close button.
+        </p>
+        <div class="mb-4 flex items-center gap-4">
+          <plank-dialog>
+            <plank-dialog-trigger>
+              <plank-button variant="outline">Open Dialog</plank-button>
+            </plank-dialog-trigger>
+            <plank-dialog-content show-close-button="false">
+              <plank-dialog-header>
+                <plank-dialog-title>No Close Button</plank-dialog-title>
+                <plank-dialog-description>
+                  This dialog has no default close button. Press Escape or click
+                  outside to close.
+                </plank-dialog-description>
+              </plank-dialog-header>
+            </plank-dialog-content>
+          </plank-dialog>
+        </div>
+        <pre><code>&lt;plank-dialog-content show-close-button="false"&gt;
+  ...
+&lt;/plank-dialog-content&gt;</code></pre>
+      </section>
+
+      <!-- Custom Styling -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Custom Styling</h2>
+        <p class="text-muted-foreground mb-4">
+          Use the class attribute to add custom styles.
+        </p>
+        <div class="mb-4 flex items-center gap-4">
+          <plank-dialog>
+            <plank-dialog-trigger>
+              <plank-button>Wide Dialog</plank-button>
+            </plank-dialog-trigger>
+            <plank-dialog-content class="sm:max-w-2xl">
+              <plank-dialog-header>
+                <plank-dialog-title>Wide Dialog</plank-dialog-title>
+                <plank-dialog-description>
+                  This dialog uses a custom max-width.
+                </plank-dialog-description>
+              </plank-dialog-header>
+              <div class="py-4">
+                <p class="text-sm">
+                  Content can be wider with sm:max-w-2xl or other utilities.
+                </p>
+              </div>
+            </plank-dialog-content>
+          </plank-dialog>
+        </div>
+        <pre><code>&lt;plank-dialog-content class="sm:max-w-2xl"&gt;
+  ...
+&lt;/plank-dialog-content&gt;</code></pre>
+      </section>
+
+      <!-- API -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">API</h2>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">plank-dialog</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Property</th>
+                <th class="text-left py-2 pr-4">Type</th>
+                <th class="text-left py-2 pr-4">Default</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">open</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  boolean
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">false</td>
+                <td class="py-2">The controlled open state</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">Events</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Event</th>
+                <th class="text-left py-2 pr-4">Detail</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">open-change</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  { open: boolean }
+                </td>
+                <td class="py-2">Fired when the open state changes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">plank-dialog-trigger</h3>
+        <p class="text-muted-foreground mb-4">
+          The element that triggers the dialog. Opens dialog on click.
+        </p>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">plank-dialog-content</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Property</th>
+                <th class="text-left py-2 pr-4">Type</th>
+                <th class="text-left py-2 pr-4">Default</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">show-close-button</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  boolean
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">true</td>
+                <td class="py-2">Whether to show the close button</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">class</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  string
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">""</td>
+                <td class="py-2">Additional CSS classes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">plank-dialog-header</h3>
+        <p class="text-muted-foreground mb-4">
+          Container for title and description. Provides proper spacing.
+        </p>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">plank-dialog-footer</h3>
+        <p class="text-muted-foreground mb-4">
+          Container for action buttons. Stacks on mobile, row on desktop.
+        </p>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">plank-dialog-title</h3>
+        <p class="text-muted-foreground mb-4">
+          The dialog title. Used for aria-labelledby.
+        </p>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">
+          plank-dialog-description
+        </h3>
+        <p class="text-muted-foreground mb-4">
+          The dialog description. Used for aria-describedby.
+        </p>
+      </section>
+
+      <!-- Accessibility -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Accessibility</h2>
+        <ul class="list-disc list-inside space-y-2 text-muted-foreground">
+          <li>Dialog content has role="dialog"</li>
+          <li>Trigger has aria-haspopup="dialog"</li>
+          <li>Trigger has aria-expanded to indicate open state</li>
+          <li>Trigger has aria-controls pointing to the dialog when open</li>
+          <li>Dialog has aria-labelledby pointing to the title</li>
+          <li>Dialog has aria-describedby pointing to the description</li>
+          <li>Closes on Escape key</li>
+          <li>Closes when clicking on overlay</li>
+          <li>Modal blocks interaction with content behind</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

@@ -8,6 +8,7 @@ import "@/web-components/plank-separator"
 import "@/web-components/plank-switch"
 import "@/web-components/plank-tooltip"
 import "@/web-components/plank-popover"
+import "@/web-components/plank-dialog"
 
 /**
  * Semantic Structure Tests
@@ -433,6 +434,225 @@ describe("Semantic Structure", () => {
 
       const content = document.querySelector('[data-slot="popover-content"]')
       expect(content, "Must have data-slot='popover-content'").toBeTruthy()
+    })
+  })
+
+  describe("plank-dialog", () => {
+    afterEach(() => {
+      // Clean up portaled content
+      document
+        .querySelectorAll('[data-slot="dialog-overlay"]')
+        .forEach((el) => el.remove())
+      document
+        .querySelectorAll('[data-slot="dialog-content"]')
+        .forEach((el) => el.remove())
+      document.querySelectorAll('[role="dialog"]').forEach((el) => el.remove())
+    })
+
+    it("dialog content must have role=dialog when open", async () => {
+      container.innerHTML = `
+        <plank-dialog open>
+          <plank-dialog-trigger>
+            <button>Open</button>
+          </plank-dialog-trigger>
+          <plank-dialog-content>
+            <plank-dialog-title>Dialog Title</plank-dialog-title>
+            Dialog content
+          </plank-dialog-content>
+        </plank-dialog>
+      `
+
+      await customElements.whenDefined("plank-dialog")
+      const dialog = container.querySelector("plank-dialog")!
+      await (dialog as any).updateComplete
+      await new Promise((r) => setTimeout(r, 50))
+
+      const content = document.querySelector('[role="dialog"]')
+      expect(content, "Must have role='dialog' on content").toBeTruthy()
+      expect(content?.textContent).toContain("Dialog content")
+    })
+
+    it("trigger element must have aria-haspopup=dialog", async () => {
+      container.innerHTML = `
+        <plank-dialog>
+          <plank-dialog-trigger>
+            <button>Open</button>
+          </plank-dialog-trigger>
+          <plank-dialog-content>
+            <plank-dialog-title>Title</plank-dialog-title>
+          </plank-dialog-content>
+        </plank-dialog>
+      `
+
+      await customElements.whenDefined("plank-dialog")
+      const dialog = container.querySelector("plank-dialog")!
+      await (dialog as any).updateComplete
+
+      const button = container.querySelector("button")
+      expect(
+        button?.getAttribute("aria-haspopup"),
+        "Trigger must have aria-haspopup='dialog'"
+      ).toBe("dialog")
+    })
+
+    it("trigger element must have aria-expanded", async () => {
+      container.innerHTML = `
+        <plank-dialog>
+          <plank-dialog-trigger>
+            <button>Open</button>
+          </plank-dialog-trigger>
+          <plank-dialog-content>
+            <plank-dialog-title>Title</plank-dialog-title>
+          </plank-dialog-content>
+        </plank-dialog>
+      `
+
+      await customElements.whenDefined("plank-dialog")
+      const dialog = container.querySelector("plank-dialog")!
+      await (dialog as any).updateComplete
+
+      const button = container.querySelector("button")
+      expect(
+        button?.getAttribute("aria-expanded"),
+        "Trigger must have aria-expanded='false' when closed"
+      ).toBe("false")
+
+      // Open the dialog
+      ;(dialog as any).open = true
+      await (dialog as any).updateComplete
+
+      expect(
+        button?.getAttribute("aria-expanded"),
+        "Trigger must have aria-expanded='true' when open"
+      ).toBe("true")
+    })
+
+    it("dialog must have aria-labelledby pointing to title", async () => {
+      container.innerHTML = `
+        <plank-dialog open>
+          <plank-dialog-trigger>
+            <button>Open</button>
+          </plank-dialog-trigger>
+          <plank-dialog-content>
+            <plank-dialog-title>My Dialog Title</plank-dialog-title>
+          </plank-dialog-content>
+        </plank-dialog>
+      `
+
+      await customElements.whenDefined("plank-dialog")
+      const dialog = container.querySelector("plank-dialog")!
+      await (dialog as any).updateComplete
+      await new Promise((r) => setTimeout(r, 50))
+
+      const dialogContent = document.querySelector('[role="dialog"]')
+      const labelledBy = dialogContent?.getAttribute("aria-labelledby")
+      expect(labelledBy, "Dialog must have aria-labelledby").toBeTruthy()
+
+      const title = document.getElementById(labelledBy!)
+      expect(title, "aria-labelledby must reference valid element").toBeTruthy()
+      expect(title?.textContent).toContain("My Dialog Title")
+    })
+
+    it("dialog must have aria-describedby pointing to description", async () => {
+      container.innerHTML = `
+        <plank-dialog open>
+          <plank-dialog-trigger>
+            <button>Open</button>
+          </plank-dialog-trigger>
+          <plank-dialog-content>
+            <plank-dialog-title>Title</plank-dialog-title>
+            <plank-dialog-description>My Description</plank-dialog-description>
+          </plank-dialog-content>
+        </plank-dialog>
+      `
+
+      await customElements.whenDefined("plank-dialog")
+      const dialog = container.querySelector("plank-dialog")!
+      await (dialog as any).updateComplete
+      await new Promise((r) => setTimeout(r, 50))
+
+      const dialogContent = document.querySelector('[role="dialog"]')
+      const describedBy = dialogContent?.getAttribute("aria-describedby")
+      expect(describedBy, "Dialog must have aria-describedby").toBeTruthy()
+
+      const description = document.getElementById(describedBy!)
+      expect(
+        description,
+        "aria-describedby must reference valid element"
+      ).toBeTruthy()
+      expect(description?.textContent).toContain("My Description")
+    })
+
+    it("trigger element must have aria-controls when open", async () => {
+      container.innerHTML = `
+        <plank-dialog open>
+          <plank-dialog-trigger>
+            <button>Open</button>
+          </plank-dialog-trigger>
+          <plank-dialog-content>
+            <plank-dialog-title>Title</plank-dialog-title>
+          </plank-dialog-content>
+        </plank-dialog>
+      `
+
+      await customElements.whenDefined("plank-dialog")
+      const dialog = container.querySelector("plank-dialog")!
+      await (dialog as any).updateComplete
+      await new Promise((r) => setTimeout(r, 50))
+
+      const button = container.querySelector("button")
+      const controlsId = button?.getAttribute("aria-controls")
+      expect(
+        controlsId,
+        "Trigger must have aria-controls when open"
+      ).toBeTruthy()
+
+      // The aria-controls should reference the dialog content
+      const content = document.getElementById(controlsId!)
+      expect(content, "aria-controls must reference valid element").toBeTruthy()
+      expect(content?.getAttribute("role")).toBe("dialog")
+    })
+
+    it("dialog overlay must have correct data-slot", async () => {
+      container.innerHTML = `
+        <plank-dialog open>
+          <plank-dialog-trigger>
+            <button>Open</button>
+          </plank-dialog-trigger>
+          <plank-dialog-content>
+            <plank-dialog-title>Title</plank-dialog-title>
+          </plank-dialog-content>
+        </plank-dialog>
+      `
+
+      await customElements.whenDefined("plank-dialog")
+      const dialog = container.querySelector("plank-dialog")!
+      await (dialog as any).updateComplete
+      await new Promise((r) => setTimeout(r, 50))
+
+      const overlay = document.querySelector('[data-slot="dialog-overlay"]')
+      expect(overlay, "Must have data-slot='dialog-overlay'").toBeTruthy()
+    })
+
+    it("dialog content must have correct data-slot", async () => {
+      container.innerHTML = `
+        <plank-dialog open>
+          <plank-dialog-trigger>
+            <button>Open</button>
+          </plank-dialog-trigger>
+          <plank-dialog-content>
+            <plank-dialog-title>Title</plank-dialog-title>
+          </plank-dialog-content>
+        </plank-dialog>
+      `
+
+      await customElements.whenDefined("plank-dialog")
+      const dialog = container.querySelector("plank-dialog")!
+      await (dialog as any).updateComplete
+      await new Promise((r) => setTimeout(r, 50))
+
+      const content = document.querySelector('[data-slot="dialog-content"]')
+      expect(content, "Must have data-slot='dialog-content'").toBeTruthy()
     })
   })
 })
