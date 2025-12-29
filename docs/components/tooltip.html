@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tooltip - Planks</title>
+    <script type="module" src="../src/main.ts"></script>
+  </head>
+  <body class="min-h-screen">
+    <!-- Header -->
+    <header class="border-b">
+      <div class="container mx-auto px-4 py-4 flex items-center gap-4">
+        <a href="../" class="text-2xl font-bold">Planks</a>
+        <span class="text-muted-foreground">/</span>
+        <span>Tooltip</span>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+      <h1 class="text-4xl font-bold mb-4">Tooltip</h1>
+      <p class="text-xl text-muted-foreground mb-8">
+        A popup that displays information related to an element when the element
+        receives keyboard focus or the mouse hovers over it.
+      </p>
+
+      <!-- Basic Usage -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Basic Usage</h2>
+        <div class="mb-4 flex items-center gap-4">
+          <plank-tooltip>
+            <plank-tooltip-trigger>
+              <plank-button variant="outline">Hover me</plank-button>
+            </plank-tooltip-trigger>
+            <plank-tooltip-content>Add to library</plank-tooltip-content>
+          </plank-tooltip>
+        </div>
+        <pre><code>&lt;plank-tooltip&gt;
+  &lt;plank-tooltip-trigger&gt;
+    &lt;plank-button variant="outline"&gt;Hover me&lt;/plank-button&gt;
+  &lt;/plank-tooltip-trigger&gt;
+  &lt;plank-tooltip-content&gt;Add to library&lt;/plank-tooltip-content&gt;
+&lt;/plank-tooltip&gt;</code></pre>
+      </section>
+
+      <!-- Different Sides -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Different Sides</h2>
+        <div class="mb-4 flex flex-wrap items-center gap-4">
+          <plank-tooltip>
+            <plank-tooltip-trigger>
+              <plank-button variant="outline">Top</plank-button>
+            </plank-tooltip-trigger>
+            <plank-tooltip-content side="top"
+              >Top tooltip</plank-tooltip-content
+            >
+          </plank-tooltip>
+
+          <plank-tooltip>
+            <plank-tooltip-trigger>
+              <plank-button variant="outline">Right</plank-button>
+            </plank-tooltip-trigger>
+            <plank-tooltip-content side="right"
+              >Right tooltip</plank-tooltip-content
+            >
+          </plank-tooltip>
+
+          <plank-tooltip>
+            <plank-tooltip-trigger>
+              <plank-button variant="outline">Bottom</plank-button>
+            </plank-tooltip-trigger>
+            <plank-tooltip-content side="bottom"
+              >Bottom tooltip</plank-tooltip-content
+            >
+          </plank-tooltip>
+
+          <plank-tooltip>
+            <plank-tooltip-trigger>
+              <plank-button variant="outline">Left</plank-button>
+            </plank-tooltip-trigger>
+            <plank-tooltip-content side="left"
+              >Left tooltip</plank-tooltip-content
+            >
+          </plank-tooltip>
+        </div>
+        <pre><code>&lt;plank-tooltip-content side="top"&gt;...&lt;/plank-tooltip-content&gt;
+&lt;plank-tooltip-content side="right"&gt;...&lt;/plank-tooltip-content&gt;
+&lt;plank-tooltip-content side="bottom"&gt;...&lt;/plank-tooltip-content&gt;
+&lt;plank-tooltip-content side="left"&gt;...&lt;/plank-tooltip-content&gt;</code></pre>
+      </section>
+
+      <!-- With Delay -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">With Delay</h2>
+        <p class="text-muted-foreground mb-4">
+          Use the delay-duration attribute to add a delay before the tooltip
+          appears.
+        </p>
+        <div class="mb-4 flex items-center gap-4">
+          <plank-tooltip delay-duration="500">
+            <plank-tooltip-trigger>
+              <plank-button variant="outline">500ms delay</plank-button>
+            </plank-tooltip-trigger>
+            <plank-tooltip-content
+              >This has a 500ms delay</plank-tooltip-content
+            >
+          </plank-tooltip>
+        </div>
+        <pre><code>&lt;plank-tooltip delay-duration="500"&gt;
+  ...
+&lt;/plank-tooltip&gt;</code></pre>
+      </section>
+
+      <!-- Controlled -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Controlled State</h2>
+        <p class="text-muted-foreground mb-4">
+          Use the open attribute to control the tooltip state programmatically.
+        </p>
+        <div class="mb-4 flex items-center gap-4">
+          <plank-tooltip open id="controlled-tooltip">
+            <plank-tooltip-trigger>
+              <plank-button variant="outline">Always open</plank-button>
+            </plank-tooltip-trigger>
+            <plank-tooltip-content
+              >This tooltip is controlled</plank-tooltip-content
+            >
+          </plank-tooltip>
+        </div>
+        <pre><code>&lt;plank-tooltip open&gt;
+  ...
+&lt;/plank-tooltip&gt;</code></pre>
+      </section>
+
+      <!-- API -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">API</h2>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">plank-tooltip</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Property</th>
+                <th class="text-left py-2 pr-4">Type</th>
+                <th class="text-left py-2 pr-4">Default</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">open</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  boolean
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">false</td>
+                <td class="py-2">The controlled open state</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">delay-duration</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  number
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">0</td>
+                <td class="py-2">Delay in ms before showing the tooltip</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">Events</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Event</th>
+                <th class="text-left py-2 pr-4">Detail</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">open-change</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  { open: boolean }
+                </td>
+                <td class="py-2">Fired when the open state changes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">plank-tooltip-trigger</h3>
+        <p class="text-muted-foreground mb-4">
+          The element that triggers the tooltip. Shows tooltip on hover and
+          focus.
+        </p>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">plank-tooltip-content</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Property</th>
+                <th class="text-left py-2 pr-4">Type</th>
+                <th class="text-left py-2 pr-4">Default</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">side</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  "top" | "right" | "bottom" | "left"
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">"top"</td>
+                <td class="py-2">The preferred side for the tooltip</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">side-offset</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  number
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">0</td>
+                <td class="py-2">Distance from the trigger in pixels</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Accessibility -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Accessibility</h2>
+        <ul class="list-disc list-inside space-y-2 text-muted-foreground">
+          <li>Tooltip content has role="tooltip"</li>
+          <li>
+            Trigger element has aria-describedby pointing to the tooltip when
+            open
+          </li>
+          <li>Shows on both hover and keyboard focus</li>
+          <li>
+            Uses Floating UI for smart positioning that avoids viewport edges
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

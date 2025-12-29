@@ -406,6 +406,23 @@
           </p>
           <plank-slider value="50" class="w-full"></plank-slider>
         </a>
+
+        <!-- Tooltip -->
+        <a
+          href="./components/tooltip.html"
+          class="block p-6 border rounded-lg hover:border-foreground transition-colors"
+        >
+          <h3 class="font-semibold mb-2">Tooltip</h3>
+          <p class="text-sm text-muted-foreground mb-4">
+            Popup info on hover/focus.
+          </p>
+          <plank-tooltip>
+            <plank-tooltip-trigger>
+              <plank-button variant="outline" size="sm">Hover me</plank-button>
+            </plank-tooltip-trigger>
+            <plank-tooltip-content>Add to library</plank-tooltip-content>
+          </plank-tooltip>
+        </a>
       </div>
     </main>
 

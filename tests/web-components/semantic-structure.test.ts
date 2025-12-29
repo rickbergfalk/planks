@@ -6,6 +6,7 @@ import "@/web-components/plank-input"
 import "@/web-components/plank-textarea"
 import "@/web-components/plank-separator"
 import "@/web-components/plank-switch"
+import "@/web-components/plank-tooltip"
 
 /**
  * Semantic Structure Tests
@@ -222,6 +223,86 @@ describe("Semantic Structure", () => {
 
       const thumb = element.querySelector('[data-slot="switch-thumb"]')
       expect(thumb?.getAttribute("data-state")).toBe("checked")
+    })
+  })
+
+  describe("plank-tooltip", () => {
+    afterEach(() => {
+      // Clean up portaled content
+      document
+        .querySelectorAll('body > div[style*="position: fixed"]')
+        .forEach((el) => {
+          el.remove()
+        })
+    })
+
+    it("tooltip content must have role=tooltip when open", async () => {
+      container.innerHTML = `
+        <plank-tooltip open>
+          <plank-tooltip-trigger>
+            <button>Trigger</button>
+          </plank-tooltip-trigger>
+          <plank-tooltip-content>Tooltip text</plank-tooltip-content>
+        </plank-tooltip>
+      `
+
+      await customElements.whenDefined("plank-tooltip")
+      const tooltip = container.querySelector("plank-tooltip")!
+      await (tooltip as any).updateComplete
+      await new Promise((r) => setTimeout(r, 50))
+
+      const content = document.querySelector('[role="tooltip"]')
+      expect(content, "Must have role='tooltip' on content").toBeTruthy()
+      expect(content?.textContent).toContain("Tooltip text")
+    })
+
+    it("trigger element must have aria-describedby when open", async () => {
+      container.innerHTML = `
+        <plank-tooltip open>
+          <plank-tooltip-trigger>
+            <button>Trigger</button>
+          </plank-tooltip-trigger>
+          <plank-tooltip-content>Tooltip text</plank-tooltip-content>
+        </plank-tooltip>
+      `
+
+      await customElements.whenDefined("plank-tooltip")
+      const tooltip = container.querySelector("plank-tooltip")!
+      await (tooltip as any).updateComplete
+
+      const button = container.querySelector("button")
+      expect(
+        button?.getAttribute("aria-describedby"),
+        "Trigger must have aria-describedby"
+      ).toBeTruthy()
+
+      // The aria-describedby should reference the tooltip content
+      const contentId = button?.getAttribute("aria-describedby")
+      const content = document.getElementById(contentId!)
+      expect(
+        content,
+        "aria-describedby must reference valid element"
+      ).toBeTruthy()
+      expect(content?.getAttribute("role")).toBe("tooltip")
+    })
+
+    it("tooltip content must have correct data-slot", async () => {
+      container.innerHTML = `
+        <plank-tooltip open>
+          <plank-tooltip-trigger>
+            <button>Trigger</button>
+          </plank-tooltip-trigger>
+          <plank-tooltip-content>Tooltip text</plank-tooltip-content>
+        </plank-tooltip>
+      `
+
+      await customElements.whenDefined("plank-tooltip")
+      const tooltip = container.querySelector("plank-tooltip")!
+      await (tooltip as any).updateComplete
+      await new Promise((r) => setTimeout(r, 50))
+
+      const content = document.querySelector('[data-slot="tooltip-content"]')
+      expect(content, "Must have data-slot='tooltip-content'").toBeTruthy()
     })
   })
 })
