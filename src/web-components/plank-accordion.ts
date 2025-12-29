@@ -307,7 +307,7 @@ export class PlankAccordionContent extends LitElement {
       this.setAttribute("hidden", "")
     }
     this.className = cn(
-      "overflow-hidden text-sm pt-0 pb-4",
+      "data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm pt-0 pb-4",
       this._open ? "block" : "",
       this.class
     )

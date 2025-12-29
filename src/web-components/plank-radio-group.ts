@@ -154,7 +154,15 @@ export class PlankRadioGroupItem extends LitElement {
       svg.setAttribute("fill", "currentColor")
       svg.setAttribute("stroke", "currentColor")
       svg.setAttribute("stroke-width", "2")
-      svg.classList.add("fill-primary")
+      svg.classList.add(
+        "fill-primary",
+        "absolute",
+        "top-1/2",
+        "left-1/2",
+        "size-2",
+        "-translate-x-1/2",
+        "-translate-y-1/2"
+      )
 
       const circle = document.createElementNS(
         "http://www.w3.org/2000/svg",

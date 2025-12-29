@@ -128,6 +128,36 @@ render() {
    - Yes → Use **manual child distribution**
    - No (element has no children, or children can be siblings) → Use **self-styled** or **inner native element**
 
+**Matching React Classes:**
+
+When implementing web components, **prefer using the exact same Tailwind class strings as React** whenever possible. This ensures:
+- Visual tests pass without pixel differences
+- Consistent styling between React and web component versions
+- Easier maintenance and debugging
+
+| Approach | Example | Use When |
+|----------|---------|----------|
+| **Data attribute variants** (preferred) | `data-[state=open]:rotate-180` | State-based styling that React uses |
+| **JS conditionals** (fallback) | `isOpen ? "rotate-180" : ""` | Only when data attributes won't work |
+
+```typescript
+// ✅ GOOD - matches React exactly
+this.className = cn(
+  "data-[orientation=horizontal]:h-1.5 data-[orientation=horizontal]:w-full",
+  "data-[orientation=vertical]:h-full data-[orientation=vertical]:w-1.5"
+)
+
+// ❌ AVOID - works but differs from React
+this.className = cn(
+  this.orientation === "horizontal" ? "h-1.5 w-full" : "h-full w-1.5"
+)
+```
+
+Exceptions where JS conditionals are acceptable:
+- `disabled:` variants (don't work on custom elements)
+- Adding `block` or `inline-flex` for custom element layout
+- Complex logic that can't be expressed via data attributes
+
 **Gotchas:**
 - `disabled:` Tailwind variants don't work on custom elements - add `opacity-50 pointer-events-none` explicitly
 - Custom elements are `display: inline` by default - add `block` class when needed
