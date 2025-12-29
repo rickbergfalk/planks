@@ -3,8 +3,9 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Tell Tailwind to scan the web components for class names */
+/* Tell Tailwind to scan components for class names */
 @source "../../src/web-components/**/*.ts";
+@source "../../src/components/**/*.tsx";
 
 :root {
   --background: oklch(1 0 0);
