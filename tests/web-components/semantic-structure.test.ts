@@ -9,6 +9,7 @@ import "@/web-components/plank-switch"
 import "@/web-components/plank-tooltip"
 import "@/web-components/plank-popover"
 import "@/web-components/plank-dialog"
+import "@/web-components/plank-dropdown-menu"
 
 /**
  * Semantic Structure Tests
@@ -653,6 +654,236 @@ describe("Semantic Structure", () => {
 
       const content = document.querySelector('[data-slot="dialog-content"]')
       expect(content, "Must have data-slot='dialog-content'").toBeTruthy()
+    })
+  })
+
+  describe("plank-dropdown-menu", () => {
+    afterEach(() => {
+      // Clean up portaled content
+      document
+        .querySelectorAll('body > div[style*="position: fixed"]')
+        .forEach((el) => el.remove())
+    })
+
+    it("dropdown menu content must have role=menu when open", async () => {
+      container.innerHTML = `
+        <plank-dropdown-menu open>
+          <plank-dropdown-menu-trigger>
+            <button>Open</button>
+          </plank-dropdown-menu-trigger>
+          <plank-dropdown-menu-content>
+            <plank-dropdown-menu-item>Item</plank-dropdown-menu-item>
+          </plank-dropdown-menu-content>
+        </plank-dropdown-menu>
+      `
+
+      await customElements.whenDefined("plank-dropdown-menu")
+      const menu = container.querySelector("plank-dropdown-menu")!
+      await (menu as any).updateComplete
+      await new Promise((r) => setTimeout(r, 50))
+
+      const content = document.querySelector('[role="menu"]')
+      expect(content, "Must have role='menu' on content").toBeTruthy()
+    })
+
+    it("trigger element must have aria-haspopup=menu", async () => {
+      container.innerHTML = `
+        <plank-dropdown-menu>
+          <plank-dropdown-menu-trigger>
+            <button>Open</button>
+          </plank-dropdown-menu-trigger>
+          <plank-dropdown-menu-content>
+            <plank-dropdown-menu-item>Item</plank-dropdown-menu-item>
+          </plank-dropdown-menu-content>
+        </plank-dropdown-menu>
+      `
+
+      await customElements.whenDefined("plank-dropdown-menu")
+      const menu = container.querySelector("plank-dropdown-menu")!
+      await (menu as any).updateComplete
+
+      const button = container.querySelector("button")
+      expect(
+        button?.getAttribute("aria-haspopup"),
+        "Trigger must have aria-haspopup='menu'"
+      ).toBe("menu")
+    })
+
+    it("trigger element must have aria-expanded", async () => {
+      container.innerHTML = `
+        <plank-dropdown-menu>
+          <plank-dropdown-menu-trigger>
+            <button>Open</button>
+          </plank-dropdown-menu-trigger>
+          <plank-dropdown-menu-content>
+            <plank-dropdown-menu-item>Item</plank-dropdown-menu-item>
+          </plank-dropdown-menu-content>
+        </plank-dropdown-menu>
+      `
+
+      await customElements.whenDefined("plank-dropdown-menu")
+      const menu = container.querySelector("plank-dropdown-menu")!
+      await (menu as any).updateComplete
+
+      const button = container.querySelector("button")
+      expect(
+        button?.getAttribute("aria-expanded"),
+        "Trigger must have aria-expanded='false' when closed"
+      ).toBe("false")
+
+      // Open the menu
+      ;(menu as any).open = true
+      await (menu as any).updateComplete
+
+      expect(
+        button?.getAttribute("aria-expanded"),
+        "Trigger must have aria-expanded='true' when open"
+      ).toBe("true")
+    })
+
+    it("menu items must have role=menuitem", async () => {
+      container.innerHTML = `
+        <plank-dropdown-menu open>
+          <plank-dropdown-menu-trigger>
+            <button>Open</button>
+          </plank-dropdown-menu-trigger>
+          <plank-dropdown-menu-content>
+            <plank-dropdown-menu-item>Profile</plank-dropdown-menu-item>
+            <plank-dropdown-menu-item>Settings</plank-dropdown-menu-item>
+          </plank-dropdown-menu-content>
+        </plank-dropdown-menu>
+      `
+
+      await customElements.whenDefined("plank-dropdown-menu")
+      const menu = container.querySelector("plank-dropdown-menu")!
+      await (menu as any).updateComplete
+      await new Promise((r) => setTimeout(r, 50))
+
+      const items = document.querySelectorAll('[role="menuitem"]')
+      expect(items.length, "Must have menuitem roles").toBe(2)
+      expect(items[0].textContent).toContain("Profile")
+      expect(items[1].textContent).toContain("Settings")
+    })
+
+    it("checkbox items must have role=menuitemcheckbox", async () => {
+      container.innerHTML = `
+        <plank-dropdown-menu open>
+          <plank-dropdown-menu-trigger>
+            <button>Open</button>
+          </plank-dropdown-menu-trigger>
+          <plank-dropdown-menu-content>
+            <plank-dropdown-menu-checkbox-item checked>Enabled</plank-dropdown-menu-checkbox-item>
+          </plank-dropdown-menu-content>
+        </plank-dropdown-menu>
+      `
+
+      await customElements.whenDefined("plank-dropdown-menu")
+      const menu = container.querySelector("plank-dropdown-menu")!
+      await (menu as any).updateComplete
+      await new Promise((r) => setTimeout(r, 50))
+
+      const item = document.querySelector('[role="menuitemcheckbox"]')
+      expect(item, "Must have role='menuitemcheckbox'").toBeTruthy()
+      expect(item?.getAttribute("aria-checked")).toBe("true")
+    })
+
+    it("radio items must have role=menuitemradio", async () => {
+      container.innerHTML = `
+        <plank-dropdown-menu open>
+          <plank-dropdown-menu-trigger>
+            <button>Open</button>
+          </plank-dropdown-menu-trigger>
+          <plank-dropdown-menu-content>
+            <plank-dropdown-menu-radio-group value="top">
+              <plank-dropdown-menu-radio-item value="top">Top</plank-dropdown-menu-radio-item>
+              <plank-dropdown-menu-radio-item value="bottom">Bottom</plank-dropdown-menu-radio-item>
+            </plank-dropdown-menu-radio-group>
+          </plank-dropdown-menu-content>
+        </plank-dropdown-menu>
+      `
+
+      await customElements.whenDefined("plank-dropdown-menu")
+      const menu = container.querySelector("plank-dropdown-menu")!
+      await (menu as any).updateComplete
+      await new Promise((r) => setTimeout(r, 50))
+
+      const items = document.querySelectorAll('[role="menuitemradio"]')
+      expect(items.length, "Must have menuitemradio roles").toBe(2)
+      expect(items[0].getAttribute("aria-checked")).toBe("true")
+      expect(items[1].getAttribute("aria-checked")).toBe("false")
+    })
+
+    it("separators must have role=separator", async () => {
+      container.innerHTML = `
+        <plank-dropdown-menu open>
+          <plank-dropdown-menu-trigger>
+            <button>Open</button>
+          </plank-dropdown-menu-trigger>
+          <plank-dropdown-menu-content>
+            <plank-dropdown-menu-item>Item 1</plank-dropdown-menu-item>
+            <plank-dropdown-menu-separator></plank-dropdown-menu-separator>
+            <plank-dropdown-menu-item>Item 2</plank-dropdown-menu-item>
+          </plank-dropdown-menu-content>
+        </plank-dropdown-menu>
+      `
+
+      await customElements.whenDefined("plank-dropdown-menu")
+      const menu = container.querySelector("plank-dropdown-menu")!
+      await (menu as any).updateComplete
+      await new Promise((r) => setTimeout(r, 50))
+
+      const separator = document.querySelector('[role="separator"]')
+      expect(separator, "Must have role='separator'").toBeTruthy()
+    })
+
+    it("disabled items must have aria-disabled", async () => {
+      container.innerHTML = `
+        <plank-dropdown-menu open>
+          <plank-dropdown-menu-trigger>
+            <button>Open</button>
+          </plank-dropdown-menu-trigger>
+          <plank-dropdown-menu-content>
+            <plank-dropdown-menu-item disabled>Disabled Item</plank-dropdown-menu-item>
+          </plank-dropdown-menu-content>
+        </plank-dropdown-menu>
+      `
+
+      await customElements.whenDefined("plank-dropdown-menu")
+      const menu = container.querySelector("plank-dropdown-menu")!
+      await (menu as any).updateComplete
+      await new Promise((r) => setTimeout(r, 50))
+
+      const item = document.querySelector('[role="menuitem"]')
+      expect(
+        item?.getAttribute("aria-disabled"),
+        "Disabled items must have aria-disabled='true'"
+      ).toBe("true")
+    })
+
+    it("dropdown menu content must have correct data-slot", async () => {
+      container.innerHTML = `
+        <plank-dropdown-menu open>
+          <plank-dropdown-menu-trigger>
+            <button>Open</button>
+          </plank-dropdown-menu-trigger>
+          <plank-dropdown-menu-content>
+            <plank-dropdown-menu-item>Item</plank-dropdown-menu-item>
+          </plank-dropdown-menu-content>
+        </plank-dropdown-menu>
+      `
+
+      await customElements.whenDefined("plank-dropdown-menu")
+      const menu = container.querySelector("plank-dropdown-menu")!
+      await (menu as any).updateComplete
+      await new Promise((r) => setTimeout(r, 50))
+
+      const content = document.querySelector(
+        '[data-slot="dropdown-menu-content"]'
+      )
+      expect(
+        content,
+        "Must have data-slot='dropdown-menu-content'"
+      ).toBeTruthy()
     })
   })
 })

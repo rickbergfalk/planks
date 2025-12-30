@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dropdown Menu - Planks</title>
+    <script type="module" src="../src/main.ts"></script>
+  </head>
+  <body class="min-h-screen">
+    <!-- Header -->
+    <header class="border-b">
+      <div class="container mx-auto px-4 py-4 flex items-center gap-4">
+        <a href="../" class="text-2xl font-bold">Planks</a>
+        <span class="text-muted-foreground">/</span>
+        <span>Dropdown Menu</span>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+      <h1 class="text-4xl font-bold mb-4">Dropdown Menu</h1>
+      <p class="text-xl text-muted-foreground mb-8">
+        Displays a menu to the user such as a set of actions or functions
+        triggered by a button.
+      </p>
+
+      <!-- Basic Usage -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Basic Usage</h2>
+        <div class="mb-4 flex items-center gap-4">
+          <plank-dropdown-menu>
+            <plank-dropdown-menu-trigger>
+              <plank-button variant="outline">Open</plank-button>
+            </plank-dropdown-menu-trigger>
+            <plank-dropdown-menu-content>
+              <plank-dropdown-menu-label>My Account</plank-dropdown-menu-label>
+              <plank-dropdown-menu-separator></plank-dropdown-menu-separator>
+              <plank-dropdown-menu-group>
+                <plank-dropdown-menu-item>
+                  Profile
+                  <plank-dropdown-menu-shortcut
+                    >&#8679;&#8984;P</plank-dropdown-menu-shortcut
+                  >
+                </plank-dropdown-menu-item>
+                <plank-dropdown-menu-item>
+                  Billing
+                  <plank-dropdown-menu-shortcut
+                    >&#8984;B</plank-dropdown-menu-shortcut
+                  >
+                </plank-dropdown-menu-item>
+                <plank-dropdown-menu-item>
+                  Settings
+                  <plank-dropdown-menu-shortcut
+                    >&#8984;S</plank-dropdown-menu-shortcut
+                  >
+                </plank-dropdown-menu-item>
+              </plank-dropdown-menu-group>
+              <plank-dropdown-menu-separator></plank-dropdown-menu-separator>
+              <plank-dropdown-menu-item>Log out</plank-dropdown-menu-item>
+            </plank-dropdown-menu-content>
+          </plank-dropdown-menu>
+        </div>
+        <pre><code>&lt;plank-dropdown-menu&gt;
+  &lt;plank-dropdown-menu-trigger&gt;
+    &lt;plank-button variant="outline"&gt;Open&lt;/plank-button&gt;
+  &lt;/plank-dropdown-menu-trigger&gt;
+  &lt;plank-dropdown-menu-content&gt;
+    &lt;plank-dropdown-menu-label&gt;My Account&lt;/plank-dropdown-menu-label&gt;
+    &lt;plank-dropdown-menu-separator&gt;&lt;/plank-dropdown-menu-separator&gt;
+    &lt;plank-dropdown-menu-group&gt;
+      &lt;plank-dropdown-menu-item&gt;
+        Profile
+        &lt;plank-dropdown-menu-shortcut&gt;&#8679;&#8984;P&lt;/plank-dropdown-menu-shortcut&gt;
+      &lt;/plank-dropdown-menu-item&gt;
+      &lt;plank-dropdown-menu-item&gt;
+        Billing
+        &lt;plank-dropdown-menu-shortcut&gt;&#8984;B&lt;/plank-dropdown-menu-shortcut&gt;
+      &lt;/plank-dropdown-menu-item&gt;
+    &lt;/plank-dropdown-menu-group&gt;
+    &lt;plank-dropdown-menu-separator&gt;&lt;/plank-dropdown-menu-separator&gt;
+    &lt;plank-dropdown-menu-item&gt;Log out&lt;/plank-dropdown-menu-item&gt;
+  &lt;/plank-dropdown-menu-content&gt;
+&lt;/plank-dropdown-menu&gt;</code></pre>
+      </section>
+
+      <!-- Checkbox Items -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Checkbox Items</h2>
+        <p class="text-muted-foreground mb-4">
+          Use checkbox items for toggleable options.
+        </p>
+        <div class="mb-4 flex items-center gap-4">
+          <plank-dropdown-menu>
+            <plank-dropdown-menu-trigger>
+              <plank-button variant="outline">Appearance</plank-button>
+            </plank-dropdown-menu-trigger>
+            <plank-dropdown-menu-content class="w-56">
+              <plank-dropdown-menu-label>Appearance</plank-dropdown-menu-label>
+              <plank-dropdown-menu-separator></plank-dropdown-menu-separator>
+              <plank-dropdown-menu-checkbox-item checked>
+                Status Bar
+              </plank-dropdown-menu-checkbox-item>
+              <plank-dropdown-menu-checkbox-item>
+                Activity Bar
+              </plank-dropdown-menu-checkbox-item>
+              <plank-dropdown-menu-checkbox-item checked>
+                Panel
+              </plank-dropdown-menu-checkbox-item>
+            </plank-dropdown-menu-content>
+          </plank-dropdown-menu>
+        </div>
+        <pre><code>&lt;plank-dropdown-menu-checkbox-item checked&gt;
+  Status Bar
+&lt;/plank-dropdown-menu-checkbox-item&gt;</code></pre>
+      </section>
+
+      <!-- Radio Group -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Radio Group</h2>
+        <p class="text-muted-foreground mb-4">
+          Use radio groups for mutually exclusive options.
+        </p>
+        <div class="mb-4 flex items-center gap-4">
+          <plank-dropdown-menu>
+            <plank-dropdown-menu-trigger>
+              <plank-button variant="outline">Panel Position</plank-button>
+            </plank-dropdown-menu-trigger>
+            <plank-dropdown-menu-content class="w-56">
+              <plank-dropdown-menu-label
+                >Panel Position</plank-dropdown-menu-label
+              >
+              <plank-dropdown-menu-separator></plank-dropdown-menu-separator>
+              <plank-dropdown-menu-radio-group value="bottom">
+                <plank-dropdown-menu-radio-item value="top"
+                  >Top</plank-dropdown-menu-radio-item
+                >
+                <plank-dropdown-menu-radio-item value="bottom"
+                  >Bottom</plank-dropdown-menu-radio-item
+                >
+                <plank-dropdown-menu-radio-item value="right"
+                  >Right</plank-dropdown-menu-radio-item
+                >
+              </plank-dropdown-menu-radio-group>
+            </plank-dropdown-menu-content>
+          </plank-dropdown-menu>
+        </div>
+        <pre><code>&lt;plank-dropdown-menu-radio-group value="bottom"&gt;
+  &lt;plank-dropdown-menu-radio-item value="top"&gt;Top&lt;/plank-dropdown-menu-radio-item&gt;
+  &lt;plank-dropdown-menu-radio-item value="bottom"&gt;Bottom&lt;/plank-dropdown-menu-radio-item&gt;
+  &lt;plank-dropdown-menu-radio-item value="right"&gt;Right&lt;/plank-dropdown-menu-radio-item&gt;
+&lt;/plank-dropdown-menu-radio-group&gt;</code></pre>
+      </section>
+
+      <!-- Disabled Items -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Disabled Items</h2>
+        <p class="text-muted-foreground mb-4">
+          Use the disabled attribute to disable menu items.
+        </p>
+        <div class="mb-4 flex items-center gap-4">
+          <plank-dropdown-menu>
+            <plank-dropdown-menu-trigger>
+              <plank-button variant="outline">Actions</plank-button>
+            </plank-dropdown-menu-trigger>
+            <plank-dropdown-menu-content>
+              <plank-dropdown-menu-item>Edit</plank-dropdown-menu-item>
+              <plank-dropdown-menu-item disabled
+                >Delete</plank-dropdown-menu-item
+              >
+              <plank-dropdown-menu-item>Duplicate</plank-dropdown-menu-item>
+            </plank-dropdown-menu-content>
+          </plank-dropdown-menu>
+        </div>
+        <pre><code>&lt;plank-dropdown-menu-item disabled&gt;Delete&lt;/plank-dropdown-menu-item&gt;</code></pre>
+      </section>
+
+      <!-- Destructive Items -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Destructive Items</h2>
+        <p class="text-muted-foreground mb-4">
+          Use variant="destructive" for dangerous actions.
+        </p>
+        <div class="mb-4 flex items-center gap-4">
+          <plank-dropdown-menu>
+            <plank-dropdown-menu-trigger>
+              <plank-button variant="outline">More</plank-button>
+            </plank-dropdown-menu-trigger>
+            <plank-dropdown-menu-content>
+              <plank-dropdown-menu-item>Edit</plank-dropdown-menu-item>
+              <plank-dropdown-menu-item>Duplicate</plank-dropdown-menu-item>
+              <plank-dropdown-menu-separator></plank-dropdown-menu-separator>
+              <plank-dropdown-menu-item variant="destructive"
+                >Delete</plank-dropdown-menu-item
+              >
+            </plank-dropdown-menu-content>
+          </plank-dropdown-menu>
+        </div>
+        <pre><code>&lt;plank-dropdown-menu-item variant="destructive"&gt;Delete&lt;/plank-dropdown-menu-item&gt;</code></pre>
+      </section>
+
+      <!-- Inset Items -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Inset Items</h2>
+        <p class="text-muted-foreground mb-4">
+          Use the inset attribute to align items without icons.
+        </p>
+        <div class="mb-4 flex items-center gap-4">
+          <plank-dropdown-menu>
+            <plank-dropdown-menu-trigger>
+              <plank-button variant="outline">Settings</plank-button>
+            </plank-dropdown-menu-trigger>
+            <plank-dropdown-menu-content>
+              <plank-dropdown-menu-label inset
+                >Settings</plank-dropdown-menu-label
+              >
+              <plank-dropdown-menu-separator></plank-dropdown-menu-separator>
+              <plank-dropdown-menu-item inset>Profile</plank-dropdown-menu-item>
+              <plank-dropdown-menu-item inset>Account</plank-dropdown-menu-item>
+            </plank-dropdown-menu-content>
+          </plank-dropdown-menu>
+        </div>
+        <pre><code>&lt;plank-dropdown-menu-label inset&gt;Settings&lt;/plank-dropdown-menu-label&gt;
+&lt;plank-dropdown-menu-item inset&gt;Profile&lt;/plank-dropdown-menu-item&gt;</code></pre>
+      </section>
+
+      <!-- Submenus -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Submenus</h2>
+        <p class="text-muted-foreground mb-4">
+          Use nested submenus for hierarchical navigation.
+        </p>
+        <div class="mb-4 flex items-center gap-4">
+          <plank-dropdown-menu>
+            <plank-dropdown-menu-trigger>
+              <plank-button variant="outline">Open</plank-button>
+            </plank-dropdown-menu-trigger>
+            <plank-dropdown-menu-content>
+              <plank-dropdown-menu-item>New Tab</plank-dropdown-menu-item>
+              <plank-dropdown-menu-item>New Window</plank-dropdown-menu-item>
+              <plank-dropdown-menu-separator></plank-dropdown-menu-separator>
+              <plank-dropdown-menu-sub>
+                <plank-dropdown-menu-sub-trigger
+                  >More Tools</plank-dropdown-menu-sub-trigger
+                >
+                <plank-dropdown-menu-sub-content>
+                  <plank-dropdown-menu-item
+                    >Save Page As...</plank-dropdown-menu-item
+                  >
+                  <plank-dropdown-menu-item
+                    >Create Shortcut...</plank-dropdown-menu-item
+                  >
+                  <plank-dropdown-menu-item
+                    >Name Window...</plank-dropdown-menu-item
+                  >
+                  <plank-dropdown-menu-separator></plank-dropdown-menu-separator>
+                  <plank-dropdown-menu-item
+                    >Developer Tools</plank-dropdown-menu-item
+                  >
+                </plank-dropdown-menu-sub-content>
+              </plank-dropdown-menu-sub>
+              <plank-dropdown-menu-separator></plank-dropdown-menu-separator>
+              <plank-dropdown-menu-item>Quit</plank-dropdown-menu-item>
+            </plank-dropdown-menu-content>
+          </plank-dropdown-menu>
+        </div>
+        <pre><code>&lt;plank-dropdown-menu-sub&gt;
+  &lt;plank-dropdown-menu-sub-trigger&gt;More Tools&lt;/plank-dropdown-menu-sub-trigger&gt;
+  &lt;plank-dropdown-menu-sub-content&gt;
+    &lt;plank-dropdown-menu-item&gt;Save Page As...&lt;/plank-dropdown-menu-item&gt;
+    &lt;plank-dropdown-menu-item&gt;Developer Tools&lt;/plank-dropdown-menu-item&gt;
+  &lt;/plank-dropdown-menu-sub-content&gt;
+&lt;/plank-dropdown-menu-sub&gt;</code></pre>
+      </section>
+
+      <!-- API -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">API</h2>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">plank-dropdown-menu</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Property</th>
+                <th class="text-left py-2 pr-4">Type</th>
+                <th class="text-left py-2 pr-4">Default</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">open</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  boolean
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">false</td>
+                <td class="py-2">The controlled open state</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">Events</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Event</th>
+                <th class="text-left py-2 pr-4">Detail</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">open-change</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  { open: boolean }
+                </td>
+                <td class="py-2">Fired when the open state changes</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">select</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  { item: Element }
+                </td>
+                <td class="py-2">Fired when a menu item is selected</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">checked-change</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  { item: Element, checked: boolean }
+                </td>
+                <td class="py-2">Fired when a checkbox item changes</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">value-change</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  { value: string }
+                </td>
+                <td class="py-2">Fired when a radio group value changes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">
+          plank-dropdown-menu-content
+        </h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Property</th>
+                <th class="text-left py-2 pr-4">Type</th>
+                <th class="text-left py-2 pr-4">Default</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">side</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  top | right | bottom | left
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  bottom
+                </td>
+                <td class="py-2">The preferred side</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">align</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  start | center | end
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">start</td>
+                <td class="py-2">The preferred alignment</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">sideOffset</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  number
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">4</td>
+                <td class="py-2">Offset from the trigger in pixels</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">
+          plank-dropdown-menu-item
+        </h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Property</th>
+                <th class="text-left py-2 pr-4">Type</th>
+                <th class="text-left py-2 pr-4">Default</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">disabled</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  boolean
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">false</td>
+                <td class="py-2">Whether the item is disabled</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">variant</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  default | destructive
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  default
+                </td>
+                <td class="py-2">The visual variant</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">inset</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  boolean
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">false</td>
+                <td class="py-2">Add left padding for alignment</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">
+          plank-dropdown-menu-checkbox-item
+        </h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Property</th>
+                <th class="text-left py-2 pr-4">Type</th>
+                <th class="text-left py-2 pr-4">Default</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">checked</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  boolean
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">false</td>
+                <td class="py-2">Whether the checkbox is checked</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">disabled</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  boolean
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">false</td>
+                <td class="py-2">Whether the item is disabled</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">
+          plank-dropdown-menu-radio-group
+        </h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Property</th>
+                <th class="text-left py-2 pr-4">Type</th>
+                <th class="text-left py-2 pr-4">Default</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">value</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  string
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">""</td>
+                <td class="py-2">The selected value</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">
+          plank-dropdown-menu-radio-item
+        </h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Property</th>
+                <th class="text-left py-2 pr-4">Type</th>
+                <th class="text-left py-2 pr-4">Default</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">value</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  string
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">""</td>
+                <td class="py-2">The value for this item</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">disabled</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  boolean
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">false</td>
+                <td class="py-2">Whether the item is disabled</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">
+          plank-dropdown-menu-label
+        </h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Property</th>
+                <th class="text-left py-2 pr-4">Type</th>
+                <th class="text-left py-2 pr-4">Default</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">inset</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  boolean
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">false</td>
+                <td class="py-2">Add left padding for alignment</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Accessibility -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Accessibility</h2>
+        <ul class="list-disc list-inside space-y-2 text-muted-foreground">
+          <li>Menu content has role="menu"</li>
+          <li>Trigger has aria-haspopup="menu"</li>
+          <li>Trigger has aria-expanded to indicate open state</li>
+          <li>Menu items have role="menuitem"</li>
+          <li>Checkbox items have role="menuitemcheckbox" with aria-checked</li>
+          <li>Radio items have role="menuitemradio" with aria-checked</li>
+          <li>Separators have role="separator"</li>
+          <li>Disabled items have aria-disabled="true"</li>
+          <li>Arrow key navigation between items</li>
+          <li>Closes on Escape key</li>
+          <li>Closes when clicking outside</li>
+        </ul>
+      </section>
+
+      <!-- Keyboard Navigation -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Keyboard Navigation</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Key</th>
+                <th class="text-left py-2">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">Enter / Space / ArrowDown</td>
+                <td class="py-2">Open menu (when trigger focused)</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">ArrowDown</td>
+                <td class="py-2">Move to next item</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">ArrowUp</td>
+                <td class="py-2">Move to previous item</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">Home</td>
+                <td class="py-2">Move to first item</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">End</td>
+                <td class="py-2">Move to last item</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">Enter / Space</td>
+                <td class="py-2">Select focused item</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">Escape</td>
+                <td class="py-2">Close menu</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -19,6 +19,7 @@ export default defineConfig({
       "@radix-ui/react-radio-group",
       "@radix-ui/react-toggle-group",
       "@radix-ui/react-slider",
+      "@radix-ui/react-dropdown-menu",
       "lucide-react",
     ],
   },
