@@ -496,6 +496,53 @@
             </plank-alert-dialog-content>
           </plank-alert-dialog>
         </a>
+
+        <!-- Dropdown Menu -->
+        <a
+          href="./components/dropdown-menu.html"
+          class="block p-6 border rounded-lg hover:border-foreground transition-colors"
+        >
+          <h3 class="font-semibold mb-2">Dropdown Menu</h3>
+          <p class="text-sm text-muted-foreground mb-4">
+            Menu triggered by button click.
+          </p>
+          <plank-dropdown-menu>
+            <plank-dropdown-menu-trigger>
+              <plank-button variant="outline" size="sm">Open</plank-button>
+            </plank-dropdown-menu-trigger>
+            <plank-dropdown-menu-content>
+              <plank-dropdown-menu-item>Profile</plank-dropdown-menu-item>
+              <plank-dropdown-menu-item>Settings</plank-dropdown-menu-item>
+              <plank-dropdown-menu-separator></plank-dropdown-menu-separator>
+              <plank-dropdown-menu-item>Log out</plank-dropdown-menu-item>
+            </plank-dropdown-menu-content>
+          </plank-dropdown-menu>
+        </a>
+
+        <!-- Context Menu -->
+        <a
+          href="./components/context-menu.html"
+          class="block p-6 border rounded-lg hover:border-foreground transition-colors"
+        >
+          <h3 class="font-semibold mb-2">Context Menu</h3>
+          <p class="text-sm text-muted-foreground mb-4">
+            Menu triggered by right-click.
+          </p>
+          <plank-context-menu>
+            <plank-context-menu-trigger>
+              <div
+                class="w-full h-20 border-2 border-dashed border-muted-foreground/50 rounded-lg flex items-center justify-center text-muted-foreground text-sm"
+              >
+                Right click here
+              </div>
+            </plank-context-menu-trigger>
+            <plank-context-menu-content>
+              <plank-context-menu-item>Cut</plank-context-menu-item>
+              <plank-context-menu-item>Copy</plank-context-menu-item>
+              <plank-context-menu-item>Paste</plank-context-menu-item>
+            </plank-context-menu-content>
+          </plank-context-menu>
+        </a>
       </div>
     </main>
 

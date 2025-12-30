@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Context Menu - Planks</title>
+    <script type="module" src="../src/main.ts"></script>
+  </head>
+  <body class="min-h-screen">
+    <!-- Header -->
+    <header class="border-b">
+      <div class="container mx-auto px-4 py-4 flex items-center gap-4">
+        <a href="../" class="text-2xl font-bold">Planks</a>
+        <span class="text-muted-foreground">/</span>
+        <span>Context Menu</span>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+      <h1 class="text-4xl font-bold mb-4">Context Menu</h1>
+      <p class="text-xl text-muted-foreground mb-8">
+        Displays a menu to the user triggered by a right-click (context menu
+        event).
+      </p>
+
+      <!-- Basic Usage -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Basic Usage</h2>
+        <p class="text-muted-foreground mb-4">
+          Right-click on the trigger area to open the context menu.
+        </p>
+        <div class="mb-4 flex items-center gap-4">
+          <plank-context-menu>
+            <plank-context-menu-trigger>
+              <div
+                class="w-80 h-36 border-2 border-dashed border-muted-foreground/50 rounded-lg flex items-center justify-center text-muted-foreground"
+              >
+                Right click here
+              </div>
+            </plank-context-menu-trigger>
+            <plank-context-menu-content>
+              <plank-context-menu-label>My Account</plank-context-menu-label>
+              <plank-context-menu-separator></plank-context-menu-separator>
+              <plank-context-menu-group>
+                <plank-context-menu-item>
+                  Profile
+                  <plank-context-menu-shortcut
+                    >&#8679;&#8984;P</plank-context-menu-shortcut
+                  >
+                </plank-context-menu-item>
+                <plank-context-menu-item>
+                  Billing
+                  <plank-context-menu-shortcut
+                    >&#8984;B</plank-context-menu-shortcut
+                  >
+                </plank-context-menu-item>
+                <plank-context-menu-item>
+                  Settings
+                  <plank-context-menu-shortcut
+                    >&#8984;S</plank-context-menu-shortcut
+                  >
+                </plank-context-menu-item>
+              </plank-context-menu-group>
+              <plank-context-menu-separator></plank-context-menu-separator>
+              <plank-context-menu-item>Log out</plank-context-menu-item>
+            </plank-context-menu-content>
+          </plank-context-menu>
+        </div>
+        <pre><code>&lt;plank-context-menu&gt;
+  &lt;plank-context-menu-trigger&gt;
+    &lt;div class="trigger-area"&gt;Right click here&lt;/div&gt;
+  &lt;/plank-context-menu-trigger&gt;
+  &lt;plank-context-menu-content&gt;
+    &lt;plank-context-menu-label&gt;My Account&lt;/plank-context-menu-label&gt;
+    &lt;plank-context-menu-separator&gt;&lt;/plank-context-menu-separator&gt;
+    &lt;plank-context-menu-group&gt;
+      &lt;plank-context-menu-item&gt;
+        Profile
+        &lt;plank-context-menu-shortcut&gt;&#8679;&#8984;P&lt;/plank-context-menu-shortcut&gt;
+      &lt;/plank-context-menu-item&gt;
+      &lt;plank-context-menu-item&gt;
+        Billing
+        &lt;plank-context-menu-shortcut&gt;&#8984;B&lt;/plank-context-menu-shortcut&gt;
+      &lt;/plank-context-menu-item&gt;
+    &lt;/plank-context-menu-group&gt;
+    &lt;plank-context-menu-separator&gt;&lt;/plank-context-menu-separator&gt;
+    &lt;plank-context-menu-item&gt;Log out&lt;/plank-context-menu-item&gt;
+  &lt;/plank-context-menu-content&gt;
+&lt;/plank-context-menu&gt;</code></pre>
+      </section>
+
+      <!-- Checkbox Items -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Checkbox Items</h2>
+        <p class="text-muted-foreground mb-4">
+          Use checkbox items for toggleable options.
+        </p>
+        <div class="mb-4 flex items-center gap-4">
+          <plank-context-menu>
+            <plank-context-menu-trigger>
+              <div
+                class="w-80 h-36 border-2 border-dashed border-muted-foreground/50 rounded-lg flex items-center justify-center text-muted-foreground"
+              >
+                Right click here
+              </div>
+            </plank-context-menu-trigger>
+            <plank-context-menu-content class="w-56">
+              <plank-context-menu-label>Appearance</plank-context-menu-label>
+              <plank-context-menu-separator></plank-context-menu-separator>
+              <plank-context-menu-checkbox-item checked>
+                Status Bar
+              </plank-context-menu-checkbox-item>
+              <plank-context-menu-checkbox-item>
+                Activity Bar
+              </plank-context-menu-checkbox-item>
+              <plank-context-menu-checkbox-item checked>
+                Panel
+              </plank-context-menu-checkbox-item>
+            </plank-context-menu-content>
+          </plank-context-menu>
+        </div>
+        <pre><code>&lt;plank-context-menu-checkbox-item checked&gt;
+  Status Bar
+&lt;/plank-context-menu-checkbox-item&gt;</code></pre>
+      </section>
+
+      <!-- Radio Group -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Radio Group</h2>
+        <p class="text-muted-foreground mb-4">
+          Use radio groups for mutually exclusive options.
+        </p>
+        <div class="mb-4 flex items-center gap-4">
+          <plank-context-menu>
+            <plank-context-menu-trigger>
+              <div
+                class="w-80 h-36 border-2 border-dashed border-muted-foreground/50 rounded-lg flex items-center justify-center text-muted-foreground"
+              >
+                Right click here
+              </div>
+            </plank-context-menu-trigger>
+            <plank-context-menu-content class="w-56">
+              <plank-context-menu-label
+                >Panel Position</plank-context-menu-label
+              >
+              <plank-context-menu-separator></plank-context-menu-separator>
+              <plank-context-menu-radio-group value="bottom">
+                <plank-context-menu-radio-item value="top"
+                  >Top</plank-context-menu-radio-item
+                >
+                <plank-context-menu-radio-item value="bottom"
+                  >Bottom</plank-context-menu-radio-item
+                >
+                <plank-context-menu-radio-item value="right"
+                  >Right</plank-context-menu-radio-item
+                >
+              </plank-context-menu-radio-group>
+            </plank-context-menu-content>
+          </plank-context-menu>
+        </div>
+        <pre><code>&lt;plank-context-menu-radio-group value="bottom"&gt;
+  &lt;plank-context-menu-radio-item value="top"&gt;Top&lt;/plank-context-menu-radio-item&gt;
+  &lt;plank-context-menu-radio-item value="bottom"&gt;Bottom&lt;/plank-context-menu-radio-item&gt;
+  &lt;plank-context-menu-radio-item value="right"&gt;Right&lt;/plank-context-menu-radio-item&gt;
+&lt;/plank-context-menu-radio-group&gt;</code></pre>
+      </section>
+
+      <!-- Disabled Items -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Disabled Items</h2>
+        <p class="text-muted-foreground mb-4">
+          Use the disabled attribute to disable menu items.
+        </p>
+        <div class="mb-4 flex items-center gap-4">
+          <plank-context-menu>
+            <plank-context-menu-trigger>
+              <div
+                class="w-80 h-36 border-2 border-dashed border-muted-foreground/50 rounded-lg flex items-center justify-center text-muted-foreground"
+              >
+                Right click here
+              </div>
+            </plank-context-menu-trigger>
+            <plank-context-menu-content>
+              <plank-context-menu-item>Edit</plank-context-menu-item>
+              <plank-context-menu-item disabled>Delete</plank-context-menu-item>
+              <plank-context-menu-item>Duplicate</plank-context-menu-item>
+            </plank-context-menu-content>
+          </plank-context-menu>
+        </div>
+        <pre><code>&lt;plank-context-menu-item disabled&gt;Delete&lt;/plank-context-menu-item&gt;</code></pre>
+      </section>
+
+      <!-- Destructive Items -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Destructive Items</h2>
+        <p class="text-muted-foreground mb-4">
+          Use variant="destructive" for dangerous actions.
+        </p>
+        <div class="mb-4 flex items-center gap-4">
+          <plank-context-menu>
+            <plank-context-menu-trigger>
+              <div
+                class="w-80 h-36 border-2 border-dashed border-muted-foreground/50 rounded-lg flex items-center justify-center text-muted-foreground"
+              >
+                Right click here
+              </div>
+            </plank-context-menu-trigger>
+            <plank-context-menu-content>
+              <plank-context-menu-item>Edit</plank-context-menu-item>
+              <plank-context-menu-item>Duplicate</plank-context-menu-item>
+              <plank-context-menu-separator></plank-context-menu-separator>
+              <plank-context-menu-item variant="destructive"
+                >Delete</plank-context-menu-item
+              >
+            </plank-context-menu-content>
+          </plank-context-menu>
+        </div>
+        <pre><code>&lt;plank-context-menu-item variant="destructive"&gt;Delete&lt;/plank-context-menu-item&gt;</code></pre>
+      </section>
+
+      <!-- Inset Items -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Inset Items</h2>
+        <p class="text-muted-foreground mb-4">
+          Use the inset attribute to align items without icons.
+        </p>
+        <div class="mb-4 flex items-center gap-4">
+          <plank-context-menu>
+            <plank-context-menu-trigger>
+              <div
+                class="w-80 h-36 border-2 border-dashed border-muted-foreground/50 rounded-lg flex items-center justify-center text-muted-foreground"
+              >
+                Right click here
+              </div>
+            </plank-context-menu-trigger>
+            <plank-context-menu-content>
+              <plank-context-menu-label inset
+                >Settings</plank-context-menu-label
+              >
+              <plank-context-menu-separator></plank-context-menu-separator>
+              <plank-context-menu-item inset>Profile</plank-context-menu-item>
+              <plank-context-menu-item inset>Account</plank-context-menu-item>
+            </plank-context-menu-content>
+          </plank-context-menu>
+        </div>
+        <pre><code>&lt;plank-context-menu-label inset&gt;Settings&lt;/plank-context-menu-label&gt;
+&lt;plank-context-menu-item inset&gt;Profile&lt;/plank-context-menu-item&gt;</code></pre>
+      </section>
+
+      <!-- Submenus -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Submenus</h2>
+        <p class="text-muted-foreground mb-4">
+          Use nested submenus for hierarchical navigation.
+        </p>
+        <div class="mb-4 flex items-center gap-4">
+          <plank-context-menu>
+            <plank-context-menu-trigger>
+              <div
+                class="w-80 h-36 border-2 border-dashed border-muted-foreground/50 rounded-lg flex items-center justify-center text-muted-foreground"
+              >
+                Right click here
+              </div>
+            </plank-context-menu-trigger>
+            <plank-context-menu-content>
+              <plank-context-menu-item>New Tab</plank-context-menu-item>
+              <plank-context-menu-item>New Window</plank-context-menu-item>
+              <plank-context-menu-separator></plank-context-menu-separator>
+              <plank-context-menu-sub>
+                <plank-context-menu-sub-trigger
+                  >More Tools</plank-context-menu-sub-trigger
+                >
+                <plank-context-menu-sub-content>
+                  <plank-context-menu-item
+                    >Save Page As...</plank-context-menu-item
+                  >
+                  <plank-context-menu-item
+                    >Create Shortcut...</plank-context-menu-item
+                  >
+                  <plank-context-menu-item
+                    >Name Window...</plank-context-menu-item
+                  >
+                  <plank-context-menu-separator></plank-context-menu-separator>
+                  <plank-context-menu-item
+                    >Developer Tools</plank-context-menu-item
+                  >
+                </plank-context-menu-sub-content>
+              </plank-context-menu-sub>
+              <plank-context-menu-separator></plank-context-menu-separator>
+              <plank-context-menu-item>Quit</plank-context-menu-item>
+            </plank-context-menu-content>
+          </plank-context-menu>
+        </div>
+        <pre><code>&lt;plank-context-menu-sub&gt;
+  &lt;plank-context-menu-sub-trigger&gt;More Tools&lt;/plank-context-menu-sub-trigger&gt;
+  &lt;plank-context-menu-sub-content&gt;
+    &lt;plank-context-menu-item&gt;Save Page As...&lt;/plank-context-menu-item&gt;
+    &lt;plank-context-menu-item&gt;Developer Tools&lt;/plank-context-menu-item&gt;
+  &lt;/plank-context-menu-sub-content&gt;
+&lt;/plank-context-menu-sub&gt;</code></pre>
+      </section>
+
+      <!-- API -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">API</h2>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">plank-context-menu</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Property</th>
+                <th class="text-left py-2 pr-4">Type</th>
+                <th class="text-left py-2 pr-4">Default</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">open</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  boolean
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">false</td>
+                <td class="py-2">The controlled open state</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">Events</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Event</th>
+                <th class="text-left py-2 pr-4">Detail</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">open-change</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  { open: boolean }
+                </td>
+                <td class="py-2">Fired when the open state changes</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">select</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  { item: Element }
+                </td>
+                <td class="py-2">Fired when a menu item is selected</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">checked-change</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  { item: Element, checked: boolean }
+                </td>
+                <td class="py-2">Fired when a checkbox item changes</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">value-change</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  { value: string }
+                </td>
+                <td class="py-2">Fired when a radio group value changes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">
+          plank-context-menu-content
+        </h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Property</th>
+                <th class="text-left py-2 pr-4">Type</th>
+                <th class="text-left py-2 pr-4">Default</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">alignOffset</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  number
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">-4</td>
+                <td class="py-2">
+                  Offset from the cursor position in pixels (align axis)
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">plank-context-menu-item</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Property</th>
+                <th class="text-left py-2 pr-4">Type</th>
+                <th class="text-left py-2 pr-4">Default</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">disabled</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  boolean
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">false</td>
+                <td class="py-2">Whether the item is disabled</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">variant</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  default | destructive
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  default
+                </td>
+                <td class="py-2">The visual variant</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">inset</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  boolean
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">false</td>
+                <td class="py-2">Add left padding for alignment</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">
+          plank-context-menu-checkbox-item
+        </h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Property</th>
+                <th class="text-left py-2 pr-4">Type</th>
+                <th class="text-left py-2 pr-4">Default</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">checked</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  boolean
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">false</td>
+                <td class="py-2">Whether the checkbox is checked</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">disabled</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  boolean
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">false</td>
+                <td class="py-2">Whether the item is disabled</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">
+          plank-context-menu-radio-group
+        </h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Property</th>
+                <th class="text-left py-2 pr-4">Type</th>
+                <th class="text-left py-2 pr-4">Default</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">value</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  string
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">""</td>
+                <td class="py-2">The selected value</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">
+          plank-context-menu-radio-item
+        </h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Property</th>
+                <th class="text-left py-2 pr-4">Type</th>
+                <th class="text-left py-2 pr-4">Default</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">value</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  string
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">""</td>
+                <td class="py-2">The value for this item</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">disabled</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  boolean
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">false</td>
+                <td class="py-2">Whether the item is disabled</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">
+          plank-context-menu-label
+        </h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Property</th>
+                <th class="text-left py-2 pr-4">Type</th>
+                <th class="text-left py-2 pr-4">Default</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">inset</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  boolean
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">false</td>
+                <td class="py-2">Add left padding for alignment</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Accessibility -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Accessibility</h2>
+        <ul class="list-disc list-inside space-y-2 text-muted-foreground">
+          <li>Menu content has role="menu"</li>
+          <li>Menu items have role="menuitem"</li>
+          <li>Checkbox items have role="menuitemcheckbox" with aria-checked</li>
+          <li>Radio items have role="menuitemradio" with aria-checked</li>
+          <li>Separators have role="separator"</li>
+          <li>Disabled items have aria-disabled="true"</li>
+          <li>Arrow key navigation between items</li>
+          <li>Closes on Escape key</li>
+          <li>Closes when clicking outside</li>
+        </ul>
+      </section>
+
+      <!-- Keyboard Navigation -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Keyboard Navigation</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Key</th>
+                <th class="text-left py-2">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">ArrowDown</td>
+                <td class="py-2">Move to next item</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">ArrowUp</td>
+                <td class="py-2">Move to previous item</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">Home</td>
+                <td class="py-2">Move to first item</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">End</td>
+                <td class="py-2">Move to last item</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">Enter / Space</td>
+                <td class="py-2">Select focused item</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">Escape</td>
+                <td class="py-2">Close menu</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Comparison to Dropdown Menu -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Comparison to Dropdown Menu</h2>
+        <p class="text-muted-foreground mb-4">
+          Context Menu and Dropdown Menu share the same structure and styling,
+          but differ in their trigger mechanism:
+        </p>
+        <ul class="list-disc list-inside space-y-2 text-muted-foreground">
+          <li>
+            <strong>Dropdown Menu</strong>: Triggered by clicking (left-click)
+            on a button. Menu appears anchored to the trigger element.
+          </li>
+          <li>
+            <strong>Context Menu</strong>: Triggered by right-clicking on a
+            region. Menu appears at the cursor position.
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

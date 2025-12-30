@@ -295,7 +295,7 @@ describe("plank-newcomponent", () => {
 - [x] tooltip
 - [x] popover
 - [x] dropdown-menu
-- [ ] context-menu
+- [x] context-menu
 - [x] dialog
 - [x] alert-dialog
 - [ ] sheet

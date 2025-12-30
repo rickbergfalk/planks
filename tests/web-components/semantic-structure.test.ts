@@ -10,6 +10,7 @@ import "@/web-components/plank-tooltip"
 import "@/web-components/plank-popover"
 import "@/web-components/plank-dialog"
 import "@/web-components/plank-dropdown-menu"
+import "@/web-components/plank-context-menu"
 
 /**
  * Semantic Structure Tests
@@ -884,6 +885,248 @@ describe("Semantic Structure", () => {
         content,
         "Must have data-slot='dropdown-menu-content'"
       ).toBeTruthy()
+    })
+  })
+
+  describe("plank-context-menu", () => {
+    afterEach(() => {
+      // Clean up portaled content
+      document
+        .querySelectorAll('body > div[style*="position: fixed"]')
+        .forEach((el) => el.remove())
+    })
+
+    it("context menu content must have role=menu when open", async () => {
+      container.innerHTML = `
+        <plank-context-menu>
+          <plank-context-menu-trigger>
+            <div data-testid="trigger" style="width: 100px; height: 100px;">Right click</div>
+          </plank-context-menu-trigger>
+          <plank-context-menu-content>
+            <plank-context-menu-item>Item</plank-context-menu-item>
+          </plank-context-menu-content>
+        </plank-context-menu>
+      `
+
+      await customElements.whenDefined("plank-context-menu")
+      const menu = container.querySelector("plank-context-menu")!
+      await (menu as any).updateComplete
+
+      // Trigger via contextmenu event
+      const trigger = container.querySelector('[data-testid="trigger"]')!
+      trigger.dispatchEvent(
+        new MouseEvent("contextmenu", {
+          bubbles: true,
+          clientX: 50,
+          clientY: 50,
+        })
+      )
+      await new Promise((r) => setTimeout(r, 50))
+
+      const content = document.querySelector('[role="menu"]')
+      expect(content, "Must have role='menu' on content").toBeTruthy()
+    })
+
+    it("menu items must have role=menuitem", async () => {
+      container.innerHTML = `
+        <plank-context-menu>
+          <plank-context-menu-trigger>
+            <div data-testid="trigger" style="width: 100px; height: 100px;">Right click</div>
+          </plank-context-menu-trigger>
+          <plank-context-menu-content>
+            <plank-context-menu-item>Profile</plank-context-menu-item>
+            <plank-context-menu-item>Settings</plank-context-menu-item>
+          </plank-context-menu-content>
+        </plank-context-menu>
+      `
+
+      await customElements.whenDefined("plank-context-menu")
+      const menu = container.querySelector("plank-context-menu")!
+      await (menu as any).updateComplete
+
+      // Trigger via contextmenu event
+      const trigger = container.querySelector('[data-testid="trigger"]')!
+      trigger.dispatchEvent(
+        new MouseEvent("contextmenu", {
+          bubbles: true,
+          clientX: 50,
+          clientY: 50,
+        })
+      )
+      await new Promise((r) => setTimeout(r, 50))
+
+      const items = document.querySelectorAll('[role="menuitem"]')
+      expect(items.length, "Must have menuitem roles").toBe(2)
+      expect(items[0].textContent).toContain("Profile")
+      expect(items[1].textContent).toContain("Settings")
+    })
+
+    it("checkbox items must have role=menuitemcheckbox", async () => {
+      container.innerHTML = `
+        <plank-context-menu>
+          <plank-context-menu-trigger>
+            <div data-testid="trigger" style="width: 100px; height: 100px;">Right click</div>
+          </plank-context-menu-trigger>
+          <plank-context-menu-content>
+            <plank-context-menu-checkbox-item checked>Enabled</plank-context-menu-checkbox-item>
+          </plank-context-menu-content>
+        </plank-context-menu>
+      `
+
+      await customElements.whenDefined("plank-context-menu")
+      const menu = container.querySelector("plank-context-menu")!
+      await (menu as any).updateComplete
+
+      // Trigger via contextmenu event
+      const trigger = container.querySelector('[data-testid="trigger"]')!
+      trigger.dispatchEvent(
+        new MouseEvent("contextmenu", {
+          bubbles: true,
+          clientX: 50,
+          clientY: 50,
+        })
+      )
+      await new Promise((r) => setTimeout(r, 50))
+
+      const item = document.querySelector('[role="menuitemcheckbox"]')
+      expect(item, "Must have role='menuitemcheckbox'").toBeTruthy()
+      expect(item?.getAttribute("aria-checked")).toBe("true")
+    })
+
+    it("radio items must have role=menuitemradio", async () => {
+      container.innerHTML = `
+        <plank-context-menu>
+          <plank-context-menu-trigger>
+            <div data-testid="trigger" style="width: 100px; height: 100px;">Right click</div>
+          </plank-context-menu-trigger>
+          <plank-context-menu-content>
+            <plank-context-menu-radio-group value="top">
+              <plank-context-menu-radio-item value="top">Top</plank-context-menu-radio-item>
+              <plank-context-menu-radio-item value="bottom">Bottom</plank-context-menu-radio-item>
+            </plank-context-menu-radio-group>
+          </plank-context-menu-content>
+        </plank-context-menu>
+      `
+
+      await customElements.whenDefined("plank-context-menu")
+      const menu = container.querySelector("plank-context-menu")!
+      await (menu as any).updateComplete
+
+      // Trigger via contextmenu event
+      const trigger = container.querySelector('[data-testid="trigger"]')!
+      trigger.dispatchEvent(
+        new MouseEvent("contextmenu", {
+          bubbles: true,
+          clientX: 50,
+          clientY: 50,
+        })
+      )
+      await new Promise((r) => setTimeout(r, 50))
+
+      const items = document.querySelectorAll('[role="menuitemradio"]')
+      expect(items.length, "Must have menuitemradio roles").toBe(2)
+      expect(items[0].getAttribute("aria-checked")).toBe("true")
+      expect(items[1].getAttribute("aria-checked")).toBe("false")
+    })
+
+    it("separators must have role=separator", async () => {
+      container.innerHTML = `
+        <plank-context-menu>
+          <plank-context-menu-trigger>
+            <div data-testid="trigger" style="width: 100px; height: 100px;">Right click</div>
+          </plank-context-menu-trigger>
+          <plank-context-menu-content>
+            <plank-context-menu-item>Item 1</plank-context-menu-item>
+            <plank-context-menu-separator></plank-context-menu-separator>
+            <plank-context-menu-item>Item 2</plank-context-menu-item>
+          </plank-context-menu-content>
+        </plank-context-menu>
+      `
+
+      await customElements.whenDefined("plank-context-menu")
+      const menu = container.querySelector("plank-context-menu")!
+      await (menu as any).updateComplete
+
+      // Trigger via contextmenu event
+      const trigger = container.querySelector('[data-testid="trigger"]')!
+      trigger.dispatchEvent(
+        new MouseEvent("contextmenu", {
+          bubbles: true,
+          clientX: 50,
+          clientY: 50,
+        })
+      )
+      await new Promise((r) => setTimeout(r, 50))
+
+      const separator = document.querySelector('[role="separator"]')
+      expect(separator, "Must have role='separator'").toBeTruthy()
+    })
+
+    it("disabled items must have aria-disabled", async () => {
+      container.innerHTML = `
+        <plank-context-menu>
+          <plank-context-menu-trigger>
+            <div data-testid="trigger" style="width: 100px; height: 100px;">Right click</div>
+          </plank-context-menu-trigger>
+          <plank-context-menu-content>
+            <plank-context-menu-item disabled>Disabled Item</plank-context-menu-item>
+          </plank-context-menu-content>
+        </plank-context-menu>
+      `
+
+      await customElements.whenDefined("plank-context-menu")
+      const menu = container.querySelector("plank-context-menu")!
+      await (menu as any).updateComplete
+
+      // Trigger via contextmenu event
+      const trigger = container.querySelector('[data-testid="trigger"]')!
+      trigger.dispatchEvent(
+        new MouseEvent("contextmenu", {
+          bubbles: true,
+          clientX: 50,
+          clientY: 50,
+        })
+      )
+      await new Promise((r) => setTimeout(r, 50))
+
+      const item = document.querySelector('[role="menuitem"]')
+      expect(
+        item?.getAttribute("aria-disabled"),
+        "Disabled items must have aria-disabled='true'"
+      ).toBe("true")
+    })
+
+    it("context menu content must have correct data-slot", async () => {
+      container.innerHTML = `
+        <plank-context-menu>
+          <plank-context-menu-trigger>
+            <div data-testid="trigger" style="width: 100px; height: 100px;">Right click</div>
+          </plank-context-menu-trigger>
+          <plank-context-menu-content>
+            <plank-context-menu-item>Item</plank-context-menu-item>
+          </plank-context-menu-content>
+        </plank-context-menu>
+      `
+
+      await customElements.whenDefined("plank-context-menu")
+      const menu = container.querySelector("plank-context-menu")!
+      await (menu as any).updateComplete
+
+      // Trigger via contextmenu event
+      const trigger = container.querySelector('[data-testid="trigger"]')!
+      trigger.dispatchEvent(
+        new MouseEvent("contextmenu", {
+          bubbles: true,
+          clientX: 50,
+          clientY: 50,
+        })
+      )
+      await new Promise((r) => setTimeout(r, 50))
+
+      const content = document.querySelector(
+        '[data-slot="context-menu-content"]'
+      )
+      expect(content, "Must have data-slot='context-menu-content'").toBeTruthy()
     })
   })
 })

@@ -20,6 +20,7 @@ export default defineConfig({
       "@radix-ui/react-toggle-group",
       "@radix-ui/react-slider",
       "@radix-ui/react-dropdown-menu",
+      "@radix-ui/react-context-menu",
       "lucide-react",
     ],
   },
