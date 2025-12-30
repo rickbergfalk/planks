@@ -294,7 +294,7 @@ describe("plank-newcomponent", () => {
 ### Tier 5 - Positioned/Portal components
 - [x] tooltip
 - [x] popover
-- [ ] dropdown-menu
+- [x] dropdown-menu
 - [ ] context-menu
 - [x] dialog
 - [x] alert-dialog
