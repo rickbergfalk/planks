@@ -14,6 +14,10 @@ import "@/web-components/plank-context-menu"
 import "@/web-components/plank-sheet"
 import "@/web-components/plank-drawer"
 import "@/web-components/plank-hover-card"
+import "@/web-components/plank-select"
+import "@/web-components/plank-command"
+import "@/web-components/plank-combobox"
+import "@/web-components/plank-table"
 
 /**
  * Semantic Structure Tests
@@ -1721,6 +1725,812 @@ describe("Semantic Structure", () => {
         button?.getAttribute("data-state"),
         "Trigger must have data-state='open'"
       ).toBe("open")
+    })
+  })
+
+  describe("plank-select", () => {
+    afterEach(() => {
+      // Clean up portaled content
+      document
+        .querySelectorAll('body > div[style*="position: fixed"]')
+        .forEach((el) => {
+          el.remove()
+        })
+    })
+
+    it("trigger must have role='combobox'", async () => {
+      container.innerHTML = `
+        <plank-select>
+          <plank-select-trigger>
+            <plank-select-value placeholder="Select"></plank-select-value>
+          </plank-select-trigger>
+          <plank-select-content>
+            <plank-select-item value="apple">Apple</plank-select-item>
+          </plank-select-content>
+        </plank-select>
+      `
+
+      await customElements.whenDefined("plank-select")
+      const select = container.querySelector("plank-select")!
+      await (select as any).updateComplete
+
+      const trigger = container.querySelector('[role="combobox"]')
+      expect(trigger, "Must have trigger with role='combobox'").toBeTruthy()
+    })
+
+    it("trigger must have aria-expanded attribute", async () => {
+      container.innerHTML = `
+        <plank-select>
+          <plank-select-trigger>
+            <plank-select-value placeholder="Select"></plank-select-value>
+          </plank-select-trigger>
+          <plank-select-content>
+            <plank-select-item value="apple">Apple</plank-select-item>
+          </plank-select-content>
+        </plank-select>
+      `
+
+      await customElements.whenDefined("plank-select")
+      const select = container.querySelector("plank-select")!
+      await (select as any).updateComplete
+
+      const trigger = container.querySelector('[role="combobox"]')
+      expect(
+        trigger?.getAttribute("aria-expanded"),
+        "Trigger must have aria-expanded"
+      ).toBe("false")
+    })
+
+    it("content must have role='listbox' when open", async () => {
+      container.innerHTML = `
+        <plank-select open>
+          <plank-select-trigger>
+            <plank-select-value placeholder="Select"></plank-select-value>
+          </plank-select-trigger>
+          <plank-select-content>
+            <plank-select-item value="apple">Apple</plank-select-item>
+          </plank-select-content>
+        </plank-select>
+      `
+
+      await customElements.whenDefined("plank-select")
+      const select = container.querySelector("plank-select")!
+      await (select as any).updateComplete
+      await new Promise((r) => setTimeout(r, 50))
+
+      // Look for the portaled content
+      const content = document.querySelector('[role="listbox"]')
+      expect(content, "Must have content with role='listbox'").toBeTruthy()
+    })
+
+    it("items must have role='option'", async () => {
+      container.innerHTML = `
+        <plank-select open>
+          <plank-select-trigger>
+            <plank-select-value placeholder="Select"></plank-select-value>
+          </plank-select-trigger>
+          <plank-select-content>
+            <plank-select-item value="apple">Apple</plank-select-item>
+            <plank-select-item value="banana">Banana</plank-select-item>
+          </plank-select-content>
+        </plank-select>
+      `
+
+      await customElements.whenDefined("plank-select")
+      const select = container.querySelector("plank-select")!
+      await (select as any).updateComplete
+      await new Promise((r) => setTimeout(r, 50))
+
+      const options = document.querySelectorAll('[role="option"]')
+      expect(options.length, "Must have options with role='option'").toBe(2)
+    })
+
+    it("selected item must have aria-selected='true'", async () => {
+      container.innerHTML = `
+        <plank-select value="banana" open>
+          <plank-select-trigger>
+            <plank-select-value placeholder="Select"></plank-select-value>
+          </plank-select-trigger>
+          <plank-select-content>
+            <plank-select-item value="apple">Apple</plank-select-item>
+            <plank-select-item value="banana">Banana</plank-select-item>
+          </plank-select-content>
+        </plank-select>
+      `
+
+      await customElements.whenDefined("plank-select")
+      const select = container.querySelector("plank-select")!
+      await (select as any).updateComplete
+      await new Promise((r) => setTimeout(r, 50))
+
+      const selectedOption = document.querySelector(
+        '[role="option"][aria-selected="true"]'
+      )
+      expect(
+        selectedOption,
+        "Selected item must have aria-selected='true'"
+      ).toBeTruthy()
+      expect(selectedOption?.textContent).toContain("Banana")
+    })
+
+    it("disabled item must have aria-disabled='true'", async () => {
+      container.innerHTML = `
+        <plank-select open>
+          <plank-select-trigger>
+            <plank-select-value placeholder="Select"></plank-select-value>
+          </plank-select-trigger>
+          <plank-select-content>
+            <plank-select-item value="apple" disabled>Apple</plank-select-item>
+          </plank-select-content>
+        </plank-select>
+      `
+
+      await customElements.whenDefined("plank-select")
+      const select = container.querySelector("plank-select")!
+      await (select as any).updateComplete
+      await new Promise((r) => setTimeout(r, 50))
+
+      const disabledOption = document.querySelector(
+        '[role="option"][aria-disabled="true"]'
+      )
+      expect(
+        disabledOption,
+        "Disabled item must have aria-disabled='true'"
+      ).toBeTruthy()
+    })
+
+    it("select content must have correct data-slot when open", async () => {
+      container.innerHTML = `
+        <plank-select open>
+          <plank-select-trigger>
+            <plank-select-value placeholder="Select"></plank-select-value>
+          </plank-select-trigger>
+          <plank-select-content>
+            <plank-select-item value="apple">Apple</plank-select-item>
+          </plank-select-content>
+        </plank-select>
+      `
+
+      await customElements.whenDefined("plank-select")
+      const select = container.querySelector("plank-select")!
+      await (select as any).updateComplete
+      await new Promise((r) => setTimeout(r, 50))
+
+      // Look for the portaled content
+      const content = document.querySelector(
+        'body > div[style*="position: fixed"] [data-slot="select-content"]'
+      )
+      expect(content, "Must have data-slot='select-content'").toBeTruthy()
+    })
+
+    it("trigger must show placeholder when no value", async () => {
+      container.innerHTML = `
+        <plank-select>
+          <plank-select-trigger>
+            <plank-select-value placeholder="Select a fruit"></plank-select-value>
+          </plank-select-trigger>
+          <plank-select-content>
+            <plank-select-item value="apple">Apple</plank-select-item>
+          </plank-select-content>
+        </plank-select>
+      `
+
+      await customElements.whenDefined("plank-select")
+      const select = container.querySelector("plank-select")!
+      await (select as any).updateComplete
+
+      const trigger = container.querySelector('[role="combobox"]')
+      expect(trigger?.textContent, "Trigger must show placeholder").toContain(
+        "Select a fruit"
+      )
+    })
+  })
+
+  describe("plank-command", () => {
+    it("input must have role='combobox'", async () => {
+      container.innerHTML = `
+        <plank-command>
+          <plank-command-input placeholder="Search..."></plank-command-input>
+          <plank-command-list>
+            <plank-command-item>Item 1</plank-command-item>
+          </plank-command-list>
+        </plank-command>
+      `
+
+      await customElements.whenDefined("plank-command")
+      const command = container.querySelector("plank-command")!
+      await (command as any).updateComplete
+
+      const input = container.querySelector('[role="combobox"]')
+      expect(input, "Must have input with role='combobox'").toBeTruthy()
+    })
+
+    it("input must have aria-expanded attribute", async () => {
+      container.innerHTML = `
+        <plank-command>
+          <plank-command-input placeholder="Search..."></plank-command-input>
+          <plank-command-list>
+            <plank-command-item>Item 1</plank-command-item>
+          </plank-command-list>
+        </plank-command>
+      `
+
+      await customElements.whenDefined("plank-command")
+      const command = container.querySelector("plank-command")!
+      await (command as any).updateComplete
+
+      const input = container.querySelector('[role="combobox"]')
+      expect(
+        input?.getAttribute("aria-expanded"),
+        "Input must have aria-expanded"
+      ).toBe("true")
+    })
+
+    it("list must have role='listbox'", async () => {
+      container.innerHTML = `
+        <plank-command>
+          <plank-command-input placeholder="Search..."></plank-command-input>
+          <plank-command-list>
+            <plank-command-item>Item 1</plank-command-item>
+          </plank-command-list>
+        </plank-command>
+      `
+
+      await customElements.whenDefined("plank-command")
+      const command = container.querySelector("plank-command")!
+      await (command as any).updateComplete
+
+      const list = container.querySelector('[role="listbox"]')
+      expect(list, "Must have list with role='listbox'").toBeTruthy()
+    })
+
+    it("items must have role='option'", async () => {
+      container.innerHTML = `
+        <plank-command>
+          <plank-command-input placeholder="Search..."></plank-command-input>
+          <plank-command-list>
+            <plank-command-item>Item 1</plank-command-item>
+          </plank-command-list>
+        </plank-command>
+      `
+
+      await customElements.whenDefined("plank-command")
+      const command = container.querySelector("plank-command")!
+      await (command as any).updateComplete
+
+      const item = container.querySelector('[role="option"]')
+      expect(item, "Must have item with role='option'").toBeTruthy()
+      expect(item?.textContent).toContain("Item 1")
+    })
+
+    it("input must have aria-controls pointing to list", async () => {
+      container.innerHTML = `
+        <plank-command>
+          <plank-command-input placeholder="Search..."></plank-command-input>
+          <plank-command-list>
+            <plank-command-item>Item 1</plank-command-item>
+          </plank-command-list>
+        </plank-command>
+      `
+
+      await customElements.whenDefined("plank-command")
+      const command = container.querySelector("plank-command")!
+      await (command as any).updateComplete
+
+      const input = container.querySelector('[role="combobox"]')
+      const list = container.querySelector('[role="listbox"]')
+      expect(
+        input?.getAttribute("aria-controls"),
+        "Input must have aria-controls"
+      ).toBe(list?.getAttribute("id"))
+    })
+
+    it("group must have role='group'", async () => {
+      container.innerHTML = `
+        <plank-command>
+          <plank-command-list>
+            <plank-command-group heading="Suggestions">
+              <plank-command-item>Item 1</plank-command-item>
+            </plank-command-group>
+          </plank-command-list>
+        </plank-command>
+      `
+
+      await customElements.whenDefined("plank-command")
+      const command = container.querySelector("plank-command")!
+      await (command as any).updateComplete
+
+      const group = container.querySelector('[role="group"]')
+      expect(group, "Must have group with role='group'").toBeTruthy()
+    })
+
+    it("separator must have role='separator'", async () => {
+      container.innerHTML = `
+        <plank-command>
+          <plank-command-list>
+            <plank-command-item>Item 1</plank-command-item>
+            <plank-command-separator></plank-command-separator>
+            <plank-command-item>Item 2</plank-command-item>
+          </plank-command-list>
+        </plank-command>
+      `
+
+      await customElements.whenDefined("plank-command")
+      const command = container.querySelector("plank-command")!
+      await (command as any).updateComplete
+
+      const separator = container.querySelector('[role="separator"]')
+      expect(
+        separator,
+        "Must have separator with role='separator'"
+      ).toBeTruthy()
+    })
+
+    it("disabled items must have aria-disabled", async () => {
+      container.innerHTML = `
+        <plank-command>
+          <plank-command-list>
+            <plank-command-item disabled>Disabled Item</plank-command-item>
+          </plank-command-list>
+        </plank-command>
+      `
+
+      await customElements.whenDefined("plank-command")
+      const command = container.querySelector("plank-command")!
+      await (command as any).updateComplete
+
+      const item = container.querySelector('[role="option"]')
+      expect(
+        item?.getAttribute("aria-disabled"),
+        "Disabled item must have aria-disabled"
+      ).toBe("true")
+    })
+  })
+
+  describe("plank-combobox", () => {
+    afterEach(() => {
+      // Clean up any portaled content
+      document
+        .querySelectorAll('body > div[style*="position: fixed"]')
+        .forEach((el) => {
+          el.remove()
+        })
+    })
+
+    it("trigger must have role='combobox'", async () => {
+      container.innerHTML = `
+        <plank-combobox>
+          <plank-combobox-item value="test">Test</plank-combobox-item>
+        </plank-combobox>
+      `
+
+      await customElements.whenDefined("plank-combobox")
+      const combobox = container.querySelector("plank-combobox")!
+      await (combobox as any).updateComplete
+
+      const trigger = container.querySelector('[role="combobox"]')
+      expect(trigger, "Must have trigger with role='combobox'").toBeTruthy()
+    })
+
+    it("trigger must have aria-haspopup='listbox'", async () => {
+      container.innerHTML = `
+        <plank-combobox>
+          <plank-combobox-item value="test">Test</plank-combobox-item>
+        </plank-combobox>
+      `
+
+      await customElements.whenDefined("plank-combobox")
+      const combobox = container.querySelector("plank-combobox")!
+      await (combobox as any).updateComplete
+
+      const trigger = container.querySelector('[role="combobox"]')
+      expect(
+        trigger?.getAttribute("aria-haspopup"),
+        "Trigger must have aria-haspopup='listbox'"
+      ).toBe("listbox")
+    })
+
+    it("trigger must have aria-expanded when closed", async () => {
+      container.innerHTML = `
+        <plank-combobox>
+          <plank-combobox-item value="test">Test</plank-combobox-item>
+        </plank-combobox>
+      `
+
+      await customElements.whenDefined("plank-combobox")
+      const combobox = container.querySelector("plank-combobox")!
+      await (combobox as any).updateComplete
+
+      const trigger = container.querySelector('[role="combobox"]')
+      expect(
+        trigger?.getAttribute("aria-expanded"),
+        "Trigger must have aria-expanded='false' when closed"
+      ).toBe("false")
+    })
+
+    it("listbox must have role='listbox' when open", async () => {
+      container.innerHTML = `
+        <plank-combobox>
+          <plank-combobox-item value="test">Test</plank-combobox-item>
+        </plank-combobox>
+      `
+
+      await customElements.whenDefined("plank-combobox")
+      const combobox = container.querySelector("plank-combobox")!
+      await (combobox as any).updateComplete
+
+      // Open the combobox
+      const trigger = container.querySelector(
+        '[role="combobox"]'
+      ) as HTMLElement
+      trigger.click()
+      await new Promise((r) => setTimeout(r, 50))
+
+      const listbox = document.querySelector('[role="listbox"]')
+      expect(listbox, "Must have listbox with role='listbox'").toBeTruthy()
+    })
+
+    it("trigger must have aria-controls pointing to listbox", async () => {
+      container.innerHTML = `
+        <plank-combobox>
+          <plank-combobox-item value="test">Test</plank-combobox-item>
+        </plank-combobox>
+      `
+
+      await customElements.whenDefined("plank-combobox")
+      const combobox = container.querySelector("plank-combobox")!
+      await (combobox as any).updateComplete
+
+      // Open the combobox
+      const trigger = container.querySelector(
+        '[role="combobox"]'
+      ) as HTMLElement
+      trigger.click()
+      await new Promise((r) => setTimeout(r, 50))
+
+      const listboxId = trigger.getAttribute("aria-controls")
+      const listbox = document.getElementById(listboxId!)
+      expect(
+        listbox?.getAttribute("role"),
+        "aria-controls must point to listbox"
+      ).toBe("listbox")
+    })
+
+    it("items must have role='option'", async () => {
+      container.innerHTML = `
+        <plank-combobox>
+          <plank-combobox-item value="test">Test</plank-combobox-item>
+        </plank-combobox>
+      `
+
+      await customElements.whenDefined("plank-combobox")
+      const combobox = container.querySelector("plank-combobox")!
+      await (combobox as any).updateComplete
+
+      // Open the combobox
+      const trigger = container.querySelector(
+        '[role="combobox"]'
+      ) as HTMLElement
+      trigger.click()
+      await new Promise((r) => setTimeout(r, 50))
+
+      const option = document.querySelector('[role="option"]')
+      expect(option, "Items must have role='option'").toBeTruthy()
+    })
+
+    it("selected item must have aria-selected='true'", async () => {
+      container.innerHTML = `
+        <plank-combobox value="test">
+          <plank-combobox-item value="test">Test</plank-combobox-item>
+          <plank-combobox-item value="other">Other</plank-combobox-item>
+        </plank-combobox>
+      `
+
+      await customElements.whenDefined("plank-combobox")
+      const combobox = container.querySelector("plank-combobox")!
+      await (combobox as any).updateComplete
+
+      // Open the combobox
+      const trigger = container.querySelector(
+        '[role="combobox"]'
+      ) as HTMLElement
+      trigger.click()
+      await new Promise((r) => setTimeout(r, 50))
+
+      const selectedOption = document.querySelector('[aria-selected="true"]')
+      expect(
+        selectedOption,
+        "Selected item must have aria-selected='true'"
+      ).toBeTruthy()
+      expect(selectedOption?.textContent).toContain("Test")
+    })
+
+    it("disabled items must have aria-disabled='true'", async () => {
+      container.innerHTML = `
+        <plank-combobox>
+          <plank-combobox-item value="test" disabled>Disabled</plank-combobox-item>
+        </plank-combobox>
+      `
+
+      await customElements.whenDefined("plank-combobox")
+      const combobox = container.querySelector("plank-combobox")!
+      await (combobox as any).updateComplete
+
+      // Open the combobox
+      const trigger = container.querySelector(
+        '[role="combobox"]'
+      ) as HTMLElement
+      trigger.click()
+      await new Promise((r) => setTimeout(r, 50))
+
+      const disabledOption = document.querySelector('[aria-disabled="true"]')
+      expect(
+        disabledOption,
+        "Disabled item must have aria-disabled='true'"
+      ).toBeTruthy()
+    })
+  })
+
+  describe("plank-table", () => {
+    it("must contain native <table> element", async () => {
+      container.innerHTML = `
+        <plank-table>
+          <plank-table-body>
+            <plank-table-row>
+              <plank-table-cell>Content</plank-table-cell>
+            </plank-table-row>
+          </plank-table-body>
+        </plank-table>
+      `
+
+      await customElements.whenDefined("plank-table")
+      const tableElements = [
+        "plank-table",
+        "plank-table-body",
+        "plank-table-row",
+        "plank-table-cell",
+      ]
+      await Promise.all(
+        tableElements.map((el) =>
+          customElements.whenDefined(el).catch(() => {})
+        )
+      )
+      const elements = container.querySelectorAll(tableElements.join(", "))
+      await Promise.all(
+        Array.from(elements).map((el) => (el as any).updateComplete)
+      )
+
+      const table = container.querySelector("plank-table")
+      const nativeTable = table?.querySelector("table")
+      expect(nativeTable, "Must contain native <table> element").toBeTruthy()
+    })
+
+    it("must contain native <thead> element", async () => {
+      container.innerHTML = `
+        <plank-table>
+          <plank-table-header>
+            <plank-table-row>
+              <plank-table-head>Header</plank-table-head>
+            </plank-table-row>
+          </plank-table-header>
+        </plank-table>
+      `
+
+      await customElements.whenDefined("plank-table")
+      const tableElements = [
+        "plank-table",
+        "plank-table-header",
+        "plank-table-row",
+        "plank-table-head",
+      ]
+      await Promise.all(
+        tableElements.map((el) =>
+          customElements.whenDefined(el).catch(() => {})
+        )
+      )
+      const elements = container.querySelectorAll(tableElements.join(", "))
+      await Promise.all(
+        Array.from(elements).map((el) => (el as any).updateComplete)
+      )
+
+      const header = container.querySelector("plank-table-header")
+      const thead = header?.querySelector("thead")
+      expect(thead, "Must contain native <thead> element").toBeTruthy()
+    })
+
+    it("must contain native <tbody> element", async () => {
+      container.innerHTML = `
+        <plank-table>
+          <plank-table-body>
+            <plank-table-row>
+              <plank-table-cell>Content</plank-table-cell>
+            </plank-table-row>
+          </plank-table-body>
+        </plank-table>
+      `
+
+      await customElements.whenDefined("plank-table")
+      const tableElements = [
+        "plank-table",
+        "plank-table-body",
+        "plank-table-row",
+        "plank-table-cell",
+      ]
+      await Promise.all(
+        tableElements.map((el) =>
+          customElements.whenDefined(el).catch(() => {})
+        )
+      )
+      const elements = container.querySelectorAll(tableElements.join(", "))
+      await Promise.all(
+        Array.from(elements).map((el) => (el as any).updateComplete)
+      )
+
+      const body = container.querySelector("plank-table-body")
+      const tbody = body?.querySelector("tbody")
+      expect(tbody, "Must contain native <tbody> element").toBeTruthy()
+    })
+
+    it("must contain native <tfoot> element", async () => {
+      container.innerHTML = `
+        <plank-table>
+          <plank-table-footer>
+            <plank-table-row>
+              <plank-table-cell>Footer</plank-table-cell>
+            </plank-table-row>
+          </plank-table-footer>
+        </plank-table>
+      `
+
+      await customElements.whenDefined("plank-table")
+      const tableElements = [
+        "plank-table",
+        "plank-table-footer",
+        "plank-table-row",
+        "plank-table-cell",
+      ]
+      await Promise.all(
+        tableElements.map((el) =>
+          customElements.whenDefined(el).catch(() => {})
+        )
+      )
+      const elements = container.querySelectorAll(tableElements.join(", "))
+      await Promise.all(
+        Array.from(elements).map((el) => (el as any).updateComplete)
+      )
+
+      const footer = container.querySelector("plank-table-footer")
+      const tfoot = footer?.querySelector("tfoot")
+      expect(tfoot, "Must contain native <tfoot> element").toBeTruthy()
+    })
+
+    it("must contain native <tr> element", async () => {
+      container.innerHTML = `
+        <plank-table>
+          <plank-table-body>
+            <plank-table-row>
+              <plank-table-cell>Content</plank-table-cell>
+            </plank-table-row>
+          </plank-table-body>
+        </plank-table>
+      `
+
+      await customElements.whenDefined("plank-table")
+      const tableElements = [
+        "plank-table",
+        "plank-table-body",
+        "plank-table-row",
+        "plank-table-cell",
+      ]
+      await Promise.all(
+        tableElements.map((el) =>
+          customElements.whenDefined(el).catch(() => {})
+        )
+      )
+      const elements = container.querySelectorAll(tableElements.join(", "))
+      await Promise.all(
+        Array.from(elements).map((el) => (el as any).updateComplete)
+      )
+
+      const row = container.querySelector("plank-table-row")
+      const tr = row?.querySelector("tr")
+      expect(tr, "Must contain native <tr> element").toBeTruthy()
+    })
+
+    it("must contain native <th> element with content inside", async () => {
+      container.innerHTML = `
+        <plank-table>
+          <plank-table-header>
+            <plank-table-row>
+              <plank-table-head>Header Text</plank-table-head>
+            </plank-table-row>
+          </plank-table-header>
+        </plank-table>
+      `
+
+      await customElements.whenDefined("plank-table")
+      const tableElements = [
+        "plank-table",
+        "plank-table-header",
+        "plank-table-row",
+        "plank-table-head",
+      ]
+      await Promise.all(
+        tableElements.map((el) =>
+          customElements.whenDefined(el).catch(() => {})
+        )
+      )
+      const elements = container.querySelectorAll(tableElements.join(", "))
+      await Promise.all(
+        Array.from(elements).map((el) => (el as any).updateComplete)
+      )
+
+      const th = container.querySelector("th")
+      expect(th, "Must contain native <th> element").toBeTruthy()
+      expect(th?.textContent, "Text must be inside <th>").toContain(
+        "Header Text"
+      )
+    })
+
+    it("must contain native <td> element with content inside", async () => {
+      container.innerHTML = `
+        <plank-table>
+          <plank-table-body>
+            <plank-table-row>
+              <plank-table-cell>Cell Content</plank-table-cell>
+            </plank-table-row>
+          </plank-table-body>
+        </plank-table>
+      `
+
+      await customElements.whenDefined("plank-table")
+      const tableElements = [
+        "plank-table",
+        "plank-table-body",
+        "plank-table-row",
+        "plank-table-cell",
+      ]
+      await Promise.all(
+        tableElements.map((el) =>
+          customElements.whenDefined(el).catch(() => {})
+        )
+      )
+      const elements = container.querySelectorAll(tableElements.join(", "))
+      await Promise.all(
+        Array.from(elements).map((el) => (el as any).updateComplete)
+      )
+
+      const td = container.querySelector("td")
+      expect(td, "Must contain native <td> element").toBeTruthy()
+      expect(td?.textContent, "Text must be inside <td>").toContain(
+        "Cell Content"
+      )
+    })
+
+    it("must contain native <caption> element with content inside", async () => {
+      container.innerHTML = `
+        <plank-table>
+          <plank-table-caption>Table Caption</plank-table-caption>
+        </plank-table>
+      `
+
+      await customElements.whenDefined("plank-table")
+      const tableElements = ["plank-table", "plank-table-caption"]
+      await Promise.all(
+        tableElements.map((el) =>
+          customElements.whenDefined(el).catch(() => {})
+        )
+      )
+      const elements = container.querySelectorAll(tableElements.join(", "))
+      await Promise.all(
+        Array.from(elements).map((el) => (el as any).updateComplete)
+      )
+
+      const caption = container.querySelector("caption")
+      expect(caption, "Must contain native <caption> element").toBeTruthy()
+      expect(caption?.textContent, "Text must be inside <caption>").toContain(
+        "Table Caption"
+      )
     })
   })
 })

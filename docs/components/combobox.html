@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Combobox - Planks</title>
+    <script type="module" src="../src/main.ts"></script>
+  </head>
+  <body class="min-h-screen">
+    <!-- Header -->
+    <header class="border-b">
+      <div class="container mx-auto px-4 py-4 flex items-center gap-4">
+        <a href="../" class="text-2xl font-bold">Planks</a>
+        <span class="text-muted-foreground">/</span>
+        <span>Combobox</span>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+      <h1 class="text-4xl font-bold mb-4">Combobox</h1>
+      <p class="text-xl text-muted-foreground mb-8">
+        A searchable dropdown for selecting from a list of options.
+      </p>
+
+      <!-- Basic Usage -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Basic Usage</h2>
+        <p class="text-muted-foreground mb-4">
+          A simple combobox with searchable items.
+        </p>
+        <div class="mb-4">
+          <plank-combobox placeholder="Select framework..." class="w-[200px]">
+            <plank-combobox-item value="next">Next.js</plank-combobox-item>
+            <plank-combobox-item value="svelte">SvelteKit</plank-combobox-item>
+            <plank-combobox-item value="nuxt">Nuxt.js</plank-combobox-item>
+            <plank-combobox-item value="remix">Remix</plank-combobox-item>
+            <plank-combobox-item value="astro">Astro</plank-combobox-item>
+          </plank-combobox>
+        </div>
+        <pre><code>&lt;plank-combobox placeholder="Select framework..."&gt;
+  &lt;plank-combobox-item value="next"&gt;Next.js&lt;/plank-combobox-item&gt;
+  &lt;plank-combobox-item value="svelte"&gt;SvelteKit&lt;/plank-combobox-item&gt;
+  &lt;plank-combobox-item value="nuxt"&gt;Nuxt.js&lt;/plank-combobox-item&gt;
+&lt;/plank-combobox&gt;</code></pre>
+      </section>
+
+      <!-- With Preselected Value -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Preselected Value</h2>
+        <p class="text-muted-foreground mb-4">
+          Set an initial value using the value attribute.
+        </p>
+        <div class="mb-4">
+          <plank-combobox
+            value="svelte"
+            placeholder="Select framework..."
+            class="w-[200px]"
+          >
+            <plank-combobox-item value="next">Next.js</plank-combobox-item>
+            <plank-combobox-item value="svelte">SvelteKit</plank-combobox-item>
+            <plank-combobox-item value="nuxt">Nuxt.js</plank-combobox-item>
+          </plank-combobox>
+        </div>
+        <pre><code>&lt;plank-combobox value="svelte" placeholder="Select framework..."&gt;
+  &lt;plank-combobox-item value="next"&gt;Next.js&lt;/plank-combobox-item&gt;
+  &lt;plank-combobox-item value="svelte"&gt;SvelteKit&lt;/plank-combobox-item&gt;
+  &lt;plank-combobox-item value="nuxt"&gt;Nuxt.js&lt;/plank-combobox-item&gt;
+&lt;/plank-combobox&gt;</code></pre>
+      </section>
+
+      <!-- Disabled Items -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Disabled Items</h2>
+        <p class="text-muted-foreground mb-4">
+          Individual items can be disabled and will be skipped during keyboard
+          navigation.
+        </p>
+        <div class="mb-4">
+          <plank-combobox placeholder="Select framework..." class="w-[200px]">
+            <plank-combobox-item value="next">Next.js</plank-combobox-item>
+            <plank-combobox-item value="svelte" disabled
+              >SvelteKit (Unavailable)</plank-combobox-item
+            >
+            <plank-combobox-item value="nuxt">Nuxt.js</plank-combobox-item>
+          </plank-combobox>
+        </div>
+        <pre><code>&lt;plank-combobox-item value="svelte" disabled&gt;
+  SvelteKit (Unavailable)
+&lt;/plank-combobox-item&gt;</code></pre>
+      </section>
+
+      <!-- Disabled Combobox -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Disabled Combobox</h2>
+        <p class="text-muted-foreground mb-4">
+          The entire combobox can be disabled.
+        </p>
+        <div class="mb-4">
+          <plank-combobox
+            disabled
+            placeholder="Select framework..."
+            class="w-[200px]"
+          >
+            <plank-combobox-item value="next">Next.js</plank-combobox-item>
+          </plank-combobox>
+        </div>
+        <pre><code>&lt;plank-combobox disabled placeholder="Select framework..."&gt;
+  &lt;plank-combobox-item value="next"&gt;Next.js&lt;/plank-combobox-item&gt;
+&lt;/plank-combobox&gt;</code></pre>
+      </section>
+
+      <!-- Custom Empty Text -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Custom Empty Text</h2>
+        <p class="text-muted-foreground mb-4">
+          Customize the message shown when no items match the search query.
+        </p>
+        <div class="mb-4">
+          <plank-combobox
+            placeholder="Select framework..."
+            emptyText="No frameworks found. Try another search."
+            class="w-[250px]"
+          >
+            <plank-combobox-item value="next">Next.js</plank-combobox-item>
+            <plank-combobox-item value="svelte">SvelteKit</plank-combobox-item>
+          </plank-combobox>
+        </div>
+        <pre><code>&lt;plank-combobox
+  placeholder="Select framework..."
+  emptyText="No frameworks found. Try another search."
+&gt;</code></pre>
+      </section>
+
+      <!-- API -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">API</h2>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">plank-combobox</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Property</th>
+                <th class="text-left py-2 pr-4">Type</th>
+                <th class="text-left py-2 pr-4">Default</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">value</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  string
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">""</td>
+                <td class="py-2">The currently selected value</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">open</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  boolean
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">false</td>
+                <td class="py-2">Whether the dropdown is open</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">placeholder</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  string
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  "Select..."
+                </td>
+                <td class="py-2">Placeholder text when no value selected</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">searchPlaceholder</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  string
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  "Search..."
+                </td>
+                <td class="py-2">Placeholder for the search input</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">emptyText</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  string
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  "No results found."
+                </td>
+                <td class="py-2">Message shown when search finds no matches</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">disabled</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  boolean
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">false</td>
+                <td class="py-2">Whether the combobox is disabled</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">Events</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Event</th>
+                <th class="text-left py-2 pr-4">Detail</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">value-change</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  { value: string }
+                </td>
+                <td class="py-2">Fired when the selected value changes</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">open-change</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  { open: boolean }
+                </td>
+                <td class="py-2">Fired when the dropdown opens or closes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">plank-combobox-item</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Property</th>
+                <th class="text-left py-2 pr-4">Type</th>
+                <th class="text-left py-2 pr-4">Default</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">value</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  string
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">""</td>
+                <td class="py-2">The value of the item</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">disabled</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  boolean
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">false</td>
+                <td class="py-2">Whether the item is disabled</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Accessibility -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Accessibility</h2>
+        <ul class="list-disc list-inside space-y-2 text-muted-foreground">
+          <li>Trigger has role="combobox" with aria-expanded</li>
+          <li>Trigger has aria-haspopup="listbox"</li>
+          <li>Trigger has aria-controls pointing to the listbox</li>
+          <li>Dropdown list has role="listbox"</li>
+          <li>Items have role="option" with aria-selected</li>
+          <li>Disabled items have aria-disabled="true"</li>
+          <li>Full keyboard navigation with ArrowUp/ArrowDown</li>
+          <li>Enter to select the highlighted item</li>
+          <li>Home/End to jump to first/last item</li>
+          <li>Escape to close the dropdown</li>
+          <li>Disabled items are skipped during navigation</li>
+          <li>Type to filter items</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

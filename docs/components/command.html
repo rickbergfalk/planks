@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Command - Planks</title>
+    <script type="module" src="../src/main.ts"></script>
+  </head>
+  <body class="min-h-screen">
+    <!-- Header -->
+    <header class="border-b">
+      <div class="container mx-auto px-4 py-4 flex items-center gap-4">
+        <a href="../" class="text-2xl font-bold">Planks</a>
+        <span class="text-muted-foreground">/</span>
+        <span>Command</span>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+      <h1 class="text-4xl font-bold mb-4">Command</h1>
+      <p class="text-xl text-muted-foreground mb-8">
+        A command palette for searching and executing actions with keyboard
+        navigation.
+      </p>
+
+      <!-- Basic Usage -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Basic Usage</h2>
+        <p class="text-muted-foreground mb-4">
+          A simple command palette with filterable items.
+        </p>
+        <div class="mb-4">
+          <plank-command class="rounded-lg border shadow-md max-w-[450px]">
+            <plank-command-input
+              placeholder="Type a command or search..."
+            ></plank-command-input>
+            <plank-command-list>
+              <plank-command-empty>No results found.</plank-command-empty>
+              <plank-command-group heading="Suggestions">
+                <plank-command-item>Calendar</plank-command-item>
+                <plank-command-item>Search Emoji</plank-command-item>
+                <plank-command-item>Calculator</plank-command-item>
+              </plank-command-group>
+            </plank-command-list>
+          </plank-command>
+        </div>
+        <pre><code>&lt;plank-command class="rounded-lg border shadow-md"&gt;
+  &lt;plank-command-input placeholder="Type a command..."&gt;&lt;/plank-command-input&gt;
+  &lt;plank-command-list&gt;
+    &lt;plank-command-empty&gt;No results found.&lt;/plank-command-empty&gt;
+    &lt;plank-command-group heading="Suggestions"&gt;
+      &lt;plank-command-item&gt;Calendar&lt;/plank-command-item&gt;
+      &lt;plank-command-item&gt;Search Emoji&lt;/plank-command-item&gt;
+    &lt;/plank-command-group&gt;
+  &lt;/plank-command-list&gt;
+&lt;/plank-command&gt;</code></pre>
+      </section>
+
+      <!-- With Groups -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">With Groups</h2>
+        <p class="text-muted-foreground mb-4">
+          Organize commands into logical groups with headings and separators.
+        </p>
+        <div class="mb-4">
+          <plank-command class="rounded-lg border shadow-md max-w-[450px]">
+            <plank-command-input
+              placeholder="Type a command or search..."
+            ></plank-command-input>
+            <plank-command-list>
+              <plank-command-empty>No results found.</plank-command-empty>
+              <plank-command-group heading="Suggestions">
+                <plank-command-item>Calendar</plank-command-item>
+                <plank-command-item>Search Emoji</plank-command-item>
+              </plank-command-group>
+              <plank-command-separator></plank-command-separator>
+              <plank-command-group heading="Settings">
+                <plank-command-item>Profile</plank-command-item>
+                <plank-command-item>Billing</plank-command-item>
+                <plank-command-item>Settings</plank-command-item>
+              </plank-command-group>
+            </plank-command-list>
+          </plank-command>
+        </div>
+        <pre><code>&lt;plank-command-group heading="Suggestions"&gt;
+  &lt;plank-command-item&gt;Calendar&lt;/plank-command-item&gt;
+&lt;/plank-command-group&gt;
+&lt;plank-command-separator&gt;&lt;/plank-command-separator&gt;
+&lt;plank-command-group heading="Settings"&gt;
+  &lt;plank-command-item&gt;Profile&lt;/plank-command-item&gt;
+&lt;/plank-command-group&gt;</code></pre>
+      </section>
+
+      <!-- With Shortcuts -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">With Shortcuts</h2>
+        <p class="text-muted-foreground mb-4">
+          Display keyboard shortcuts alongside command items.
+        </p>
+        <div class="mb-4">
+          <plank-command class="rounded-lg border shadow-md max-w-[450px]">
+            <plank-command-input
+              placeholder="Type a command or search..."
+            ></plank-command-input>
+            <plank-command-list>
+              <plank-command-group heading="Actions">
+                <plank-command-item>
+                  <span>Profile</span>
+                  <plank-command-shortcut>&#8984;P</plank-command-shortcut>
+                </plank-command-item>
+                <plank-command-item>
+                  <span>Billing</span>
+                  <plank-command-shortcut>&#8984;B</plank-command-shortcut>
+                </plank-command-item>
+                <plank-command-item>
+                  <span>Settings</span>
+                  <plank-command-shortcut>&#8984;S</plank-command-shortcut>
+                </plank-command-item>
+              </plank-command-group>
+            </plank-command-list>
+          </plank-command>
+        </div>
+        <pre><code>&lt;plank-command-item&gt;
+  &lt;span&gt;Profile&lt;/span&gt;
+  &lt;plank-command-shortcut&gt;&#8984;P&lt;/plank-command-shortcut&gt;
+&lt;/plank-command-item&gt;</code></pre>
+      </section>
+
+      <!-- Disabled Items -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Disabled Items</h2>
+        <p class="text-muted-foreground mb-4">
+          Individual items can be disabled and will be skipped during keyboard
+          navigation.
+        </p>
+        <div class="mb-4">
+          <plank-command class="rounded-lg border shadow-md max-w-[450px]">
+            <plank-command-input
+              placeholder="Type a command or search..."
+            ></plank-command-input>
+            <plank-command-list>
+              <plank-command-group heading="Actions">
+                <plank-command-item>Enabled Action</plank-command-item>
+                <plank-command-item disabled
+                  >Disabled Action</plank-command-item
+                >
+                <plank-command-item>Another Action</plank-command-item>
+              </plank-command-group>
+            </plank-command-list>
+          </plank-command>
+        </div>
+        <pre><code>&lt;plank-command-item disabled&gt;Disabled Action&lt;/plank-command-item&gt;</code></pre>
+      </section>
+
+      <!-- API -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">API</h2>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">plank-command</h3>
+        <p class="text-muted-foreground mb-4">
+          The root container that manages state and filtering.
+        </p>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">Events</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Event</th>
+                <th class="text-left py-2 pr-4">Detail</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">select</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  { value: string }
+                </td>
+                <td class="py-2">Fired when an item is selected</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">plank-command-input</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Property</th>
+                <th class="text-left py-2 pr-4">Type</th>
+                <th class="text-left py-2 pr-4">Default</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">placeholder</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  string
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">""</td>
+                <td class="py-2">Placeholder text for the input</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">plank-command-list</h3>
+        <p class="text-muted-foreground mb-4">
+          Container for items. Has role="listbox" and scrollable overflow.
+        </p>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">plank-command-empty</h3>
+        <p class="text-muted-foreground mb-4">
+          Displayed when no items match the search query.
+        </p>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">plank-command-group</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Property</th>
+                <th class="text-left py-2 pr-4">Type</th>
+                <th class="text-left py-2 pr-4">Default</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">heading</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  string
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">""</td>
+                <td class="py-2">The heading text for the group</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">plank-command-item</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2 pr-4">Property</th>
+                <th class="text-left py-2 pr-4">Type</th>
+                <th class="text-left py-2 pr-4">Default</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">value</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  string
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">""</td>
+                <td class="py-2">
+                  The value (defaults to lowercase text content)
+                </td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2 pr-4 font-mono">disabled</td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">
+                  boolean
+                </td>
+                <td class="py-2 pr-4 font-mono text-muted-foreground">false</td>
+                <td class="py-2">Whether the item is disabled</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">plank-command-separator</h3>
+        <p class="text-muted-foreground mb-4">
+          A horizontal divider between groups.
+        </p>
+
+        <h3 class="text-xl font-semibold mt-6 mb-4">plank-command-shortcut</h3>
+        <p class="text-muted-foreground mb-4">
+          Displays a keyboard shortcut aligned to the right of an item.
+        </p>
+      </section>
+
+      <!-- Accessibility -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Accessibility</h2>
+        <ul class="list-disc list-inside space-y-2 text-muted-foreground">
+          <li>Input has role="combobox" with aria-expanded="true"</li>
+          <li>Input has aria-controls pointing to the list</li>
+          <li>List has role="listbox"</li>
+          <li>Items have role="option" with aria-selected</li>
+          <li>Groups have role="group"</li>
+          <li>Separators have role="separator"</li>
+          <li>Full keyboard navigation with ArrowUp/ArrowDown</li>
+          <li>Enter to select the highlighted item</li>
+          <li>Home/End to jump to first/last item</li>
+          <li>Disabled items are skipped during navigation</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

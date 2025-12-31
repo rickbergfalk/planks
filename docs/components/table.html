@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Table - Planks</title>
+    <script type="module" src="../src/main.ts"></script>
+  </head>
+  <body class="min-h-screen">
+    <header class="border-b">
+      <div class="container mx-auto px-4 py-4 flex items-center gap-4">
+        <a href="../" class="text-2xl font-bold">Planks</a>
+        <span class="text-muted-foreground">/</span>
+        <span>Table</span>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+      <h1 class="text-4xl font-bold mb-4">Table</h1>
+      <p class="text-xl text-muted-foreground mb-8">
+        A responsive table with support for headers, body, footer, and captions.
+      </p>
+
+      <!-- Basic Usage -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Basic Usage</h2>
+        <p class="text-muted-foreground mb-4">
+          A simple table with header and body rows.
+        </p>
+        <div class="mb-4">
+          <plank-table>
+            <plank-table-header>
+              <plank-table-row>
+                <plank-table-head class="w-[100px]">Invoice</plank-table-head>
+                <plank-table-head>Status</plank-table-head>
+                <plank-table-head>Method</plank-table-head>
+                <plank-table-head class="text-right">Amount</plank-table-head>
+              </plank-table-row>
+            </plank-table-header>
+            <plank-table-body>
+              <plank-table-row>
+                <plank-table-cell class="font-medium">INV001</plank-table-cell>
+                <plank-table-cell>Paid</plank-table-cell>
+                <plank-table-cell>Credit Card</plank-table-cell>
+                <plank-table-cell class="text-right">$250.00</plank-table-cell>
+              </plank-table-row>
+              <plank-table-row>
+                <plank-table-cell class="font-medium">INV002</plank-table-cell>
+                <plank-table-cell>Pending</plank-table-cell>
+                <plank-table-cell>PayPal</plank-table-cell>
+                <plank-table-cell class="text-right">$150.00</plank-table-cell>
+              </plank-table-row>
+              <plank-table-row>
+                <plank-table-cell class="font-medium">INV003</plank-table-cell>
+                <plank-table-cell>Unpaid</plank-table-cell>
+                <plank-table-cell>Bank Transfer</plank-table-cell>
+                <plank-table-cell class="text-right">$350.00</plank-table-cell>
+              </plank-table-row>
+            </plank-table-body>
+          </plank-table>
+        </div>
+        <pre><code>&lt;plank-table&gt;
+  &lt;plank-table-header&gt;
+    &lt;plank-table-row&gt;
+      &lt;plank-table-head&gt;Invoice&lt;/plank-table-head&gt;
+      &lt;plank-table-head&gt;Status&lt;/plank-table-head&gt;
+      &lt;plank-table-head class="text-right"&gt;Amount&lt;/plank-table-head&gt;
+    &lt;/plank-table-row&gt;
+  &lt;/plank-table-header&gt;
+  &lt;plank-table-body&gt;
+    &lt;plank-table-row&gt;
+      &lt;plank-table-cell&gt;INV001&lt;/plank-table-cell&gt;
+      &lt;plank-table-cell&gt;Paid&lt;/plank-table-cell&gt;
+      &lt;plank-table-cell class="text-right"&gt;$250.00&lt;/plank-table-cell&gt;
+    &lt;/plank-table-row&gt;
+  &lt;/plank-table-body&gt;
+&lt;/plank-table&gt;</code></pre>
+      </section>
+
+      <!-- With Caption -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">With Caption</h2>
+        <p class="text-muted-foreground mb-4">
+          Add a caption to describe the table content.
+        </p>
+        <div class="mb-4">
+          <plank-table>
+            <plank-table-caption
+              >A list of your recent invoices.</plank-table-caption
+            >
+            <plank-table-header>
+              <plank-table-row>
+                <plank-table-head>Invoice</plank-table-head>
+                <plank-table-head>Status</plank-table-head>
+                <plank-table-head class="text-right">Amount</plank-table-head>
+              </plank-table-row>
+            </plank-table-header>
+            <plank-table-body>
+              <plank-table-row>
+                <plank-table-cell class="font-medium">INV001</plank-table-cell>
+                <plank-table-cell>Paid</plank-table-cell>
+                <plank-table-cell class="text-right">$250.00</plank-table-cell>
+              </plank-table-row>
+              <plank-table-row>
+                <plank-table-cell class="font-medium">INV002</plank-table-cell>
+                <plank-table-cell>Pending</plank-table-cell>
+                <plank-table-cell class="text-right">$150.00</plank-table-cell>
+              </plank-table-row>
+            </plank-table-body>
+          </plank-table>
+        </div>
+        <pre><code>&lt;plank-table&gt;
+  &lt;plank-table-caption&gt;A list of your recent invoices.&lt;/plank-table-caption&gt;
+  &lt;plank-table-header&gt;...&lt;/plank-table-header&gt;
+  &lt;plank-table-body&gt;...&lt;/plank-table-body&gt;
+&lt;/plank-table&gt;</code></pre>
+      </section>
+
+      <!-- With Footer -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">With Footer</h2>
+        <p class="text-muted-foreground mb-4">
+          Add a footer for summary rows like totals.
+        </p>
+        <div class="mb-4">
+          <plank-table>
+            <plank-table-header>
+              <plank-table-row>
+                <plank-table-head>Invoice</plank-table-head>
+                <plank-table-head>Status</plank-table-head>
+                <plank-table-head class="text-right">Amount</plank-table-head>
+              </plank-table-row>
+            </plank-table-header>
+            <plank-table-body>
+              <plank-table-row>
+                <plank-table-cell class="font-medium">INV001</plank-table-cell>
+                <plank-table-cell>Paid</plank-table-cell>
+                <plank-table-cell class="text-right">$250.00</plank-table-cell>
+              </plank-table-row>
+              <plank-table-row>
+                <plank-table-cell class="font-medium">INV002</plank-table-cell>
+                <plank-table-cell>Pending</plank-table-cell>
+                <plank-table-cell class="text-right">$150.00</plank-table-cell>
+              </plank-table-row>
+            </plank-table-body>
+            <plank-table-footer>
+              <plank-table-row>
+                <plank-table-cell colspan="2">Total</plank-table-cell>
+                <plank-table-cell class="text-right">$400.00</plank-table-cell>
+              </plank-table-row>
+            </plank-table-footer>
+          </plank-table>
+        </div>
+        <pre><code>&lt;plank-table-footer&gt;
+  &lt;plank-table-row&gt;
+    &lt;plank-table-cell colspan="2"&gt;Total&lt;/plank-table-cell&gt;
+    &lt;plank-table-cell class="text-right"&gt;$400.00&lt;/plank-table-cell&gt;
+  &lt;/plank-table-row&gt;
+&lt;/plank-table-footer&gt;</code></pre>
+      </section>
+
+      <!-- Selected Rows -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Selected Rows</h2>
+        <p class="text-muted-foreground mb-4">
+          Rows can be marked as selected for visual highlighting.
+        </p>
+        <div class="mb-4">
+          <plank-table>
+            <plank-table-header>
+              <plank-table-row>
+                <plank-table-head>Invoice</plank-table-head>
+                <plank-table-head>Status</plank-table-head>
+                <plank-table-head class="text-right">Amount</plank-table-head>
+              </plank-table-row>
+            </plank-table-header>
+            <plank-table-body>
+              <plank-table-row>
+                <plank-table-cell class="font-medium">INV001</plank-table-cell>
+                <plank-table-cell>Paid</plank-table-cell>
+                <plank-table-cell class="text-right">$250.00</plank-table-cell>
+              </plank-table-row>
+              <plank-table-row selected>
+                <plank-table-cell class="font-medium">INV002</plank-table-cell>
+                <plank-table-cell>Pending</plank-table-cell>
+                <plank-table-cell class="text-right">$150.00</plank-table-cell>
+              </plank-table-row>
+              <plank-table-row>
+                <plank-table-cell class="font-medium">INV003</plank-table-cell>
+                <plank-table-cell>Unpaid</plank-table-cell>
+                <plank-table-cell class="text-right">$350.00</plank-table-cell>
+              </plank-table-row>
+            </plank-table-body>
+          </plank-table>
+        </div>
+        <pre><code>&lt;plank-table-row selected&gt;
+  &lt;plank-table-cell&gt;INV002&lt;/plank-table-cell&gt;
+  ...
+&lt;/plank-table-row&gt;</code></pre>
+      </section>
+
+      <!-- API -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Components</h2>
+        <div class="overflow-x-auto">
+          <plank-table>
+            <plank-table-header>
+              <plank-table-row>
+                <plank-table-head>Component</plank-table-head>
+                <plank-table-head>Description</plank-table-head>
+              </plank-table-row>
+            </plank-table-header>
+            <plank-table-body>
+              <plank-table-row>
+                <plank-table-cell class="font-mono"
+                  >plank-table</plank-table-cell
+                >
+                <plank-table-cell
+                  >The table container with scrollable
+                  wrapper</plank-table-cell
+                >
+              </plank-table-row>
+              <plank-table-row>
+                <plank-table-cell class="font-mono"
+                  >plank-table-header</plank-table-cell
+                >
+                <plank-table-cell
+                  >Contains header rows (thead)</plank-table-cell
+                >
+              </plank-table-row>
+              <plank-table-row>
+                <plank-table-cell class="font-mono"
+                  >plank-table-body</plank-table-cell
+                >
+                <plank-table-cell>Contains data rows (tbody)</plank-table-cell>
+              </plank-table-row>
+              <plank-table-row>
+                <plank-table-cell class="font-mono"
+                  >plank-table-footer</plank-table-cell
+                >
+                <plank-table-cell
+                  >Contains footer/summary rows (tfoot)</plank-table-cell
+                >
+              </plank-table-row>
+              <plank-table-row>
+                <plank-table-cell class="font-mono"
+                  >plank-table-row</plank-table-cell
+                >
+                <plank-table-cell
+                  >A table row with hover and selected
+                  states</plank-table-cell
+                >
+              </plank-table-row>
+              <plank-table-row>
+                <plank-table-cell class="font-mono"
+                  >plank-table-head</plank-table-cell
+                >
+                <plank-table-cell
+                  >A header cell (th) with optional colspan, rowspan,
+                  scope</plank-table-cell
+                >
+              </plank-table-row>
+              <plank-table-row>
+                <plank-table-cell class="font-mono"
+                  >plank-table-cell</plank-table-cell
+                >
+                <plank-table-cell
+                  >A data cell (td) with optional colspan,
+                  rowspan</plank-table-cell
+                >
+              </plank-table-row>
+              <plank-table-row>
+                <plank-table-cell class="font-mono"
+                  >plank-table-caption</plank-table-cell
+                >
+                <plank-table-cell>A table caption element</plank-table-cell>
+              </plank-table-row>
+            </plank-table-body>
+          </plank-table>
+        </div>
+      </section>
+
+      <!-- plank-table-row API -->
+      <section class="mb-12">
+        <h3 class="text-xl font-semibold mb-4">plank-table-row</h3>
+        <div class="overflow-x-auto">
+          <plank-table>
+            <plank-table-header>
+              <plank-table-row>
+                <plank-table-head>Property</plank-table-head>
+                <plank-table-head>Type</plank-table-head>
+                <plank-table-head>Default</plank-table-head>
+                <plank-table-head>Description</plank-table-head>
+              </plank-table-row>
+            </plank-table-header>
+            <plank-table-body>
+              <plank-table-row>
+                <plank-table-cell class="font-mono">selected</plank-table-cell>
+                <plank-table-cell class="font-mono text-muted-foreground"
+                  >boolean</plank-table-cell
+                >
+                <plank-table-cell class="font-mono text-muted-foreground"
+                  >false</plank-table-cell
+                >
+                <plank-table-cell
+                  >Whether the row is visually selected</plank-table-cell
+                >
+              </plank-table-row>
+            </plank-table-body>
+          </plank-table>
+        </div>
+      </section>
+
+      <!-- plank-table-head / plank-table-cell API -->
+      <section class="mb-12">
+        <h3 class="text-xl font-semibold mb-4">
+          plank-table-head / plank-table-cell
+        </h3>
+        <div class="overflow-x-auto">
+          <plank-table>
+            <plank-table-header>
+              <plank-table-row>
+                <plank-table-head>Property</plank-table-head>
+                <plank-table-head>Type</plank-table-head>
+                <plank-table-head>Default</plank-table-head>
+                <plank-table-head>Description</plank-table-head>
+              </plank-table-row>
+            </plank-table-header>
+            <plank-table-body>
+              <plank-table-row>
+                <plank-table-cell class="font-mono">colspan</plank-table-cell>
+                <plank-table-cell class="font-mono text-muted-foreground"
+                  >number</plank-table-cell
+                >
+                <plank-table-cell class="font-mono text-muted-foreground"
+                  >-</plank-table-cell
+                >
+                <plank-table-cell
+                  >Number of columns the cell spans</plank-table-cell
+                >
+              </plank-table-row>
+              <plank-table-row>
+                <plank-table-cell class="font-mono">rowspan</plank-table-cell>
+                <plank-table-cell class="font-mono text-muted-foreground"
+                  >number</plank-table-cell
+                >
+                <plank-table-cell class="font-mono text-muted-foreground"
+                  >-</plank-table-cell
+                >
+                <plank-table-cell
+                  >Number of rows the cell spans</plank-table-cell
+                >
+              </plank-table-row>
+              <plank-table-row>
+                <plank-table-cell class="font-mono"
+                  >scope (th only)</plank-table-cell
+                >
+                <plank-table-cell class="font-mono text-muted-foreground"
+                  >string</plank-table-cell
+                >
+                <plank-table-cell class="font-mono text-muted-foreground"
+                  >-</plank-table-cell
+                >
+                <plank-table-cell
+                  >Scope of the header cell (col, row, etc.)</plank-table-cell
+                >
+              </plank-table-row>
+            </plank-table-body>
+          </plank-table>
+        </div>
+      </section>
+
+      <!-- Accessibility -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Accessibility</h2>
+        <ul class="list-disc list-inside space-y-2 text-muted-foreground">
+          <li>Uses native semantic table elements (table, thead, tbody, tfoot, tr, th, td, caption)</li>
+          <li>Header cells support the scope attribute for screen readers</li>
+          <li>Selected rows use data-state="selected" for visual indication</li>
+          <li>Caption element provides a description of the table content</li>
+          <li>Supports colspan and rowspan for complex table structures</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

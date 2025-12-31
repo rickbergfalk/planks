@@ -610,6 +610,88 @@
             </plank-hover-card-content>
           </plank-hover-card>
         </a>
+
+        <!-- Select -->
+        <a
+          href="./components/select.html"
+          class="block p-6 border rounded-lg hover:border-foreground transition-colors"
+        >
+          <h3 class="font-semibold mb-2">Select</h3>
+          <p class="text-sm text-muted-foreground mb-4">
+            Dropdown for selecting a value.
+          </p>
+          <plank-select>
+            <plank-select-trigger class="w-[140px]">
+              <plank-select-value placeholder="Select"></plank-select-value>
+            </plank-select-trigger>
+            <plank-select-content>
+              <plank-select-item value="apple">Apple</plank-select-item>
+              <plank-select-item value="banana">Banana</plank-select-item>
+              <plank-select-item value="orange">Orange</plank-select-item>
+            </plank-select-content>
+          </plank-select>
+        </a>
+
+        <!-- Command -->
+        <a
+          href="./components/command.html"
+          class="block p-6 border rounded-lg hover:border-foreground transition-colors"
+        >
+          <h3 class="font-semibold mb-2">Command</h3>
+          <p class="text-sm text-muted-foreground mb-4">
+            Command palette for searching.
+          </p>
+          <plank-command class="rounded-lg border shadow-sm">
+            <plank-command-input placeholder="Search..."></plank-command-input>
+            <plank-command-list>
+              <plank-command-group heading="Actions">
+                <plank-command-item>Calendar</plank-command-item>
+                <plank-command-item>Settings</plank-command-item>
+              </plank-command-group>
+            </plank-command-list>
+          </plank-command>
+        </a>
+
+        <!-- Combobox -->
+        <a
+          href="./components/combobox.html"
+          class="block p-6 border rounded-lg hover:border-foreground transition-colors"
+        >
+          <h3 class="font-semibold mb-2">Combobox</h3>
+          <p class="text-sm text-muted-foreground mb-4">
+            Searchable dropdown select.
+          </p>
+          <plank-combobox placeholder="Select framework..." class="w-full">
+            <plank-combobox-item value="next">Next.js</plank-combobox-item>
+            <plank-combobox-item value="svelte">SvelteKit</plank-combobox-item>
+            <plank-combobox-item value="nuxt">Nuxt.js</plank-combobox-item>
+          </plank-combobox>
+        </a>
+
+        <!-- Table -->
+        <a
+          href="./components/table.html"
+          class="block p-6 border rounded-lg hover:border-foreground transition-colors"
+        >
+          <h3 class="font-semibold mb-2">Table</h3>
+          <p class="text-sm text-muted-foreground mb-4">
+            Responsive semantic tables.
+          </p>
+          <plank-table>
+            <plank-table-header>
+              <plank-table-row>
+                <plank-table-head>Item</plank-table-head>
+                <plank-table-head class="text-right">Price</plank-table-head>
+              </plank-table-row>
+            </plank-table-header>
+            <plank-table-body>
+              <plank-table-row>
+                <plank-table-cell>Coffee</plank-table-cell>
+                <plank-table-cell class="text-right">$3.00</plank-table-cell>
+              </plank-table-row>
+            </plank-table-body>
+          </plank-table>
+        </a>
       </div>
     </main>
 

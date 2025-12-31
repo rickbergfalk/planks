@@ -302,12 +302,12 @@ describe("plank-newcomponent", () => {
 - [x] sheet
 - [x] drawer
 - [x] hover-card
-- [ ] select
-- [ ] combobox
-- [ ] command
+- [x] select
+- [x] combobox
+- [x] command
 
 ### Tier 6 - Complex compositions
-- [ ] table
+- [x] table
 - [ ] calendar
 - [ ] carousel
 - [ ] form

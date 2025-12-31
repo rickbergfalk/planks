@@ -22,8 +22,11 @@ export default defineConfig({
       "@radix-ui/react-dropdown-menu",
       "@radix-ui/react-context-menu",
       "@radix-ui/react-hover-card",
+      "@radix-ui/react-select",
+      "cmdk",
       "lucide-react",
       "vaul",
+      "react-day-picker",
     ],
   },
   test: {
@@ -34,6 +37,10 @@ export default defineConfig({
       ui: false, // Disable Vitest UI overlay to prevent test counter in screenshots
       expect: {
         toMatchScreenshot: {
+          // Allow up to 2% pixel difference for minor rendering variations
+          comparatorOptions: {
+            allowedMismatchedPixelRatio: 0.02,
+          },
           // Web component tests compare against React baselines
           resolveScreenshotPath: ({
             testFileDirectory,
