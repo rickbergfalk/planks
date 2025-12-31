@@ -31,9 +31,7 @@ describe("PlankTable (Web Component)", () => {
     )
     const elements = container.querySelectorAll(tableElements.join(", "))
     await Promise.all(
-      Array.from(elements).map(
-        (el) => (el as PlankTable).updateComplete
-      )
+      Array.from(elements).map((el) => (el as PlankTable).updateComplete)
     )
   }
 
