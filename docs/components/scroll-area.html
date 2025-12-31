@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scroll Area - Planks</title>
+    <script type="module" src="../src/main.ts"></script>
+  </head>
+  <body class="min-h-screen">
+    <header class="border-b">
+      <div class="container mx-auto px-4 py-4 flex items-center gap-4">
+        <a href="../" class="text-2xl font-bold">Planks</a>
+        <span class="text-muted-foreground">/</span>
+        <span>Scroll Area</span>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+      <h1 class="text-4xl font-bold mb-4">Scroll Area</h1>
+      <p class="text-xl text-muted-foreground mb-8">
+        Augments native scroll functionality with custom styled scrollbars.
+      </p>
+
+      <!-- Vertical Scroll -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Vertical Scroll</h2>
+        <p class="text-muted-foreground mb-4">
+          A scrollable area with a vertical scrollbar for long content.
+        </p>
+        <div class="mb-4">
+          <plank-scroll-area class="h-72 w-48 rounded-md border">
+            <plank-scroll-area-viewport>
+              <div class="p-4">
+                <h4 class="mb-4 text-sm leading-none font-medium">Tags</h4>
+                <div class="text-sm">v1.2.0-beta.20</div>
+                <plank-separator class="my-2"></plank-separator>
+                <div class="text-sm">v1.2.0-beta.19</div>
+                <plank-separator class="my-2"></plank-separator>
+                <div class="text-sm">v1.2.0-beta.18</div>
+                <plank-separator class="my-2"></plank-separator>
+                <div class="text-sm">v1.2.0-beta.17</div>
+                <plank-separator class="my-2"></plank-separator>
+                <div class="text-sm">v1.2.0-beta.16</div>
+                <plank-separator class="my-2"></plank-separator>
+                <div class="text-sm">v1.2.0-beta.15</div>
+                <plank-separator class="my-2"></plank-separator>
+                <div class="text-sm">v1.2.0-beta.14</div>
+                <plank-separator class="my-2"></plank-separator>
+                <div class="text-sm">v1.2.0-beta.13</div>
+                <plank-separator class="my-2"></plank-separator>
+                <div class="text-sm">v1.2.0-beta.12</div>
+                <plank-separator class="my-2"></plank-separator>
+                <div class="text-sm">v1.2.0-beta.11</div>
+              </div>
+            </plank-scroll-area-viewport>
+            <plank-scroll-bar></plank-scroll-bar>
+          </plank-scroll-area>
+        </div>
+        <pre><code>&lt;plank-scroll-area class="h-72 w-48 rounded-md border"&gt;
+  &lt;plank-scroll-area-viewport&gt;
+    &lt;div class="p-4"&gt;
+      &lt;h4 class="mb-4 text-sm font-medium"&gt;Tags&lt;/h4&gt;
+      &lt;div class="text-sm"&gt;v1.2.0-beta.20&lt;/div&gt;
+      &lt;plank-separator class="my-2"&gt;&lt;/plank-separator&gt;
+      &lt;!-- More items... --&gt;
+    &lt;/div&gt;
+  &lt;/plank-scroll-area-viewport&gt;
+  &lt;plank-scroll-bar&gt;&lt;/plank-scroll-bar&gt;
+&lt;/plank-scroll-area&gt;</code></pre>
+      </section>
+
+      <!-- Horizontal Scroll -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Horizontal Scroll</h2>
+        <p class="text-muted-foreground mb-4">
+          A scrollable area with a horizontal scrollbar for wide content.
+        </p>
+        <div class="mb-4">
+          <plank-scroll-area class="w-96 rounded-md border whitespace-nowrap">
+            <plank-scroll-area-viewport>
+              <div class="flex gap-4 p-4" style="width: max-content">
+                <div
+                  class="w-32 h-24 bg-muted rounded-md flex items-center justify-center text-sm"
+                >
+                  Item 1
+                </div>
+                <div
+                  class="w-32 h-24 bg-muted rounded-md flex items-center justify-center text-sm"
+                >
+                  Item 2
+                </div>
+                <div
+                  class="w-32 h-24 bg-muted rounded-md flex items-center justify-center text-sm"
+                >
+                  Item 3
+                </div>
+                <div
+                  class="w-32 h-24 bg-muted rounded-md flex items-center justify-center text-sm"
+                >
+                  Item 4
+                </div>
+                <div
+                  class="w-32 h-24 bg-muted rounded-md flex items-center justify-center text-sm"
+                >
+                  Item 5
+                </div>
+              </div>
+            </plank-scroll-area-viewport>
+            <plank-scroll-bar orientation="horizontal"></plank-scroll-bar>
+          </plank-scroll-area>
+        </div>
+        <pre><code>&lt;plank-scroll-area class="w-96 rounded-md border whitespace-nowrap"&gt;
+  &lt;plank-scroll-area-viewport&gt;
+    &lt;div class="flex gap-4 p-4" style="width: max-content"&gt;
+      &lt;div class="w-32 h-24 bg-muted rounded-md"&gt;Item 1&lt;/div&gt;
+      &lt;div class="w-32 h-24 bg-muted rounded-md"&gt;Item 2&lt;/div&gt;
+      &lt;!-- More items... --&gt;
+    &lt;/div&gt;
+  &lt;/plank-scroll-area-viewport&gt;
+  &lt;plank-scroll-bar orientation="horizontal"&gt;&lt;/plank-scroll-bar&gt;
+&lt;/plank-scroll-area&gt;</code></pre>
+      </section>
+
+      <!-- API -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Components</h2>
+        <div class="overflow-x-auto">
+          <plank-table>
+            <plank-table-header>
+              <plank-table-row>
+                <plank-table-head>Component</plank-table-head>
+                <plank-table-head>Description</plank-table-head>
+              </plank-table-row>
+            </plank-table-header>
+            <plank-table-body>
+              <plank-table-row>
+                <plank-table-cell class="font-mono"
+                  >plank-scroll-area</plank-table-cell
+                >
+                <plank-table-cell
+                  >The scroll area container with custom
+                  scrollbars</plank-table-cell
+                >
+              </plank-table-row>
+              <plank-table-row>
+                <plank-table-cell class="font-mono"
+                  >plank-scroll-area-viewport</plank-table-cell
+                >
+                <plank-table-cell
+                  >The scrollable viewport containing content</plank-table-cell
+                >
+              </plank-table-row>
+              <plank-table-row>
+                <plank-table-cell class="font-mono"
+                  >plank-scroll-bar</plank-table-cell
+                >
+                <plank-table-cell
+                  >Custom scrollbar (vertical by default)</plank-table-cell
+                >
+              </plank-table-row>
+              <plank-table-row>
+                <plank-table-cell class="font-mono"
+                  >plank-scroll-area-corner</plank-table-cell
+                >
+                <plank-table-cell
+                  >Corner element when both scrollbars are
+                  visible</plank-table-cell
+                >
+              </plank-table-row>
+            </plank-table-body>
+          </plank-table>
+        </div>
+      </section>
+
+      <!-- plank-scroll-area API -->
+      <section class="mb-12">
+        <h3 class="text-xl font-semibold mb-4">plank-scroll-area</h3>
+        <div class="overflow-x-auto">
+          <plank-table>
+            <plank-table-header>
+              <plank-table-row>
+                <plank-table-head>Property</plank-table-head>
+                <plank-table-head>Type</plank-table-head>
+                <plank-table-head>Default</plank-table-head>
+                <plank-table-head>Description</plank-table-head>
+              </plank-table-row>
+            </plank-table-header>
+            <plank-table-body>
+              <plank-table-row>
+                <plank-table-cell class="font-mono">type</plank-table-cell>
+                <plank-table-cell class="font-mono text-muted-foreground"
+                  >"hover" | "scroll" | "auto" | "always"</plank-table-cell
+                >
+                <plank-table-cell class="font-mono text-muted-foreground"
+                  >"hover"</plank-table-cell
+                >
+                <plank-table-cell>When to show the scrollbar</plank-table-cell>
+              </plank-table-row>
+              <plank-table-row>
+                <plank-table-cell class="font-mono"
+                  >scroll-hide-delay</plank-table-cell
+                >
+                <plank-table-cell class="font-mono text-muted-foreground"
+                  >number</plank-table-cell
+                >
+                <plank-table-cell class="font-mono text-muted-foreground"
+                  >600</plank-table-cell
+                >
+                <plank-table-cell
+                  >Delay in ms before hiding the scrollbar</plank-table-cell
+                >
+              </plank-table-row>
+            </plank-table-body>
+          </plank-table>
+        </div>
+      </section>
+
+      <!-- plank-scroll-bar API -->
+      <section class="mb-12">
+        <h3 class="text-xl font-semibold mb-4">plank-scroll-bar</h3>
+        <div class="overflow-x-auto">
+          <plank-table>
+            <plank-table-header>
+              <plank-table-row>
+                <plank-table-head>Property</plank-table-head>
+                <plank-table-head>Type</plank-table-head>
+                <plank-table-head>Default</plank-table-head>
+                <plank-table-head>Description</plank-table-head>
+              </plank-table-row>
+            </plank-table-header>
+            <plank-table-body>
+              <plank-table-row>
+                <plank-table-cell class="font-mono"
+                  >orientation</plank-table-cell
+                >
+                <plank-table-cell class="font-mono text-muted-foreground"
+                  >"horizontal" | "vertical"</plank-table-cell
+                >
+                <plank-table-cell class="font-mono text-muted-foreground"
+                  >"vertical"</plank-table-cell
+                >
+                <plank-table-cell
+                  >The orientation of the scrollbar</plank-table-cell
+                >
+              </plank-table-row>
+            </plank-table-body>
+          </plank-table>
+        </div>
+      </section>
+
+      <!-- Usage Notes -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Usage Notes</h2>
+        <ul class="list-disc list-inside space-y-2 text-muted-foreground">
+          <li>Native scrollbars are hidden using CSS scrollbar-width: none</li>
+          <li>
+            The viewport automatically wraps content in a container for proper
+            sizing
+          </li>
+          <li>For vertical scrolling, set a fixed height on the scroll area</li>
+          <li>
+            For horizontal scrolling, set a fixed width and use
+            whitespace-nowrap
+          </li>
+          <li>Supports drag interaction on the scrollbar thumb</li>
+          <li>Click on the scrollbar track to jump to that position</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

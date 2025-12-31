@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Source paths relative to this CSS file */
+@source "./**/*.{ts,tsx}";
+@source "../src/**/*.{ts,tsx}";
+
 @custom-variant dark (&:is(.dark *));
 
 :root {

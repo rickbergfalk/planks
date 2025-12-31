@@ -317,7 +317,7 @@ describe("plank-newcomponent", () => {
 - [ ] menubar
 - [ ] sidebar
 - [ ] resizable
-- [ ] scroll-area
+- [x] scroll-area
 - [ ] input-group
 - [ ] input-otp
 - [ ] sonner

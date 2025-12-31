@@ -15,6 +15,8 @@ export class PlankSeparator extends LitElement {
   @property({ type: Boolean })
   decorative = true
 
+  @property({ type: String }) class: string = ""
+
   // Light DOM - no shadow root
   createRenderRoot() {
     return this
@@ -34,23 +36,16 @@ export class PlankSeparator extends LitElement {
     }
   }
 
-  updated(changedProperties: Map<string, unknown>) {
-    super.updated(changedProperties)
-
-    if (
-      changedProperties.has("decorative") ||
-      changedProperties.has("orientation")
-    ) {
-      this._updateRole()
-    }
+  willUpdate() {
+    this._updateRole()
 
     // Apply classes directly to the custom element
     // Note: custom elements are inline by default, need block for proper sizing
-    const classes = cn(
+    this.className = cn(
       "block bg-border shrink-0",
-      this.orientation === "horizontal" ? "h-px w-full" : "h-full w-px"
+      this.orientation === "horizontal" ? "h-px w-full" : "h-full w-px",
+      this.class
     )
-    this.className = classes
 
     // Set data attributes
     this.dataset.slot = "separator"
