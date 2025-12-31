@@ -314,8 +314,8 @@ describe("plank-newcomponent", () => {
 - [x] breadcrumb
 - [x] resizable
 - [x] navigation-menu
+- [x] menubar
 - [ ] form
-- [ ] menubar
 - [ ] sidebar
 - [x] scroll-area
 - [ ] input-group
