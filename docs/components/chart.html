@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chart - Planks</title>
+    <script type="module" src="../src/main.ts"></script>
+  </head>
+  <body class="min-h-screen">
+    <header class="border-b">
+      <div class="container mx-auto px-4 py-4 flex items-center gap-4">
+        <a href="../" class="text-2xl font-bold">Planks</a>
+        <span class="text-muted-foreground">/</span>
+        <span>Chart</span>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+      <h1 class="text-4xl font-bold mb-4">Chart</h1>
+      <p class="text-xl text-muted-foreground mb-8">
+        Chart container and helper components for building data visualizations.
+      </p>
+
+      <div
+        class="bg-yellow-50 dark:bg-yellow-950 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4 mb-8"
+      >
+        <p class="text-sm text-yellow-800 dark:text-yellow-200">
+          <strong>Note:</strong> Unlike the React version which uses Recharts,
+          the web component version is library-agnostic. Use any charting
+          library (Chart.js, D3, ApexCharts, etc.) inside the container and
+          reference the CSS custom properties for colors.
+        </p>
+      </div>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Chart Container</h2>
+        <p class="text-muted-foreground mb-4">
+          The chart container provides CSS custom properties for chart colors
+          based on your config.
+        </p>
+        <div class="mb-4" id="demo-chart-container">
+          <plank-chart-container chart-id="demo-chart">
+            <div
+              style="
+                width: 100%;
+                height: 200px;
+                display: flex;
+                align-items: flex-end;
+                gap: 8px;
+                padding: 16px;
+              "
+            >
+              <div
+                style="
+                  flex: 1;
+                  height: 80%;
+                  background: var(--color-desktop, #2563eb);
+                  border-radius: 4px;
+                "
+              ></div>
+              <div
+                style="
+                  flex: 1;
+                  height: 60%;
+                  background: var(--color-mobile, #60a5fa);
+                  border-radius: 4px;
+                "
+              ></div>
+              <div
+                style="
+                  flex: 1;
+                  height: 90%;
+                  background: var(--color-desktop, #2563eb);
+                  border-radius: 4px;
+                "
+              ></div>
+              <div
+                style="
+                  flex: 1;
+                  height: 40%;
+                  background: var(--color-mobile, #60a5fa);
+                  border-radius: 4px;
+                "
+              ></div>
+              <div
+                style="
+                  flex: 1;
+                  height: 70%;
+                  background: var(--color-desktop, #2563eb);
+                  border-radius: 4px;
+                "
+              ></div>
+              <div
+                style="
+                  flex: 1;
+                  height: 55%;
+                  background: var(--color-mobile, #60a5fa);
+                  border-radius: 4px;
+                "
+              ></div>
+            </div>
+          </plank-chart-container>
+          <plank-chart-legend></plank-chart-legend>
+        </div>
+        <script type="module">
+          const chartContainer = document.querySelector(
+            "#demo-chart-container plank-chart-container"
+          )
+          chartContainer.config = {
+            desktop: { label: "Desktop", color: "#2563eb" },
+            mobile: { label: "Mobile", color: "#60a5fa" },
+          }
+
+          const legend = document.querySelector(
+            "#demo-chart-container plank-chart-legend"
+          )
+          legend.items = [
+            { name: "Desktop", color: "#2563eb" },
+            { name: "Mobile", color: "#60a5fa" },
+          ]
+        </script>
+        <pre><code>&lt;plank-chart-container chart-id="demo-chart"&gt;
+  &lt;!-- Your chart content here --&gt;
+  &lt;!-- Colors available via CSS: var(--color-desktop), var(--color-mobile) --&gt;
+&lt;/plank-chart-container&gt;
+
+&lt;script&gt;
+  const chart = document.querySelector('plank-chart-container');
+  chart.config = {
+    desktop: { label: "Desktop", color: "#2563eb" },
+    mobile: { label: "Mobile", color: "#60a5fa" }
+  };
+&lt;/script&gt;</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Chart Tooltip</h2>
+        <p class="text-muted-foreground mb-4">
+          Tooltip component for displaying chart data on hover.
+        </p>
+        <div class="mb-4" id="demo-tooltip">
+          <plank-chart-tooltip active label="January"></plank-chart-tooltip>
+        </div>
+        <script type="module">
+          const tooltip = document.querySelector(
+            "#demo-tooltip plank-chart-tooltip"
+          )
+          tooltip.items = [
+            { name: "Desktop", value: 186, color: "#2563eb" },
+            { name: "Mobile", value: 80, color: "#60a5fa" },
+          ]
+        </script>
+        <pre><code>&lt;plank-chart-tooltip active label="January"&gt;&lt;/plank-chart-tooltip&gt;
+
+&lt;script&gt;
+  const tooltip = document.querySelector('plank-chart-tooltip');
+  tooltip.items = [
+    { name: "Desktop", value: 186, color: "#2563eb" },
+    { name: "Mobile", value: 80, color: "#60a5fa" }
+  ];
+&lt;/script&gt;</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Chart Legend</h2>
+        <p class="text-muted-foreground mb-4">
+          Legend component for chart data series.
+        </p>
+        <div class="mb-4" id="demo-legend">
+          <plank-chart-legend></plank-chart-legend>
+        </div>
+        <script type="module">
+          const legend = document.querySelector(
+            "#demo-legend plank-chart-legend"
+          )
+          legend.items = [
+            { name: "Desktop", color: "#2563eb" },
+            { name: "Mobile", color: "#60a5fa" },
+            { name: "Tablet", color: "#8b5cf6" },
+          ]
+        </script>
+        <pre><code>&lt;plank-chart-legend&gt;&lt;/plank-chart-legend&gt;
+
+&lt;script&gt;
+  const legend = document.querySelector('plank-chart-legend');
+  legend.items = [
+    { name: "Desktop", color: "#2563eb" },
+    { name: "Mobile", color: "#60a5fa" },
+    { name: "Tablet", color: "#8b5cf6" }
+  ];
+&lt;/script&gt;</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">API</h2>
+
+        <h3 class="text-lg font-semibold mb-2 mt-6">plank-chart-container</h3>
+        <table class="w-full text-sm mb-6">
+          <thead>
+            <tr class="border-b">
+              <th class="text-left py-2 pr-4">Property</th>
+              <th class="text-left py-2 pr-4">Type</th>
+              <th class="text-left py-2 pr-4">Default</th>
+              <th class="text-left py-2">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">chart-id</td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">string</td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">auto</td>
+              <td class="py-2">
+                Unique ID for the chart (auto-generated if not provided)
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">config</td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">
+                ChartConfig
+              </td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">{}</td>
+              <td class="py-2">
+                Configuration object defining labels and colors for data series
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 class="text-lg font-semibold mb-2 mt-6">ChartConfig Type</h3>
+        <pre class="mb-6"><code>type ChartConfig = {
+  [key: string]: {
+    label?: string
+    color?: string
+    theme?: { light: string; dark: string }
+  }
+}</code></pre>
+
+        <h3 class="text-lg font-semibold mb-2 mt-6">plank-chart-tooltip</h3>
+        <table class="w-full text-sm mb-6">
+          <thead>
+            <tr class="border-b">
+              <th class="text-left py-2 pr-4">Property</th>
+              <th class="text-left py-2 pr-4">Type</th>
+              <th class="text-left py-2 pr-4">Default</th>
+              <th class="text-left py-2">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">active</td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">boolean</td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">false</td>
+              <td class="py-2">Whether tooltip is visible</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">label</td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">string</td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">-</td>
+              <td class="py-2">Label text (e.g., category name)</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">items</td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">Array</td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">[]</td>
+              <td class="py-2">Array of { name, value, color } objects</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">indicator</td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">
+                "dot" | "line" | "dashed"
+              </td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">"dot"</td>
+              <td class="py-2">Style of color indicator</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">hide-label</td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">boolean</td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">false</td>
+              <td class="py-2">Hide the label</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">hide-indicator</td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">boolean</td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">false</td>
+              <td class="py-2">Hide color indicators</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 class="text-lg font-semibold mb-2 mt-6">plank-chart-legend</h3>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b">
+              <th class="text-left py-2 pr-4">Property</th>
+              <th class="text-left py-2 pr-4">Type</th>
+              <th class="text-left py-2 pr-4">Default</th>
+              <th class="text-left py-2">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">items</td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">Array</td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">[]</td>
+              <td class="py-2">Array of { name, color } objects</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">vertical-align</td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">
+                "top" | "bottom"
+              </td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">
+                "bottom"
+              </td>
+              <td class="py-2">Vertical alignment (affects padding)</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">hide-icon</td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">boolean</td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">false</td>
+              <td class="py-2">Hide color icons</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+<div
+  id="test-container"
+>
+  
+      
+  <div
+    style="padding: 20px;"
+  >
+    
+        
+    <plank-chart-legend
+      class="flex items-center justify-center gap-4 pt-3"
+      data-slot="chart-legend"
+    >
+      <!---->
+      <!--?lit$035522118$-->
+      <!---->
+      
+        
+      <div
+        class="[&>svg]:text-muted-foreground flex items-center gap-1.5 [&>svg]:h-3 [&>svg]:w-3"
+      >
+        
+          
+        <!--?lit$035522118$-->
+        <div
+          class="h-2 w-2 shrink-0 rounded-[2px]"
+          style="background-color: #2563eb"
+        />
+        
+          
+        <span
+          class="text-sm"
+        >
+          <!--?lit$035522118$-->
+          Desktop
+        </span>
+        
+        
+      </div>
+      
+      
+      <!---->
+      <!---->
+      
+        
+      <div
+        class="[&>svg]:text-muted-foreground flex items-center gap-1.5 [&>svg]:h-3 [&>svg]:w-3"
+      >
+        
+          
+        <!--?lit$035522118$-->
+        <div
+          class="h-2 w-2 shrink-0 rounded-[2px]"
+          style="background-color: #60a5fa"
+        />
+        
+          
+        <span
+          class="text-sm"
+        >
+          <!--?lit$035522118$-->
+          Mobile
+        </span>
+        
+        
+      </div>
+      
+      
+      <!---->
+      <!---->
+      
+        
+      <div
+        class="[&>svg]:text-muted-foreground flex items-center gap-1.5 [&>svg]:h-3 [&>svg]:w-3"
+      >
+        
+          
+        <!--?lit$035522118$-->
+        <div
+          class="h-2 w-2 shrink-0 rounded-[2px]"
+          style="background-color: #8b5cf6"
+        />
+        
+          
+        <span
+          class="text-sm"
+        >
+          <!--?lit$035522118$-->
+          Tablet
+        </span>
+        
+        
+      </div>
+      
+      
+      <!---->
+      <!--?-->
+    </plank-chart-legend>
+    
+      
+  </div>
+  
+    
+</div>

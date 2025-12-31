@@ -321,7 +321,7 @@ describe("plank-newcomponent", () => {
 - [ ] input-group
 - [x] input-otp
 - [x] sonner
-- [ ] chart
+- [x] chart
 
 ## Open Questions
 

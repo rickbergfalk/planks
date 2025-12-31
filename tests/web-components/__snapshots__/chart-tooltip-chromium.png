@@ -1,0 +1,132 @@
+<div
+  id="test-container"
+>
+  
+      
+  <div
+    style="padding: 20px;"
+  >
+    
+        
+    <plank-chart-tooltip
+      active=""
+      class="border-border/50 bg-background grid min-w-[8rem] items-start gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs shadow-xl"
+      data-slot="chart-tooltip"
+      label="January"
+    >
+      <!---->
+      
+      
+      <!--?lit$035522118$-->
+      <div
+        class="font-medium"
+      >
+        <!--?lit$035522118$-->
+        January
+      </div>
+      
+      
+      <div
+        class="grid gap-1.5"
+      >
+        
+        
+        <!--?lit$035522118$-->
+        <!---->
+        
+            
+        <div
+          class="[&>svg]:text-muted-foreground flex w-full flex-wrap gap-2 [&>svg]:h-2.5 [&>svg]:w-2.5 items-center"
+        >
+          
+              
+          <!--?lit$035522118$-->
+          <div
+            class="shrink-0 rounded-[2px] h-2.5 w-2.5"
+            style="background-color: #2563eb"
+          />
+          
+              
+          <div
+            class="flex flex-1 justify-between items-center leading-none"
+          >
+            
+                
+            <span
+              class="text-muted-foreground"
+            >
+              <!--?lit$035522118$-->
+              Desktop
+            </span>
+            
+                
+            <span
+              class="text-foreground font-mono font-medium tabular-nums"
+            >
+              <!--?lit$035522118$-->
+              186
+            </span>
+            
+              
+          </div>
+          
+            
+        </div>
+        
+          
+        <!---->
+        <!---->
+        
+            
+        <div
+          class="[&>svg]:text-muted-foreground flex w-full flex-wrap gap-2 [&>svg]:h-2.5 [&>svg]:w-2.5 items-center"
+        >
+          
+              
+          <!--?lit$035522118$-->
+          <div
+            class="shrink-0 rounded-[2px] h-2.5 w-2.5"
+            style="background-color: #60a5fa"
+          />
+          
+              
+          <div
+            class="flex flex-1 justify-between items-center leading-none"
+          >
+            
+                
+            <span
+              class="text-muted-foreground"
+            >
+              <!--?lit$035522118$-->
+              Mobile
+            </span>
+            
+                
+            <span
+              class="text-foreground font-mono font-medium tabular-nums"
+            >
+              <!--?lit$035522118$-->
+              80
+            </span>
+            
+              
+          </div>
+          
+            
+        </div>
+        
+          
+        <!---->
+        
+      
+      </div>
+      
+    
+    </plank-chart-tooltip>
+    
+      
+  </div>
+  
+    
+</div>
