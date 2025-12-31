@@ -737,6 +737,28 @@
             <plank-badge variant="outline">3</plank-badge>
           </div>
         </a>
+
+        <!-- Breadcrumb -->
+        <a
+          href="./components/breadcrumb.html"
+          class="block p-6 border rounded-lg hover:border-foreground transition-colors"
+        >
+          <h3 class="font-semibold mb-2">Breadcrumb</h3>
+          <p class="text-sm text-muted-foreground mb-4">
+            Navigation path to current page.
+          </p>
+          <plank-breadcrumb>
+            <plank-breadcrumb-list>
+              <plank-breadcrumb-item>
+                <plank-breadcrumb-link href="#">Home</plank-breadcrumb-link>
+              </plank-breadcrumb-item>
+              <plank-breadcrumb-separator></plank-breadcrumb-separator>
+              <plank-breadcrumb-item>
+                <plank-breadcrumb-page>Page</plank-breadcrumb-page>
+              </plank-breadcrumb-item>
+            </plank-breadcrumb-list>
+          </plank-breadcrumb>
+        </a>
       </div>
     </main>
 

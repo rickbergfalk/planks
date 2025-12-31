@@ -311,8 +311,8 @@ describe("plank-newcomponent", () => {
 - [x] calendar
 - [x] carousel
 - [x] pagination
+- [x] breadcrumb
 - [ ] form
-- [ ] breadcrumb
 - [ ] navigation-menu
 - [ ] menubar
 - [ ] sidebar
