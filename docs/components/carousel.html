@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carousel - Planks</title>
+    <script type="module" src="../src/main.ts"></script>
+  </head>
+  <body class="min-h-screen">
+    <header class="border-b">
+      <div class="container mx-auto px-4 py-4 flex items-center gap-4">
+        <a href="../" class="text-2xl font-bold">Planks</a>
+        <span class="text-muted-foreground">/</span>
+        <span>Carousel</span>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+      <h1 class="text-4xl font-bold mb-4">Carousel</h1>
+      <p class="text-xl text-muted-foreground mb-8">
+        A carousel with motion and swipe built using Embla Carousel.
+      </p>
+
+      <!-- Basic Usage -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Basic Usage</h2>
+        <p class="text-muted-foreground mb-4">
+          A simple horizontal carousel with navigation buttons.
+        </p>
+        <div class="mb-4 flex justify-center">
+          <plank-carousel class="w-full max-w-xs">
+            <plank-carousel-content>
+              <plank-carousel-item>
+                <div class="p-1">
+                  <plank-card>
+                    <plank-card-content
+                      class="flex aspect-square items-center justify-center p-6"
+                    >
+                      <span class="text-4xl font-semibold">1</span>
+                    </plank-card-content>
+                  </plank-card>
+                </div>
+              </plank-carousel-item>
+              <plank-carousel-item>
+                <div class="p-1">
+                  <plank-card>
+                    <plank-card-content
+                      class="flex aspect-square items-center justify-center p-6"
+                    >
+                      <span class="text-4xl font-semibold">2</span>
+                    </plank-card-content>
+                  </plank-card>
+                </div>
+              </plank-carousel-item>
+              <plank-carousel-item>
+                <div class="p-1">
+                  <plank-card>
+                    <plank-card-content
+                      class="flex aspect-square items-center justify-center p-6"
+                    >
+                      <span class="text-4xl font-semibold">3</span>
+                    </plank-card-content>
+                  </plank-card>
+                </div>
+              </plank-carousel-item>
+              <plank-carousel-item>
+                <div class="p-1">
+                  <plank-card>
+                    <plank-card-content
+                      class="flex aspect-square items-center justify-center p-6"
+                    >
+                      <span class="text-4xl font-semibold">4</span>
+                    </plank-card-content>
+                  </plank-card>
+                </div>
+              </plank-carousel-item>
+              <plank-carousel-item>
+                <div class="p-1">
+                  <plank-card>
+                    <plank-card-content
+                      class="flex aspect-square items-center justify-center p-6"
+                    >
+                      <span class="text-4xl font-semibold">5</span>
+                    </plank-card-content>
+                  </plank-card>
+                </div>
+              </plank-carousel-item>
+            </plank-carousel-content>
+            <plank-carousel-previous></plank-carousel-previous>
+            <plank-carousel-next></plank-carousel-next>
+          </plank-carousel>
+        </div>
+        <pre><code>&lt;plank-carousel class="w-full max-w-xs"&gt;
+  &lt;plank-carousel-content&gt;
+    &lt;plank-carousel-item&gt;
+      &lt;plank-card&gt;...&lt;/plank-card&gt;
+    &lt;/plank-carousel-item&gt;
+    &lt;plank-carousel-item&gt;...&lt;/plank-carousel-item&gt;
+  &lt;/plank-carousel-content&gt;
+  &lt;plank-carousel-previous&gt;&lt;/plank-carousel-previous&gt;
+  &lt;plank-carousel-next&gt;&lt;/plank-carousel-next&gt;
+&lt;/plank-carousel&gt;</code></pre>
+      </section>
+
+      <!-- Vertical Orientation -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Vertical Orientation</h2>
+        <p class="text-muted-foreground mb-4">
+          Set orientation to "vertical" to create a vertical carousel.
+        </p>
+        <div class="mb-4 flex justify-center">
+          <plank-carousel orientation="vertical" class="w-full max-w-xs">
+            <plank-carousel-content class="h-[200px]">
+              <plank-carousel-item>
+                <div class="p-1">
+                  <plank-card>
+                    <plank-card-content
+                      class="flex items-center justify-center p-6"
+                    >
+                      <span class="text-3xl font-semibold">1</span>
+                    </plank-card-content>
+                  </plank-card>
+                </div>
+              </plank-carousel-item>
+              <plank-carousel-item>
+                <div class="p-1">
+                  <plank-card>
+                    <plank-card-content
+                      class="flex items-center justify-center p-6"
+                    >
+                      <span class="text-3xl font-semibold">2</span>
+                    </plank-card-content>
+                  </plank-card>
+                </div>
+              </plank-carousel-item>
+              <plank-carousel-item>
+                <div class="p-1">
+                  <plank-card>
+                    <plank-card-content
+                      class="flex items-center justify-center p-6"
+                    >
+                      <span class="text-3xl font-semibold">3</span>
+                    </plank-card-content>
+                  </plank-card>
+                </div>
+              </plank-carousel-item>
+            </plank-carousel-content>
+            <plank-carousel-previous></plank-carousel-previous>
+            <plank-carousel-next></plank-carousel-next>
+          </plank-carousel>
+        </div>
+        <pre><code>&lt;plank-carousel orientation="vertical" class="w-full max-w-xs"&gt;
+  &lt;plank-carousel-content class="h-[200px]"&gt;
+    &lt;plank-carousel-item&gt;...&lt;/plank-carousel-item&gt;
+  &lt;/plank-carousel-content&gt;
+  ...
+&lt;/plank-carousel&gt;</code></pre>
+      </section>
+
+      <!-- API -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Components</h2>
+        <div class="overflow-x-auto">
+          <plank-table>
+            <plank-table-header>
+              <plank-table-row>
+                <plank-table-head>Component</plank-table-head>
+                <plank-table-head>Description</plank-table-head>
+              </plank-table-row>
+            </plank-table-header>
+            <plank-table-body>
+              <plank-table-row>
+                <plank-table-cell class="font-mono"
+                  >plank-carousel</plank-table-cell
+                >
+                <plank-table-cell
+                  >The carousel container with Embla
+                  integration</plank-table-cell
+                >
+              </plank-table-row>
+              <plank-table-row>
+                <plank-table-cell class="font-mono"
+                  >plank-carousel-content</plank-table-cell
+                >
+                <plank-table-cell
+                  >Container for the carousel slides</plank-table-cell
+                >
+              </plank-table-row>
+              <plank-table-row>
+                <plank-table-cell class="font-mono"
+                  >plank-carousel-item</plank-table-cell
+                >
+                <plank-table-cell>Individual carousel slide</plank-table-cell>
+              </plank-table-row>
+              <plank-table-row>
+                <plank-table-cell class="font-mono"
+                  >plank-carousel-previous</plank-table-cell
+                >
+                <plank-table-cell
+                  >Button to navigate to previous slide</plank-table-cell
+                >
+              </plank-table-row>
+              <plank-table-row>
+                <plank-table-cell class="font-mono"
+                  >plank-carousel-next</plank-table-cell
+                >
+                <plank-table-cell
+                  >Button to navigate to next slide</plank-table-cell
+                >
+              </plank-table-row>
+            </plank-table-body>
+          </plank-table>
+        </div>
+      </section>
+
+      <!-- plank-carousel API -->
+      <section class="mb-12">
+        <h3 class="text-xl font-semibold mb-4">plank-carousel</h3>
+        <div class="overflow-x-auto">
+          <plank-table>
+            <plank-table-header>
+              <plank-table-row>
+                <plank-table-head>Property</plank-table-head>
+                <plank-table-head>Type</plank-table-head>
+                <plank-table-head>Default</plank-table-head>
+                <plank-table-head>Description</plank-table-head>
+              </plank-table-row>
+            </plank-table-header>
+            <plank-table-body>
+              <plank-table-row>
+                <plank-table-cell class="font-mono"
+                  >orientation</plank-table-cell
+                >
+                <plank-table-cell class="font-mono text-muted-foreground"
+                  >"horizontal" | "vertical"</plank-table-cell
+                >
+                <plank-table-cell class="font-mono text-muted-foreground"
+                  >"horizontal"</plank-table-cell
+                >
+                <plank-table-cell
+                  >Direction of the carousel scrolling</plank-table-cell
+                >
+              </plank-table-row>
+            </plank-table-body>
+          </plank-table>
+        </div>
+      </section>
+
+      <!-- Methods -->
+      <section class="mb-12">
+        <h3 class="text-xl font-semibold mb-4">Methods</h3>
+        <div class="overflow-x-auto">
+          <plank-table>
+            <plank-table-header>
+              <plank-table-row>
+                <plank-table-head>Method</plank-table-head>
+                <plank-table-head>Description</plank-table-head>
+              </plank-table-row>
+            </plank-table-header>
+            <plank-table-body>
+              <plank-table-row>
+                <plank-table-cell class="font-mono"
+                  >scrollPrev()</plank-table-cell
+                >
+                <plank-table-cell
+                  >Scroll to the previous slide</plank-table-cell
+                >
+              </plank-table-row>
+              <plank-table-row>
+                <plank-table-cell class="font-mono"
+                  >scrollNext()</plank-table-cell
+                >
+                <plank-table-cell>Scroll to the next slide</plank-table-cell>
+              </plank-table-row>
+              <plank-table-row>
+                <plank-table-cell class="font-mono">getApi()</plank-table-cell>
+                <plank-table-cell
+                  >Get the underlying Embla Carousel API</plank-table-cell
+                >
+              </plank-table-row>
+            </plank-table-body>
+          </plank-table>
+        </div>
+      </section>
+
+      <!-- Events -->
+      <section class="mb-12">
+        <h3 class="text-xl font-semibold mb-4">Events</h3>
+        <div class="overflow-x-auto">
+          <plank-table>
+            <plank-table-header>
+              <plank-table-row>
+                <plank-table-head>Event</plank-table-head>
+                <plank-table-head>Description</plank-table-head>
+              </plank-table-row>
+            </plank-table-header>
+            <plank-table-body>
+              <plank-table-row>
+                <plank-table-cell class="font-mono">select</plank-table-cell>
+                <plank-table-cell
+                  >Fired when the selected slide changes</plank-table-cell
+                >
+              </plank-table-row>
+            </plank-table-body>
+          </plank-table>
+        </div>
+      </section>
+
+      <!-- Accessibility -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Accessibility</h2>
+        <ul class="list-disc list-inside space-y-2 text-muted-foreground">
+          <li>Uses role="region" with aria-roledescription="carousel"</li>
+          <li>Each slide has role="group" with aria-roledescription="slide"</li>
+          <li>Navigation buttons have screen reader text</li>
+          <li>Supports keyboard navigation with ArrowLeft/ArrowRight</li>
+          <li>
+            Previous/Next buttons are disabled when at the start/end of slides
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
