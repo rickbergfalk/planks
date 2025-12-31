@@ -312,11 +312,11 @@ describe("plank-newcomponent", () => {
 - [x] carousel
 - [x] pagination
 - [x] breadcrumb
+- [x] resizable
 - [ ] form
 - [ ] navigation-menu
 - [ ] menubar
 - [ ] sidebar
-- [ ] resizable
 - [x] scroll-area
 - [ ] input-group
 - [ ] input-otp

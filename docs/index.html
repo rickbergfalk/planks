@@ -788,6 +788,37 @@
             <plank-scroll-bar></plank-scroll-bar>
           </plank-scroll-area>
         </a>
+
+        <!-- Resizable -->
+        <a
+          href="components/resizable.html"
+          class="group border rounded-lg p-4 hover:border-foreground/50 transition-colors"
+        >
+          <h3 class="font-semibold mb-2 group-hover:underline">Resizable</h3>
+          <p class="text-sm text-muted-foreground mb-3">
+            Accessible resizable panel groups with drag and keyboard support.
+          </p>
+          <plank-resizable-panel-group
+            direction="horizontal"
+            class="h-24 w-full rounded-md border"
+          >
+            <plank-resizable-panel default-size="50">
+              <div
+                class="flex h-full items-center justify-center text-sm text-muted-foreground"
+              >
+                A
+              </div>
+            </plank-resizable-panel>
+            <plank-resizable-handle with-handle></plank-resizable-handle>
+            <plank-resizable-panel default-size="50">
+              <div
+                class="flex h-full items-center justify-center text-sm text-muted-foreground"
+              >
+                B
+              </div>
+            </plank-resizable-panel>
+          </plank-resizable-panel-group>
+        </a>
       </div>
     </main>
 
