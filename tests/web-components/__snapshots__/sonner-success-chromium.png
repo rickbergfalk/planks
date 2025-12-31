@@ -1,0 +1,115 @@
+<div
+  id="test-container"
+  style="width: 400px; height: 300px; position: relative;"
+>
+  <plank-toaster
+    class="fixed z-[100] flex flex-col gap-2 w-[356px] max-w-[calc(100vw-2rem)] bottom-4 right-4"
+    data-slot="toaster"
+    position="bottom-right"
+  >
+    <!---->
+    <!--?lit$088278570$-->
+    <!---->
+    
+        
+    <div
+      aria-live="polite"
+      class="relative flex items-start gap-3 rounded-lg border p-4 shadow-lg bg-popover text-popover-foreground animate-in slide-in-from-right-full"
+      role="status"
+    >
+      
+          
+      <!--?lit$088278570$-->
+      <svg
+        class="text-green-500"
+        fill="none"
+        height="16"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        
+          
+        <circle
+          cx="12"
+          cy="12"
+          r="10"
+        />
+        
+          
+        <path
+          d="m9 12 2 2 4-4"
+        />
+        
+        
+      </svg>
+      
+          
+      <div
+        class="flex-1 space-y-1"
+      >
+        
+            
+        <p
+          class="text-sm font-medium"
+        >
+          <!--?lit$088278570$-->
+          Event has been created
+        </p>
+        
+            
+        <!--?lit$088278570$-->
+        
+          
+      </div>
+      
+          
+      <!--?lit$088278570$-->
+      
+          
+      <button
+        aria-label="Dismiss"
+        class="absolute top-2 right-2 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100"
+      >
+        
+            
+        <svg
+          fill="none"
+          height="14"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="14"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          
+              
+          <path
+            d="M18 6 6 18"
+          />
+          
+              
+          <path
+            d="m6 6 12 12"
+          />
+          
+            
+        </svg>
+        
+          
+      </button>
+      
+        
+    </div>
+    
+      
+    <!---->
+    <!--?-->
+  </plank-toaster>
+</div>

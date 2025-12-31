@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sonner - Planks</title>
+    <script type="module" src="../src/main.ts"></script>
+    <script type="module">
+      import { toast } from "@/web-components/plank-sonner"
+      window.toast = toast
+    </script>
+  </head>
+  <body class="min-h-screen">
+    <header class="border-b">
+      <div class="container mx-auto px-4 py-4 flex items-center gap-4">
+        <a href="../" class="text-2xl font-bold">Planks</a>
+        <span class="text-muted-foreground">/</span>
+        <span>Sonner</span>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+      <h1 class="text-4xl font-bold mb-4">Sonner</h1>
+      <p class="text-xl text-muted-foreground mb-8">
+        An opinionated toast component for notifications.
+      </p>
+
+      <!-- Toaster container - place once at root of app -->
+      <plank-toaster></plank-toaster>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Default</h2>
+        <div class="mb-4">
+          <plank-button
+            variant="outline"
+            onclick="
+              toast('Event has been created', {
+                description: 'Sunday, December 03, 2023 at 9:00 AM',
+              })
+            "
+          >
+            Show Toast
+          </plank-button>
+        </div>
+        <pre><code>// Import the toast function
+import { toast } from "@/web-components/plank-sonner"
+
+// Show a toast
+toast("Event has been created", {
+  description: "Sunday, December 03, 2023 at 9:00 AM"
+})</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Toast Types</h2>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <plank-button
+            variant="outline"
+            onclick="toast('Event has been created')"
+          >
+            Default
+          </plank-button>
+          <plank-button
+            variant="outline"
+            onclick="toast.success('Event has been created')"
+          >
+            Success
+          </plank-button>
+          <plank-button
+            variant="outline"
+            onclick="
+              toast.info('Be at the area 10 minutes before the event time')
+            "
+          >
+            Info
+          </plank-button>
+          <plank-button
+            variant="outline"
+            onclick="
+              toast.warning('Event start time cannot be earlier than 8am')
+            "
+          >
+            Warning
+          </plank-button>
+          <plank-button
+            variant="outline"
+            onclick="toast.error('Event has not been created')"
+          >
+            Error
+          </plank-button>
+        </div>
+        <pre><code>toast("Default message")
+toast.success("Success message")
+toast.info("Info message")
+toast.warning("Warning message")
+toast.error("Error message")</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">With Action</h2>
+        <div class="mb-4">
+          <plank-button
+            variant="outline"
+            onclick="
+              toast('Event has been created', {
+                action: {
+                  label: 'Undo',
+                  onClick: () => console.log('Undo clicked'),
+                },
+              })
+            "
+          >
+            Show Toast with Action
+          </plank-button>
+        </div>
+        <pre><code>toast("Event has been created", {
+  action: {
+    label: "Undo",
+    onClick: () => console.log("Undo")
+  }
+})</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Loading / Promise</h2>
+        <div class="mb-4">
+          <plank-button
+            variant="outline"
+            onclick="
+              toast.promise(
+                new Promise((resolve) =>
+                  setTimeout(() => resolve({ name: 'Event' }), 2000)
+                ),
+                {
+                  loading: 'Loading...',
+                  success: (data) => data.name + ' has been created',
+                  error: 'Error creating event',
+                }
+              )
+            "
+          >
+            Show Promise Toast
+          </plank-button>
+        </div>
+        <pre><code>toast.promise(
+  new Promise(resolve => setTimeout(() => resolve({ name: 'Event' }), 2000)),
+  {
+    loading: "Loading...",
+    success: (data) => data.name + " has been created",
+    error: "Error creating event"
+  }
+)</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">API</h2>
+
+        <h3 class="text-lg font-semibold mb-2 mt-6">plank-toaster</h3>
+        <p class="text-muted-foreground mb-4">
+          Place this component once at the root of your application to enable
+          toast notifications.
+        </p>
+        <table class="w-full text-sm mb-6">
+          <thead>
+            <tr class="border-b">
+              <th class="text-left py-2 pr-4">Property</th>
+              <th class="text-left py-2 pr-4">Type</th>
+              <th class="text-left py-2 pr-4">Default</th>
+              <th class="text-left py-2">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">position</td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">string</td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">
+                "bottom-right"
+              </td>
+              <td class="py-2">
+                Position of toast container. Options: top-left, top-center,
+                top-right, bottom-left, bottom-center, bottom-right
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">theme</td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">
+                "light" | "dark" | "system"
+              </td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">
+                "system"
+              </td>
+              <td class="py-2">Theme for toast styling</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">visible-toasts</td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">number</td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">3</td>
+              <td class="py-2">Maximum number of visible toasts</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 class="text-lg font-semibold mb-2 mt-6">toast() Function</h3>
+        <table class="w-full text-sm mb-6">
+          <thead>
+            <tr class="border-b">
+              <th class="text-left py-2 pr-4">Method</th>
+              <th class="text-left py-2">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">toast(message, options?)</td>
+              <td class="py-2">Show a default toast</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">
+                toast.success(message, options?)
+              </td>
+              <td class="py-2">Show a success toast with green checkmark</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">toast.info(message, options?)</td>
+              <td class="py-2">Show an info toast with blue icon</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">
+                toast.warning(message, options?)
+              </td>
+              <td class="py-2">Show a warning toast with yellow icon</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">
+                toast.error(message, options?)
+              </td>
+              <td class="py-2">Show an error toast with red icon</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">
+                toast.loading(message, options?)
+              </td>
+              <td class="py-2">Show a loading toast with spinner</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">toast.dismiss(id?)</td>
+              <td class="py-2">
+                Dismiss toast by id, or all toasts if no id provided
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">toast.promise(promise, opts)</td>
+              <td class="py-2">
+                Show loading, then success/error based on promise result
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 class="text-lg font-semibold mb-2 mt-6">Toast Options</h3>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b">
+              <th class="text-left py-2 pr-4">Option</th>
+              <th class="text-left py-2 pr-4">Type</th>
+              <th class="text-left py-2">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">description</td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">string</td>
+              <td class="py-2">Additional description text</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">duration</td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">number</td>
+              <td class="py-2">Auto-dismiss duration in ms (default: 4000)</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">action</td>
+              <td class="py-2 pr-4 font-mono text-muted-foreground">
+                { label: string, onClick: () => void }
+              </td>
+              <td class="py-2">Action button configuration</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </body>
+</html>

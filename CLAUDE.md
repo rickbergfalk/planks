@@ -320,7 +320,7 @@ describe("plank-newcomponent", () => {
 - [x] scroll-area
 - [ ] input-group
 - [x] input-otp
-- [ ] sonner
+- [x] sonner
 - [ ] chart
 
 ## Open Questions
