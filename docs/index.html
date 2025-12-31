@@ -868,6 +868,31 @@
             </plank-menubar-menu>
           </plank-menubar>
         </a>
+
+        <!-- Sidebar -->
+        <a
+          href="components/sidebar.html"
+          class="group border rounded-lg p-4 hover:border-foreground/50 transition-colors"
+        >
+          <h3 class="font-semibold mb-2 group-hover:underline">Sidebar</h3>
+          <p class="text-sm text-muted-foreground mb-3">
+            Composable sidebar with groups, menus, and mobile support.
+          </p>
+          <plank-sidebar-provider>
+            <plank-sidebar-menu>
+              <plank-sidebar-menu-item>
+                <plank-sidebar-menu-button active size="sm">
+                  <span>Dashboard</span>
+                </plank-sidebar-menu-button>
+              </plank-sidebar-menu-item>
+              <plank-sidebar-menu-item>
+                <plank-sidebar-menu-button size="sm">
+                  <span>Settings</span>
+                </plank-sidebar-menu-button>
+              </plank-sidebar-menu-item>
+            </plank-sidebar-menu>
+          </plank-sidebar-provider>
+        </a>
       </div>
     </main>
 

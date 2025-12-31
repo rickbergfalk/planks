@@ -1,0 +1,211 @@
+<div
+  id="test-container"
+>
+  
+      
+  <div
+    style="width: 300px; padding: 8px; background: var(--sidebar);"
+  >
+    
+        
+    <plank-sidebar-provider
+      class="group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex min-h-svh w-full"
+      data-slot="sidebar-wrapper"
+      style="--sidebar-width: 16rem; --sidebar-width-icon: 3rem;"
+    >
+      
+          
+      <plank-sidebar-menu
+        class="flex w-full min-w-0 flex-col gap-1"
+        data-sidebar="menu"
+        data-slot="sidebar-menu"
+      >
+        
+            
+        <plank-sidebar-menu-item
+          class="group/menu-item relative"
+          data-sidebar="menu-item"
+          data-slot="sidebar-menu-item"
+        >
+          
+              
+          <plank-sidebar-menu-button
+            active=""
+            class="peer/menu-button flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left outline-hidden ring-sidebar-ring transition-[width,height,padding] focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-accent data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground h-8 text-sm"
+            data-active="true"
+            data-sidebar="menu-button"
+            data-size="default"
+            data-slot="sidebar-menu-button"
+          >
+            
+                
+            <svg
+              fill="none"
+              height="16"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+              />
+              <polyline
+                points="22,6 12,13 2,6"
+              />
+            </svg>
+            
+                
+            <span>
+              Inbox
+            </span>
+            
+              
+            <!---->
+            <!--?-->
+          </plank-sidebar-menu-button>
+          
+              
+          <plank-sidebar-menu-badge
+            class="text-sidebar-foreground pointer-events-none absolute right-1 flex h-5 min-w-5 items-center justify-center rounded-md px-1 text-xs font-medium tabular-nums select-none peer-hover/menu-button:text-sidebar-accent-foreground peer-data-[active=true]/menu-button:text-sidebar-accent-foreground peer-data-[size=sm]/menu-button:top-1 peer-data-[size=default]/menu-button:top-1.5 peer-data-[size=lg]/menu-button:top-2.5 group-data-[collapsible=icon]:hidden"
+            data-sidebar="menu-badge"
+            data-slot="sidebar-menu-badge"
+          >
+            12
+            <!---->
+            <!--?-->
+          </plank-sidebar-menu-badge>
+          
+            
+          <!---->
+          <!--?-->
+        </plank-sidebar-menu-item>
+        
+            
+        <plank-sidebar-menu-item
+          class="group/menu-item relative"
+          data-sidebar="menu-item"
+          data-slot="sidebar-menu-item"
+        >
+          
+              
+          <plank-sidebar-menu-button
+            class="peer/menu-button flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left outline-hidden ring-sidebar-ring transition-[width,height,padding] focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-accent data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground h-8 text-sm"
+            data-active="false"
+            data-sidebar="menu-button"
+            data-size="default"
+            data-slot="sidebar-menu-button"
+          >
+            
+                
+            <svg
+              fill="none"
+              height="16"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+            
+                
+            <span>
+              Starred
+            </span>
+            
+              
+            <!---->
+            <!--?-->
+          </plank-sidebar-menu-button>
+          
+              
+          <plank-sidebar-menu-badge
+            class="text-sidebar-foreground pointer-events-none absolute right-1 flex h-5 min-w-5 items-center justify-center rounded-md px-1 text-xs font-medium tabular-nums select-none peer-hover/menu-button:text-sidebar-accent-foreground peer-data-[active=true]/menu-button:text-sidebar-accent-foreground peer-data-[size=sm]/menu-button:top-1 peer-data-[size=default]/menu-button:top-1.5 peer-data-[size=lg]/menu-button:top-2.5 group-data-[collapsible=icon]:hidden"
+            data-sidebar="menu-badge"
+            data-slot="sidebar-menu-badge"
+          >
+            3
+            <!---->
+            <!--?-->
+          </plank-sidebar-menu-badge>
+          
+            
+          <!---->
+          <!--?-->
+        </plank-sidebar-menu-item>
+        
+            
+        <plank-sidebar-menu-item
+          class="group/menu-item relative"
+          data-sidebar="menu-item"
+          data-slot="sidebar-menu-item"
+        >
+          
+              
+          <plank-sidebar-menu-button
+            class="peer/menu-button flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left outline-hidden ring-sidebar-ring transition-[width,height,padding] focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-accent data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground h-8 text-sm"
+            data-active="false"
+            data-sidebar="menu-button"
+            data-size="default"
+            data-slot="sidebar-menu-button"
+          >
+            
+                
+            <svg
+              fill="none"
+              height="16"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polyline
+                points="22 12 16 12 14 15 10 15 8 12 2 12"
+              />
+              <path
+                d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"
+              />
+            </svg>
+            
+                
+            <span>
+              Archive
+            </span>
+            
+              
+            <!---->
+            <!--?-->
+          </plank-sidebar-menu-button>
+          
+            
+          <!---->
+          <!--?-->
+        </plank-sidebar-menu-item>
+        
+          
+        <!---->
+        <!--?-->
+      </plank-sidebar-menu>
+      
+        
+      <!---->
+      <!--?-->
+    </plank-sidebar-provider>
+    
+      
+  </div>
+  
+    
+</div>

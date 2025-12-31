@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidebar - Planks</title>
+    <script type="module" src="../src/main.ts"></script>
+  </head>
+  <body class="p-8">
+    <div class="max-w-4xl mx-auto">
+      <a
+        href="../index.html"
+        class="text-muted-foreground hover:text-foreground mb-4 inline-block"
+        >&larr; Back</a
+      >
+
+      <h1 class="text-3xl font-bold mb-4">Sidebar</h1>
+      <p class="text-muted-foreground mb-8">
+        A composable, themeable and customizable sidebar component with desktop
+        and mobile variants.
+      </p>
+
+      <!-- Basic Sidebar Menu -->
+      <section class="mb-12">
+        <h2 class="text-xl font-semibold mb-4">Basic Menu</h2>
+        <div class="border rounded-lg p-4 bg-sidebar">
+          <plank-sidebar-provider>
+            <plank-sidebar-menu>
+              <plank-sidebar-menu-item>
+                <plank-sidebar-menu-button active>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                    <polyline points="9 22 9 12 15 12 15 22" />
+                  </svg>
+                  <span>Home</span>
+                </plank-sidebar-menu-button>
+              </plank-sidebar-menu-item>
+              <plank-sidebar-menu-item>
+                <plank-sidebar-menu-button>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                    />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                  <span>Inbox</span>
+                </plank-sidebar-menu-button>
+              </plank-sidebar-menu-item>
+              <plank-sidebar-menu-item>
+                <plank-sidebar-menu-button>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="3" />
+                    <path
+                      d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
+                    />
+                  </svg>
+                  <span>Settings</span>
+                </plank-sidebar-menu-button>
+              </plank-sidebar-menu-item>
+            </plank-sidebar-menu>
+          </plank-sidebar-provider>
+        </div>
+      </section>
+
+      <!-- Menu with Badges -->
+      <section class="mb-12">
+        <h2 class="text-xl font-semibold mb-4">Menu with Badges</h2>
+        <div class="border rounded-lg p-4 bg-sidebar">
+          <plank-sidebar-provider>
+            <plank-sidebar-menu>
+              <plank-sidebar-menu-item>
+                <plank-sidebar-menu-button active>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                    />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                  <span>Inbox</span>
+                </plank-sidebar-menu-button>
+                <plank-sidebar-menu-badge>12</plank-sidebar-menu-badge>
+              </plank-sidebar-menu-item>
+              <plank-sidebar-menu-item>
+                <plank-sidebar-menu-button>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                    />
+                  </svg>
+                  <span>Starred</span>
+                </plank-sidebar-menu-button>
+                <plank-sidebar-menu-badge>3</plank-sidebar-menu-badge>
+              </plank-sidebar-menu-item>
+              <plank-sidebar-menu-item>
+                <plank-sidebar-menu-button>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <polyline points="22 12 16 12 14 15 10 15 8 12 2 12" />
+                    <path
+                      d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"
+                    />
+                  </svg>
+                  <span>Archive</span>
+                </plank-sidebar-menu-button>
+              </plank-sidebar-menu-item>
+            </plank-sidebar-menu>
+          </plank-sidebar-provider>
+        </div>
+      </section>
+
+      <!-- Grouped Menu -->
+      <section class="mb-12">
+        <h2 class="text-xl font-semibold mb-4">Grouped Menu</h2>
+        <div class="border rounded-lg p-4 bg-sidebar" style="width: 280px">
+          <plank-sidebar-provider>
+            <plank-sidebar-group>
+              <plank-sidebar-group-label>Platform</plank-sidebar-group-label>
+              <plank-sidebar-group-content>
+                <plank-sidebar-menu>
+                  <plank-sidebar-menu-item>
+                    <plank-sidebar-menu-button>
+                      <span>Dashboard</span>
+                    </plank-sidebar-menu-button>
+                  </plank-sidebar-menu-item>
+                  <plank-sidebar-menu-item>
+                    <plank-sidebar-menu-button>
+                      <span>Analytics</span>
+                    </plank-sidebar-menu-button>
+                  </plank-sidebar-menu-item>
+                </plank-sidebar-menu>
+              </plank-sidebar-group-content>
+            </plank-sidebar-group>
+            <plank-sidebar-separator></plank-sidebar-separator>
+            <plank-sidebar-group>
+              <plank-sidebar-group-label>Projects</plank-sidebar-group-label>
+              <plank-sidebar-group-content>
+                <plank-sidebar-menu>
+                  <plank-sidebar-menu-item>
+                    <plank-sidebar-menu-button>
+                      <span>Active Projects</span>
+                    </plank-sidebar-menu-button>
+                  </plank-sidebar-menu-item>
+                  <plank-sidebar-menu-item>
+                    <plank-sidebar-menu-button>
+                      <span>Archived</span>
+                    </plank-sidebar-menu-button>
+                  </plank-sidebar-menu-item>
+                </plank-sidebar-menu>
+              </plank-sidebar-group-content>
+            </plank-sidebar-group>
+          </plank-sidebar-provider>
+        </div>
+      </section>
+
+      <!-- Submenu -->
+      <section class="mb-12">
+        <h2 class="text-xl font-semibold mb-4">Submenu</h2>
+        <div class="border rounded-lg p-4 bg-sidebar" style="width: 280px">
+          <plank-sidebar-provider>
+            <plank-sidebar-menu>
+              <plank-sidebar-menu-item>
+                <plank-sidebar-menu-button active>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"
+                    />
+                  </svg>
+                  <span>Documents</span>
+                </plank-sidebar-menu-button>
+                <plank-sidebar-menu-sub>
+                  <plank-sidebar-menu-sub-item>
+                    <plank-sidebar-menu-sub-button active>
+                      <span>Getting Started</span>
+                    </plank-sidebar-menu-sub-button>
+                  </plank-sidebar-menu-sub-item>
+                  <plank-sidebar-menu-sub-item>
+                    <plank-sidebar-menu-sub-button>
+                      <span>Components</span>
+                    </plank-sidebar-menu-sub-button>
+                  </plank-sidebar-menu-sub-item>
+                  <plank-sidebar-menu-sub-item>
+                    <plank-sidebar-menu-sub-button>
+                      <span>API Reference</span>
+                    </plank-sidebar-menu-sub-button>
+                  </plank-sidebar-menu-sub-item>
+                </plank-sidebar-menu-sub>
+              </plank-sidebar-menu-item>
+            </plank-sidebar-menu>
+          </plank-sidebar-provider>
+        </div>
+      </section>
+
+      <!-- Loading Skeleton -->
+      <section class="mb-12">
+        <h2 class="text-xl font-semibold mb-4">Loading Skeleton</h2>
+        <div class="border rounded-lg p-4 bg-sidebar" style="width: 280px">
+          <plank-sidebar-provider>
+            <plank-sidebar-menu>
+              <plank-sidebar-menu-item>
+                <plank-sidebar-menu-skeleton
+                  show-icon
+                ></plank-sidebar-menu-skeleton>
+              </plank-sidebar-menu-item>
+              <plank-sidebar-menu-item>
+                <plank-sidebar-menu-skeleton
+                  show-icon
+                ></plank-sidebar-menu-skeleton>
+              </plank-sidebar-menu-item>
+              <plank-sidebar-menu-item>
+                <plank-sidebar-menu-skeleton
+                  show-icon
+                ></plank-sidebar-menu-skeleton>
+              </plank-sidebar-menu-item>
+            </plank-sidebar-menu>
+          </plank-sidebar-provider>
+        </div>
+      </section>
+
+      <!-- API -->
+      <section class="mb-12">
+        <h2 class="text-xl font-semibold mb-4">API</h2>
+
+        <h3 class="text-lg font-medium mb-2">plank-sidebar-provider</h3>
+        <p class="text-muted-foreground mb-4">
+          Root component that provides sidebar state context.
+        </p>
+        <table class="w-full text-sm mb-6">
+          <thead>
+            <tr class="border-b">
+              <th class="text-left py-2">Attribute</th>
+              <th class="text-left py-2">Type</th>
+              <th class="text-left py-2">Default</th>
+              <th class="text-left py-2">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="py-2 font-mono text-xs">default-open</td>
+              <td class="py-2">boolean</td>
+              <td class="py-2">true</td>
+              <td class="py-2">Initial open state</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 font-mono text-xs">open</td>
+              <td class="py-2">boolean</td>
+              <td class="py-2">-</td>
+              <td class="py-2">Controlled open state</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 class="text-lg font-medium mb-2">plank-sidebar</h3>
+        <p class="text-muted-foreground mb-4">Main sidebar container.</p>
+        <table class="w-full text-sm mb-6">
+          <thead>
+            <tr class="border-b">
+              <th class="text-left py-2">Attribute</th>
+              <th class="text-left py-2">Type</th>
+              <th class="text-left py-2">Default</th>
+              <th class="text-left py-2">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="py-2 font-mono text-xs">side</td>
+              <td class="py-2">"left" | "right"</td>
+              <td class="py-2">"left"</td>
+              <td class="py-2">Which side to show sidebar</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 font-mono text-xs">variant</td>
+              <td class="py-2">"sidebar" | "floating" | "inset"</td>
+              <td class="py-2">"sidebar"</td>
+              <td class="py-2">Visual variant</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 font-mono text-xs">collapsible</td>
+              <td class="py-2">"offcanvas" | "icon" | "none"</td>
+              <td class="py-2">"offcanvas"</td>
+              <td class="py-2">Collapse behavior</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 class="text-lg font-medium mb-2">plank-sidebar-menu-button</h3>
+        <p class="text-muted-foreground mb-4">Button within a menu item.</p>
+        <table class="w-full text-sm mb-6">
+          <thead>
+            <tr class="border-b">
+              <th class="text-left py-2">Attribute</th>
+              <th class="text-left py-2">Type</th>
+              <th class="text-left py-2">Default</th>
+              <th class="text-left py-2">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="py-2 font-mono text-xs">variant</td>
+              <td class="py-2">"default" | "outline"</td>
+              <td class="py-2">"default"</td>
+              <td class="py-2">Visual variant</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 font-mono text-xs">size</td>
+              <td class="py-2">"default" | "sm" | "lg"</td>
+              <td class="py-2">"default"</td>
+              <td class="py-2">Button size</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 font-mono text-xs">active</td>
+              <td class="py-2">boolean</td>
+              <td class="py-2">false</td>
+              <td class="py-2">Active state</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 font-mono text-xs">tooltip</td>
+              <td class="py-2">string</td>
+              <td class="py-2">-</td>
+              <td class="py-2">Tooltip when collapsed</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Keyboard -->
+      <section class="mb-12">
+        <h2 class="text-xl font-semibold mb-4">Keyboard</h2>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b">
+              <th class="text-left py-2">Key</th>
+              <th class="text-left py-2">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="py-2">
+                <plank-kbd-group>
+                  <plank-kbd>Ctrl</plank-kbd>
+                  <plank-kbd>B</plank-kbd>
+                </plank-kbd-group>
+              </td>
+              <td class="py-2">Toggle sidebar</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </body>
+</html>
