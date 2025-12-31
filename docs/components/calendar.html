@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendar - Planks</title>
+    <script type="module" src="../src/main.ts"></script>
+  </head>
+  <body class="min-h-screen">
+    <header class="border-b">
+      <div class="container mx-auto px-4 py-4 flex items-center gap-4">
+        <a href="../" class="text-2xl font-bold">Planks</a>
+        <span class="text-muted-foreground">/</span>
+        <span>Calendar</span>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+      <h1 class="text-4xl font-bold mb-4">Calendar</h1>
+      <p class="text-xl text-muted-foreground mb-8">
+        A date picker component with single, multiple, and range selection
+        modes.
+      </p>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Basic Calendar</h2>
+        <div class="max-w-sm mb-4">
+          <plank-calendar class="rounded-lg border shadow-sm"></plank-calendar>
+        </div>
+        <pre><code>&lt;plank-calendar class="rounded-lg border shadow-sm"&gt;&lt;/plank-calendar&gt;</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Single Date Selection</h2>
+        <div class="max-w-sm mb-4">
+          <plank-calendar
+            mode="single"
+            selected="2025-01-15"
+            class="rounded-lg border shadow-sm"
+          ></plank-calendar>
+        </div>
+        <pre><code>&lt;plank-calendar
+  mode="single"
+  selected="2025-01-15"
+  class="rounded-lg border shadow-sm"
+&gt;&lt;/plank-calendar&gt;</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Multiple Date Selection</h2>
+        <div class="max-w-sm mb-4">
+          <plank-calendar
+            mode="multiple"
+            selected-dates="2025-01-10,2025-01-15,2025-01-20"
+            class="rounded-lg border shadow-sm"
+          ></plank-calendar>
+        </div>
+        <pre><code>&lt;plank-calendar
+  mode="multiple"
+  selected-dates="2025-01-10,2025-01-15,2025-01-20"
+  class="rounded-lg border shadow-sm"
+&gt;&lt;/plank-calendar&gt;</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Date Range Selection</h2>
+        <div class="max-w-sm mb-4">
+          <plank-calendar
+            mode="range"
+            range-start="2025-01-10"
+            range-end="2025-01-20"
+            class="rounded-lg border shadow-sm"
+          ></plank-calendar>
+        </div>
+        <pre><code>&lt;plank-calendar
+  mode="range"
+  range-start="2025-01-10"
+  range-end="2025-01-20"
+  class="rounded-lg border shadow-sm"
+&gt;&lt;/plank-calendar&gt;</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Multiple Months</h2>
+        <div class="max-w-2xl mb-4">
+          <plank-calendar
+            number-of-months="2"
+            class="rounded-lg border shadow-sm"
+          ></plank-calendar>
+        </div>
+        <pre><code>&lt;plank-calendar
+  number-of-months="2"
+  class="rounded-lg border shadow-sm"
+&gt;&lt;/plank-calendar&gt;</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">With Date Constraints</h2>
+        <div class="max-w-sm mb-4">
+          <plank-calendar
+            min-date="2025-01-10"
+            max-date="2025-01-25"
+            class="rounded-lg border shadow-sm"
+          ></plank-calendar>
+        </div>
+        <pre><code>&lt;plank-calendar
+  min-date="2025-01-10"
+  max-date="2025-01-25"
+  class="rounded-lg border shadow-sm"
+&gt;&lt;/plank-calendar&gt;</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Without Outside Days</h2>
+        <div class="max-w-sm mb-4">
+          <plank-calendar
+            show-outside-days="false"
+            class="rounded-lg border shadow-sm"
+          ></plank-calendar>
+        </div>
+        <pre><code>&lt;plank-calendar
+  show-outside-days="false"
+  class="rounded-lg border shadow-sm"
+&gt;&lt;/plank-calendar&gt;</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Week Starting on Monday</h2>
+        <div class="max-w-sm mb-4">
+          <plank-calendar
+            week-starts-on="1"
+            class="rounded-lg border shadow-sm"
+          ></plank-calendar>
+        </div>
+        <pre><code>&lt;plank-calendar
+  week-starts-on="1"
+  class="rounded-lg border shadow-sm"
+&gt;&lt;/plank-calendar&gt;</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Attributes</h2>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b">
+              <th class="text-left py-2 pr-4">Attribute</th>
+              <th class="text-left py-2 pr-4">Type</th>
+              <th class="text-left py-2 pr-4">Default</th>
+              <th class="text-left py-2">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">mode</td>
+              <td class="py-2 pr-4">"single" | "multiple" | "range"</td>
+              <td class="py-2 pr-4">"single"</td>
+              <td class="py-2">Selection mode</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">selected</td>
+              <td class="py-2 pr-4">string (YYYY-MM-DD)</td>
+              <td class="py-2 pr-4">-</td>
+              <td class="py-2">Selected date (single mode)</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">selected-dates</td>
+              <td class="py-2 pr-4">string (comma-separated)</td>
+              <td class="py-2 pr-4">-</td>
+              <td class="py-2">Selected dates (multiple mode)</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">range-start</td>
+              <td class="py-2 pr-4">string (YYYY-MM-DD)</td>
+              <td class="py-2 pr-4">-</td>
+              <td class="py-2">Range start date</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">range-end</td>
+              <td class="py-2 pr-4">string (YYYY-MM-DD)</td>
+              <td class="py-2 pr-4">-</td>
+              <td class="py-2">Range end date</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">default-month</td>
+              <td class="py-2 pr-4">string (YYYY-MM-DD)</td>
+              <td class="py-2 pr-4">today</td>
+              <td class="py-2">Initial month to display</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">min-date</td>
+              <td class="py-2 pr-4">string (YYYY-MM-DD)</td>
+              <td class="py-2 pr-4">-</td>
+              <td class="py-2">Minimum selectable date</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">max-date</td>
+              <td class="py-2 pr-4">string (YYYY-MM-DD)</td>
+              <td class="py-2 pr-4">-</td>
+              <td class="py-2">Maximum selectable date</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">number-of-months</td>
+              <td class="py-2 pr-4">number</td>
+              <td class="py-2 pr-4">1</td>
+              <td class="py-2">Number of months to display</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">week-starts-on</td>
+              <td class="py-2 pr-4">number (0-6)</td>
+              <td class="py-2 pr-4">0</td>
+              <td class="py-2">Day week starts on (0=Sunday)</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">show-outside-days</td>
+              <td class="py-2 pr-4">boolean</td>
+              <td class="py-2 pr-4">true</td>
+              <td class="py-2">Show days from adjacent months</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Events</h2>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b">
+              <th class="text-left py-2 pr-4">Event</th>
+              <th class="text-left py-2 pr-4">Detail</th>
+              <th class="text-left py-2">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">date-select</td>
+              <td class="py-2 pr-4">{ date: string }</td>
+              <td class="py-2">Fired when a date is selected (single mode)</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">dates-select</td>
+              <td class="py-2 pr-4">{ dates: string[] }</td>
+              <td class="py-2">Fired when dates change (multiple mode)</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">range-select</td>
+              <td class="py-2 pr-4">
+                { start: string | null, end: string | null }
+              </td>
+              <td class="py-2">Fired when range changes</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </body>
+</html>

@@ -18,6 +18,7 @@ import "@/web-components/plank-select"
 import "@/web-components/plank-command"
 import "@/web-components/plank-combobox"
 import "@/web-components/plank-table"
+import "@/web-components/plank-calendar"
 
 /**
  * Semantic Structure Tests
@@ -2531,6 +2532,115 @@ describe("Semantic Structure", () => {
       expect(caption?.textContent, "Text must be inside <caption>").toContain(
         "Table Caption"
       )
+    })
+  })
+
+  describe("plank-calendar", () => {
+    it("must have role='application' with aria-label", async () => {
+      container.innerHTML = `<plank-calendar default-month="2025-01-01"></plank-calendar>`
+
+      await customElements.whenDefined("plank-calendar")
+      const calendar = container.querySelector("plank-calendar")!
+      await (calendar as any).updateComplete
+
+      const calendarEl = calendar.querySelector('[role="application"]')
+      expect(calendarEl, "Must have role='application'").toBeTruthy()
+      expect(
+        calendarEl?.getAttribute("aria-label"),
+        "Must have aria-label"
+      ).toBe("Calendar")
+    })
+
+    it("must have native button elements for navigation", async () => {
+      container.innerHTML = `<plank-calendar default-month="2025-01-01"></plank-calendar>`
+
+      await customElements.whenDefined("plank-calendar")
+      const calendar = container.querySelector("plank-calendar")!
+      await (calendar as any).updateComplete
+
+      const prevButton = calendar.querySelector(
+        'button[aria-label="Previous month"]'
+      )
+      const nextButton = calendar.querySelector(
+        'button[aria-label="Next month"]'
+      )
+      expect(prevButton, "Must have previous month button").toBeTruthy()
+      expect(nextButton, "Must have next month button").toBeTruthy()
+    })
+
+    it("must have native button elements for day selection", async () => {
+      container.innerHTML = `<plank-calendar default-month="2025-01-01"></plank-calendar>`
+
+      await customElements.whenDefined("plank-calendar")
+      const calendar = container.querySelector("plank-calendar")!
+      await (calendar as any).updateComplete
+
+      const dayButtons = calendar.querySelectorAll('[data-slot="day"] button')
+      expect(dayButtons.length, "Must have day buttons").toBeGreaterThan(0)
+
+      // Day buttons should have date information
+      const firstDayButton = dayButtons[0]
+      expect(
+        firstDayButton?.hasAttribute("data-date"),
+        "Day buttons must have data-date attribute"
+      ).toBeTruthy()
+    })
+
+    it("selected date must have aria-pressed='true'", async () => {
+      container.innerHTML = `
+        <plank-calendar
+          mode="single"
+          default-month="2025-01-01"
+          selected="2025-01-15"
+        ></plank-calendar>
+      `
+
+      await customElements.whenDefined("plank-calendar")
+      const calendar = container.querySelector("plank-calendar")!
+      await (calendar as any).updateComplete
+
+      const selectedButton = calendar.querySelector(
+        'button[data-date="2025-01-15"]'
+      )
+      expect(selectedButton, "Must have button for selected date").toBeTruthy()
+      expect(
+        selectedButton?.getAttribute("aria-pressed"),
+        "Selected button must have aria-pressed='true'"
+      ).toBe("true")
+    })
+
+    it("disabled dates must have disabled attribute", async () => {
+      container.innerHTML = `
+        <plank-calendar
+          default-month="2025-01-01"
+          min-date="2025-01-10"
+        ></plank-calendar>
+      `
+
+      await customElements.whenDefined("plank-calendar")
+      const calendar = container.querySelector("plank-calendar")!
+      await (calendar as any).updateComplete
+
+      // Jan 5 should be disabled (before min-date)
+      const disabledButton = calendar.querySelector(
+        'button[data-date="2025-01-05"]'
+      )
+      expect(disabledButton, "Must have button for disabled date").toBeTruthy()
+      expect(
+        disabledButton?.hasAttribute("disabled"),
+        "Disabled date must have disabled attribute"
+      ).toBeTruthy()
+    })
+
+    it("weekday headers must have proper structure", async () => {
+      container.innerHTML = `<plank-calendar default-month="2025-01-01"></plank-calendar>`
+
+      await customElements.whenDefined("plank-calendar")
+      const calendar = container.querySelector("plank-calendar")!
+      await (calendar as any).updateComplete
+
+      const weekdays = calendar.querySelectorAll('[data-slot="weekday"]')
+      expect(weekdays.length, "Must have 7 weekday headers").toBe(7)
     })
   })
 })
