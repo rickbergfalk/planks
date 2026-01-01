@@ -1,14 +1,7 @@
 import { describe, it, expect } from "vitest"
 import { render } from "@testing-library/react"
 import { page } from "vitest/browser"
-import {
-  Home,
-  Settings,
-  Folder,
-  Star,
-  Archive,
-  Mail,
-} from "lucide-react"
+import { Home, Settings, Folder, Star, Archive, Mail } from "lucide-react"
 import {
   Sidebar,
   SidebarContent,
