@@ -5,7 +5,6 @@ import {
   Home,
   Settings,
   Folder,
-  Inbox,
   Star,
   Archive,
   Mail,
