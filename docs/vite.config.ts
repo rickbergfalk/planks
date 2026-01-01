@@ -26,6 +26,10 @@ export default defineConfig({
       // Use React from root node_modules to avoid duplicate instances
       react: resolve(__dirname, "../node_modules/react"),
       "react-dom": resolve(__dirname, "../node_modules/react-dom"),
+      "react-resizable-panels": resolve(
+        __dirname,
+        "../node_modules/react-resizable-panels"
+      ),
     },
   },
   optimizeDeps: {
@@ -50,6 +54,7 @@ export default defineConfig({
       "clsx",
       "tailwind-merge",
       "lucide-react",
+      "react-resizable-panels",
     ],
   },
   build: {
