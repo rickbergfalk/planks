@@ -5,12 +5,23 @@ import { cn } from "@/lib/utils"
 /**
  * PlankScrollArea - A scrollable area with custom styled scrollbars
  *
- * @example
+ * Can be used simply (like React) or with explicit structure:
+ *
+ * Simple (auto-wraps content, adds vertical scrollbar):
  * ```html
- * <plank-scroll-area class="h-72 w-48 rounded-md border">
- *   <div class="p-4">
- *     <!-- Long content here -->
- *   </div>
+ * <plank-scroll-area class="h-48 w-48 rounded-md border">
+ *   <div class="p-4">Content here</div>
+ * </plank-scroll-area>
+ * ```
+ *
+ * Explicit (for custom configurations):
+ * ```html
+ * <plank-scroll-area type="always" class="h-48 w-48 rounded-md border">
+ *   <plank-scroll-area-viewport>
+ *     <div class="p-4">Content here</div>
+ *   </plank-scroll-area-viewport>
+ *   <plank-scroll-bar></plank-scroll-bar>
+ *   <plank-scroll-bar orientation="horizontal"></plank-scroll-bar>
  * </plank-scroll-area>
  * ```
  */
@@ -28,6 +39,7 @@ export class PlankScrollArea extends LitElement {
   private _viewport: HTMLDivElement | null = null
   private _content: HTMLDivElement | null = null
   private _resizeObserver: ResizeObserver | null = null
+  private _autoCreatedElements: Element[] = []
 
   createRenderRoot() {
     return this
@@ -37,6 +49,8 @@ export class PlankScrollArea extends LitElement {
     super.connectedCallback()
     // Inject global styles for viewport scrollbar hiding
     this._injectGlobalStyles()
+    // Auto-wrap content if needed (synchronously for proper layout)
+    this._autoWrapContent()
   }
 
   disconnectedCallback() {
@@ -60,6 +74,52 @@ export class PlankScrollArea extends LitElement {
         }
       `
       document.head.appendChild(style)
+    }
+  }
+
+  /**
+   * Auto-wrap children in viewport and add scrollbar if not explicitly provided
+   * This allows simple usage like React's ScrollArea
+   */
+  private _autoWrapContent() {
+    // Check if viewport already exists
+    const existingViewport = this.querySelector("plank-scroll-area-viewport")
+    if (existingViewport) return
+
+    // Collect all children that aren't scrollbars or corners
+    const children = Array.from(this.childNodes).filter((node) => {
+      if (node.nodeType === Node.COMMENT_NODE) return false
+      if (node.nodeType === Node.TEXT_NODE && !node.textContent?.trim())
+        return false
+      if (node instanceof Element) {
+        const tagName = node.tagName.toLowerCase()
+        if (
+          tagName === "plank-scroll-bar" ||
+          tagName === "plank-scroll-area-corner"
+        )
+          return false
+      }
+      return true
+    })
+
+    if (children.length === 0) return
+
+    // Create viewport element and set required attributes synchronously
+    const viewport = document.createElement("plank-scroll-area-viewport")
+    viewport.setAttribute("data-plank-scroll-viewport", "")
+    this._autoCreatedElements.push(viewport)
+
+    // Move children into viewport
+    children.forEach((child) => viewport.appendChild(child))
+
+    // Insert viewport at the beginning
+    this.insertBefore(viewport, this.firstChild)
+
+    // Add default vertical scrollbar if none exists
+    if (!this.querySelector("plank-scroll-bar")) {
+      const scrollbar = document.createElement("plank-scroll-bar")
+      this._autoCreatedElements.push(scrollbar)
+      this.appendChild(scrollbar)
     }
   }
 
