@@ -436,6 +436,54 @@ describe("plank-input-otp", () => {
     })
   })
 
+  describe("click to focus", () => {
+    it("input is not hidden from pointer events (can receive clicks)", async () => {
+      container.innerHTML = `
+        <plank-input-otp max-length="6">
+          <plank-input-otp-group>
+            <plank-input-otp-slot index="0"></plank-input-otp-slot>
+            <plank-input-otp-slot index="1"></plank-input-otp-slot>
+          </plank-input-otp-group>
+        </plank-input-otp>
+      `
+      await customElements.whenDefined("plank-input-otp")
+      const otp = container.querySelector("plank-input-otp")! as PlankInputOtp
+      await otp.updateComplete
+
+      const input = otp.querySelector("input")!
+
+      // The input should NOT use sr-only (which hides from pointer events)
+      expect(input.className).not.toContain("sr-only")
+
+      // The input should have pointer-events: auto
+      expect(input.className).toContain("pointer-events-auto")
+    })
+
+    it("input covers the full component area and receives pointer events", async () => {
+      container.innerHTML = `
+        <plank-input-otp max-length="6">
+          <plank-input-otp-group>
+            <plank-input-otp-slot index="0"></plank-input-otp-slot>
+          </plank-input-otp-group>
+        </plank-input-otp>
+      `
+      await customElements.whenDefined("plank-input-otp")
+      const otp = container.querySelector("plank-input-otp")! as PlankInputOtp
+      await otp.updateComplete
+
+      const input = otp.querySelector("input")!
+
+      // Input should have pointer-events: auto (not be hidden from clicks)
+      const inputStyles = getComputedStyle(input)
+      expect(inputStyles.pointerEvents).toBe("auto")
+
+      // Input should cover the full area (inset: 0)
+      expect(input.className).toContain("inset-0")
+      expect(input.className).toContain("w-full")
+      expect(input.className).toContain("h-full")
+    })
+  })
+
   describe("active slot indication", () => {
     it("sets data-active on focused slot", async () => {
       container.innerHTML = `

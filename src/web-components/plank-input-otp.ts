@@ -27,12 +27,19 @@ export class PlankInputOtp extends LitElement {
   }
 
   willUpdate() {
-    this.className = cn("flex items-center gap-2", this.className)
+    this.className = cn(
+      "relative flex items-center gap-2 cursor-text select-none",
+      this.className
+    )
+    // Disable pointer events on the container so the input receives them
+    this.style.pointerEvents = "none"
     this.dataset.slot = "input-otp"
     if (this.disabled) {
       this.dataset.disabled = ""
+      this.style.cursor = "default"
     } else {
       delete this.dataset.disabled
+      this.style.cursor = "text"
     }
   }
 
@@ -199,6 +206,8 @@ export class PlankInputOtp extends LitElement {
   render() {
     const patternAttr = this.pattern || undefined
 
+    // Input covers the full container and is transparent but receives pointer events
+    // This matches how input-otp library works in React
     return html`<input
       type="text"
       inputmode=${this.inputMode}
@@ -213,8 +222,8 @@ export class PlankInputOtp extends LitElement {
       @keydown=${this._handleKeyDown}
       @keyup=${this._handleKeyDown}
       @paste=${this._handlePaste}
-      @mousedown=${this._handleMouseDown}
-      class="sr-only absolute"
+      class="absolute inset-0 w-full h-full opacity-0 pointer-events-auto bg-transparent border-0 outline-none"
+      style="caret-color: transparent; color: transparent; letter-spacing: -0.5em; font-family: monospace;"
       aria-label="OTP input"
     />`
   }
