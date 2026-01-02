@@ -124,16 +124,22 @@ export class PlankSidebarProvider extends LitElement {
 
   setOpenMobile(value: boolean) {
     this._openMobile = value
+    this.dispatchEvent(
+      new CustomEvent("open-mobile-change", {
+        detail: { open: value },
+        bubbles: true,
+        composed: true,
+      })
+    )
     this.requestUpdate()
   }
 
   toggleSidebar() {
     if (this._isMobile) {
-      this._openMobile = !this._openMobile
+      this.setOpenMobile(!this._openMobile)
     } else {
       this.setOpen(!this.isOpen)
     }
-    this.requestUpdate()
   }
 
   willUpdate() {
@@ -153,6 +159,12 @@ export class PlankSidebarProvider extends LitElement {
 
 /**
  * PlankSidebar - Main sidebar container
+ *
+ * Simplified CSS-first approach:
+ * - Always renders both desktop sidebar and mobile sheet
+ * - CSS media queries control visibility (hidden/md:flex)
+ * - No JavaScript mobile state tracking needed for layout
+ * - Mobile sheet only needs open/close state from provider
  */
 @customElement("plank-sidebar")
 export class PlankSidebar extends LitElement {
@@ -175,8 +187,13 @@ export class PlankSidebar extends LitElement {
     this._originalChildren = [...this.childNodes]
     super.connectedCallback()
     this._provider = this.closest("plank-sidebar-provider")
+    // Listen for state changes to update sheet open state
     this._provider?.addEventListener(
       "open-change",
+      this._handleProviderChange as EventListener
+    )
+    this._provider?.addEventListener(
+      "open-mobile-change",
       this._handleProviderChange as EventListener
     )
   }
@@ -185,6 +202,10 @@ export class PlankSidebar extends LitElement {
     super.disconnectedCallback()
     this._provider?.removeEventListener(
       "open-change",
+      this._handleProviderChange as EventListener
+    )
+    this._provider?.removeEventListener(
+      "open-mobile-change",
       this._handleProviderChange as EventListener
     )
   }
@@ -199,109 +220,64 @@ export class PlankSidebar extends LitElement {
 
   willUpdate() {
     const state = this._provider?.state ?? "expanded"
-    const isMobile = this._provider?.isMobile ?? false
 
     this.dataset.slot = "sidebar"
     this.dataset.state = state
     this.dataset.collapsible = state === "collapsed" ? this.collapsible : ""
     this.dataset.variant = this.variant
     this.dataset.side = this.side
-    this.dataset.mobile = String(isMobile)
 
     if (this.collapsible === "none") {
       this.className = cn(
         "bg-sidebar text-sidebar-foreground flex h-full w-(--sidebar-width) flex-col",
         this.class
       )
-    } else if (isMobile) {
-      // Mobile uses sheet, so just be a container
-      this.className = cn("contents", this.class)
     } else {
-      this.className = cn(
-        "group peer text-sidebar-foreground hidden md:block",
-        this.class
-      )
+      // Always use this class - CSS handles mobile/desktop visibility
+      this.className = cn("group peer text-sidebar-foreground", this.class)
     }
   }
 
-  // Move captured children into the appropriate container after render
   firstUpdated() {
     if (this._originalChildren.length === 0) return
+    if (this.collapsible === "none") return
 
-    const isMobile = this._provider?.isMobile ?? false
-
-    // Find the target container based on current mode
-    let target: Element | null = null
-    if (this.collapsible === "none") {
-      // Non-collapsible: children stay in place
-      return
-    } else if (isMobile) {
-      // Mobile: children go into the sheet's flex container
-      target = this.querySelector("[data-slot='sidebar-mobile-inner']")
-    } else {
-      // Desktop: children go into the sidebar-inner container
-      target = this.querySelector("[data-slot='sidebar-inner']")
-    }
-
-    if (target) {
+    // Put children in desktop container
+    const desktopTarget = this.querySelector("[data-slot='sidebar-inner']")
+    if (desktopTarget) {
       this._originalChildren.forEach((child) => {
-        // Skip whitespace-only text nodes
         if (child.nodeType === Node.TEXT_NODE && !child.textContent?.trim()) {
           return
         }
-        target.appendChild(child)
+        desktopTarget.appendChild(child)
+      })
+    }
+
+    // Clone children to mobile container
+    const mobileTarget = this.querySelector(
+      "[data-slot='sidebar-mobile-inner']"
+    )
+    if (mobileTarget && desktopTarget) {
+      Array.from(desktopTarget.childNodes).forEach((child) => {
+        mobileTarget.appendChild(child.cloneNode(true))
       })
     }
   }
 
   render() {
-    const isMobile = this._provider?.isMobile ?? false
     const openMobile = this._provider?.openMobile ?? false
 
     if (this.collapsible === "none") {
-      // Non-collapsible sidebar - children render directly
       return html``
     }
 
-    if (isMobile) {
-      // Mobile sidebar uses sheet
-      return html`
-        <plank-sheet
-          ?open=${openMobile}
-          @open-change=${this._handleSheetOpenChange}
-        >
-          <plank-sheet-content
-            data-sidebar="sidebar"
-            data-mobile="true"
-            side=${this.side}
-            class=${cn(
-              "bg-sidebar text-sidebar-foreground p-0",
-              "w-(--sidebar-width) [&_button]:hidden"
-            )}
-            style="--sidebar-width: ${SIDEBAR_WIDTH_MOBILE}"
-          >
-            <plank-sheet-header class="sr-only">
-              <plank-sheet-title>Sidebar</plank-sheet-title>
-              <plank-sheet-description
-                >Displays the mobile sidebar.</plank-sheet-description
-              >
-            </plank-sheet-header>
-            <div
-              data-slot="sidebar-mobile-inner"
-              class="flex h-full w-full flex-col"
-            ></div>
-          </plank-sheet-content>
-        </plank-sheet>
-      `
-    }
-
-    // Desktop sidebar
+    // Always render BOTH desktop and mobile - CSS controls visibility
     return html`
-      <!-- Gap element for layout -->
+      <!-- Desktop: Gap element (hidden on mobile via CSS) -->
       <div
         data-slot="sidebar-gap"
         class=${cn(
-          "relative w-(--sidebar-width) bg-transparent transition-[width] duration-200 ease-linear",
+          "hidden md:block relative w-(--sidebar-width) bg-transparent transition-[width] duration-200 ease-linear",
           "group-data-[collapsible=offcanvas]:w-0",
           "group-data-[side=right]:rotate-180",
           this.variant === "floating" || this.variant === "inset"
@@ -309,7 +285,7 @@ export class PlankSidebar extends LitElement {
             : "group-data-[collapsible=icon]:w-(--sidebar-width-icon)"
         )}
       ></div>
-      <!-- Container element -->
+      <!-- Desktop: Sidebar container (hidden on mobile via CSS) -->
       <div
         data-slot="sidebar-container"
         class=${cn(
@@ -328,6 +304,34 @@ export class PlankSidebar extends LitElement {
           class="bg-sidebar group-data-[variant=floating]:border-sidebar-border flex h-full w-full flex-col group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:shadow-sm"
         ></div>
       </div>
+      <!-- Mobile: Sheet (always in DOM, CSS hides trigger area, sheet controls overlay) -->
+      <plank-sheet
+        ?open=${openMobile}
+        @open-change=${this._handleSheetOpenChange}
+        class="md:hidden"
+      >
+        <plank-sheet-content
+          data-sidebar="sidebar"
+          data-mobile="true"
+          side=${this.side}
+          class=${cn(
+            "bg-sidebar text-sidebar-foreground p-0",
+            "w-(--sidebar-width) [&>button]:hidden"
+          )}
+          style="--sidebar-width: ${SIDEBAR_WIDTH_MOBILE}"
+        >
+          <plank-sheet-header class="sr-only">
+            <plank-sheet-title>Sidebar</plank-sheet-title>
+            <plank-sheet-description
+              >Displays the mobile sidebar.</plank-sheet-description
+            >
+          </plank-sheet-header>
+          <div
+            data-slot="sidebar-mobile-inner"
+            class="flex h-full w-full flex-col"
+          ></div>
+        </plank-sheet-content>
+      </plank-sheet>
     `
   }
 }
