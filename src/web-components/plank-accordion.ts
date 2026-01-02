@@ -287,6 +287,7 @@ export class PlankAccordionContent extends LitElement {
   @property({ type: String }) class: string = ""
   private _open = false
   private _isAnimating = false
+  private _hasBeenOpened = false // Track if content has ever been opened
 
   createRenderRoot() {
     return this
@@ -309,11 +310,19 @@ export class PlankAccordionContent extends LitElement {
   willUpdate() {
     this.dataset.slot = "accordion-content"
     this.dataset.state = this._open ? "open" : "closed"
+
+    // Only apply animation classes after content has been opened at least once
+    // This prevents the close animation from running on initial render
+    let animationClass = ""
+    if (this._hasBeenOpened) {
+      animationClass = this._open
+        ? "animate-plank-accordion-down"
+        : "animate-plank-accordion-up"
+    }
+
     this.className = cn(
       "overflow-hidden text-sm block pt-0 pb-4",
-      this._open
-        ? "animate-plank-accordion-down"
-        : "animate-plank-accordion-up",
+      animationClass,
       this.class
     )
   }
@@ -332,6 +341,7 @@ export class PlankAccordionContent extends LitElement {
 
     if (open && !wasOpen) {
       // Opening: show immediately and measure height
+      this._hasBeenOpened = true
       this.style.display = "block"
       this._isAnimating = true
 
