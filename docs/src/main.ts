@@ -1,6 +1,9 @@
 // Import styles
 import "./styles.css"
 
+// Import docs-specific components
+import "./components/docs-layout"
+
 // Import all Planks web components
 import "@/web-components/plank-button"
 import "@/web-components/plank-badge"

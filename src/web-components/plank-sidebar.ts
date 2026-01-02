@@ -164,12 +164,15 @@ export class PlankSidebar extends LitElement {
   @property({ type: String }) class: string = ""
 
   private _provider: PlankSidebarProvider | null = null
+  private _originalChildren: Node[] = []
 
   createRenderRoot() {
     return this
   }
 
   connectedCallback() {
+    // Capture original children before Lit renders (slots don't work in Light DOM)
+    this._originalChildren = [...this.childNodes]
     super.connectedCallback()
     this._provider = this.closest("plank-sidebar-provider")
     this._provider?.addEventListener(
@@ -221,6 +224,36 @@ export class PlankSidebar extends LitElement {
     }
   }
 
+  // Move captured children into the appropriate container after render
+  firstUpdated() {
+    if (this._originalChildren.length === 0) return
+
+    const isMobile = this._provider?.isMobile ?? false
+
+    // Find the target container based on current mode
+    let target: Element | null = null
+    if (this.collapsible === "none") {
+      // Non-collapsible: children stay in place
+      return
+    } else if (isMobile) {
+      // Mobile: children go into the sheet's flex container
+      target = this.querySelector("[data-slot='sidebar-mobile-inner']")
+    } else {
+      // Desktop: children go into the sidebar-inner container
+      target = this.querySelector("[data-slot='sidebar-inner']")
+    }
+
+    if (target) {
+      this._originalChildren.forEach((child) => {
+        // Skip whitespace-only text nodes
+        if (child.nodeType === Node.TEXT_NODE && !child.textContent?.trim()) {
+          return
+        }
+        target.appendChild(child)
+      })
+    }
+  }
+
   render() {
     const isMobile = this._provider?.isMobile ?? false
     const openMobile = this._provider?.openMobile ?? false
@@ -253,9 +286,10 @@ export class PlankSidebar extends LitElement {
                 >Displays the mobile sidebar.</plank-sheet-description
               >
             </plank-sheet-header>
-            <div class="flex h-full w-full flex-col">
-              <slot></slot>
-            </div>
+            <div
+              data-slot="sidebar-mobile-inner"
+              class="flex h-full w-full flex-col"
+            ></div>
           </plank-sheet-content>
         </plank-sheet>
       `
@@ -292,9 +326,7 @@ export class PlankSidebar extends LitElement {
           data-sidebar="sidebar"
           data-slot="sidebar-inner"
           class="bg-sidebar group-data-[variant=floating]:border-sidebar-border flex h-full w-full flex-col group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:shadow-sm"
-        >
-          <slot></slot>
-        </div>
+        ></div>
       </div>
     `
   }
