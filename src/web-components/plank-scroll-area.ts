@@ -198,6 +198,9 @@ export class PlankScrollAreaViewport extends LitElement {
     super.connectedCallback()
     this._scrollArea = this.closest("plank-scroll-area") as PlankScrollArea
 
+    // Set viewport attribute immediately so parent can find us
+    this.setAttribute("data-plank-scroll-viewport", "")
+
     // Wrap children in content div synchronously to ensure proper layout
     if (!this.querySelector("[data-plank-scroll-content]")) {
       const contentWrapper = document.createElement("div")
