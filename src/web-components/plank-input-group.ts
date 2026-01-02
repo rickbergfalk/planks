@@ -200,11 +200,28 @@ export class PlankInputGroupButton extends LitElement {
     )
   }
 
+  // Store children before Lit renders
+  private _childNodes: Node[] = []
+
+  connectedCallback() {
+    super.connectedCallback()
+    // Capture children before first render
+    this._childNodes = [...this.childNodes].filter(
+      (n) => n.nodeType !== Node.COMMENT_NODE
+    )
+  }
+
   willUpdate() {
     // Use display:contents so wrapper doesn't affect layout
     this.style.display = "contents"
     this.dataset.slot = "input-group-button"
     this.dataset.size = this.size
+  }
+
+  firstUpdated() {
+    // Move captured children into the button (slot doesn't work in light DOM)
+    const button = this.querySelector("button")
+    this._childNodes.forEach((child) => button?.appendChild(child))
   }
 
   private _handleClick = (e: MouseEvent) => {
@@ -228,9 +245,7 @@ export class PlankInputGroupButton extends LitElement {
       ?disabled=${this.disabled}
       @click=${this._handleClick}
       class=${this._getButtonClasses()}
-    >
-      <slot></slot>
-    </button>`
+    ></button>`
   }
 }
 

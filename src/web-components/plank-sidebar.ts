@@ -745,6 +745,9 @@ export class PlankSidebarMenuButton extends LitElement {
   @property({ type: String }) class: string = ""
 
   private _provider: PlankSidebarProvider | null = null
+  // Store children for manual distribution (slot doesn't work in light DOM)
+  private _childNodes: Node[] = []
+  private _tooltipShown = false
 
   createRenderRoot() {
     return this
@@ -752,6 +755,10 @@ export class PlankSidebarMenuButton extends LitElement {
 
   connectedCallback() {
     super.connectedCallback()
+    // Capture children before first render
+    this._childNodes = [...this.childNodes].filter(
+      (n) => n.nodeType !== Node.COMMENT_NODE
+    )
     this._provider = this.closest("plank-sidebar-provider")
     this._provider?.addEventListener(
       "open-change",
@@ -795,6 +802,23 @@ export class PlankSidebarMenuButton extends LitElement {
     this.className = cn(baseClasses, variantClasses, sizeClasses, this.class)
   }
 
+  updated() {
+    const state = this._provider?.state ?? "expanded"
+    const isMobile = this._provider?.isMobile ?? false
+    const showTooltip = this.tooltip && state === "collapsed" && !isMobile
+
+    if (showTooltip && !this._tooltipShown) {
+      // Move children into the tooltip trigger
+      const trigger = this.querySelector("plank-tooltip-trigger")
+      this._childNodes.forEach((child) => trigger?.appendChild(child))
+      this._tooltipShown = true
+    } else if (!showTooltip && this._tooltipShown) {
+      // Move children back to this element
+      this._childNodes.forEach((child) => this.appendChild(child))
+      this._tooltipShown = false
+    }
+  }
+
   render() {
     const state = this._provider?.state ?? "expanded"
     const isMobile = this._provider?.isMobile ?? false
@@ -803,9 +827,7 @@ export class PlankSidebarMenuButton extends LitElement {
     if (showTooltip) {
       return html`
         <plank-tooltip>
-          <plank-tooltip-trigger class="contents">
-            <slot></slot>
-          </plank-tooltip-trigger>
+          <plank-tooltip-trigger class="contents"></plank-tooltip-trigger>
           <plank-tooltip-content side="right" align="center">
             ${this.tooltip}
           </plank-tooltip-content>
@@ -980,8 +1002,20 @@ export class PlankSidebarMenuSubButton extends LitElement {
   @property({ type: String }) href: string = ""
   @property({ type: String }) class: string = ""
 
+  // Store children for manual distribution (slot doesn't work in light DOM)
+  private _childNodes: Node[] = []
+  private _anchorRendered = false
+
   createRenderRoot() {
     return this
+  }
+
+  connectedCallback() {
+    super.connectedCallback()
+    // Capture children before first render
+    this._childNodes = [...this.childNodes].filter(
+      (n) => n.nodeType !== Node.COMMENT_NODE
+    )
   }
 
   willUpdate() {
@@ -1000,9 +1034,22 @@ export class PlankSidebarMenuSubButton extends LitElement {
     )
   }
 
+  updated() {
+    if (this.href && !this._anchorRendered) {
+      // Move children into the anchor
+      const anchor = this.querySelector("a")
+      this._childNodes.forEach((child) => anchor?.appendChild(child))
+      this._anchorRendered = true
+    } else if (!this.href && this._anchorRendered) {
+      // Move children back to this element
+      this._childNodes.forEach((child) => this.appendChild(child))
+      this._anchorRendered = false
+    }
+  }
+
   render() {
     if (this.href) {
-      return html`<a href=${this.href} class="contents"><slot></slot></a>`
+      return html`<a href=${this.href} class="contents"></a>`
     }
     return html``
   }
