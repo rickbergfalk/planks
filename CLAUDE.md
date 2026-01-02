@@ -52,10 +52,6 @@ src/
 tests/
 ├── react/             # Tests for React components
 └── web-components/    # Tests for web components
-
-reference/
-├── examples/          # 230+ React usage examples
-└── blocks/            # 32 pre-composed UI patterns
 ```
 
 ### Import Aliases
@@ -275,6 +271,7 @@ describe("plank-newcomponent", () => {
 - [x] separator
 - [x] skeleton
 - [x] label
+- [ ] spinner
 
 ### Tier 2 - Simple styled elements (no Radix, no state)
 - [x] input
@@ -284,6 +281,11 @@ describe("plank-newcomponent", () => {
 - [x] kbd
 - [x] progress
 - [x] aspect-ratio
+- [ ] native-select
+- [ ] button-group (multi-part)
+- [ ] empty (multi-part)
+- [ ] field (multi-part)
+- [ ] item (multi-part)
 
 ### Tier 3 - Components with state
 - [x] switch
