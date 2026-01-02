@@ -130,6 +130,7 @@ export class PlankAccordionItem extends LitElement {
   }
 
   _setOpen(open: boolean) {
+    if (this._open === open) return // Guard: no change
     this._open = open
     this.requestUpdate()
   }
@@ -252,11 +253,13 @@ export class PlankAccordionTrigger extends LitElement {
   }
 
   _setOpen(open: boolean) {
+    if (this._open === open) return // Guard: no change
     this._open = open
     this.requestUpdate()
   }
 
   _setContentId(id: string) {
+    if (this._contentId === id) return // Guard: no change
     this._contentId = id
     this.requestUpdate()
   }
@@ -288,6 +291,7 @@ export class PlankAccordionContent extends LitElement {
   private _open = false
   private _isAnimating = false
   private _hasBeenOpened = false // Track if content has ever been opened
+  private _initialized = false // Track if initial render is complete
 
   createRenderRoot() {
     return this
@@ -320,10 +324,17 @@ export class PlankAccordionContent extends LitElement {
         : "animate-plank-accordion-up"
     }
 
+    // Filter out previous animation classes from user-provided classes
+    // (cn/tailwind-merge doesn't know these are mutually exclusive)
+    const userClasses = (this.class || "")
+      .split(" ")
+      .filter((c) => !c.startsWith("animate-plank-accordion-"))
+      .join(" ")
+
     this.className = cn(
       "overflow-hidden text-sm block pt-0 pb-4",
       animationClass,
-      this.class
+      userClasses
     )
   }
 
@@ -336,37 +347,62 @@ export class PlankAccordionContent extends LitElement {
   }
 
   _setOpen(open: boolean) {
+    if (this._open === open) return // Guard: no change
+
     const wasOpen = this._open
     this._open = open
 
     if (open && !wasOpen) {
-      // Opening: show immediately and measure height
       this._hasBeenOpened = true
-      this.style.display = "block"
-      this._isAnimating = true
 
-      // Measure the content height for the animation
-      requestAnimationFrame(() => {
+      // Only animate if already initialized (not initial load)
+      if (this._initialized) {
+        this._isAnimating = true
+
+        // Cancel any running animations to ensure clean restart
+        this.getAnimations().forEach((anim) => anim.cancel())
+
+        // Set height to 0 BEFORE showing to prevent flash of full content
+        this.style.height = "0"
+        this.style.display = "block"
+
+        // Measure content height (scrollHeight works even at height:0)
         const height = this.scrollHeight
         this.style.setProperty(
           "--plank-accordion-content-height",
           `${height}px`
         )
-      })
+        // Clear inline height so CSS animation can control it
+        this.style.height = ""
+      }
     } else if (!open && wasOpen) {
-      // Closing: keep visible during animation
+      // Closing: prepare for smooth animation
       this._isAnimating = true
-      // Height is already set from when it was open
+
+      // Re-measure current height for the close animation
+      const height = this.scrollHeight
+      this.style.setProperty("--plank-accordion-content-height", `${height}px`)
+
+      // Cancel any running animations to ensure clean restart
+      this.getAnimations().forEach((anim) => anim.cancel())
     }
 
     this.requestUpdate()
   }
 
   firstUpdated() {
-    // Initially hide if not open
-    if (!this._open) {
+    // Initially hide if not open, or show if open
+    if (this._open) {
+      // Item starts open - just show it, no animation
+      this.style.display = "block"
+      // Measure height for potential future close animation
+      const height = this.scrollHeight
+      this.style.setProperty("--plank-accordion-content-height", `${height}px`)
+      this._hasBeenOpened = true
+    } else {
       this.style.display = "none"
     }
+    this._initialized = true
   }
 
   render() {

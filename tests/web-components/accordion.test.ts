@@ -721,4 +721,69 @@ describe("plank-accordion", () => {
       expect(accordion.value).toBe("")
     })
   })
+
+  describe("Animation classes", () => {
+    it("should only have one animation class at a time (no accumulation)", async () => {
+      container.innerHTML = `
+        <plank-accordion collapsible>
+          <plank-accordion-item value="item-1">
+            <plank-accordion-trigger>Title</plank-accordion-trigger>
+            <plank-accordion-content>Content</plank-accordion-content>
+          </plank-accordion-item>
+        </plank-accordion>
+      `
+      await customElements.whenDefined("plank-accordion")
+      const accordion = container.querySelector(
+        "plank-accordion"
+      ) as PlankAccordion
+      await accordion.updateComplete
+      const trigger = container.querySelector(
+        "plank-accordion-trigger"
+      ) as PlankAccordionTrigger
+      const content = container.querySelector(
+        "plank-accordion-content"
+      ) as PlankAccordionContent
+
+      // Initially closed - no animation classes
+      expect(content.classList.contains("animate-plank-accordion-down")).toBe(
+        false
+      )
+      expect(content.classList.contains("animate-plank-accordion-up")).toBe(
+        false
+      )
+
+      // Open - should have down animation only
+      trigger.click()
+      await accordion.updateComplete
+      await content.updateComplete
+      expect(content.classList.contains("animate-plank-accordion-down")).toBe(
+        true
+      )
+      expect(content.classList.contains("animate-plank-accordion-up")).toBe(
+        false
+      )
+
+      // Close - should have up animation only, NOT both
+      trigger.click()
+      await accordion.updateComplete
+      await content.updateComplete
+      expect(content.classList.contains("animate-plank-accordion-down")).toBe(
+        false
+      )
+      expect(content.classList.contains("animate-plank-accordion-up")).toBe(
+        true
+      )
+
+      // Open again - should have down animation only
+      trigger.click()
+      await accordion.updateComplete
+      await content.updateComplete
+      expect(content.classList.contains("animate-plank-accordion-down")).toBe(
+        true
+      )
+      expect(content.classList.contains("animate-plank-accordion-up")).toBe(
+        false
+      )
+    })
+  })
 })
