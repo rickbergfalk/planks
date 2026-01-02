@@ -176,7 +176,9 @@ export class DocsLayout extends LitElement {
     return html`
       <plank-sidebar-provider default-open>
         <plank-sidebar collapsible="offcanvas">
-          <plank-sidebar-header class="!flex-row h-14 items-center border-b px-4">
+          <plank-sidebar-header
+            class="!flex-row h-14 items-center border-b px-4"
+          >
             <a
               href="${isComponentPage ? "../index.html" : "index.html"}"
               class="text-xl font-bold hover:text-foreground"
