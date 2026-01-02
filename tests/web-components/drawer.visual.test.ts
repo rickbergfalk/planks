@@ -16,13 +16,8 @@ async function waitForElement(
   return null
 }
 
-// Up to 2% pixel variance allowed for drawer tests:
-// - React uses vaul library with complex positioning and animations
-// - plank-drawer reimplements the styling without vaul's drag/animation system
-// - This causes minor subpixel rendering differences
-const DRAWER_SCREENSHOT_OPTIONS = {
-  comparatorOptions: { allowedMismatchedPixelRatio: 0.02 },
-}
+// Drawer tests now use self-contained Plank animations matching vaul's behavior
+// (uses global 2% tolerance for normal text anti-aliasing variations)
 
 describe("Drawer Visual Tests (Web Component)", () => {
   let container: HTMLDivElement
@@ -66,10 +61,7 @@ describe("Drawer Visual Tests (Web Component)", () => {
     await waitForElement('[role="dialog"]')
     await new Promise((r) => setTimeout(r, 150))
 
-    await expect(document.body).toMatchScreenshot(
-      "drawer open from bottom",
-      DRAWER_SCREENSHOT_OPTIONS
-    )
+    await expect(document.body).toMatchScreenshot("drawer open from bottom")
   })
 
   it("drawer-top", async () => {
@@ -94,10 +86,7 @@ describe("Drawer Visual Tests (Web Component)", () => {
     await waitForElement('[role="dialog"]')
     await new Promise((r) => setTimeout(r, 150))
 
-    await expect(document.body).toMatchScreenshot(
-      "drawer open from top",
-      DRAWER_SCREENSHOT_OPTIONS
-    )
+    await expect(document.body).toMatchScreenshot("drawer open from top")
   })
 
   it("drawer-left", async () => {
@@ -122,10 +111,7 @@ describe("Drawer Visual Tests (Web Component)", () => {
     await waitForElement('[role="dialog"]')
     await new Promise((r) => setTimeout(r, 150))
 
-    await expect(document.body).toMatchScreenshot(
-      "drawer open from left",
-      DRAWER_SCREENSHOT_OPTIONS
-    )
+    await expect(document.body).toMatchScreenshot("drawer open from left")
   })
 
   it("drawer-right", async () => {
@@ -150,10 +136,7 @@ describe("Drawer Visual Tests (Web Component)", () => {
     await waitForElement('[role="dialog"]')
     await new Promise((r) => setTimeout(r, 150))
 
-    await expect(document.body).toMatchScreenshot(
-      "drawer open from right",
-      DRAWER_SCREENSHOT_OPTIONS
-    )
+    await expect(document.body).toMatchScreenshot("drawer open from right")
   })
 
   it("drawer-simple-content", async () => {
@@ -177,9 +160,6 @@ describe("Drawer Visual Tests (Web Component)", () => {
     await waitForElement('[role="dialog"]')
     await new Promise((r) => setTimeout(r, 150))
 
-    await expect(document.body).toMatchScreenshot(
-      "drawer with simple content",
-      DRAWER_SCREENSHOT_OPTIONS
-    )
+    await expect(document.body).toMatchScreenshot("drawer with simple content")
   })
 })

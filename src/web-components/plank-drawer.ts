@@ -289,6 +289,20 @@ export class PlankDrawerContent extends LitElement {
     }
   }
 
+  private _getSlideInAnimationClass() {
+    switch (this._getDirection()) {
+      case "top":
+        return "animate-plank-drawer-slide-in-from-top"
+      case "left":
+        return "animate-plank-drawer-slide-in-from-left"
+      case "right":
+        return "animate-plank-drawer-slide-in-from-right"
+      case "bottom":
+      default:
+        return "animate-plank-drawer-slide-in-from-bottom"
+    }
+  }
+
   private _showContent() {
     if (this._portal) return
 
@@ -320,6 +334,7 @@ export class PlankDrawerContent extends LitElement {
     this._contentEl.className = cn(
       "group/drawer-content",
       this._getDirectionClasses(),
+      this._getSlideInAnimationClass(),
       this.class
     )
 
