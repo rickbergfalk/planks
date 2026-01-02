@@ -286,6 +286,7 @@ export class PlankAccordionTrigger extends LitElement {
 export class PlankAccordionContent extends LitElement {
   @property({ type: String }) class: string = ""
   private _open = false
+  private _isAnimating = false
 
   createRenderRoot() {
     return this
@@ -296,26 +297,66 @@ export class PlankAccordionContent extends LitElement {
     if (!this.id) {
       this.id = `plank-accordion-content-${++accordionContentId}`
     }
+    // Listen for animation end to handle cleanup
+    this.addEventListener("animationend", this._handleAnimationEnd)
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback()
+    this.removeEventListener("animationend", this._handleAnimationEnd)
   }
 
   willUpdate() {
     this.dataset.slot = "accordion-content"
     this.dataset.state = this._open ? "open" : "closed"
-    if (this._open) {
-      this.removeAttribute("hidden")
-    } else {
-      this.setAttribute("hidden", "")
-    }
     this.className = cn(
-      "data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm pt-0 pb-4",
-      this._open ? "block" : "",
+      "overflow-hidden text-sm block pt-0 pb-4",
+      this._open
+        ? "animate-plank-accordion-down"
+        : "animate-plank-accordion-up",
       this.class
     )
   }
 
+  private _handleAnimationEnd = () => {
+    this._isAnimating = false
+    if (!this._open) {
+      // After close animation completes, hide the content
+      this.style.display = "none"
+    }
+  }
+
   _setOpen(open: boolean) {
+    const wasOpen = this._open
     this._open = open
+
+    if (open && !wasOpen) {
+      // Opening: show immediately and measure height
+      this.style.display = "block"
+      this._isAnimating = true
+
+      // Measure the content height for the animation
+      requestAnimationFrame(() => {
+        const height = this.scrollHeight
+        this.style.setProperty(
+          "--plank-accordion-content-height",
+          `${height}px`
+        )
+      })
+    } else if (!open && wasOpen) {
+      // Closing: keep visible during animation
+      this._isAnimating = true
+      // Height is already set from when it was open
+    }
+
     this.requestUpdate()
+  }
+
+  firstUpdated() {
+    // Initially hide if not open
+    if (!this._open) {
+      this.style.display = "none"
+    }
   }
 
   render() {

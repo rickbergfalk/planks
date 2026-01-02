@@ -441,7 +441,8 @@ describe("plank-accordion", () => {
         "plank-accordion-content"
       ) as PlankAccordionContent
       await content.updateComplete
-      expect(content.hasAttribute("hidden")).toBe(true)
+      // Uses display: none instead of hidden attribute for animation support
+      expect(content.style.display).toBe("none")
     })
 
     it("is visible when open", async () => {
@@ -462,7 +463,8 @@ describe("plank-accordion", () => {
         "plank-accordion-content"
       ) as PlankAccordionContent
       await content.updateComplete
-      expect(content.hasAttribute("hidden")).toBe(false)
+      // Uses display: block for visibility
+      expect(content.style.display).toBe("block")
     })
 
     it("has data-state reflecting open state", async () => {

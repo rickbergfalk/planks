@@ -144,3 +144,30 @@ pre {
 code {
   font-family: ui-monospace, monospace;
 }
+
+/* Plank accordion animations - self-contained, no Radix dependency */
+@keyframes plank-accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--plank-accordion-content-height);
+  }
+}
+
+@keyframes plank-accordion-up {
+  from {
+    height: var(--plank-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+.animate-plank-accordion-down {
+  animation: plank-accordion-down 0.2s ease-out;
+}
+
+.animate-plank-accordion-up {
+  animation: plank-accordion-up 0.2s ease-out;
+}
