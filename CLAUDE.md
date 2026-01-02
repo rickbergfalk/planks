@@ -287,7 +287,7 @@ describe("plank-newcomponent", () => {
 - [x] button-group (multi-part)
 - [x] empty (multi-part)
 - [x] field (multi-part)
-- [ ] item (multi-part)
+- [x] item (multi-part)
 
 ### Tier 3 - Components with state
 - [x] switch

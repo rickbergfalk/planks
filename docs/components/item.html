@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Item - Planks</title>
+    <script type="module" src="../src/main.ts"></script>
+  </head>
+  <body class="min-h-screen">
+    <docs-layout title="Item">
+      <h1 class="text-4xl font-bold mb-4">Item</h1>
+      <p class="text-xl text-muted-foreground mb-8">
+        A versatile list item component for displaying structured content with
+        media, title, description, and actions.
+      </p>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Basic Item</h2>
+        <div class="max-w-md mb-4">
+          <plank-item>
+            <plank-item-media variant="icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="8" r="5" />
+                <path d="M20 21a8 8 0 0 0-16 0" />
+              </svg>
+            </plank-item-media>
+            <plank-item-content>
+              <plank-item-title>John Doe</plank-item-title>
+              <plank-item-description
+                >Software Engineer at Acme Inc.</plank-item-description
+              >
+            </plank-item-content>
+            <plank-item-actions>
+              <plank-button variant="ghost" size="icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="1" />
+                  <circle cx="19" cy="12" r="1" />
+                  <circle cx="5" cy="12" r="1" />
+                </svg>
+              </plank-button>
+            </plank-item-actions>
+          </plank-item>
+        </div>
+        <pre><code>&lt;plank-item&gt;
+  &lt;plank-item-media variant="icon"&gt;
+    &lt;!-- SVG icon here --&gt;
+  &lt;/plank-item-media&gt;
+  &lt;plank-item-content&gt;
+    &lt;plank-item-title&gt;John Doe&lt;/plank-item-title&gt;
+    &lt;plank-item-description&gt;
+      Software Engineer at Acme Inc.
+    &lt;/plank-item-description&gt;
+  &lt;/plank-item-content&gt;
+  &lt;plank-item-actions&gt;
+    &lt;plank-button variant="ghost" size="icon"&gt;...&lt;/plank-button&gt;
+  &lt;/plank-item-actions&gt;
+&lt;/plank-item&gt;</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Outline Variant</h2>
+        <div class="max-w-md mb-4">
+          <plank-item variant="outline">
+            <plank-item-media variant="icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="8" r="5" />
+                <path d="M20 21a8 8 0 0 0-16 0" />
+              </svg>
+            </plank-item-media>
+            <plank-item-content>
+              <plank-item-title>Jane Smith</plank-item-title>
+              <plank-item-description>Product Designer</plank-item-description>
+            </plank-item-content>
+          </plank-item>
+        </div>
+        <pre><code>&lt;plank-item variant="outline"&gt;
+  &lt;plank-item-media variant="icon"&gt;...&lt;/plank-item-media&gt;
+  &lt;plank-item-content&gt;
+    &lt;plank-item-title&gt;Jane Smith&lt;/plank-item-title&gt;
+    &lt;plank-item-description&gt;Product Designer&lt;/plank-item-description&gt;
+  &lt;/plank-item-content&gt;
+&lt;/plank-item&gt;</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Muted Variant</h2>
+        <div class="max-w-md mb-4">
+          <plank-item variant="muted">
+            <plank-item-media variant="icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="8" r="5" />
+                <path d="M20 21a8 8 0 0 0-16 0" />
+              </svg>
+            </plank-item-media>
+            <plank-item-content>
+              <plank-item-title>Bob Johnson</plank-item-title>
+              <plank-item-description>Marketing Manager</plank-item-description>
+            </plank-item-content>
+          </plank-item>
+        </div>
+        <pre><code>&lt;plank-item variant="muted"&gt;
+  &lt;plank-item-media variant="icon"&gt;...&lt;/plank-item-media&gt;
+  &lt;plank-item-content&gt;
+    &lt;plank-item-title&gt;Bob Johnson&lt;/plank-item-title&gt;
+    &lt;plank-item-description&gt;Marketing Manager&lt;/plank-item-description&gt;
+  &lt;/plank-item-content&gt;
+&lt;/plank-item&gt;</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Small Size</h2>
+        <div class="max-w-md mb-4">
+          <plank-item size="sm">
+            <plank-item-media variant="icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="8" r="5" />
+                <path d="M20 21a8 8 0 0 0-16 0" />
+              </svg>
+            </plank-item-media>
+            <plank-item-content>
+              <plank-item-title>Compact Item</plank-item-title>
+              <plank-item-description
+                >A smaller item variant</plank-item-description
+              >
+            </plank-item-content>
+          </plank-item>
+        </div>
+        <pre><code>&lt;plank-item size="sm"&gt;
+  &lt;plank-item-media variant="icon"&gt;...&lt;/plank-item-media&gt;
+  &lt;plank-item-content&gt;
+    &lt;plank-item-title&gt;Compact Item&lt;/plank-item-title&gt;
+    &lt;plank-item-description&gt;A smaller item variant&lt;/plank-item-description&gt;
+  &lt;/plank-item-content&gt;
+&lt;/plank-item&gt;</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Image Media</h2>
+        <div class="max-w-md mb-4">
+          <plank-item>
+            <plank-item-media variant="image">
+              <img
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect fill='%236366f1' width='40' height='40'/%3E%3C/svg%3E"
+                alt="Avatar"
+              />
+            </plank-item-media>
+            <plank-item-content>
+              <plank-item-title>User with Avatar</plank-item-title>
+              <plank-item-description
+                >Has a custom profile picture</plank-item-description
+              >
+            </plank-item-content>
+          </plank-item>
+        </div>
+        <pre><code>&lt;plank-item&gt;
+  &lt;plank-item-media variant="image"&gt;
+    &lt;img src="avatar.jpg" alt="Avatar" /&gt;
+  &lt;/plank-item-media&gt;
+  &lt;plank-item-content&gt;
+    &lt;plank-item-title&gt;User with Avatar&lt;/plank-item-title&gt;
+    &lt;plank-item-description&gt;Has a custom profile picture&lt;/plank-item-description&gt;
+  &lt;/plank-item-content&gt;
+&lt;/plank-item&gt;</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">With Header and Footer</h2>
+        <div class="max-w-md mb-4">
+          <plank-item>
+            <plank-item-header>
+              <plank-item-title>Item Header</plank-item-title>
+              <span class="text-xs text-muted-foreground">2 hours ago</span>
+            </plank-item-header>
+            <plank-item-content>
+              <plank-item-description>
+                This item has both a header and footer section for additional
+                context.
+              </plank-item-description>
+            </plank-item-content>
+            <plank-item-footer>
+              <span class="text-xs text-muted-foreground"
+                >3 comments &bull; 5 likes</span
+              >
+            </plank-item-footer>
+          </plank-item>
+        </div>
+        <pre><code>&lt;plank-item&gt;
+  &lt;plank-item-header&gt;
+    &lt;plank-item-title&gt;Item Header&lt;/plank-item-title&gt;
+    &lt;span class="text-xs text-muted-foreground"&gt;2 hours ago&lt;/span&gt;
+  &lt;/plank-item-header&gt;
+  &lt;plank-item-content&gt;
+    &lt;plank-item-description&gt;...&lt;/plank-item-description&gt;
+  &lt;/plank-item-content&gt;
+  &lt;plank-item-footer&gt;
+    &lt;span class="text-xs text-muted-foreground"&gt;3 comments...&lt;/span&gt;
+  &lt;/plank-item-footer&gt;
+&lt;/plank-item&gt;</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Item Group with Separators</h2>
+        <div class="max-w-md mb-4">
+          <plank-item-group class="border rounded-lg overflow-hidden">
+            <plank-item>
+              <plank-item-media variant="icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="8" r="5" />
+                  <path d="M20 21a8 8 0 0 0-16 0" />
+                </svg>
+              </plank-item-media>
+              <plank-item-content>
+                <plank-item-title>First Person</plank-item-title>
+                <plank-item-description>Team Lead</plank-item-description>
+              </plank-item-content>
+            </plank-item>
+            <plank-item-separator></plank-item-separator>
+            <plank-item>
+              <plank-item-media variant="icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="8" r="5" />
+                  <path d="M20 21a8 8 0 0 0-16 0" />
+                </svg>
+              </plank-item-media>
+              <plank-item-content>
+                <plank-item-title>Second Person</plank-item-title>
+                <plank-item-description>Developer</plank-item-description>
+              </plank-item-content>
+            </plank-item>
+            <plank-item-separator></plank-item-separator>
+            <plank-item>
+              <plank-item-media variant="icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="8" r="5" />
+                  <path d="M20 21a8 8 0 0 0-16 0" />
+                </svg>
+              </plank-item-media>
+              <plank-item-content>
+                <plank-item-title>Third Person</plank-item-title>
+                <plank-item-description>Designer</plank-item-description>
+              </plank-item-content>
+            </plank-item>
+          </plank-item-group>
+        </div>
+        <pre><code>&lt;plank-item-group class="border rounded-lg overflow-hidden"&gt;
+  &lt;plank-item&gt;...&lt;/plank-item&gt;
+  &lt;plank-item-separator&gt;&lt;/plank-item-separator&gt;
+  &lt;plank-item&gt;...&lt;/plank-item&gt;
+  &lt;plank-item-separator&gt;&lt;/plank-item-separator&gt;
+  &lt;plank-item&gt;...&lt;/plank-item&gt;
+&lt;/plank-item-group&gt;</code></pre>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Components</h2>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b">
+              <th class="text-left py-2 pr-4">Component</th>
+              <th class="text-left py-2">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">plank-item</td>
+              <td class="py-2">The main item container</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">plank-item-group</td>
+              <td class="py-2">Groups multiple items with role="list"</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">plank-item-separator</td>
+              <td class="py-2">Visual separator between items</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">plank-item-media</td>
+              <td class="py-2">
+                Container for icon or image (variant: "default" | "icon" |
+                "image")
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">plank-item-content</td>
+              <td class="py-2">Container for title and description</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">plank-item-title</td>
+              <td class="py-2">The item title</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">plank-item-description</td>
+              <td class="py-2">The item description</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">plank-item-actions</td>
+              <td class="py-2">Container for action buttons</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">plank-item-header</td>
+              <td class="py-2">Header row (full width)</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">plank-item-footer</td>
+              <td class="py-2">Footer row (full width)</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Attributes</h2>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b">
+              <th class="text-left py-2 pr-4">Component</th>
+              <th class="text-left py-2 pr-4">Attribute</th>
+              <th class="text-left py-2 pr-4">Values</th>
+              <th class="text-left py-2">Default</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">plank-item</td>
+              <td class="py-2 pr-4">variant</td>
+              <td class="py-2 pr-4">"default" | "outline" | "muted"</td>
+              <td class="py-2">"default"</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">plank-item</td>
+              <td class="py-2 pr-4">size</td>
+              <td class="py-2 pr-4">"default" | "sm"</td>
+              <td class="py-2">"default"</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 pr-4 font-mono">plank-item-media</td>
+              <td class="py-2 pr-4">variant</td>
+              <td class="py-2 pr-4">"default" | "icon" | "image"</td>
+              <td class="py-2">"default"</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </docs-layout>
+  </body>
+</html>

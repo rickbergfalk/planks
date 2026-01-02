@@ -282,6 +282,41 @@
           </plank-empty>
         </a>
 
+        <!-- Item -->
+        <a
+          href="./components/item.html"
+          class="block p-6 border rounded-lg hover:border-foreground transition-colors"
+        >
+          <h3 class="font-semibold mb-2">Item</h3>
+          <p class="text-sm text-muted-foreground mb-4">
+            List item with media, content, and actions.
+          </p>
+          <plank-item class="w-full">
+            <plank-item-media variant="icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="8" r="5" />
+                <path d="M20 21a8 8 0 0 0-16 0" />
+              </svg>
+            </plank-item-media>
+            <plank-item-content>
+              <plank-item-title>John Doe</plank-item-title>
+              <plank-item-description class="text-xs"
+                >Engineer</plank-item-description
+              >
+            </plank-item-content>
+          </plank-item>
+        </a>
+
         <!-- Separator -->
         <a
           href="./components/separator.html"
