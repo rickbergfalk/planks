@@ -283,7 +283,7 @@ describe("plank-newcomponent", () => {
 - [x] kbd
 - [x] progress
 - [x] aspect-ratio
-- [ ] native-select
+- [x] native-select
 - [ ] button-group (multi-part)
 - [ ] empty (multi-part)
 - [ ] field (multi-part)

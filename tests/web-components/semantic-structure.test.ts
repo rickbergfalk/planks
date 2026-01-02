@@ -19,6 +19,7 @@ import "@/web-components/plank-command"
 import "@/web-components/plank-combobox"
 import "@/web-components/plank-table"
 import "@/web-components/plank-calendar"
+import "@/web-components/plank-native-select"
 
 /**
  * Semantic Structure Tests
@@ -2641,6 +2642,78 @@ describe("Semantic Structure", () => {
 
       const weekdays = calendar.querySelectorAll('[data-slot="weekday"]')
       expect(weekdays.length, "Must have 7 weekday headers").toBe(7)
+    })
+  })
+
+  describe("plank-native-select", () => {
+    it("must contain native <select> element", async () => {
+      container.innerHTML = `
+        <plank-native-select>
+          <plank-native-select-option value="a">Option A</plank-native-select-option>
+        </plank-native-select>
+      `
+
+      await customElements.whenDefined("plank-native-select")
+      const element = container.querySelector("plank-native-select")!
+      await (element as any).updateComplete
+
+      const select = element.querySelector("select")
+      expect(select, "Must contain native <select>").toBeTruthy()
+      expect(select!.dataset.slot).toBe("native-select")
+    })
+
+    it("options must be inside native <select>", async () => {
+      container.innerHTML = `
+        <plank-native-select>
+          <plank-native-select-option value="apple">Apple</plank-native-select-option>
+          <plank-native-select-option value="banana">Banana</plank-native-select-option>
+        </plank-native-select>
+      `
+
+      await customElements.whenDefined("plank-native-select")
+      const element = container.querySelector("plank-native-select")!
+      await (element as any).updateComplete
+
+      const select = element.querySelector("select")!
+      const options = select.querySelectorAll("option")
+      expect(options.length, "Options must be inside <select>").toBe(2)
+      expect(options[0].textContent).toBe("Apple")
+      expect(options[1].textContent).toBe("Banana")
+    })
+
+    it("optgroup must be inside native <select> with options inside", async () => {
+      container.innerHTML = `
+        <plank-native-select>
+          <plank-native-select-optgroup label="Fruits">
+            <plank-native-select-option value="apple">Apple</plank-native-select-option>
+          </plank-native-select-optgroup>
+        </plank-native-select>
+      `
+
+      await customElements.whenDefined("plank-native-select")
+      const element = container.querySelector("plank-native-select")!
+      await (element as any).updateComplete
+
+      const select = element.querySelector("select")!
+      const optgroup = select.querySelector("optgroup")
+      expect(optgroup, "Optgroup must be inside <select>").toBeTruthy()
+      expect(optgroup!.label).toBe("Fruits")
+
+      const options = optgroup!.querySelectorAll("option")
+      expect(options.length, "Options must be inside optgroup").toBe(1)
+      expect(options[0].textContent).toBe("Apple")
+    })
+
+    it("must have chevron icon", async () => {
+      container.innerHTML = `<plank-native-select></plank-native-select>`
+
+      await customElements.whenDefined("plank-native-select")
+      const element = container.querySelector("plank-native-select")!
+      await (element as any).updateComplete
+
+      const icon = element.querySelector("svg")
+      expect(icon, "Must have chevron SVG icon").toBeTruthy()
+      expect(icon!.dataset.slot).toBe("native-select-icon")
     })
   })
 })

@@ -21,6 +21,7 @@ const NAV_GROUPS = [
       { name: "Input Group", href: "input-group.html" },
       { name: "Input OTP", href: "input-otp.html" },
       { name: "Label", href: "label.html" },
+      { name: "Native Select", href: "native-select.html" },
       { name: "Radio Group", href: "radio-group.html" },
       { name: "Select", href: "select.html" },
       { name: "Slider", href: "slider.html" },

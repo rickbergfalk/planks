@@ -7,6 +7,7 @@ import { Badge } from "@/components/badge"
 import { Input } from "@/components/input"
 import { Textarea } from "@/components/textarea"
 import { Label } from "@/components/label"
+import { NativeSelect, NativeSelectOption } from "@/components/native-select"
 import { Separator } from "@/components/separator"
 import { Skeleton } from "@/components/skeleton"
 import { Switch } from "@/components/switch"
@@ -294,6 +295,27 @@ function ComparisonPage() {
         title="Label"
         reactContent={<Label>Email address</Label>}
         planksHtml={`<plank-label>Email address</plank-label>`}
+      />
+
+      {/* Native Select */}
+      <ComparisonRow
+        title="Native Select"
+        reactContent={
+          <NativeSelect>
+            <NativeSelectOption value="">Select an option</NativeSelectOption>
+            <NativeSelectOption value="apple">Apple</NativeSelectOption>
+            <NativeSelectOption value="banana">Banana</NativeSelectOption>
+            <NativeSelectOption value="orange">Orange</NativeSelectOption>
+          </NativeSelect>
+        }
+        planksHtml={`
+          <plank-native-select>
+            <plank-native-select-option value="">Select an option</plank-native-select-option>
+            <plank-native-select-option value="apple">Apple</plank-native-select-option>
+            <plank-native-select-option value="banana">Banana</plank-native-select-option>
+            <plank-native-select-option value="orange">Orange</plank-native-select-option>
+          </plank-native-select>
+        `}
       />
 
       {/* Separator */}
