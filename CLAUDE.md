@@ -331,10 +331,17 @@ describe("plank-newcomponent", () => {
 - [x] input-otp
 - [x] sonner
 
-## Open Questions
+## TODO Failing Tests
+Components with failing tests that need investigation:
 
-- [ ] How to replicate Radix accessibility patterns in Lit?
+- [ ] **carousel** - Visual tests failing (3 tests): dimension mismatch ~30px height difference
+- [ ] **navigation-menu** - Visual tests failing (5 tests): dimension mismatch ~10px height difference
+- [ ] **pagination** - Visual test failing (1 test): dimension mismatch ~10px height difference
+- [ ] **sidebar** - Behavioral test failing (1 test): menu item count assertion (expected 2, got 4)
+
+## TODO Distribution
 - [ ] Bundle/distribution format?
+- [ ] Test repo to try installing components? 
 
 ## Web Component Library Landscape
 
