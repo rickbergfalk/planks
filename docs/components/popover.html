@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Popover - Planks</title>
+    <title>Popover - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -17,11 +17,11 @@
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Basic Usage</h2>
         <div class="mb-4 flex items-center gap-4">
-          <plank-popover>
-            <plank-popover-trigger>
-              <plank-button variant="outline">Open popover</plank-button>
-            </plank-popover-trigger>
-            <plank-popover-content>
+          <hal-popover>
+            <hal-popover-trigger>
+              <hal-button variant="outline">Open popover</hal-button>
+            </hal-popover-trigger>
+            <hal-popover-content>
               <div class="grid gap-4">
                 <div class="space-y-2">
                   <h4 class="leading-none font-medium">Dimensions</h4>
@@ -30,14 +30,14 @@
                   </p>
                 </div>
               </div>
-            </plank-popover-content>
-          </plank-popover>
+            </hal-popover-content>
+          </hal-popover>
         </div>
-        <pre><code>&lt;plank-popover&gt;
-  &lt;plank-popover-trigger&gt;
-    &lt;plank-button variant="outline"&gt;Open popover&lt;/plank-button&gt;
-  &lt;/plank-popover-trigger&gt;
-  &lt;plank-popover-content&gt;
+        <pre><code>&lt;hal-popover&gt;
+  &lt;hal-popover-trigger&gt;
+    &lt;hal-button variant="outline"&gt;Open popover&lt;/hal-button&gt;
+  &lt;/hal-popover-trigger&gt;
+  &lt;hal-popover-content&gt;
     &lt;div class="grid gap-4"&gt;
       &lt;div class="space-y-2"&gt;
         &lt;h4 class="leading-none font-medium"&gt;Dimensions&lt;/h4&gt;
@@ -46,8 +46,8 @@
         &lt;/p&gt;
       &lt;/div&gt;
     &lt;/div&gt;
-  &lt;/plank-popover-content&gt;
-&lt;/plank-popover&gt;</code></pre>
+  &lt;/hal-popover-content&gt;
+&lt;/hal-popover&gt;</code></pre>
       </section>
 
       <!-- Alignment -->
@@ -58,82 +58,82 @@
           trigger.
         </p>
         <div class="mb-4 flex flex-wrap items-center gap-4">
-          <plank-popover>
-            <plank-popover-trigger>
-              <plank-button variant="outline">Start</plank-button>
-            </plank-popover-trigger>
-            <plank-popover-content align="start">
+          <hal-popover>
+            <hal-popover-trigger>
+              <hal-button variant="outline">Start</hal-button>
+            </hal-popover-trigger>
+            <hal-popover-content align="start">
               <p class="text-sm">Aligned to start</p>
-            </plank-popover-content>
-          </plank-popover>
+            </hal-popover-content>
+          </hal-popover>
 
-          <plank-popover>
-            <plank-popover-trigger>
-              <plank-button variant="outline">Center</plank-button>
-            </plank-popover-trigger>
-            <plank-popover-content align="center">
+          <hal-popover>
+            <hal-popover-trigger>
+              <hal-button variant="outline">Center</hal-button>
+            </hal-popover-trigger>
+            <hal-popover-content align="center">
               <p class="text-sm">Aligned to center</p>
-            </plank-popover-content>
-          </plank-popover>
+            </hal-popover-content>
+          </hal-popover>
 
-          <plank-popover>
-            <plank-popover-trigger>
-              <plank-button variant="outline">End</plank-button>
-            </plank-popover-trigger>
-            <plank-popover-content align="end">
+          <hal-popover>
+            <hal-popover-trigger>
+              <hal-button variant="outline">End</hal-button>
+            </hal-popover-trigger>
+            <hal-popover-content align="end">
               <p class="text-sm">Aligned to end</p>
-            </plank-popover-content>
-          </plank-popover>
+            </hal-popover-content>
+          </hal-popover>
         </div>
-        <pre><code>&lt;plank-popover-content align="start"&gt;...&lt;/plank-popover-content&gt;
-&lt;plank-popover-content align="center"&gt;...&lt;/plank-popover-content&gt;
-&lt;plank-popover-content align="end"&gt;...&lt;/plank-popover-content&gt;</code></pre>
+        <pre><code>&lt;hal-popover-content align="start"&gt;...&lt;/hal-popover-content&gt;
+&lt;hal-popover-content align="center"&gt;...&lt;/hal-popover-content&gt;
+&lt;hal-popover-content align="end"&gt;...&lt;/hal-popover-content&gt;</code></pre>
       </section>
 
       <!-- Different Sides -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Different Sides</h2>
         <div class="mb-4 flex flex-wrap items-center gap-4">
-          <plank-popover>
-            <plank-popover-trigger>
-              <plank-button variant="outline">Top</plank-button>
-            </plank-popover-trigger>
-            <plank-popover-content side="top">
+          <hal-popover>
+            <hal-popover-trigger>
+              <hal-button variant="outline">Top</hal-button>
+            </hal-popover-trigger>
+            <hal-popover-content side="top">
               <p class="text-sm">Popover on top</p>
-            </plank-popover-content>
-          </plank-popover>
+            </hal-popover-content>
+          </hal-popover>
 
-          <plank-popover>
-            <plank-popover-trigger>
-              <plank-button variant="outline">Right</plank-button>
-            </plank-popover-trigger>
-            <plank-popover-content side="right">
+          <hal-popover>
+            <hal-popover-trigger>
+              <hal-button variant="outline">Right</hal-button>
+            </hal-popover-trigger>
+            <hal-popover-content side="right">
               <p class="text-sm">Popover on right</p>
-            </plank-popover-content>
-          </plank-popover>
+            </hal-popover-content>
+          </hal-popover>
 
-          <plank-popover>
-            <plank-popover-trigger>
-              <plank-button variant="outline">Bottom</plank-button>
-            </plank-popover-trigger>
-            <plank-popover-content side="bottom">
+          <hal-popover>
+            <hal-popover-trigger>
+              <hal-button variant="outline">Bottom</hal-button>
+            </hal-popover-trigger>
+            <hal-popover-content side="bottom">
               <p class="text-sm">Popover on bottom</p>
-            </plank-popover-content>
-          </plank-popover>
+            </hal-popover-content>
+          </hal-popover>
 
-          <plank-popover>
-            <plank-popover-trigger>
-              <plank-button variant="outline">Left</plank-button>
-            </plank-popover-trigger>
-            <plank-popover-content side="left">
+          <hal-popover>
+            <hal-popover-trigger>
+              <hal-button variant="outline">Left</hal-button>
+            </hal-popover-trigger>
+            <hal-popover-content side="left">
               <p class="text-sm">Popover on left</p>
-            </plank-popover-content>
-          </plank-popover>
+            </hal-popover-content>
+          </hal-popover>
         </div>
-        <pre><code>&lt;plank-popover-content side="top"&gt;...&lt;/plank-popover-content&gt;
-&lt;plank-popover-content side="right"&gt;...&lt;/plank-popover-content&gt;
-&lt;plank-popover-content side="bottom"&gt;...&lt;/plank-popover-content&gt;
-&lt;plank-popover-content side="left"&gt;...&lt;/plank-popover-content&gt;</code></pre>
+        <pre><code>&lt;hal-popover-content side="top"&gt;...&lt;/hal-popover-content&gt;
+&lt;hal-popover-content side="right"&gt;...&lt;/hal-popover-content&gt;
+&lt;hal-popover-content side="bottom"&gt;...&lt;/hal-popover-content&gt;
+&lt;hal-popover-content side="left"&gt;...&lt;/hal-popover-content&gt;</code></pre>
       </section>
 
       <!-- Controlled -->
@@ -143,25 +143,25 @@
           Use the open attribute to control the popover state programmatically.
         </p>
         <div class="mb-4 flex items-center gap-4">
-          <plank-popover open id="controlled-popover">
-            <plank-popover-trigger>
-              <plank-button variant="outline">Always open</plank-button>
-            </plank-popover-trigger>
-            <plank-popover-content>
+          <hal-popover open id="controlled-popover">
+            <hal-popover-trigger>
+              <hal-button variant="outline">Always open</hal-button>
+            </hal-popover-trigger>
+            <hal-popover-content>
               <p class="text-sm">This popover is controlled</p>
-            </plank-popover-content>
-          </plank-popover>
+            </hal-popover-content>
+          </hal-popover>
         </div>
-        <pre><code>&lt;plank-popover open&gt;
+        <pre><code>&lt;hal-popover open&gt;
   ...
-&lt;/plank-popover&gt;</code></pre>
+&lt;/hal-popover&gt;</code></pre>
       </section>
 
       <!-- API -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">API</h2>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-popover</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-popover</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -207,12 +207,12 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-popover-trigger</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-popover-trigger</h3>
         <p class="text-muted-foreground mb-4">
           The element that triggers the popover. Opens popover on click.
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-popover-content</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-popover-content</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>

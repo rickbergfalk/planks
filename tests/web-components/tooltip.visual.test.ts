@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach, afterEach } from "vitest"
 import { page } from "vitest/browser"
-import "@/web-components/plank-tooltip"
-import "@/web-components/plank-button"
+import "@/web-components/hal-tooltip"
+import "@/web-components/hal-button"
 
 // Small pixel variance allowed for tooltip tests:
 // - React uses Radix's SVG arrow primitive
@@ -33,17 +33,17 @@ describe("Tooltip (Web Component) - Visual", () => {
   it("tooltip open above button", async () => {
     container.innerHTML = `
       <div data-testid="container" style="padding: 60px; display: flex; justify-content: center; align-items: center;">
-        <plank-tooltip open>
-          <plank-tooltip-trigger>
-            <plank-button variant="outline">Hover</plank-button>
-          </plank-tooltip-trigger>
-          <plank-tooltip-content side="top">Add to library</plank-tooltip-content>
-        </plank-tooltip>
+        <hal-tooltip open>
+          <hal-tooltip-trigger>
+            <hal-button variant="outline">Hover</hal-button>
+          </hal-tooltip-trigger>
+          <hal-tooltip-content side="top">Add to library</hal-tooltip-content>
+        </hal-tooltip>
       </div>
     `
 
-    await customElements.whenDefined("plank-tooltip")
-    const tooltip = container.querySelector("plank-tooltip")!
+    await customElements.whenDefined("hal-tooltip")
+    const tooltip = container.querySelector("hal-tooltip")!
     await (tooltip as any).updateComplete
     // Wait for positioning
     await new Promise((r) => setTimeout(r, 100))
@@ -57,17 +57,17 @@ describe("Tooltip (Web Component) - Visual", () => {
   it("tooltip on right side", async () => {
     container.innerHTML = `
       <div data-testid="container" style="padding: 60px; display: flex; justify-content: center; align-items: center;">
-        <plank-tooltip open>
-          <plank-tooltip-trigger>
-            <plank-button variant="outline">Hover</plank-button>
-          </plank-tooltip-trigger>
-          <plank-tooltip-content side="right">Add to library</plank-tooltip-content>
-        </plank-tooltip>
+        <hal-tooltip open>
+          <hal-tooltip-trigger>
+            <hal-button variant="outline">Hover</hal-button>
+          </hal-tooltip-trigger>
+          <hal-tooltip-content side="right">Add to library</hal-tooltip-content>
+        </hal-tooltip>
       </div>
     `
 
-    await customElements.whenDefined("plank-tooltip")
-    const tooltip = container.querySelector("plank-tooltip")!
+    await customElements.whenDefined("hal-tooltip")
+    const tooltip = container.querySelector("hal-tooltip")!
     await (tooltip as any).updateComplete
     await new Promise((r) => setTimeout(r, 100))
 
@@ -80,17 +80,17 @@ describe("Tooltip (Web Component) - Visual", () => {
   it("tooltip on bottom", async () => {
     container.innerHTML = `
       <div data-testid="container" style="padding: 60px; display: flex; justify-content: center; align-items: center;">
-        <plank-tooltip open>
-          <plank-tooltip-trigger>
-            <plank-button variant="outline">Hover</plank-button>
-          </plank-tooltip-trigger>
-          <plank-tooltip-content side="bottom">Add to library</plank-tooltip-content>
-        </plank-tooltip>
+        <hal-tooltip open>
+          <hal-tooltip-trigger>
+            <hal-button variant="outline">Hover</hal-button>
+          </hal-tooltip-trigger>
+          <hal-tooltip-content side="bottom">Add to library</hal-tooltip-content>
+        </hal-tooltip>
       </div>
     `
 
-    await customElements.whenDefined("plank-tooltip")
-    const tooltip = container.querySelector("plank-tooltip")!
+    await customElements.whenDefined("hal-tooltip")
+    const tooltip = container.querySelector("hal-tooltip")!
     await (tooltip as any).updateComplete
     await new Promise((r) => setTimeout(r, 100))
 
@@ -103,17 +103,17 @@ describe("Tooltip (Web Component) - Visual", () => {
   it("tooltip on left side", async () => {
     container.innerHTML = `
       <div data-testid="container" style="padding: 60px; display: flex; justify-content: center; align-items: center;">
-        <plank-tooltip open>
-          <plank-tooltip-trigger>
-            <plank-button variant="outline">Hover</plank-button>
-          </plank-tooltip-trigger>
-          <plank-tooltip-content side="left">Add to library</plank-tooltip-content>
-        </plank-tooltip>
+        <hal-tooltip open>
+          <hal-tooltip-trigger>
+            <hal-button variant="outline">Hover</hal-button>
+          </hal-tooltip-trigger>
+          <hal-tooltip-content side="left">Add to library</hal-tooltip-content>
+        </hal-tooltip>
       </div>
     `
 
-    await customElements.whenDefined("plank-tooltip")
-    const tooltip = container.querySelector("plank-tooltip")!
+    await customElements.whenDefined("hal-tooltip")
+    const tooltip = container.querySelector("hal-tooltip")!
     await (tooltip as any).updateComplete
     await new Promise((r) => setTimeout(r, 100))
 

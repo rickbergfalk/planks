@@ -1,8 +1,8 @@
 import { describe, it, expect, beforeEach } from "vitest"
 import { page } from "vitest/browser"
-import "../../src/web-components/plank-navigation-menu"
+import "../../src/web-components/hal-navigation-menu"
 
-describe("plank-navigation-menu - Visual", () => {
+describe("hal-navigation-menu - Visual", () => {
   let container: HTMLElement
 
   beforeEach(() => {
@@ -18,22 +18,22 @@ describe("plank-navigation-menu - Visual", () => {
 
   it("basic navigation menu", async () => {
     container.innerHTML = `
-      <plank-navigation-menu viewport="false">
-        <plank-navigation-menu-list>
-          <plank-navigation-menu-item>
-            <plank-navigation-menu-trigger>Getting Started</plank-navigation-menu-trigger>
-          </plank-navigation-menu-item>
-          <plank-navigation-menu-item>
-            <plank-navigation-menu-trigger>Components</plank-navigation-menu-trigger>
-          </plank-navigation-menu-item>
-          <plank-navigation-menu-item>
-            <plank-navigation-menu-link href="#">Documentation</plank-navigation-menu-link>
-          </plank-navigation-menu-item>
-        </plank-navigation-menu-list>
-      </plank-navigation-menu>
+      <hal-navigation-menu viewport="false">
+        <hal-navigation-menu-list>
+          <hal-navigation-menu-item>
+            <hal-navigation-menu-trigger>Getting Started</hal-navigation-menu-trigger>
+          </hal-navigation-menu-item>
+          <hal-navigation-menu-item>
+            <hal-navigation-menu-trigger>Components</hal-navigation-menu-trigger>
+          </hal-navigation-menu-item>
+          <hal-navigation-menu-item>
+            <hal-navigation-menu-link href="#">Documentation</hal-navigation-menu-link>
+          </hal-navigation-menu-item>
+        </hal-navigation-menu-list>
+      </hal-navigation-menu>
     `
-    await customElements.whenDefined("plank-navigation-menu")
-    const menu = container.querySelector("plank-navigation-menu")!
+    await customElements.whenDefined("hal-navigation-menu")
+    const menu = container.querySelector("hal-navigation-menu")!
     await (menu as any).updateComplete
 
     await new Promise((resolve) => setTimeout(resolve, 50))
@@ -49,35 +49,35 @@ describe("plank-navigation-menu - Visual", () => {
     // Note: React portals dropdown content outside the container, so we compare closed states
     // The React screenshot shows only the nav bar even when "open" because content is portaled
     container.innerHTML = `
-      <plank-navigation-menu viewport="false">
-        <plank-navigation-menu-list>
-          <plank-navigation-menu-item>
-            <plank-navigation-menu-trigger>Getting Started</plank-navigation-menu-trigger>
-            <plank-navigation-menu-content>
+      <hal-navigation-menu viewport="false">
+        <hal-navigation-menu-list>
+          <hal-navigation-menu-item>
+            <hal-navigation-menu-trigger>Getting Started</hal-navigation-menu-trigger>
+            <hal-navigation-menu-content>
               <ul class="grid w-[300px] gap-2 p-4">
                 <li>
-                  <plank-navigation-menu-link href="#">
+                  <hal-navigation-menu-link href="#">
                     <div class="text-sm font-medium">Introduction</div>
                     <p class="text-muted-foreground text-sm">Get started with Planks.</p>
-                  </plank-navigation-menu-link>
+                  </hal-navigation-menu-link>
                 </li>
                 <li>
-                  <plank-navigation-menu-link href="#">
+                  <hal-navigation-menu-link href="#">
                     <div class="text-sm font-medium">Installation</div>
                     <p class="text-muted-foreground text-sm">How to install dependencies.</p>
-                  </plank-navigation-menu-link>
+                  </hal-navigation-menu-link>
                 </li>
               </ul>
-            </plank-navigation-menu-content>
-          </plank-navigation-menu-item>
-          <plank-navigation-menu-item>
-            <plank-navigation-menu-trigger>Components</plank-navigation-menu-trigger>
-          </plank-navigation-menu-item>
-        </plank-navigation-menu-list>
-      </plank-navigation-menu>
+            </hal-navigation-menu-content>
+          </hal-navigation-menu-item>
+          <hal-navigation-menu-item>
+            <hal-navigation-menu-trigger>Components</hal-navigation-menu-trigger>
+          </hal-navigation-menu-item>
+        </hal-navigation-menu-list>
+      </hal-navigation-menu>
     `
-    await customElements.whenDefined("plank-navigation-menu")
-    const menu = container.querySelector("plank-navigation-menu")!
+    await customElements.whenDefined("hal-navigation-menu")
+    const menu = container.querySelector("hal-navigation-menu")!
     await (menu as any).updateComplete
 
     // Don't open - React portals content outside container so screenshot shows closed state
@@ -93,22 +93,22 @@ describe("plank-navigation-menu - Visual", () => {
   // TODO: Fix 10px height difference - web component links don't get h-9 height like React
   it.skip("navigation menu with active link", async () => {
     container.innerHTML = `
-      <plank-navigation-menu viewport="false">
-        <plank-navigation-menu-list>
-          <plank-navigation-menu-item>
-            <plank-navigation-menu-link href="#" active>Home</plank-navigation-menu-link>
-          </plank-navigation-menu-item>
-          <plank-navigation-menu-item>
-            <plank-navigation-menu-link href="#">About</plank-navigation-menu-link>
-          </plank-navigation-menu-item>
-          <plank-navigation-menu-item>
-            <plank-navigation-menu-link href="#">Contact</plank-navigation-menu-link>
-          </plank-navigation-menu-item>
-        </plank-navigation-menu-list>
-      </plank-navigation-menu>
+      <hal-navigation-menu viewport="false">
+        <hal-navigation-menu-list>
+          <hal-navigation-menu-item>
+            <hal-navigation-menu-link href="#" active>Home</hal-navigation-menu-link>
+          </hal-navigation-menu-item>
+          <hal-navigation-menu-item>
+            <hal-navigation-menu-link href="#">About</hal-navigation-menu-link>
+          </hal-navigation-menu-item>
+          <hal-navigation-menu-item>
+            <hal-navigation-menu-link href="#">Contact</hal-navigation-menu-link>
+          </hal-navigation-menu-item>
+        </hal-navigation-menu-list>
+      </hal-navigation-menu>
     `
-    await customElements.whenDefined("plank-navigation-menu")
-    const menu = container.querySelector("plank-navigation-menu")!
+    await customElements.whenDefined("hal-navigation-menu")
+    const menu = container.querySelector("hal-navigation-menu")!
     await (menu as any).updateComplete
 
     await new Promise((resolve) => setTimeout(resolve, 50))

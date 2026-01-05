@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calendar - Planks</title>
+    <title>Calendar - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -17,117 +17,117 @@
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Basic Calendar</h2>
         <div class="max-w-sm mb-4">
-          <plank-calendar class="rounded-lg border shadow-sm"></plank-calendar>
+          <hal-calendar class="rounded-lg border shadow-sm"></hal-calendar>
         </div>
-        <pre><code>&lt;plank-calendar class="rounded-lg border shadow-sm"&gt;&lt;/plank-calendar&gt;</code></pre>
+        <pre><code>&lt;hal-calendar class="rounded-lg border shadow-sm"&gt;&lt;/hal-calendar&gt;</code></pre>
       </section>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Single Date Selection</h2>
         <div class="max-w-sm mb-4">
-          <plank-calendar
+          <hal-calendar
             mode="single"
             selected="2025-01-15"
             class="rounded-lg border shadow-sm"
-          ></plank-calendar>
+          ></hal-calendar>
         </div>
-        <pre><code>&lt;plank-calendar
+        <pre><code>&lt;hal-calendar
   mode="single"
   selected="2025-01-15"
   class="rounded-lg border shadow-sm"
-&gt;&lt;/plank-calendar&gt;</code></pre>
+&gt;&lt;/hal-calendar&gt;</code></pre>
       </section>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Multiple Date Selection</h2>
         <div class="max-w-sm mb-4">
-          <plank-calendar
+          <hal-calendar
             mode="multiple"
             selected-dates="2025-01-10,2025-01-15,2025-01-20"
             class="rounded-lg border shadow-sm"
-          ></plank-calendar>
+          ></hal-calendar>
         </div>
-        <pre><code>&lt;plank-calendar
+        <pre><code>&lt;hal-calendar
   mode="multiple"
   selected-dates="2025-01-10,2025-01-15,2025-01-20"
   class="rounded-lg border shadow-sm"
-&gt;&lt;/plank-calendar&gt;</code></pre>
+&gt;&lt;/hal-calendar&gt;</code></pre>
       </section>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Date Range Selection</h2>
         <div class="max-w-sm mb-4">
-          <plank-calendar
+          <hal-calendar
             mode="range"
             range-start="2025-01-10"
             range-end="2025-01-20"
             class="rounded-lg border shadow-sm"
-          ></plank-calendar>
+          ></hal-calendar>
         </div>
-        <pre><code>&lt;plank-calendar
+        <pre><code>&lt;hal-calendar
   mode="range"
   range-start="2025-01-10"
   range-end="2025-01-20"
   class="rounded-lg border shadow-sm"
-&gt;&lt;/plank-calendar&gt;</code></pre>
+&gt;&lt;/hal-calendar&gt;</code></pre>
       </section>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Multiple Months</h2>
         <div class="max-w-2xl mb-4">
-          <plank-calendar
+          <hal-calendar
             number-of-months="2"
             class="rounded-lg border shadow-sm"
-          ></plank-calendar>
+          ></hal-calendar>
         </div>
-        <pre><code>&lt;plank-calendar
+        <pre><code>&lt;hal-calendar
   number-of-months="2"
   class="rounded-lg border shadow-sm"
-&gt;&lt;/plank-calendar&gt;</code></pre>
+&gt;&lt;/hal-calendar&gt;</code></pre>
       </section>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">With Date Constraints</h2>
         <div class="max-w-sm mb-4">
-          <plank-calendar
+          <hal-calendar
             min-date="2025-01-10"
             max-date="2025-01-25"
             class="rounded-lg border shadow-sm"
-          ></plank-calendar>
+          ></hal-calendar>
         </div>
-        <pre><code>&lt;plank-calendar
+        <pre><code>&lt;hal-calendar
   min-date="2025-01-10"
   max-date="2025-01-25"
   class="rounded-lg border shadow-sm"
-&gt;&lt;/plank-calendar&gt;</code></pre>
+&gt;&lt;/hal-calendar&gt;</code></pre>
       </section>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Without Outside Days</h2>
         <div class="max-w-sm mb-4">
-          <plank-calendar
+          <hal-calendar
             show-outside-days="false"
             class="rounded-lg border shadow-sm"
-          ></plank-calendar>
+          ></hal-calendar>
         </div>
-        <pre><code>&lt;plank-calendar
+        <pre><code>&lt;hal-calendar
   show-outside-days="false"
   class="rounded-lg border shadow-sm"
-&gt;&lt;/plank-calendar&gt;</code></pre>
+&gt;&lt;/hal-calendar&gt;</code></pre>
       </section>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Week Starting on Monday</h2>
         <div class="max-w-sm mb-4">
-          <plank-calendar
+          <hal-calendar
             week-starts-on="1"
             class="rounded-lg border shadow-sm"
-          ></plank-calendar>
+          ></hal-calendar>
         </div>
-        <pre><code>&lt;plank-calendar
+        <pre><code>&lt;hal-calendar
   week-starts-on="1"
   class="rounded-lg border shadow-sm"
-&gt;&lt;/plank-calendar&gt;</code></pre>
+&gt;&lt;/hal-calendar&gt;</code></pre>
       </section>
 
       <section class="mb-12">

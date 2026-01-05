@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sonner - Planks</title>
+    <title>Sonner - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
     <script type="module">
-      import { toast } from "@/web-components/plank-sonner"
+      import { toast } from "@/web-components/hal-sonner"
       window.toast = toast
     </script>
   </head>
@@ -18,12 +18,12 @@
       </p>
 
       <!-- Toaster container - place once at root of app -->
-      <plank-toaster></plank-toaster>
+      <hal-toaster></hal-toaster>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Default</h2>
         <div class="mb-4">
-          <plank-button
+          <hal-button
             variant="outline"
             onclick="
               toast('Event has been created', {
@@ -32,10 +32,10 @@
             "
           >
             Show Toast
-          </plank-button>
+          </hal-button>
         </div>
         <pre><code>// Import the toast function
-import { toast } from "@/web-components/plank-sonner"
+import { toast } from "@/web-components/hal-sonner"
 
 // Show a toast
 toast("Event has been created", {
@@ -46,40 +46,40 @@ toast("Event has been created", {
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Toast Types</h2>
         <div class="flex flex-wrap gap-2 mb-4">
-          <plank-button
+          <hal-button
             variant="outline"
             onclick="toast('Event has been created')"
           >
             Default
-          </plank-button>
-          <plank-button
+          </hal-button>
+          <hal-button
             variant="outline"
             onclick="toast.success('Event has been created')"
           >
             Success
-          </plank-button>
-          <plank-button
+          </hal-button>
+          <hal-button
             variant="outline"
             onclick="
               toast.info('Be at the area 10 minutes before the event time')
             "
           >
             Info
-          </plank-button>
-          <plank-button
+          </hal-button>
+          <hal-button
             variant="outline"
             onclick="
               toast.warning('Event start time cannot be earlier than 8am')
             "
           >
             Warning
-          </plank-button>
-          <plank-button
+          </hal-button>
+          <hal-button
             variant="outline"
             onclick="toast.error('Event has not been created')"
           >
             Error
-          </plank-button>
+          </hal-button>
         </div>
         <pre><code>toast("Default message")
 toast.success("Success message")
@@ -91,7 +91,7 @@ toast.error("Error message")</code></pre>
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">With Action</h2>
         <div class="mb-4">
-          <plank-button
+          <hal-button
             variant="outline"
             onclick="
               toast('Event has been created', {
@@ -103,7 +103,7 @@ toast.error("Error message")</code></pre>
             "
           >
             Show Toast with Action
-          </plank-button>
+          </hal-button>
         </div>
         <pre><code>toast("Event has been created", {
   action: {
@@ -116,7 +116,7 @@ toast.error("Error message")</code></pre>
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Loading / Promise</h2>
         <div class="mb-4">
-          <plank-button
+          <hal-button
             variant="outline"
             onclick="
               toast.promise(
@@ -132,7 +132,7 @@ toast.error("Error message")</code></pre>
             "
           >
             Show Promise Toast
-          </plank-button>
+          </hal-button>
         </div>
         <pre><code>toast.promise(
   new Promise(resolve => setTimeout(() => resolve({ name: 'Event' }), 2000)),
@@ -147,7 +147,7 @@ toast.error("Error message")</code></pre>
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">API</h2>
 
-        <h3 class="text-lg font-semibold mb-2 mt-6">plank-toaster</h3>
+        <h3 class="text-lg font-semibold mb-2 mt-6">hal-toaster</h3>
         <p class="text-muted-foreground mb-4">
           Place this component once at the root of your application to enable
           toast notifications.

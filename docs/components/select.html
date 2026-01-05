@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Select - Planks</title>
+    <title>Select - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -17,7 +17,7 @@
       <section class="mb-8 p-4 border rounded-lg bg-muted/50">
         <h3 class="text-sm font-semibold mb-2">Visual Variance Note</h3>
         <p class="text-sm text-muted-foreground">
-          The plank-select web component allows up to 2.5% visual variance
+          The hal-select web component allows up to 2.5% visual variance
           compared to the React select. This is due to Radix's "item-aligned"
           positioning mode which overlays the selected item over the trigger.
           Our web component uses standard floating positioning which displays
@@ -33,31 +33,29 @@
           A simple select with a list of options.
         </p>
         <div class="mb-4 flex items-center gap-4">
-          <plank-select>
-            <plank-select-trigger class="w-[180px]">
-              <plank-select-value
-                placeholder="Select a fruit"
-              ></plank-select-value>
-            </plank-select-trigger>
-            <plank-select-content>
-              <plank-select-item value="apple">Apple</plank-select-item>
-              <plank-select-item value="banana">Banana</plank-select-item>
-              <plank-select-item value="orange">Orange</plank-select-item>
-              <plank-select-item value="grape">Grape</plank-select-item>
-              <plank-select-item value="mango">Mango</plank-select-item>
-            </plank-select-content>
-          </plank-select>
+          <hal-select>
+            <hal-select-trigger class="w-[180px]">
+              <hal-select-value placeholder="Select a fruit"></hal-select-value>
+            </hal-select-trigger>
+            <hal-select-content>
+              <hal-select-item value="apple">Apple</hal-select-item>
+              <hal-select-item value="banana">Banana</hal-select-item>
+              <hal-select-item value="orange">Orange</hal-select-item>
+              <hal-select-item value="grape">Grape</hal-select-item>
+              <hal-select-item value="mango">Mango</hal-select-item>
+            </hal-select-content>
+          </hal-select>
         </div>
-        <pre><code>&lt;plank-select&gt;
-  &lt;plank-select-trigger class="w-[180px]"&gt;
-    &lt;plank-select-value placeholder="Select a fruit"&gt;&lt;/plank-select-value&gt;
-  &lt;/plank-select-trigger&gt;
-  &lt;plank-select-content&gt;
-    &lt;plank-select-item value="apple"&gt;Apple&lt;/plank-select-item&gt;
-    &lt;plank-select-item value="banana"&gt;Banana&lt;/plank-select-item&gt;
-    &lt;plank-select-item value="orange"&gt;Orange&lt;/plank-select-item&gt;
-  &lt;/plank-select-content&gt;
-&lt;/plank-select&gt;</code></pre>
+        <pre><code>&lt;hal-select&gt;
+  &lt;hal-select-trigger class="w-[180px]"&gt;
+    &lt;hal-select-value placeholder="Select a fruit"&gt;&lt;/hal-select-value&gt;
+  &lt;/hal-select-trigger&gt;
+  &lt;hal-select-content&gt;
+    &lt;hal-select-item value="apple"&gt;Apple&lt;/hal-select-item&gt;
+    &lt;hal-select-item value="banana"&gt;Banana&lt;/hal-select-item&gt;
+    &lt;hal-select-item value="orange"&gt;Orange&lt;/hal-select-item&gt;
+  &lt;/hal-select-content&gt;
+&lt;/hal-select&gt;</code></pre>
       </section>
 
       <!-- With Default Value -->
@@ -67,22 +65,20 @@
           Use the value attribute to set a default selected value.
         </p>
         <div class="mb-4 flex items-center gap-4">
-          <plank-select value="banana">
-            <plank-select-trigger class="w-[180px]">
-              <plank-select-value
-                placeholder="Select a fruit"
-              ></plank-select-value>
-            </plank-select-trigger>
-            <plank-select-content>
-              <plank-select-item value="apple">Apple</plank-select-item>
-              <plank-select-item value="banana">Banana</plank-select-item>
-              <plank-select-item value="orange">Orange</plank-select-item>
-            </plank-select-content>
-          </plank-select>
+          <hal-select value="banana">
+            <hal-select-trigger class="w-[180px]">
+              <hal-select-value placeholder="Select a fruit"></hal-select-value>
+            </hal-select-trigger>
+            <hal-select-content>
+              <hal-select-item value="apple">Apple</hal-select-item>
+              <hal-select-item value="banana">Banana</hal-select-item>
+              <hal-select-item value="orange">Orange</hal-select-item>
+            </hal-select-content>
+          </hal-select>
         </div>
-        <pre><code>&lt;plank-select value="banana"&gt;
+        <pre><code>&lt;hal-select value="banana"&gt;
   ...
-&lt;/plank-select&gt;</code></pre>
+&lt;/hal-select&gt;</code></pre>
       </section>
 
       <!-- With Groups -->
@@ -92,41 +88,39 @@
           Organize options into groups with labels.
         </p>
         <div class="mb-4 flex items-center gap-4">
-          <plank-select>
-            <plank-select-trigger class="w-[180px]">
-              <plank-select-value
-                placeholder="Select a food"
-              ></plank-select-value>
-            </plank-select-trigger>
-            <plank-select-content>
-              <plank-select-group>
-                <plank-select-label>Fruits</plank-select-label>
-                <plank-select-item value="apple">Apple</plank-select-item>
-                <plank-select-item value="banana">Banana</plank-select-item>
-                <plank-select-item value="orange">Orange</plank-select-item>
-              </plank-select-group>
-              <plank-select-separator></plank-select-separator>
-              <plank-select-group>
-                <plank-select-label>Vegetables</plank-select-label>
-                <plank-select-item value="carrot">Carrot</plank-select-item>
-                <plank-select-item value="broccoli">Broccoli</plank-select-item>
-                <plank-select-item value="spinach">Spinach</plank-select-item>
-              </plank-select-group>
-            </plank-select-content>
-          </plank-select>
+          <hal-select>
+            <hal-select-trigger class="w-[180px]">
+              <hal-select-value placeholder="Select a food"></hal-select-value>
+            </hal-select-trigger>
+            <hal-select-content>
+              <hal-select-group>
+                <hal-select-label>Fruits</hal-select-label>
+                <hal-select-item value="apple">Apple</hal-select-item>
+                <hal-select-item value="banana">Banana</hal-select-item>
+                <hal-select-item value="orange">Orange</hal-select-item>
+              </hal-select-group>
+              <hal-select-separator></hal-select-separator>
+              <hal-select-group>
+                <hal-select-label>Vegetables</hal-select-label>
+                <hal-select-item value="carrot">Carrot</hal-select-item>
+                <hal-select-item value="broccoli">Broccoli</hal-select-item>
+                <hal-select-item value="spinach">Spinach</hal-select-item>
+              </hal-select-group>
+            </hal-select-content>
+          </hal-select>
         </div>
-        <pre><code>&lt;plank-select-content&gt;
-  &lt;plank-select-group&gt;
-    &lt;plank-select-label&gt;Fruits&lt;/plank-select-label&gt;
-    &lt;plank-select-item value="apple"&gt;Apple&lt;/plank-select-item&gt;
-    &lt;plank-select-item value="banana"&gt;Banana&lt;/plank-select-item&gt;
-  &lt;/plank-select-group&gt;
-  &lt;plank-select-separator&gt;&lt;/plank-select-separator&gt;
-  &lt;plank-select-group&gt;
-    &lt;plank-select-label&gt;Vegetables&lt;/plank-select-label&gt;
-    &lt;plank-select-item value="carrot"&gt;Carrot&lt;/plank-select-item&gt;
-  &lt;/plank-select-group&gt;
-&lt;/plank-select-content&gt;</code></pre>
+        <pre><code>&lt;hal-select-content&gt;
+  &lt;hal-select-group&gt;
+    &lt;hal-select-label&gt;Fruits&lt;/hal-select-label&gt;
+    &lt;hal-select-item value="apple"&gt;Apple&lt;/hal-select-item&gt;
+    &lt;hal-select-item value="banana"&gt;Banana&lt;/hal-select-item&gt;
+  &lt;/hal-select-group&gt;
+  &lt;hal-select-separator&gt;&lt;/hal-select-separator&gt;
+  &lt;hal-select-group&gt;
+    &lt;hal-select-label&gt;Vegetables&lt;/hal-select-label&gt;
+    &lt;hal-select-item value="carrot"&gt;Carrot&lt;/hal-select-item&gt;
+  &lt;/hal-select-group&gt;
+&lt;/hal-select-content&gt;</code></pre>
       </section>
 
       <!-- Small Size -->
@@ -136,22 +130,20 @@
           Use size="sm" on the trigger for a smaller select.
         </p>
         <div class="mb-4 flex items-center gap-4">
-          <plank-select>
-            <plank-select-trigger size="sm" class="w-[180px]">
-              <plank-select-value
-                placeholder="Select a fruit"
-              ></plank-select-value>
-            </plank-select-trigger>
-            <plank-select-content>
-              <plank-select-item value="apple">Apple</plank-select-item>
-              <plank-select-item value="banana">Banana</plank-select-item>
-              <plank-select-item value="orange">Orange</plank-select-item>
-            </plank-select-content>
-          </plank-select>
+          <hal-select>
+            <hal-select-trigger size="sm" class="w-[180px]">
+              <hal-select-value placeholder="Select a fruit"></hal-select-value>
+            </hal-select-trigger>
+            <hal-select-content>
+              <hal-select-item value="apple">Apple</hal-select-item>
+              <hal-select-item value="banana">Banana</hal-select-item>
+              <hal-select-item value="orange">Orange</hal-select-item>
+            </hal-select-content>
+          </hal-select>
         </div>
-        <pre><code>&lt;plank-select-trigger size="sm" class="w-[180px]"&gt;
+        <pre><code>&lt;hal-select-trigger size="sm" class="w-[180px]"&gt;
   ...
-&lt;/plank-select-trigger&gt;</code></pre>
+&lt;/hal-select-trigger&gt;</code></pre>
       </section>
 
       <!-- Disabled -->
@@ -161,21 +153,19 @@
           Use the disabled attribute to prevent interaction.
         </p>
         <div class="mb-4 flex items-center gap-4">
-          <plank-select disabled>
-            <plank-select-trigger class="w-[180px]">
-              <plank-select-value
-                placeholder="Select a fruit"
-              ></plank-select-value>
-            </plank-select-trigger>
-            <plank-select-content>
-              <plank-select-item value="apple">Apple</plank-select-item>
-              <plank-select-item value="banana">Banana</plank-select-item>
-            </plank-select-content>
-          </plank-select>
+          <hal-select disabled>
+            <hal-select-trigger class="w-[180px]">
+              <hal-select-value placeholder="Select a fruit"></hal-select-value>
+            </hal-select-trigger>
+            <hal-select-content>
+              <hal-select-item value="apple">Apple</hal-select-item>
+              <hal-select-item value="banana">Banana</hal-select-item>
+            </hal-select-content>
+          </hal-select>
         </div>
-        <pre><code>&lt;plank-select disabled&gt;
+        <pre><code>&lt;hal-select disabled&gt;
   ...
-&lt;/plank-select&gt;</code></pre>
+&lt;/hal-select&gt;</code></pre>
       </section>
 
       <!-- Disabled Items -->
@@ -185,29 +175,27 @@
           Individual items can be disabled.
         </p>
         <div class="mb-4 flex items-center gap-4">
-          <plank-select>
-            <plank-select-trigger class="w-[180px]">
-              <plank-select-value
-                placeholder="Select a fruit"
-              ></plank-select-value>
-            </plank-select-trigger>
-            <plank-select-content>
-              <plank-select-item value="apple">Apple</plank-select-item>
-              <plank-select-item value="banana" disabled
-                >Banana (Out of stock)</plank-select-item
+          <hal-select>
+            <hal-select-trigger class="w-[180px]">
+              <hal-select-value placeholder="Select a fruit"></hal-select-value>
+            </hal-select-trigger>
+            <hal-select-content>
+              <hal-select-item value="apple">Apple</hal-select-item>
+              <hal-select-item value="banana" disabled
+                >Banana (Out of stock)</hal-select-item
               >
-              <plank-select-item value="orange">Orange</plank-select-item>
-            </plank-select-content>
-          </plank-select>
+              <hal-select-item value="orange">Orange</hal-select-item>
+            </hal-select-content>
+          </hal-select>
         </div>
-        <pre><code>&lt;plank-select-item value="banana" disabled&gt;Banana (Out of stock)&lt;/plank-select-item&gt;</code></pre>
+        <pre><code>&lt;hal-select-item value="banana" disabled&gt;Banana (Out of stock)&lt;/hal-select-item&gt;</code></pre>
       </section>
 
       <!-- API -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">API</h2>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-select</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-select</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -276,7 +264,7 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-select-trigger</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-select-trigger</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -310,7 +298,7 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-select-value</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-select-value</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -334,7 +322,7 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-select-content</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-select-content</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -386,7 +374,7 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-select-item</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-select-item</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -418,17 +406,17 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-select-group</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-select-group</h3>
         <p class="text-muted-foreground mb-4">
           Groups related items together. Has role="group".
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-select-label</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-select-label</h3>
         <p class="text-muted-foreground mb-4">
           A label for a group of items. Styled smaller and muted.
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-select-separator</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-select-separator</h3>
         <p class="text-muted-foreground mb-4">
           A horizontal divider between groups.
         </p>

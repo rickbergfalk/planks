@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Planks - Web Components</title>
+    <title>hallucn/ui</title>
     <script type="module" src="./src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -12,7 +12,7 @@
       <div
         class="container mx-auto px-4 py-4 flex items-center justify-between"
       >
-        <h1 class="text-2xl font-bold">Planks</h1>
+        <h1 class="text-2xl font-bold">hallucn</h1>
         <nav class="flex gap-4">
           <a
             href="./compare.html"
@@ -53,8 +53,8 @@
             Buttons with multiple variants and sizes.
           </p>
           <div class="flex gap-2">
-            <plank-button size="sm">Button</plank-button>
-            <plank-button variant="outline" size="sm">Outline</plank-button>
+            <hal-button size="sm">Button</hal-button>
+            <hal-button variant="outline" size="sm">Outline</hal-button>
           </div>
         </a>
 
@@ -67,10 +67,10 @@
           <p class="text-sm text-muted-foreground mb-4">
             Groups related buttons together.
           </p>
-          <plank-button-group>
-            <plank-button variant="outline" size="sm">Left</plank-button>
-            <plank-button variant="outline" size="sm">Right</plank-button>
-          </plank-button-group>
+          <hal-button-group>
+            <hal-button variant="outline" size="sm">Left</hal-button>
+            <hal-button variant="outline" size="sm">Right</hal-button>
+          </hal-button-group>
         </a>
 
         <!-- Alert -->
@@ -82,9 +82,9 @@
           <p class="text-sm text-muted-foreground mb-4">
             Callout for important information.
           </p>
-          <plank-alert class="w-full">
-            <plank-alert-title>Heads up!</plank-alert-title>
-          </plank-alert>
+          <hal-alert class="w-full">
+            <hal-alert-title>Heads up!</hal-alert-title>
+          </hal-alert>
         </a>
 
         <!-- Aspect Ratio -->
@@ -96,13 +96,13 @@
           <p class="text-sm text-muted-foreground mb-4">
             Maintain content proportions.
           </p>
-          <plank-aspect-ratio ratio="16/9" class="bg-muted rounded-lg">
+          <hal-aspect-ratio ratio="16/9" class="bg-muted rounded-lg">
             <div
               class="flex items-center justify-center h-full text-muted-foreground text-sm"
             >
               16:9
             </div>
-          </plank-aspect-ratio>
+          </hal-aspect-ratio>
         </a>
 
         <!-- Badge -->
@@ -115,8 +115,8 @@
             Small status indicators.
           </p>
           <div class="flex gap-2">
-            <plank-badge>Default</plank-badge>
-            <plank-badge variant="secondary">Secondary</plank-badge>
+            <hal-badge>Default</hal-badge>
+            <hal-badge variant="secondary">Secondary</hal-badge>
           </div>
         </a>
 
@@ -127,7 +127,7 @@
         >
           <h3 class="font-semibold mb-2">Input</h3>
           <p class="text-sm text-muted-foreground mb-4">Text input field.</p>
-          <plank-input placeholder="Enter text..." class="w-full"></plank-input>
+          <hal-input placeholder="Enter text..." class="w-full"></hal-input>
         </a>
 
         <!-- Input OTP -->
@@ -139,14 +139,14 @@
           <p class="text-sm text-muted-foreground mb-4">
             One-time password input.
           </p>
-          <plank-input-otp max-length="4">
-            <plank-input-otp-group>
-              <plank-input-otp-slot index="0"></plank-input-otp-slot>
-              <plank-input-otp-slot index="1"></plank-input-otp-slot>
-              <plank-input-otp-slot index="2"></plank-input-otp-slot>
-              <plank-input-otp-slot index="3"></plank-input-otp-slot>
-            </plank-input-otp-group>
-          </plank-input-otp>
+          <hal-input-otp max-length="4">
+            <hal-input-otp-group>
+              <hal-input-otp-slot index="0"></hal-input-otp-slot>
+              <hal-input-otp-slot index="1"></hal-input-otp-slot>
+              <hal-input-otp-slot index="2"></hal-input-otp-slot>
+              <hal-input-otp-slot index="3"></hal-input-otp-slot>
+            </hal-input-otp-group>
+          </hal-input-otp>
         </a>
 
         <!-- Kbd -->
@@ -158,10 +158,10 @@
           <p class="text-sm text-muted-foreground mb-4">
             Keyboard shortcuts indicator.
           </p>
-          <plank-kbd-group>
-            <plank-kbd>⌘</plank-kbd>
-            <plank-kbd>K</plank-kbd>
-          </plank-kbd-group>
+          <hal-kbd-group>
+            <hal-kbd>⌘</hal-kbd>
+            <hal-kbd>K</hal-kbd>
+          </hal-kbd-group>
         </a>
 
         <!-- Textarea -->
@@ -173,11 +173,11 @@
           <p class="text-sm text-muted-foreground mb-4">
             Multi-line text input.
           </p>
-          <plank-textarea
+          <hal-textarea
             placeholder="Enter text..."
             rows="2"
             class="w-full"
-          ></plank-textarea>
+          ></hal-textarea>
         </a>
 
         <!-- Label -->
@@ -190,13 +190,13 @@
             Accessible form labels.
           </p>
           <div class="flex flex-col gap-2">
-            <plank-label for="demo">Email</plank-label>
-            <plank-input
+            <hal-label for="demo">Email</hal-label>
+            <hal-input
               id="demo"
               type="email"
               placeholder="email@example.com"
               class="w-full"
-            ></plank-input>
+            ></hal-input>
           </div>
         </a>
 
@@ -209,10 +209,10 @@
           <p class="text-sm text-muted-foreground mb-4">
             Form field layout components.
           </p>
-          <plank-field class="w-full">
-            <plank-field-label>Username</plank-field-label>
-            <plank-input placeholder="johndoe" class="w-full"></plank-input>
-          </plank-field>
+          <hal-field class="w-full">
+            <hal-field-label>Username</hal-field-label>
+            <hal-input placeholder="johndoe" class="w-full"></hal-input>
+          </hal-field>
         </a>
 
         <!-- Native Select -->
@@ -224,17 +224,17 @@
           <p class="text-sm text-muted-foreground mb-4">
             Styled native select dropdown.
           </p>
-          <plank-native-select class="w-full">
-            <plank-native-select-option value=""
-              >Select an option</plank-native-select-option
+          <hal-native-select class="w-full">
+            <hal-native-select-option value=""
+              >Select an option</hal-native-select-option
             >
-            <plank-native-select-option value="apple"
-              >Apple</plank-native-select-option
+            <hal-native-select-option value="apple"
+              >Apple</hal-native-select-option
             >
-            <plank-native-select-option value="banana"
-              >Banana</plank-native-select-option
+            <hal-native-select-option value="banana"
+              >Banana</hal-native-select-option
             >
-          </plank-native-select>
+          </hal-native-select>
         </a>
 
         <!-- Progress -->
@@ -246,7 +246,7 @@
           <p class="text-sm text-muted-foreground mb-4">
             Task completion indicator.
           </p>
-          <plank-progress value="66" class="w-full"></plank-progress>
+          <hal-progress value="66" class="w-full"></hal-progress>
         </a>
 
         <!-- Card -->
@@ -258,12 +258,12 @@
           <p class="text-sm text-muted-foreground mb-4">
             Container for content.
           </p>
-          <plank-card class="w-full">
-            <plank-card-header>
-              <plank-card-title>Title</plank-card-title>
-            </plank-card-header>
-            <plank-card-content>Content</plank-card-content>
-          </plank-card>
+          <hal-card class="w-full">
+            <hal-card-header>
+              <hal-card-title>Title</hal-card-title>
+            </hal-card-header>
+            <hal-card-content>Content</hal-card-content>
+          </hal-card>
         </a>
 
         <!-- Empty -->
@@ -275,11 +275,11 @@
           <p class="text-sm text-muted-foreground mb-4">
             Empty state placeholder.
           </p>
-          <plank-empty class="border w-full py-4">
-            <plank-empty-header>
-              <plank-empty-title class="text-sm">No items</plank-empty-title>
-            </plank-empty-header>
-          </plank-empty>
+          <hal-empty class="border w-full py-4">
+            <hal-empty-header>
+              <hal-empty-title class="text-sm">No items</hal-empty-title>
+            </hal-empty-header>
+          </hal-empty>
         </a>
 
         <!-- Item -->
@@ -291,8 +291,8 @@
           <p class="text-sm text-muted-foreground mb-4">
             List item with media, content, and actions.
           </p>
-          <plank-item class="w-full">
-            <plank-item-media variant="icon">
+          <hal-item class="w-full">
+            <hal-item-media variant="icon">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -307,14 +307,14 @@
                 <circle cx="12" cy="8" r="5" />
                 <path d="M20 21a8 8 0 0 0-16 0" />
               </svg>
-            </plank-item-media>
-            <plank-item-content>
-              <plank-item-title>John Doe</plank-item-title>
-              <plank-item-description class="text-xs"
-                >Engineer</plank-item-description
+            </hal-item-media>
+            <hal-item-content>
+              <hal-item-title>John Doe</hal-item-title>
+              <hal-item-description class="text-xs"
+                >Engineer</hal-item-description
               >
-            </plank-item-content>
-          </plank-item>
+            </hal-item-content>
+          </hal-item>
         </a>
 
         <!-- Separator -->
@@ -325,7 +325,7 @@
           <h3 class="font-semibold mb-2">Separator</h3>
           <p class="text-sm text-muted-foreground mb-4">Visual divider.</p>
           <div class="py-2">
-            <plank-separator></plank-separator>
+            <hal-separator></hal-separator>
           </div>
         </a>
 
@@ -337,10 +337,10 @@
           <h3 class="font-semibold mb-2">Skeleton</h3>
           <p class="text-sm text-muted-foreground mb-4">Loading placeholder.</p>
           <div class="flex items-center gap-4">
-            <plank-skeleton class="h-12 w-12 rounded-full"></plank-skeleton>
+            <hal-skeleton class="h-12 w-12 rounded-full"></hal-skeleton>
             <div class="space-y-2">
-              <plank-skeleton class="h-4 w-32"></plank-skeleton>
-              <plank-skeleton class="h-4 w-24"></plank-skeleton>
+              <hal-skeleton class="h-4 w-32"></hal-skeleton>
+              <hal-skeleton class="h-4 w-24"></hal-skeleton>
             </div>
           </div>
         </a>
@@ -353,9 +353,9 @@
           <h3 class="font-semibold mb-2">Spinner</h3>
           <p class="text-sm text-muted-foreground mb-4">Loading indicator.</p>
           <div class="flex items-center gap-4">
-            <plank-spinner></plank-spinner>
-            <plank-spinner class="size-6"></plank-spinner>
-            <plank-spinner class="size-8"></plank-spinner>
+            <hal-spinner></hal-spinner>
+            <hal-spinner class="size-6"></hal-spinner>
+            <hal-spinner class="size-8"></hal-spinner>
           </div>
         </a>
 
@@ -398,7 +398,7 @@
             Toggle switch for on/off states.
           </p>
           <div class="flex items-center gap-2">
-            <plank-switch checked></plank-switch>
+            <hal-switch checked></hal-switch>
             <span class="text-sm">Enabled</span>
           </div>
         </a>
@@ -413,7 +413,7 @@
             Toggle between checked and unchecked.
           </p>
           <div class="flex items-center gap-2">
-            <plank-checkbox checked></plank-checkbox>
+            <hal-checkbox checked></hal-checkbox>
             <span class="text-sm">Accept terms</span>
           </div>
         </a>
@@ -428,8 +428,8 @@
             Two-state button, on or off.
           </p>
           <div class="flex items-center gap-2">
-            <plank-toggle pressed aria-label="Bold">B</plank-toggle>
-            <plank-toggle aria-label="Italic">I</plank-toggle>
+            <hal-toggle pressed aria-label="Bold">B</hal-toggle>
+            <hal-toggle aria-label="Italic">I</hal-toggle>
           </div>
         </a>
 
@@ -443,15 +443,15 @@
             User image with fallback.
           </p>
           <div class="flex -space-x-2">
-            <plank-avatar class="ring-2 ring-background">
-              <plank-avatar-fallback>A</plank-avatar-fallback>
-            </plank-avatar>
-            <plank-avatar class="ring-2 ring-background">
-              <plank-avatar-fallback>B</plank-avatar-fallback>
-            </plank-avatar>
-            <plank-avatar class="ring-2 ring-background">
-              <plank-avatar-fallback>C</plank-avatar-fallback>
-            </plank-avatar>
+            <hal-avatar class="ring-2 ring-background">
+              <hal-avatar-fallback>A</hal-avatar-fallback>
+            </hal-avatar>
+            <hal-avatar class="ring-2 ring-background">
+              <hal-avatar-fallback>B</hal-avatar-fallback>
+            </hal-avatar>
+            <hal-avatar class="ring-2 ring-background">
+              <hal-avatar-fallback>C</hal-avatar-fallback>
+            </hal-avatar>
           </div>
         </a>
 
@@ -464,19 +464,19 @@
           <p class="text-sm text-muted-foreground mb-4">
             Expandable/collapsible panel.
           </p>
-          <plank-collapsible class="flex flex-col gap-2">
+          <hal-collapsible class="flex flex-col gap-2">
             <div class="flex items-center justify-between">
               <span class="text-sm">Click to toggle</span>
-              <plank-collapsible-trigger>
-                <plank-button variant="ghost" size="sm">Toggle</plank-button>
-              </plank-collapsible-trigger>
+              <hal-collapsible-trigger>
+                <hal-button variant="ghost" size="sm">Toggle</hal-button>
+              </hal-collapsible-trigger>
             </div>
-            <plank-collapsible-content>
+            <hal-collapsible-content>
               <div class="rounded-md border px-3 py-2 text-sm">
                 Hidden content
               </div>
-            </plank-collapsible-content>
-          </plank-collapsible>
+            </hal-collapsible-content>
+          </hal-collapsible>
         </a>
 
         <!-- Accordion -->
@@ -488,14 +488,14 @@
           <p class="text-sm text-muted-foreground mb-4">
             Vertically stacked expandable items.
           </p>
-          <plank-accordion collapsible class="w-full">
-            <plank-accordion-item value="demo">
-              <plank-accordion-trigger>Click to expand</plank-accordion-trigger>
-              <plank-accordion-content>
+          <hal-accordion collapsible class="w-full">
+            <hal-accordion-item value="demo">
+              <hal-accordion-trigger>Click to expand</hal-accordion-trigger>
+              <hal-accordion-content>
                 <span class="text-sm">Hidden content</span>
-              </plank-accordion-content>
-            </plank-accordion-item>
-          </plank-accordion>
+              </hal-accordion-content>
+            </hal-accordion-item>
+          </hal-accordion>
         </a>
 
         <!-- Tabs -->
@@ -507,18 +507,18 @@
           <p class="text-sm text-muted-foreground mb-4">
             Layered sections showing one panel.
           </p>
-          <plank-tabs value="tab1" class="w-full">
-            <plank-tabs-list>
-              <plank-tabs-trigger value="tab1">Tab 1</plank-tabs-trigger>
-              <plank-tabs-trigger value="tab2">Tab 2</plank-tabs-trigger>
-            </plank-tabs-list>
-            <plank-tabs-content value="tab1">
+          <hal-tabs value="tab1" class="w-full">
+            <hal-tabs-list>
+              <hal-tabs-trigger value="tab1">Tab 1</hal-tabs-trigger>
+              <hal-tabs-trigger value="tab2">Tab 2</hal-tabs-trigger>
+            </hal-tabs-list>
+            <hal-tabs-content value="tab1">
               <span class="text-sm">Content 1</span>
-            </plank-tabs-content>
-            <plank-tabs-content value="tab2">
+            </hal-tabs-content>
+            <hal-tabs-content value="tab2">
               <span class="text-sm">Content 2</span>
-            </plank-tabs-content>
-          </plank-tabs>
+            </hal-tabs-content>
+          </hal-tabs>
         </a>
 
         <!-- Radio Group -->
@@ -530,16 +530,16 @@
           <p class="text-sm text-muted-foreground mb-4">
             Single selection from options.
           </p>
-          <plank-radio-group value="option1">
+          <hal-radio-group value="option1">
             <div class="flex items-center gap-2">
-              <plank-radio-group-item value="option1"></plank-radio-group-item>
+              <hal-radio-group-item value="option1"></hal-radio-group-item>
               <span class="text-sm">Option 1</span>
             </div>
             <div class="flex items-center gap-2">
-              <plank-radio-group-item value="option2"></plank-radio-group-item>
+              <hal-radio-group-item value="option2"></hal-radio-group-item>
               <span class="text-sm">Option 2</span>
             </div>
-          </plank-radio-group>
+          </hal-radio-group>
         </a>
 
         <!-- Toggle Group -->
@@ -551,13 +551,11 @@
           <p class="text-sm text-muted-foreground mb-4">
             Group of toggle buttons.
           </p>
-          <plank-toggle-group type="multiple" value="bold">
-            <plank-toggle-group-item value="bold">B</plank-toggle-group-item>
-            <plank-toggle-group-item value="italic">I</plank-toggle-group-item>
-            <plank-toggle-group-item value="underline"
-              >U</plank-toggle-group-item
-            >
-          </plank-toggle-group>
+          <hal-toggle-group type="multiple" value="bold">
+            <hal-toggle-group-item value="bold">B</hal-toggle-group-item>
+            <hal-toggle-group-item value="italic">I</hal-toggle-group-item>
+            <hal-toggle-group-item value="underline">U</hal-toggle-group-item>
+          </hal-toggle-group>
         </a>
 
         <!-- Slider -->
@@ -569,7 +567,7 @@
           <p class="text-sm text-muted-foreground mb-4">
             Select a value from a range.
           </p>
-          <plank-slider value="50" class="w-full"></plank-slider>
+          <hal-slider value="50" class="w-full"></hal-slider>
         </a>
 
         <!-- Tooltip -->
@@ -581,12 +579,12 @@
           <p class="text-sm text-muted-foreground mb-4">
             Popup info on hover/focus.
           </p>
-          <plank-tooltip>
-            <plank-tooltip-trigger>
-              <plank-button variant="outline" size="sm">Hover me</plank-button>
-            </plank-tooltip-trigger>
-            <plank-tooltip-content>Add to library</plank-tooltip-content>
-          </plank-tooltip>
+          <hal-tooltip>
+            <hal-tooltip-trigger>
+              <hal-button variant="outline" size="sm">Hover me</hal-button>
+            </hal-tooltip-trigger>
+            <hal-tooltip-content>Add to library</hal-tooltip-content>
+          </hal-tooltip>
         </a>
 
         <!-- Popover -->
@@ -598,14 +596,14 @@
           <p class="text-sm text-muted-foreground mb-4">
             Rich content in a portal.
           </p>
-          <plank-popover>
-            <plank-popover-trigger>
-              <plank-button variant="outline" size="sm">Click me</plank-button>
-            </plank-popover-trigger>
-            <plank-popover-content>
+          <hal-popover>
+            <hal-popover-trigger>
+              <hal-button variant="outline" size="sm">Click me</hal-button>
+            </hal-popover-trigger>
+            <hal-popover-content>
               <p class="text-sm">Popover content</p>
-            </plank-popover-content>
-          </plank-popover>
+            </hal-popover-content>
+          </hal-popover>
         </a>
 
         <!-- Dialog -->
@@ -617,19 +615,17 @@
           <p class="text-sm text-muted-foreground mb-4">
             Modal for important content.
           </p>
-          <plank-dialog>
-            <plank-dialog-trigger>
-              <plank-button variant="outline" size="sm"
-                >Open dialog</plank-button
-              >
-            </plank-dialog-trigger>
-            <plank-dialog-content>
-              <plank-dialog-header>
-                <plank-dialog-title>Example Dialog</plank-dialog-title>
-              </plank-dialog-header>
+          <hal-dialog>
+            <hal-dialog-trigger>
+              <hal-button variant="outline" size="sm">Open dialog</hal-button>
+            </hal-dialog-trigger>
+            <hal-dialog-content>
+              <hal-dialog-header>
+                <hal-dialog-title>Example Dialog</hal-dialog-title>
+              </hal-dialog-header>
               <p class="text-sm">Dialog content goes here.</p>
-            </plank-dialog-content>
-          </plank-dialog>
+            </hal-dialog-content>
+          </hal-dialog>
         </a>
 
         <!-- Alert Dialog -->
@@ -641,25 +637,23 @@
           <p class="text-sm text-muted-foreground mb-4">
             Modal for confirmations.
           </p>
-          <plank-alert-dialog>
-            <plank-alert-dialog-trigger>
-              <plank-button variant="outline" size="sm">Delete</plank-button>
-            </plank-alert-dialog-trigger>
-            <plank-alert-dialog-content>
-              <plank-alert-dialog-header>
-                <plank-alert-dialog-title
-                  >Are you sure?</plank-alert-dialog-title
-                >
-                <plank-alert-dialog-description>
+          <hal-alert-dialog>
+            <hal-alert-dialog-trigger>
+              <hal-button variant="outline" size="sm">Delete</hal-button>
+            </hal-alert-dialog-trigger>
+            <hal-alert-dialog-content>
+              <hal-alert-dialog-header>
+                <hal-alert-dialog-title>Are you sure?</hal-alert-dialog-title>
+                <hal-alert-dialog-description>
                   This action cannot be undone.
-                </plank-alert-dialog-description>
-              </plank-alert-dialog-header>
-              <plank-alert-dialog-footer>
-                <plank-alert-dialog-cancel>Cancel</plank-alert-dialog-cancel>
-                <plank-alert-dialog-action>Continue</plank-alert-dialog-action>
-              </plank-alert-dialog-footer>
-            </plank-alert-dialog-content>
-          </plank-alert-dialog>
+                </hal-alert-dialog-description>
+              </hal-alert-dialog-header>
+              <hal-alert-dialog-footer>
+                <hal-alert-dialog-cancel>Cancel</hal-alert-dialog-cancel>
+                <hal-alert-dialog-action>Continue</hal-alert-dialog-action>
+              </hal-alert-dialog-footer>
+            </hal-alert-dialog-content>
+          </hal-alert-dialog>
         </a>
 
         <!-- Dropdown Menu -->
@@ -671,17 +665,17 @@
           <p class="text-sm text-muted-foreground mb-4">
             Menu triggered by button click.
           </p>
-          <plank-dropdown-menu>
-            <plank-dropdown-menu-trigger>
-              <plank-button variant="outline" size="sm">Open</plank-button>
-            </plank-dropdown-menu-trigger>
-            <plank-dropdown-menu-content>
-              <plank-dropdown-menu-item>Profile</plank-dropdown-menu-item>
-              <plank-dropdown-menu-item>Settings</plank-dropdown-menu-item>
-              <plank-dropdown-menu-separator></plank-dropdown-menu-separator>
-              <plank-dropdown-menu-item>Log out</plank-dropdown-menu-item>
-            </plank-dropdown-menu-content>
-          </plank-dropdown-menu>
+          <hal-dropdown-menu>
+            <hal-dropdown-menu-trigger>
+              <hal-button variant="outline" size="sm">Open</hal-button>
+            </hal-dropdown-menu-trigger>
+            <hal-dropdown-menu-content>
+              <hal-dropdown-menu-item>Profile</hal-dropdown-menu-item>
+              <hal-dropdown-menu-item>Settings</hal-dropdown-menu-item>
+              <hal-dropdown-menu-separator></hal-dropdown-menu-separator>
+              <hal-dropdown-menu-item>Log out</hal-dropdown-menu-item>
+            </hal-dropdown-menu-content>
+          </hal-dropdown-menu>
         </a>
 
         <!-- Context Menu -->
@@ -693,20 +687,20 @@
           <p class="text-sm text-muted-foreground mb-4">
             Menu triggered by right-click.
           </p>
-          <plank-context-menu>
-            <plank-context-menu-trigger>
+          <hal-context-menu>
+            <hal-context-menu-trigger>
               <div
                 class="w-full h-20 border-2 border-dashed border-muted-foreground/50 rounded-lg flex items-center justify-center text-muted-foreground text-sm"
               >
                 Right click here
               </div>
-            </plank-context-menu-trigger>
-            <plank-context-menu-content>
-              <plank-context-menu-item>Cut</plank-context-menu-item>
-              <plank-context-menu-item>Copy</plank-context-menu-item>
-              <plank-context-menu-item>Paste</plank-context-menu-item>
-            </plank-context-menu-content>
-          </plank-context-menu>
+            </hal-context-menu-trigger>
+            <hal-context-menu-content>
+              <hal-context-menu-item>Cut</hal-context-menu-item>
+              <hal-context-menu-item>Copy</hal-context-menu-item>
+              <hal-context-menu-item>Paste</hal-context-menu-item>
+            </hal-context-menu-content>
+          </hal-context-menu>
         </a>
 
         <!-- Sheet -->
@@ -718,19 +712,17 @@
           <p class="text-sm text-muted-foreground mb-4">
             Slide-in panel from edge.
           </p>
-          <plank-sheet>
-            <plank-sheet-trigger>
-              <plank-button variant="outline" size="sm"
-                >Open Sheet</plank-button
-              >
-            </plank-sheet-trigger>
-            <plank-sheet-content>
-              <plank-sheet-header>
-                <plank-sheet-title>Example Sheet</plank-sheet-title>
-              </plank-sheet-header>
+          <hal-sheet>
+            <hal-sheet-trigger>
+              <hal-button variant="outline" size="sm">Open Sheet</hal-button>
+            </hal-sheet-trigger>
+            <hal-sheet-content>
+              <hal-sheet-header>
+                <hal-sheet-title>Example Sheet</hal-sheet-title>
+              </hal-sheet-header>
               <p class="text-sm">Sheet content goes here.</p>
-            </plank-sheet-content>
-          </plank-sheet>
+            </hal-sheet-content>
+          </hal-sheet>
         </a>
 
         <!-- Drawer -->
@@ -742,19 +734,17 @@
           <p class="text-sm text-muted-foreground mb-4">
             Mobile-friendly bottom sheet.
           </p>
-          <plank-drawer>
-            <plank-drawer-trigger>
-              <plank-button variant="outline" size="sm"
-                >Open Drawer</plank-button
-              >
-            </plank-drawer-trigger>
-            <plank-drawer-content>
-              <plank-drawer-header>
-                <plank-drawer-title>Example Drawer</plank-drawer-title>
-              </plank-drawer-header>
+          <hal-drawer>
+            <hal-drawer-trigger>
+              <hal-button variant="outline" size="sm">Open Drawer</hal-button>
+            </hal-drawer-trigger>
+            <hal-drawer-content>
+              <hal-drawer-header>
+                <hal-drawer-title>Example Drawer</hal-drawer-title>
+              </hal-drawer-header>
               <p class="text-sm p-4">Drawer content goes here.</p>
-            </plank-drawer-content>
-          </plank-drawer>
+            </hal-drawer-content>
+          </hal-drawer>
         </a>
 
         <!-- Hover Card -->
@@ -766,14 +756,14 @@
           <p class="text-sm text-muted-foreground mb-4">
             Preview content on hover.
           </p>
-          <plank-hover-card>
-            <plank-hover-card-trigger>
-              <plank-button variant="link" size="sm">@nextjs</plank-button>
-            </plank-hover-card-trigger>
-            <plank-hover-card-content>
+          <hal-hover-card>
+            <hal-hover-card-trigger>
+              <hal-button variant="link" size="sm">@nextjs</hal-button>
+            </hal-hover-card-trigger>
+            <hal-hover-card-content>
               <p class="text-sm">Preview content here.</p>
-            </plank-hover-card-content>
-          </plank-hover-card>
+            </hal-hover-card-content>
+          </hal-hover-card>
         </a>
 
         <!-- Select -->
@@ -785,16 +775,16 @@
           <p class="text-sm text-muted-foreground mb-4">
             Dropdown for selecting a value.
           </p>
-          <plank-select>
-            <plank-select-trigger class="w-[140px]">
-              <plank-select-value placeholder="Select"></plank-select-value>
-            </plank-select-trigger>
-            <plank-select-content>
-              <plank-select-item value="apple">Apple</plank-select-item>
-              <plank-select-item value="banana">Banana</plank-select-item>
-              <plank-select-item value="orange">Orange</plank-select-item>
-            </plank-select-content>
-          </plank-select>
+          <hal-select>
+            <hal-select-trigger class="w-[140px]">
+              <hal-select-value placeholder="Select"></hal-select-value>
+            </hal-select-trigger>
+            <hal-select-content>
+              <hal-select-item value="apple">Apple</hal-select-item>
+              <hal-select-item value="banana">Banana</hal-select-item>
+              <hal-select-item value="orange">Orange</hal-select-item>
+            </hal-select-content>
+          </hal-select>
         </a>
 
         <!-- Command -->
@@ -806,15 +796,15 @@
           <p class="text-sm text-muted-foreground mb-4">
             Command palette for searching.
           </p>
-          <plank-command class="rounded-lg border shadow-sm">
-            <plank-command-input placeholder="Search..."></plank-command-input>
-            <plank-command-list>
-              <plank-command-group heading="Actions">
-                <plank-command-item>Calendar</plank-command-item>
-                <plank-command-item>Settings</plank-command-item>
-              </plank-command-group>
-            </plank-command-list>
-          </plank-command>
+          <hal-command class="rounded-lg border shadow-sm">
+            <hal-command-input placeholder="Search..."></hal-command-input>
+            <hal-command-list>
+              <hal-command-group heading="Actions">
+                <hal-command-item>Calendar</hal-command-item>
+                <hal-command-item>Settings</hal-command-item>
+              </hal-command-group>
+            </hal-command-list>
+          </hal-command>
         </a>
 
         <!-- Combobox -->
@@ -826,11 +816,11 @@
           <p class="text-sm text-muted-foreground mb-4">
             Searchable dropdown select.
           </p>
-          <plank-combobox placeholder="Select framework..." class="w-full">
-            <plank-combobox-item value="next">Next.js</plank-combobox-item>
-            <plank-combobox-item value="svelte">SvelteKit</plank-combobox-item>
-            <plank-combobox-item value="nuxt">Nuxt.js</plank-combobox-item>
-          </plank-combobox>
+          <hal-combobox placeholder="Select framework..." class="w-full">
+            <hal-combobox-item value="next">Next.js</hal-combobox-item>
+            <hal-combobox-item value="svelte">SvelteKit</hal-combobox-item>
+            <hal-combobox-item value="nuxt">Nuxt.js</hal-combobox-item>
+          </hal-combobox>
         </a>
 
         <!-- Table -->
@@ -842,20 +832,20 @@
           <p class="text-sm text-muted-foreground mb-4">
             Responsive semantic tables.
           </p>
-          <plank-table>
-            <plank-table-header>
-              <plank-table-row>
-                <plank-table-head>Item</plank-table-head>
-                <plank-table-head class="text-right">Price</plank-table-head>
-              </plank-table-row>
-            </plank-table-header>
-            <plank-table-body>
-              <plank-table-row>
-                <plank-table-cell>Coffee</plank-table-cell>
-                <plank-table-cell class="text-right">$3.00</plank-table-cell>
-              </plank-table-row>
-            </plank-table-body>
-          </plank-table>
+          <hal-table>
+            <hal-table-header>
+              <hal-table-row>
+                <hal-table-head>Item</hal-table-head>
+                <hal-table-head class="text-right">Price</hal-table-head>
+              </hal-table-row>
+            </hal-table-header>
+            <hal-table-body>
+              <hal-table-row>
+                <hal-table-cell>Coffee</hal-table-cell>
+                <hal-table-cell class="text-right">$3.00</hal-table-cell>
+              </hal-table-row>
+            </hal-table-body>
+          </hal-table>
         </a>
 
         <!-- Calendar -->
@@ -867,9 +857,9 @@
           <p class="text-sm text-muted-foreground mb-4">
             Date picker with single, multiple, and range modes.
           </p>
-          <plank-calendar
+          <hal-calendar
             class="rounded-lg border shadow-sm text-xs"
-          ></plank-calendar>
+          ></hal-calendar>
         </a>
 
         <!-- Pagination -->
@@ -882,9 +872,9 @@
             Navigation with pages, prev/next, and ellipsis.
           </p>
           <div class="flex items-center justify-center gap-1">
-            <plank-badge variant="outline">1</plank-badge>
-            <plank-badge variant="secondary">2</plank-badge>
-            <plank-badge variant="outline">3</plank-badge>
+            <hal-badge variant="outline">1</hal-badge>
+            <hal-badge variant="secondary">2</hal-badge>
+            <hal-badge variant="outline">3</hal-badge>
           </div>
         </a>
 
@@ -897,17 +887,17 @@
           <p class="text-sm text-muted-foreground mb-4">
             Navigation path to current page.
           </p>
-          <plank-breadcrumb>
-            <plank-breadcrumb-list>
-              <plank-breadcrumb-item>
-                <plank-breadcrumb-link href="#">Home</plank-breadcrumb-link>
-              </plank-breadcrumb-item>
-              <plank-breadcrumb-separator></plank-breadcrumb-separator>
-              <plank-breadcrumb-item>
-                <plank-breadcrumb-page>Page</plank-breadcrumb-page>
-              </plank-breadcrumb-item>
-            </plank-breadcrumb-list>
-          </plank-breadcrumb>
+          <hal-breadcrumb>
+            <hal-breadcrumb-list>
+              <hal-breadcrumb-item>
+                <hal-breadcrumb-link href="#">Home</hal-breadcrumb-link>
+              </hal-breadcrumb-item>
+              <hal-breadcrumb-separator></hal-breadcrumb-separator>
+              <hal-breadcrumb-item>
+                <hal-breadcrumb-page>Page</hal-breadcrumb-page>
+              </hal-breadcrumb-item>
+            </hal-breadcrumb-list>
+          </hal-breadcrumb>
         </a>
 
         <!-- Scroll Area -->
@@ -919,24 +909,24 @@
           <p class="text-sm text-muted-foreground mb-3">
             Augments native scroll functionality with custom scrollbars.
           </p>
-          <plank-scroll-area class="h-32 w-full rounded-md border">
-            <plank-scroll-area-viewport>
+          <hal-scroll-area class="h-32 w-full rounded-md border">
+            <hal-scroll-area-viewport>
               <div class="p-4">
                 <div class="text-sm">Item 1</div>
-                <plank-separator class="my-2"></plank-separator>
+                <hal-separator class="my-2"></hal-separator>
                 <div class="text-sm">Item 2</div>
-                <plank-separator class="my-2"></plank-separator>
+                <hal-separator class="my-2"></hal-separator>
                 <div class="text-sm">Item 3</div>
-                <plank-separator class="my-2"></plank-separator>
+                <hal-separator class="my-2"></hal-separator>
                 <div class="text-sm">Item 4</div>
-                <plank-separator class="my-2"></plank-separator>
+                <hal-separator class="my-2"></hal-separator>
                 <div class="text-sm">Item 5</div>
-                <plank-separator class="my-2"></plank-separator>
+                <hal-separator class="my-2"></hal-separator>
                 <div class="text-sm">Item 6</div>
               </div>
-            </plank-scroll-area-viewport>
-            <plank-scroll-bar></plank-scroll-bar>
-          </plank-scroll-area>
+            </hal-scroll-area-viewport>
+            <hal-scroll-bar></hal-scroll-bar>
+          </hal-scroll-area>
         </a>
 
         <!-- Resizable -->
@@ -948,26 +938,26 @@
           <p class="text-sm text-muted-foreground mb-3">
             Accessible resizable panel groups with drag and keyboard support.
           </p>
-          <plank-resizable-panel-group
+          <hal-resizable-panel-group
             direction="horizontal"
             class="h-24 w-full rounded-md border"
           >
-            <plank-resizable-panel default-size="50">
+            <hal-resizable-panel default-size="50">
               <div
                 class="flex h-full items-center justify-center text-sm text-muted-foreground"
               >
                 A
               </div>
-            </plank-resizable-panel>
-            <plank-resizable-handle with-handle></plank-resizable-handle>
-            <plank-resizable-panel default-size="50">
+            </hal-resizable-panel>
+            <hal-resizable-handle with-handle></hal-resizable-handle>
+            <hal-resizable-panel default-size="50">
               <div
                 class="flex h-full items-center justify-center text-sm text-muted-foreground"
               >
                 B
               </div>
-            </plank-resizable-panel>
-          </plank-resizable-panel-group>
+            </hal-resizable-panel>
+          </hal-resizable-panel-group>
         </a>
 
         <!-- Navigation Menu -->
@@ -981,20 +971,20 @@
           <p class="text-sm text-muted-foreground mb-3">
             Links for navigating websites with dropdown content support.
           </p>
-          <plank-navigation-menu viewport="false">
-            <plank-navigation-menu-list>
-              <plank-navigation-menu-item>
-                <plank-navigation-menu-link href="#" active
-                  >Home</plank-navigation-menu-link
+          <hal-navigation-menu viewport="false">
+            <hal-navigation-menu-list>
+              <hal-navigation-menu-item>
+                <hal-navigation-menu-link href="#" active
+                  >Home</hal-navigation-menu-link
                 >
-              </plank-navigation-menu-item>
-              <plank-navigation-menu-item>
-                <plank-navigation-menu-link href="#"
-                  >About</plank-navigation-menu-link
+              </hal-navigation-menu-item>
+              <hal-navigation-menu-item>
+                <hal-navigation-menu-link href="#"
+                  >About</hal-navigation-menu-link
                 >
-              </plank-navigation-menu-item>
-            </plank-navigation-menu-list>
-          </plank-navigation-menu>
+              </hal-navigation-menu-item>
+            </hal-navigation-menu-list>
+          </hal-navigation-menu>
         </a>
 
         <!-- Menubar -->
@@ -1006,17 +996,17 @@
           <p class="text-sm text-muted-foreground mb-3">
             Accessible menu bar with keyboard navigation and submenus.
           </p>
-          <plank-menubar>
-            <plank-menubar-menu>
-              <plank-menubar-trigger>File</plank-menubar-trigger>
-            </plank-menubar-menu>
-            <plank-menubar-menu>
-              <plank-menubar-trigger>Edit</plank-menubar-trigger>
-            </plank-menubar-menu>
-            <plank-menubar-menu>
-              <plank-menubar-trigger>View</plank-menubar-trigger>
-            </plank-menubar-menu>
-          </plank-menubar>
+          <hal-menubar>
+            <hal-menubar-menu>
+              <hal-menubar-trigger>File</hal-menubar-trigger>
+            </hal-menubar-menu>
+            <hal-menubar-menu>
+              <hal-menubar-trigger>Edit</hal-menubar-trigger>
+            </hal-menubar-menu>
+            <hal-menubar-menu>
+              <hal-menubar-trigger>View</hal-menubar-trigger>
+            </hal-menubar-menu>
+          </hal-menubar>
         </a>
 
         <!-- Sidebar -->
@@ -1028,20 +1018,20 @@
           <p class="text-sm text-muted-foreground mb-3">
             Composable sidebar with groups, menus, and mobile support.
           </p>
-          <plank-sidebar-provider>
-            <plank-sidebar-menu>
-              <plank-sidebar-menu-item>
-                <plank-sidebar-menu-button active size="sm">
+          <hal-sidebar-provider>
+            <hal-sidebar-menu>
+              <hal-sidebar-menu-item>
+                <hal-sidebar-menu-button active size="sm">
                   <span>Dashboard</span>
-                </plank-sidebar-menu-button>
-              </plank-sidebar-menu-item>
-              <plank-sidebar-menu-item>
-                <plank-sidebar-menu-button size="sm">
+                </hal-sidebar-menu-button>
+              </hal-sidebar-menu-item>
+              <hal-sidebar-menu-item>
+                <hal-sidebar-menu-button size="sm">
                   <span>Settings</span>
-                </plank-sidebar-menu-button>
-              </plank-sidebar-menu-item>
-            </plank-sidebar-menu>
-          </plank-sidebar-provider>
+                </hal-sidebar-menu-button>
+              </hal-sidebar-menu-item>
+            </hal-sidebar-menu>
+          </hal-sidebar-provider>
         </a>
 
         <!-- Input Group -->
@@ -1053,17 +1043,15 @@
           <p class="text-sm text-muted-foreground mb-3">
             Group inputs with addons like icons, text, and buttons.
           </p>
-          <plank-input-group>
-            <plank-input-group-addon>
-              <plank-input-group-text>$</plank-input-group-text>
-            </plank-input-group-addon>
-            <plank-input-group-input
-              placeholder="0.00"
-            ></plank-input-group-input>
-            <plank-input-group-addon align="inline-end">
-              <plank-input-group-text>USD</plank-input-group-text>
-            </plank-input-group-addon>
-          </plank-input-group>
+          <hal-input-group>
+            <hal-input-group-addon>
+              <hal-input-group-text>$</hal-input-group-text>
+            </hal-input-group-addon>
+            <hal-input-group-input placeholder="0.00"></hal-input-group-input>
+            <hal-input-group-addon align="inline-end">
+              <hal-input-group-text>USD</hal-input-group-text>
+            </hal-input-group-addon>
+          </hal-input-group>
         </a>
       </div>
     </main>

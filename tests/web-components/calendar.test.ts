@@ -1,8 +1,8 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest"
-import "@/web-components/plank-calendar"
-import type { PlankCalendar } from "@/web-components/plank-calendar"
+import "@/web-components/hal-calendar"
+import type { HalCalendar } from "@/web-components/hal-calendar"
 
-describe("PlankCalendar (Web Component)", () => {
+describe("HalCalendar (Web Component)", () => {
   let container: HTMLDivElement
 
   beforeEach(() => {
@@ -14,22 +14,22 @@ describe("PlankCalendar (Web Component)", () => {
     container.remove()
   })
 
-  async function renderAndWait(html: string): Promise<PlankCalendar> {
+  async function renderAndWait(html: string): Promise<HalCalendar> {
     container.innerHTML = html
-    await customElements.whenDefined("plank-calendar")
-    const calendar = container.querySelector("plank-calendar") as PlankCalendar
+    await customElements.whenDefined("hal-calendar")
+    const calendar = container.querySelector("hal-calendar") as HalCalendar
     await calendar.updateComplete
     return calendar
   }
 
   describe("Rendering", () => {
     it("renders with data-slot attribute", async () => {
-      const calendar = await renderAndWait(`<plank-calendar></plank-calendar>`)
+      const calendar = await renderAndWait(`<hal-calendar></hal-calendar>`)
       expect(calendar.dataset.slot).toBe("calendar")
     })
 
     it("renders navigation buttons", async () => {
-      const calendar = await renderAndWait(`<plank-calendar></plank-calendar>`)
+      const calendar = await renderAndWait(`<hal-calendar></hal-calendar>`)
       const prevButton = calendar.querySelector('[aria-label="Previous month"]')
       const nextButton = calendar.querySelector('[aria-label="Next month"]')
       expect(prevButton).toBeTruthy()
@@ -37,20 +37,20 @@ describe("PlankCalendar (Web Component)", () => {
     })
 
     it("renders weekday headers", async () => {
-      const calendar = await renderAndWait(`<plank-calendar></plank-calendar>`)
+      const calendar = await renderAndWait(`<hal-calendar></hal-calendar>`)
       const weekdays = calendar.querySelectorAll('[data-slot="weekday"]')
       expect(weekdays.length).toBe(7)
     })
 
     it("renders day buttons", async () => {
-      const calendar = await renderAndWait(`<plank-calendar></plank-calendar>`)
+      const calendar = await renderAndWait(`<hal-calendar></hal-calendar>`)
       const days = calendar.querySelectorAll('[data-slot="day"]')
       expect(days.length).toBeGreaterThanOrEqual(28) // At least 4 weeks
       expect(days.length).toBeLessThanOrEqual(42) // At most 6 weeks
     })
 
     it("renders month caption", async () => {
-      const calendar = await renderAndWait(`<plank-calendar></plank-calendar>`)
+      const calendar = await renderAndWait(`<hal-calendar></hal-calendar>`)
       const caption = calendar.querySelector('[data-slot="month-caption"]')
       expect(caption).toBeTruthy()
       expect(caption?.textContent).toBeTruthy()
@@ -59,13 +59,13 @@ describe("PlankCalendar (Web Component)", () => {
 
   describe("Single Selection Mode", () => {
     it("defaults to single mode", async () => {
-      const calendar = await renderAndWait(`<plank-calendar></plank-calendar>`)
+      const calendar = await renderAndWait(`<hal-calendar></hal-calendar>`)
       expect(calendar.mode).toBe("single")
     })
 
     it("shows selected date", async () => {
       const calendar = await renderAndWait(
-        `<plank-calendar selected="2025-01-15"></plank-calendar>`
+        `<hal-calendar selected="2025-01-15"></hal-calendar>`
       )
       const selectedButton = calendar.querySelector('[data-selected="true"]')
       expect(selectedButton).toBeTruthy()
@@ -73,7 +73,7 @@ describe("PlankCalendar (Web Component)", () => {
     })
 
     it("fires date-select event when clicking a day", async () => {
-      const calendar = await renderAndWait(`<plank-calendar></plank-calendar>`)
+      const calendar = await renderAndWait(`<hal-calendar></hal-calendar>`)
       const handler = vi.fn()
       calendar.addEventListener("date-select", handler)
 
@@ -91,7 +91,7 @@ describe("PlankCalendar (Web Component)", () => {
     })
 
     it("updates selected property when clicking a day", async () => {
-      const calendar = await renderAndWait(`<plank-calendar></plank-calendar>`)
+      const calendar = await renderAndWait(`<hal-calendar></hal-calendar>`)
 
       const dayButton = calendar.querySelector(
         '[data-slot="day"]:not([data-disabled="true"]) button'
@@ -106,14 +106,14 @@ describe("PlankCalendar (Web Component)", () => {
   describe("Multiple Selection Mode", () => {
     it("supports multiple selection mode", async () => {
       const calendar = await renderAndWait(
-        `<plank-calendar mode="multiple"></plank-calendar>`
+        `<hal-calendar mode="multiple"></hal-calendar>`
       )
       expect(calendar.mode).toBe("multiple")
     })
 
     it("shows multiple selected dates", async () => {
       const calendar = await renderAndWait(
-        `<plank-calendar mode="multiple" default-month="2025-01-01" selected-dates="2025-01-15,2025-01-20"></plank-calendar>`
+        `<hal-calendar mode="multiple" default-month="2025-01-01" selected-dates="2025-01-15,2025-01-20"></hal-calendar>`
       )
       // Query buttons directly to avoid counting parent divs
       const selectedButtons = calendar.querySelectorAll(
@@ -124,7 +124,7 @@ describe("PlankCalendar (Web Component)", () => {
 
     it("fires dates-select event with array", async () => {
       const calendar = await renderAndWait(
-        `<plank-calendar mode="multiple"></plank-calendar>`
+        `<hal-calendar mode="multiple"></hal-calendar>`
       )
       const handler = vi.fn()
       calendar.addEventListener("dates-select", handler)
@@ -141,7 +141,7 @@ describe("PlankCalendar (Web Component)", () => {
 
     it("toggles date selection", async () => {
       const calendar = await renderAndWait(
-        `<plank-calendar mode="multiple" default-month="2025-01-01" selected-dates="2025-01-15"></plank-calendar>`
+        `<hal-calendar mode="multiple" default-month="2025-01-01" selected-dates="2025-01-15"></hal-calendar>`
       )
 
       // Click the same date to deselect
@@ -158,14 +158,14 @@ describe("PlankCalendar (Web Component)", () => {
   describe("Range Selection Mode", () => {
     it("supports range selection mode", async () => {
       const calendar = await renderAndWait(
-        `<plank-calendar mode="range"></plank-calendar>`
+        `<hal-calendar mode="range"></hal-calendar>`
       )
       expect(calendar.mode).toBe("range")
     })
 
     it("shows range start and end", async () => {
       const calendar = await renderAndWait(
-        `<plank-calendar mode="range" range-start="2025-01-10" range-end="2025-01-20"></plank-calendar>`
+        `<hal-calendar mode="range" range-start="2025-01-10" range-end="2025-01-20"></hal-calendar>`
       )
       const rangeStart = calendar.querySelector('[data-range-start="true"]')
       const rangeEnd = calendar.querySelector('[data-range-end="true"]')
@@ -175,7 +175,7 @@ describe("PlankCalendar (Web Component)", () => {
 
     it("shows range middle dates", async () => {
       const calendar = await renderAndWait(
-        `<plank-calendar mode="range" range-start="2025-01-10" range-end="2025-01-15"></plank-calendar>`
+        `<hal-calendar mode="range" range-start="2025-01-10" range-end="2025-01-15"></hal-calendar>`
       )
       const rangeMiddle = calendar.querySelectorAll(
         '[data-range-middle="true"]'
@@ -185,7 +185,7 @@ describe("PlankCalendar (Web Component)", () => {
 
     it("fires range-select event", async () => {
       const calendar = await renderAndWait(
-        `<plank-calendar mode="range"></plank-calendar>`
+        `<hal-calendar mode="range"></hal-calendar>`
       )
       const handler = vi.fn()
       calendar.addEventListener("range-select", handler)
@@ -205,7 +205,7 @@ describe("PlankCalendar (Web Component)", () => {
   describe("Navigation", () => {
     it("navigates to previous month", async () => {
       const calendar = await renderAndWait(
-        `<plank-calendar default-month="2025-06-01"></plank-calendar>`
+        `<hal-calendar default-month="2025-06-01"></hal-calendar>`
       )
       const caption = calendar.querySelector('[data-slot="month-caption"]')
       expect(caption?.textContent).toContain("June")
@@ -222,7 +222,7 @@ describe("PlankCalendar (Web Component)", () => {
 
     it("navigates to next month", async () => {
       const calendar = await renderAndWait(
-        `<plank-calendar default-month="2025-06-01"></plank-calendar>`
+        `<hal-calendar default-month="2025-06-01"></hal-calendar>`
       )
       const caption = calendar.querySelector('[data-slot="month-caption"]')
       expect(caption?.textContent).toContain("June")
@@ -241,7 +241,7 @@ describe("PlankCalendar (Web Component)", () => {
   describe("Date Constraints", () => {
     it("disables dates before minDate", async () => {
       const calendar = await renderAndWait(
-        `<plank-calendar default-month="2025-01-01" min-date="2025-01-15"></plank-calendar>`
+        `<hal-calendar default-month="2025-01-01" min-date="2025-01-15"></hal-calendar>`
       )
       const disabledDay = calendar.querySelector('[data-date="2025-01-10"]')
       expect(disabledDay?.getAttribute("data-disabled")).toBe("true")
@@ -250,7 +250,7 @@ describe("PlankCalendar (Web Component)", () => {
 
     it("disables dates after maxDate", async () => {
       const calendar = await renderAndWait(
-        `<plank-calendar default-month="2025-01-01" max-date="2025-01-15"></plank-calendar>`
+        `<hal-calendar default-month="2025-01-01" max-date="2025-01-15"></hal-calendar>`
       )
       const disabledDay = calendar.querySelector('[data-date="2025-01-20"]')
       expect(disabledDay?.getAttribute("data-disabled")).toBe("true")
@@ -259,7 +259,7 @@ describe("PlankCalendar (Web Component)", () => {
 
     it("does not fire event when clicking disabled date", async () => {
       const calendar = await renderAndWait(
-        `<plank-calendar default-month="2025-01-01" min-date="2025-01-15"></plank-calendar>`
+        `<hal-calendar default-month="2025-01-01" min-date="2025-01-15"></hal-calendar>`
       )
       const handler = vi.fn()
       calendar.addEventListener("date-select", handler)
@@ -277,7 +277,7 @@ describe("PlankCalendar (Web Component)", () => {
   describe("Display Options", () => {
     it("shows outside days by default", async () => {
       const calendar = await renderAndWait(
-        `<plank-calendar default-month="2025-01-01"></plank-calendar>`
+        `<hal-calendar default-month="2025-01-01"></hal-calendar>`
       )
       const outsideDays = calendar.querySelectorAll('[data-outside="true"]')
       expect(outsideDays.length).toBeGreaterThan(0)
@@ -285,7 +285,7 @@ describe("PlankCalendar (Web Component)", () => {
 
     it("hides outside days when show-outside-days is false", async () => {
       const calendar = await renderAndWait(
-        `<plank-calendar default-month="2025-01-01" show-outside-days="false"></plank-calendar>`
+        `<hal-calendar default-month="2025-01-01" show-outside-days="false"></hal-calendar>`
       )
       // Outside days should not have buttons
       const outsideDays = calendar.querySelectorAll('[data-outside="true"]')
@@ -294,7 +294,7 @@ describe("PlankCalendar (Web Component)", () => {
 
     it("renders multiple months", async () => {
       const calendar = await renderAndWait(
-        `<plank-calendar number-of-months="2"></plank-calendar>`
+        `<hal-calendar number-of-months="2"></hal-calendar>`
       )
       const months = calendar.querySelectorAll('[data-slot="month"]')
       expect(months.length).toBe(2)
@@ -303,7 +303,7 @@ describe("PlankCalendar (Web Component)", () => {
     it("changes week start day", async () => {
       // Default (Sunday start)
       const calendarSunday = await renderAndWait(
-        `<plank-calendar></plank-calendar>`
+        `<hal-calendar></hal-calendar>`
       )
       const weekdaysSunday = calendarSunday.querySelectorAll(
         '[data-slot="weekday"]'
@@ -314,7 +314,7 @@ describe("PlankCalendar (Web Component)", () => {
 
       // Monday start
       const calendarMonday = await renderAndWait(
-        `<plank-calendar week-starts-on="1"></plank-calendar>`
+        `<hal-calendar week-starts-on="1"></hal-calendar>`
       )
       const weekdaysMonday = calendarMonday.querySelectorAll(
         '[data-slot="weekday"]'
@@ -333,7 +333,7 @@ describe("PlankCalendar (Web Component)", () => {
       const day = String(today.getDate()).padStart(2, "0")
       const todayStr = `${year}-${month}-${day}`
 
-      const calendar = await renderAndWait(`<plank-calendar></plank-calendar>`)
+      const calendar = await renderAndWait(`<hal-calendar></hal-calendar>`)
       const todayButton = calendar.querySelector(`[data-date="${todayStr}"]`)
       expect(todayButton?.getAttribute("data-today")).toBe("true")
     })
@@ -342,7 +342,7 @@ describe("PlankCalendar (Web Component)", () => {
   describe("Keyboard Navigation", () => {
     it("supports arrow key navigation", async () => {
       const calendar = await renderAndWait(
-        `<plank-calendar default-month="2025-01-01" selected="2025-01-15"></plank-calendar>`
+        `<hal-calendar default-month="2025-01-01" selected="2025-01-15"></hal-calendar>`
       )
 
       const dayButton = calendar.querySelector(
@@ -365,7 +365,7 @@ describe("PlankCalendar (Web Component)", () => {
 
     it("supports Enter key to select", async () => {
       const calendar = await renderAndWait(
-        `<plank-calendar default-month="2025-01-01"></plank-calendar>`
+        `<hal-calendar default-month="2025-01-01"></hal-calendar>`
       )
       const handler = vi.fn()
       calendar.addEventListener("date-select", handler)
@@ -387,7 +387,7 @@ describe("PlankCalendar (Web Component)", () => {
 
     it("supports Space key to select", async () => {
       const calendar = await renderAndWait(
-        `<plank-calendar default-month="2025-01-01"></plank-calendar>`
+        `<hal-calendar default-month="2025-01-01"></hal-calendar>`
       )
       const handler = vi.fn()
       calendar.addEventListener("date-select", handler)
@@ -411,7 +411,7 @@ describe("PlankCalendar (Web Component)", () => {
   describe("Initial Display", () => {
     it("displays default month", async () => {
       const calendar = await renderAndWait(
-        `<plank-calendar default-month="2025-06-15"></plank-calendar>`
+        `<hal-calendar default-month="2025-06-15"></hal-calendar>`
       )
       const caption = calendar.querySelector('[data-slot="month-caption"]')
       expect(caption?.textContent).toContain("June")
@@ -420,7 +420,7 @@ describe("PlankCalendar (Web Component)", () => {
 
     it("displays month of selected date if no default-month", async () => {
       const calendar = await renderAndWait(
-        `<plank-calendar selected="2025-08-20"></plank-calendar>`
+        `<hal-calendar selected="2025-08-20"></hal-calendar>`
       )
       const caption = calendar.querySelector('[data-slot="month-caption"]')
       expect(caption?.textContent).toContain("August")
@@ -430,7 +430,7 @@ describe("PlankCalendar (Web Component)", () => {
   describe("Custom Class", () => {
     it("applies custom class", async () => {
       const calendar = await renderAndWait(
-        `<plank-calendar class="rounded-lg border"></plank-calendar>`
+        `<hal-calendar class="rounded-lg border"></hal-calendar>`
       )
       const calendarDiv = calendar.querySelector('[data-slot="calendar"]')
       expect(calendarDiv?.classList.contains("rounded-lg")).toBe(true)

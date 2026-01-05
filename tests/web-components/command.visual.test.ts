@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach } from "vitest"
 import { page } from "vitest/browser"
-import "@/web-components/plank-command"
+import "@/web-components/hal-command"
 
 describe("Command (Web Component) - Visual", () => {
   let container: HTMLElement
@@ -20,22 +20,22 @@ describe("Command (Web Component) - Visual", () => {
         data-testid="container"
         style="padding: 20px; display: flex; justify-content: flex-start; align-items: flex-start;"
       >
-        <plank-command class="w-[350px] rounded-lg border shadow-md">
-          <plank-command-input placeholder="Type a command or search..."></plank-command-input>
-          <plank-command-list>
-            <plank-command-empty>No results found.</plank-command-empty>
-            <plank-command-group heading="Suggestions">
-              <plank-command-item>Calendar</plank-command-item>
-              <plank-command-item>Search Emoji</plank-command-item>
-              <plank-command-item>Calculator</plank-command-item>
-            </plank-command-group>
-          </plank-command-list>
-        </plank-command>
+        <hal-command class="w-[350px] rounded-lg border shadow-md">
+          <hal-command-input placeholder="Type a command or search..."></hal-command-input>
+          <hal-command-list>
+            <hal-command-empty>No results found.</hal-command-empty>
+            <hal-command-group heading="Suggestions">
+              <hal-command-item>Calendar</hal-command-item>
+              <hal-command-item>Search Emoji</hal-command-item>
+              <hal-command-item>Calculator</hal-command-item>
+            </hal-command-group>
+          </hal-command-list>
+        </hal-command>
       </div>
     `
 
-    await customElements.whenDefined("plank-command")
-    const command = container.querySelector("plank-command")!
+    await customElements.whenDefined("hal-command")
+    const command = container.querySelector("hal-command")!
     await (command as any).updateComplete
     await new Promise((r) => setTimeout(r, 100))
 
@@ -50,27 +50,27 @@ describe("Command (Web Component) - Visual", () => {
         data-testid="container"
         style="padding: 20px; display: flex; justify-content: flex-start; align-items: flex-start;"
       >
-        <plank-command class="w-[350px] rounded-lg border shadow-md">
-          <plank-command-input placeholder="Type a command or search..."></plank-command-input>
-          <plank-command-list>
-            <plank-command-empty>No results found.</plank-command-empty>
-            <plank-command-group heading="Suggestions">
-              <plank-command-item>Calendar</plank-command-item>
-              <plank-command-item>Search Emoji</plank-command-item>
-            </plank-command-group>
-            <plank-command-separator></plank-command-separator>
-            <plank-command-group heading="Settings">
-              <plank-command-item>Profile</plank-command-item>
-              <plank-command-item>Billing</plank-command-item>
-              <plank-command-item>Settings</plank-command-item>
-            </plank-command-group>
-          </plank-command-list>
-        </plank-command>
+        <hal-command class="w-[350px] rounded-lg border shadow-md">
+          <hal-command-input placeholder="Type a command or search..."></hal-command-input>
+          <hal-command-list>
+            <hal-command-empty>No results found.</hal-command-empty>
+            <hal-command-group heading="Suggestions">
+              <hal-command-item>Calendar</hal-command-item>
+              <hal-command-item>Search Emoji</hal-command-item>
+            </hal-command-group>
+            <hal-command-separator></hal-command-separator>
+            <hal-command-group heading="Settings">
+              <hal-command-item>Profile</hal-command-item>
+              <hal-command-item>Billing</hal-command-item>
+              <hal-command-item>Settings</hal-command-item>
+            </hal-command-group>
+          </hal-command-list>
+        </hal-command>
       </div>
     `
 
-    await customElements.whenDefined("plank-command")
-    const command = container.querySelector("plank-command")!
+    await customElements.whenDefined("hal-command")
+    const command = container.querySelector("hal-command")!
     await (command as any).updateComplete
     await new Promise((r) => setTimeout(r, 100))
 
@@ -85,30 +85,30 @@ describe("Command (Web Component) - Visual", () => {
         data-testid="container"
         style="padding: 20px; display: flex; justify-content: flex-start; align-items: flex-start;"
       >
-        <plank-command class="w-[350px] rounded-lg border shadow-md">
-          <plank-command-input placeholder="Type a command or search..."></plank-command-input>
-          <plank-command-list>
-            <plank-command-group heading="Actions">
-              <plank-command-item>
+        <hal-command class="w-[350px] rounded-lg border shadow-md">
+          <hal-command-input placeholder="Type a command or search..."></hal-command-input>
+          <hal-command-list>
+            <hal-command-group heading="Actions">
+              <hal-command-item>
                 <span>Profile</span>
-                <plank-command-shortcut>⌘P</plank-command-shortcut>
-              </plank-command-item>
-              <plank-command-item>
+                <hal-command-shortcut>⌘P</hal-command-shortcut>
+              </hal-command-item>
+              <hal-command-item>
                 <span>Billing</span>
-                <plank-command-shortcut>⌘B</plank-command-shortcut>
-              </plank-command-item>
-              <plank-command-item>
+                <hal-command-shortcut>⌘B</hal-command-shortcut>
+              </hal-command-item>
+              <hal-command-item>
                 <span>Settings</span>
-                <plank-command-shortcut>⌘S</plank-command-shortcut>
-              </plank-command-item>
-            </plank-command-group>
-          </plank-command-list>
-        </plank-command>
+                <hal-command-shortcut>⌘S</hal-command-shortcut>
+              </hal-command-item>
+            </hal-command-group>
+          </hal-command-list>
+        </hal-command>
       </div>
     `
 
-    await customElements.whenDefined("plank-command")
-    const command = container.querySelector("plank-command")!
+    await customElements.whenDefined("hal-command")
+    const command = container.querySelector("hal-command")!
     await (command as any).updateComplete
     await new Promise((r) => setTimeout(r, 100))
 
@@ -123,21 +123,21 @@ describe("Command (Web Component) - Visual", () => {
         data-testid="container"
         style="padding: 20px; display: flex; justify-content: flex-start; align-items: flex-start;"
       >
-        <plank-command class="w-[350px] rounded-lg border shadow-md">
-          <plank-command-input placeholder="Type a command or search..."></plank-command-input>
-          <plank-command-list>
-            <plank-command-group heading="Actions">
-              <plank-command-item>Enabled Item</plank-command-item>
-              <plank-command-item disabled>Disabled Item</plank-command-item>
-              <plank-command-item>Another Item</plank-command-item>
-            </plank-command-group>
-          </plank-command-list>
-        </plank-command>
+        <hal-command class="w-[350px] rounded-lg border shadow-md">
+          <hal-command-input placeholder="Type a command or search..."></hal-command-input>
+          <hal-command-list>
+            <hal-command-group heading="Actions">
+              <hal-command-item>Enabled Item</hal-command-item>
+              <hal-command-item disabled>Disabled Item</hal-command-item>
+              <hal-command-item>Another Item</hal-command-item>
+            </hal-command-group>
+          </hal-command-list>
+        </hal-command>
       </div>
     `
 
-    await customElements.whenDefined("plank-command")
-    const command = container.querySelector("plank-command")!
+    await customElements.whenDefined("hal-command")
+    const command = container.querySelector("hal-command")!
     await (command as any).updateComplete
     await new Promise((r) => setTimeout(r, 100))
 
@@ -152,20 +152,20 @@ describe("Command (Web Component) - Visual", () => {
         data-testid="container"
         style="padding: 20px; display: flex; justify-content: flex-start; align-items: flex-start;"
       >
-        <plank-command class="w-[350px] rounded-lg border shadow-md">
-          <plank-command-input placeholder="Type a command or search..."></plank-command-input>
-          <plank-command-list>
-            <plank-command-empty>No results found.</plank-command-empty>
-            <plank-command-group heading="Actions">
-              <plank-command-item>Calendar</plank-command-item>
-            </plank-command-group>
-          </plank-command-list>
-        </plank-command>
+        <hal-command class="w-[350px] rounded-lg border shadow-md">
+          <hal-command-input placeholder="Type a command or search..."></hal-command-input>
+          <hal-command-list>
+            <hal-command-empty>No results found.</hal-command-empty>
+            <hal-command-group heading="Actions">
+              <hal-command-item>Calendar</hal-command-item>
+            </hal-command-group>
+          </hal-command-list>
+        </hal-command>
       </div>
     `
 
-    await customElements.whenDefined("plank-command")
-    const command = container.querySelector("plank-command")!
+    await customElements.whenDefined("hal-command")
+    const command = container.querySelector("hal-command")!
     await (command as any).updateComplete
     // Set search value to trigger empty state
     const input = container.querySelector("input") as HTMLInputElement

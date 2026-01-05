@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Checkbox - Planks</title>
+    <title>Checkbox - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -18,12 +18,12 @@
         <h2 class="text-2xl font-semibold mb-4">Basic Usage</h2>
         <div class="flex flex-wrap items-center gap-4 mb-4">
           <div class="flex items-center gap-2">
-            <plank-checkbox id="terms"></plank-checkbox>
-            <plank-label for="terms">Accept terms and conditions</plank-label>
+            <hal-checkbox id="terms"></hal-checkbox>
+            <hal-label for="terms">Accept terms and conditions</hal-label>
           </div>
         </div>
-        <pre><code>&lt;plank-checkbox id="terms"&gt;&lt;/plank-checkbox&gt;
-&lt;plank-label for="terms"&gt;Accept terms and conditions&lt;/plank-label&gt;</code></pre>
+        <pre><code>&lt;hal-checkbox id="terms"&gt;&lt;/hal-checkbox&gt;
+&lt;hal-label for="terms"&gt;Accept terms and conditions&lt;/hal-label&gt;</code></pre>
       </section>
 
       <!-- States -->
@@ -31,16 +31,16 @@
         <h2 class="text-2xl font-semibold mb-4">States</h2>
         <div class="flex flex-wrap items-center gap-6 mb-4">
           <div class="flex items-center gap-2">
-            <plank-checkbox></plank-checkbox>
+            <hal-checkbox></hal-checkbox>
             <span class="text-sm text-muted-foreground">Unchecked</span>
           </div>
           <div class="flex items-center gap-2">
-            <plank-checkbox checked></plank-checkbox>
+            <hal-checkbox checked></hal-checkbox>
             <span class="text-sm text-muted-foreground">Checked</span>
           </div>
         </div>
-        <pre><code>&lt;plank-checkbox&gt;&lt;/plank-checkbox&gt;
-&lt;plank-checkbox checked&gt;&lt;/plank-checkbox&gt;</code></pre>
+        <pre><code>&lt;hal-checkbox&gt;&lt;/hal-checkbox&gt;
+&lt;hal-checkbox checked&gt;&lt;/hal-checkbox&gt;</code></pre>
       </section>
 
       <!-- Disabled -->
@@ -48,18 +48,18 @@
         <h2 class="text-2xl font-semibold mb-4">Disabled</h2>
         <div class="flex flex-wrap items-center gap-6 mb-4">
           <div class="flex items-center gap-2">
-            <plank-checkbox disabled></plank-checkbox>
+            <hal-checkbox disabled></hal-checkbox>
             <span class="text-sm text-muted-foreground"
               >Disabled unchecked</span
             >
           </div>
           <div class="flex items-center gap-2">
-            <plank-checkbox disabled checked></plank-checkbox>
+            <hal-checkbox disabled checked></hal-checkbox>
             <span class="text-sm text-muted-foreground">Disabled checked</span>
           </div>
         </div>
-        <pre><code>&lt;plank-checkbox disabled&gt;&lt;/plank-checkbox&gt;
-&lt;plank-checkbox disabled checked&gt;&lt;/plank-checkbox&gt;</code></pre>
+        <pre><code>&lt;hal-checkbox disabled&gt;&lt;/hal-checkbox&gt;
+&lt;hal-checkbox disabled checked&gt;&lt;/hal-checkbox&gt;</code></pre>
       </section>
 
       <!-- With Form -->
@@ -67,11 +67,9 @@
         <h2 class="text-2xl font-semibold mb-4">With Form Label</h2>
         <div class="flex flex-col gap-4 mb-4">
           <div class="flex items-start gap-3">
-            <plank-checkbox id="terms-2" checked></plank-checkbox>
+            <hal-checkbox id="terms-2" checked></hal-checkbox>
             <div class="grid gap-1.5">
-              <plank-label for="terms-2"
-                >Accept terms and conditions</plank-label
-              >
+              <hal-label for="terms-2">Accept terms and conditions</hal-label>
               <p class="text-sm text-muted-foreground">
                 By clicking this checkbox, you agree to the terms and
                 conditions.
@@ -79,8 +77,8 @@
             </div>
           </div>
           <div class="flex items-start gap-3">
-            <plank-checkbox id="notifications" disabled></plank-checkbox>
-            <plank-label for="notifications">Enable notifications</plank-label>
+            <hal-checkbox id="notifications" disabled></hal-checkbox>
+            <hal-label for="notifications">Enable notifications</hal-label>
           </div>
         </div>
       </section>

@@ -1,12 +1,12 @@
 import { describe, it, expect, beforeEach } from "vitest"
-import "../../src/web-components/plank-collapsible"
+import "../../src/web-components/hal-collapsible"
 import type {
-  PlankCollapsible,
-  PlankCollapsibleTrigger,
-  PlankCollapsibleContent,
-} from "../../src/web-components/plank-collapsible"
+  HalCollapsible,
+  HalCollapsibleTrigger,
+  HalCollapsibleContent,
+} from "../../src/web-components/hal-collapsible"
 
-describe("plank-collapsible", () => {
+describe("hal-collapsible", () => {
   let container: HTMLElement
 
   beforeEach(() => {
@@ -17,147 +17,141 @@ describe("plank-collapsible", () => {
     }
   })
 
-  describe("PlankCollapsible", () => {
+  describe("HalCollapsible", () => {
     it("renders with data-slot attribute", async () => {
-      container.innerHTML = `<plank-collapsible></plank-collapsible>`
-      await customElements.whenDefined("plank-collapsible")
-      const el = container.querySelector("plank-collapsible")!
-      await (el as PlankCollapsible).updateComplete
+      container.innerHTML = `<hal-collapsible></hal-collapsible>`
+      await customElements.whenDefined("hal-collapsible")
+      const el = container.querySelector("hal-collapsible")!
+      await (el as HalCollapsible).updateComplete
       expect(el.dataset.slot).toBe("collapsible")
     })
 
     it("defaults to closed state (open=false)", async () => {
-      container.innerHTML = `<plank-collapsible></plank-collapsible>`
-      await customElements.whenDefined("plank-collapsible")
-      const el = container.querySelector(
-        "plank-collapsible"
-      ) as PlankCollapsible
+      container.innerHTML = `<hal-collapsible></hal-collapsible>`
+      await customElements.whenDefined("hal-collapsible")
+      const el = container.querySelector("hal-collapsible") as HalCollapsible
       await el.updateComplete
       expect(el.open).toBe(false)
       expect(el.dataset.state).toBe("closed")
     })
 
     it("can be initialized with open attribute", async () => {
-      container.innerHTML = `<plank-collapsible open></plank-collapsible>`
-      await customElements.whenDefined("plank-collapsible")
-      const el = container.querySelector(
-        "plank-collapsible"
-      ) as PlankCollapsible
+      container.innerHTML = `<hal-collapsible open></hal-collapsible>`
+      await customElements.whenDefined("hal-collapsible")
+      const el = container.querySelector("hal-collapsible") as HalCollapsible
       await el.updateComplete
       expect(el.open).toBe(true)
       expect(el.dataset.state).toBe("open")
     })
 
     it("applies custom class", async () => {
-      container.innerHTML = `<plank-collapsible class="custom-class"></plank-collapsible>`
-      await customElements.whenDefined("plank-collapsible")
-      const el = container.querySelector(
-        "plank-collapsible"
-      ) as PlankCollapsible
+      container.innerHTML = `<hal-collapsible class="custom-class"></hal-collapsible>`
+      await customElements.whenDefined("hal-collapsible")
+      const el = container.querySelector("hal-collapsible") as HalCollapsible
       await el.updateComplete
       expect(el.classList.contains("custom-class")).toBe(true)
     })
   })
 
-  describe("PlankCollapsibleTrigger", () => {
+  describe("HalCollapsibleTrigger", () => {
     it("renders with data-slot attribute", async () => {
       container.innerHTML = `
-        <plank-collapsible>
-          <plank-collapsible-trigger>Toggle</plank-collapsible-trigger>
-        </plank-collapsible>
+        <hal-collapsible>
+          <hal-collapsible-trigger>Toggle</hal-collapsible-trigger>
+        </hal-collapsible>
       `
-      await customElements.whenDefined("plank-collapsible-trigger")
+      await customElements.whenDefined("hal-collapsible-trigger")
       const trigger = container.querySelector(
-        "plank-collapsible-trigger"
-      ) as PlankCollapsibleTrigger
+        "hal-collapsible-trigger"
+      ) as HalCollapsibleTrigger
       await trigger.updateComplete
       expect(trigger.dataset.slot).toBe("collapsible-trigger")
     })
 
     it("has button role", async () => {
       container.innerHTML = `
-        <plank-collapsible>
-          <plank-collapsible-trigger>Toggle</plank-collapsible-trigger>
-        </plank-collapsible>
+        <hal-collapsible>
+          <hal-collapsible-trigger>Toggle</hal-collapsible-trigger>
+        </hal-collapsible>
       `
-      await customElements.whenDefined("plank-collapsible-trigger")
+      await customElements.whenDefined("hal-collapsible-trigger")
       const trigger = container.querySelector(
-        "plank-collapsible-trigger"
-      ) as PlankCollapsibleTrigger
+        "hal-collapsible-trigger"
+      ) as HalCollapsibleTrigger
       await trigger.updateComplete
       expect(trigger.getAttribute("role")).toBe("button")
     })
 
     it("has tabindex=0 for keyboard focus", async () => {
       container.innerHTML = `
-        <plank-collapsible>
-          <plank-collapsible-trigger>Toggle</plank-collapsible-trigger>
-        </plank-collapsible>
+        <hal-collapsible>
+          <hal-collapsible-trigger>Toggle</hal-collapsible-trigger>
+        </hal-collapsible>
       `
-      await customElements.whenDefined("plank-collapsible-trigger")
+      await customElements.whenDefined("hal-collapsible-trigger")
       const trigger = container.querySelector(
-        "plank-collapsible-trigger"
-      ) as PlankCollapsibleTrigger
+        "hal-collapsible-trigger"
+      ) as HalCollapsibleTrigger
       await trigger.updateComplete
       expect(trigger.getAttribute("tabindex")).toBe("0")
     })
 
     it("has aria-expanded=false when closed", async () => {
       container.innerHTML = `
-        <plank-collapsible>
-          <plank-collapsible-trigger>Toggle</plank-collapsible-trigger>
-          <plank-collapsible-content>Content</plank-collapsible-content>
-        </plank-collapsible>
+        <hal-collapsible>
+          <hal-collapsible-trigger>Toggle</hal-collapsible-trigger>
+          <hal-collapsible-content>Content</hal-collapsible-content>
+        </hal-collapsible>
       `
-      await customElements.whenDefined("plank-collapsible")
+      await customElements.whenDefined("hal-collapsible")
       const collapsible = container.querySelector(
-        "plank-collapsible"
-      ) as PlankCollapsible
+        "hal-collapsible"
+      ) as HalCollapsible
       await collapsible.updateComplete
       const trigger = container.querySelector(
-        "plank-collapsible-trigger"
-      ) as PlankCollapsibleTrigger
+        "hal-collapsible-trigger"
+      ) as HalCollapsibleTrigger
       await trigger.updateComplete
       expect(trigger.getAttribute("aria-expanded")).toBe("false")
     })
 
     it("has aria-expanded=true when open", async () => {
       container.innerHTML = `
-        <plank-collapsible open>
-          <plank-collapsible-trigger>Toggle</plank-collapsible-trigger>
-          <plank-collapsible-content>Content</plank-collapsible-content>
-        </plank-collapsible>
+        <hal-collapsible open>
+          <hal-collapsible-trigger>Toggle</hal-collapsible-trigger>
+          <hal-collapsible-content>Content</hal-collapsible-content>
+        </hal-collapsible>
       `
-      await customElements.whenDefined("plank-collapsible")
+      await customElements.whenDefined("hal-collapsible")
       const collapsible = container.querySelector(
-        "plank-collapsible"
-      ) as PlankCollapsible
+        "hal-collapsible"
+      ) as HalCollapsible
       await collapsible.updateComplete
       const trigger = container.querySelector(
-        "plank-collapsible-trigger"
-      ) as PlankCollapsibleTrigger
+        "hal-collapsible-trigger"
+      ) as HalCollapsibleTrigger
       await trigger.updateComplete
       expect(trigger.getAttribute("aria-expanded")).toBe("true")
     })
 
     it("has aria-controls pointing to content id", async () => {
       container.innerHTML = `
-        <plank-collapsible>
-          <plank-collapsible-trigger>Toggle</plank-collapsible-trigger>
-          <plank-collapsible-content>Content</plank-collapsible-content>
-        </plank-collapsible>
+        <hal-collapsible>
+          <hal-collapsible-trigger>Toggle</hal-collapsible-trigger>
+          <hal-collapsible-content>Content</hal-collapsible-content>
+        </hal-collapsible>
       `
-      await customElements.whenDefined("plank-collapsible")
+      await customElements.whenDefined("hal-collapsible")
       const collapsible = container.querySelector(
-        "plank-collapsible"
-      ) as PlankCollapsible
+        "hal-collapsible"
+      ) as HalCollapsible
       await collapsible.updateComplete
       const trigger = container.querySelector(
-        "plank-collapsible-trigger"
-      ) as PlankCollapsibleTrigger
+        "hal-collapsible-trigger"
+      ) as HalCollapsibleTrigger
       const content = container.querySelector(
-        "plank-collapsible-content"
-      ) as PlankCollapsibleContent
+        "hal-collapsible-content"
+      ) as HalCollapsibleContent
       await trigger.updateComplete
       await content.updateComplete
       expect(trigger.getAttribute("aria-controls")).toBe(content.id)
@@ -165,19 +159,19 @@ describe("plank-collapsible", () => {
 
     it("toggles collapsible on click", async () => {
       container.innerHTML = `
-        <plank-collapsible>
-          <plank-collapsible-trigger>Toggle</plank-collapsible-trigger>
-          <plank-collapsible-content>Content</plank-collapsible-content>
-        </plank-collapsible>
+        <hal-collapsible>
+          <hal-collapsible-trigger>Toggle</hal-collapsible-trigger>
+          <hal-collapsible-content>Content</hal-collapsible-content>
+        </hal-collapsible>
       `
-      await customElements.whenDefined("plank-collapsible")
+      await customElements.whenDefined("hal-collapsible")
       const collapsible = container.querySelector(
-        "plank-collapsible"
-      ) as PlankCollapsible
+        "hal-collapsible"
+      ) as HalCollapsible
       await collapsible.updateComplete
       const trigger = container.querySelector(
-        "plank-collapsible-trigger"
-      ) as PlankCollapsibleTrigger
+        "hal-collapsible-trigger"
+      ) as HalCollapsibleTrigger
       await trigger.updateComplete
 
       expect(collapsible.open).toBe(false)
@@ -191,19 +185,19 @@ describe("plank-collapsible", () => {
 
     it("toggles collapsible on Enter key", async () => {
       container.innerHTML = `
-        <plank-collapsible>
-          <plank-collapsible-trigger>Toggle</plank-collapsible-trigger>
-          <plank-collapsible-content>Content</plank-collapsible-content>
-        </plank-collapsible>
+        <hal-collapsible>
+          <hal-collapsible-trigger>Toggle</hal-collapsible-trigger>
+          <hal-collapsible-content>Content</hal-collapsible-content>
+        </hal-collapsible>
       `
-      await customElements.whenDefined("plank-collapsible")
+      await customElements.whenDefined("hal-collapsible")
       const collapsible = container.querySelector(
-        "plank-collapsible"
-      ) as PlankCollapsible
+        "hal-collapsible"
+      ) as HalCollapsible
       await collapsible.updateComplete
       const trigger = container.querySelector(
-        "plank-collapsible-trigger"
-      ) as PlankCollapsibleTrigger
+        "hal-collapsible-trigger"
+      ) as HalCollapsibleTrigger
       await trigger.updateComplete
 
       expect(collapsible.open).toBe(false)
@@ -214,19 +208,19 @@ describe("plank-collapsible", () => {
 
     it("toggles collapsible on Space key", async () => {
       container.innerHTML = `
-        <plank-collapsible>
-          <plank-collapsible-trigger>Toggle</plank-collapsible-trigger>
-          <plank-collapsible-content>Content</plank-collapsible-content>
-        </plank-collapsible>
+        <hal-collapsible>
+          <hal-collapsible-trigger>Toggle</hal-collapsible-trigger>
+          <hal-collapsible-content>Content</hal-collapsible-content>
+        </hal-collapsible>
       `
-      await customElements.whenDefined("plank-collapsible")
+      await customElements.whenDefined("hal-collapsible")
       const collapsible = container.querySelector(
-        "plank-collapsible"
-      ) as PlankCollapsible
+        "hal-collapsible"
+      ) as HalCollapsible
       await collapsible.updateComplete
       const trigger = container.querySelector(
-        "plank-collapsible-trigger"
-      ) as PlankCollapsibleTrigger
+        "hal-collapsible-trigger"
+      ) as HalCollapsibleTrigger
       await trigger.updateComplete
 
       expect(collapsible.open).toBe(false)
@@ -237,19 +231,19 @@ describe("plank-collapsible", () => {
 
     it("does not toggle when disabled", async () => {
       container.innerHTML = `
-        <plank-collapsible disabled>
-          <plank-collapsible-trigger>Toggle</plank-collapsible-trigger>
-          <plank-collapsible-content>Content</plank-collapsible-content>
-        </plank-collapsible>
+        <hal-collapsible disabled>
+          <hal-collapsible-trigger>Toggle</hal-collapsible-trigger>
+          <hal-collapsible-content>Content</hal-collapsible-content>
+        </hal-collapsible>
       `
-      await customElements.whenDefined("plank-collapsible")
+      await customElements.whenDefined("hal-collapsible")
       const collapsible = container.querySelector(
-        "plank-collapsible"
-      ) as PlankCollapsible
+        "hal-collapsible"
+      ) as HalCollapsible
       await collapsible.updateComplete
       const trigger = container.querySelector(
-        "plank-collapsible-trigger"
-      ) as PlankCollapsibleTrigger
+        "hal-collapsible-trigger"
+      ) as HalCollapsibleTrigger
       await trigger.updateComplete
 
       expect(collapsible.open).toBe(false)
@@ -259,85 +253,85 @@ describe("plank-collapsible", () => {
     })
   })
 
-  describe("PlankCollapsibleContent", () => {
+  describe("HalCollapsibleContent", () => {
     it("renders with data-slot attribute", async () => {
       container.innerHTML = `
-        <plank-collapsible>
-          <plank-collapsible-content>Content</plank-collapsible-content>
-        </plank-collapsible>
+        <hal-collapsible>
+          <hal-collapsible-content>Content</hal-collapsible-content>
+        </hal-collapsible>
       `
-      await customElements.whenDefined("plank-collapsible-content")
+      await customElements.whenDefined("hal-collapsible-content")
       const content = container.querySelector(
-        "plank-collapsible-content"
-      ) as PlankCollapsibleContent
+        "hal-collapsible-content"
+      ) as HalCollapsibleContent
       await content.updateComplete
       expect(content.dataset.slot).toBe("collapsible-content")
     })
 
     it("has auto-generated id for aria-controls", async () => {
       container.innerHTML = `
-        <plank-collapsible>
-          <plank-collapsible-content>Content</plank-collapsible-content>
-        </plank-collapsible>
+        <hal-collapsible>
+          <hal-collapsible-content>Content</hal-collapsible-content>
+        </hal-collapsible>
       `
-      await customElements.whenDefined("plank-collapsible-content")
+      await customElements.whenDefined("hal-collapsible-content")
       const content = container.querySelector(
-        "plank-collapsible-content"
-      ) as PlankCollapsibleContent
+        "hal-collapsible-content"
+      ) as HalCollapsibleContent
       await content.updateComplete
-      expect(content.id).toMatch(/^plank-collapsible-content-/)
+      expect(content.id).toMatch(/^hal-collapsible-content-/)
     })
 
     it("is hidden when closed", async () => {
       container.innerHTML = `
-        <plank-collapsible>
-          <plank-collapsible-content>Content</plank-collapsible-content>
-        </plank-collapsible>
+        <hal-collapsible>
+          <hal-collapsible-content>Content</hal-collapsible-content>
+        </hal-collapsible>
       `
-      await customElements.whenDefined("plank-collapsible")
+      await customElements.whenDefined("hal-collapsible")
       const collapsible = container.querySelector(
-        "plank-collapsible"
-      ) as PlankCollapsible
+        "hal-collapsible"
+      ) as HalCollapsible
       await collapsible.updateComplete
       const content = container.querySelector(
-        "plank-collapsible-content"
-      ) as PlankCollapsibleContent
+        "hal-collapsible-content"
+      ) as HalCollapsibleContent
       await content.updateComplete
       expect(content.hasAttribute("hidden")).toBe(true)
     })
 
     it("is visible when open", async () => {
       container.innerHTML = `
-        <plank-collapsible open>
-          <plank-collapsible-content>Content</plank-collapsible-content>
-        </plank-collapsible>
+        <hal-collapsible open>
+          <hal-collapsible-content>Content</hal-collapsible-content>
+        </hal-collapsible>
       `
-      await customElements.whenDefined("plank-collapsible")
+      await customElements.whenDefined("hal-collapsible")
       const collapsible = container.querySelector(
-        "plank-collapsible"
-      ) as PlankCollapsible
+        "hal-collapsible"
+      ) as HalCollapsible
       await collapsible.updateComplete
       const content = container.querySelector(
-        "plank-collapsible-content"
-      ) as PlankCollapsibleContent
+        "hal-collapsible-content"
+      ) as HalCollapsibleContent
       await content.updateComplete
       expect(content.hasAttribute("hidden")).toBe(false)
     })
 
     it("has data-state reflecting open state", async () => {
       container.innerHTML = `
-        <plank-collapsible>
-          <plank-collapsible-content>Content</plank-collapsible-content>
-        </plank-collapsible>
+        <hal-collapsible>
+          <hal-collapsible-content>Content</hal-collapsible-content>
+        </hal-collapsible>
       `
-      await customElements.whenDefined("plank-collapsible")
+      await customElements.whenDefined("hal-collapsible")
       const collapsible = container.querySelector(
-        "plank-collapsible"
-      ) as PlankCollapsible
+        "hal-collapsible"
+      ) as HalCollapsible
       await collapsible.updateComplete
       const content = container.querySelector(
-        "plank-collapsible-content"
-      ) as PlankCollapsibleContent
+        "hal-collapsible-content"
+      ) as HalCollapsibleContent
       await content.updateComplete
       expect(content.dataset.state).toBe("closed")
 
@@ -351,19 +345,19 @@ describe("plank-collapsible", () => {
   describe("Events", () => {
     it("fires open-change event when toggled", async () => {
       container.innerHTML = `
-        <plank-collapsible>
-          <plank-collapsible-trigger>Toggle</plank-collapsible-trigger>
-          <plank-collapsible-content>Content</plank-collapsible-content>
-        </plank-collapsible>
+        <hal-collapsible>
+          <hal-collapsible-trigger>Toggle</hal-collapsible-trigger>
+          <hal-collapsible-content>Content</hal-collapsible-content>
+        </hal-collapsible>
       `
-      await customElements.whenDefined("plank-collapsible")
+      await customElements.whenDefined("hal-collapsible")
       const collapsible = container.querySelector(
-        "plank-collapsible"
-      ) as PlankCollapsible
+        "hal-collapsible"
+      ) as HalCollapsible
       await collapsible.updateComplete
       const trigger = container.querySelector(
-        "plank-collapsible-trigger"
-      ) as PlankCollapsibleTrigger
+        "hal-collapsible-trigger"
+      ) as HalCollapsibleTrigger
       await trigger.updateComplete
 
       const events: CustomEvent[] = []

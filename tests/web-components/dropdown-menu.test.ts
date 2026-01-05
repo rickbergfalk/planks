@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest"
-import "@/web-components/plank-dropdown-menu"
-import "@/web-components/plank-button"
+import "@/web-components/hal-dropdown-menu"
+import "@/web-components/hal-button"
 
 describe("DropdownMenu (Web Component)", () => {
   let container: HTMLDivElement
@@ -21,38 +21,38 @@ describe("DropdownMenu (Web Component)", () => {
 
   it("renders trigger with correct data-slot", async () => {
     container.innerHTML = `
-      <plank-dropdown-menu>
-        <plank-dropdown-menu-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dropdown-menu-trigger>
-        <plank-dropdown-menu-content>
-          <plank-dropdown-menu-item>Item</plank-dropdown-menu-item>
-        </plank-dropdown-menu-content>
-      </plank-dropdown-menu>
+      <hal-dropdown-menu>
+        <hal-dropdown-menu-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dropdown-menu-trigger>
+        <hal-dropdown-menu-content>
+          <hal-dropdown-menu-item>Item</hal-dropdown-menu-item>
+        </hal-dropdown-menu-content>
+      </hal-dropdown-menu>
     `
 
-    await customElements.whenDefined("plank-dropdown-menu")
-    const menu = container.querySelector("plank-dropdown-menu")!
+    await customElements.whenDefined("hal-dropdown-menu")
+    const menu = container.querySelector("hal-dropdown-menu")!
     await (menu as any).updateComplete
 
-    const trigger = container.querySelector("plank-dropdown-menu-trigger")
+    const trigger = container.querySelector("hal-dropdown-menu-trigger")
     expect(trigger?.dataset.slot).toBe("dropdown-menu-trigger")
   })
 
   it("menu content is hidden by default", async () => {
     container.innerHTML = `
-      <plank-dropdown-menu>
-        <plank-dropdown-menu-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dropdown-menu-trigger>
-        <plank-dropdown-menu-content>
-          <plank-dropdown-menu-item>Item</plank-dropdown-menu-item>
-        </plank-dropdown-menu-content>
-      </plank-dropdown-menu>
+      <hal-dropdown-menu>
+        <hal-dropdown-menu-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dropdown-menu-trigger>
+        <hal-dropdown-menu-content>
+          <hal-dropdown-menu-item>Item</hal-dropdown-menu-item>
+        </hal-dropdown-menu-content>
+      </hal-dropdown-menu>
     `
 
-    await customElements.whenDefined("plank-dropdown-menu")
-    const menu = container.querySelector("plank-dropdown-menu")!
+    await customElements.whenDefined("hal-dropdown-menu")
+    const menu = container.querySelector("hal-dropdown-menu")!
     await (menu as any).updateComplete
 
     const menuEl = document.querySelector('[role="menu"]')
@@ -61,22 +61,22 @@ describe("DropdownMenu (Web Component)", () => {
 
   it("opens menu on click", async () => {
     container.innerHTML = `
-      <plank-dropdown-menu>
-        <plank-dropdown-menu-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dropdown-menu-trigger>
-        <plank-dropdown-menu-content>
-          <plank-dropdown-menu-item>Profile</plank-dropdown-menu-item>
-          <plank-dropdown-menu-item>Settings</plank-dropdown-menu-item>
-        </plank-dropdown-menu-content>
-      </plank-dropdown-menu>
+      <hal-dropdown-menu>
+        <hal-dropdown-menu-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dropdown-menu-trigger>
+        <hal-dropdown-menu-content>
+          <hal-dropdown-menu-item>Profile</hal-dropdown-menu-item>
+          <hal-dropdown-menu-item>Settings</hal-dropdown-menu-item>
+        </hal-dropdown-menu-content>
+      </hal-dropdown-menu>
     `
 
-    await customElements.whenDefined("plank-dropdown-menu")
-    const menu = container.querySelector("plank-dropdown-menu")!
+    await customElements.whenDefined("hal-dropdown-menu")
+    const menu = container.querySelector("hal-dropdown-menu")!
     await (menu as any).updateComplete
 
-    const trigger = container.querySelector("plank-dropdown-menu-trigger")!
+    const trigger = container.querySelector("hal-dropdown-menu-trigger")!
     trigger.click()
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
@@ -88,21 +88,21 @@ describe("DropdownMenu (Web Component)", () => {
 
   it("closes menu on clicking outside", async () => {
     container.innerHTML = `
-      <plank-dropdown-menu>
-        <plank-dropdown-menu-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dropdown-menu-trigger>
-        <plank-dropdown-menu-content>
-          <plank-dropdown-menu-item>Item</plank-dropdown-menu-item>
-        </plank-dropdown-menu-content>
-      </plank-dropdown-menu>
+      <hal-dropdown-menu>
+        <hal-dropdown-menu-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dropdown-menu-trigger>
+        <hal-dropdown-menu-content>
+          <hal-dropdown-menu-item>Item</hal-dropdown-menu-item>
+        </hal-dropdown-menu-content>
+      </hal-dropdown-menu>
     `
 
-    await customElements.whenDefined("plank-dropdown-menu")
-    const menu = container.querySelector("plank-dropdown-menu")!
+    await customElements.whenDefined("hal-dropdown-menu")
+    const menu = container.querySelector("hal-dropdown-menu")!
     await (menu as any).updateComplete
 
-    const trigger = container.querySelector("plank-dropdown-menu-trigger")!
+    const trigger = container.querySelector("hal-dropdown-menu-trigger")!
     trigger.click()
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
@@ -118,18 +118,18 @@ describe("DropdownMenu (Web Component)", () => {
 
   it("menu content has correct data-slot", async () => {
     container.innerHTML = `
-      <plank-dropdown-menu open>
-        <plank-dropdown-menu-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dropdown-menu-trigger>
-        <plank-dropdown-menu-content>
-          <plank-dropdown-menu-item>Item</plank-dropdown-menu-item>
-        </plank-dropdown-menu-content>
-      </plank-dropdown-menu>
+      <hal-dropdown-menu open>
+        <hal-dropdown-menu-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dropdown-menu-trigger>
+        <hal-dropdown-menu-content>
+          <hal-dropdown-menu-item>Item</hal-dropdown-menu-item>
+        </hal-dropdown-menu-content>
+      </hal-dropdown-menu>
     `
 
-    await customElements.whenDefined("plank-dropdown-menu")
-    const menu = container.querySelector("plank-dropdown-menu")!
+    await customElements.whenDefined("hal-dropdown-menu")
+    const menu = container.querySelector("hal-dropdown-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -139,25 +139,25 @@ describe("DropdownMenu (Web Component)", () => {
 
   it("trigger has aria-haspopup and aria-expanded", async () => {
     container.innerHTML = `
-      <plank-dropdown-menu>
-        <plank-dropdown-menu-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dropdown-menu-trigger>
-        <plank-dropdown-menu-content>
-          <plank-dropdown-menu-item>Item</plank-dropdown-menu-item>
-        </plank-dropdown-menu-content>
-      </plank-dropdown-menu>
+      <hal-dropdown-menu>
+        <hal-dropdown-menu-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dropdown-menu-trigger>
+        <hal-dropdown-menu-content>
+          <hal-dropdown-menu-item>Item</hal-dropdown-menu-item>
+        </hal-dropdown-menu-content>
+      </hal-dropdown-menu>
     `
 
-    await customElements.whenDefined("plank-dropdown-menu")
-    const menu = container.querySelector("plank-dropdown-menu")!
+    await customElements.whenDefined("hal-dropdown-menu")
+    const menu = container.querySelector("hal-dropdown-menu")!
     await (menu as any).updateComplete
 
-    const button = container.querySelector("plank-button")!
+    const button = container.querySelector("hal-button")!
     expect(button.getAttribute("aria-haspopup")).toBe("menu")
     expect(button.getAttribute("aria-expanded")).toBe("false")
 
-    const trigger = container.querySelector("plank-dropdown-menu-trigger")!
+    const trigger = container.querySelector("hal-dropdown-menu-trigger")!
     trigger.click()
     await (menu as any).updateComplete
 
@@ -166,18 +166,18 @@ describe("DropdownMenu (Web Component)", () => {
 
   it("can be controlled via open attribute", async () => {
     container.innerHTML = `
-      <plank-dropdown-menu open>
-        <plank-dropdown-menu-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dropdown-menu-trigger>
-        <plank-dropdown-menu-content>
-          <plank-dropdown-menu-item>Item</plank-dropdown-menu-item>
-        </plank-dropdown-menu-content>
-      </plank-dropdown-menu>
+      <hal-dropdown-menu open>
+        <hal-dropdown-menu-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dropdown-menu-trigger>
+        <hal-dropdown-menu-content>
+          <hal-dropdown-menu-item>Item</hal-dropdown-menu-item>
+        </hal-dropdown-menu-content>
+      </hal-dropdown-menu>
     `
 
-    await customElements.whenDefined("plank-dropdown-menu")
-    const menu = container.querySelector("plank-dropdown-menu")!
+    await customElements.whenDefined("hal-dropdown-menu")
+    const menu = container.querySelector("hal-dropdown-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -186,24 +186,24 @@ describe("DropdownMenu (Web Component)", () => {
 
   it("fires open-change event when opened", async () => {
     container.innerHTML = `
-      <plank-dropdown-menu>
-        <plank-dropdown-menu-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dropdown-menu-trigger>
-        <plank-dropdown-menu-content>
-          <plank-dropdown-menu-item>Item</plank-dropdown-menu-item>
-        </plank-dropdown-menu-content>
-      </plank-dropdown-menu>
+      <hal-dropdown-menu>
+        <hal-dropdown-menu-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dropdown-menu-trigger>
+        <hal-dropdown-menu-content>
+          <hal-dropdown-menu-item>Item</hal-dropdown-menu-item>
+        </hal-dropdown-menu-content>
+      </hal-dropdown-menu>
     `
 
-    await customElements.whenDefined("plank-dropdown-menu")
-    const menu = container.querySelector("plank-dropdown-menu")!
+    await customElements.whenDefined("hal-dropdown-menu")
+    const menu = container.querySelector("hal-dropdown-menu")!
     await (menu as any).updateComplete
 
     const openChangeSpy = vi.fn()
     menu.addEventListener("open-change", openChangeSpy)
 
-    const trigger = container.querySelector("plank-dropdown-menu-trigger")!
+    const trigger = container.querySelector("hal-dropdown-menu-trigger")!
     trigger.click()
     await (menu as any).updateComplete
 
@@ -216,18 +216,18 @@ describe("DropdownMenu (Web Component)", () => {
 
   it("closes on Escape key", async () => {
     container.innerHTML = `
-      <plank-dropdown-menu open>
-        <plank-dropdown-menu-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dropdown-menu-trigger>
-        <plank-dropdown-menu-content>
-          <plank-dropdown-menu-item>Item</plank-dropdown-menu-item>
-        </plank-dropdown-menu-content>
-      </plank-dropdown-menu>
+      <hal-dropdown-menu open>
+        <hal-dropdown-menu-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dropdown-menu-trigger>
+        <hal-dropdown-menu-content>
+          <hal-dropdown-menu-item>Item</hal-dropdown-menu-item>
+        </hal-dropdown-menu-content>
+      </hal-dropdown-menu>
     `
 
-    await customElements.whenDefined("plank-dropdown-menu")
-    const menu = container.querySelector("plank-dropdown-menu")!
+    await customElements.whenDefined("hal-dropdown-menu")
+    const menu = container.querySelector("hal-dropdown-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -242,18 +242,18 @@ describe("DropdownMenu (Web Component)", () => {
 
   it("has data-side attribute on content", async () => {
     container.innerHTML = `
-      <plank-dropdown-menu open>
-        <plank-dropdown-menu-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dropdown-menu-trigger>
-        <plank-dropdown-menu-content>
-          <plank-dropdown-menu-item>Item</plank-dropdown-menu-item>
-        </plank-dropdown-menu-content>
-      </plank-dropdown-menu>
+      <hal-dropdown-menu open>
+        <hal-dropdown-menu-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dropdown-menu-trigger>
+        <hal-dropdown-menu-content>
+          <hal-dropdown-menu-item>Item</hal-dropdown-menu-item>
+        </hal-dropdown-menu-content>
+      </hal-dropdown-menu>
     `
 
-    await customElements.whenDefined("plank-dropdown-menu")
-    const menu = container.querySelector("plank-dropdown-menu")!
+    await customElements.whenDefined("hal-dropdown-menu")
+    const menu = container.querySelector("hal-dropdown-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -263,18 +263,18 @@ describe("DropdownMenu (Web Component)", () => {
 
   it("menu item has correct data-slot", async () => {
     container.innerHTML = `
-      <plank-dropdown-menu open>
-        <plank-dropdown-menu-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dropdown-menu-trigger>
-        <plank-dropdown-menu-content>
-          <plank-dropdown-menu-item>Profile</plank-dropdown-menu-item>
-        </plank-dropdown-menu-content>
-      </plank-dropdown-menu>
+      <hal-dropdown-menu open>
+        <hal-dropdown-menu-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dropdown-menu-trigger>
+        <hal-dropdown-menu-content>
+          <hal-dropdown-menu-item>Profile</hal-dropdown-menu-item>
+        </hal-dropdown-menu-content>
+      </hal-dropdown-menu>
     `
 
-    await customElements.whenDefined("plank-dropdown-menu")
-    const menu = container.querySelector("plank-dropdown-menu")!
+    await customElements.whenDefined("hal-dropdown-menu")
+    const menu = container.querySelector("hal-dropdown-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -284,18 +284,18 @@ describe("DropdownMenu (Web Component)", () => {
 
   it("menu item fires select event", async () => {
     container.innerHTML = `
-      <plank-dropdown-menu open>
-        <plank-dropdown-menu-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dropdown-menu-trigger>
-        <plank-dropdown-menu-content>
-          <plank-dropdown-menu-item>Profile</plank-dropdown-menu-item>
-        </plank-dropdown-menu-content>
-      </plank-dropdown-menu>
+      <hal-dropdown-menu open>
+        <hal-dropdown-menu-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dropdown-menu-trigger>
+        <hal-dropdown-menu-content>
+          <hal-dropdown-menu-item>Profile</hal-dropdown-menu-item>
+        </hal-dropdown-menu-content>
+      </hal-dropdown-menu>
     `
 
-    await customElements.whenDefined("plank-dropdown-menu")
-    const menu = container.querySelector("plank-dropdown-menu")!
+    await customElements.whenDefined("hal-dropdown-menu")
+    const menu = container.querySelector("hal-dropdown-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -311,18 +311,18 @@ describe("DropdownMenu (Web Component)", () => {
 
   it("closes menu when item is selected", async () => {
     container.innerHTML = `
-      <plank-dropdown-menu open>
-        <plank-dropdown-menu-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dropdown-menu-trigger>
-        <plank-dropdown-menu-content>
-          <plank-dropdown-menu-item>Profile</plank-dropdown-menu-item>
-        </plank-dropdown-menu-content>
-      </plank-dropdown-menu>
+      <hal-dropdown-menu open>
+        <hal-dropdown-menu-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dropdown-menu-trigger>
+        <hal-dropdown-menu-content>
+          <hal-dropdown-menu-item>Profile</hal-dropdown-menu-item>
+        </hal-dropdown-menu-content>
+      </hal-dropdown-menu>
     `
 
-    await customElements.whenDefined("plank-dropdown-menu")
-    const menu = container.querySelector("plank-dropdown-menu")!
+    await customElements.whenDefined("hal-dropdown-menu")
+    const menu = container.querySelector("hal-dropdown-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -338,18 +338,18 @@ describe("DropdownMenu (Web Component)", () => {
 
   it("disabled item has correct attributes", async () => {
     container.innerHTML = `
-      <plank-dropdown-menu open>
-        <plank-dropdown-menu-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dropdown-menu-trigger>
-        <plank-dropdown-menu-content>
-          <plank-dropdown-menu-item disabled>Disabled Item</plank-dropdown-menu-item>
-        </plank-dropdown-menu-content>
-      </plank-dropdown-menu>
+      <hal-dropdown-menu open>
+        <hal-dropdown-menu-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dropdown-menu-trigger>
+        <hal-dropdown-menu-content>
+          <hal-dropdown-menu-item disabled>Disabled Item</hal-dropdown-menu-item>
+        </hal-dropdown-menu-content>
+      </hal-dropdown-menu>
     `
 
-    await customElements.whenDefined("plank-dropdown-menu")
-    const menu = container.querySelector("plank-dropdown-menu")!
+    await customElements.whenDefined("hal-dropdown-menu")
+    const menu = container.querySelector("hal-dropdown-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -360,20 +360,20 @@ describe("DropdownMenu (Web Component)", () => {
 
   it("checkbox item toggles checked state", async () => {
     container.innerHTML = `
-      <plank-dropdown-menu open>
-        <plank-dropdown-menu-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dropdown-menu-trigger>
-        <plank-dropdown-menu-content>
-          <plank-dropdown-menu-checkbox-item>
+      <hal-dropdown-menu open>
+        <hal-dropdown-menu-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dropdown-menu-trigger>
+        <hal-dropdown-menu-content>
+          <hal-dropdown-menu-checkbox-item>
             Show Status Bar
-          </plank-dropdown-menu-checkbox-item>
-        </plank-dropdown-menu-content>
-      </plank-dropdown-menu>
+          </hal-dropdown-menu-checkbox-item>
+        </hal-dropdown-menu-content>
+      </hal-dropdown-menu>
     `
 
-    await customElements.whenDefined("plank-dropdown-menu")
-    const menu = container.querySelector("plank-dropdown-menu")!
+    await customElements.whenDefined("hal-dropdown-menu")
+    const menu = container.querySelector("hal-dropdown-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -389,20 +389,20 @@ describe("DropdownMenu (Web Component)", () => {
 
   it("checkbox item has correct data-slot", async () => {
     container.innerHTML = `
-      <plank-dropdown-menu open>
-        <plank-dropdown-menu-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dropdown-menu-trigger>
-        <plank-dropdown-menu-content>
-          <plank-dropdown-menu-checkbox-item checked>
+      <hal-dropdown-menu open>
+        <hal-dropdown-menu-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dropdown-menu-trigger>
+        <hal-dropdown-menu-content>
+          <hal-dropdown-menu-checkbox-item checked>
             Show Status Bar
-          </plank-dropdown-menu-checkbox-item>
-        </plank-dropdown-menu-content>
-      </plank-dropdown-menu>
+          </hal-dropdown-menu-checkbox-item>
+        </hal-dropdown-menu-content>
+      </hal-dropdown-menu>
     `
 
-    await customElements.whenDefined("plank-dropdown-menu")
-    const menu = container.querySelector("plank-dropdown-menu")!
+    await customElements.whenDefined("hal-dropdown-menu")
+    const menu = container.querySelector("hal-dropdown-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -412,21 +412,21 @@ describe("DropdownMenu (Web Component)", () => {
 
   it("radio group manages selection", async () => {
     container.innerHTML = `
-      <plank-dropdown-menu open>
-        <plank-dropdown-menu-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dropdown-menu-trigger>
-        <plank-dropdown-menu-content>
-          <plank-dropdown-menu-radio-group value="top">
-            <plank-dropdown-menu-radio-item value="top">Top</plank-dropdown-menu-radio-item>
-            <plank-dropdown-menu-radio-item value="bottom">Bottom</plank-dropdown-menu-radio-item>
-          </plank-dropdown-menu-radio-group>
-        </plank-dropdown-menu-content>
-      </plank-dropdown-menu>
+      <hal-dropdown-menu open>
+        <hal-dropdown-menu-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dropdown-menu-trigger>
+        <hal-dropdown-menu-content>
+          <hal-dropdown-menu-radio-group value="top">
+            <hal-dropdown-menu-radio-item value="top">Top</hal-dropdown-menu-radio-item>
+            <hal-dropdown-menu-radio-item value="bottom">Bottom</hal-dropdown-menu-radio-item>
+          </hal-dropdown-menu-radio-group>
+        </hal-dropdown-menu-content>
+      </hal-dropdown-menu>
     `
 
-    await customElements.whenDefined("plank-dropdown-menu")
-    const menu = container.querySelector("plank-dropdown-menu")!
+    await customElements.whenDefined("hal-dropdown-menu")
+    const menu = container.querySelector("hal-dropdown-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -446,20 +446,20 @@ describe("DropdownMenu (Web Component)", () => {
 
   it("radio item has correct data-slot", async () => {
     container.innerHTML = `
-      <plank-dropdown-menu open>
-        <plank-dropdown-menu-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dropdown-menu-trigger>
-        <plank-dropdown-menu-content>
-          <plank-dropdown-menu-radio-group value="top">
-            <plank-dropdown-menu-radio-item value="top">Top</plank-dropdown-menu-radio-item>
-          </plank-dropdown-menu-radio-group>
-        </plank-dropdown-menu-content>
-      </plank-dropdown-menu>
+      <hal-dropdown-menu open>
+        <hal-dropdown-menu-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dropdown-menu-trigger>
+        <hal-dropdown-menu-content>
+          <hal-dropdown-menu-radio-group value="top">
+            <hal-dropdown-menu-radio-item value="top">Top</hal-dropdown-menu-radio-item>
+          </hal-dropdown-menu-radio-group>
+        </hal-dropdown-menu-content>
+      </hal-dropdown-menu>
     `
 
-    await customElements.whenDefined("plank-dropdown-menu")
-    const menu = container.querySelector("plank-dropdown-menu")!
+    await customElements.whenDefined("hal-dropdown-menu")
+    const menu = container.querySelector("hal-dropdown-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -469,19 +469,19 @@ describe("DropdownMenu (Web Component)", () => {
 
   it("label has correct data-slot", async () => {
     container.innerHTML = `
-      <plank-dropdown-menu open>
-        <plank-dropdown-menu-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dropdown-menu-trigger>
-        <plank-dropdown-menu-content>
-          <plank-dropdown-menu-label>My Account</plank-dropdown-menu-label>
-          <plank-dropdown-menu-item>Item</plank-dropdown-menu-item>
-        </plank-dropdown-menu-content>
-      </plank-dropdown-menu>
+      <hal-dropdown-menu open>
+        <hal-dropdown-menu-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dropdown-menu-trigger>
+        <hal-dropdown-menu-content>
+          <hal-dropdown-menu-label>My Account</hal-dropdown-menu-label>
+          <hal-dropdown-menu-item>Item</hal-dropdown-menu-item>
+        </hal-dropdown-menu-content>
+      </hal-dropdown-menu>
     `
 
-    await customElements.whenDefined("plank-dropdown-menu")
-    const menu = container.querySelector("plank-dropdown-menu")!
+    await customElements.whenDefined("hal-dropdown-menu")
+    const menu = container.querySelector("hal-dropdown-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -492,20 +492,20 @@ describe("DropdownMenu (Web Component)", () => {
 
   it("separator has correct data-slot", async () => {
     container.innerHTML = `
-      <plank-dropdown-menu open>
-        <plank-dropdown-menu-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dropdown-menu-trigger>
-        <plank-dropdown-menu-content>
-          <plank-dropdown-menu-item>Item 1</plank-dropdown-menu-item>
-          <plank-dropdown-menu-separator></plank-dropdown-menu-separator>
-          <plank-dropdown-menu-item>Item 2</plank-dropdown-menu-item>
-        </plank-dropdown-menu-content>
-      </plank-dropdown-menu>
+      <hal-dropdown-menu open>
+        <hal-dropdown-menu-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dropdown-menu-trigger>
+        <hal-dropdown-menu-content>
+          <hal-dropdown-menu-item>Item 1</hal-dropdown-menu-item>
+          <hal-dropdown-menu-separator></hal-dropdown-menu-separator>
+          <hal-dropdown-menu-item>Item 2</hal-dropdown-menu-item>
+        </hal-dropdown-menu-content>
+      </hal-dropdown-menu>
     `
 
-    await customElements.whenDefined("plank-dropdown-menu")
-    const menu = container.querySelector("plank-dropdown-menu")!
+    await customElements.whenDefined("hal-dropdown-menu")
+    const menu = container.querySelector("hal-dropdown-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -517,21 +517,21 @@ describe("DropdownMenu (Web Component)", () => {
 
   it("shortcut has correct data-slot", async () => {
     container.innerHTML = `
-      <plank-dropdown-menu open>
-        <plank-dropdown-menu-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dropdown-menu-trigger>
-        <plank-dropdown-menu-content>
-          <plank-dropdown-menu-item>
+      <hal-dropdown-menu open>
+        <hal-dropdown-menu-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dropdown-menu-trigger>
+        <hal-dropdown-menu-content>
+          <hal-dropdown-menu-item>
             Profile
-            <plank-dropdown-menu-shortcut>⇧⌘P</plank-dropdown-menu-shortcut>
-          </plank-dropdown-menu-item>
-        </plank-dropdown-menu-content>
-      </plank-dropdown-menu>
+            <hal-dropdown-menu-shortcut>⇧⌘P</hal-dropdown-menu-shortcut>
+          </hal-dropdown-menu-item>
+        </hal-dropdown-menu-content>
+      </hal-dropdown-menu>
     `
 
-    await customElements.whenDefined("plank-dropdown-menu")
-    const menu = container.querySelector("plank-dropdown-menu")!
+    await customElements.whenDefined("hal-dropdown-menu")
+    const menu = container.querySelector("hal-dropdown-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -544,21 +544,21 @@ describe("DropdownMenu (Web Component)", () => {
 
   it("group has correct data-slot", async () => {
     container.innerHTML = `
-      <plank-dropdown-menu open>
-        <plank-dropdown-menu-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dropdown-menu-trigger>
-        <plank-dropdown-menu-content>
-          <plank-dropdown-menu-group>
-            <plank-dropdown-menu-item>Profile</plank-dropdown-menu-item>
-            <plank-dropdown-menu-item>Settings</plank-dropdown-menu-item>
-          </plank-dropdown-menu-group>
-        </plank-dropdown-menu-content>
-      </plank-dropdown-menu>
+      <hal-dropdown-menu open>
+        <hal-dropdown-menu-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dropdown-menu-trigger>
+        <hal-dropdown-menu-content>
+          <hal-dropdown-menu-group>
+            <hal-dropdown-menu-item>Profile</hal-dropdown-menu-item>
+            <hal-dropdown-menu-item>Settings</hal-dropdown-menu-item>
+          </hal-dropdown-menu-group>
+        </hal-dropdown-menu-content>
+      </hal-dropdown-menu>
     `
 
-    await customElements.whenDefined("plank-dropdown-menu")
-    const menu = container.querySelector("plank-dropdown-menu")!
+    await customElements.whenDefined("hal-dropdown-menu")
+    const menu = container.querySelector("hal-dropdown-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -568,20 +568,20 @@ describe("DropdownMenu (Web Component)", () => {
 
   it("navigates items with arrow keys", async () => {
     container.innerHTML = `
-      <plank-dropdown-menu open>
-        <plank-dropdown-menu-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dropdown-menu-trigger>
-        <plank-dropdown-menu-content>
-          <plank-dropdown-menu-item>Profile</plank-dropdown-menu-item>
-          <plank-dropdown-menu-item>Settings</plank-dropdown-menu-item>
-          <plank-dropdown-menu-item>Logout</plank-dropdown-menu-item>
-        </plank-dropdown-menu-content>
-      </plank-dropdown-menu>
+      <hal-dropdown-menu open>
+        <hal-dropdown-menu-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dropdown-menu-trigger>
+        <hal-dropdown-menu-content>
+          <hal-dropdown-menu-item>Profile</hal-dropdown-menu-item>
+          <hal-dropdown-menu-item>Settings</hal-dropdown-menu-item>
+          <hal-dropdown-menu-item>Logout</hal-dropdown-menu-item>
+        </hal-dropdown-menu-content>
+      </hal-dropdown-menu>
     `
 
-    await customElements.whenDefined("plank-dropdown-menu")
-    const menu = container.querySelector("plank-dropdown-menu")!
+    await customElements.whenDefined("hal-dropdown-menu")
+    const menu = container.querySelector("hal-dropdown-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -597,21 +597,21 @@ describe("DropdownMenu (Web Component)", () => {
 
   it("opens menu with Enter key", async () => {
     container.innerHTML = `
-      <plank-dropdown-menu>
-        <plank-dropdown-menu-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dropdown-menu-trigger>
-        <plank-dropdown-menu-content>
-          <plank-dropdown-menu-item>Item</plank-dropdown-menu-item>
-        </plank-dropdown-menu-content>
-      </plank-dropdown-menu>
+      <hal-dropdown-menu>
+        <hal-dropdown-menu-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dropdown-menu-trigger>
+        <hal-dropdown-menu-content>
+          <hal-dropdown-menu-item>Item</hal-dropdown-menu-item>
+        </hal-dropdown-menu-content>
+      </hal-dropdown-menu>
     `
 
-    await customElements.whenDefined("plank-dropdown-menu")
-    const menu = container.querySelector("plank-dropdown-menu")!
+    await customElements.whenDefined("hal-dropdown-menu")
+    const menu = container.querySelector("hal-dropdown-menu")!
     await (menu as any).updateComplete
 
-    const button = container.querySelector("plank-button")! as HTMLElement
+    const button = container.querySelector("hal-button")! as HTMLElement
     button.focus()
     button.dispatchEvent(
       new KeyboardEvent("keydown", { key: "Enter", bubbles: true })
@@ -624,21 +624,21 @@ describe("DropdownMenu (Web Component)", () => {
 
   it("opens menu with Space key", async () => {
     container.innerHTML = `
-      <plank-dropdown-menu>
-        <plank-dropdown-menu-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dropdown-menu-trigger>
-        <plank-dropdown-menu-content>
-          <plank-dropdown-menu-item>Item</plank-dropdown-menu-item>
-        </plank-dropdown-menu-content>
-      </plank-dropdown-menu>
+      <hal-dropdown-menu>
+        <hal-dropdown-menu-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dropdown-menu-trigger>
+        <hal-dropdown-menu-content>
+          <hal-dropdown-menu-item>Item</hal-dropdown-menu-item>
+        </hal-dropdown-menu-content>
+      </hal-dropdown-menu>
     `
 
-    await customElements.whenDefined("plank-dropdown-menu")
-    const menu = container.querySelector("plank-dropdown-menu")!
+    await customElements.whenDefined("hal-dropdown-menu")
+    const menu = container.querySelector("hal-dropdown-menu")!
     await (menu as any).updateComplete
 
-    const button = container.querySelector("plank-button")! as HTMLElement
+    const button = container.querySelector("hal-button")! as HTMLElement
     button.focus()
     button.dispatchEvent(
       new KeyboardEvent("keydown", { key: " ", bubbles: true })
@@ -651,21 +651,21 @@ describe("DropdownMenu (Web Component)", () => {
 
   it("opens menu with ArrowDown key", async () => {
     container.innerHTML = `
-      <plank-dropdown-menu>
-        <plank-dropdown-menu-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dropdown-menu-trigger>
-        <plank-dropdown-menu-content>
-          <plank-dropdown-menu-item>Item</plank-dropdown-menu-item>
-        </plank-dropdown-menu-content>
-      </plank-dropdown-menu>
+      <hal-dropdown-menu>
+        <hal-dropdown-menu-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dropdown-menu-trigger>
+        <hal-dropdown-menu-content>
+          <hal-dropdown-menu-item>Item</hal-dropdown-menu-item>
+        </hal-dropdown-menu-content>
+      </hal-dropdown-menu>
     `
 
-    await customElements.whenDefined("plank-dropdown-menu")
-    const menu = container.querySelector("plank-dropdown-menu")!
+    await customElements.whenDefined("hal-dropdown-menu")
+    const menu = container.querySelector("hal-dropdown-menu")!
     await (menu as any).updateComplete
 
-    const button = container.querySelector("plank-button")! as HTMLElement
+    const button = container.querySelector("hal-button")! as HTMLElement
     button.focus()
     button.dispatchEvent(
       new KeyboardEvent("keydown", { key: "ArrowDown", bubbles: true })
@@ -678,18 +678,18 @@ describe("DropdownMenu (Web Component)", () => {
 
   it("supports destructive variant on item", async () => {
     container.innerHTML = `
-      <plank-dropdown-menu open>
-        <plank-dropdown-menu-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dropdown-menu-trigger>
-        <plank-dropdown-menu-content>
-          <plank-dropdown-menu-item variant="destructive">Delete</plank-dropdown-menu-item>
-        </plank-dropdown-menu-content>
-      </plank-dropdown-menu>
+      <hal-dropdown-menu open>
+        <hal-dropdown-menu-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dropdown-menu-trigger>
+        <hal-dropdown-menu-content>
+          <hal-dropdown-menu-item variant="destructive">Delete</hal-dropdown-menu-item>
+        </hal-dropdown-menu-content>
+      </hal-dropdown-menu>
     `
 
-    await customElements.whenDefined("plank-dropdown-menu")
-    const menu = container.querySelector("plank-dropdown-menu")!
+    await customElements.whenDefined("hal-dropdown-menu")
+    const menu = container.querySelector("hal-dropdown-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -699,18 +699,18 @@ describe("DropdownMenu (Web Component)", () => {
 
   it("supports inset on item", async () => {
     container.innerHTML = `
-      <plank-dropdown-menu open>
-        <plank-dropdown-menu-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dropdown-menu-trigger>
-        <plank-dropdown-menu-content>
-          <plank-dropdown-menu-item inset>Inset Item</plank-dropdown-menu-item>
-        </plank-dropdown-menu-content>
-      </plank-dropdown-menu>
+      <hal-dropdown-menu open>
+        <hal-dropdown-menu-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dropdown-menu-trigger>
+        <hal-dropdown-menu-content>
+          <hal-dropdown-menu-item inset>Inset Item</hal-dropdown-menu-item>
+        </hal-dropdown-menu-content>
+      </hal-dropdown-menu>
     `
 
-    await customElements.whenDefined("plank-dropdown-menu")
-    const menu = container.querySelector("plank-dropdown-menu")!
+    await customElements.whenDefined("hal-dropdown-menu")
+    const menu = container.querySelector("hal-dropdown-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -720,19 +720,19 @@ describe("DropdownMenu (Web Component)", () => {
 
   it("supports inset on label", async () => {
     container.innerHTML = `
-      <plank-dropdown-menu open>
-        <plank-dropdown-menu-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dropdown-menu-trigger>
-        <plank-dropdown-menu-content>
-          <plank-dropdown-menu-label inset>Inset Label</plank-dropdown-menu-label>
-          <plank-dropdown-menu-item>Item</plank-dropdown-menu-item>
-        </plank-dropdown-menu-content>
-      </plank-dropdown-menu>
+      <hal-dropdown-menu open>
+        <hal-dropdown-menu-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dropdown-menu-trigger>
+        <hal-dropdown-menu-content>
+          <hal-dropdown-menu-label inset>Inset Label</hal-dropdown-menu-label>
+          <hal-dropdown-menu-item>Item</hal-dropdown-menu-item>
+        </hal-dropdown-menu-content>
+      </hal-dropdown-menu>
     `
 
-    await customElements.whenDefined("plank-dropdown-menu")
-    const menu = container.querySelector("plank-dropdown-menu")!
+    await customElements.whenDefined("hal-dropdown-menu")
+    const menu = container.querySelector("hal-dropdown-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -743,23 +743,23 @@ describe("DropdownMenu (Web Component)", () => {
   describe("submenus", () => {
     it("sub trigger has correct data-slot", async () => {
       container.innerHTML = `
-        <plank-dropdown-menu open>
-          <plank-dropdown-menu-trigger>
-            <plank-button>Open</plank-button>
-          </plank-dropdown-menu-trigger>
-          <plank-dropdown-menu-content>
-            <plank-dropdown-menu-sub>
-              <plank-dropdown-menu-sub-trigger>More options</plank-dropdown-menu-sub-trigger>
-              <plank-dropdown-menu-sub-content>
-                <plank-dropdown-menu-item>Sub item</plank-dropdown-menu-item>
-              </plank-dropdown-menu-sub-content>
-            </plank-dropdown-menu-sub>
-          </plank-dropdown-menu-content>
-        </plank-dropdown-menu>
+        <hal-dropdown-menu open>
+          <hal-dropdown-menu-trigger>
+            <hal-button>Open</hal-button>
+          </hal-dropdown-menu-trigger>
+          <hal-dropdown-menu-content>
+            <hal-dropdown-menu-sub>
+              <hal-dropdown-menu-sub-trigger>More options</hal-dropdown-menu-sub-trigger>
+              <hal-dropdown-menu-sub-content>
+                <hal-dropdown-menu-item>Sub item</hal-dropdown-menu-item>
+              </hal-dropdown-menu-sub-content>
+            </hal-dropdown-menu-sub>
+          </hal-dropdown-menu-content>
+        </hal-dropdown-menu>
       `
 
-      await customElements.whenDefined("plank-dropdown-menu")
-      const menu = container.querySelector("plank-dropdown-menu")!
+      await customElements.whenDefined("hal-dropdown-menu")
+      const menu = container.querySelector("hal-dropdown-menu")!
       await (menu as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -771,23 +771,23 @@ describe("DropdownMenu (Web Component)", () => {
 
     it("opens submenu on hover", async () => {
       container.innerHTML = `
-        <plank-dropdown-menu open>
-          <plank-dropdown-menu-trigger>
-            <plank-button>Open</plank-button>
-          </plank-dropdown-menu-trigger>
-          <plank-dropdown-menu-content>
-            <plank-dropdown-menu-sub>
-              <plank-dropdown-menu-sub-trigger>More options</plank-dropdown-menu-sub-trigger>
-              <plank-dropdown-menu-sub-content>
-                <plank-dropdown-menu-item>Sub item</plank-dropdown-menu-item>
-              </plank-dropdown-menu-sub-content>
-            </plank-dropdown-menu-sub>
-          </plank-dropdown-menu-content>
-        </plank-dropdown-menu>
+        <hal-dropdown-menu open>
+          <hal-dropdown-menu-trigger>
+            <hal-button>Open</hal-button>
+          </hal-dropdown-menu-trigger>
+          <hal-dropdown-menu-content>
+            <hal-dropdown-menu-sub>
+              <hal-dropdown-menu-sub-trigger>More options</hal-dropdown-menu-sub-trigger>
+              <hal-dropdown-menu-sub-content>
+                <hal-dropdown-menu-item>Sub item</hal-dropdown-menu-item>
+              </hal-dropdown-menu-sub-content>
+            </hal-dropdown-menu-sub>
+          </hal-dropdown-menu-content>
+        </hal-dropdown-menu>
       `
 
-      await customElements.whenDefined("plank-dropdown-menu")
-      const menu = container.querySelector("plank-dropdown-menu")!
+      await customElements.whenDefined("hal-dropdown-menu")
+      const menu = container.querySelector("hal-dropdown-menu")!
       await (menu as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -807,23 +807,23 @@ describe("DropdownMenu (Web Component)", () => {
 
     it("sub content has correct data-slot", async () => {
       container.innerHTML = `
-        <plank-dropdown-menu open>
-          <plank-dropdown-menu-trigger>
-            <plank-button>Open</plank-button>
-          </plank-dropdown-menu-trigger>
-          <plank-dropdown-menu-content>
-            <plank-dropdown-menu-sub open>
-              <plank-dropdown-menu-sub-trigger>More options</plank-dropdown-menu-sub-trigger>
-              <plank-dropdown-menu-sub-content>
-                <plank-dropdown-menu-item>Sub item</plank-dropdown-menu-item>
-              </plank-dropdown-menu-sub-content>
-            </plank-dropdown-menu-sub>
-          </plank-dropdown-menu-content>
-        </plank-dropdown-menu>
+        <hal-dropdown-menu open>
+          <hal-dropdown-menu-trigger>
+            <hal-button>Open</hal-button>
+          </hal-dropdown-menu-trigger>
+          <hal-dropdown-menu-content>
+            <hal-dropdown-menu-sub open>
+              <hal-dropdown-menu-sub-trigger>More options</hal-dropdown-menu-sub-trigger>
+              <hal-dropdown-menu-sub-content>
+                <hal-dropdown-menu-item>Sub item</hal-dropdown-menu-item>
+              </hal-dropdown-menu-sub-content>
+            </hal-dropdown-menu-sub>
+          </hal-dropdown-menu-content>
+        </hal-dropdown-menu>
       `
 
-      await customElements.whenDefined("plank-dropdown-menu")
-      const menu = container.querySelector("plank-dropdown-menu")!
+      await customElements.whenDefined("hal-dropdown-menu")
+      const menu = container.querySelector("hal-dropdown-menu")!
       await (menu as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 

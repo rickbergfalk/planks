@@ -1,8 +1,8 @@
 import { describe, it, expect, beforeEach } from "vitest"
 import { page } from "vitest/browser"
-import "../../src/web-components/plank-menubar"
+import "../../src/web-components/hal-menubar"
 
-describe("plank-menubar - Visual", () => {
+describe("hal-menubar - Visual", () => {
   let container: HTMLElement
 
   beforeEach(() => {
@@ -18,20 +18,20 @@ describe("plank-menubar - Visual", () => {
 
   it("basic menubar", async () => {
     container.innerHTML = `
-      <plank-menubar>
-        <plank-menubar-menu>
-          <plank-menubar-trigger>File</plank-menubar-trigger>
-        </plank-menubar-menu>
-        <plank-menubar-menu>
-          <plank-menubar-trigger>Edit</plank-menubar-trigger>
-        </plank-menubar-menu>
-        <plank-menubar-menu>
-          <plank-menubar-trigger>View</plank-menubar-trigger>
-        </plank-menubar-menu>
-      </plank-menubar>
+      <hal-menubar>
+        <hal-menubar-menu>
+          <hal-menubar-trigger>File</hal-menubar-trigger>
+        </hal-menubar-menu>
+        <hal-menubar-menu>
+          <hal-menubar-trigger>Edit</hal-menubar-trigger>
+        </hal-menubar-menu>
+        <hal-menubar-menu>
+          <hal-menubar-trigger>View</hal-menubar-trigger>
+        </hal-menubar-menu>
+      </hal-menubar>
     `
-    await customElements.whenDefined("plank-menubar")
-    const menubar = container.querySelector("plank-menubar")!
+    await customElements.whenDefined("hal-menubar")
+    const menubar = container.querySelector("hal-menubar")!
     await (menubar as any).updateComplete
 
     await new Promise((resolve) => setTimeout(resolve, 50))
@@ -43,36 +43,36 @@ describe("plank-menubar - Visual", () => {
 
   it("menubar with open menu", async () => {
     container.innerHTML = `
-      <plank-menubar>
-        <plank-menubar-menu>
-          <plank-menubar-trigger>File</plank-menubar-trigger>
-          <plank-menubar-content>
-            <plank-menubar-item>
+      <hal-menubar>
+        <hal-menubar-menu>
+          <hal-menubar-trigger>File</hal-menubar-trigger>
+          <hal-menubar-content>
+            <hal-menubar-item>
               New Tab
-              <plank-menubar-shortcut>&#8984;T</plank-menubar-shortcut>
-            </plank-menubar-item>
-            <plank-menubar-item>
+              <hal-menubar-shortcut>&#8984;T</hal-menubar-shortcut>
+            </hal-menubar-item>
+            <hal-menubar-item>
               New Window
-              <plank-menubar-shortcut>&#8984;N</plank-menubar-shortcut>
-            </plank-menubar-item>
-            <plank-menubar-separator></plank-menubar-separator>
-            <plank-menubar-item>Share</plank-menubar-item>
-            <plank-menubar-separator></plank-menubar-separator>
-            <plank-menubar-item>Print</plank-menubar-item>
-          </plank-menubar-content>
-        </plank-menubar-menu>
-        <plank-menubar-menu>
-          <plank-menubar-trigger>Edit</plank-menubar-trigger>
-        </plank-menubar-menu>
-      </plank-menubar>
+              <hal-menubar-shortcut>&#8984;N</hal-menubar-shortcut>
+            </hal-menubar-item>
+            <hal-menubar-separator></hal-menubar-separator>
+            <hal-menubar-item>Share</hal-menubar-item>
+            <hal-menubar-separator></hal-menubar-separator>
+            <hal-menubar-item>Print</hal-menubar-item>
+          </hal-menubar-content>
+        </hal-menubar-menu>
+        <hal-menubar-menu>
+          <hal-menubar-trigger>Edit</hal-menubar-trigger>
+        </hal-menubar-menu>
+      </hal-menubar>
     `
-    await customElements.whenDefined("plank-menubar")
-    const menubar = container.querySelector("plank-menubar")!
+    await customElements.whenDefined("hal-menubar")
+    const menubar = container.querySelector("hal-menubar")!
     await (menubar as any).updateComplete
     await new Promise((r) => setTimeout(r, 0))
 
     // Open the File menu
-    const trigger = container.querySelector("plank-menubar-trigger")!
+    const trigger = container.querySelector("hal-menubar-trigger")!
     trigger.click()
     await new Promise((resolve) => setTimeout(resolve, 100))
 
@@ -83,26 +83,26 @@ describe("plank-menubar - Visual", () => {
 
   it("menubar with checkbox items", async () => {
     container.innerHTML = `
-      <plank-menubar>
-        <plank-menubar-menu>
-          <plank-menubar-trigger>View</plank-menubar-trigger>
-          <plank-menubar-content>
-            <plank-menubar-label>Appearance</plank-menubar-label>
-            <plank-menubar-separator></plank-menubar-separator>
-            <plank-menubar-checkbox-item checked>Status Bar</plank-menubar-checkbox-item>
-            <plank-menubar-checkbox-item>Activity Bar</plank-menubar-checkbox-item>
-            <plank-menubar-checkbox-item checked>Panel</plank-menubar-checkbox-item>
-          </plank-menubar-content>
-        </plank-menubar-menu>
-      </plank-menubar>
+      <hal-menubar>
+        <hal-menubar-menu>
+          <hal-menubar-trigger>View</hal-menubar-trigger>
+          <hal-menubar-content>
+            <hal-menubar-label>Appearance</hal-menubar-label>
+            <hal-menubar-separator></hal-menubar-separator>
+            <hal-menubar-checkbox-item checked>Status Bar</hal-menubar-checkbox-item>
+            <hal-menubar-checkbox-item>Activity Bar</hal-menubar-checkbox-item>
+            <hal-menubar-checkbox-item checked>Panel</hal-menubar-checkbox-item>
+          </hal-menubar-content>
+        </hal-menubar-menu>
+      </hal-menubar>
     `
-    await customElements.whenDefined("plank-menubar")
-    const menubar = container.querySelector("plank-menubar")!
+    await customElements.whenDefined("hal-menubar")
+    const menubar = container.querySelector("hal-menubar")!
     await (menubar as any).updateComplete
     await new Promise((r) => setTimeout(r, 0))
 
     // Open the menu
-    const trigger = container.querySelector("plank-menubar-trigger")!
+    const trigger = container.querySelector("hal-menubar-trigger")!
     trigger.click()
     await new Promise((resolve) => setTimeout(resolve, 100))
 

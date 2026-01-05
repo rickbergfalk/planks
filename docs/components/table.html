@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Table - Planks</title>
+    <title>Table - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -20,53 +20,53 @@
           A simple table with header and body rows.
         </p>
         <div class="mb-4">
-          <plank-table>
-            <plank-table-header>
-              <plank-table-row>
-                <plank-table-head class="w-[100px]">Invoice</plank-table-head>
-                <plank-table-head>Status</plank-table-head>
-                <plank-table-head>Method</plank-table-head>
-                <plank-table-head class="text-right">Amount</plank-table-head>
-              </plank-table-row>
-            </plank-table-header>
-            <plank-table-body>
-              <plank-table-row>
-                <plank-table-cell class="font-medium">INV001</plank-table-cell>
-                <plank-table-cell>Paid</plank-table-cell>
-                <plank-table-cell>Credit Card</plank-table-cell>
-                <plank-table-cell class="text-right">$250.00</plank-table-cell>
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-medium">INV002</plank-table-cell>
-                <plank-table-cell>Pending</plank-table-cell>
-                <plank-table-cell>PayPal</plank-table-cell>
-                <plank-table-cell class="text-right">$150.00</plank-table-cell>
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-medium">INV003</plank-table-cell>
-                <plank-table-cell>Unpaid</plank-table-cell>
-                <plank-table-cell>Bank Transfer</plank-table-cell>
-                <plank-table-cell class="text-right">$350.00</plank-table-cell>
-              </plank-table-row>
-            </plank-table-body>
-          </plank-table>
+          <hal-table>
+            <hal-table-header>
+              <hal-table-row>
+                <hal-table-head class="w-[100px]">Invoice</hal-table-head>
+                <hal-table-head>Status</hal-table-head>
+                <hal-table-head>Method</hal-table-head>
+                <hal-table-head class="text-right">Amount</hal-table-head>
+              </hal-table-row>
+            </hal-table-header>
+            <hal-table-body>
+              <hal-table-row>
+                <hal-table-cell class="font-medium">INV001</hal-table-cell>
+                <hal-table-cell>Paid</hal-table-cell>
+                <hal-table-cell>Credit Card</hal-table-cell>
+                <hal-table-cell class="text-right">$250.00</hal-table-cell>
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-medium">INV002</hal-table-cell>
+                <hal-table-cell>Pending</hal-table-cell>
+                <hal-table-cell>PayPal</hal-table-cell>
+                <hal-table-cell class="text-right">$150.00</hal-table-cell>
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-medium">INV003</hal-table-cell>
+                <hal-table-cell>Unpaid</hal-table-cell>
+                <hal-table-cell>Bank Transfer</hal-table-cell>
+                <hal-table-cell class="text-right">$350.00</hal-table-cell>
+              </hal-table-row>
+            </hal-table-body>
+          </hal-table>
         </div>
-        <pre><code>&lt;plank-table&gt;
-  &lt;plank-table-header&gt;
-    &lt;plank-table-row&gt;
-      &lt;plank-table-head&gt;Invoice&lt;/plank-table-head&gt;
-      &lt;plank-table-head&gt;Status&lt;/plank-table-head&gt;
-      &lt;plank-table-head class="text-right"&gt;Amount&lt;/plank-table-head&gt;
-    &lt;/plank-table-row&gt;
-  &lt;/plank-table-header&gt;
-  &lt;plank-table-body&gt;
-    &lt;plank-table-row&gt;
-      &lt;plank-table-cell&gt;INV001&lt;/plank-table-cell&gt;
-      &lt;plank-table-cell&gt;Paid&lt;/plank-table-cell&gt;
-      &lt;plank-table-cell class="text-right"&gt;$250.00&lt;/plank-table-cell&gt;
-    &lt;/plank-table-row&gt;
-  &lt;/plank-table-body&gt;
-&lt;/plank-table&gt;</code></pre>
+        <pre><code>&lt;hal-table&gt;
+  &lt;hal-table-header&gt;
+    &lt;hal-table-row&gt;
+      &lt;hal-table-head&gt;Invoice&lt;/hal-table-head&gt;
+      &lt;hal-table-head&gt;Status&lt;/hal-table-head&gt;
+      &lt;hal-table-head class="text-right"&gt;Amount&lt;/hal-table-head&gt;
+    &lt;/hal-table-row&gt;
+  &lt;/hal-table-header&gt;
+  &lt;hal-table-body&gt;
+    &lt;hal-table-row&gt;
+      &lt;hal-table-cell&gt;INV001&lt;/hal-table-cell&gt;
+      &lt;hal-table-cell&gt;Paid&lt;/hal-table-cell&gt;
+      &lt;hal-table-cell class="text-right"&gt;$250.00&lt;/hal-table-cell&gt;
+    &lt;/hal-table-row&gt;
+  &lt;/hal-table-body&gt;
+&lt;/hal-table&gt;</code></pre>
       </section>
 
       <!-- With Caption -->
@@ -76,36 +76,36 @@
           Add a caption to describe the table content.
         </p>
         <div class="mb-4">
-          <plank-table>
-            <plank-table-caption
-              >A list of your recent invoices.</plank-table-caption
+          <hal-table>
+            <hal-table-caption
+              >A list of your recent invoices.</hal-table-caption
             >
-            <plank-table-header>
-              <plank-table-row>
-                <plank-table-head>Invoice</plank-table-head>
-                <plank-table-head>Status</plank-table-head>
-                <plank-table-head class="text-right">Amount</plank-table-head>
-              </plank-table-row>
-            </plank-table-header>
-            <plank-table-body>
-              <plank-table-row>
-                <plank-table-cell class="font-medium">INV001</plank-table-cell>
-                <plank-table-cell>Paid</plank-table-cell>
-                <plank-table-cell class="text-right">$250.00</plank-table-cell>
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-medium">INV002</plank-table-cell>
-                <plank-table-cell>Pending</plank-table-cell>
-                <plank-table-cell class="text-right">$150.00</plank-table-cell>
-              </plank-table-row>
-            </plank-table-body>
-          </plank-table>
+            <hal-table-header>
+              <hal-table-row>
+                <hal-table-head>Invoice</hal-table-head>
+                <hal-table-head>Status</hal-table-head>
+                <hal-table-head class="text-right">Amount</hal-table-head>
+              </hal-table-row>
+            </hal-table-header>
+            <hal-table-body>
+              <hal-table-row>
+                <hal-table-cell class="font-medium">INV001</hal-table-cell>
+                <hal-table-cell>Paid</hal-table-cell>
+                <hal-table-cell class="text-right">$250.00</hal-table-cell>
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-medium">INV002</hal-table-cell>
+                <hal-table-cell>Pending</hal-table-cell>
+                <hal-table-cell class="text-right">$150.00</hal-table-cell>
+              </hal-table-row>
+            </hal-table-body>
+          </hal-table>
         </div>
-        <pre><code>&lt;plank-table&gt;
-  &lt;plank-table-caption&gt;A list of your recent invoices.&lt;/plank-table-caption&gt;
-  &lt;plank-table-header&gt;...&lt;/plank-table-header&gt;
-  &lt;plank-table-body&gt;...&lt;/plank-table-body&gt;
-&lt;/plank-table&gt;</code></pre>
+        <pre><code>&lt;hal-table&gt;
+  &lt;hal-table-caption&gt;A list of your recent invoices.&lt;/hal-table-caption&gt;
+  &lt;hal-table-header&gt;...&lt;/hal-table-header&gt;
+  &lt;hal-table-body&gt;...&lt;/hal-table-body&gt;
+&lt;/hal-table&gt;</code></pre>
       </section>
 
       <!-- With Footer -->
@@ -115,40 +115,40 @@
           Add a footer for summary rows like totals.
         </p>
         <div class="mb-4">
-          <plank-table>
-            <plank-table-header>
-              <plank-table-row>
-                <plank-table-head>Invoice</plank-table-head>
-                <plank-table-head>Status</plank-table-head>
-                <plank-table-head class="text-right">Amount</plank-table-head>
-              </plank-table-row>
-            </plank-table-header>
-            <plank-table-body>
-              <plank-table-row>
-                <plank-table-cell class="font-medium">INV001</plank-table-cell>
-                <plank-table-cell>Paid</plank-table-cell>
-                <plank-table-cell class="text-right">$250.00</plank-table-cell>
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-medium">INV002</plank-table-cell>
-                <plank-table-cell>Pending</plank-table-cell>
-                <plank-table-cell class="text-right">$150.00</plank-table-cell>
-              </plank-table-row>
-            </plank-table-body>
-            <plank-table-footer>
-              <plank-table-row>
-                <plank-table-cell colspan="2">Total</plank-table-cell>
-                <plank-table-cell class="text-right">$400.00</plank-table-cell>
-              </plank-table-row>
-            </plank-table-footer>
-          </plank-table>
+          <hal-table>
+            <hal-table-header>
+              <hal-table-row>
+                <hal-table-head>Invoice</hal-table-head>
+                <hal-table-head>Status</hal-table-head>
+                <hal-table-head class="text-right">Amount</hal-table-head>
+              </hal-table-row>
+            </hal-table-header>
+            <hal-table-body>
+              <hal-table-row>
+                <hal-table-cell class="font-medium">INV001</hal-table-cell>
+                <hal-table-cell>Paid</hal-table-cell>
+                <hal-table-cell class="text-right">$250.00</hal-table-cell>
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-medium">INV002</hal-table-cell>
+                <hal-table-cell>Pending</hal-table-cell>
+                <hal-table-cell class="text-right">$150.00</hal-table-cell>
+              </hal-table-row>
+            </hal-table-body>
+            <hal-table-footer>
+              <hal-table-row>
+                <hal-table-cell colspan="2">Total</hal-table-cell>
+                <hal-table-cell class="text-right">$400.00</hal-table-cell>
+              </hal-table-row>
+            </hal-table-footer>
+          </hal-table>
         </div>
-        <pre><code>&lt;plank-table-footer&gt;
-  &lt;plank-table-row&gt;
-    &lt;plank-table-cell colspan="2"&gt;Total&lt;/plank-table-cell&gt;
-    &lt;plank-table-cell class="text-right"&gt;$400.00&lt;/plank-table-cell&gt;
-  &lt;/plank-table-row&gt;
-&lt;/plank-table-footer&gt;</code></pre>
+        <pre><code>&lt;hal-table-footer&gt;
+  &lt;hal-table-row&gt;
+    &lt;hal-table-cell colspan="2"&gt;Total&lt;/hal-table-cell&gt;
+    &lt;hal-table-cell class="text-right"&gt;$400.00&lt;/hal-table-cell&gt;
+  &lt;/hal-table-row&gt;
+&lt;/hal-table-footer&gt;</code></pre>
       </section>
 
       <!-- Selected Rows -->
@@ -158,205 +158,197 @@
           Rows can be marked as selected for visual highlighting.
         </p>
         <div class="mb-4">
-          <plank-table>
-            <plank-table-header>
-              <plank-table-row>
-                <plank-table-head>Invoice</plank-table-head>
-                <plank-table-head>Status</plank-table-head>
-                <plank-table-head class="text-right">Amount</plank-table-head>
-              </plank-table-row>
-            </plank-table-header>
-            <plank-table-body>
-              <plank-table-row>
-                <plank-table-cell class="font-medium">INV001</plank-table-cell>
-                <plank-table-cell>Paid</plank-table-cell>
-                <plank-table-cell class="text-right">$250.00</plank-table-cell>
-              </plank-table-row>
-              <plank-table-row selected>
-                <plank-table-cell class="font-medium">INV002</plank-table-cell>
-                <plank-table-cell>Pending</plank-table-cell>
-                <plank-table-cell class="text-right">$150.00</plank-table-cell>
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-medium">INV003</plank-table-cell>
-                <plank-table-cell>Unpaid</plank-table-cell>
-                <plank-table-cell class="text-right">$350.00</plank-table-cell>
-              </plank-table-row>
-            </plank-table-body>
-          </plank-table>
+          <hal-table>
+            <hal-table-header>
+              <hal-table-row>
+                <hal-table-head>Invoice</hal-table-head>
+                <hal-table-head>Status</hal-table-head>
+                <hal-table-head class="text-right">Amount</hal-table-head>
+              </hal-table-row>
+            </hal-table-header>
+            <hal-table-body>
+              <hal-table-row>
+                <hal-table-cell class="font-medium">INV001</hal-table-cell>
+                <hal-table-cell>Paid</hal-table-cell>
+                <hal-table-cell class="text-right">$250.00</hal-table-cell>
+              </hal-table-row>
+              <hal-table-row selected>
+                <hal-table-cell class="font-medium">INV002</hal-table-cell>
+                <hal-table-cell>Pending</hal-table-cell>
+                <hal-table-cell class="text-right">$150.00</hal-table-cell>
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-medium">INV003</hal-table-cell>
+                <hal-table-cell>Unpaid</hal-table-cell>
+                <hal-table-cell class="text-right">$350.00</hal-table-cell>
+              </hal-table-row>
+            </hal-table-body>
+          </hal-table>
         </div>
-        <pre><code>&lt;plank-table-row selected&gt;
-  &lt;plank-table-cell&gt;INV002&lt;/plank-table-cell&gt;
+        <pre><code>&lt;hal-table-row selected&gt;
+  &lt;hal-table-cell&gt;INV002&lt;/hal-table-cell&gt;
   ...
-&lt;/plank-table-row&gt;</code></pre>
+&lt;/hal-table-row&gt;</code></pre>
       </section>
 
       <!-- API -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Components</h2>
         <div class="overflow-x-auto">
-          <plank-table>
-            <plank-table-header>
-              <plank-table-row>
-                <plank-table-head>Component</plank-table-head>
-                <plank-table-head>Description</plank-table-head>
-              </plank-table-row>
-            </plank-table-header>
-            <plank-table-body>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >plank-table</plank-table-cell
+          <hal-table>
+            <hal-table-header>
+              <hal-table-row>
+                <hal-table-head>Component</hal-table-head>
+                <hal-table-head>Description</hal-table-head>
+              </hal-table-row>
+            </hal-table-header>
+            <hal-table-body>
+              <hal-table-row>
+                <hal-table-cell class="font-mono">hal-table</hal-table-cell>
+                <hal-table-cell
+                  >The table container with scrollable wrapper</hal-table-cell
                 >
-                <plank-table-cell
-                  >The table container with scrollable wrapper</plank-table-cell
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono"
+                  >hal-table-header</hal-table-cell
                 >
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >plank-table-header</plank-table-cell
+                <hal-table-cell>Contains header rows (thead)</hal-table-cell>
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono"
+                  >hal-table-body</hal-table-cell
                 >
-                <plank-table-cell
-                  >Contains header rows (thead)</plank-table-cell
+                <hal-table-cell>Contains data rows (tbody)</hal-table-cell>
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono"
+                  >hal-table-footer</hal-table-cell
                 >
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >plank-table-body</plank-table-cell
+                <hal-table-cell
+                  >Contains footer/summary rows (tfoot)</hal-table-cell
                 >
-                <plank-table-cell>Contains data rows (tbody)</plank-table-cell>
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >plank-table-footer</plank-table-cell
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono">hal-table-row</hal-table-cell>
+                <hal-table-cell
+                  >A table row with hover and selected states</hal-table-cell
                 >
-                <plank-table-cell
-                  >Contains footer/summary rows (tfoot)</plank-table-cell
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono"
+                  >hal-table-head</hal-table-cell
                 >
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >plank-table-row</plank-table-cell
-                >
-                <plank-table-cell
-                  >A table row with hover and selected states</plank-table-cell
-                >
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >plank-table-head</plank-table-cell
-                >
-                <plank-table-cell
+                <hal-table-cell
                   >A header cell (th) with optional colspan, rowspan,
-                  scope</plank-table-cell
+                  scope</hal-table-cell
                 >
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >plank-table-cell</plank-table-cell
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono"
+                  >hal-table-cell</hal-table-cell
                 >
-                <plank-table-cell
+                <hal-table-cell
                   >A data cell (td) with optional colspan,
-                  rowspan</plank-table-cell
+                  rowspan</hal-table-cell
                 >
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >plank-table-caption</plank-table-cell
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono"
+                  >hal-table-caption</hal-table-cell
                 >
-                <plank-table-cell>A table caption element</plank-table-cell>
-              </plank-table-row>
-            </plank-table-body>
-          </plank-table>
+                <hal-table-cell>A table caption element</hal-table-cell>
+              </hal-table-row>
+            </hal-table-body>
+          </hal-table>
         </div>
       </section>
 
-      <!-- plank-table-row API -->
+      <!-- hal-table-row API -->
       <section class="mb-12">
-        <h3 class="text-xl font-semibold mb-4">plank-table-row</h3>
+        <h3 class="text-xl font-semibold mb-4">hal-table-row</h3>
         <div class="overflow-x-auto">
-          <plank-table>
-            <plank-table-header>
-              <plank-table-row>
-                <plank-table-head>Property</plank-table-head>
-                <plank-table-head>Type</plank-table-head>
-                <plank-table-head>Default</plank-table-head>
-                <plank-table-head>Description</plank-table-head>
-              </plank-table-row>
-            </plank-table-header>
-            <plank-table-body>
-              <plank-table-row>
-                <plank-table-cell class="font-mono">selected</plank-table-cell>
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >boolean</plank-table-cell
+          <hal-table>
+            <hal-table-header>
+              <hal-table-row>
+                <hal-table-head>Property</hal-table-head>
+                <hal-table-head>Type</hal-table-head>
+                <hal-table-head>Default</hal-table-head>
+                <hal-table-head>Description</hal-table-head>
+              </hal-table-row>
+            </hal-table-header>
+            <hal-table-body>
+              <hal-table-row>
+                <hal-table-cell class="font-mono">selected</hal-table-cell>
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >boolean</hal-table-cell
                 >
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >false</plank-table-cell
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >false</hal-table-cell
                 >
-                <plank-table-cell
-                  >Whether the row is visually selected</plank-table-cell
+                <hal-table-cell
+                  >Whether the row is visually selected</hal-table-cell
                 >
-              </plank-table-row>
-            </plank-table-body>
-          </plank-table>
+              </hal-table-row>
+            </hal-table-body>
+          </hal-table>
         </div>
       </section>
 
-      <!-- plank-table-head / plank-table-cell API -->
+      <!-- hal-table-head / hal-table-cell API -->
       <section class="mb-12">
         <h3 class="text-xl font-semibold mb-4">
-          plank-table-head / plank-table-cell
+          hal-table-head / hal-table-cell
         </h3>
         <div class="overflow-x-auto">
-          <plank-table>
-            <plank-table-header>
-              <plank-table-row>
-                <plank-table-head>Property</plank-table-head>
-                <plank-table-head>Type</plank-table-head>
-                <plank-table-head>Default</plank-table-head>
-                <plank-table-head>Description</plank-table-head>
-              </plank-table-row>
-            </plank-table-header>
-            <plank-table-body>
-              <plank-table-row>
-                <plank-table-cell class="font-mono">colspan</plank-table-cell>
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >number</plank-table-cell
+          <hal-table>
+            <hal-table-header>
+              <hal-table-row>
+                <hal-table-head>Property</hal-table-head>
+                <hal-table-head>Type</hal-table-head>
+                <hal-table-head>Default</hal-table-head>
+                <hal-table-head>Description</hal-table-head>
+              </hal-table-row>
+            </hal-table-header>
+            <hal-table-body>
+              <hal-table-row>
+                <hal-table-cell class="font-mono">colspan</hal-table-cell>
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >number</hal-table-cell
                 >
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >-</plank-table-cell
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >-</hal-table-cell
                 >
-                <plank-table-cell
-                  >Number of columns the cell spans</plank-table-cell
+                <hal-table-cell
+                  >Number of columns the cell spans</hal-table-cell
                 >
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono">rowspan</plank-table-cell>
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >number</plank-table-cell
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono">rowspan</hal-table-cell>
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >number</hal-table-cell
                 >
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >-</plank-table-cell
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >-</hal-table-cell
                 >
-                <plank-table-cell
-                  >Number of rows the cell spans</plank-table-cell
+                <hal-table-cell>Number of rows the cell spans</hal-table-cell>
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono"
+                  >scope (th only)</hal-table-cell
                 >
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >scope (th only)</plank-table-cell
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >string</hal-table-cell
                 >
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >string</plank-table-cell
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >-</hal-table-cell
                 >
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >-</plank-table-cell
+                <hal-table-cell
+                  >Scope of the header cell (col, row, etc.)</hal-table-cell
                 >
-                <plank-table-cell
-                  >Scope of the header cell (col, row, etc.)</plank-table-cell
-                >
-              </plank-table-row>
-            </plank-table-body>
-          </plank-table>
+              </hal-table-row>
+            </hal-table-body>
+          </hal-table>
         </div>
       </section>
 

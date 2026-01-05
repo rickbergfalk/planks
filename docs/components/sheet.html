@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sheet - Planks</title>
+    <title>Sheet - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -21,46 +21,46 @@
           By default, the sheet slides in from the right side.
         </p>
         <div class="mb-4 flex items-center gap-4">
-          <plank-sheet>
-            <plank-sheet-trigger>
-              <plank-button variant="outline">Open Sheet</plank-button>
-            </plank-sheet-trigger>
-            <plank-sheet-content>
-              <plank-sheet-header>
-                <plank-sheet-title>Edit profile</plank-sheet-title>
-                <plank-sheet-description>
+          <hal-sheet>
+            <hal-sheet-trigger>
+              <hal-button variant="outline">Open Sheet</hal-button>
+            </hal-sheet-trigger>
+            <hal-sheet-content>
+              <hal-sheet-header>
+                <hal-sheet-title>Edit profile</hal-sheet-title>
+                <hal-sheet-description>
                   Make changes to your profile here. Click save when you're
                   done.
-                </plank-sheet-description>
-              </plank-sheet-header>
+                </hal-sheet-description>
+              </hal-sheet-header>
               <div class="py-4">
                 <p class="text-sm">Sheet content goes here.</p>
               </div>
-              <plank-sheet-footer>
-                <plank-button>Save changes</plank-button>
-              </plank-sheet-footer>
-            </plank-sheet-content>
-          </plank-sheet>
+              <hal-sheet-footer>
+                <hal-button>Save changes</hal-button>
+              </hal-sheet-footer>
+            </hal-sheet-content>
+          </hal-sheet>
         </div>
-        <pre><code>&lt;plank-sheet&gt;
-  &lt;plank-sheet-trigger&gt;
-    &lt;plank-button variant="outline"&gt;Open Sheet&lt;/plank-button&gt;
-  &lt;/plank-sheet-trigger&gt;
-  &lt;plank-sheet-content&gt;
-    &lt;plank-sheet-header&gt;
-      &lt;plank-sheet-title&gt;Edit profile&lt;/plank-sheet-title&gt;
-      &lt;plank-sheet-description&gt;
+        <pre><code>&lt;hal-sheet&gt;
+  &lt;hal-sheet-trigger&gt;
+    &lt;hal-button variant="outline"&gt;Open Sheet&lt;/hal-button&gt;
+  &lt;/hal-sheet-trigger&gt;
+  &lt;hal-sheet-content&gt;
+    &lt;hal-sheet-header&gt;
+      &lt;hal-sheet-title&gt;Edit profile&lt;/hal-sheet-title&gt;
+      &lt;hal-sheet-description&gt;
         Make changes to your profile here. Click save when you're done.
-      &lt;/plank-sheet-description&gt;
-    &lt;/plank-sheet-header&gt;
+      &lt;/hal-sheet-description&gt;
+    &lt;/hal-sheet-header&gt;
     &lt;div class="py-4"&gt;
       &lt;p class="text-sm"&gt;Sheet content goes here.&lt;/p&gt;
     &lt;/div&gt;
-    &lt;plank-sheet-footer&gt;
-      &lt;plank-button&gt;Save changes&lt;/plank-button&gt;
-    &lt;/plank-sheet-footer&gt;
-  &lt;/plank-sheet-content&gt;
-&lt;/plank-sheet&gt;</code></pre>
+    &lt;hal-sheet-footer&gt;
+      &lt;hal-button&gt;Save changes&lt;/hal-button&gt;
+    &lt;/hal-sheet-footer&gt;
+  &lt;/hal-sheet-content&gt;
+&lt;/hal-sheet&gt;</code></pre>
       </section>
 
       <!-- Side Variations -->
@@ -70,73 +70,73 @@
           Use the side attribute to control which edge the sheet slides from.
         </p>
         <div class="mb-4 flex flex-wrap items-center gap-4">
-          <plank-sheet>
-            <plank-sheet-trigger>
-              <plank-button variant="outline">Right (Default)</plank-button>
-            </plank-sheet-trigger>
-            <plank-sheet-content side="right">
-              <plank-sheet-header>
-                <plank-sheet-title>Right Sheet</plank-sheet-title>
-                <plank-sheet-description>
+          <hal-sheet>
+            <hal-sheet-trigger>
+              <hal-button variant="outline">Right (Default)</hal-button>
+            </hal-sheet-trigger>
+            <hal-sheet-content side="right">
+              <hal-sheet-header>
+                <hal-sheet-title>Right Sheet</hal-sheet-title>
+                <hal-sheet-description>
                   This sheet slides in from the right.
-                </plank-sheet-description>
-              </plank-sheet-header>
-            </plank-sheet-content>
-          </plank-sheet>
+                </hal-sheet-description>
+              </hal-sheet-header>
+            </hal-sheet-content>
+          </hal-sheet>
 
-          <plank-sheet>
-            <plank-sheet-trigger>
-              <plank-button variant="outline">Left</plank-button>
-            </plank-sheet-trigger>
-            <plank-sheet-content side="left">
-              <plank-sheet-header>
-                <plank-sheet-title>Left Sheet</plank-sheet-title>
-                <plank-sheet-description>
+          <hal-sheet>
+            <hal-sheet-trigger>
+              <hal-button variant="outline">Left</hal-button>
+            </hal-sheet-trigger>
+            <hal-sheet-content side="left">
+              <hal-sheet-header>
+                <hal-sheet-title>Left Sheet</hal-sheet-title>
+                <hal-sheet-description>
                   This sheet slides in from the left.
-                </plank-sheet-description>
-              </plank-sheet-header>
-            </plank-sheet-content>
-          </plank-sheet>
+                </hal-sheet-description>
+              </hal-sheet-header>
+            </hal-sheet-content>
+          </hal-sheet>
 
-          <plank-sheet>
-            <plank-sheet-trigger>
-              <plank-button variant="outline">Top</plank-button>
-            </plank-sheet-trigger>
-            <plank-sheet-content side="top">
-              <plank-sheet-header>
-                <plank-sheet-title>Top Sheet</plank-sheet-title>
-                <plank-sheet-description>
+          <hal-sheet>
+            <hal-sheet-trigger>
+              <hal-button variant="outline">Top</hal-button>
+            </hal-sheet-trigger>
+            <hal-sheet-content side="top">
+              <hal-sheet-header>
+                <hal-sheet-title>Top Sheet</hal-sheet-title>
+                <hal-sheet-description>
                   This sheet slides in from the top.
-                </plank-sheet-description>
-              </plank-sheet-header>
-            </plank-sheet-content>
-          </plank-sheet>
+                </hal-sheet-description>
+              </hal-sheet-header>
+            </hal-sheet-content>
+          </hal-sheet>
 
-          <plank-sheet>
-            <plank-sheet-trigger>
-              <plank-button variant="outline">Bottom</plank-button>
-            </plank-sheet-trigger>
-            <plank-sheet-content side="bottom">
-              <plank-sheet-header>
-                <plank-sheet-title>Bottom Sheet</plank-sheet-title>
-                <plank-sheet-description>
+          <hal-sheet>
+            <hal-sheet-trigger>
+              <hal-button variant="outline">Bottom</hal-button>
+            </hal-sheet-trigger>
+            <hal-sheet-content side="bottom">
+              <hal-sheet-header>
+                <hal-sheet-title>Bottom Sheet</hal-sheet-title>
+                <hal-sheet-description>
                   This sheet slides in from the bottom.
-                </plank-sheet-description>
-              </plank-sheet-header>
-            </plank-sheet-content>
-          </plank-sheet>
+                </hal-sheet-description>
+              </hal-sheet-header>
+            </hal-sheet-content>
+          </hal-sheet>
         </div>
-        <pre><code>&lt;plank-sheet-content side="left"&gt;
+        <pre><code>&lt;hal-sheet-content side="left"&gt;
   ...
-&lt;/plank-sheet-content&gt;
+&lt;/hal-sheet-content&gt;
 
-&lt;plank-sheet-content side="top"&gt;
+&lt;hal-sheet-content side="top"&gt;
   ...
-&lt;/plank-sheet-content&gt;
+&lt;/hal-sheet-content&gt;
 
-&lt;plank-sheet-content side="bottom"&gt;
+&lt;hal-sheet-content side="bottom"&gt;
   ...
-&lt;/plank-sheet-content&gt;</code></pre>
+&lt;/hal-sheet-content&gt;</code></pre>
       </section>
 
       <!-- Navigation Menu Example -->
@@ -146,25 +146,25 @@
           A common use case is a mobile navigation menu.
         </p>
         <div class="mb-4 flex items-center gap-4">
-          <plank-sheet>
-            <plank-sheet-trigger>
-              <plank-button variant="outline">Menu</plank-button>
-            </plank-sheet-trigger>
-            <plank-sheet-content side="left">
-              <plank-sheet-header>
-                <plank-sheet-title>Navigation</plank-sheet-title>
-                <plank-sheet-description>
+          <hal-sheet>
+            <hal-sheet-trigger>
+              <hal-button variant="outline">Menu</hal-button>
+            </hal-sheet-trigger>
+            <hal-sheet-content side="left">
+              <hal-sheet-header>
+                <hal-sheet-title>Navigation</hal-sheet-title>
+                <hal-sheet-description>
                   Browse our sections.
-                </plank-sheet-description>
-              </plank-sheet-header>
+                </hal-sheet-description>
+              </hal-sheet-header>
               <nav class="flex flex-col gap-2 py-4">
                 <a href="#" class="text-sm hover:underline">Home</a>
                 <a href="#" class="text-sm hover:underline">About</a>
                 <a href="#" class="text-sm hover:underline">Products</a>
                 <a href="#" class="text-sm hover:underline">Contact</a>
               </nav>
-            </plank-sheet-content>
-          </plank-sheet>
+            </hal-sheet-content>
+          </hal-sheet>
         </div>
       </section>
 
@@ -175,31 +175,31 @@
           Use show-close-button="false" to hide the default close button.
         </p>
         <div class="mb-4 flex items-center gap-4">
-          <plank-sheet>
-            <plank-sheet-trigger>
-              <plank-button variant="outline">Open Sheet</plank-button>
-            </plank-sheet-trigger>
-            <plank-sheet-content show-close-button="false">
-              <plank-sheet-header>
-                <plank-sheet-title>No Close Button</plank-sheet-title>
-                <plank-sheet-description>
+          <hal-sheet>
+            <hal-sheet-trigger>
+              <hal-button variant="outline">Open Sheet</hal-button>
+            </hal-sheet-trigger>
+            <hal-sheet-content show-close-button="false">
+              <hal-sheet-header>
+                <hal-sheet-title>No Close Button</hal-sheet-title>
+                <hal-sheet-description>
                   This sheet has no default close button. Press Escape or click
                   outside to close.
-                </plank-sheet-description>
-              </plank-sheet-header>
-            </plank-sheet-content>
-          </plank-sheet>
+                </hal-sheet-description>
+              </hal-sheet-header>
+            </hal-sheet-content>
+          </hal-sheet>
         </div>
-        <pre><code>&lt;plank-sheet-content show-close-button="false"&gt;
+        <pre><code>&lt;hal-sheet-content show-close-button="false"&gt;
   ...
-&lt;/plank-sheet-content&gt;</code></pre>
+&lt;/hal-sheet-content&gt;</code></pre>
       </section>
 
       <!-- API -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">API</h2>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-sheet</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-sheet</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -245,12 +245,12 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-sheet-trigger</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-sheet-trigger</h3>
         <p class="text-muted-foreground mb-4">
           The element that triggers the sheet. Opens sheet on click.
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-sheet-content</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-sheet-content</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -292,27 +292,27 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-sheet-close</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-sheet-close</h3>
         <p class="text-muted-foreground mb-4">
           A button that closes the sheet when clicked.
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-sheet-header</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-sheet-header</h3>
         <p class="text-muted-foreground mb-4">
           Container for title and description. Provides padding and spacing.
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-sheet-footer</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-sheet-footer</h3>
         <p class="text-muted-foreground mb-4">
           Container for action buttons. Uses mt-auto to stick to the bottom.
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-sheet-title</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-sheet-title</h3>
         <p class="text-muted-foreground mb-4">
           The sheet title. Used for aria-labelledby.
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-sheet-description</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-sheet-description</h3>
         <p class="text-muted-foreground mb-4">
           The sheet description. Used for aria-describedby.
         </p>

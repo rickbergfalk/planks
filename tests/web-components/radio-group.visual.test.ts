@@ -1,10 +1,10 @@
 import { describe, it, expect, beforeEach } from "vitest"
 import { page } from "vitest/browser"
-import "../../src/web-components/plank-radio-group"
-import "../../src/web-components/plank-label"
-import type { PlankRadioGroup } from "../../src/web-components/plank-radio-group"
+import "../../src/web-components/hal-radio-group"
+import "../../src/web-components/hal-label"
+import type { HalRadioGroup } from "../../src/web-components/hal-radio-group"
 
-describe("plank-radio-group - Visual", () => {
+describe("hal-radio-group - Visual", () => {
   let container: HTMLElement
 
   beforeEach(() => {
@@ -20,25 +20,23 @@ describe("plank-radio-group - Visual", () => {
 
   it("with second option selected", async () => {
     container.innerHTML = `
-      <plank-radio-group value="comfortable">
+      <hal-radio-group value="comfortable">
         <div class="flex items-center gap-3">
-          <plank-radio-group-item value="default" id="r1"></plank-radio-group-item>
-          <plank-label for="r1">Default</plank-label>
+          <hal-radio-group-item value="default" id="r1"></hal-radio-group-item>
+          <hal-label for="r1">Default</hal-label>
         </div>
         <div class="flex items-center gap-3">
-          <plank-radio-group-item value="comfortable" id="r2"></plank-radio-group-item>
-          <plank-label for="r2">Comfortable</plank-label>
+          <hal-radio-group-item value="comfortable" id="r2"></hal-radio-group-item>
+          <hal-label for="r2">Comfortable</hal-label>
         </div>
         <div class="flex items-center gap-3">
-          <plank-radio-group-item value="compact" id="r3"></plank-radio-group-item>
-          <plank-label for="r3">Compact</plank-label>
+          <hal-radio-group-item value="compact" id="r3"></hal-radio-group-item>
+          <hal-label for="r3">Compact</hal-label>
         </div>
-      </plank-radio-group>
+      </hal-radio-group>
     `
-    await customElements.whenDefined("plank-radio-group")
-    const group = container.querySelector(
-      "plank-radio-group"
-    ) as PlankRadioGroup
+    await customElements.whenDefined("hal-radio-group")
+    const group = container.querySelector("hal-radio-group") as HalRadioGroup
     await group.updateComplete
     await expect(page.getByTestId("container")).toMatchScreenshot(
       "radio-group-selected"
@@ -47,25 +45,23 @@ describe("plank-radio-group - Visual", () => {
 
   it("with no option selected", async () => {
     container.innerHTML = `
-      <plank-radio-group>
+      <hal-radio-group>
         <div class="flex items-center gap-3">
-          <plank-radio-group-item value="default" id="r1"></plank-radio-group-item>
-          <plank-label for="r1">Default</plank-label>
+          <hal-radio-group-item value="default" id="r1"></hal-radio-group-item>
+          <hal-label for="r1">Default</hal-label>
         </div>
         <div class="flex items-center gap-3">
-          <plank-radio-group-item value="comfortable" id="r2"></plank-radio-group-item>
-          <plank-label for="r2">Comfortable</plank-label>
+          <hal-radio-group-item value="comfortable" id="r2"></hal-radio-group-item>
+          <hal-label for="r2">Comfortable</hal-label>
         </div>
         <div class="flex items-center gap-3">
-          <plank-radio-group-item value="compact" id="r3"></plank-radio-group-item>
-          <plank-label for="r3">Compact</plank-label>
+          <hal-radio-group-item value="compact" id="r3"></hal-radio-group-item>
+          <hal-label for="r3">Compact</hal-label>
         </div>
-      </plank-radio-group>
+      </hal-radio-group>
     `
-    await customElements.whenDefined("plank-radio-group")
-    const group = container.querySelector(
-      "plank-radio-group"
-    ) as PlankRadioGroup
+    await customElements.whenDefined("hal-radio-group")
+    const group = container.querySelector("hal-radio-group") as HalRadioGroup
     await group.updateComplete
     await expect(page.getByTestId("container")).toMatchScreenshot(
       "radio-group-unselected"

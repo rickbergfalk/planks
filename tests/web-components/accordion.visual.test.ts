@@ -1,9 +1,9 @@
 import { describe, it, expect, beforeEach } from "vitest"
 import { page } from "vitest/browser"
-import "../../src/web-components/plank-accordion"
-import type { PlankAccordion } from "../../src/web-components/plank-accordion"
+import "../../src/web-components/hal-accordion"
+import type { HalAccordion } from "../../src/web-components/hal-accordion"
 
-describe("plank-accordion - Visual", () => {
+describe("hal-accordion - Visual", () => {
   let container: HTMLElement
 
   beforeEach(() => {
@@ -19,31 +19,29 @@ describe("plank-accordion - Visual", () => {
 
   it("all closed state", async () => {
     container.innerHTML = `
-      <plank-accordion collapsible class="w-full">
-        <plank-accordion-item value="item-1">
-          <plank-accordion-trigger>Is it accessible?</plank-accordion-trigger>
-          <plank-accordion-content>
+      <hal-accordion collapsible class="w-full">
+        <hal-accordion-item value="item-1">
+          <hal-accordion-trigger>Is it accessible?</hal-accordion-trigger>
+          <hal-accordion-content>
             Yes. It adheres to the WAI-ARIA design pattern.
-          </plank-accordion-content>
-        </plank-accordion-item>
-        <plank-accordion-item value="item-2">
-          <plank-accordion-trigger>Is it styled?</plank-accordion-trigger>
-          <plank-accordion-content>
+          </hal-accordion-content>
+        </hal-accordion-item>
+        <hal-accordion-item value="item-2">
+          <hal-accordion-trigger>Is it styled?</hal-accordion-trigger>
+          <hal-accordion-content>
             Yes. It comes with default styles that matches the other components.
-          </plank-accordion-content>
-        </plank-accordion-item>
-        <plank-accordion-item value="item-3">
-          <plank-accordion-trigger>Is it animated?</plank-accordion-trigger>
-          <plank-accordion-content>
+          </hal-accordion-content>
+        </hal-accordion-item>
+        <hal-accordion-item value="item-3">
+          <hal-accordion-trigger>Is it animated?</hal-accordion-trigger>
+          <hal-accordion-content>
             Yes. It's animated by default.
-          </plank-accordion-content>
-        </plank-accordion-item>
-      </plank-accordion>
+          </hal-accordion-content>
+        </hal-accordion-item>
+      </hal-accordion>
     `
-    await customElements.whenDefined("plank-accordion")
-    const accordion = container.querySelector(
-      "plank-accordion"
-    ) as PlankAccordion
+    await customElements.whenDefined("hal-accordion")
+    const accordion = container.querySelector("hal-accordion") as HalAccordion
     await accordion.updateComplete
     await expect(page.getByTestId("container")).toMatchScreenshot(
       "accordion-closed"
@@ -52,31 +50,29 @@ describe("plank-accordion - Visual", () => {
 
   it("first item open state", async () => {
     container.innerHTML = `
-      <plank-accordion collapsible value="item-1" class="w-full">
-        <plank-accordion-item value="item-1">
-          <plank-accordion-trigger>Is it accessible?</plank-accordion-trigger>
-          <plank-accordion-content>
+      <hal-accordion collapsible value="item-1" class="w-full">
+        <hal-accordion-item value="item-1">
+          <hal-accordion-trigger>Is it accessible?</hal-accordion-trigger>
+          <hal-accordion-content>
             Yes. It adheres to the WAI-ARIA design pattern.
-          </plank-accordion-content>
-        </plank-accordion-item>
-        <plank-accordion-item value="item-2">
-          <plank-accordion-trigger>Is it styled?</plank-accordion-trigger>
-          <plank-accordion-content>
+          </hal-accordion-content>
+        </hal-accordion-item>
+        <hal-accordion-item value="item-2">
+          <hal-accordion-trigger>Is it styled?</hal-accordion-trigger>
+          <hal-accordion-content>
             Yes. It comes with default styles that matches the other components.
-          </plank-accordion-content>
-        </plank-accordion-item>
-        <plank-accordion-item value="item-3">
-          <plank-accordion-trigger>Is it animated?</plank-accordion-trigger>
-          <plank-accordion-content>
+          </hal-accordion-content>
+        </hal-accordion-item>
+        <hal-accordion-item value="item-3">
+          <hal-accordion-trigger>Is it animated?</hal-accordion-trigger>
+          <hal-accordion-content>
             Yes. It's animated by default.
-          </plank-accordion-content>
-        </plank-accordion-item>
-      </plank-accordion>
+          </hal-accordion-content>
+        </hal-accordion-item>
+      </hal-accordion>
     `
-    await customElements.whenDefined("plank-accordion")
-    const accordion = container.querySelector(
-      "plank-accordion"
-    ) as PlankAccordion
+    await customElements.whenDefined("hal-accordion")
+    const accordion = container.querySelector("hal-accordion") as HalAccordion
     await accordion.updateComplete
     await expect(page.getByTestId("container")).toMatchScreenshot(
       "accordion-open"

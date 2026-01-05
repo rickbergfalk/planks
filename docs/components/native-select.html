@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Native Select - Planks</title>
+    <title>Native Select - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -16,136 +16,136 @@
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Default</h2>
         <div class="max-w-sm mb-4">
-          <plank-native-select>
-            <plank-native-select-option value=""
-              >Select an option</plank-native-select-option
+          <hal-native-select>
+            <hal-native-select-option value=""
+              >Select an option</hal-native-select-option
             >
-            <plank-native-select-option value="apple"
-              >Apple</plank-native-select-option
+            <hal-native-select-option value="apple"
+              >Apple</hal-native-select-option
             >
-            <plank-native-select-option value="banana"
-              >Banana</plank-native-select-option
+            <hal-native-select-option value="banana"
+              >Banana</hal-native-select-option
             >
-            <plank-native-select-option value="orange"
-              >Orange</plank-native-select-option
+            <hal-native-select-option value="orange"
+              >Orange</hal-native-select-option
             >
-          </plank-native-select>
+          </hal-native-select>
         </div>
-        <pre><code>&lt;plank-native-select&gt;
-  &lt;plank-native-select-option value=""&gt;Select an option&lt;/plank-native-select-option&gt;
-  &lt;plank-native-select-option value="apple"&gt;Apple&lt;/plank-native-select-option&gt;
-  &lt;plank-native-select-option value="banana"&gt;Banana&lt;/plank-native-select-option&gt;
-  &lt;plank-native-select-option value="orange"&gt;Orange&lt;/plank-native-select-option&gt;
-&lt;/plank-native-select&gt;</code></pre>
+        <pre><code>&lt;hal-native-select&gt;
+  &lt;hal-native-select-option value=""&gt;Select an option&lt;/hal-native-select-option&gt;
+  &lt;hal-native-select-option value="apple"&gt;Apple&lt;/hal-native-select-option&gt;
+  &lt;hal-native-select-option value="banana"&gt;Banana&lt;/hal-native-select-option&gt;
+  &lt;hal-native-select-option value="orange"&gt;Orange&lt;/hal-native-select-option&gt;
+&lt;/hal-native-select&gt;</code></pre>
       </section>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">With Label</h2>
         <div class="max-w-sm mb-4 flex flex-col gap-2">
-          <plank-label for="fruit">Favorite Fruit</plank-label>
-          <plank-native-select id="fruit" name="fruit">
-            <plank-native-select-option value=""
-              >Select a fruit</plank-native-select-option
+          <hal-label for="fruit">Favorite Fruit</hal-label>
+          <hal-native-select id="fruit" name="fruit">
+            <hal-native-select-option value=""
+              >Select a fruit</hal-native-select-option
             >
-            <plank-native-select-option value="apple"
-              >Apple</plank-native-select-option
+            <hal-native-select-option value="apple"
+              >Apple</hal-native-select-option
             >
-            <plank-native-select-option value="banana"
-              >Banana</plank-native-select-option
+            <hal-native-select-option value="banana"
+              >Banana</hal-native-select-option
             >
-          </plank-native-select>
+          </hal-native-select>
         </div>
-        <pre><code>&lt;plank-label for="fruit"&gt;Favorite Fruit&lt;/plank-label&gt;
-&lt;plank-native-select id="fruit" name="fruit"&gt;
-  &lt;plank-native-select-option value=""&gt;Select a fruit&lt;/plank-native-select-option&gt;
-  &lt;plank-native-select-option value="apple"&gt;Apple&lt;/plank-native-select-option&gt;
-  &lt;plank-native-select-option value="banana"&gt;Banana&lt;/plank-native-select-option&gt;
-&lt;/plank-native-select&gt;</code></pre>
+        <pre><code>&lt;hal-label for="fruit"&gt;Favorite Fruit&lt;/hal-label&gt;
+&lt;hal-native-select id="fruit" name="fruit"&gt;
+  &lt;hal-native-select-option value=""&gt;Select a fruit&lt;/hal-native-select-option&gt;
+  &lt;hal-native-select-option value="apple"&gt;Apple&lt;/hal-native-select-option&gt;
+  &lt;hal-native-select-option value="banana"&gt;Banana&lt;/hal-native-select-option&gt;
+&lt;/hal-native-select&gt;</code></pre>
       </section>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">With Option Groups</h2>
         <div class="max-w-sm mb-4">
-          <plank-native-select>
-            <plank-native-select-option value=""
-              >Select a fruit</plank-native-select-option
+          <hal-native-select>
+            <hal-native-select-option value=""
+              >Select a fruit</hal-native-select-option
             >
-            <plank-native-select-optgroup label="Citrus">
-              <plank-native-select-option value="orange"
-                >Orange</plank-native-select-option
+            <hal-native-select-optgroup label="Citrus">
+              <hal-native-select-option value="orange"
+                >Orange</hal-native-select-option
               >
-              <plank-native-select-option value="lemon"
-                >Lemon</plank-native-select-option
+              <hal-native-select-option value="lemon"
+                >Lemon</hal-native-select-option
               >
-            </plank-native-select-optgroup>
-            <plank-native-select-optgroup label="Berries">
-              <plank-native-select-option value="strawberry"
-                >Strawberry</plank-native-select-option
+            </hal-native-select-optgroup>
+            <hal-native-select-optgroup label="Berries">
+              <hal-native-select-option value="strawberry"
+                >Strawberry</hal-native-select-option
               >
-              <plank-native-select-option value="blueberry"
-                >Blueberry</plank-native-select-option
+              <hal-native-select-option value="blueberry"
+                >Blueberry</hal-native-select-option
               >
-            </plank-native-select-optgroup>
-          </plank-native-select>
+            </hal-native-select-optgroup>
+          </hal-native-select>
         </div>
-        <pre><code>&lt;plank-native-select&gt;
-  &lt;plank-native-select-option value=""&gt;Select a fruit&lt;/plank-native-select-option&gt;
-  &lt;plank-native-select-optgroup label="Citrus"&gt;
-    &lt;plank-native-select-option value="orange"&gt;Orange&lt;/plank-native-select-option&gt;
-    &lt;plank-native-select-option value="lemon"&gt;Lemon&lt;/plank-native-select-option&gt;
-  &lt;/plank-native-select-optgroup&gt;
-  &lt;plank-native-select-optgroup label="Berries"&gt;
-    &lt;plank-native-select-option value="strawberry"&gt;Strawberry&lt;/plank-native-select-option&gt;
-    &lt;plank-native-select-option value="blueberry"&gt;Blueberry&lt;/plank-native-select-option&gt;
-  &lt;/plank-native-select-optgroup&gt;
-&lt;/plank-native-select&gt;</code></pre>
+        <pre><code>&lt;hal-native-select&gt;
+  &lt;hal-native-select-option value=""&gt;Select a fruit&lt;/hal-native-select-option&gt;
+  &lt;hal-native-select-optgroup label="Citrus"&gt;
+    &lt;hal-native-select-option value="orange"&gt;Orange&lt;/hal-native-select-option&gt;
+    &lt;hal-native-select-option value="lemon"&gt;Lemon&lt;/hal-native-select-option&gt;
+  &lt;/hal-native-select-optgroup&gt;
+  &lt;hal-native-select-optgroup label="Berries"&gt;
+    &lt;hal-native-select-option value="strawberry"&gt;Strawberry&lt;/hal-native-select-option&gt;
+    &lt;hal-native-select-option value="blueberry"&gt;Blueberry&lt;/hal-native-select-option&gt;
+  &lt;/hal-native-select-optgroup&gt;
+&lt;/hal-native-select&gt;</code></pre>
       </section>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Small Size</h2>
         <div class="max-w-sm mb-4">
-          <plank-native-select size="sm">
-            <plank-native-select-option value=""
-              >Select an option</plank-native-select-option
+          <hal-native-select size="sm">
+            <hal-native-select-option value=""
+              >Select an option</hal-native-select-option
             >
-            <plank-native-select-option value="apple"
-              >Apple</plank-native-select-option
+            <hal-native-select-option value="apple"
+              >Apple</hal-native-select-option
             >
-            <plank-native-select-option value="banana"
-              >Banana</plank-native-select-option
+            <hal-native-select-option value="banana"
+              >Banana</hal-native-select-option
             >
-          </plank-native-select>
+          </hal-native-select>
         </div>
-        <pre><code>&lt;plank-native-select size="sm"&gt;
-  &lt;plank-native-select-option value=""&gt;Select an option&lt;/plank-native-select-option&gt;
-  &lt;plank-native-select-option value="apple"&gt;Apple&lt;/plank-native-select-option&gt;
-  &lt;plank-native-select-option value="banana"&gt;Banana&lt;/plank-native-select-option&gt;
-&lt;/plank-native-select&gt;</code></pre>
+        <pre><code>&lt;hal-native-select size="sm"&gt;
+  &lt;hal-native-select-option value=""&gt;Select an option&lt;/hal-native-select-option&gt;
+  &lt;hal-native-select-option value="apple"&gt;Apple&lt;/hal-native-select-option&gt;
+  &lt;hal-native-select-option value="banana"&gt;Banana&lt;/hal-native-select-option&gt;
+&lt;/hal-native-select&gt;</code></pre>
       </section>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Disabled</h2>
         <div class="max-w-sm mb-4">
-          <plank-native-select disabled>
-            <plank-native-select-option value=""
-              >Select an option</plank-native-select-option
+          <hal-native-select disabled>
+            <hal-native-select-option value=""
+              >Select an option</hal-native-select-option
             >
-            <plank-native-select-option value="apple"
-              >Apple</plank-native-select-option
+            <hal-native-select-option value="apple"
+              >Apple</hal-native-select-option
             >
-          </plank-native-select>
+          </hal-native-select>
         </div>
-        <pre><code>&lt;plank-native-select disabled&gt;
-  &lt;plank-native-select-option value=""&gt;Select an option&lt;/plank-native-select-option&gt;
-  &lt;plank-native-select-option value="apple"&gt;Apple&lt;/plank-native-select-option&gt;
-&lt;/plank-native-select&gt;</code></pre>
+        <pre><code>&lt;hal-native-select disabled&gt;
+  &lt;hal-native-select-option value=""&gt;Select an option&lt;/hal-native-select-option&gt;
+  &lt;hal-native-select-option value="apple"&gt;Apple&lt;/hal-native-select-option&gt;
+&lt;/hal-native-select&gt;</code></pre>
       </section>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">API</h2>
 
         <h3 class="text-xl font-semibold mb-2 mt-6">
-          &lt;plank-native-select&gt;
+          &lt;hal-native-select&gt;
         </h3>
         <table class="w-full text-sm mb-6">
           <thead>
@@ -189,7 +189,7 @@
         </table>
 
         <h3 class="text-xl font-semibold mb-2 mt-6">
-          &lt;plank-native-select-option&gt;
+          &lt;hal-native-select-option&gt;
         </h3>
         <table class="w-full text-sm mb-6">
           <thead>
@@ -223,7 +223,7 @@
         </table>
 
         <h3 class="text-xl font-semibold mb-2 mt-6">
-          &lt;plank-native-select-optgroup&gt;
+          &lt;hal-native-select-optgroup&gt;
         </h3>
         <table class="w-full text-sm">
           <thead>

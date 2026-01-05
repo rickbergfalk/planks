@@ -1,8 +1,8 @@
 import { describe, it, expect, beforeEach, afterEach } from "vitest"
 import { page } from "vitest/browser"
-import "@/web-components/plank-kbd"
+import "@/web-components/hal-kbd"
 
-describe("PlankKbd (Web Component) - Visual", () => {
+describe("HalKbd (Web Component) - Visual", () => {
   let container: HTMLDivElement
 
   beforeEach(() => {
@@ -16,7 +16,7 @@ describe("PlankKbd (Web Component) - Visual", () => {
 
   async function renderAndWait(html: string): Promise<void> {
     container.innerHTML = html
-    await customElements.whenDefined("plank-kbd")
+    await customElements.whenDefined("hal-kbd")
     const elements = container.querySelectorAll("[data-slot]")
     await Promise.all(
       Array.from(elements).map((el) => (el as any).updateComplete)
@@ -26,7 +26,7 @@ describe("PlankKbd (Web Component) - Visual", () => {
   it("single kbd key", async () => {
     await renderAndWait(`
       <div data-testid="container" style="padding: 8px">
-        <plank-kbd>K</plank-kbd>
+        <hal-kbd>K</hal-kbd>
       </div>
     `)
     await expect(page.getByTestId("container")).toMatchScreenshot("kbd-single")
@@ -35,7 +35,7 @@ describe("PlankKbd (Web Component) - Visual", () => {
   it("kbd with text", async () => {
     await renderAndWait(`
       <div data-testid="container" style="padding: 8px">
-        <plank-kbd>Enter</plank-kbd>
+        <hal-kbd>Enter</hal-kbd>
       </div>
     `)
     await expect(page.getByTestId("container")).toMatchScreenshot("kbd-text")
@@ -44,12 +44,12 @@ describe("PlankKbd (Web Component) - Visual", () => {
   it("kbd group with modifier keys", async () => {
     await renderAndWait(`
       <div data-testid="container" style="padding: 8px">
-        <plank-kbd-group>
-          <plank-kbd>⌘</plank-kbd>
-          <plank-kbd>⇧</plank-kbd>
-          <plank-kbd>⌥</plank-kbd>
-          <plank-kbd>⌃</plank-kbd>
-        </plank-kbd-group>
+        <hal-kbd-group>
+          <hal-kbd>⌘</hal-kbd>
+          <hal-kbd>⇧</hal-kbd>
+          <hal-kbd>⌥</hal-kbd>
+          <hal-kbd>⌃</hal-kbd>
+        </hal-kbd-group>
       </div>
     `)
     await expect(page.getByTestId("container")).toMatchScreenshot(
@@ -60,11 +60,11 @@ describe("PlankKbd (Web Component) - Visual", () => {
   it("kbd group with separator", async () => {
     await renderAndWait(`
       <div data-testid="container" style="padding: 8px">
-        <plank-kbd-group>
-          <plank-kbd>Ctrl</plank-kbd>
+        <hal-kbd-group>
+          <hal-kbd>Ctrl</hal-kbd>
           <span>+</span>
-          <plank-kbd>B</plank-kbd>
-        </plank-kbd-group>
+          <hal-kbd>B</hal-kbd>
+        </hal-kbd-group>
       </div>
     `)
     await expect(page.getByTestId("container")).toMatchScreenshot(
@@ -75,17 +75,17 @@ describe("PlankKbd (Web Component) - Visual", () => {
   it("multiple kbd groups", async () => {
     await renderAndWait(`
       <div data-testid="container" style="padding: 8px; display: flex; flex-direction: column; gap: 8px">
-        <plank-kbd-group>
-          <plank-kbd>⌘</plank-kbd>
-          <plank-kbd>⇧</plank-kbd>
-          <plank-kbd>⌥</plank-kbd>
-          <plank-kbd>⌃</plank-kbd>
-        </plank-kbd-group>
-        <plank-kbd-group>
-          <plank-kbd>Ctrl</plank-kbd>
+        <hal-kbd-group>
+          <hal-kbd>⌘</hal-kbd>
+          <hal-kbd>⇧</hal-kbd>
+          <hal-kbd>⌥</hal-kbd>
+          <hal-kbd>⌃</hal-kbd>
+        </hal-kbd-group>
+        <hal-kbd-group>
+          <hal-kbd>Ctrl</hal-kbd>
           <span>+</span>
-          <plank-kbd>B</plank-kbd>
-        </plank-kbd-group>
+          <hal-kbd>B</hal-kbd>
+        </hal-kbd-group>
       </div>
     `)
     await expect(page.getByTestId("container")).toMatchScreenshot(

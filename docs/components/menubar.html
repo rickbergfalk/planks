@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Menubar - Planks</title>
+    <title>Menubar - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -18,90 +18,88 @@
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Basic Usage</h2>
         <div class="mb-4">
-          <plank-menubar>
-            <plank-menubar-menu>
-              <plank-menubar-trigger>File</plank-menubar-trigger>
-              <plank-menubar-content>
-                <plank-menubar-item>
+          <hal-menubar>
+            <hal-menubar-menu>
+              <hal-menubar-trigger>File</hal-menubar-trigger>
+              <hal-menubar-content>
+                <hal-menubar-item>
                   New Tab
-                  <plank-menubar-shortcut>&#8984;T</plank-menubar-shortcut>
-                </plank-menubar-item>
-                <plank-menubar-item>
+                  <hal-menubar-shortcut>&#8984;T</hal-menubar-shortcut>
+                </hal-menubar-item>
+                <hal-menubar-item>
                   New Window
-                  <plank-menubar-shortcut>&#8984;N</plank-menubar-shortcut>
-                </plank-menubar-item>
-                <plank-menubar-separator></plank-menubar-separator>
-                <plank-menubar-item>Share</plank-menubar-item>
-                <plank-menubar-separator></plank-menubar-separator>
-                <plank-menubar-item>
+                  <hal-menubar-shortcut>&#8984;N</hal-menubar-shortcut>
+                </hal-menubar-item>
+                <hal-menubar-separator></hal-menubar-separator>
+                <hal-menubar-item>Share</hal-menubar-item>
+                <hal-menubar-separator></hal-menubar-separator>
+                <hal-menubar-item>
                   Print
-                  <plank-menubar-shortcut>&#8984;P</plank-menubar-shortcut>
-                </plank-menubar-item>
-              </plank-menubar-content>
-            </plank-menubar-menu>
-            <plank-menubar-menu>
-              <plank-menubar-trigger>Edit</plank-menubar-trigger>
-              <plank-menubar-content>
-                <plank-menubar-item>
+                  <hal-menubar-shortcut>&#8984;P</hal-menubar-shortcut>
+                </hal-menubar-item>
+              </hal-menubar-content>
+            </hal-menubar-menu>
+            <hal-menubar-menu>
+              <hal-menubar-trigger>Edit</hal-menubar-trigger>
+              <hal-menubar-content>
+                <hal-menubar-item>
                   Undo
-                  <plank-menubar-shortcut>&#8984;Z</plank-menubar-shortcut>
-                </plank-menubar-item>
-                <plank-menubar-item>
+                  <hal-menubar-shortcut>&#8984;Z</hal-menubar-shortcut>
+                </hal-menubar-item>
+                <hal-menubar-item>
                   Redo
-                  <plank-menubar-shortcut
-                    >&#8679;&#8984;Z</plank-menubar-shortcut
-                  >
-                </plank-menubar-item>
-                <plank-menubar-separator></plank-menubar-separator>
-                <plank-menubar-item>
+                  <hal-menubar-shortcut>&#8679;&#8984;Z</hal-menubar-shortcut>
+                </hal-menubar-item>
+                <hal-menubar-separator></hal-menubar-separator>
+                <hal-menubar-item>
                   Cut
-                  <plank-menubar-shortcut>&#8984;X</plank-menubar-shortcut>
-                </plank-menubar-item>
-                <plank-menubar-item>
+                  <hal-menubar-shortcut>&#8984;X</hal-menubar-shortcut>
+                </hal-menubar-item>
+                <hal-menubar-item>
                   Copy
-                  <plank-menubar-shortcut>&#8984;C</plank-menubar-shortcut>
-                </plank-menubar-item>
-                <plank-menubar-item>
+                  <hal-menubar-shortcut>&#8984;C</hal-menubar-shortcut>
+                </hal-menubar-item>
+                <hal-menubar-item>
                   Paste
-                  <plank-menubar-shortcut>&#8984;V</plank-menubar-shortcut>
-                </plank-menubar-item>
-              </plank-menubar-content>
-            </plank-menubar-menu>
-            <plank-menubar-menu>
-              <plank-menubar-trigger>View</plank-menubar-trigger>
-              <plank-menubar-content>
-                <plank-menubar-checkbox-item checked
-                  >Status Bar</plank-menubar-checkbox-item
+                  <hal-menubar-shortcut>&#8984;V</hal-menubar-shortcut>
+                </hal-menubar-item>
+              </hal-menubar-content>
+            </hal-menubar-menu>
+            <hal-menubar-menu>
+              <hal-menubar-trigger>View</hal-menubar-trigger>
+              <hal-menubar-content>
+                <hal-menubar-checkbox-item checked
+                  >Status Bar</hal-menubar-checkbox-item
                 >
-                <plank-menubar-checkbox-item
-                  >Activity Bar</plank-menubar-checkbox-item
+                <hal-menubar-checkbox-item
+                  >Activity Bar</hal-menubar-checkbox-item
                 >
-                <plank-menubar-separator></plank-menubar-separator>
-                <plank-menubar-item>
+                <hal-menubar-separator></hal-menubar-separator>
+                <hal-menubar-item>
                   Zoom In
-                  <plank-menubar-shortcut>&#8984;+</plank-menubar-shortcut>
-                </plank-menubar-item>
-                <plank-menubar-item>
+                  <hal-menubar-shortcut>&#8984;+</hal-menubar-shortcut>
+                </hal-menubar-item>
+                <hal-menubar-item>
                   Zoom Out
-                  <plank-menubar-shortcut>&#8984;-</plank-menubar-shortcut>
-                </plank-menubar-item>
-              </plank-menubar-content>
-            </plank-menubar-menu>
-          </plank-menubar>
+                  <hal-menubar-shortcut>&#8984;-</hal-menubar-shortcut>
+                </hal-menubar-item>
+              </hal-menubar-content>
+            </hal-menubar-menu>
+          </hal-menubar>
         </div>
-        <pre><code>&lt;plank-menubar&gt;
-  &lt;plank-menubar-menu&gt;
-    &lt;plank-menubar-trigger&gt;File&lt;/plank-menubar-trigger&gt;
-    &lt;plank-menubar-content&gt;
-      &lt;plank-menubar-item&gt;
+        <pre><code>&lt;hal-menubar&gt;
+  &lt;hal-menubar-menu&gt;
+    &lt;hal-menubar-trigger&gt;File&lt;/hal-menubar-trigger&gt;
+    &lt;hal-menubar-content&gt;
+      &lt;hal-menubar-item&gt;
         New Tab
-        &lt;plank-menubar-shortcut&gt;&#8984;T&lt;/plank-menubar-shortcut&gt;
-      &lt;/plank-menubar-item&gt;
-      &lt;plank-menubar-separator&gt;&lt;/plank-menubar-separator&gt;
-      &lt;plank-menubar-item&gt;Print&lt;/plank-menubar-item&gt;
-    &lt;/plank-menubar-content&gt;
-  &lt;/plank-menubar-menu&gt;
-&lt;/plank-menubar&gt;</code></pre>
+        &lt;hal-menubar-shortcut&gt;&#8984;T&lt;/hal-menubar-shortcut&gt;
+      &lt;/hal-menubar-item&gt;
+      &lt;hal-menubar-separator&gt;&lt;/hal-menubar-separator&gt;
+      &lt;hal-menubar-item&gt;Print&lt;/hal-menubar-item&gt;
+    &lt;/hal-menubar-content&gt;
+  &lt;/hal-menubar-menu&gt;
+&lt;/hal-menubar&gt;</code></pre>
       </section>
 
       <!-- Checkbox Items -->
@@ -111,28 +109,28 @@
           Use checkbox items for toggleable options.
         </p>
         <div class="mb-4">
-          <plank-menubar>
-            <plank-menubar-menu>
-              <plank-menubar-trigger>Appearance</plank-menubar-trigger>
-              <plank-menubar-content class="w-56">
-                <plank-menubar-label>Appearance</plank-menubar-label>
-                <plank-menubar-separator></plank-menubar-separator>
-                <plank-menubar-checkbox-item checked>
+          <hal-menubar>
+            <hal-menubar-menu>
+              <hal-menubar-trigger>Appearance</hal-menubar-trigger>
+              <hal-menubar-content class="w-56">
+                <hal-menubar-label>Appearance</hal-menubar-label>
+                <hal-menubar-separator></hal-menubar-separator>
+                <hal-menubar-checkbox-item checked>
                   Status Bar
-                </plank-menubar-checkbox-item>
-                <plank-menubar-checkbox-item>
+                </hal-menubar-checkbox-item>
+                <hal-menubar-checkbox-item>
                   Activity Bar
-                </plank-menubar-checkbox-item>
-                <plank-menubar-checkbox-item checked>
+                </hal-menubar-checkbox-item>
+                <hal-menubar-checkbox-item checked>
                   Panel
-                </plank-menubar-checkbox-item>
-              </plank-menubar-content>
-            </plank-menubar-menu>
-          </plank-menubar>
+                </hal-menubar-checkbox-item>
+              </hal-menubar-content>
+            </hal-menubar-menu>
+          </hal-menubar>
         </div>
-        <pre><code>&lt;plank-menubar-checkbox-item checked&gt;
+        <pre><code>&lt;hal-menubar-checkbox-item checked&gt;
   Status Bar
-&lt;/plank-menubar-checkbox-item&gt;</code></pre>
+&lt;/hal-menubar-checkbox-item&gt;</code></pre>
       </section>
 
       <!-- Radio Group -->
@@ -142,32 +140,32 @@
           Use radio groups for mutually exclusive options.
         </p>
         <div class="mb-4">
-          <plank-menubar>
-            <plank-menubar-menu>
-              <plank-menubar-trigger>Panel Position</plank-menubar-trigger>
-              <plank-menubar-content class="w-56">
-                <plank-menubar-label>Panel Position</plank-menubar-label>
-                <plank-menubar-separator></plank-menubar-separator>
-                <plank-menubar-radio-group value="bottom">
-                  <plank-menubar-radio-item value="top"
-                    >Top</plank-menubar-radio-item
+          <hal-menubar>
+            <hal-menubar-menu>
+              <hal-menubar-trigger>Panel Position</hal-menubar-trigger>
+              <hal-menubar-content class="w-56">
+                <hal-menubar-label>Panel Position</hal-menubar-label>
+                <hal-menubar-separator></hal-menubar-separator>
+                <hal-menubar-radio-group value="bottom">
+                  <hal-menubar-radio-item value="top"
+                    >Top</hal-menubar-radio-item
                   >
-                  <plank-menubar-radio-item value="bottom"
-                    >Bottom</plank-menubar-radio-item
+                  <hal-menubar-radio-item value="bottom"
+                    >Bottom</hal-menubar-radio-item
                   >
-                  <plank-menubar-radio-item value="right"
-                    >Right</plank-menubar-radio-item
+                  <hal-menubar-radio-item value="right"
+                    >Right</hal-menubar-radio-item
                   >
-                </plank-menubar-radio-group>
-              </plank-menubar-content>
-            </plank-menubar-menu>
-          </plank-menubar>
+                </hal-menubar-radio-group>
+              </hal-menubar-content>
+            </hal-menubar-menu>
+          </hal-menubar>
         </div>
-        <pre><code>&lt;plank-menubar-radio-group value="bottom"&gt;
-  &lt;plank-menubar-radio-item value="top"&gt;Top&lt;/plank-menubar-radio-item&gt;
-  &lt;plank-menubar-radio-item value="bottom"&gt;Bottom&lt;/plank-menubar-radio-item&gt;
-  &lt;plank-menubar-radio-item value="right"&gt;Right&lt;/plank-menubar-radio-item&gt;
-&lt;/plank-menubar-radio-group&gt;</code></pre>
+        <pre><code>&lt;hal-menubar-radio-group value="bottom"&gt;
+  &lt;hal-menubar-radio-item value="top"&gt;Top&lt;/hal-menubar-radio-item&gt;
+  &lt;hal-menubar-radio-item value="bottom"&gt;Bottom&lt;/hal-menubar-radio-item&gt;
+  &lt;hal-menubar-radio-item value="right"&gt;Right&lt;/hal-menubar-radio-item&gt;
+&lt;/hal-menubar-radio-group&gt;</code></pre>
       </section>
 
       <!-- Disabled Items -->
@@ -177,40 +175,40 @@
           Use the disabled attribute to disable menu items.
         </p>
         <div class="mb-4">
-          <plank-menubar>
-            <plank-menubar-menu>
-              <plank-menubar-trigger>Actions</plank-menubar-trigger>
-              <plank-menubar-content>
-                <plank-menubar-item>Edit</plank-menubar-item>
-                <plank-menubar-item disabled>Delete</plank-menubar-item>
-                <plank-menubar-item>Duplicate</plank-menubar-item>
-              </plank-menubar-content>
-            </plank-menubar-menu>
-          </plank-menubar>
+          <hal-menubar>
+            <hal-menubar-menu>
+              <hal-menubar-trigger>Actions</hal-menubar-trigger>
+              <hal-menubar-content>
+                <hal-menubar-item>Edit</hal-menubar-item>
+                <hal-menubar-item disabled>Delete</hal-menubar-item>
+                <hal-menubar-item>Duplicate</hal-menubar-item>
+              </hal-menubar-content>
+            </hal-menubar-menu>
+          </hal-menubar>
         </div>
-        <pre><code>&lt;plank-menubar-item disabled&gt;Delete&lt;/plank-menubar-item&gt;</code></pre>
+        <pre><code>&lt;hal-menubar-item disabled&gt;Delete&lt;/hal-menubar-item&gt;</code></pre>
       </section>
 
       <!-- API -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">API</h2>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-menubar</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-menubar</h3>
         <p class="text-muted-foreground mb-4">
           The root container for the menubar. Has role="menubar".
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-menubar-menu</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-menubar-menu</h3>
         <p class="text-muted-foreground mb-4">
           Container for a single menu within the menubar.
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-menubar-trigger</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-menubar-trigger</h3>
         <p class="text-muted-foreground mb-4">
           The button that opens the menu. Has role="menuitem".
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-menubar-content</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-menubar-content</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -252,7 +250,7 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-menubar-item</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-menubar-item</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -295,7 +293,7 @@
         </div>
 
         <h3 class="text-xl font-semibold mt-6 mb-4">
-          plank-menubar-checkbox-item
+          hal-menubar-checkbox-item
         </h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">

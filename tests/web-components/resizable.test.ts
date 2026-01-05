@@ -1,12 +1,12 @@
 import { describe, it, expect, beforeEach } from "vitest"
-import "../../src/web-components/plank-resizable"
+import "../../src/web-components/hal-resizable"
 import type {
-  PlankResizablePanelGroup,
-  PlankResizablePanel,
-  PlankResizableHandle,
-} from "../../src/web-components/plank-resizable"
+  HalResizablePanelGroup,
+  HalResizablePanel,
+  HalResizableHandle,
+} from "../../src/web-components/hal-resizable"
 
-describe("plank-resizable-panel-group", () => {
+describe("hal-resizable-panel-group", () => {
   let container: HTMLElement
 
   beforeEach(() => {
@@ -21,20 +21,20 @@ describe("plank-resizable-panel-group", () => {
 
   it("renders with default direction (horizontal)", async () => {
     container.innerHTML = `
-      <plank-resizable-panel-group>
-        <plank-resizable-panel default-size="50">
+      <hal-resizable-panel-group>
+        <hal-resizable-panel default-size="50">
           <div>Panel 1</div>
-        </plank-resizable-panel>
-        <plank-resizable-handle></plank-resizable-handle>
-        <plank-resizable-panel default-size="50">
+        </hal-resizable-panel>
+        <hal-resizable-handle></hal-resizable-handle>
+        <hal-resizable-panel default-size="50">
           <div>Panel 2</div>
-        </plank-resizable-panel>
-      </plank-resizable-panel-group>
+        </hal-resizable-panel>
+      </hal-resizable-panel-group>
     `
-    await customElements.whenDefined("plank-resizable-panel-group")
+    await customElements.whenDefined("hal-resizable-panel-group")
     const group = container.querySelector(
-      "plank-resizable-panel-group"
-    ) as PlankResizablePanelGroup
+      "hal-resizable-panel-group"
+    ) as HalResizablePanelGroup
     await group.updateComplete
 
     expect(group.direction).toBe("horizontal")
@@ -44,20 +44,20 @@ describe("plank-resizable-panel-group", () => {
 
   it("renders with vertical direction", async () => {
     container.innerHTML = `
-      <plank-resizable-panel-group direction="vertical">
-        <plank-resizable-panel default-size="50">
+      <hal-resizable-panel-group direction="vertical">
+        <hal-resizable-panel default-size="50">
           <div>Panel 1</div>
-        </plank-resizable-panel>
-        <plank-resizable-handle></plank-resizable-handle>
-        <plank-resizable-panel default-size="50">
+        </hal-resizable-panel>
+        <hal-resizable-handle></hal-resizable-handle>
+        <hal-resizable-panel default-size="50">
           <div>Panel 2</div>
-        </plank-resizable-panel>
-      </plank-resizable-panel-group>
+        </hal-resizable-panel>
+      </hal-resizable-panel-group>
     `
-    await customElements.whenDefined("plank-resizable-panel-group")
+    await customElements.whenDefined("hal-resizable-panel-group")
     const group = container.querySelector(
-      "plank-resizable-panel-group"
-    ) as PlankResizablePanelGroup
+      "hal-resizable-panel-group"
+    ) as HalResizablePanelGroup
     await group.updateComplete
 
     expect(group.direction).toBe("vertical")
@@ -67,78 +67,78 @@ describe("plank-resizable-panel-group", () => {
 
   it("sets initial panel sizes from default-size", async () => {
     container.innerHTML = `
-      <plank-resizable-panel-group>
-        <plank-resizable-panel default-size="30">
+      <hal-resizable-panel-group>
+        <hal-resizable-panel default-size="30">
           <div>Panel 1</div>
-        </plank-resizable-panel>
-        <plank-resizable-handle></plank-resizable-handle>
-        <plank-resizable-panel default-size="70">
+        </hal-resizable-panel>
+        <hal-resizable-handle></hal-resizable-handle>
+        <hal-resizable-panel default-size="70">
           <div>Panel 2</div>
-        </plank-resizable-panel>
-      </plank-resizable-panel-group>
+        </hal-resizable-panel>
+      </hal-resizable-panel-group>
     `
-    await customElements.whenDefined("plank-resizable-panel-group")
+    await customElements.whenDefined("hal-resizable-panel-group")
     const group = container.querySelector(
-      "plank-resizable-panel-group"
-    ) as PlankResizablePanelGroup
+      "hal-resizable-panel-group"
+    ) as HalResizablePanelGroup
     await group.updateComplete
 
     // Wait for layout
     await new Promise((resolve) => requestAnimationFrame(resolve))
 
-    const panels = container.querySelectorAll("plank-resizable-panel")
-    expect((panels[0] as PlankResizablePanel)._size).toBe(30)
-    expect((panels[1] as PlankResizablePanel)._size).toBe(70)
+    const panels = container.querySelectorAll("hal-resizable-panel")
+    expect((panels[0] as HalResizablePanel)._size).toBe(30)
+    expect((panels[1] as HalResizablePanel)._size).toBe(70)
   })
 
   it("distributes remaining size to panels without default-size", async () => {
     container.innerHTML = `
-      <plank-resizable-panel-group>
-        <plank-resizable-panel default-size="50">
+      <hal-resizable-panel-group>
+        <hal-resizable-panel default-size="50">
           <div>Panel 1</div>
-        </plank-resizable-panel>
-        <plank-resizable-handle></plank-resizable-handle>
-        <plank-resizable-panel>
+        </hal-resizable-panel>
+        <hal-resizable-handle></hal-resizable-handle>
+        <hal-resizable-panel>
           <div>Panel 2</div>
-        </plank-resizable-panel>
-      </plank-resizable-panel-group>
+        </hal-resizable-panel>
+      </hal-resizable-panel-group>
     `
-    await customElements.whenDefined("plank-resizable-panel-group")
+    await customElements.whenDefined("hal-resizable-panel-group")
     const group = container.querySelector(
-      "plank-resizable-panel-group"
-    ) as PlankResizablePanelGroup
+      "hal-resizable-panel-group"
+    ) as HalResizablePanelGroup
     await group.updateComplete
 
     await new Promise((resolve) => requestAnimationFrame(resolve))
 
-    const panels = container.querySelectorAll("plank-resizable-panel")
-    expect((panels[0] as PlankResizablePanel)._size).toBe(50)
-    expect((panels[1] as PlankResizablePanel)._size).toBe(50)
+    const panels = container.querySelectorAll("hal-resizable-panel")
+    expect((panels[0] as HalResizablePanel)._size).toBe(50)
+    expect((panels[1] as HalResizablePanel)._size).toBe(50)
   })
 
   it("has correct data-slot attribute", async () => {
     container.innerHTML = `
-      <plank-resizable-panel-group>
-        <plank-resizable-panel default-size="50">
+      <hal-resizable-panel-group>
+        <hal-resizable-panel default-size="50">
           <div>Panel 1</div>
-        </plank-resizable-panel>
-        <plank-resizable-handle></plank-resizable-handle>
-        <plank-resizable-panel default-size="50">
+        </hal-resizable-panel>
+        <hal-resizable-handle></hal-resizable-handle>
+        <hal-resizable-panel default-size="50">
           <div>Panel 2</div>
-        </plank-resizable-panel>
-      </plank-resizable-panel-group>
+        </hal-resizable-panel>
+      </hal-resizable-panel-group>
     `
-    await customElements.whenDefined("plank-resizable-panel-group")
+    await customElements.whenDefined("hal-resizable-panel-group")
     const group = container.querySelector(
-      "plank-resizable-panel-group"
-    ) as PlankResizablePanelGroup
+      "hal-resizable-panel-group"
+    ) as HalResizablePanelGroup
     await group.updateComplete
 
     expect(group.dataset.slot).toBe("resizable-panel-group")
   })
 })
 
-describe("plank-resizable-panel", () => {
+describe("hal-resizable-panel", () => {
   let container: HTMLElement
 
   beforeEach(() => {
@@ -153,16 +153,16 @@ describe("plank-resizable-panel", () => {
 
   it("renders with data-slot attribute", async () => {
     container.innerHTML = `
-      <plank-resizable-panel-group>
-        <plank-resizable-panel default-size="100">
+      <hal-resizable-panel-group>
+        <hal-resizable-panel default-size="100">
           <div>Panel</div>
-        </plank-resizable-panel>
-      </plank-resizable-panel-group>
+        </hal-resizable-panel>
+      </hal-resizable-panel-group>
     `
-    await customElements.whenDefined("plank-resizable-panel")
+    await customElements.whenDefined("hal-resizable-panel")
     const panel = container.querySelector(
-      "plank-resizable-panel"
-    ) as PlankResizablePanel
+      "hal-resizable-panel"
+    ) as HalResizablePanel
     await panel.updateComplete
 
     expect(panel.dataset.slot).toBe("resizable-panel")
@@ -170,20 +170,20 @@ describe("plank-resizable-panel", () => {
 
   it("respects min-size constraint", async () => {
     container.innerHTML = `
-      <plank-resizable-panel-group>
-        <plank-resizable-panel default-size="50" min-size="30">
+      <hal-resizable-panel-group>
+        <hal-resizable-panel default-size="50" min-size="30">
           <div>Panel 1</div>
-        </plank-resizable-panel>
-        <plank-resizable-handle></plank-resizable-handle>
-        <plank-resizable-panel default-size="50">
+        </hal-resizable-panel>
+        <hal-resizable-handle></hal-resizable-handle>
+        <hal-resizable-panel default-size="50">
           <div>Panel 2</div>
-        </plank-resizable-panel>
-      </plank-resizable-panel-group>
+        </hal-resizable-panel>
+      </hal-resizable-panel-group>
     `
-    await customElements.whenDefined("plank-resizable-panel")
+    await customElements.whenDefined("hal-resizable-panel")
     const panel = container.querySelector(
-      "plank-resizable-panel"
-    ) as PlankResizablePanel
+      "hal-resizable-panel"
+    ) as HalResizablePanel
     await panel.updateComplete
 
     expect(panel.minSize).toBe(30)
@@ -191,27 +191,27 @@ describe("plank-resizable-panel", () => {
 
   it("respects max-size constraint", async () => {
     container.innerHTML = `
-      <plank-resizable-panel-group>
-        <plank-resizable-panel default-size="50" max-size="80">
+      <hal-resizable-panel-group>
+        <hal-resizable-panel default-size="50" max-size="80">
           <div>Panel 1</div>
-        </plank-resizable-panel>
-        <plank-resizable-handle></plank-resizable-handle>
-        <plank-resizable-panel default-size="50">
+        </hal-resizable-panel>
+        <hal-resizable-handle></hal-resizable-handle>
+        <hal-resizable-panel default-size="50">
           <div>Panel 2</div>
-        </plank-resizable-panel>
-      </plank-resizable-panel-group>
+        </hal-resizable-panel>
+      </hal-resizable-panel-group>
     `
-    await customElements.whenDefined("plank-resizable-panel")
+    await customElements.whenDefined("hal-resizable-panel")
     const panel = container.querySelector(
-      "plank-resizable-panel"
-    ) as PlankResizablePanel
+      "hal-resizable-panel"
+    ) as HalResizablePanel
     await panel.updateComplete
 
     expect(panel.maxSize).toBe(80)
   })
 })
 
-describe("plank-resizable-handle", () => {
+describe("hal-resizable-handle", () => {
   let container: HTMLElement
 
   beforeEach(() => {
@@ -226,20 +226,20 @@ describe("plank-resizable-handle", () => {
 
   it("renders with data-slot attribute", async () => {
     container.innerHTML = `
-      <plank-resizable-panel-group>
-        <plank-resizable-panel default-size="50">
+      <hal-resizable-panel-group>
+        <hal-resizable-panel default-size="50">
           <div>Panel 1</div>
-        </plank-resizable-panel>
-        <plank-resizable-handle></plank-resizable-handle>
-        <plank-resizable-panel default-size="50">
+        </hal-resizable-panel>
+        <hal-resizable-handle></hal-resizable-handle>
+        <hal-resizable-panel default-size="50">
           <div>Panel 2</div>
-        </plank-resizable-panel>
-      </plank-resizable-panel-group>
+        </hal-resizable-panel>
+      </hal-resizable-panel-group>
     `
-    await customElements.whenDefined("plank-resizable-handle")
+    await customElements.whenDefined("hal-resizable-handle")
     const handle = container.querySelector(
-      "plank-resizable-handle"
-    ) as PlankResizableHandle
+      "hal-resizable-handle"
+    ) as HalResizableHandle
     await handle.updateComplete
 
     expect(handle.dataset.slot).toBe("resizable-handle")
@@ -247,20 +247,20 @@ describe("plank-resizable-handle", () => {
 
   it("renders with grip icon when with-handle is set", async () => {
     container.innerHTML = `
-      <plank-resizable-panel-group>
-        <plank-resizable-panel default-size="50">
+      <hal-resizable-panel-group>
+        <hal-resizable-panel default-size="50">
           <div>Panel 1</div>
-        </plank-resizable-panel>
-        <plank-resizable-handle with-handle></plank-resizable-handle>
-        <plank-resizable-panel default-size="50">
+        </hal-resizable-panel>
+        <hal-resizable-handle with-handle></hal-resizable-handle>
+        <hal-resizable-panel default-size="50">
           <div>Panel 2</div>
-        </plank-resizable-panel>
-      </plank-resizable-panel-group>
+        </hal-resizable-panel>
+      </hal-resizable-panel-group>
     `
-    await customElements.whenDefined("plank-resizable-handle")
+    await customElements.whenDefined("hal-resizable-handle")
     const handle = container.querySelector(
-      "plank-resizable-handle"
-    ) as PlankResizableHandle
+      "hal-resizable-handle"
+    ) as HalResizableHandle
     await handle.updateComplete
 
     const svg = handle.querySelector("svg")
@@ -269,20 +269,20 @@ describe("plank-resizable-handle", () => {
 
   it("does not render grip icon without with-handle", async () => {
     container.innerHTML = `
-      <plank-resizable-panel-group>
-        <plank-resizable-panel default-size="50">
+      <hal-resizable-panel-group>
+        <hal-resizable-panel default-size="50">
           <div>Panel 1</div>
-        </plank-resizable-panel>
-        <plank-resizable-handle></plank-resizable-handle>
-        <plank-resizable-panel default-size="50">
+        </hal-resizable-panel>
+        <hal-resizable-handle></hal-resizable-handle>
+        <hal-resizable-panel default-size="50">
           <div>Panel 2</div>
-        </plank-resizable-panel>
-      </plank-resizable-panel-group>
+        </hal-resizable-panel>
+      </hal-resizable-panel-group>
     `
-    await customElements.whenDefined("plank-resizable-handle")
+    await customElements.whenDefined("hal-resizable-handle")
     const handle = container.querySelector(
-      "plank-resizable-handle"
-    ) as PlankResizableHandle
+      "hal-resizable-handle"
+    ) as HalResizableHandle
     await handle.updateComplete
 
     const svg = handle.querySelector("svg")
@@ -291,20 +291,20 @@ describe("plank-resizable-handle", () => {
 
   it("has correct ARIA attributes", async () => {
     container.innerHTML = `
-      <plank-resizable-panel-group>
-        <plank-resizable-panel default-size="50">
+      <hal-resizable-panel-group>
+        <hal-resizable-panel default-size="50">
           <div>Panel 1</div>
-        </plank-resizable-panel>
-        <plank-resizable-handle></plank-resizable-handle>
-        <plank-resizable-panel default-size="50">
+        </hal-resizable-panel>
+        <hal-resizable-handle></hal-resizable-handle>
+        <hal-resizable-panel default-size="50">
           <div>Panel 2</div>
-        </plank-resizable-panel>
-      </plank-resizable-panel-group>
+        </hal-resizable-panel>
+      </hal-resizable-panel-group>
     `
-    await customElements.whenDefined("plank-resizable-handle")
+    await customElements.whenDefined("hal-resizable-handle")
     const handle = container.querySelector(
-      "plank-resizable-handle"
-    ) as PlankResizableHandle
+      "hal-resizable-handle"
+    ) as HalResizableHandle
     await handle.updateComplete
 
     expect(handle.getAttribute("role")).toBe("separator")
@@ -314,20 +314,20 @@ describe("plank-resizable-handle", () => {
 
   it("sets col-resize cursor for horizontal direction", async () => {
     container.innerHTML = `
-      <plank-resizable-panel-group direction="horizontal">
-        <plank-resizable-panel default-size="50">
+      <hal-resizable-panel-group direction="horizontal">
+        <hal-resizable-panel default-size="50">
           <div>Panel 1</div>
-        </plank-resizable-panel>
-        <plank-resizable-handle></plank-resizable-handle>
-        <plank-resizable-panel default-size="50">
+        </hal-resizable-panel>
+        <hal-resizable-handle></hal-resizable-handle>
+        <hal-resizable-panel default-size="50">
           <div>Panel 2</div>
-        </plank-resizable-panel>
-      </plank-resizable-panel-group>
+        </hal-resizable-panel>
+      </hal-resizable-panel-group>
     `
-    await customElements.whenDefined("plank-resizable-handle")
+    await customElements.whenDefined("hal-resizable-handle")
     const handle = container.querySelector(
-      "plank-resizable-handle"
-    ) as PlankResizableHandle
+      "hal-resizable-handle"
+    ) as HalResizableHandle
     await handle.updateComplete
 
     expect(handle.classList.contains("cursor-col-resize")).toBe(true)
@@ -335,27 +335,27 @@ describe("plank-resizable-handle", () => {
 
   it("sets row-resize cursor for vertical direction", async () => {
     container.innerHTML = `
-      <plank-resizable-panel-group direction="vertical">
-        <plank-resizable-panel default-size="50">
+      <hal-resizable-panel-group direction="vertical">
+        <hal-resizable-panel default-size="50">
           <div>Panel 1</div>
-        </plank-resizable-panel>
-        <plank-resizable-handle></plank-resizable-handle>
-        <plank-resizable-panel default-size="50">
+        </hal-resizable-panel>
+        <hal-resizable-handle></hal-resizable-handle>
+        <hal-resizable-panel default-size="50">
           <div>Panel 2</div>
-        </plank-resizable-panel>
-      </plank-resizable-panel-group>
+        </hal-resizable-panel>
+      </hal-resizable-panel-group>
     `
-    await customElements.whenDefined("plank-resizable-handle")
+    await customElements.whenDefined("hal-resizable-handle")
     const handle = container.querySelector(
-      "plank-resizable-handle"
-    ) as PlankResizableHandle
+      "hal-resizable-handle"
+    ) as HalResizableHandle
     await handle.updateComplete
 
     expect(handle.classList.contains("cursor-row-resize")).toBe(true)
   })
 })
 
-describe("plank-resizable - nested groups", () => {
+describe("hal-resizable - nested groups", () => {
   let container: HTMLElement
 
   beforeEach(() => {
@@ -370,29 +370,29 @@ describe("plank-resizable - nested groups", () => {
 
   it("supports nested panel groups", async () => {
     container.innerHTML = `
-      <plank-resizable-panel-group direction="horizontal">
-        <plank-resizable-panel default-size="50">
+      <hal-resizable-panel-group direction="horizontal">
+        <hal-resizable-panel default-size="50">
           <div>Panel 1</div>
-        </plank-resizable-panel>
-        <plank-resizable-handle></plank-resizable-handle>
-        <plank-resizable-panel default-size="50">
-          <plank-resizable-panel-group direction="vertical">
-            <plank-resizable-panel default-size="50">
+        </hal-resizable-panel>
+        <hal-resizable-handle></hal-resizable-handle>
+        <hal-resizable-panel default-size="50">
+          <hal-resizable-panel-group direction="vertical">
+            <hal-resizable-panel default-size="50">
               <div>Panel 2a</div>
-            </plank-resizable-panel>
-            <plank-resizable-handle></plank-resizable-handle>
-            <plank-resizable-panel default-size="50">
+            </hal-resizable-panel>
+            <hal-resizable-handle></hal-resizable-handle>
+            <hal-resizable-panel default-size="50">
               <div>Panel 2b</div>
-            </plank-resizable-panel>
-          </plank-resizable-panel-group>
-        </plank-resizable-panel>
-      </plank-resizable-panel-group>
+            </hal-resizable-panel>
+          </hal-resizable-panel-group>
+        </hal-resizable-panel>
+      </hal-resizable-panel-group>
     `
-    await customElements.whenDefined("plank-resizable-panel-group")
+    await customElements.whenDefined("hal-resizable-panel-group")
 
-    const groups = container.querySelectorAll("plank-resizable-panel-group")
+    const groups = container.querySelectorAll("hal-resizable-panel-group")
     expect(groups.length).toBe(2)
-    expect((groups[0] as PlankResizablePanelGroup).direction).toBe("horizontal")
-    expect((groups[1] as PlankResizablePanelGroup).direction).toBe("vertical")
+    expect((groups[0] as HalResizablePanelGroup).direction).toBe("horizontal")
+    expect((groups[1] as HalResizablePanelGroup).direction).toBe("vertical")
   })
 })

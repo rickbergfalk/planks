@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach, afterEach } from "vitest"
 import { page } from "vitest/browser"
-import "@/web-components/plank-alert-dialog"
-import "@/web-components/plank-button"
+import "@/web-components/hal-alert-dialog"
+import "@/web-components/hal-button"
 
 describe("AlertDialog (Web Component) - Visual", () => {
   let container: HTMLDivElement
@@ -31,26 +31,26 @@ describe("AlertDialog (Web Component) - Visual", () => {
   it("alert dialog with confirmation", async () => {
     container.innerHTML = `
       <div data-testid="container" style="width: 800px; height: 600px; position: relative;">
-        <plank-alert-dialog open>
-          <plank-alert-dialog-content>
-            <plank-alert-dialog-header>
-              <plank-alert-dialog-title>Are you absolutely sure?</plank-alert-dialog-title>
-              <plank-alert-dialog-description>
+        <hal-alert-dialog open>
+          <hal-alert-dialog-content>
+            <hal-alert-dialog-header>
+              <hal-alert-dialog-title>Are you absolutely sure?</hal-alert-dialog-title>
+              <hal-alert-dialog-description>
                 This action cannot be undone. This will permanently delete your
                 account and remove your data from our servers.
-              </plank-alert-dialog-description>
-            </plank-alert-dialog-header>
-            <plank-alert-dialog-footer>
-              <plank-alert-dialog-cancel>Cancel</plank-alert-dialog-cancel>
-              <plank-alert-dialog-action>Continue</plank-alert-dialog-action>
-            </plank-alert-dialog-footer>
-          </plank-alert-dialog-content>
-        </plank-alert-dialog>
+              </hal-alert-dialog-description>
+            </hal-alert-dialog-header>
+            <hal-alert-dialog-footer>
+              <hal-alert-dialog-cancel>Cancel</hal-alert-dialog-cancel>
+              <hal-alert-dialog-action>Continue</hal-alert-dialog-action>
+            </hal-alert-dialog-footer>
+          </hal-alert-dialog-content>
+        </hal-alert-dialog>
       </div>
     `
 
-    await customElements.whenDefined("plank-alert-dialog")
-    const alertDialog = container.querySelector("plank-alert-dialog")!
+    await customElements.whenDefined("hal-alert-dialog")
+    const alertDialog = container.querySelector("hal-alert-dialog")!
     await (alertDialog as any).updateComplete
     await new Promise((r) => setTimeout(r, 100))
 
@@ -62,25 +62,25 @@ describe("AlertDialog (Web Component) - Visual", () => {
   it("alert dialog simple", async () => {
     container.innerHTML = `
       <div data-testid="container" style="width: 800px; height: 400px; position: relative;">
-        <plank-alert-dialog open>
-          <plank-alert-dialog-content>
-            <plank-alert-dialog-header>
-              <plank-alert-dialog-title>Delete Item</plank-alert-dialog-title>
-              <plank-alert-dialog-description>
+        <hal-alert-dialog open>
+          <hal-alert-dialog-content>
+            <hal-alert-dialog-header>
+              <hal-alert-dialog-title>Delete Item</hal-alert-dialog-title>
+              <hal-alert-dialog-description>
                 Are you sure you want to delete this item?
-              </plank-alert-dialog-description>
-            </plank-alert-dialog-header>
-            <plank-alert-dialog-footer>
-              <plank-alert-dialog-cancel>No</plank-alert-dialog-cancel>
-              <plank-alert-dialog-action>Yes</plank-alert-dialog-action>
-            </plank-alert-dialog-footer>
-          </plank-alert-dialog-content>
-        </plank-alert-dialog>
+              </hal-alert-dialog-description>
+            </hal-alert-dialog-header>
+            <hal-alert-dialog-footer>
+              <hal-alert-dialog-cancel>No</hal-alert-dialog-cancel>
+              <hal-alert-dialog-action>Yes</hal-alert-dialog-action>
+            </hal-alert-dialog-footer>
+          </hal-alert-dialog-content>
+        </hal-alert-dialog>
       </div>
     `
 
-    await customElements.whenDefined("plank-alert-dialog")
-    const alertDialog = container.querySelector("plank-alert-dialog")!
+    await customElements.whenDefined("hal-alert-dialog")
+    const alertDialog = container.querySelector("hal-alert-dialog")!
     await (alertDialog as any).updateComplete
     await new Promise((r) => setTimeout(r, 100))
 

@@ -1,10 +1,10 @@
 import { describe, it, expect, beforeEach, afterEach } from "vitest"
 import { page } from "vitest/browser"
-import "@/web-components/plank-hover-card"
-import "@/web-components/plank-button"
-import "@/web-components/plank-avatar"
+import "@/web-components/hal-hover-card"
+import "@/web-components/hal-button"
+import "@/web-components/hal-avatar"
 
-describe("plank-hover-card - Visual", () => {
+describe("hal-hover-card - Visual", () => {
   let container: HTMLDivElement
 
   beforeEach(() => {
@@ -28,15 +28,15 @@ describe("plank-hover-card - Visual", () => {
         data-testid="container"
         style="padding: 60px; display: flex; justify-content: center; align-items: flex-start;"
       >
-        <plank-hover-card open>
-          <plank-hover-card-trigger>
-            <plank-button variant="link">@nextjs</plank-button>
-          </plank-hover-card-trigger>
-          <plank-hover-card-content>
+        <hal-hover-card open>
+          <hal-hover-card-trigger>
+            <hal-button variant="link">@nextjs</hal-button>
+          </hal-hover-card-trigger>
+          <hal-hover-card-content>
             <div class="flex justify-between gap-4">
-              <plank-avatar>
-                <plank-avatar-fallback>VC</plank-avatar-fallback>
-              </plank-avatar>
+              <hal-avatar>
+                <hal-avatar-fallback>VC</hal-avatar-fallback>
+              </hal-avatar>
               <div class="space-y-1">
                 <h4 class="text-sm font-semibold">@nextjs</h4>
                 <p class="text-sm">
@@ -47,13 +47,13 @@ describe("plank-hover-card - Visual", () => {
                 </div>
               </div>
             </div>
-          </plank-hover-card-content>
-        </plank-hover-card>
+          </hal-hover-card-content>
+        </hal-hover-card>
       </div>
     `
 
-    await customElements.whenDefined("plank-hover-card")
-    const hoverCard = container.querySelector("plank-hover-card")!
+    await customElements.whenDefined("hal-hover-card")
+    const hoverCard = container.querySelector("hal-hover-card")!
     await (hoverCard as any).updateComplete
     await new Promise((r) => setTimeout(r, 100))
 
@@ -68,22 +68,22 @@ describe("plank-hover-card - Visual", () => {
         data-testid="container"
         style="padding: 80px 120px; display: flex; justify-content: center; align-items: flex-start;"
       >
-        <plank-hover-card open>
-          <plank-hover-card-trigger>
-            <plank-button variant="link">@nextjs</plank-button>
-          </plank-hover-card-trigger>
-          <plank-hover-card-content align="start">
+        <hal-hover-card open>
+          <hal-hover-card-trigger>
+            <hal-button variant="link">@nextjs</hal-button>
+          </hal-hover-card-trigger>
+          <hal-hover-card-content align="start">
             <div class="space-y-1">
               <h4 class="text-sm font-semibold">@nextjs</h4>
               <p class="text-sm">The React Framework</p>
             </div>
-          </plank-hover-card-content>
-        </plank-hover-card>
+          </hal-hover-card-content>
+        </hal-hover-card>
       </div>
     `
 
-    await customElements.whenDefined("plank-hover-card")
-    const hoverCard = container.querySelector("plank-hover-card")!
+    await customElements.whenDefined("hal-hover-card")
+    const hoverCard = container.querySelector("hal-hover-card")!
     await (hoverCard as any).updateComplete
     await new Promise((r) => setTimeout(r, 100))
 
@@ -98,15 +98,15 @@ describe("plank-hover-card - Visual", () => {
         data-testid="container"
         style="padding: 60px; display: flex; justify-content: center; align-items: flex-start;"
       >
-        <plank-hover-card open>
-          <plank-hover-card-trigger>
-            <plank-button variant="link">@nextjs</plank-button>
-          </plank-hover-card-trigger>
-          <plank-hover-card-content class="w-80">
+        <hal-hover-card open>
+          <hal-hover-card-trigger>
+            <hal-button variant="link">@nextjs</hal-button>
+          </hal-hover-card-trigger>
+          <hal-hover-card-content class="w-80">
             <div class="flex justify-between gap-4">
-              <plank-avatar>
-                <plank-avatar-fallback>VC</plank-avatar-fallback>
-              </plank-avatar>
+              <hal-avatar>
+                <hal-avatar-fallback>VC</hal-avatar-fallback>
+              </hal-avatar>
               <div class="space-y-1">
                 <h4 class="text-sm font-semibold">@nextjs</h4>
                 <p class="text-sm">
@@ -117,13 +117,13 @@ describe("plank-hover-card - Visual", () => {
                 </div>
               </div>
             </div>
-          </plank-hover-card-content>
-        </plank-hover-card>
+          </hal-hover-card-content>
+        </hal-hover-card>
       </div>
     `
 
-    await customElements.whenDefined("plank-hover-card")
-    const hoverCard = container.querySelector("plank-hover-card")!
+    await customElements.whenDefined("hal-hover-card")
+    const hoverCard = container.querySelector("hal-hover-card")!
     await (hoverCard as any).updateComplete
     await new Promise((r) => setTimeout(r, 100))
 

@@ -1,11 +1,11 @@
 import { describe, it, expect, beforeEach, afterEach } from "vitest"
-import "@/web-components/plank-textarea"
-import type { PlankTextarea } from "@/web-components/plank-textarea"
+import "@/web-components/hal-textarea"
+import type { HalTextarea } from "@/web-components/hal-textarea"
 
 // Helper to wait for next animation frame (label association is deferred)
 const nextFrame = () => new Promise((r) => requestAnimationFrame(r))
 
-describe("PlankTextarea (Web Component)", () => {
+describe("HalTextarea (Web Component)", () => {
   let container: HTMLDivElement
 
   beforeEach(() => {
@@ -17,29 +17,29 @@ describe("PlankTextarea (Web Component)", () => {
     container.remove()
   })
 
-  async function renderAndWait(html: string): Promise<PlankTextarea> {
+  async function renderAndWait(html: string): Promise<HalTextarea> {
     container.innerHTML = html
-    await customElements.whenDefined("plank-textarea")
-    const textarea = container.querySelector("plank-textarea") as PlankTextarea
+    await customElements.whenDefined("hal-textarea")
+    const textarea = container.querySelector("hal-textarea") as HalTextarea
     await textarea.updateComplete
     return textarea
   }
 
   it("renders with data-slot attribute", async () => {
-    const textareaEl = await renderAndWait(`<plank-textarea></plank-textarea>`)
+    const textareaEl = await renderAndWait(`<hal-textarea></hal-textarea>`)
     expect(textareaEl).toBeDefined()
     expect(textareaEl.dataset.slot).toBe("textarea")
   })
 
   it("contains a native textarea element", async () => {
-    const textareaEl = await renderAndWait(`<plank-textarea></plank-textarea>`)
+    const textareaEl = await renderAndWait(`<hal-textarea></hal-textarea>`)
     const nativeTextarea = textareaEl.querySelector("textarea")
     expect(nativeTextarea).toBeDefined()
   })
 
   it("supports placeholder", async () => {
     const textareaEl = await renderAndWait(
-      `<plank-textarea placeholder="Enter message"></plank-textarea>`
+      `<hal-textarea placeholder="Enter message"></hal-textarea>`
     )
     const nativeTextarea = textareaEl.querySelector(
       "textarea"
@@ -49,7 +49,7 @@ describe("PlankTextarea (Web Component)", () => {
 
   it("can be disabled", async () => {
     const textareaEl = await renderAndWait(
-      `<plank-textarea disabled></plank-textarea>`
+      `<hal-textarea disabled></hal-textarea>`
     )
     const nativeTextarea = textareaEl.querySelector(
       "textarea"
@@ -59,7 +59,7 @@ describe("PlankTextarea (Web Component)", () => {
 
   it("supports rows attribute", async () => {
     const textareaEl = await renderAndWait(
-      `<plank-textarea rows="5"></plank-textarea>`
+      `<hal-textarea rows="5"></hal-textarea>`
     )
     const nativeTextarea = textareaEl.querySelector(
       "textarea"
@@ -68,7 +68,7 @@ describe("PlankTextarea (Web Component)", () => {
   })
 
   it("supports value property", async () => {
-    const textareaEl = await renderAndWait(`<plank-textarea></plank-textarea>`)
+    const textareaEl = await renderAndWait(`<hal-textarea></hal-textarea>`)
     textareaEl.value = "test value"
     await textareaEl.updateComplete
     const nativeTextarea = textareaEl.querySelector(
@@ -80,12 +80,10 @@ describe("PlankTextarea (Web Component)", () => {
   it("focuses textarea when associated label is clicked", async () => {
     container.innerHTML = `
       <label for="test-textarea">Label</label>
-      <plank-textarea id="test-textarea"></plank-textarea>
+      <hal-textarea id="test-textarea"></hal-textarea>
     `
-    await customElements.whenDefined("plank-textarea")
-    const textareaEl = container.querySelector(
-      "plank-textarea"
-    ) as PlankTextarea
+    await customElements.whenDefined("hal-textarea")
+    const textareaEl = container.querySelector("hal-textarea") as HalTextarea
     await textareaEl.updateComplete
     await nextFrame() // Wait for label association to be set up
 

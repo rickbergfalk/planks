@@ -177,40 +177,38 @@ export class DocsLayout extends LitElement {
     const isComponentPage = window.location.pathname.includes("/components/")
 
     return html`
-      <plank-sidebar-provider default-open>
-        <plank-sidebar collapsible="offcanvas">
-          <plank-sidebar-header
-            class="!flex-row h-14 items-center border-b px-4"
-          >
+      <hal-sidebar-provider default-open>
+        <hal-sidebar collapsible="offcanvas">
+          <hal-sidebar-header class="!flex-row h-14 items-center border-b px-4">
             <a
               href="${isComponentPage ? "../index.html" : "index.html"}"
               class="text-xl font-bold hover:text-foreground"
             >
-              Planks
+              hallucn
             </a>
-          </plank-sidebar-header>
+          </hal-sidebar-header>
 
-          <plank-sidebar-content>
+          <hal-sidebar-content>
             ${NAV_GROUPS.map(
               (group) => html`
-                <plank-sidebar-group>
-                  <plank-sidebar-group-label
-                    >${group.label}</plank-sidebar-group-label
+                <hal-sidebar-group>
+                  <hal-sidebar-group-label
+                    >${group.label}</hal-sidebar-group-label
                   >
-                  <plank-sidebar-group-content>
-                    <plank-sidebar-menu>
+                  <hal-sidebar-group-content>
+                    <hal-sidebar-menu>
                       ${group.items.map((item) => {
                         const href = this._getHref(item.href)
                         const isActive = this._isActive(item.href)
                         return html`
-                          <plank-sidebar-menu-item>
+                          <hal-sidebar-menu-item>
                             <a
                               href="${href}"
                               class="block w-full"
                               @click=${() => {
                                 // Close mobile sidebar on navigation
                                 const provider = this.closest(
-                                  "plank-sidebar-provider"
+                                  "hal-sidebar-provider"
                                 ) as HTMLElement & {
                                   isMobile?: boolean
                                   setOpenMobile?: (v: boolean) => void
@@ -220,21 +218,21 @@ export class DocsLayout extends LitElement {
                                 }
                               }}
                             >
-                              <plank-sidebar-menu-button ?active=${isActive}>
+                              <hal-sidebar-menu-button ?active=${isActive}>
                                 <span>${item.name}</span>
-                              </plank-sidebar-menu-button>
+                              </hal-sidebar-menu-button>
                             </a>
-                          </plank-sidebar-menu-item>
+                          </hal-sidebar-menu-item>
                         `
                       })}
-                    </plank-sidebar-menu>
-                  </plank-sidebar-group-content>
-                </plank-sidebar-group>
+                    </hal-sidebar-menu>
+                  </hal-sidebar-group-content>
+                </hal-sidebar-group>
               `
             )}
-          </plank-sidebar-content>
+          </hal-sidebar-content>
 
-          <plank-sidebar-footer class="border-t px-4 py-4">
+          <hal-sidebar-footer class="border-t px-4 py-4">
             <a
               href="https://github.com/rickbergfalk/planks"
               class="text-sm text-muted-foreground hover:text-foreground"
@@ -243,21 +241,21 @@ export class DocsLayout extends LitElement {
             >
               GitHub
             </a>
-          </plank-sidebar-footer>
-        </plank-sidebar>
+          </hal-sidebar-footer>
+        </hal-sidebar>
 
-        <plank-sidebar-inset>
+        <hal-sidebar-inset>
           <!-- Header with hamburger for mobile -->
           <header
             class="flex h-14 shrink-0 items-center gap-2 border-b px-4 md:px-6"
           >
-            <plank-sidebar-trigger class="md:hidden"></plank-sidebar-trigger>
+            <hal-sidebar-trigger class="md:hidden"></hal-sidebar-trigger>
             <div class="flex items-center gap-2 text-sm">
               <a
                 href="${isComponentPage ? "../index.html" : "index.html"}"
                 class="text-muted-foreground hover:text-foreground"
               >
-                Planks
+                hallucn
               </a>
               <span class="text-muted-foreground">/</span>
               <span class="font-medium">${title}</span>
@@ -266,8 +264,8 @@ export class DocsLayout extends LitElement {
 
           <!-- Main content area with slot for children -->
           <main class="flex-1 px-4 py-8 md:px-6 lg:px-8 max-w-4xl"></main>
-        </plank-sidebar-inset>
-      </plank-sidebar-provider>
+        </hal-sidebar-inset>
+      </hal-sidebar-provider>
     `
   }
 
@@ -294,12 +292,12 @@ export class DocsLayout extends LitElement {
     await new Promise((resolve) => requestAnimationFrame(resolve))
 
     const sidebarContent = this.querySelector(
-      "plank-sidebar-content"
+      "hal-sidebar-content"
     ) as HTMLElement
     if (!sidebarContent) return
 
     const activeButton = sidebarContent.querySelector(
-      "plank-sidebar-menu-button[active]"
+      "hal-sidebar-menu-button[active]"
     ) as HTMLElement
 
     // Check for saved scroll position first

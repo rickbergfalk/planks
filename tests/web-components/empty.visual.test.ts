@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from "vitest"
 import { page } from "vitest/browser"
-import "@/web-components/plank-empty"
-import type { PlankEmpty } from "@/web-components/plank-empty"
+import "@/web-components/hal-empty"
+import type { HalEmpty } from "@/web-components/hal-empty"
 
 // Simple SVG icons for tests (same as React)
 const InboxIcon = `
@@ -39,13 +39,13 @@ const SearchIcon = `
 `
 
 /**
- * Visual tests for PlankEmpty web component.
+ * Visual tests for HalEmpty web component.
  *
  * These tests compare against the React component screenshots directly
  * (configured in vitest.config.ts via resolveScreenshotPath).
  * The React screenshots serve as the baseline/source of truth.
  */
-describe("PlankEmpty (Web Component) - Visual", () => {
+describe("HalEmpty (Web Component) - Visual", () => {
   let container: HTMLDivElement
 
   beforeEach(() => {
@@ -55,42 +55,42 @@ describe("PlankEmpty (Web Component) - Visual", () => {
 
   async function renderAndWait(html: string): Promise<void> {
     container.innerHTML = html
-    await customElements.whenDefined("plank-empty")
+    await customElements.whenDefined("hal-empty")
     // Wait for all empty-related elements to be defined and updated
     const emptyElements = [
-      "plank-empty",
-      "plank-empty-header",
-      "plank-empty-media",
-      "plank-empty-title",
-      "plank-empty-description",
-      "plank-empty-content",
+      "hal-empty",
+      "hal-empty-header",
+      "hal-empty-media",
+      "hal-empty-title",
+      "hal-empty-description",
+      "hal-empty-content",
     ]
     await Promise.all(
       emptyElements.map((el) => customElements.whenDefined(el).catch(() => {}))
     )
     const elements = container.querySelectorAll(
-      "plank-empty, plank-empty-header, plank-empty-media, plank-empty-title, plank-empty-description, plank-empty-content"
+      "hal-empty, hal-empty-header, hal-empty-media, hal-empty-title, hal-empty-description, hal-empty-content"
     )
     await Promise.all(
-      Array.from(elements).map((el) => (el as PlankEmpty).updateComplete)
+      Array.from(elements).map((el) => (el as HalEmpty).updateComplete)
     )
   }
 
   it("basic empty state matches React", async () => {
     await renderAndWait(`
       <div data-testid="container" style="padding: 8px; width: 500px;">
-        <plank-empty class="border">
-          <plank-empty-header>
-            <plank-empty-media variant="icon">
+        <hal-empty class="border">
+          <hal-empty-header>
+            <hal-empty-media variant="icon">
               ${InboxIcon}
-            </plank-empty-media>
-            <plank-empty-title>No messages</plank-empty-title>
-            <plank-empty-description>
+            </hal-empty-media>
+            <hal-empty-title>No messages</hal-empty-title>
+            <hal-empty-description>
               You don't have any messages yet. When you receive messages,
               they will appear here.
-            </plank-empty-description>
-          </plank-empty-header>
-        </plank-empty>
+            </hal-empty-description>
+          </hal-empty-header>
+        </hal-empty>
       </div>
     `)
     await expect(page.getByTestId("container")).toMatchScreenshot("empty-basic")
@@ -99,23 +99,23 @@ describe("PlankEmpty (Web Component) - Visual", () => {
   it("empty state with content matches React", async () => {
     await renderAndWait(`
       <div data-testid="container" style="padding: 8px; width: 500px;">
-        <plank-empty class="border">
-          <plank-empty-header>
-            <plank-empty-media variant="icon">
+        <hal-empty class="border">
+          <hal-empty-header>
+            <hal-empty-media variant="icon">
               ${SearchIcon}
-            </plank-empty-media>
-            <plank-empty-title>No results found</plank-empty-title>
-            <plank-empty-description>
+            </hal-empty-media>
+            <hal-empty-title>No results found</hal-empty-title>
+            <hal-empty-description>
               We couldn't find what you're looking for. Try adjusting
               your search or filters.
-            </plank-empty-description>
-          </plank-empty-header>
-          <plank-empty-content>
+            </hal-empty-description>
+          </hal-empty-header>
+          <hal-empty-content>
             <button class="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground">
               Clear filters
             </button>
-          </plank-empty-content>
-        </plank-empty>
+          </hal-empty-content>
+        </hal-empty>
       </div>
     `)
     await expect(page.getByTestId("container")).toMatchScreenshot(
@@ -126,17 +126,17 @@ describe("PlankEmpty (Web Component) - Visual", () => {
   it("empty state with default media variant matches React", async () => {
     await renderAndWait(`
       <div data-testid="container" style="padding: 8px; width: 500px;">
-        <plank-empty class="border">
-          <plank-empty-header>
-            <plank-empty-media>
+        <hal-empty class="border">
+          <hal-empty-header>
+            <hal-empty-media>
               ${InboxIcon}
-            </plank-empty-media>
-            <plank-empty-title>Empty inbox</plank-empty-title>
-            <plank-empty-description>
+            </hal-empty-media>
+            <hal-empty-title>Empty inbox</hal-empty-title>
+            <hal-empty-description>
               Your inbox is empty. New messages will show up here.
-            </plank-empty-description>
-          </plank-empty-header>
-        </plank-empty>
+            </hal-empty-description>
+          </hal-empty-header>
+        </hal-empty>
       </div>
     `)
     await expect(page.getByTestId("container")).toMatchScreenshot(
@@ -147,11 +147,11 @@ describe("PlankEmpty (Web Component) - Visual", () => {
   it("empty state minimal matches React", async () => {
     await renderAndWait(`
       <div data-testid="container" style="padding: 8px; width: 500px;">
-        <plank-empty class="border">
-          <plank-empty-header>
-            <plank-empty-title>Nothing here yet</plank-empty-title>
-          </plank-empty-header>
-        </plank-empty>
+        <hal-empty class="border">
+          <hal-empty-header>
+            <hal-empty-title>Nothing here yet</hal-empty-title>
+          </hal-empty-header>
+        </hal-empty>
       </div>
     `)
     await expect(page.getByTestId("container")).toMatchScreenshot(

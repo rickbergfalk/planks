@@ -1,19 +1,19 @@
 import { describe, it, expect, beforeEach, afterEach } from "vitest"
 import { page } from "vitest/browser"
-import "@/web-components/plank-input-group"
+import "@/web-components/hal-input-group"
 import type {
-  PlankInputGroup,
-  PlankInputGroupTextarea,
-} from "@/web-components/plank-input-group"
+  HalInputGroup,
+  HalInputGroupTextarea,
+} from "@/web-components/hal-input-group"
 
 /**
- * Visual tests for plank-input-group web component.
+ * Visual tests for hal-input-group web component.
  *
  * These tests compare against the React component screenshots directly
  * (configured in vitest.config.ts via resolveScreenshotPath).
  * The React screenshots serve as the baseline/source of truth.
  */
-describe("plank-input-group visual", () => {
+describe("hal-input-group visual", () => {
   let container: HTMLElement
 
   beforeEach(() => {
@@ -31,22 +31,20 @@ describe("plank-input-group visual", () => {
     container.style.padding = "20px"
     container.style.width = "300px"
     container.innerHTML = `
-      <plank-input-group>
-        <plank-input-group-addon>
+      <hal-input-group>
+        <hal-input-group-addon>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4">
             <circle cx="11" cy="11" r="8"></circle>
             <path d="m21 21-4.3-4.3"></path>
           </svg>
-        </plank-input-group-addon>
-        <plank-input-group-input placeholder="Search..."></plank-input-group-input>
-      </plank-input-group>
+        </hal-input-group-addon>
+        <hal-input-group-input placeholder="Search..."></hal-input-group-input>
+      </hal-input-group>
     `
-    await customElements.whenDefined("plank-input-group")
-    await customElements.whenDefined("plank-input-group-addon")
-    await customElements.whenDefined("plank-input-group-input")
-    const group = container.querySelector(
-      "plank-input-group"
-    )! as PlankInputGroup
+    await customElements.whenDefined("hal-input-group")
+    await customElements.whenDefined("hal-input-group-addon")
+    await customElements.whenDefined("hal-input-group-input")
+    const group = container.querySelector("hal-input-group")! as HalInputGroup
     await group.updateComplete
     await new Promise((r) => setTimeout(r, 100))
 
@@ -59,23 +57,21 @@ describe("plank-input-group visual", () => {
     container.style.padding = "20px"
     container.style.width = "300px"
     container.innerHTML = `
-      <plank-input-group>
-        <plank-input-group-addon>
-          <plank-input-group-text>$</plank-input-group-text>
-        </plank-input-group-addon>
-        <plank-input-group-input placeholder="0.00"></plank-input-group-input>
-        <plank-input-group-addon align="inline-end">
-          <plank-input-group-text>USD</plank-input-group-text>
-        </plank-input-group-addon>
-      </plank-input-group>
+      <hal-input-group>
+        <hal-input-group-addon>
+          <hal-input-group-text>$</hal-input-group-text>
+        </hal-input-group-addon>
+        <hal-input-group-input placeholder="0.00"></hal-input-group-input>
+        <hal-input-group-addon align="inline-end">
+          <hal-input-group-text>USD</hal-input-group-text>
+        </hal-input-group-addon>
+      </hal-input-group>
     `
-    await customElements.whenDefined("plank-input-group")
-    await customElements.whenDefined("plank-input-group-addon")
-    await customElements.whenDefined("plank-input-group-input")
-    await customElements.whenDefined("plank-input-group-text")
-    const group = container.querySelector(
-      "plank-input-group"
-    )! as PlankInputGroup
+    await customElements.whenDefined("hal-input-group")
+    await customElements.whenDefined("hal-input-group-addon")
+    await customElements.whenDefined("hal-input-group-input")
+    await customElements.whenDefined("hal-input-group-text")
+    const group = container.querySelector("hal-input-group")! as HalInputGroup
     await group.updateComplete
     await new Promise((r) => setTimeout(r, 100))
 
@@ -88,20 +84,18 @@ describe("plank-input-group visual", () => {
     container.style.padding = "20px"
     container.style.width = "300px"
     container.innerHTML = `
-      <plank-input-group>
-        <plank-input-group-input placeholder="Type to search..."></plank-input-group-input>
-        <plank-input-group-addon align="inline-end">
-          <plank-input-group-button variant="secondary">Search</plank-input-group-button>
-        </plank-input-group-addon>
-      </plank-input-group>
+      <hal-input-group>
+        <hal-input-group-input placeholder="Type to search..."></hal-input-group-input>
+        <hal-input-group-addon align="inline-end">
+          <hal-input-group-button variant="secondary">Search</hal-input-group-button>
+        </hal-input-group-addon>
+      </hal-input-group>
     `
-    await customElements.whenDefined("plank-input-group")
-    await customElements.whenDefined("plank-input-group-addon")
-    await customElements.whenDefined("plank-input-group-input")
-    await customElements.whenDefined("plank-input-group-button")
-    const group = container.querySelector(
-      "plank-input-group"
-    )! as PlankInputGroup
+    await customElements.whenDefined("hal-input-group")
+    await customElements.whenDefined("hal-input-group-addon")
+    await customElements.whenDefined("hal-input-group-input")
+    await customElements.whenDefined("hal-input-group-button")
+    const group = container.querySelector("hal-input-group")! as HalInputGroup
     await group.updateComplete
     await new Promise((r) => setTimeout(r, 100))
 
@@ -116,20 +110,20 @@ describe("plank-input-group visual", () => {
     container.style.padding = "20px"
     container.style.width = "300px"
     container.innerHTML = `
-      <plank-input-group>
-        <plank-input-group-textarea placeholder="Enter message..."></plank-input-group-textarea>
-        <plank-input-group-addon align="block-end">
-          <plank-input-group-text>120 characters left</plank-input-group-text>
-        </plank-input-group-addon>
-      </plank-input-group>
+      <hal-input-group>
+        <hal-input-group-textarea placeholder="Enter message..."></hal-input-group-textarea>
+        <hal-input-group-addon align="block-end">
+          <hal-input-group-text>120 characters left</hal-input-group-text>
+        </hal-input-group-addon>
+      </hal-input-group>
     `
-    await customElements.whenDefined("plank-input-group")
-    await customElements.whenDefined("plank-input-group-addon")
-    await customElements.whenDefined("plank-input-group-textarea")
-    await customElements.whenDefined("plank-input-group-text")
+    await customElements.whenDefined("hal-input-group")
+    await customElements.whenDefined("hal-input-group-addon")
+    await customElements.whenDefined("hal-input-group-textarea")
+    await customElements.whenDefined("hal-input-group-text")
     const textarea = container.querySelector(
-      "plank-input-group-textarea"
-    )! as PlankInputGroupTextarea
+      "hal-input-group-textarea"
+    )! as HalInputGroupTextarea
     await textarea.updateComplete
     await new Promise((r) => setTimeout(r, 100))
 

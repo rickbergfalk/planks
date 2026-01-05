@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach } from "vitest"
 import { page } from "vitest/browser"
-import "@/web-components/plank-calendar"
+import "@/web-components/hal-calendar"
 
 // Calendar is a complex component built from scratch (not using react-day-picker).
 // Allow up to 7% pixel difference for minor rendering variations in text positioning.
@@ -26,13 +26,13 @@ describe("Calendar (Web Component) - Visual", () => {
 
   it("basic calendar", async () => {
     container.innerHTML = `
-      <plank-calendar
+      <hal-calendar
         default-month="2025-01-01"
         class="rounded-lg border shadow-sm"
-      ></plank-calendar>
+      ></hal-calendar>
     `
-    await customElements.whenDefined("plank-calendar")
-    const calendar = container.querySelector("plank-calendar")!
+    await customElements.whenDefined("hal-calendar")
+    const calendar = container.querySelector("hal-calendar")!
     await (calendar as any).updateComplete
 
     await expect(page.getByTestId("container")).toMatchScreenshot(
@@ -43,15 +43,15 @@ describe("Calendar (Web Component) - Visual", () => {
 
   it("calendar with selected date", async () => {
     container.innerHTML = `
-      <plank-calendar
+      <hal-calendar
         mode="single"
         default-month="2025-01-01"
         selected="2025-01-15"
         class="rounded-lg border shadow-sm"
-      ></plank-calendar>
+      ></hal-calendar>
     `
-    await customElements.whenDefined("plank-calendar")
-    const calendar = container.querySelector("plank-calendar")!
+    await customElements.whenDefined("hal-calendar")
+    const calendar = container.querySelector("hal-calendar")!
     await (calendar as any).updateComplete
 
     await expect(page.getByTestId("container")).toMatchScreenshot(
@@ -62,16 +62,16 @@ describe("Calendar (Web Component) - Visual", () => {
 
   it("calendar with range", async () => {
     container.innerHTML = `
-      <plank-calendar
+      <hal-calendar
         mode="range"
         default-month="2025-01-01"
         range-start="2025-01-10"
         range-end="2025-01-20"
         class="rounded-lg border shadow-sm"
-      ></plank-calendar>
+      ></hal-calendar>
     `
-    await customElements.whenDefined("plank-calendar")
-    const calendar = container.querySelector("plank-calendar")!
+    await customElements.whenDefined("hal-calendar")
+    const calendar = container.querySelector("hal-calendar")!
     await (calendar as any).updateComplete
 
     await expect(page.getByTestId("container")).toMatchScreenshot(
@@ -85,14 +85,14 @@ describe("Calendar (Web Component) - Visual", () => {
   // The functionality is tested in behavioral tests.
   it.skip("calendar with multiple months", async () => {
     container.innerHTML = `
-      <plank-calendar
+      <hal-calendar
         default-month="2025-01-01"
         number-of-months="2"
         class="rounded-lg border shadow-sm"
-      ></plank-calendar>
+      ></hal-calendar>
     `
-    await customElements.whenDefined("plank-calendar")
-    const calendar = container.querySelector("plank-calendar")!
+    await customElements.whenDefined("hal-calendar")
+    const calendar = container.querySelector("hal-calendar")!
     await (calendar as any).updateComplete
 
     await expect(page.getByTestId("container")).toMatchScreenshot(

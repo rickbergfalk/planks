@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Toggle Group - Planks</title>
+    <title>Toggle Group - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -20,25 +20,25 @@
           Multiple items can be selected at once.
         </p>
         <div class="mb-4">
-          <plank-toggle-group type="multiple" value="bold">
-            <plank-toggle-group-item value="bold" aria-label="Toggle bold"
-              >B</plank-toggle-group-item
+          <hal-toggle-group type="multiple" value="bold">
+            <hal-toggle-group-item value="bold" aria-label="Toggle bold"
+              >B</hal-toggle-group-item
             >
-            <plank-toggle-group-item value="italic" aria-label="Toggle italic"
-              >I</plank-toggle-group-item
+            <hal-toggle-group-item value="italic" aria-label="Toggle italic"
+              >I</hal-toggle-group-item
             >
-            <plank-toggle-group-item
+            <hal-toggle-group-item
               value="underline"
               aria-label="Toggle underline"
-              >U</plank-toggle-group-item
+              >U</hal-toggle-group-item
             >
-          </plank-toggle-group>
+          </hal-toggle-group>
         </div>
-        <pre><code>&lt;plank-toggle-group type="multiple" value="bold"&gt;
-  &lt;plank-toggle-group-item value="bold"&gt;B&lt;/plank-toggle-group-item&gt;
-  &lt;plank-toggle-group-item value="italic"&gt;I&lt;/plank-toggle-group-item&gt;
-  &lt;plank-toggle-group-item value="underline"&gt;U&lt;/plank-toggle-group-item&gt;
-&lt;/plank-toggle-group&gt;</code></pre>
+        <pre><code>&lt;hal-toggle-group type="multiple" value="bold"&gt;
+  &lt;hal-toggle-group-item value="bold"&gt;B&lt;/hal-toggle-group-item&gt;
+  &lt;hal-toggle-group-item value="italic"&gt;I&lt;/hal-toggle-group-item&gt;
+  &lt;hal-toggle-group-item value="underline"&gt;U&lt;/hal-toggle-group-item&gt;
+&lt;/hal-toggle-group&gt;</code></pre>
       </section>
 
       <!-- Single Selection -->
@@ -48,44 +48,44 @@
           Only one item can be selected at a time.
         </p>
         <div class="mb-4">
-          <plank-toggle-group type="single" value="center">
-            <plank-toggle-group-item value="left" aria-label="Align left"
-              >L</plank-toggle-group-item
+          <hal-toggle-group type="single" value="center">
+            <hal-toggle-group-item value="left" aria-label="Align left"
+              >L</hal-toggle-group-item
             >
-            <plank-toggle-group-item value="center" aria-label="Align center"
-              >C</plank-toggle-group-item
+            <hal-toggle-group-item value="center" aria-label="Align center"
+              >C</hal-toggle-group-item
             >
-            <plank-toggle-group-item value="right" aria-label="Align right"
-              >R</plank-toggle-group-item
+            <hal-toggle-group-item value="right" aria-label="Align right"
+              >R</hal-toggle-group-item
             >
-          </plank-toggle-group>
+          </hal-toggle-group>
         </div>
-        <pre><code>&lt;plank-toggle-group type="single" value="center"&gt;
-  &lt;plank-toggle-group-item value="left"&gt;L&lt;/plank-toggle-group-item&gt;
-  &lt;plank-toggle-group-item value="center"&gt;C&lt;/plank-toggle-group-item&gt;
-  &lt;plank-toggle-group-item value="right"&gt;R&lt;/plank-toggle-group-item&gt;
-&lt;/plank-toggle-group&gt;</code></pre>
+        <pre><code>&lt;hal-toggle-group type="single" value="center"&gt;
+  &lt;hal-toggle-group-item value="left"&gt;L&lt;/hal-toggle-group-item&gt;
+  &lt;hal-toggle-group-item value="center"&gt;C&lt;/hal-toggle-group-item&gt;
+  &lt;hal-toggle-group-item value="right"&gt;R&lt;/hal-toggle-group-item&gt;
+&lt;/hal-toggle-group&gt;</code></pre>
       </section>
 
       <!-- Outline Variant -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Outline Variant</h2>
         <div class="mb-4">
-          <plank-toggle-group type="multiple" variant="outline" value="bold">
-            <plank-toggle-group-item value="bold" aria-label="Toggle bold"
-              >B</plank-toggle-group-item
+          <hal-toggle-group type="multiple" variant="outline" value="bold">
+            <hal-toggle-group-item value="bold" aria-label="Toggle bold"
+              >B</hal-toggle-group-item
             >
-            <plank-toggle-group-item value="italic" aria-label="Toggle italic"
-              >I</plank-toggle-group-item
+            <hal-toggle-group-item value="italic" aria-label="Toggle italic"
+              >I</hal-toggle-group-item
             >
-            <plank-toggle-group-item
+            <hal-toggle-group-item
               value="underline"
               aria-label="Toggle underline"
-              >U</plank-toggle-group-item
+              >U</hal-toggle-group-item
             >
-          </plank-toggle-group>
+          </hal-toggle-group>
         </div>
-        <pre><code>&lt;plank-toggle-group variant="outline"&gt;...&lt;/plank-toggle-group&gt;</code></pre>
+        <pre><code>&lt;hal-toggle-group variant="outline"&gt;...&lt;/hal-toggle-group&gt;</code></pre>
       </section>
 
       <!-- Sizes -->
@@ -94,44 +94,32 @@
         <div class="flex flex-col gap-4 mb-4">
           <div class="flex items-center gap-4">
             <span class="text-sm w-16">Small</span>
-            <plank-toggle-group type="multiple" size="sm" value="bold">
-              <plank-toggle-group-item value="bold">B</plank-toggle-group-item>
-              <plank-toggle-group-item value="italic"
-                >I</plank-toggle-group-item
-              >
-              <plank-toggle-group-item value="underline"
-                >U</plank-toggle-group-item
-              >
-            </plank-toggle-group>
+            <hal-toggle-group type="multiple" size="sm" value="bold">
+              <hal-toggle-group-item value="bold">B</hal-toggle-group-item>
+              <hal-toggle-group-item value="italic">I</hal-toggle-group-item>
+              <hal-toggle-group-item value="underline">U</hal-toggle-group-item>
+            </hal-toggle-group>
           </div>
           <div class="flex items-center gap-4">
             <span class="text-sm w-16">Default</span>
-            <plank-toggle-group type="multiple" value="bold">
-              <plank-toggle-group-item value="bold">B</plank-toggle-group-item>
-              <plank-toggle-group-item value="italic"
-                >I</plank-toggle-group-item
-              >
-              <plank-toggle-group-item value="underline"
-                >U</plank-toggle-group-item
-              >
-            </plank-toggle-group>
+            <hal-toggle-group type="multiple" value="bold">
+              <hal-toggle-group-item value="bold">B</hal-toggle-group-item>
+              <hal-toggle-group-item value="italic">I</hal-toggle-group-item>
+              <hal-toggle-group-item value="underline">U</hal-toggle-group-item>
+            </hal-toggle-group>
           </div>
           <div class="flex items-center gap-4">
             <span class="text-sm w-16">Large</span>
-            <plank-toggle-group type="multiple" size="lg" value="bold">
-              <plank-toggle-group-item value="bold">B</plank-toggle-group-item>
-              <plank-toggle-group-item value="italic"
-                >I</plank-toggle-group-item
-              >
-              <plank-toggle-group-item value="underline"
-                >U</plank-toggle-group-item
-              >
-            </plank-toggle-group>
+            <hal-toggle-group type="multiple" size="lg" value="bold">
+              <hal-toggle-group-item value="bold">B</hal-toggle-group-item>
+              <hal-toggle-group-item value="italic">I</hal-toggle-group-item>
+              <hal-toggle-group-item value="underline">U</hal-toggle-group-item>
+            </hal-toggle-group>
           </div>
         </div>
-        <pre><code>&lt;plank-toggle-group size="sm"&gt;...&lt;/plank-toggle-group&gt;
-&lt;plank-toggle-group&gt;...&lt;/plank-toggle-group&gt;
-&lt;plank-toggle-group size="lg"&gt;...&lt;/plank-toggle-group&gt;</code></pre>
+        <pre><code>&lt;hal-toggle-group size="sm"&gt;...&lt;/hal-toggle-group&gt;
+&lt;hal-toggle-group&gt;...&lt;/hal-toggle-group&gt;
+&lt;hal-toggle-group size="lg"&gt;...&lt;/hal-toggle-group&gt;</code></pre>
       </section>
 
       <!-- Disabled -->
@@ -140,38 +128,32 @@
         <div class="flex flex-col gap-4 mb-4">
           <div>
             <p class="text-sm text-muted-foreground mb-2">Disabled item:</p>
-            <plank-toggle-group type="multiple" value="bold">
-              <plank-toggle-group-item value="bold">B</plank-toggle-group-item>
-              <plank-toggle-group-item value="italic" disabled
-                >I</plank-toggle-group-item
+            <hal-toggle-group type="multiple" value="bold">
+              <hal-toggle-group-item value="bold">B</hal-toggle-group-item>
+              <hal-toggle-group-item value="italic" disabled
+                >I</hal-toggle-group-item
               >
-              <plank-toggle-group-item value="underline"
-                >U</plank-toggle-group-item
-              >
-            </plank-toggle-group>
+              <hal-toggle-group-item value="underline">U</hal-toggle-group-item>
+            </hal-toggle-group>
           </div>
           <div>
             <p class="text-sm text-muted-foreground mb-2">Disabled group:</p>
-            <plank-toggle-group type="multiple" value="bold" disabled>
-              <plank-toggle-group-item value="bold">B</plank-toggle-group-item>
-              <plank-toggle-group-item value="italic"
-                >I</plank-toggle-group-item
-              >
-              <plank-toggle-group-item value="underline"
-                >U</plank-toggle-group-item
-              >
-            </plank-toggle-group>
+            <hal-toggle-group type="multiple" value="bold" disabled>
+              <hal-toggle-group-item value="bold">B</hal-toggle-group-item>
+              <hal-toggle-group-item value="italic">I</hal-toggle-group-item>
+              <hal-toggle-group-item value="underline">U</hal-toggle-group-item>
+            </hal-toggle-group>
           </div>
         </div>
-        <pre><code>&lt;plank-toggle-group-item disabled&gt;...&lt;/plank-toggle-group-item&gt;
-&lt;plank-toggle-group disabled&gt;...&lt;/plank-toggle-group&gt;</code></pre>
+        <pre><code>&lt;hal-toggle-group-item disabled&gt;...&lt;/hal-toggle-group-item&gt;
+&lt;hal-toggle-group disabled&gt;...&lt;/hal-toggle-group&gt;</code></pre>
       </section>
 
       <!-- API -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">API</h2>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-toggle-group</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-toggle-group</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -257,7 +239,7 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-toggle-group-item</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-toggle-group-item</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>

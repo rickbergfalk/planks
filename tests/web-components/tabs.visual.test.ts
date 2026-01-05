@@ -1,9 +1,9 @@
 import { describe, it, expect, beforeEach } from "vitest"
 import { page } from "vitest/browser"
-import "../../src/web-components/plank-tabs"
-import type { PlankTabs } from "../../src/web-components/plank-tabs"
+import "../../src/web-components/hal-tabs"
+import type { HalTabs } from "../../src/web-components/hal-tabs"
 
-describe("plank-tabs - Visual", () => {
+describe("hal-tabs - Visual", () => {
   let container: HTMLElement
 
   beforeEach(() => {
@@ -19,25 +19,25 @@ describe("plank-tabs - Visual", () => {
 
   it("first tab selected", async () => {
     container.innerHTML = `
-      <plank-tabs value="account" class="w-full">
-        <plank-tabs-list>
-          <plank-tabs-trigger value="account">Account</plank-tabs-trigger>
-          <plank-tabs-trigger value="password">Password</plank-tabs-trigger>
-        </plank-tabs-list>
-        <plank-tabs-content value="account">
+      <hal-tabs value="account" class="w-full">
+        <hal-tabs-list>
+          <hal-tabs-trigger value="account">Account</hal-tabs-trigger>
+          <hal-tabs-trigger value="password">Password</hal-tabs-trigger>
+        </hal-tabs-list>
+        <hal-tabs-content value="account">
           <div class="p-4 border rounded-md">
             Make changes to your account here.
           </div>
-        </plank-tabs-content>
-        <plank-tabs-content value="password">
+        </hal-tabs-content>
+        <hal-tabs-content value="password">
           <div class="p-4 border rounded-md">
             Change your password here.
           </div>
-        </plank-tabs-content>
-      </plank-tabs>
+        </hal-tabs-content>
+      </hal-tabs>
     `
-    await customElements.whenDefined("plank-tabs")
-    const tabs = container.querySelector("plank-tabs") as PlankTabs
+    await customElements.whenDefined("hal-tabs")
+    const tabs = container.querySelector("hal-tabs") as HalTabs
     await tabs.updateComplete
     await expect(page.getByTestId("container")).toMatchScreenshot(
       "tabs-first-selected"
@@ -46,25 +46,25 @@ describe("plank-tabs - Visual", () => {
 
   it("second tab selected", async () => {
     container.innerHTML = `
-      <plank-tabs value="password" class="w-full">
-        <plank-tabs-list>
-          <plank-tabs-trigger value="account">Account</plank-tabs-trigger>
-          <plank-tabs-trigger value="password">Password</plank-tabs-trigger>
-        </plank-tabs-list>
-        <plank-tabs-content value="account">
+      <hal-tabs value="password" class="w-full">
+        <hal-tabs-list>
+          <hal-tabs-trigger value="account">Account</hal-tabs-trigger>
+          <hal-tabs-trigger value="password">Password</hal-tabs-trigger>
+        </hal-tabs-list>
+        <hal-tabs-content value="account">
           <div class="p-4 border rounded-md">
             Make changes to your account here.
           </div>
-        </plank-tabs-content>
-        <plank-tabs-content value="password">
+        </hal-tabs-content>
+        <hal-tabs-content value="password">
           <div class="p-4 border rounded-md">
             Change your password here.
           </div>
-        </plank-tabs-content>
-      </plank-tabs>
+        </hal-tabs-content>
+      </hal-tabs>
     `
-    await customElements.whenDefined("plank-tabs")
-    const tabs = container.querySelector("plank-tabs") as PlankTabs
+    await customElements.whenDefined("hal-tabs")
+    const tabs = container.querySelector("hal-tabs") as HalTabs
     await tabs.updateComplete
     await expect(page.getByTestId("container")).toMatchScreenshot(
       "tabs-second-selected"

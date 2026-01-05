@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest"
-import "@/web-components/plank-tooltip"
-import "@/web-components/plank-button"
+import "@/web-components/hal-tooltip"
+import "@/web-components/hal-button"
 
 // Helper to wait for element to appear (more robust than fixed timeout)
 async function waitForElement(
@@ -34,35 +34,35 @@ describe("Tooltip (Web Component)", () => {
 
   it("renders trigger", async () => {
     container.innerHTML = `
-      <plank-tooltip>
-        <plank-tooltip-trigger>
-          <plank-button>Hover me</plank-button>
-        </plank-tooltip-trigger>
-        <plank-tooltip-content>Tooltip text</plank-tooltip-content>
-      </plank-tooltip>
+      <hal-tooltip>
+        <hal-tooltip-trigger>
+          <hal-button>Hover me</hal-button>
+        </hal-tooltip-trigger>
+        <hal-tooltip-content>Tooltip text</hal-tooltip-content>
+      </hal-tooltip>
     `
 
-    await customElements.whenDefined("plank-tooltip")
-    const tooltip = container.querySelector("plank-tooltip")!
+    await customElements.whenDefined("hal-tooltip")
+    const tooltip = container.querySelector("hal-tooltip")!
     await (tooltip as any).updateComplete
 
-    const trigger = container.querySelector("plank-tooltip-trigger")
+    const trigger = container.querySelector("hal-tooltip-trigger")
     expect(trigger).toBeDefined()
     expect(trigger?.dataset.slot).toBe("tooltip-trigger")
   })
 
   it("tooltip content is hidden by default", async () => {
     container.innerHTML = `
-      <plank-tooltip>
-        <plank-tooltip-trigger>
-          <plank-button>Hover me</plank-button>
-        </plank-tooltip-trigger>
-        <plank-tooltip-content>Tooltip text</plank-tooltip-content>
-      </plank-tooltip>
+      <hal-tooltip>
+        <hal-tooltip-trigger>
+          <hal-button>Hover me</hal-button>
+        </hal-tooltip-trigger>
+        <hal-tooltip-content>Tooltip text</hal-tooltip-content>
+      </hal-tooltip>
     `
 
-    await customElements.whenDefined("plank-tooltip")
-    const tooltip = container.querySelector("plank-tooltip")!
+    await customElements.whenDefined("hal-tooltip")
+    const tooltip = container.querySelector("hal-tooltip")!
     await (tooltip as any).updateComplete
 
     // Content should not be portaled initially
@@ -74,16 +74,16 @@ describe("Tooltip (Web Component)", () => {
 
   it("shows tooltip when open attribute is set", async () => {
     container.innerHTML = `
-      <plank-tooltip open>
-        <plank-tooltip-trigger>
-          <plank-button>Hover me</plank-button>
-        </plank-tooltip-trigger>
-        <plank-tooltip-content>Tooltip text</plank-tooltip-content>
-      </plank-tooltip>
+      <hal-tooltip open>
+        <hal-tooltip-trigger>
+          <hal-button>Hover me</hal-button>
+        </hal-tooltip-trigger>
+        <hal-tooltip-content>Tooltip text</hal-tooltip-content>
+      </hal-tooltip>
     `
 
-    await customElements.whenDefined("plank-tooltip")
-    const tooltip = container.querySelector("plank-tooltip")!
+    await customElements.whenDefined("hal-tooltip")
+    const tooltip = container.querySelector("hal-tooltip")!
     await (tooltip as any).updateComplete
 
     // Wait for positioning with polling (more robust for CI)
@@ -94,19 +94,19 @@ describe("Tooltip (Web Component)", () => {
 
   it("shows tooltip on hover", async () => {
     container.innerHTML = `
-      <plank-tooltip>
-        <plank-tooltip-trigger>
-          <plank-button>Hover me</plank-button>
-        </plank-tooltip-trigger>
-        <plank-tooltip-content>Tooltip text</plank-tooltip-content>
-      </plank-tooltip>
+      <hal-tooltip>
+        <hal-tooltip-trigger>
+          <hal-button>Hover me</hal-button>
+        </hal-tooltip-trigger>
+        <hal-tooltip-content>Tooltip text</hal-tooltip-content>
+      </hal-tooltip>
     `
 
-    await customElements.whenDefined("plank-tooltip")
-    const tooltip = container.querySelector("plank-tooltip")!
+    await customElements.whenDefined("hal-tooltip")
+    const tooltip = container.querySelector("hal-tooltip")!
     await (tooltip as any).updateComplete
 
-    const trigger = container.querySelector("plank-tooltip-trigger")!
+    const trigger = container.querySelector("hal-tooltip-trigger")!
     trigger.dispatchEvent(new PointerEvent("pointerenter", { bubbles: true }))
     await (tooltip as any).updateComplete
 
@@ -117,23 +117,23 @@ describe("Tooltip (Web Component)", () => {
 
   it("hides tooltip on pointer leave", async () => {
     container.innerHTML = `
-      <plank-tooltip open>
-        <plank-tooltip-trigger>
-          <plank-button>Hover me</plank-button>
-        </plank-tooltip-trigger>
-        <plank-tooltip-content>Tooltip text</plank-tooltip-content>
-      </plank-tooltip>
+      <hal-tooltip open>
+        <hal-tooltip-trigger>
+          <hal-button>Hover me</hal-button>
+        </hal-tooltip-trigger>
+        <hal-tooltip-content>Tooltip text</hal-tooltip-content>
+      </hal-tooltip>
     `
 
-    await customElements.whenDefined("plank-tooltip")
-    const tooltip = container.querySelector("plank-tooltip")!
+    await customElements.whenDefined("hal-tooltip")
+    const tooltip = container.querySelector("hal-tooltip")!
     await (tooltip as any).updateComplete
 
     // Wait for tooltip to appear with polling
     const tooltipEl = await waitForElement('[role="tooltip"]')
     expect(tooltipEl).not.toBeNull()
 
-    const trigger = container.querySelector("plank-tooltip-trigger")!
+    const trigger = container.querySelector("hal-tooltip-trigger")!
     trigger.dispatchEvent(new PointerEvent("pointerleave", { bubbles: true }))
     await (tooltip as any).updateComplete
     await new Promise((r) => setTimeout(r, 100))
@@ -143,16 +143,16 @@ describe("Tooltip (Web Component)", () => {
 
   it("tooltip content has correct data-slot", async () => {
     container.innerHTML = `
-      <plank-tooltip open>
-        <plank-tooltip-trigger>
-          <plank-button>Hover me</plank-button>
-        </plank-tooltip-trigger>
-        <plank-tooltip-content>Tooltip text</plank-tooltip-content>
-      </plank-tooltip>
+      <hal-tooltip open>
+        <hal-tooltip-trigger>
+          <hal-button>Hover me</hal-button>
+        </hal-tooltip-trigger>
+        <hal-tooltip-content>Tooltip text</hal-tooltip-content>
+      </hal-tooltip>
     `
 
-    await customElements.whenDefined("plank-tooltip")
-    const tooltip = container.querySelector("plank-tooltip")!
+    await customElements.whenDefined("hal-tooltip")
+    const tooltip = container.querySelector("hal-tooltip")!
     await (tooltip as any).updateComplete
 
     // Wait for positioning with polling (more robust for CI)
@@ -163,16 +163,16 @@ describe("Tooltip (Web Component)", () => {
 
   it("tooltip content has data-side attribute", async () => {
     container.innerHTML = `
-      <plank-tooltip open>
-        <plank-tooltip-trigger>
-          <plank-button>Hover me</plank-button>
-        </plank-tooltip-trigger>
-        <plank-tooltip-content side="bottom">Tooltip text</plank-tooltip-content>
-      </plank-tooltip>
+      <hal-tooltip open>
+        <hal-tooltip-trigger>
+          <hal-button>Hover me</hal-button>
+        </hal-tooltip-trigger>
+        <hal-tooltip-content side="bottom">Tooltip text</hal-tooltip-content>
+      </hal-tooltip>
     `
 
-    await customElements.whenDefined("plank-tooltip")
-    const tooltip = container.querySelector("plank-tooltip")!
+    await customElements.whenDefined("hal-tooltip")
+    const tooltip = container.querySelector("hal-tooltip")!
     await (tooltip as any).updateComplete
 
     // Wait for positioning with polling (more robust for CI)
@@ -183,40 +183,40 @@ describe("Tooltip (Web Component)", () => {
 
   it("trigger has aria-describedby when open", async () => {
     container.innerHTML = `
-      <plank-tooltip open>
-        <plank-tooltip-trigger>
-          <plank-button>Hover me</plank-button>
-        </plank-tooltip-trigger>
-        <plank-tooltip-content>Tooltip text</plank-tooltip-content>
-      </plank-tooltip>
+      <hal-tooltip open>
+        <hal-tooltip-trigger>
+          <hal-button>Hover me</hal-button>
+        </hal-tooltip-trigger>
+        <hal-tooltip-content>Tooltip text</hal-tooltip-content>
+      </hal-tooltip>
     `
 
-    await customElements.whenDefined("plank-tooltip")
-    const tooltip = container.querySelector("plank-tooltip")!
+    await customElements.whenDefined("hal-tooltip")
+    const tooltip = container.querySelector("hal-tooltip")!
     await (tooltip as any).updateComplete
 
-    const button = container.querySelector("plank-button")!
+    const button = container.querySelector("hal-button")!
     expect(button.getAttribute("aria-describedby")).toBeDefined()
   })
 
   it("fires open-change event when opened", async () => {
     container.innerHTML = `
-      <plank-tooltip>
-        <plank-tooltip-trigger>
-          <plank-button>Hover me</plank-button>
-        </plank-tooltip-trigger>
-        <plank-tooltip-content>Tooltip text</plank-tooltip-content>
-      </plank-tooltip>
+      <hal-tooltip>
+        <hal-tooltip-trigger>
+          <hal-button>Hover me</hal-button>
+        </hal-tooltip-trigger>
+        <hal-tooltip-content>Tooltip text</hal-tooltip-content>
+      </hal-tooltip>
     `
 
-    await customElements.whenDefined("plank-tooltip")
-    const tooltip = container.querySelector("plank-tooltip")!
+    await customElements.whenDefined("hal-tooltip")
+    const tooltip = container.querySelector("hal-tooltip")!
     await (tooltip as any).updateComplete
 
     const openChangeSpy = vi.fn()
     tooltip.addEventListener("open-change", openChangeSpy)
 
-    const trigger = container.querySelector("plank-tooltip-trigger")!
+    const trigger = container.querySelector("hal-tooltip-trigger")!
     trigger.dispatchEvent(new PointerEvent("pointerenter", { bubbles: true }))
     await (tooltip as any).updateComplete
 
@@ -229,20 +229,20 @@ describe("Tooltip (Web Component)", () => {
 
   it("respects delayDuration property", async () => {
     container.innerHTML = `
-      <plank-tooltip delay-duration="100">
-        <plank-tooltip-trigger>
-          <plank-button>Hover me</plank-button>
-        </plank-tooltip-trigger>
-        <plank-tooltip-content>Tooltip text</plank-tooltip-content>
-      </plank-tooltip>
+      <hal-tooltip delay-duration="100">
+        <hal-tooltip-trigger>
+          <hal-button>Hover me</hal-button>
+        </hal-tooltip-trigger>
+        <hal-tooltip-content>Tooltip text</hal-tooltip-content>
+      </hal-tooltip>
     `
 
-    await customElements.whenDefined("plank-tooltip")
-    const tooltip = container.querySelector("plank-tooltip")! as any
+    await customElements.whenDefined("hal-tooltip")
+    const tooltip = container.querySelector("hal-tooltip")! as any
     tooltip.delayDuration = 100
     await tooltip.updateComplete
 
-    const trigger = container.querySelector("plank-tooltip-trigger")!
+    const trigger = container.querySelector("hal-tooltip-trigger")!
     trigger.dispatchEvent(new PointerEvent("pointerenter", { bubbles: true }))
 
     // Should not be open immediately

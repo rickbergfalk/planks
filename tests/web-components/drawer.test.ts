@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest"
-import "@/web-components/plank-drawer"
-import "@/web-components/plank-button"
+import "@/web-components/hal-drawer"
+import "@/web-components/hal-button"
 
 describe("Drawer (Web Component)", () => {
   let container: HTMLDivElement
@@ -24,38 +24,38 @@ describe("Drawer (Web Component)", () => {
 
   it("trigger has correct data-slot", async () => {
     container.innerHTML = `
-      <plank-drawer>
-        <plank-drawer-trigger>
-          <plank-button>Open drawer</plank-button>
-        </plank-drawer-trigger>
-        <plank-drawer-content>
-          <plank-drawer-title>Title</plank-drawer-title>
-        </plank-drawer-content>
-      </plank-drawer>
+      <hal-drawer>
+        <hal-drawer-trigger>
+          <hal-button>Open drawer</hal-button>
+        </hal-drawer-trigger>
+        <hal-drawer-content>
+          <hal-drawer-title>Title</hal-drawer-title>
+        </hal-drawer-content>
+      </hal-drawer>
     `
 
-    await customElements.whenDefined("plank-drawer")
-    const drawer = container.querySelector("plank-drawer")!
+    await customElements.whenDefined("hal-drawer")
+    const drawer = container.querySelector("hal-drawer")!
     await (drawer as any).updateComplete
 
-    const trigger = container.querySelector("plank-drawer-trigger")
+    const trigger = container.querySelector("hal-drawer-trigger")
     expect(trigger?.getAttribute("data-slot")).toBe("drawer-trigger")
   })
 
   it("drawer is hidden by default", async () => {
     container.innerHTML = `
-      <plank-drawer>
-        <plank-drawer-trigger>
-          <plank-button>Open drawer</plank-button>
-        </plank-drawer-trigger>
-        <plank-drawer-content>
-          <plank-drawer-title>Drawer Title</plank-drawer-title>
-        </plank-drawer-content>
-      </plank-drawer>
+      <hal-drawer>
+        <hal-drawer-trigger>
+          <hal-button>Open drawer</hal-button>
+        </hal-drawer-trigger>
+        <hal-drawer-content>
+          <hal-drawer-title>Drawer Title</hal-drawer-title>
+        </hal-drawer-content>
+      </hal-drawer>
     `
 
-    await customElements.whenDefined("plank-drawer")
-    const drawer = container.querySelector("plank-drawer")!
+    await customElements.whenDefined("hal-drawer")
+    const drawer = container.querySelector("hal-drawer")!
     await (drawer as any).updateComplete
 
     expect(document.querySelector('[role="dialog"]')).toBeNull()
@@ -63,22 +63,22 @@ describe("Drawer (Web Component)", () => {
 
   it("opens on trigger click", async () => {
     container.innerHTML = `
-      <plank-drawer>
-        <plank-drawer-trigger>
-          <plank-button>Open drawer</plank-button>
-        </plank-drawer-trigger>
-        <plank-drawer-content>
-          <plank-drawer-title>Drawer Title</plank-drawer-title>
-        </plank-drawer-content>
-      </plank-drawer>
+      <hal-drawer>
+        <hal-drawer-trigger>
+          <hal-button>Open drawer</hal-button>
+        </hal-drawer-trigger>
+        <hal-drawer-content>
+          <hal-drawer-title>Drawer Title</hal-drawer-title>
+        </hal-drawer-content>
+      </hal-drawer>
     `
 
-    await customElements.whenDefined("plank-drawer")
-    const drawer = container.querySelector("plank-drawer")!
+    await customElements.whenDefined("hal-drawer")
+    const drawer = container.querySelector("hal-drawer")!
     await (drawer as any).updateComplete
 
-    const trigger = container.querySelector("plank-drawer-trigger")!
-    ;(trigger.querySelector("plank-button") as HTMLElement)?.click()
+    const trigger = container.querySelector("hal-drawer-trigger")!
+    ;(trigger.querySelector("hal-button") as HTMLElement)?.click()
     await (drawer as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -87,38 +87,38 @@ describe("Drawer (Web Component)", () => {
 
   it("trigger has aria-haspopup=dialog", async () => {
     container.innerHTML = `
-      <plank-drawer>
-        <plank-drawer-trigger>
-          <plank-button>Open drawer</plank-button>
-        </plank-drawer-trigger>
-        <plank-drawer-content>
-          <plank-drawer-title>Title</plank-drawer-title>
-        </plank-drawer-content>
-      </plank-drawer>
+      <hal-drawer>
+        <hal-drawer-trigger>
+          <hal-button>Open drawer</hal-button>
+        </hal-drawer-trigger>
+        <hal-drawer-content>
+          <hal-drawer-title>Title</hal-drawer-title>
+        </hal-drawer-content>
+      </hal-drawer>
     `
 
-    await customElements.whenDefined("plank-drawer")
-    const drawer = container.querySelector("plank-drawer")!
+    await customElements.whenDefined("hal-drawer")
+    const drawer = container.querySelector("hal-drawer")!
     await (drawer as any).updateComplete
 
-    const button = container.querySelector("plank-button")
+    const button = container.querySelector("hal-button")
     expect(button?.getAttribute("aria-haspopup")).toBe("dialog")
   })
 
   it("can be controlled via open attribute", async () => {
     container.innerHTML = `
-      <plank-drawer open>
-        <plank-drawer-trigger>
-          <plank-button>Open drawer</plank-button>
-        </plank-drawer-trigger>
-        <plank-drawer-content>
-          <plank-drawer-title>Drawer Title</plank-drawer-title>
-        </plank-drawer-content>
-      </plank-drawer>
+      <hal-drawer open>
+        <hal-drawer-trigger>
+          <hal-button>Open drawer</hal-button>
+        </hal-drawer-trigger>
+        <hal-drawer-content>
+          <hal-drawer-title>Drawer Title</hal-drawer-title>
+        </hal-drawer-content>
+      </hal-drawer>
     `
 
-    await customElements.whenDefined("plank-drawer")
-    const drawer = container.querySelector("plank-drawer")!
+    await customElements.whenDefined("hal-drawer")
+    const drawer = container.querySelector("hal-drawer")!
     await (drawer as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -127,25 +127,25 @@ describe("Drawer (Web Component)", () => {
 
   it("fires open-change event when opened", async () => {
     container.innerHTML = `
-      <plank-drawer>
-        <plank-drawer-trigger>
-          <plank-button>Open drawer</plank-button>
-        </plank-drawer-trigger>
-        <plank-drawer-content>
-          <plank-drawer-title>Title</plank-drawer-title>
-        </plank-drawer-content>
-      </plank-drawer>
+      <hal-drawer>
+        <hal-drawer-trigger>
+          <hal-button>Open drawer</hal-button>
+        </hal-drawer-trigger>
+        <hal-drawer-content>
+          <hal-drawer-title>Title</hal-drawer-title>
+        </hal-drawer-content>
+      </hal-drawer>
     `
 
-    await customElements.whenDefined("plank-drawer")
-    const drawer = container.querySelector("plank-drawer")!
+    await customElements.whenDefined("hal-drawer")
+    const drawer = container.querySelector("hal-drawer")!
     await (drawer as any).updateComplete
 
     const handleOpenChange = vi.fn()
     drawer.addEventListener("open-change", handleOpenChange)
 
-    const trigger = container.querySelector("plank-drawer-trigger")!
-    ;(trigger.querySelector("plank-button") as HTMLElement)?.click()
+    const trigger = container.querySelector("hal-drawer-trigger")!
+    ;(trigger.querySelector("hal-button") as HTMLElement)?.click()
     await (drawer as any).updateComplete
 
     expect(handleOpenChange).toHaveBeenCalledWith(
@@ -157,18 +157,18 @@ describe("Drawer (Web Component)", () => {
 
   it("drawer has aria-labelledby pointing to title", async () => {
     container.innerHTML = `
-      <plank-drawer open>
-        <plank-drawer-trigger>
-          <plank-button>Open drawer</plank-button>
-        </plank-drawer-trigger>
-        <plank-drawer-content>
-          <plank-drawer-title>My Drawer Title</plank-drawer-title>
-        </plank-drawer-content>
-      </plank-drawer>
+      <hal-drawer open>
+        <hal-drawer-trigger>
+          <hal-button>Open drawer</hal-button>
+        </hal-drawer-trigger>
+        <hal-drawer-content>
+          <hal-drawer-title>My Drawer Title</hal-drawer-title>
+        </hal-drawer-content>
+      </hal-drawer>
     `
 
-    await customElements.whenDefined("plank-drawer")
-    const drawer = container.querySelector("plank-drawer")!
+    await customElements.whenDefined("hal-drawer")
+    const drawer = container.querySelector("hal-drawer")!
     await (drawer as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -182,19 +182,19 @@ describe("Drawer (Web Component)", () => {
 
   it("drawer has aria-describedby pointing to description", async () => {
     container.innerHTML = `
-      <plank-drawer open>
-        <plank-drawer-trigger>
-          <plank-button>Open drawer</plank-button>
-        </plank-drawer-trigger>
-        <plank-drawer-content>
-          <plank-drawer-title>Title</plank-drawer-title>
-          <plank-drawer-description>My description text</plank-drawer-description>
-        </plank-drawer-content>
-      </plank-drawer>
+      <hal-drawer open>
+        <hal-drawer-trigger>
+          <hal-button>Open drawer</hal-button>
+        </hal-drawer-trigger>
+        <hal-drawer-content>
+          <hal-drawer-title>Title</hal-drawer-title>
+          <hal-drawer-description>My description text</hal-drawer-description>
+        </hal-drawer-content>
+      </hal-drawer>
     `
 
-    await customElements.whenDefined("plank-drawer")
-    const drawer = container.querySelector("plank-drawer")!
+    await customElements.whenDefined("hal-drawer")
+    const drawer = container.querySelector("hal-drawer")!
     await (drawer as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -208,20 +208,20 @@ describe("Drawer (Web Component)", () => {
 
   it("header has correct data-slot", async () => {
     container.innerHTML = `
-      <plank-drawer open>
-        <plank-drawer-trigger>
-          <plank-button>Open drawer</plank-button>
-        </plank-drawer-trigger>
-        <plank-drawer-content>
-          <plank-drawer-header>
-            <plank-drawer-title>Title</plank-drawer-title>
-          </plank-drawer-header>
-        </plank-drawer-content>
-      </plank-drawer>
+      <hal-drawer open>
+        <hal-drawer-trigger>
+          <hal-button>Open drawer</hal-button>
+        </hal-drawer-trigger>
+        <hal-drawer-content>
+          <hal-drawer-header>
+            <hal-drawer-title>Title</hal-drawer-title>
+          </hal-drawer-header>
+        </hal-drawer-content>
+      </hal-drawer>
     `
 
-    await customElements.whenDefined("plank-drawer")
-    const drawer = container.querySelector("plank-drawer")!
+    await customElements.whenDefined("hal-drawer")
+    const drawer = container.querySelector("hal-drawer")!
     await (drawer as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -231,21 +231,21 @@ describe("Drawer (Web Component)", () => {
 
   it("footer has correct data-slot", async () => {
     container.innerHTML = `
-      <plank-drawer open>
-        <plank-drawer-trigger>
-          <plank-button>Open drawer</plank-button>
-        </plank-drawer-trigger>
-        <plank-drawer-content>
-          <plank-drawer-title>Title</plank-drawer-title>
-          <plank-drawer-footer>
-            <plank-button>Action</plank-button>
-          </plank-drawer-footer>
-        </plank-drawer-content>
-      </plank-drawer>
+      <hal-drawer open>
+        <hal-drawer-trigger>
+          <hal-button>Open drawer</hal-button>
+        </hal-drawer-trigger>
+        <hal-drawer-content>
+          <hal-drawer-title>Title</hal-drawer-title>
+          <hal-drawer-footer>
+            <hal-button>Action</hal-button>
+          </hal-drawer-footer>
+        </hal-drawer-content>
+      </hal-drawer>
     `
 
-    await customElements.whenDefined("plank-drawer")
-    const drawer = container.querySelector("plank-drawer")!
+    await customElements.whenDefined("hal-drawer")
+    const drawer = container.querySelector("hal-drawer")!
     await (drawer as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -255,18 +255,18 @@ describe("Drawer (Web Component)", () => {
 
   it("title has correct data-slot", async () => {
     container.innerHTML = `
-      <plank-drawer open>
-        <plank-drawer-trigger>
-          <plank-button>Open drawer</plank-button>
-        </plank-drawer-trigger>
-        <plank-drawer-content>
-          <plank-drawer-title>Title Text</plank-drawer-title>
-        </plank-drawer-content>
-      </plank-drawer>
+      <hal-drawer open>
+        <hal-drawer-trigger>
+          <hal-button>Open drawer</hal-button>
+        </hal-drawer-trigger>
+        <hal-drawer-content>
+          <hal-drawer-title>Title Text</hal-drawer-title>
+        </hal-drawer-content>
+      </hal-drawer>
     `
 
-    await customElements.whenDefined("plank-drawer")
-    const drawer = container.querySelector("plank-drawer")!
+    await customElements.whenDefined("hal-drawer")
+    const drawer = container.querySelector("hal-drawer")!
     await (drawer as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -277,19 +277,19 @@ describe("Drawer (Web Component)", () => {
 
   it("description has correct data-slot", async () => {
     container.innerHTML = `
-      <plank-drawer open>
-        <plank-drawer-trigger>
-          <plank-button>Open drawer</plank-button>
-        </plank-drawer-trigger>
-        <plank-drawer-content>
-          <plank-drawer-title>Title</plank-drawer-title>
-          <plank-drawer-description>Description Text</plank-drawer-description>
-        </plank-drawer-content>
-      </plank-drawer>
+      <hal-drawer open>
+        <hal-drawer-trigger>
+          <hal-button>Open drawer</hal-button>
+        </hal-drawer-trigger>
+        <hal-drawer-content>
+          <hal-drawer-title>Title</hal-drawer-title>
+          <hal-drawer-description>Description Text</hal-drawer-description>
+        </hal-drawer-content>
+      </hal-drawer>
     `
 
-    await customElements.whenDefined("plank-drawer")
-    const drawer = container.querySelector("plank-drawer")!
+    await customElements.whenDefined("hal-drawer")
+    const drawer = container.querySelector("hal-drawer")!
     await (drawer as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -302,18 +302,18 @@ describe("Drawer (Web Component)", () => {
 
   it("content has correct data-slot", async () => {
     container.innerHTML = `
-      <plank-drawer open>
-        <plank-drawer-trigger>
-          <plank-button>Open drawer</plank-button>
-        </plank-drawer-trigger>
-        <plank-drawer-content>
-          <plank-drawer-title>Title</plank-drawer-title>
-        </plank-drawer-content>
-      </plank-drawer>
+      <hal-drawer open>
+        <hal-drawer-trigger>
+          <hal-button>Open drawer</hal-button>
+        </hal-drawer-trigger>
+        <hal-drawer-content>
+          <hal-drawer-title>Title</hal-drawer-title>
+        </hal-drawer-content>
+      </hal-drawer>
     `
 
-    await customElements.whenDefined("plank-drawer")
-    const drawer = container.querySelector("plank-drawer")!
+    await customElements.whenDefined("hal-drawer")
+    const drawer = container.querySelector("hal-drawer")!
     await (drawer as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -323,18 +323,18 @@ describe("Drawer (Web Component)", () => {
 
   it("overlay has correct data-slot", async () => {
     container.innerHTML = `
-      <plank-drawer open>
-        <plank-drawer-trigger>
-          <plank-button>Open drawer</plank-button>
-        </plank-drawer-trigger>
-        <plank-drawer-content>
-          <plank-drawer-title>Title</plank-drawer-title>
-        </plank-drawer-content>
-      </plank-drawer>
+      <hal-drawer open>
+        <hal-drawer-trigger>
+          <hal-button>Open drawer</hal-button>
+        </hal-drawer-trigger>
+        <hal-drawer-content>
+          <hal-drawer-title>Title</hal-drawer-title>
+        </hal-drawer-content>
+      </hal-drawer>
     `
 
-    await customElements.whenDefined("plank-drawer")
-    const drawer = container.querySelector("plank-drawer")!
+    await customElements.whenDefined("hal-drawer")
+    const drawer = container.querySelector("hal-drawer")!
     await (drawer as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -344,29 +344,27 @@ describe("Drawer (Web Component)", () => {
 
   it("close button closes the drawer", async () => {
     container.innerHTML = `
-      <plank-drawer open>
-        <plank-drawer-trigger>
-          <plank-button>Open drawer</plank-button>
-        </plank-drawer-trigger>
-        <plank-drawer-content>
-          <plank-drawer-title>Title</plank-drawer-title>
-          <plank-drawer-close>
-            <plank-button>Close</plank-button>
-          </plank-drawer-close>
-        </plank-drawer-content>
-      </plank-drawer>
+      <hal-drawer open>
+        <hal-drawer-trigger>
+          <hal-button>Open drawer</hal-button>
+        </hal-drawer-trigger>
+        <hal-drawer-content>
+          <hal-drawer-title>Title</hal-drawer-title>
+          <hal-drawer-close>
+            <hal-button>Close</hal-button>
+          </hal-drawer-close>
+        </hal-drawer-content>
+      </hal-drawer>
     `
 
-    await customElements.whenDefined("plank-drawer")
-    const drawer = container.querySelector("plank-drawer")!
+    await customElements.whenDefined("hal-drawer")
+    const drawer = container.querySelector("hal-drawer")!
     await (drawer as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
     expect(document.querySelector('[role="dialog"]')).not.toBeNull()
 
-    const closeButton = document.querySelector(
-      "plank-drawer-close plank-button"
-    )
+    const closeButton = document.querySelector("hal-drawer-close hal-button")
     ;(closeButton as HTMLElement)?.click()
     await (drawer as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
@@ -376,18 +374,18 @@ describe("Drawer (Web Component)", () => {
 
   it("supports direction attribute for bottom (default)", async () => {
     container.innerHTML = `
-      <plank-drawer open>
-        <plank-drawer-trigger>
-          <plank-button>Open drawer</plank-button>
-        </plank-drawer-trigger>
-        <plank-drawer-content direction="bottom">
-          <plank-drawer-title>Title</plank-drawer-title>
-        </plank-drawer-content>
-      </plank-drawer>
+      <hal-drawer open>
+        <hal-drawer-trigger>
+          <hal-button>Open drawer</hal-button>
+        </hal-drawer-trigger>
+        <hal-drawer-content direction="bottom">
+          <hal-drawer-title>Title</hal-drawer-title>
+        </hal-drawer-content>
+      </hal-drawer>
     `
 
-    await customElements.whenDefined("plank-drawer")
-    const drawer = container.querySelector("plank-drawer")!
+    await customElements.whenDefined("hal-drawer")
+    const drawer = container.querySelector("hal-drawer")!
     await (drawer as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -397,18 +395,18 @@ describe("Drawer (Web Component)", () => {
 
   it("supports direction attribute for top", async () => {
     container.innerHTML = `
-      <plank-drawer open>
-        <plank-drawer-trigger>
-          <plank-button>Open drawer</plank-button>
-        </plank-drawer-trigger>
-        <plank-drawer-content direction="top">
-          <plank-drawer-title>Title</plank-drawer-title>
-        </plank-drawer-content>
-      </plank-drawer>
+      <hal-drawer open>
+        <hal-drawer-trigger>
+          <hal-button>Open drawer</hal-button>
+        </hal-drawer-trigger>
+        <hal-drawer-content direction="top">
+          <hal-drawer-title>Title</hal-drawer-title>
+        </hal-drawer-content>
+      </hal-drawer>
     `
 
-    await customElements.whenDefined("plank-drawer")
-    const drawer = container.querySelector("plank-drawer")!
+    await customElements.whenDefined("hal-drawer")
+    const drawer = container.querySelector("hal-drawer")!
     await (drawer as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -418,18 +416,18 @@ describe("Drawer (Web Component)", () => {
 
   it("supports direction attribute for left", async () => {
     container.innerHTML = `
-      <plank-drawer open>
-        <plank-drawer-trigger>
-          <plank-button>Open drawer</plank-button>
-        </plank-drawer-trigger>
-        <plank-drawer-content direction="left">
-          <plank-drawer-title>Title</plank-drawer-title>
-        </plank-drawer-content>
-      </plank-drawer>
+      <hal-drawer open>
+        <hal-drawer-trigger>
+          <hal-button>Open drawer</hal-button>
+        </hal-drawer-trigger>
+        <hal-drawer-content direction="left">
+          <hal-drawer-title>Title</hal-drawer-title>
+        </hal-drawer-content>
+      </hal-drawer>
     `
 
-    await customElements.whenDefined("plank-drawer")
-    const drawer = container.querySelector("plank-drawer")!
+    await customElements.whenDefined("hal-drawer")
+    const drawer = container.querySelector("hal-drawer")!
     await (drawer as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -439,18 +437,18 @@ describe("Drawer (Web Component)", () => {
 
   it("supports direction attribute for right", async () => {
     container.innerHTML = `
-      <plank-drawer open>
-        <plank-drawer-trigger>
-          <plank-button>Open drawer</plank-button>
-        </plank-drawer-trigger>
-        <plank-drawer-content direction="right">
-          <plank-drawer-title>Title</plank-drawer-title>
-        </plank-drawer-content>
-      </plank-drawer>
+      <hal-drawer open>
+        <hal-drawer-trigger>
+          <hal-button>Open drawer</hal-button>
+        </hal-drawer-trigger>
+        <hal-drawer-content direction="right">
+          <hal-drawer-title>Title</hal-drawer-title>
+        </hal-drawer-content>
+      </hal-drawer>
     `
 
-    await customElements.whenDefined("plank-drawer")
-    const drawer = container.querySelector("plank-drawer")!
+    await customElements.whenDefined("hal-drawer")
+    const drawer = container.querySelector("hal-drawer")!
     await (drawer as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -460,18 +458,18 @@ describe("Drawer (Web Component)", () => {
 
   it("closes on Escape key", async () => {
     container.innerHTML = `
-      <plank-drawer open>
-        <plank-drawer-trigger>
-          <plank-button>Open drawer</plank-button>
-        </plank-drawer-trigger>
-        <plank-drawer-content>
-          <plank-drawer-title>Title</plank-drawer-title>
-        </plank-drawer-content>
-      </plank-drawer>
+      <hal-drawer open>
+        <hal-drawer-trigger>
+          <hal-button>Open drawer</hal-button>
+        </hal-drawer-trigger>
+        <hal-drawer-content>
+          <hal-drawer-title>Title</hal-drawer-title>
+        </hal-drawer-content>
+      </hal-drawer>
     `
 
-    await customElements.whenDefined("plank-drawer")
-    const drawer = container.querySelector("plank-drawer")!
+    await customElements.whenDefined("hal-drawer")
+    const drawer = container.querySelector("hal-drawer")!
     await (drawer as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -486,18 +484,18 @@ describe("Drawer (Web Component)", () => {
 
   it("closes on overlay click", async () => {
     container.innerHTML = `
-      <plank-drawer open>
-        <plank-drawer-trigger>
-          <plank-button>Open drawer</plank-button>
-        </plank-drawer-trigger>
-        <plank-drawer-content>
-          <plank-drawer-title>Title</plank-drawer-title>
-        </plank-drawer-content>
-      </plank-drawer>
+      <hal-drawer open>
+        <hal-drawer-trigger>
+          <hal-button>Open drawer</hal-button>
+        </hal-drawer-trigger>
+        <hal-drawer-content>
+          <hal-drawer-title>Title</hal-drawer-title>
+        </hal-drawer-content>
+      </hal-drawer>
     `
 
-    await customElements.whenDefined("plank-drawer")
-    const drawer = container.querySelector("plank-drawer")!
+    await customElements.whenDefined("hal-drawer")
+    const drawer = container.querySelector("hal-drawer")!
     await (drawer as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 

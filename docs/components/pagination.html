@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pagination - Planks</title>
+    <title>Pagination - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -20,166 +20,166 @@
           A simple pagination with previous/next and page links.
         </p>
         <div class="mb-4">
-          <plank-pagination>
-            <plank-pagination-content>
-              <plank-pagination-item>
-                <plank-pagination-previous href="#"></plank-pagination-previous>
-              </plank-pagination-item>
-              <plank-pagination-item>
-                <plank-pagination-link href="#">1</plank-pagination-link>
-              </plank-pagination-item>
-              <plank-pagination-item>
-                <plank-pagination-link href="#" active>2</plank-pagination-link>
-              </plank-pagination-item>
-              <plank-pagination-item>
-                <plank-pagination-link href="#">3</plank-pagination-link>
-              </plank-pagination-item>
-              <plank-pagination-item>
-                <plank-pagination-ellipsis></plank-pagination-ellipsis>
-              </plank-pagination-item>
-              <plank-pagination-item>
-                <plank-pagination-next href="#"></plank-pagination-next>
-              </plank-pagination-item>
-            </plank-pagination-content>
-          </plank-pagination>
+          <hal-pagination>
+            <hal-pagination-content>
+              <hal-pagination-item>
+                <hal-pagination-previous href="#"></hal-pagination-previous>
+              </hal-pagination-item>
+              <hal-pagination-item>
+                <hal-pagination-link href="#">1</hal-pagination-link>
+              </hal-pagination-item>
+              <hal-pagination-item>
+                <hal-pagination-link href="#" active>2</hal-pagination-link>
+              </hal-pagination-item>
+              <hal-pagination-item>
+                <hal-pagination-link href="#">3</hal-pagination-link>
+              </hal-pagination-item>
+              <hal-pagination-item>
+                <hal-pagination-ellipsis></hal-pagination-ellipsis>
+              </hal-pagination-item>
+              <hal-pagination-item>
+                <hal-pagination-next href="#"></hal-pagination-next>
+              </hal-pagination-item>
+            </hal-pagination-content>
+          </hal-pagination>
         </div>
-        <pre><code>&lt;plank-pagination&gt;
-  &lt;plank-pagination-content&gt;
-    &lt;plank-pagination-item&gt;
-      &lt;plank-pagination-previous href="#"&gt;&lt;/plank-pagination-previous&gt;
-    &lt;/plank-pagination-item&gt;
-    &lt;plank-pagination-item&gt;
-      &lt;plank-pagination-link href="#"&gt;1&lt;/plank-pagination-link&gt;
-    &lt;/plank-pagination-item&gt;
-    &lt;plank-pagination-item&gt;
-      &lt;plank-pagination-link href="#" active&gt;2&lt;/plank-pagination-link&gt;
-    &lt;/plank-pagination-item&gt;
-    &lt;plank-pagination-item&gt;
-      &lt;plank-pagination-ellipsis&gt;&lt;/plank-pagination-ellipsis&gt;
-    &lt;/plank-pagination-item&gt;
-    &lt;plank-pagination-item&gt;
-      &lt;plank-pagination-next href="#"&gt;&lt;/plank-pagination-next&gt;
-    &lt;/plank-pagination-item&gt;
-  &lt;/plank-pagination-content&gt;
-&lt;/plank-pagination&gt;</code></pre>
+        <pre><code>&lt;hal-pagination&gt;
+  &lt;hal-pagination-content&gt;
+    &lt;hal-pagination-item&gt;
+      &lt;hal-pagination-previous href="#"&gt;&lt;/hal-pagination-previous&gt;
+    &lt;/hal-pagination-item&gt;
+    &lt;hal-pagination-item&gt;
+      &lt;hal-pagination-link href="#"&gt;1&lt;/hal-pagination-link&gt;
+    &lt;/hal-pagination-item&gt;
+    &lt;hal-pagination-item&gt;
+      &lt;hal-pagination-link href="#" active&gt;2&lt;/hal-pagination-link&gt;
+    &lt;/hal-pagination-item&gt;
+    &lt;hal-pagination-item&gt;
+      &lt;hal-pagination-ellipsis&gt;&lt;/hal-pagination-ellipsis&gt;
+    &lt;/hal-pagination-item&gt;
+    &lt;hal-pagination-item&gt;
+      &lt;hal-pagination-next href="#"&gt;&lt;/hal-pagination-next&gt;
+    &lt;/hal-pagination-item&gt;
+  &lt;/hal-pagination-content&gt;
+&lt;/hal-pagination&gt;</code></pre>
       </section>
 
       <!-- API -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Components</h2>
         <div class="overflow-x-auto">
-          <plank-table>
-            <plank-table-header>
-              <plank-table-row>
-                <plank-table-head>Component</plank-table-head>
-                <plank-table-head>Description</plank-table-head>
-              </plank-table-row>
-            </plank-table-header>
-            <plank-table-body>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >plank-pagination</plank-table-cell
+          <hal-table>
+            <hal-table-header>
+              <hal-table-row>
+                <hal-table-head>Component</hal-table-head>
+                <hal-table-head>Description</hal-table-head>
+              </hal-table-row>
+            </hal-table-header>
+            <hal-table-body>
+              <hal-table-row>
+                <hal-table-cell class="font-mono"
+                  >hal-pagination</hal-table-cell
                 >
-                <plank-table-cell
+                <hal-table-cell
                   >The navigation container with
-                  role="navigation"</plank-table-cell
+                  role="navigation"</hal-table-cell
                 >
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >plank-pagination-content</plank-table-cell
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono"
+                  >hal-pagination-content</hal-table-cell
                 >
-                <plank-table-cell
-                  >Container for the pagination items</plank-table-cell
+                <hal-table-cell
+                  >Container for the pagination items</hal-table-cell
                 >
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >plank-pagination-item</plank-table-cell
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono"
+                  >hal-pagination-item</hal-table-cell
                 >
-                <plank-table-cell
-                  >Wrapper for individual pagination elements</plank-table-cell
+                <hal-table-cell
+                  >Wrapper for individual pagination elements</hal-table-cell
                 >
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >plank-pagination-link</plank-table-cell
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono"
+                  >hal-pagination-link</hal-table-cell
                 >
-                <plank-table-cell>A page number link</plank-table-cell>
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >plank-pagination-previous</plank-table-cell
+                <hal-table-cell>A page number link</hal-table-cell>
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono"
+                  >hal-pagination-previous</hal-table-cell
                 >
-                <plank-table-cell>Previous page link</plank-table-cell>
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >plank-pagination-next</plank-table-cell
+                <hal-table-cell>Previous page link</hal-table-cell>
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono"
+                  >hal-pagination-next</hal-table-cell
                 >
-                <plank-table-cell>Next page link</plank-table-cell>
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >plank-pagination-ellipsis</plank-table-cell
+                <hal-table-cell>Next page link</hal-table-cell>
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono"
+                  >hal-pagination-ellipsis</hal-table-cell
                 >
-                <plank-table-cell
-                  >Ellipsis indicator for hidden pages</plank-table-cell
+                <hal-table-cell
+                  >Ellipsis indicator for hidden pages</hal-table-cell
                 >
-              </plank-table-row>
-            </plank-table-body>
-          </plank-table>
+              </hal-table-row>
+            </hal-table-body>
+          </hal-table>
         </div>
       </section>
 
-      <!-- plank-pagination-link API -->
+      <!-- hal-pagination-link API -->
       <section class="mb-12">
-        <h3 class="text-xl font-semibold mb-4">plank-pagination-link</h3>
+        <h3 class="text-xl font-semibold mb-4">hal-pagination-link</h3>
         <div class="overflow-x-auto">
-          <plank-table>
-            <plank-table-header>
-              <plank-table-row>
-                <plank-table-head>Property</plank-table-head>
-                <plank-table-head>Type</plank-table-head>
-                <plank-table-head>Default</plank-table-head>
-                <plank-table-head>Description</plank-table-head>
-              </plank-table-row>
-            </plank-table-header>
-            <plank-table-body>
-              <plank-table-row>
-                <plank-table-cell class="font-mono">href</plank-table-cell>
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >string</plank-table-cell
+          <hal-table>
+            <hal-table-header>
+              <hal-table-row>
+                <hal-table-head>Property</hal-table-head>
+                <hal-table-head>Type</hal-table-head>
+                <hal-table-head>Default</hal-table-head>
+                <hal-table-head>Description</hal-table-head>
+              </hal-table-row>
+            </hal-table-header>
+            <hal-table-body>
+              <hal-table-row>
+                <hal-table-cell class="font-mono">href</hal-table-cell>
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >string</hal-table-cell
                 >
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >""</plank-table-cell
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >""</hal-table-cell
                 >
-                <plank-table-cell>The URL for the link</plank-table-cell>
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono">active</plank-table-cell>
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >boolean</plank-table-cell
+                <hal-table-cell>The URL for the link</hal-table-cell>
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono">active</hal-table-cell>
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >boolean</hal-table-cell
                 >
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >false</plank-table-cell
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >false</hal-table-cell
                 >
-                <plank-table-cell
-                  >Whether this is the current page</plank-table-cell
+                <hal-table-cell
+                  >Whether this is the current page</hal-table-cell
                 >
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono">size</plank-table-cell>
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >"default" | "icon"</plank-table-cell
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono">size</hal-table-cell>
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >"default" | "icon"</hal-table-cell
                 >
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >"icon"</plank-table-cell
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >"icon"</hal-table-cell
                 >
-                <plank-table-cell>The size of the link button</plank-table-cell>
-              </plank-table-row>
-            </plank-table-body>
-          </plank-table>
+                <hal-table-cell>The size of the link button</hal-table-cell>
+              </hal-table-row>
+            </hal-table-body>
+          </hal-table>
         </div>
       </section>
 

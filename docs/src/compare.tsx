@@ -189,8 +189,8 @@ import {
   InputOTPSeparator,
 } from "@/components/input-otp"
 
-// Component to render Planks HTML after mount
-function PlanksDemo({ html }: { html: string }) {
+// Component to render hallucn HTML after mount
+function HallucnDemo({ html }: { html: string }) {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -206,11 +206,11 @@ function PlanksDemo({ html }: { html: string }) {
 function ComparisonRow({
   title,
   reactContent,
-  planksHtml,
+  hallucnHtml,
 }: {
   title: string
   reactContent: React.ReactNode
-  planksHtml: string
+  hallucnHtml: string
 }) {
   return (
     <div className="mb-12">
@@ -226,9 +226,9 @@ function ComparisonRow({
         </div>
         <div>
           <h3 className="text-sm font-medium text-muted-foreground mb-2">
-            Web Component (Planks)
+            Web Component (hallucn)
           </h3>
-          <PlanksDemo html={planksHtml} />
+          <HallucnDemo html={hallucnHtml} />
         </div>
       </div>
     </div>
@@ -251,13 +251,13 @@ function ComparisonPage() {
             <Button variant="ghost">Ghost</Button>
           </div>
         }
-        planksHtml={`
+        hallucnHtml={`
           <div class="flex gap-2 flex-wrap">
-            <plank-button>Default</plank-button>
-            <plank-button variant="secondary">Secondary</plank-button>
-            <plank-button variant="destructive">Destructive</plank-button>
-            <plank-button variant="outline">Outline</plank-button>
-            <plank-button variant="ghost">Ghost</plank-button>
+            <hal-button>Default</hal-button>
+            <hal-button variant="secondary">Secondary</hal-button>
+            <hal-button variant="destructive">Destructive</hal-button>
+            <hal-button variant="outline">Outline</hal-button>
+            <hal-button variant="ghost">Ghost</hal-button>
           </div>
         `}
       />
@@ -278,17 +278,17 @@ function ComparisonPage() {
             </ButtonGroup>
           </div>
         }
-        planksHtml={`
+        hallucnHtml={`
           <div class="flex flex-col gap-4">
-            <plank-button-group>
-              <plank-button variant="outline">Left</plank-button>
-              <plank-button variant="outline">Center</plank-button>
-              <plank-button variant="outline">Right</plank-button>
-            </plank-button-group>
-            <plank-button-group>
-              <plank-button-group-text>Label</plank-button-group-text>
-              <plank-button variant="outline">Action</plank-button>
-            </plank-button-group>
+            <hal-button-group>
+              <hal-button variant="outline">Left</hal-button>
+              <hal-button variant="outline">Center</hal-button>
+              <hal-button variant="outline">Right</hal-button>
+            </hal-button-group>
+            <hal-button-group>
+              <hal-button-group-text>Label</hal-button-group-text>
+              <hal-button variant="outline">Action</hal-button>
+            </hal-button-group>
           </div>
         `}
       />
@@ -304,12 +304,12 @@ function ComparisonPage() {
             <Badge variant="outline">Outline</Badge>
           </div>
         }
-        planksHtml={`
+        hallucnHtml={`
           <div class="flex gap-2 flex-wrap">
-            <plank-badge>Default</plank-badge>
-            <plank-badge variant="secondary">Secondary</plank-badge>
-            <plank-badge variant="destructive">Destructive</plank-badge>
-            <plank-badge variant="outline">Outline</plank-badge>
+            <hal-badge>Default</hal-badge>
+            <hal-badge variant="secondary">Secondary</hal-badge>
+            <hal-badge variant="destructive">Destructive</hal-badge>
+            <hal-badge variant="outline">Outline</hal-badge>
           </div>
         `}
       />
@@ -320,7 +320,7 @@ function ComparisonPage() {
         reactContent={
           <Input placeholder="Enter text..." className="max-w-xs" />
         }
-        planksHtml={`<plank-input placeholder="Enter text..." class="max-w-xs"></plank-input>`}
+        hallucnHtml={`<hal-input placeholder="Enter text..." class="max-w-xs"></hal-input>`}
       />
 
       {/* Textarea */}
@@ -329,14 +329,14 @@ function ComparisonPage() {
         reactContent={
           <Textarea placeholder="Enter text..." className="max-w-xs" rows={3} />
         }
-        planksHtml={`<plank-textarea placeholder="Enter text..." class="max-w-xs" rows="3"></plank-textarea>`}
+        hallucnHtml={`<hal-textarea placeholder="Enter text..." class="max-w-xs" rows="3"></hal-textarea>`}
       />
 
       {/* Label */}
       <ComparisonRow
         title="Label"
         reactContent={<Label>Email address</Label>}
-        planksHtml={`<plank-label>Email address</plank-label>`}
+        hallucnHtml={`<hal-label>Email address</hal-label>`}
       />
 
       {/* Native Select */}
@@ -350,13 +350,13 @@ function ComparisonPage() {
             <NativeSelectOption value="orange">Orange</NativeSelectOption>
           </NativeSelect>
         }
-        planksHtml={`
-          <plank-native-select>
-            <plank-native-select-option value="">Select an option</plank-native-select-option>
-            <plank-native-select-option value="apple">Apple</plank-native-select-option>
-            <plank-native-select-option value="banana">Banana</plank-native-select-option>
-            <plank-native-select-option value="orange">Orange</plank-native-select-option>
-          </plank-native-select>
+        hallucnHtml={`
+          <hal-native-select>
+            <hal-native-select-option value="">Select an option</hal-native-select-option>
+            <hal-native-select-option value="apple">Apple</hal-native-select-option>
+            <hal-native-select-option value="banana">Banana</hal-native-select-option>
+            <hal-native-select-option value="orange">Orange</hal-native-select-option>
+          </hal-native-select>
         `}
       />
 
@@ -368,7 +368,7 @@ function ComparisonPage() {
             <Separator />
           </div>
         }
-        planksHtml={`<div class="w-full max-w-xs"><plank-separator></plank-separator></div>`}
+        hallucnHtml={`<div class="w-full max-w-xs"><hal-separator></hal-separator></div>`}
       />
 
       {/* Skeleton */}
@@ -383,12 +383,12 @@ function ComparisonPage() {
             </div>
           </div>
         }
-        planksHtml={`
+        hallucnHtml={`
           <div class="flex items-center gap-4">
-            <plank-skeleton class="h-12 w-12 rounded-full"></plank-skeleton>
+            <hal-skeleton class="h-12 w-12 rounded-full"></hal-skeleton>
             <div class="space-y-2">
-              <plank-skeleton class="h-4 w-32"></plank-skeleton>
-              <plank-skeleton class="h-4 w-24"></plank-skeleton>
+              <hal-skeleton class="h-4 w-32"></hal-skeleton>
+              <hal-skeleton class="h-4 w-24"></hal-skeleton>
             </div>
           </div>
         `}
@@ -404,11 +404,11 @@ function ComparisonPage() {
             <Spinner className="size-8" />
           </div>
         }
-        planksHtml={`
+        hallucnHtml={`
           <div class="flex items-center gap-4">
-            <plank-spinner></plank-spinner>
-            <plank-spinner class="size-6"></plank-spinner>
-            <plank-spinner class="size-8"></plank-spinner>
+            <hal-spinner></hal-spinner>
+            <hal-spinner class="size-6"></hal-spinner>
+            <hal-spinner class="size-8"></hal-spinner>
           </div>
         `}
       />
@@ -422,9 +422,9 @@ function ComparisonPage() {
             <span className="text-sm">Enabled</span>
           </div>
         }
-        planksHtml={`
+        hallucnHtml={`
           <div class="flex items-center gap-2">
-            <plank-switch checked></plank-switch>
+            <hal-switch checked></hal-switch>
             <span class="text-sm">Enabled</span>
           </div>
         `}
@@ -439,10 +439,10 @@ function ComparisonPage() {
             <Label htmlFor="react-cb">Accept terms</Label>
           </div>
         }
-        planksHtml={`
+        hallucnHtml={`
           <div class="flex items-center gap-2">
-            <plank-checkbox checked id="plank-cb"></plank-checkbox>
-            <plank-label for="plank-cb">Accept terms</plank-label>
+            <hal-checkbox checked id="hal-cb"></hal-checkbox>
+            <hal-label for="hal-cb">Accept terms</hal-label>
           </div>
         `}
       />
@@ -458,10 +458,10 @@ function ComparisonPage() {
             <Toggle aria-label="Italic">I</Toggle>
           </div>
         }
-        planksHtml={`
+        hallucnHtml={`
           <div class="flex gap-2">
-            <plank-toggle pressed aria-label="Bold">B</plank-toggle>
-            <plank-toggle aria-label="Italic">I</plank-toggle>
+            <hal-toggle pressed aria-label="Bold">B</hal-toggle>
+            <hal-toggle aria-label="Italic">I</hal-toggle>
           </div>
         `}
       />
@@ -470,14 +470,14 @@ function ComparisonPage() {
       <ComparisonRow
         title="Progress"
         reactContent={<Progress value={66} className="max-w-xs" />}
-        planksHtml={`<plank-progress value="66" class="max-w-xs"></plank-progress>`}
+        hallucnHtml={`<hal-progress value="66" class="max-w-xs"></hal-progress>`}
       />
 
       {/* Slider */}
       <ComparisonRow
         title="Slider"
         reactContent={<Slider defaultValue={[50]} className="max-w-xs" />}
-        planksHtml={`<plank-slider value="50" class="max-w-xs"></plank-slider>`}
+        hallucnHtml={`<hal-slider value="50" class="max-w-xs"></hal-slider>`}
       />
 
       {/* Card */}
@@ -492,14 +492,14 @@ function ComparisonPage() {
             <CardContent>Card content goes here</CardContent>
           </Card>
         }
-        planksHtml={`
-          <plank-card class="max-w-xs">
-            <plank-card-header>
-              <plank-card-title>Card Title</plank-card-title>
-              <plank-card-description>Card description text</plank-card-description>
-            </plank-card-header>
-            <plank-card-content>Card content goes here</plank-card-content>
-          </plank-card>
+        hallucnHtml={`
+          <hal-card class="max-w-xs">
+            <hal-card-header>
+              <hal-card-title>Card Title</hal-card-title>
+              <hal-card-description>Card description text</hal-card-description>
+            </hal-card-header>
+            <hal-card-content>Card content goes here</hal-card-content>
+          </hal-card>
         `}
       />
 
@@ -512,11 +512,11 @@ function ComparisonPage() {
             <AlertDescription>This is an important message.</AlertDescription>
           </Alert>
         }
-        planksHtml={`
-          <plank-alert class="max-w-sm">
-            <plank-alert-title>Heads up!</plank-alert-title>
-            <plank-alert-description>This is an important message.</plank-alert-description>
-          </plank-alert>
+        hallucnHtml={`
+          <hal-alert class="max-w-sm">
+            <hal-alert-title>Heads up!</hal-alert-title>
+            <hal-alert-description>This is an important message.</hal-alert-description>
+          </hal-alert>
         `}
       />
 
@@ -552,22 +552,22 @@ function ComparisonPage() {
             </EmptyContent>
           </Empty>
         }
-        planksHtml={`
-          <plank-empty class="border max-w-sm">
-            <plank-empty-header>
-              <plank-empty-media variant="icon">
+        hallucnHtml={`
+          <hal-empty class="border max-w-sm">
+            <hal-empty-header>
+              <hal-empty-media variant="icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="22 12 16 12 14 15 10 15 8 12 2 12" />
                   <path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" />
                 </svg>
-              </plank-empty-media>
-              <plank-empty-title>No messages</plank-empty-title>
-              <plank-empty-description>Your inbox is empty. New messages will appear here.</plank-empty-description>
-            </plank-empty-header>
-            <plank-empty-content>
-              <plank-button size="sm">Compose</plank-button>
-            </plank-empty-content>
-          </plank-empty>
+              </hal-empty-media>
+              <hal-empty-title>No messages</hal-empty-title>
+              <hal-empty-description>Your inbox is empty. New messages will appear here.</hal-empty-description>
+            </hal-empty-header>
+            <hal-empty-content>
+              <hal-button size="sm">Compose</hal-button>
+            </hal-empty-content>
+          </hal-empty>
         `}
       />
 
@@ -583,13 +583,13 @@ function ComparisonPage() {
             </Field>
           </div>
         }
-        planksHtml={`
+        hallucnHtml={`
           <div class="max-w-sm">
-            <plank-field>
-              <plank-field-label>Email</plank-field-label>
-              <plank-input type="email" placeholder="email@example.com"></plank-input>
-              <plank-field-description>We'll never share your email.</plank-field-description>
-            </plank-field>
+            <hal-field>
+              <hal-field-label>Email</hal-field-label>
+              <hal-input type="email" placeholder="email@example.com"></hal-input>
+              <hal-field-description>We'll never share your email.</hal-field-description>
+            </hal-field>
           </div>
         `}
       />
@@ -610,17 +610,17 @@ function ComparisonPage() {
             </Avatar>
           </div>
         }
-        planksHtml={`
+        hallucnHtml={`
           <div class="flex -space-x-2">
-            <plank-avatar class="ring-2 ring-background">
-              <plank-avatar-fallback>A</plank-avatar-fallback>
-            </plank-avatar>
-            <plank-avatar class="ring-2 ring-background">
-              <plank-avatar-fallback>B</plank-avatar-fallback>
-            </plank-avatar>
-            <plank-avatar class="ring-2 ring-background">
-              <plank-avatar-fallback>C</plank-avatar-fallback>
-            </plank-avatar>
+            <hal-avatar class="ring-2 ring-background">
+              <hal-avatar-fallback>A</hal-avatar-fallback>
+            </hal-avatar>
+            <hal-avatar class="ring-2 ring-background">
+              <hal-avatar-fallback>B</hal-avatar-fallback>
+            </hal-avatar>
+            <hal-avatar class="ring-2 ring-background">
+              <hal-avatar-fallback>C</hal-avatar-fallback>
+            </hal-avatar>
           </div>
         `}
       />
@@ -645,18 +645,18 @@ function ComparisonPage() {
             </CollapsibleContent>
           </Collapsible>
         }
-        planksHtml={`
-          <plank-collapsible class="w-full max-w-xs flex flex-col gap-2">
+        hallucnHtml={`
+          <hal-collapsible class="w-full max-w-xs flex flex-col gap-2">
             <div class="flex items-center justify-between">
               <span class="text-sm">Click to toggle</span>
-              <plank-collapsible-trigger>
-                <plank-button variant="ghost" size="sm">Toggle</plank-button>
-              </plank-collapsible-trigger>
+              <hal-collapsible-trigger>
+                <hal-button variant="ghost" size="sm">Toggle</hal-button>
+              </hal-collapsible-trigger>
             </div>
-            <plank-collapsible-content>
+            <hal-collapsible-content>
               <div class="rounded-md border px-3 py-2 text-sm">Hidden content</div>
-            </plank-collapsible-content>
-          </plank-collapsible>
+            </hal-collapsible-content>
+          </hal-collapsible>
         `}
       />
 
@@ -679,17 +679,17 @@ function ComparisonPage() {
             </AccordionItem>
           </Accordion>
         }
-        planksHtml={`
-          <plank-accordion collapsible class="w-full max-w-xs">
-            <plank-accordion-item value="item-1">
-              <plank-accordion-trigger>Is it accessible?</plank-accordion-trigger>
-              <plank-accordion-content>Yes. It follows WAI-ARIA patterns.</plank-accordion-content>
-            </plank-accordion-item>
-            <plank-accordion-item value="item-2">
-              <plank-accordion-trigger>Is it styled?</plank-accordion-trigger>
-              <plank-accordion-content>Yes. It uses Tailwind CSS classes.</plank-accordion-content>
-            </plank-accordion-item>
-          </plank-accordion>
+        hallucnHtml={`
+          <hal-accordion collapsible class="w-full max-w-xs">
+            <hal-accordion-item value="item-1">
+              <hal-accordion-trigger>Is it accessible?</hal-accordion-trigger>
+              <hal-accordion-content>Yes. It follows WAI-ARIA patterns.</hal-accordion-content>
+            </hal-accordion-item>
+            <hal-accordion-item value="item-2">
+              <hal-accordion-trigger>Is it styled?</hal-accordion-trigger>
+              <hal-accordion-content>Yes. It uses Tailwind CSS classes.</hal-accordion-content>
+            </hal-accordion-item>
+          </hal-accordion>
         `}
       />
 
@@ -714,19 +714,19 @@ function ComparisonPage() {
             </TabsContent>
           </Tabs>
         }
-        planksHtml={`
-          <plank-tabs value="tab1" class="w-full max-w-xs">
-            <plank-tabs-list>
-              <plank-tabs-trigger value="tab1">Account</plank-tabs-trigger>
-              <plank-tabs-trigger value="tab2">Password</plank-tabs-trigger>
-            </plank-tabs-list>
-            <plank-tabs-content value="tab1">
+        hallucnHtml={`
+          <hal-tabs value="tab1" class="w-full max-w-xs">
+            <hal-tabs-list>
+              <hal-tabs-trigger value="tab1">Account</hal-tabs-trigger>
+              <hal-tabs-trigger value="tab2">Password</hal-tabs-trigger>
+            </hal-tabs-list>
+            <hal-tabs-content value="tab1">
               <p class="text-sm text-muted-foreground">Account settings here</p>
-            </plank-tabs-content>
-            <plank-tabs-content value="tab2">
+            </hal-tabs-content>
+            <hal-tabs-content value="tab2">
               <p class="text-sm text-muted-foreground">Password settings here</p>
-            </plank-tabs-content>
-          </plank-tabs>
+            </hal-tabs-content>
+          </hal-tabs>
         `}
       />
 
@@ -745,17 +745,17 @@ function ComparisonPage() {
             </div>
           </RadioGroup>
         }
-        planksHtml={`
-          <plank-radio-group value="option1">
+        hallucnHtml={`
+          <hal-radio-group value="option1">
             <div class="flex items-center gap-2">
-              <plank-radio-group-item value="option1" id="pr1"></plank-radio-group-item>
-              <plank-label for="pr1">Option 1</plank-label>
+              <hal-radio-group-item value="option1" id="pr1"></hal-radio-group-item>
+              <hal-label for="pr1">Option 1</hal-label>
             </div>
             <div class="flex items-center gap-2">
-              <plank-radio-group-item value="option2" id="pr2"></plank-radio-group-item>
-              <plank-label for="pr2">Option 2</plank-label>
+              <hal-radio-group-item value="option2" id="pr2"></hal-radio-group-item>
+              <hal-label for="pr2">Option 2</hal-label>
             </div>
-          </plank-radio-group>
+          </hal-radio-group>
         `}
       />
 
@@ -775,12 +775,12 @@ function ComparisonPage() {
             </ToggleGroupItem>
           </ToggleGroup>
         }
-        planksHtml={`
-          <plank-toggle-group type="multiple" value="bold">
-            <plank-toggle-group-item value="bold" aria-label="Bold">B</plank-toggle-group-item>
-            <plank-toggle-group-item value="italic" aria-label="Italic">I</plank-toggle-group-item>
-            <plank-toggle-group-item value="underline" aria-label="Underline">U</plank-toggle-group-item>
-          </plank-toggle-group>
+        hallucnHtml={`
+          <hal-toggle-group type="multiple" value="bold">
+            <hal-toggle-group-item value="bold" aria-label="Bold">B</hal-toggle-group-item>
+            <hal-toggle-group-item value="italic" aria-label="Italic">I</hal-toggle-group-item>
+            <hal-toggle-group-item value="underline" aria-label="Underline">U</hal-toggle-group-item>
+          </hal-toggle-group>
         `}
       />
 
@@ -795,11 +795,11 @@ function ComparisonPage() {
             <span className="text-sm">to search</span>
           </div>
         }
-        planksHtml={`
+        hallucnHtml={`
           <div class="flex items-center gap-2">
             <span class="text-sm">Press</span>
-            <plank-kbd>⌘</plank-kbd>
-            <plank-kbd>K</plank-kbd>
+            <hal-kbd>⌘</hal-kbd>
+            <hal-kbd>K</hal-kbd>
             <span class="text-sm">to search</span>
           </div>
         `}
@@ -817,11 +817,11 @@ function ComparisonPage() {
             </AspectRatio>
           </div>
         }
-        planksHtml={`
+        hallucnHtml={`
           <div class="w-48">
-            <plank-aspect-ratio ratio="1.778">
+            <hal-aspect-ratio ratio="1.778">
               <div class="bg-muted rounded-md flex items-center justify-center h-full">16:9</div>
-            </plank-aspect-ratio>
+            </hal-aspect-ratio>
           </div>
         `}
       />
@@ -841,13 +841,13 @@ function ComparisonPage() {
             </Tooltip>
           </TooltipProvider>
         }
-        planksHtml={`
-          <plank-tooltip>
-            <plank-tooltip-trigger>
-              <plank-button variant="outline">Hover me</plank-button>
-            </plank-tooltip-trigger>
-            <plank-tooltip-content>Add to library</plank-tooltip-content>
-          </plank-tooltip>
+        hallucnHtml={`
+          <hal-tooltip>
+            <hal-tooltip-trigger>
+              <hal-button variant="outline">Hover me</hal-button>
+            </hal-tooltip-trigger>
+            <hal-tooltip-content>Add to library</hal-tooltip-content>
+          </hal-tooltip>
         `}
       />
 
@@ -871,20 +871,20 @@ function ComparisonPage() {
             </PopoverContent>
           </Popover>
         }
-        planksHtml={`
-          <plank-popover>
-            <plank-popover-trigger>
-              <plank-button variant="outline">Open popover</plank-button>
-            </plank-popover-trigger>
-            <plank-popover-content class="w-80">
+        hallucnHtml={`
+          <hal-popover>
+            <hal-popover-trigger>
+              <hal-button variant="outline">Open popover</hal-button>
+            </hal-popover-trigger>
+            <hal-popover-content class="w-80">
               <div class="grid gap-4">
                 <div class="space-y-2">
                   <h4 class="font-medium leading-none">Dimensions</h4>
                   <p class="text-sm text-muted-foreground">Set the dimensions for the layer.</p>
                 </div>
               </div>
-            </plank-popover-content>
-          </plank-popover>
+            </hal-popover-content>
+          </hal-popover>
         `}
       />
 
@@ -909,21 +909,21 @@ function ComparisonPage() {
             </DialogContent>
           </Dialog>
         }
-        planksHtml={`
-          <plank-dialog>
-            <plank-dialog-trigger>
-              <plank-button variant="outline">Open dialog</plank-button>
-            </plank-dialog-trigger>
-            <plank-dialog-content>
-              <plank-dialog-header>
-                <plank-dialog-title>Edit profile</plank-dialog-title>
-                <plank-dialog-description>Make changes to your profile here.</plank-dialog-description>
-              </plank-dialog-header>
-              <plank-dialog-footer>
-                <plank-button>Save changes</plank-button>
-              </plank-dialog-footer>
-            </plank-dialog-content>
-          </plank-dialog>
+        hallucnHtml={`
+          <hal-dialog>
+            <hal-dialog-trigger>
+              <hal-button variant="outline">Open dialog</hal-button>
+            </hal-dialog-trigger>
+            <hal-dialog-content>
+              <hal-dialog-header>
+                <hal-dialog-title>Edit profile</hal-dialog-title>
+                <hal-dialog-description>Make changes to your profile here.</hal-dialog-description>
+              </hal-dialog-header>
+              <hal-dialog-footer>
+                <hal-button>Save changes</hal-button>
+              </hal-dialog-footer>
+            </hal-dialog-content>
+          </hal-dialog>
         `}
       />
 
@@ -949,22 +949,22 @@ function ComparisonPage() {
             </AlertDialogContent>
           </AlertDialog>
         }
-        planksHtml={`
-          <plank-alert-dialog>
-            <plank-alert-dialog-trigger>
-              <plank-button variant="destructive">Delete</plank-button>
-            </plank-alert-dialog-trigger>
-            <plank-alert-dialog-content>
-              <plank-alert-dialog-header>
-                <plank-alert-dialog-title>Are you absolutely sure?</plank-alert-dialog-title>
-                <plank-alert-dialog-description>This action cannot be undone.</plank-alert-dialog-description>
-              </plank-alert-dialog-header>
-              <plank-alert-dialog-footer>
-                <plank-alert-dialog-cancel>Cancel</plank-alert-dialog-cancel>
-                <plank-alert-dialog-action>Continue</plank-alert-dialog-action>
-              </plank-alert-dialog-footer>
-            </plank-alert-dialog-content>
-          </plank-alert-dialog>
+        hallucnHtml={`
+          <hal-alert-dialog>
+            <hal-alert-dialog-trigger>
+              <hal-button variant="destructive">Delete</hal-button>
+            </hal-alert-dialog-trigger>
+            <hal-alert-dialog-content>
+              <hal-alert-dialog-header>
+                <hal-alert-dialog-title>Are you absolutely sure?</hal-alert-dialog-title>
+                <hal-alert-dialog-description>This action cannot be undone.</hal-alert-dialog-description>
+              </hal-alert-dialog-header>
+              <hal-alert-dialog-footer>
+                <hal-alert-dialog-cancel>Cancel</hal-alert-dialog-cancel>
+                <hal-alert-dialog-action>Continue</hal-alert-dialog-action>
+              </hal-alert-dialog-footer>
+            </hal-alert-dialog-content>
+          </hal-alert-dialog>
         `}
       />
 
@@ -985,19 +985,19 @@ function ComparisonPage() {
             </DropdownMenuContent>
           </DropdownMenu>
         }
-        planksHtml={`
-          <plank-dropdown-menu>
-            <plank-dropdown-menu-trigger>
-              <plank-button variant="outline">Open menu</plank-button>
-            </plank-dropdown-menu-trigger>
-            <plank-dropdown-menu-content>
-              <plank-dropdown-menu-label>My Account</plank-dropdown-menu-label>
-              <plank-dropdown-menu-separator></plank-dropdown-menu-separator>
-              <plank-dropdown-menu-item>Profile</plank-dropdown-menu-item>
-              <plank-dropdown-menu-item>Settings</plank-dropdown-menu-item>
-              <plank-dropdown-menu-item>Log out</plank-dropdown-menu-item>
-            </plank-dropdown-menu-content>
-          </plank-dropdown-menu>
+        hallucnHtml={`
+          <hal-dropdown-menu>
+            <hal-dropdown-menu-trigger>
+              <hal-button variant="outline">Open menu</hal-button>
+            </hal-dropdown-menu-trigger>
+            <hal-dropdown-menu-content>
+              <hal-dropdown-menu-label>My Account</hal-dropdown-menu-label>
+              <hal-dropdown-menu-separator></hal-dropdown-menu-separator>
+              <hal-dropdown-menu-item>Profile</hal-dropdown-menu-item>
+              <hal-dropdown-menu-item>Settings</hal-dropdown-menu-item>
+              <hal-dropdown-menu-item>Log out</hal-dropdown-menu-item>
+            </hal-dropdown-menu-content>
+          </hal-dropdown-menu>
         `}
       />
 
@@ -1016,19 +1016,19 @@ function ComparisonPage() {
             </ContextMenuContent>
           </ContextMenu>
         }
-        planksHtml={`
-          <plank-context-menu>
-            <plank-context-menu-trigger>
+        hallucnHtml={`
+          <hal-context-menu>
+            <hal-context-menu-trigger>
               <div class="flex h-24 w-48 items-center justify-center rounded-md border border-dashed text-sm">
                 Right click here
               </div>
-            </plank-context-menu-trigger>
-            <plank-context-menu-content>
-              <plank-context-menu-item>Cut</plank-context-menu-item>
-              <plank-context-menu-item>Copy</plank-context-menu-item>
-              <plank-context-menu-item>Paste</plank-context-menu-item>
-            </plank-context-menu-content>
-          </plank-context-menu>
+            </hal-context-menu-trigger>
+            <hal-context-menu-content>
+              <hal-context-menu-item>Cut</hal-context-menu-item>
+              <hal-context-menu-item>Copy</hal-context-menu-item>
+              <hal-context-menu-item>Paste</hal-context-menu-item>
+            </hal-context-menu-content>
+          </hal-context-menu>
         `}
       />
 
@@ -1050,18 +1050,18 @@ function ComparisonPage() {
             </SheetContent>
           </Sheet>
         }
-        planksHtml={`
-          <plank-sheet>
-            <plank-sheet-trigger>
-              <plank-button variant="outline">Open sheet</plank-button>
-            </plank-sheet-trigger>
-            <plank-sheet-content>
-              <plank-sheet-header>
-                <plank-sheet-title>Edit profile</plank-sheet-title>
-                <plank-sheet-description>Make changes to your profile here.</plank-sheet-description>
-              </plank-sheet-header>
-            </plank-sheet-content>
-          </plank-sheet>
+        hallucnHtml={`
+          <hal-sheet>
+            <hal-sheet-trigger>
+              <hal-button variant="outline">Open sheet</hal-button>
+            </hal-sheet-trigger>
+            <hal-sheet-content>
+              <hal-sheet-header>
+                <hal-sheet-title>Edit profile</hal-sheet-title>
+                <hal-sheet-description>Make changes to your profile here.</hal-sheet-description>
+              </hal-sheet-header>
+            </hal-sheet-content>
+          </hal-sheet>
         `}
       />
 
@@ -1095,21 +1095,21 @@ function ComparisonPage() {
           </div>
           <div>
             <h3 className="text-sm font-medium text-muted-foreground mb-2">
-              Web Component (Planks)
+              Web Component (hallucn)
             </h3>
-            <PlanksDemo
+            <HallucnDemo
               html={`
-                <plank-drawer>
-                  <plank-drawer-trigger>
-                    <plank-button variant="outline">Open drawer</plank-button>
-                  </plank-drawer-trigger>
-                  <plank-drawer-content>
-                    <plank-drawer-header>
-                      <plank-drawer-title>Edit profile</plank-drawer-title>
-                      <plank-drawer-description>Make changes to your profile here.</plank-drawer-description>
-                    </plank-drawer-header>
-                  </plank-drawer-content>
-                </plank-drawer>
+                <hal-drawer>
+                  <hal-drawer-trigger>
+                    <hal-button variant="outline">Open drawer</hal-button>
+                  </hal-drawer-trigger>
+                  <hal-drawer-content>
+                    <hal-drawer-header>
+                      <hal-drawer-title>Edit profile</hal-drawer-title>
+                      <hal-drawer-description>Make changes to your profile here.</hal-drawer-description>
+                    </hal-drawer-header>
+                  </hal-drawer-content>
+                </hal-drawer>
               `}
             />
           </div>
@@ -1136,20 +1136,20 @@ function ComparisonPage() {
             </HoverCardContent>
           </HoverCard>
         }
-        planksHtml={`
-          <plank-hover-card>
-            <plank-hover-card-trigger>
-              <plank-button variant="link">@shadcn</plank-button>
-            </plank-hover-card-trigger>
-            <plank-hover-card-content class="w-80">
+        hallucnHtml={`
+          <hal-hover-card>
+            <hal-hover-card-trigger>
+              <hal-button variant="link">@shadcn</hal-button>
+            </hal-hover-card-trigger>
+            <hal-hover-card-content class="w-80">
               <div class="flex justify-between space-x-4">
                 <div class="space-y-1">
                   <h4 class="text-sm font-semibold">@shadcn</h4>
                   <p class="text-sm">The creator of shadcn/ui and related tools.</p>
                 </div>
               </div>
-            </plank-hover-card-content>
-          </plank-hover-card>
+            </hal-hover-card-content>
+          </hal-hover-card>
         `}
       />
 
@@ -1168,17 +1168,17 @@ function ComparisonPage() {
             </SelectContent>
           </Select>
         }
-        planksHtml={`
-          <plank-select class="w-48">
-            <plank-select-trigger>
-              <plank-select-value placeholder="Select a fruit"></plank-select-value>
-            </plank-select-trigger>
-            <plank-select-content>
-              <plank-select-item value="apple">Apple</plank-select-item>
-              <plank-select-item value="banana">Banana</plank-select-item>
-              <plank-select-item value="orange">Orange</plank-select-item>
-            </plank-select-content>
-          </plank-select>
+        hallucnHtml={`
+          <hal-select class="w-48">
+            <hal-select-trigger>
+              <hal-select-value placeholder="Select a fruit"></hal-select-value>
+            </hal-select-trigger>
+            <hal-select-content>
+              <hal-select-item value="apple">Apple</hal-select-item>
+              <hal-select-item value="banana">Banana</hal-select-item>
+              <hal-select-item value="orange">Orange</hal-select-item>
+            </hal-select-content>
+          </hal-select>
         `}
       />
 
@@ -1198,18 +1198,18 @@ function ComparisonPage() {
             </CommandList>
           </Command>
         }
-        planksHtml={`
-          <plank-command class="rounded-lg border shadow-md max-w-xs">
-            <plank-command-input placeholder="Type a command..."></plank-command-input>
-            <plank-command-list>
-              <plank-command-empty>No results found.</plank-command-empty>
-              <plank-command-group heading="Suggestions">
-                <plank-command-item>Calendar</plank-command-item>
-                <plank-command-item>Search</plank-command-item>
-                <plank-command-item>Settings</plank-command-item>
-              </plank-command-group>
-            </plank-command-list>
-          </plank-command>
+        hallucnHtml={`
+          <hal-command class="rounded-lg border shadow-md max-w-xs">
+            <hal-command-input placeholder="Type a command..."></hal-command-input>
+            <hal-command-list>
+              <hal-command-empty>No results found.</hal-command-empty>
+              <hal-command-group heading="Suggestions">
+                <hal-command-item>Calendar</hal-command-item>
+                <hal-command-item>Search</hal-command-item>
+                <hal-command-item>Settings</hal-command-item>
+              </hal-command-group>
+            </hal-command-list>
+          </hal-command>
         `}
       />
 
@@ -1239,28 +1239,28 @@ function ComparisonPage() {
             </TableBody>
           </Table>
         }
-        planksHtml={`
-          <plank-table>
-            <plank-table-header>
-              <plank-table-row>
-                <plank-table-head>Name</plank-table-head>
-                <plank-table-head>Status</plank-table-head>
-                <plank-table-head>Role</plank-table-head>
-              </plank-table-row>
-            </plank-table-header>
-            <plank-table-body>
-              <plank-table-row>
-                <plank-table-cell>Alice</plank-table-cell>
-                <plank-table-cell>Active</plank-table-cell>
-                <plank-table-cell>Admin</plank-table-cell>
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell>Bob</plank-table-cell>
-                <plank-table-cell>Inactive</plank-table-cell>
-                <plank-table-cell>User</plank-table-cell>
-              </plank-table-row>
-            </plank-table-body>
-          </plank-table>
+        hallucnHtml={`
+          <hal-table>
+            <hal-table-header>
+              <hal-table-row>
+                <hal-table-head>Name</hal-table-head>
+                <hal-table-head>Status</hal-table-head>
+                <hal-table-head>Role</hal-table-head>
+              </hal-table-row>
+            </hal-table-header>
+            <hal-table-body>
+              <hal-table-row>
+                <hal-table-cell>Alice</hal-table-cell>
+                <hal-table-cell>Active</hal-table-cell>
+                <hal-table-cell>Admin</hal-table-cell>
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell>Bob</hal-table-cell>
+                <hal-table-cell>Inactive</hal-table-cell>
+                <hal-table-cell>User</hal-table-cell>
+              </hal-table-row>
+            </hal-table-body>
+          </hal-table>
         `}
       />
 
@@ -1268,7 +1268,7 @@ function ComparisonPage() {
       <ComparisonRow
         title="Calendar"
         reactContent={<Calendar className="rounded-md border" />}
-        planksHtml={`<plank-calendar class="rounded-md border"></plank-calendar>`}
+        hallucnHtml={`<hal-calendar class="rounded-md border"></hal-calendar>`}
       />
 
       {/* Carousel */}
@@ -1309,40 +1309,40 @@ function ComparisonPage() {
             <CarouselNext />
           </Carousel>
         }
-        planksHtml={`
-          <plank-carousel class="w-full max-w-xs mx-auto">
-            <plank-carousel-content>
-              <plank-carousel-item>
+        hallucnHtml={`
+          <hal-carousel class="w-full max-w-xs mx-auto">
+            <hal-carousel-content>
+              <hal-carousel-item>
                 <div class="p-1">
-                  <plank-card>
-                    <plank-card-content class="flex aspect-square items-center justify-center p-6">
+                  <hal-card>
+                    <hal-card-content class="flex aspect-square items-center justify-center p-6">
                       <span class="text-4xl font-semibold">1</span>
-                    </plank-card-content>
-                  </plank-card>
+                    </hal-card-content>
+                  </hal-card>
                 </div>
-              </plank-carousel-item>
-              <plank-carousel-item>
+              </hal-carousel-item>
+              <hal-carousel-item>
                 <div class="p-1">
-                  <plank-card>
-                    <plank-card-content class="flex aspect-square items-center justify-center p-6">
+                  <hal-card>
+                    <hal-card-content class="flex aspect-square items-center justify-center p-6">
                       <span class="text-4xl font-semibold">2</span>
-                    </plank-card-content>
-                  </plank-card>
+                    </hal-card-content>
+                  </hal-card>
                 </div>
-              </plank-carousel-item>
-              <plank-carousel-item>
+              </hal-carousel-item>
+              <hal-carousel-item>
                 <div class="p-1">
-                  <plank-card>
-                    <plank-card-content class="flex aspect-square items-center justify-center p-6">
+                  <hal-card>
+                    <hal-card-content class="flex aspect-square items-center justify-center p-6">
                       <span class="text-4xl font-semibold">3</span>
-                    </plank-card-content>
-                  </plank-card>
+                    </hal-card-content>
+                  </hal-card>
                 </div>
-              </plank-carousel-item>
-            </plank-carousel-content>
-            <plank-carousel-previous></plank-carousel-previous>
-            <plank-carousel-next></plank-carousel-next>
-          </plank-carousel>
+              </hal-carousel-item>
+            </hal-carousel-content>
+            <hal-carousel-previous></hal-carousel-previous>
+            <hal-carousel-next></hal-carousel-next>
+          </hal-carousel>
         `}
       />
 
@@ -1372,26 +1372,26 @@ function ComparisonPage() {
             </PaginationContent>
           </Pagination>
         }
-        planksHtml={`
-          <plank-pagination>
-            <plank-pagination-content>
-              <plank-pagination-item>
-                <plank-pagination-previous href="#"></plank-pagination-previous>
-              </plank-pagination-item>
-              <plank-pagination-item>
-                <plank-pagination-link href="#">1</plank-pagination-link>
-              </plank-pagination-item>
-              <plank-pagination-item>
-                <plank-pagination-link href="#" active>2</plank-pagination-link>
-              </plank-pagination-item>
-              <plank-pagination-item>
-                <plank-pagination-link href="#">3</plank-pagination-link>
-              </plank-pagination-item>
-              <plank-pagination-item>
-                <plank-pagination-next href="#"></plank-pagination-next>
-              </plank-pagination-item>
-            </plank-pagination-content>
-          </plank-pagination>
+        hallucnHtml={`
+          <hal-pagination>
+            <hal-pagination-content>
+              <hal-pagination-item>
+                <hal-pagination-previous href="#"></hal-pagination-previous>
+              </hal-pagination-item>
+              <hal-pagination-item>
+                <hal-pagination-link href="#">1</hal-pagination-link>
+              </hal-pagination-item>
+              <hal-pagination-item>
+                <hal-pagination-link href="#" active>2</hal-pagination-link>
+              </hal-pagination-item>
+              <hal-pagination-item>
+                <hal-pagination-link href="#">3</hal-pagination-link>
+              </hal-pagination-item>
+              <hal-pagination-item>
+                <hal-pagination-next href="#"></hal-pagination-next>
+              </hal-pagination-item>
+            </hal-pagination-content>
+          </hal-pagination>
         `}
       />
 
@@ -1415,22 +1415,22 @@ function ComparisonPage() {
             </BreadcrumbList>
           </Breadcrumb>
         }
-        planksHtml={`
-          <plank-breadcrumb>
-            <plank-breadcrumb-list>
-              <plank-breadcrumb-item>
-                <plank-breadcrumb-link href="#">Home</plank-breadcrumb-link>
-              </plank-breadcrumb-item>
-              <plank-breadcrumb-separator></plank-breadcrumb-separator>
-              <plank-breadcrumb-item>
-                <plank-breadcrumb-link href="#">Components</plank-breadcrumb-link>
-              </plank-breadcrumb-item>
-              <plank-breadcrumb-separator></plank-breadcrumb-separator>
-              <plank-breadcrumb-item>
-                <plank-breadcrumb-page>Breadcrumb</plank-breadcrumb-page>
-              </plank-breadcrumb-item>
-            </plank-breadcrumb-list>
-          </plank-breadcrumb>
+        hallucnHtml={`
+          <hal-breadcrumb>
+            <hal-breadcrumb-list>
+              <hal-breadcrumb-item>
+                <hal-breadcrumb-link href="#">Home</hal-breadcrumb-link>
+              </hal-breadcrumb-item>
+              <hal-breadcrumb-separator></hal-breadcrumb-separator>
+              <hal-breadcrumb-item>
+                <hal-breadcrumb-link href="#">Components</hal-breadcrumb-link>
+              </hal-breadcrumb-item>
+              <hal-breadcrumb-separator></hal-breadcrumb-separator>
+              <hal-breadcrumb-item>
+                <hal-breadcrumb-page>Breadcrumb</hal-breadcrumb-page>
+              </hal-breadcrumb-item>
+            </hal-breadcrumb-list>
+          </hal-breadcrumb>
         `}
       />
 
@@ -1455,20 +1455,20 @@ function ComparisonPage() {
             </ResizablePanel>
           </ResizablePanelGroup>
         }
-        planksHtml={`
-          <plank-resizable-panel-group direction="horizontal" class="max-w-md rounded-lg border">
-            <plank-resizable-panel default-size="50">
+        hallucnHtml={`
+          <hal-resizable-panel-group direction="horizontal" class="max-w-md rounded-lg border">
+            <hal-resizable-panel default-size="50">
               <div class="flex h-24 items-center justify-center p-6">
                 <span class="font-semibold">Panel 1</span>
               </div>
-            </plank-resizable-panel>
-            <plank-resizable-handle with-handle></plank-resizable-handle>
-            <plank-resizable-panel default-size="50">
+            </hal-resizable-panel>
+            <hal-resizable-handle with-handle></hal-resizable-handle>
+            <hal-resizable-panel default-size="50">
               <div class="flex h-24 items-center justify-center p-6">
                 <span class="font-semibold">Panel 2</span>
               </div>
-            </plank-resizable-panel>
-          </plank-resizable-panel-group>
+            </hal-resizable-panel>
+          </hal-resizable-panel-group>
         `}
       />
 
@@ -1503,29 +1503,29 @@ function ComparisonPage() {
             </NavigationMenuList>
           </NavigationMenu>
         }
-        planksHtml={`
-          <plank-navigation-menu>
-            <plank-navigation-menu-list>
-              <plank-navigation-menu-item>
-                <plank-navigation-menu-trigger>Getting Started</plank-navigation-menu-trigger>
-                <plank-navigation-menu-content>
+        hallucnHtml={`
+          <hal-navigation-menu>
+            <hal-navigation-menu-list>
+              <hal-navigation-menu-item>
+                <hal-navigation-menu-trigger>Getting Started</hal-navigation-menu-trigger>
+                <hal-navigation-menu-content>
                   <div class="grid gap-3 p-4 w-48">
-                    <plank-navigation-menu-link href="#">Introduction</plank-navigation-menu-link>
-                    <plank-navigation-menu-link href="#">Installation</plank-navigation-menu-link>
+                    <hal-navigation-menu-link href="#">Introduction</hal-navigation-menu-link>
+                    <hal-navigation-menu-link href="#">Installation</hal-navigation-menu-link>
                   </div>
-                </plank-navigation-menu-content>
-              </plank-navigation-menu-item>
-              <plank-navigation-menu-item>
-                <plank-navigation-menu-trigger>Components</plank-navigation-menu-trigger>
-                <plank-navigation-menu-content>
+                </hal-navigation-menu-content>
+              </hal-navigation-menu-item>
+              <hal-navigation-menu-item>
+                <hal-navigation-menu-trigger>Components</hal-navigation-menu-trigger>
+                <hal-navigation-menu-content>
                   <div class="grid gap-3 p-4 w-48">
-                    <plank-navigation-menu-link href="#">Button</plank-navigation-menu-link>
-                    <plank-navigation-menu-link href="#">Card</plank-navigation-menu-link>
+                    <hal-navigation-menu-link href="#">Button</hal-navigation-menu-link>
+                    <hal-navigation-menu-link href="#">Card</hal-navigation-menu-link>
                   </div>
-                </plank-navigation-menu-content>
-              </plank-navigation-menu-item>
-            </plank-navigation-menu-list>
-          </plank-navigation-menu>
+                </hal-navigation-menu-content>
+              </hal-navigation-menu-item>
+            </hal-navigation-menu-list>
+          </hal-navigation-menu>
         `}
       />
 
@@ -1552,25 +1552,25 @@ function ComparisonPage() {
             </MenubarMenu>
           </Menubar>
         }
-        planksHtml={`
-          <plank-menubar>
-            <plank-menubar-menu>
-              <plank-menubar-trigger>File</plank-menubar-trigger>
-              <plank-menubar-content>
-                <plank-menubar-item>New File</plank-menubar-item>
-                <plank-menubar-item>Open</plank-menubar-item>
-                <plank-menubar-separator></plank-menubar-separator>
-                <plank-menubar-item>Save</plank-menubar-item>
-              </plank-menubar-content>
-            </plank-menubar-menu>
-            <plank-menubar-menu>
-              <plank-menubar-trigger>Edit</plank-menubar-trigger>
-              <plank-menubar-content>
-                <plank-menubar-item>Undo</plank-menubar-item>
-                <plank-menubar-item>Redo</plank-menubar-item>
-              </plank-menubar-content>
-            </plank-menubar-menu>
-          </plank-menubar>
+        hallucnHtml={`
+          <hal-menubar>
+            <hal-menubar-menu>
+              <hal-menubar-trigger>File</hal-menubar-trigger>
+              <hal-menubar-content>
+                <hal-menubar-item>New File</hal-menubar-item>
+                <hal-menubar-item>Open</hal-menubar-item>
+                <hal-menubar-separator></hal-menubar-separator>
+                <hal-menubar-item>Save</hal-menubar-item>
+              </hal-menubar-content>
+            </hal-menubar-menu>
+            <hal-menubar-menu>
+              <hal-menubar-trigger>Edit</hal-menubar-trigger>
+              <hal-menubar-content>
+                <hal-menubar-item>Undo</hal-menubar-item>
+                <hal-menubar-item>Redo</hal-menubar-item>
+              </hal-menubar-content>
+            </hal-menubar-menu>
+          </hal-menubar>
         `}
       />
 
@@ -1588,8 +1588,8 @@ function ComparisonPage() {
             </div>
           </ScrollArea>
         }
-        planksHtml={`
-          <plank-scroll-area class="h-48 w-48 rounded-md border p-4">
+        hallucnHtml={`
+          <hal-scroll-area class="h-48 w-48 rounded-md border p-4">
             <div class="space-y-4">
               <div class="text-sm">Item 1</div>
               <div class="text-sm">Item 2</div>
@@ -1602,7 +1602,7 @@ function ComparisonPage() {
               <div class="text-sm">Item 9</div>
               <div class="text-sm">Item 10</div>
             </div>
-          </plank-scroll-area>
+          </hal-scroll-area>
         `}
       />
 
@@ -1624,20 +1624,20 @@ function ComparisonPage() {
             </InputOTPGroup>
           </InputOTP>
         }
-        planksHtml={`
-          <plank-input-otp maxlength="6">
-            <plank-input-otp-group>
-              <plank-input-otp-slot index="0"></plank-input-otp-slot>
-              <plank-input-otp-slot index="1"></plank-input-otp-slot>
-              <plank-input-otp-slot index="2"></plank-input-otp-slot>
-            </plank-input-otp-group>
-            <plank-input-otp-separator></plank-input-otp-separator>
-            <plank-input-otp-group>
-              <plank-input-otp-slot index="3"></plank-input-otp-slot>
-              <plank-input-otp-slot index="4"></plank-input-otp-slot>
-              <plank-input-otp-slot index="5"></plank-input-otp-slot>
-            </plank-input-otp-group>
-          </plank-input-otp>
+        hallucnHtml={`
+          <hal-input-otp maxlength="6">
+            <hal-input-otp-group>
+              <hal-input-otp-slot index="0"></hal-input-otp-slot>
+              <hal-input-otp-slot index="1"></hal-input-otp-slot>
+              <hal-input-otp-slot index="2"></hal-input-otp-slot>
+            </hal-input-otp-group>
+            <hal-input-otp-separator></hal-input-otp-separator>
+            <hal-input-otp-group>
+              <hal-input-otp-slot index="3"></hal-input-otp-slot>
+              <hal-input-otp-slot index="4"></hal-input-otp-slot>
+              <hal-input-otp-slot index="5"></hal-input-otp-slot>
+            </hal-input-otp-group>
+          </hal-input-otp>
         `}
       />
 

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Collapsible - Planks</title>
+    <title>Collapsible - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -17,13 +17,13 @@
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Basic Usage</h2>
         <div class="mb-4 w-[350px]">
-          <plank-collapsible class="flex flex-col gap-2">
+          <hal-collapsible class="flex flex-col gap-2">
             <div class="flex items-center justify-between gap-4">
               <span class="text-sm font-semibold"
                 >@peduarte starred 3 repositories</span
               >
-              <plank-collapsible-trigger>
-                <plank-button variant="ghost" size="sm" class="size-8 p-0">
+              <hal-collapsible-trigger>
+                <hal-button variant="ghost" size="sm" class="size-8 p-0">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -39,97 +39,97 @@
                     <path d="m7 9 5-5 5 5" />
                   </svg>
                   <span class="sr-only">Toggle</span>
-                </plank-button>
-              </plank-collapsible-trigger>
+                </hal-button>
+              </hal-collapsible-trigger>
             </div>
             <div class="rounded-md border px-4 py-2 font-mono text-sm">
               @radix-ui/primitives
             </div>
-            <plank-collapsible-content class="flex flex-col gap-2">
+            <hal-collapsible-content class="flex flex-col gap-2">
               <div class="rounded-md border px-4 py-2 font-mono text-sm">
                 @radix-ui/colors
               </div>
               <div class="rounded-md border px-4 py-2 font-mono text-sm">
                 @stitches/react
               </div>
-            </plank-collapsible-content>
-          </plank-collapsible>
+            </hal-collapsible-content>
+          </hal-collapsible>
         </div>
-        <pre><code>&lt;plank-collapsible class="flex flex-col gap-2"&gt;
+        <pre><code>&lt;hal-collapsible class="flex flex-col gap-2"&gt;
   &lt;div class="flex items-center justify-between gap-4"&gt;
     &lt;span class="text-sm font-semibold"&gt;@peduarte starred 3 repositories&lt;/span&gt;
-    &lt;plank-collapsible-trigger&gt;
-      &lt;plank-button variant="ghost" size="sm"&gt;Toggle&lt;/plank-button&gt;
-    &lt;/plank-collapsible-trigger&gt;
+    &lt;hal-collapsible-trigger&gt;
+      &lt;hal-button variant="ghost" size="sm"&gt;Toggle&lt;/hal-button&gt;
+    &lt;/hal-collapsible-trigger&gt;
   &lt;/div&gt;
   &lt;div class="rounded-md border px-4 py-2 font-mono text-sm"&gt;
     @radix-ui/primitives
   &lt;/div&gt;
-  &lt;plank-collapsible-content class="flex flex-col gap-2"&gt;
+  &lt;hal-collapsible-content class="flex flex-col gap-2"&gt;
     &lt;div class="rounded-md border px-4 py-2 font-mono text-sm"&gt;
       @radix-ui/colors
     &lt;/div&gt;
     &lt;div class="rounded-md border px-4 py-2 font-mono text-sm"&gt;
       @stitches/react
     &lt;/div&gt;
-  &lt;/plank-collapsible-content&gt;
-&lt;/plank-collapsible&gt;</code></pre>
+  &lt;/hal-collapsible-content&gt;
+&lt;/hal-collapsible&gt;</code></pre>
       </section>
 
       <!-- Open by default -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Open by Default</h2>
         <div class="mb-4 w-[350px]">
-          <plank-collapsible open class="flex flex-col gap-2">
+          <hal-collapsible open class="flex flex-col gap-2">
             <div class="flex items-center justify-between gap-4">
               <span class="text-sm font-semibold">Files</span>
-              <plank-collapsible-trigger>
-                <plank-button variant="ghost" size="sm">Toggle</plank-button>
-              </plank-collapsible-trigger>
+              <hal-collapsible-trigger>
+                <hal-button variant="ghost" size="sm">Toggle</hal-button>
+              </hal-collapsible-trigger>
             </div>
-            <plank-collapsible-content class="flex flex-col gap-2">
+            <hal-collapsible-content class="flex flex-col gap-2">
               <div class="rounded-md border px-4 py-2 font-mono text-sm">
                 index.html
               </div>
               <div class="rounded-md border px-4 py-2 font-mono text-sm">
                 styles.css
               </div>
-            </plank-collapsible-content>
-          </plank-collapsible>
+            </hal-collapsible-content>
+          </hal-collapsible>
         </div>
-        <pre><code>&lt;plank-collapsible open&gt;
+        <pre><code>&lt;hal-collapsible open&gt;
   ...
-&lt;/plank-collapsible&gt;</code></pre>
+&lt;/hal-collapsible&gt;</code></pre>
       </section>
 
       <!-- Disabled -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Disabled</h2>
         <div class="mb-4 w-[350px]">
-          <plank-collapsible disabled class="flex flex-col gap-2">
+          <hal-collapsible disabled class="flex flex-col gap-2">
             <div class="flex items-center justify-between gap-4">
               <span class="text-sm font-semibold">Disabled Collapsible</span>
-              <plank-collapsible-trigger>
-                <plank-button variant="ghost" size="sm">Toggle</plank-button>
-              </plank-collapsible-trigger>
+              <hal-collapsible-trigger>
+                <hal-button variant="ghost" size="sm">Toggle</hal-button>
+              </hal-collapsible-trigger>
             </div>
-            <plank-collapsible-content>
+            <hal-collapsible-content>
               <div class="rounded-md border px-4 py-2 font-mono text-sm">
                 This content cannot be toggled
               </div>
-            </plank-collapsible-content>
-          </plank-collapsible>
+            </hal-collapsible-content>
+          </hal-collapsible>
         </div>
-        <pre><code>&lt;plank-collapsible disabled&gt;
+        <pre><code>&lt;hal-collapsible disabled&gt;
   ...
-&lt;/plank-collapsible&gt;</code></pre>
+&lt;/hal-collapsible&gt;</code></pre>
       </section>
 
       <!-- API -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">API</h2>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-collapsible</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-collapsible</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -183,17 +183,13 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">
-          plank-collapsible-trigger
-        </h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-collapsible-trigger</h3>
         <p class="text-muted-foreground mb-4">
           The button that toggles the collapsible. Automatically sets up ARIA
           attributes (role="button", aria-expanded, aria-controls).
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">
-          plank-collapsible-content
-        </h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-collapsible-content</h3>
         <p class="text-muted-foreground mb-4">
           The collapsible content. Hidden when closed, visible when open.
           Automatically gets an id for aria-controls.

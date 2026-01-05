@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Switch - Planks</title>
+    <title>Switch - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -18,12 +18,12 @@
         <h2 class="text-2xl font-semibold mb-4">Basic Usage</h2>
         <div class="flex flex-wrap items-center gap-4 mb-4">
           <div class="flex items-center gap-2">
-            <plank-switch id="demo-switch"></plank-switch>
-            <plank-label for="demo-switch">Airplane Mode</plank-label>
+            <hal-switch id="demo-switch"></hal-switch>
+            <hal-label for="demo-switch">Airplane Mode</hal-label>
           </div>
         </div>
-        <pre><code>&lt;plank-switch id="demo-switch"&gt;&lt;/plank-switch&gt;
-&lt;plank-label for="demo-switch"&gt;Airplane Mode&lt;/plank-label&gt;</code></pre>
+        <pre><code>&lt;hal-switch id="demo-switch"&gt;&lt;/hal-switch&gt;
+&lt;hal-label for="demo-switch"&gt;Airplane Mode&lt;/hal-label&gt;</code></pre>
       </section>
 
       <!-- States -->
@@ -31,16 +31,16 @@
         <h2 class="text-2xl font-semibold mb-4">States</h2>
         <div class="flex flex-wrap items-center gap-6 mb-4">
           <div class="flex items-center gap-2">
-            <plank-switch></plank-switch>
+            <hal-switch></hal-switch>
             <span class="text-sm text-muted-foreground">Unchecked</span>
           </div>
           <div class="flex items-center gap-2">
-            <plank-switch checked></plank-switch>
+            <hal-switch checked></hal-switch>
             <span class="text-sm text-muted-foreground">Checked</span>
           </div>
         </div>
-        <pre><code>&lt;plank-switch&gt;&lt;/plank-switch&gt;
-&lt;plank-switch checked&gt;&lt;/plank-switch&gt;</code></pre>
+        <pre><code>&lt;hal-switch&gt;&lt;/hal-switch&gt;
+&lt;hal-switch checked&gt;&lt;/hal-switch&gt;</code></pre>
       </section>
 
       <!-- Disabled -->
@@ -48,18 +48,18 @@
         <h2 class="text-2xl font-semibold mb-4">Disabled</h2>
         <div class="flex flex-wrap items-center gap-6 mb-4">
           <div class="flex items-center gap-2">
-            <plank-switch disabled></plank-switch>
+            <hal-switch disabled></hal-switch>
             <span class="text-sm text-muted-foreground"
               >Disabled unchecked</span
             >
           </div>
           <div class="flex items-center gap-2">
-            <plank-switch disabled checked></plank-switch>
+            <hal-switch disabled checked></hal-switch>
             <span class="text-sm text-muted-foreground">Disabled checked</span>
           </div>
         </div>
-        <pre><code>&lt;plank-switch disabled&gt;&lt;/plank-switch&gt;
-&lt;plank-switch disabled checked&gt;&lt;/plank-switch&gt;</code></pre>
+        <pre><code>&lt;hal-switch disabled&gt;&lt;/hal-switch&gt;
+&lt;hal-switch disabled checked&gt;&lt;/hal-switch&gt;</code></pre>
       </section>
 
       <!-- With Form -->
@@ -67,18 +67,18 @@
         <h2 class="text-2xl font-semibold mb-4">With Form Label</h2>
         <div class="flex flex-col gap-4 mb-4">
           <div class="flex items-center gap-3">
-            <plank-switch id="marketing"></plank-switch>
+            <hal-switch id="marketing"></hal-switch>
             <div>
-              <plank-label for="marketing">Marketing emails</plank-label>
+              <hal-label for="marketing">Marketing emails</hal-label>
               <p class="text-sm text-muted-foreground">
                 Receive emails about new products, features, and more.
               </p>
             </div>
           </div>
           <div class="flex items-center gap-3">
-            <plank-switch id="security" checked></plank-switch>
+            <hal-switch id="security" checked></hal-switch>
             <div>
-              <plank-label for="security">Security emails</plank-label>
+              <hal-label for="security">Security emails</hal-label>
               <p class="text-sm text-muted-foreground">
                 Receive emails about your account security.
               </p>

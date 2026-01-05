@@ -1,11 +1,11 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest"
-import "@/web-components/plank-switch"
-import type { PlankSwitch } from "@/web-components/plank-switch"
+import "@/web-components/hal-switch"
+import type { HalSwitch } from "@/web-components/hal-switch"
 
 // Helper to wait for next animation frame (label association is deferred)
 const nextFrame = () => new Promise((r) => requestAnimationFrame(r))
 
-describe("PlankSwitch (Web Component)", () => {
+describe("HalSwitch (Web Component)", () => {
   let container: HTMLDivElement
 
   beforeEach(() => {
@@ -18,9 +18,9 @@ describe("PlankSwitch (Web Component)", () => {
   })
 
   it("renders with default unchecked state", async () => {
-    container.innerHTML = `<plank-switch></plank-switch>`
-    await customElements.whenDefined("plank-switch")
-    const switchEl = container.querySelector("plank-switch") as PlankSwitch
+    container.innerHTML = `<hal-switch></hal-switch>`
+    await customElements.whenDefined("hal-switch")
+    const switchEl = container.querySelector("hal-switch") as HalSwitch
     await switchEl.updateComplete
 
     expect(switchEl).toBeDefined()
@@ -31,9 +31,9 @@ describe("PlankSwitch (Web Component)", () => {
   })
 
   it("renders in checked state when checked attribute present", async () => {
-    container.innerHTML = `<plank-switch checked></plank-switch>`
-    await customElements.whenDefined("plank-switch")
-    const switchEl = container.querySelector("plank-switch") as PlankSwitch
+    container.innerHTML = `<hal-switch checked></hal-switch>`
+    await customElements.whenDefined("hal-switch")
+    const switchEl = container.querySelector("hal-switch") as HalSwitch
     await switchEl.updateComplete
 
     expect(switchEl.dataset.state).toBe("checked")
@@ -41,9 +41,9 @@ describe("PlankSwitch (Web Component)", () => {
   })
 
   it("can be disabled", async () => {
-    container.innerHTML = `<plank-switch disabled></plank-switch>`
-    await customElements.whenDefined("plank-switch")
-    const switchEl = container.querySelector("plank-switch") as PlankSwitch
+    container.innerHTML = `<hal-switch disabled></hal-switch>`
+    await customElements.whenDefined("hal-switch")
+    const switchEl = container.querySelector("hal-switch") as HalSwitch
     await switchEl.updateComplete
 
     expect(switchEl.hasAttribute("disabled")).toBe(true)
@@ -51,9 +51,9 @@ describe("PlankSwitch (Web Component)", () => {
   })
 
   it("toggles state on click", async () => {
-    container.innerHTML = `<plank-switch></plank-switch>`
-    await customElements.whenDefined("plank-switch")
-    const switchEl = container.querySelector("plank-switch") as PlankSwitch
+    container.innerHTML = `<hal-switch></hal-switch>`
+    await customElements.whenDefined("hal-switch")
+    const switchEl = container.querySelector("hal-switch") as HalSwitch
     await switchEl.updateComplete
 
     expect(switchEl.dataset.state).toBe("unchecked")
@@ -66,9 +66,9 @@ describe("PlankSwitch (Web Component)", () => {
   })
 
   it("toggles state on Space key", async () => {
-    container.innerHTML = `<plank-switch></plank-switch>`
-    await customElements.whenDefined("plank-switch")
-    const switchEl = container.querySelector("plank-switch") as PlankSwitch
+    container.innerHTML = `<hal-switch></hal-switch>`
+    await customElements.whenDefined("hal-switch")
+    const switchEl = container.querySelector("hal-switch") as HalSwitch
     await switchEl.updateComplete
 
     expect(switchEl.dataset.state).toBe("unchecked")
@@ -81,9 +81,9 @@ describe("PlankSwitch (Web Component)", () => {
   })
 
   it("toggles state on Enter key", async () => {
-    container.innerHTML = `<plank-switch></plank-switch>`
-    await customElements.whenDefined("plank-switch")
-    const switchEl = container.querySelector("plank-switch") as PlankSwitch
+    container.innerHTML = `<hal-switch></hal-switch>`
+    await customElements.whenDefined("hal-switch")
+    const switchEl = container.querySelector("hal-switch") as HalSwitch
     await switchEl.updateComplete
 
     expect(switchEl.dataset.state).toBe("unchecked")
@@ -96,9 +96,9 @@ describe("PlankSwitch (Web Component)", () => {
   })
 
   it("fires checked-change event on toggle", async () => {
-    container.innerHTML = `<plank-switch></plank-switch>`
-    await customElements.whenDefined("plank-switch")
-    const switchEl = container.querySelector("plank-switch") as PlankSwitch
+    container.innerHTML = `<hal-switch></hal-switch>`
+    await customElements.whenDefined("hal-switch")
+    const switchEl = container.querySelector("hal-switch") as HalSwitch
     await switchEl.updateComplete
 
     const handler = vi.fn()
@@ -112,9 +112,9 @@ describe("PlankSwitch (Web Component)", () => {
   })
 
   it("does not toggle when disabled", async () => {
-    container.innerHTML = `<plank-switch disabled></plank-switch>`
-    await customElements.whenDefined("plank-switch")
-    const switchEl = container.querySelector("plank-switch") as PlankSwitch
+    container.innerHTML = `<hal-switch disabled></hal-switch>`
+    await customElements.whenDefined("hal-switch")
+    const switchEl = container.querySelector("hal-switch") as HalSwitch
     await switchEl.updateComplete
 
     const handler = vi.fn()
@@ -128,9 +128,9 @@ describe("PlankSwitch (Web Component)", () => {
   })
 
   it("has a thumb element with correct data-slot", async () => {
-    container.innerHTML = `<plank-switch></plank-switch>`
-    await customElements.whenDefined("plank-switch")
-    const switchEl = container.querySelector("plank-switch") as PlankSwitch
+    container.innerHTML = `<hal-switch></hal-switch>`
+    await customElements.whenDefined("hal-switch")
+    const switchEl = container.querySelector("hal-switch") as HalSwitch
     await switchEl.updateComplete
 
     const thumb = switchEl.querySelector('[data-slot="switch-thumb"]')
@@ -138,9 +138,9 @@ describe("PlankSwitch (Web Component)", () => {
   })
 
   it("thumb has correct data-state", async () => {
-    container.innerHTML = `<plank-switch></plank-switch>`
-    await customElements.whenDefined("plank-switch")
-    const switchEl = container.querySelector("plank-switch") as PlankSwitch
+    container.innerHTML = `<hal-switch></hal-switch>`
+    await customElements.whenDefined("hal-switch")
+    const switchEl = container.querySelector("hal-switch") as HalSwitch
     await switchEl.updateComplete
 
     let thumb = switchEl.querySelector('[data-slot="switch-thumb"]')
@@ -154,9 +154,9 @@ describe("PlankSwitch (Web Component)", () => {
   })
 
   it("is keyboard accessible", async () => {
-    container.innerHTML = `<plank-switch></plank-switch>`
-    await customElements.whenDefined("plank-switch")
-    const switchEl = container.querySelector("plank-switch") as PlankSwitch
+    container.innerHTML = `<hal-switch></hal-switch>`
+    await customElements.whenDefined("hal-switch")
+    const switchEl = container.querySelector("hal-switch") as HalSwitch
     await switchEl.updateComplete
 
     expect(switchEl.getAttribute("role")).toBe("switch")
@@ -164,18 +164,18 @@ describe("PlankSwitch (Web Component)", () => {
   })
 
   it("has tabindex -1 when disabled", async () => {
-    container.innerHTML = `<plank-switch disabled></plank-switch>`
-    await customElements.whenDefined("plank-switch")
-    const switchEl = container.querySelector("plank-switch") as PlankSwitch
+    container.innerHTML = `<hal-switch disabled></hal-switch>`
+    await customElements.whenDefined("hal-switch")
+    const switchEl = container.querySelector("hal-switch") as HalSwitch
     await switchEl.updateComplete
 
     expect(switchEl.getAttribute("tabindex")).toBe("-1")
   })
 
   it("forwards id attribute", async () => {
-    container.innerHTML = `<plank-switch id="my-switch"></plank-switch>`
-    await customElements.whenDefined("plank-switch")
-    const switchEl = container.querySelector("plank-switch") as PlankSwitch
+    container.innerHTML = `<hal-switch id="my-switch"></hal-switch>`
+    await customElements.whenDefined("hal-switch")
+    const switchEl = container.querySelector("hal-switch") as HalSwitch
     await switchEl.updateComplete
 
     expect(switchEl.id).toBe("my-switch")
@@ -183,11 +183,11 @@ describe("PlankSwitch (Web Component)", () => {
 
   it("toggles when associated label is clicked", async () => {
     container.innerHTML = `
-      <plank-switch id="test-switch"></plank-switch>
+      <hal-switch id="test-switch"></hal-switch>
       <label for="test-switch">Toggle me</label>
     `
-    await customElements.whenDefined("plank-switch")
-    const switchEl = container.querySelector("plank-switch") as PlankSwitch
+    await customElements.whenDefined("hal-switch")
+    const switchEl = container.querySelector("hal-switch") as HalSwitch
     await switchEl.updateComplete
     await nextFrame() // Wait for label association to be set up
 
@@ -202,11 +202,11 @@ describe("PlankSwitch (Web Component)", () => {
 
   it("does not toggle via label when disabled", async () => {
     container.innerHTML = `
-      <plank-switch id="test-switch" disabled></plank-switch>
+      <hal-switch id="test-switch" disabled></hal-switch>
       <label for="test-switch">Toggle me</label>
     `
-    await customElements.whenDefined("plank-switch")
-    const switchEl = container.querySelector("plank-switch") as PlankSwitch
+    await customElements.whenDefined("hal-switch")
+    const switchEl = container.querySelector("hal-switch") as HalSwitch
     await switchEl.updateComplete
     await nextFrame() // Wait for label association to be set up
 

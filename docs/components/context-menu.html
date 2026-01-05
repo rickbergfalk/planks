@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Context Menu - Planks</title>
+    <title>Context Menu - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -21,63 +21,63 @@
           Right-click on the trigger area to open the context menu.
         </p>
         <div class="mb-4 flex items-center gap-4">
-          <plank-context-menu>
-            <plank-context-menu-trigger>
+          <hal-context-menu>
+            <hal-context-menu-trigger>
               <div
                 class="w-80 h-36 border-2 border-dashed border-muted-foreground/50 rounded-lg flex items-center justify-center text-muted-foreground"
               >
                 Right click here
               </div>
-            </plank-context-menu-trigger>
-            <plank-context-menu-content>
-              <plank-context-menu-label>My Account</plank-context-menu-label>
-              <plank-context-menu-separator></plank-context-menu-separator>
-              <plank-context-menu-group>
-                <plank-context-menu-item>
+            </hal-context-menu-trigger>
+            <hal-context-menu-content>
+              <hal-context-menu-label>My Account</hal-context-menu-label>
+              <hal-context-menu-separator></hal-context-menu-separator>
+              <hal-context-menu-group>
+                <hal-context-menu-item>
                   Profile
-                  <plank-context-menu-shortcut
-                    >&#8679;&#8984;P</plank-context-menu-shortcut
+                  <hal-context-menu-shortcut
+                    >&#8679;&#8984;P</hal-context-menu-shortcut
                   >
-                </plank-context-menu-item>
-                <plank-context-menu-item>
+                </hal-context-menu-item>
+                <hal-context-menu-item>
                   Billing
-                  <plank-context-menu-shortcut
-                    >&#8984;B</plank-context-menu-shortcut
+                  <hal-context-menu-shortcut
+                    >&#8984;B</hal-context-menu-shortcut
                   >
-                </plank-context-menu-item>
-                <plank-context-menu-item>
+                </hal-context-menu-item>
+                <hal-context-menu-item>
                   Settings
-                  <plank-context-menu-shortcut
-                    >&#8984;S</plank-context-menu-shortcut
+                  <hal-context-menu-shortcut
+                    >&#8984;S</hal-context-menu-shortcut
                   >
-                </plank-context-menu-item>
-              </plank-context-menu-group>
-              <plank-context-menu-separator></plank-context-menu-separator>
-              <plank-context-menu-item>Log out</plank-context-menu-item>
-            </plank-context-menu-content>
-          </plank-context-menu>
+                </hal-context-menu-item>
+              </hal-context-menu-group>
+              <hal-context-menu-separator></hal-context-menu-separator>
+              <hal-context-menu-item>Log out</hal-context-menu-item>
+            </hal-context-menu-content>
+          </hal-context-menu>
         </div>
-        <pre><code>&lt;plank-context-menu&gt;
-  &lt;plank-context-menu-trigger&gt;
+        <pre><code>&lt;hal-context-menu&gt;
+  &lt;hal-context-menu-trigger&gt;
     &lt;div class="trigger-area"&gt;Right click here&lt;/div&gt;
-  &lt;/plank-context-menu-trigger&gt;
-  &lt;plank-context-menu-content&gt;
-    &lt;plank-context-menu-label&gt;My Account&lt;/plank-context-menu-label&gt;
-    &lt;plank-context-menu-separator&gt;&lt;/plank-context-menu-separator&gt;
-    &lt;plank-context-menu-group&gt;
-      &lt;plank-context-menu-item&gt;
+  &lt;/hal-context-menu-trigger&gt;
+  &lt;hal-context-menu-content&gt;
+    &lt;hal-context-menu-label&gt;My Account&lt;/hal-context-menu-label&gt;
+    &lt;hal-context-menu-separator&gt;&lt;/hal-context-menu-separator&gt;
+    &lt;hal-context-menu-group&gt;
+      &lt;hal-context-menu-item&gt;
         Profile
-        &lt;plank-context-menu-shortcut&gt;&#8679;&#8984;P&lt;/plank-context-menu-shortcut&gt;
-      &lt;/plank-context-menu-item&gt;
-      &lt;plank-context-menu-item&gt;
+        &lt;hal-context-menu-shortcut&gt;&#8679;&#8984;P&lt;/hal-context-menu-shortcut&gt;
+      &lt;/hal-context-menu-item&gt;
+      &lt;hal-context-menu-item&gt;
         Billing
-        &lt;plank-context-menu-shortcut&gt;&#8984;B&lt;/plank-context-menu-shortcut&gt;
-      &lt;/plank-context-menu-item&gt;
-    &lt;/plank-context-menu-group&gt;
-    &lt;plank-context-menu-separator&gt;&lt;/plank-context-menu-separator&gt;
-    &lt;plank-context-menu-item&gt;Log out&lt;/plank-context-menu-item&gt;
-  &lt;/plank-context-menu-content&gt;
-&lt;/plank-context-menu&gt;</code></pre>
+        &lt;hal-context-menu-shortcut&gt;&#8984;B&lt;/hal-context-menu-shortcut&gt;
+      &lt;/hal-context-menu-item&gt;
+    &lt;/hal-context-menu-group&gt;
+    &lt;hal-context-menu-separator&gt;&lt;/hal-context-menu-separator&gt;
+    &lt;hal-context-menu-item&gt;Log out&lt;/hal-context-menu-item&gt;
+  &lt;/hal-context-menu-content&gt;
+&lt;/hal-context-menu&gt;</code></pre>
       </section>
 
       <!-- Checkbox Items -->
@@ -87,32 +87,32 @@
           Use checkbox items for toggleable options.
         </p>
         <div class="mb-4 flex items-center gap-4">
-          <plank-context-menu>
-            <plank-context-menu-trigger>
+          <hal-context-menu>
+            <hal-context-menu-trigger>
               <div
                 class="w-80 h-36 border-2 border-dashed border-muted-foreground/50 rounded-lg flex items-center justify-center text-muted-foreground"
               >
                 Right click here
               </div>
-            </plank-context-menu-trigger>
-            <plank-context-menu-content class="w-56">
-              <plank-context-menu-label>Appearance</plank-context-menu-label>
-              <plank-context-menu-separator></plank-context-menu-separator>
-              <plank-context-menu-checkbox-item checked>
+            </hal-context-menu-trigger>
+            <hal-context-menu-content class="w-56">
+              <hal-context-menu-label>Appearance</hal-context-menu-label>
+              <hal-context-menu-separator></hal-context-menu-separator>
+              <hal-context-menu-checkbox-item checked>
                 Status Bar
-              </plank-context-menu-checkbox-item>
-              <plank-context-menu-checkbox-item>
+              </hal-context-menu-checkbox-item>
+              <hal-context-menu-checkbox-item>
                 Activity Bar
-              </plank-context-menu-checkbox-item>
-              <plank-context-menu-checkbox-item checked>
+              </hal-context-menu-checkbox-item>
+              <hal-context-menu-checkbox-item checked>
                 Panel
-              </plank-context-menu-checkbox-item>
-            </plank-context-menu-content>
-          </plank-context-menu>
+              </hal-context-menu-checkbox-item>
+            </hal-context-menu-content>
+          </hal-context-menu>
         </div>
-        <pre><code>&lt;plank-context-menu-checkbox-item checked&gt;
+        <pre><code>&lt;hal-context-menu-checkbox-item checked&gt;
   Status Bar
-&lt;/plank-context-menu-checkbox-item&gt;</code></pre>
+&lt;/hal-context-menu-checkbox-item&gt;</code></pre>
       </section>
 
       <!-- Radio Group -->
@@ -122,38 +122,36 @@
           Use radio groups for mutually exclusive options.
         </p>
         <div class="mb-4 flex items-center gap-4">
-          <plank-context-menu>
-            <plank-context-menu-trigger>
+          <hal-context-menu>
+            <hal-context-menu-trigger>
               <div
                 class="w-80 h-36 border-2 border-dashed border-muted-foreground/50 rounded-lg flex items-center justify-center text-muted-foreground"
               >
                 Right click here
               </div>
-            </plank-context-menu-trigger>
-            <plank-context-menu-content class="w-56">
-              <plank-context-menu-label
-                >Panel Position</plank-context-menu-label
-              >
-              <plank-context-menu-separator></plank-context-menu-separator>
-              <plank-context-menu-radio-group value="bottom">
-                <plank-context-menu-radio-item value="top"
-                  >Top</plank-context-menu-radio-item
+            </hal-context-menu-trigger>
+            <hal-context-menu-content class="w-56">
+              <hal-context-menu-label>Panel Position</hal-context-menu-label>
+              <hal-context-menu-separator></hal-context-menu-separator>
+              <hal-context-menu-radio-group value="bottom">
+                <hal-context-menu-radio-item value="top"
+                  >Top</hal-context-menu-radio-item
                 >
-                <plank-context-menu-radio-item value="bottom"
-                  >Bottom</plank-context-menu-radio-item
+                <hal-context-menu-radio-item value="bottom"
+                  >Bottom</hal-context-menu-radio-item
                 >
-                <plank-context-menu-radio-item value="right"
-                  >Right</plank-context-menu-radio-item
+                <hal-context-menu-radio-item value="right"
+                  >Right</hal-context-menu-radio-item
                 >
-              </plank-context-menu-radio-group>
-            </plank-context-menu-content>
-          </plank-context-menu>
+              </hal-context-menu-radio-group>
+            </hal-context-menu-content>
+          </hal-context-menu>
         </div>
-        <pre><code>&lt;plank-context-menu-radio-group value="bottom"&gt;
-  &lt;plank-context-menu-radio-item value="top"&gt;Top&lt;/plank-context-menu-radio-item&gt;
-  &lt;plank-context-menu-radio-item value="bottom"&gt;Bottom&lt;/plank-context-menu-radio-item&gt;
-  &lt;plank-context-menu-radio-item value="right"&gt;Right&lt;/plank-context-menu-radio-item&gt;
-&lt;/plank-context-menu-radio-group&gt;</code></pre>
+        <pre><code>&lt;hal-context-menu-radio-group value="bottom"&gt;
+  &lt;hal-context-menu-radio-item value="top"&gt;Top&lt;/hal-context-menu-radio-item&gt;
+  &lt;hal-context-menu-radio-item value="bottom"&gt;Bottom&lt;/hal-context-menu-radio-item&gt;
+  &lt;hal-context-menu-radio-item value="right"&gt;Right&lt;/hal-context-menu-radio-item&gt;
+&lt;/hal-context-menu-radio-group&gt;</code></pre>
       </section>
 
       <!-- Disabled Items -->
@@ -163,22 +161,22 @@
           Use the disabled attribute to disable menu items.
         </p>
         <div class="mb-4 flex items-center gap-4">
-          <plank-context-menu>
-            <plank-context-menu-trigger>
+          <hal-context-menu>
+            <hal-context-menu-trigger>
               <div
                 class="w-80 h-36 border-2 border-dashed border-muted-foreground/50 rounded-lg flex items-center justify-center text-muted-foreground"
               >
                 Right click here
               </div>
-            </plank-context-menu-trigger>
-            <plank-context-menu-content>
-              <plank-context-menu-item>Edit</plank-context-menu-item>
-              <plank-context-menu-item disabled>Delete</plank-context-menu-item>
-              <plank-context-menu-item>Duplicate</plank-context-menu-item>
-            </plank-context-menu-content>
-          </plank-context-menu>
+            </hal-context-menu-trigger>
+            <hal-context-menu-content>
+              <hal-context-menu-item>Edit</hal-context-menu-item>
+              <hal-context-menu-item disabled>Delete</hal-context-menu-item>
+              <hal-context-menu-item>Duplicate</hal-context-menu-item>
+            </hal-context-menu-content>
+          </hal-context-menu>
         </div>
-        <pre><code>&lt;plank-context-menu-item disabled&gt;Delete&lt;/plank-context-menu-item&gt;</code></pre>
+        <pre><code>&lt;hal-context-menu-item disabled&gt;Delete&lt;/hal-context-menu-item&gt;</code></pre>
       </section>
 
       <!-- Destructive Items -->
@@ -188,25 +186,25 @@
           Use variant="destructive" for dangerous actions.
         </p>
         <div class="mb-4 flex items-center gap-4">
-          <plank-context-menu>
-            <plank-context-menu-trigger>
+          <hal-context-menu>
+            <hal-context-menu-trigger>
               <div
                 class="w-80 h-36 border-2 border-dashed border-muted-foreground/50 rounded-lg flex items-center justify-center text-muted-foreground"
               >
                 Right click here
               </div>
-            </plank-context-menu-trigger>
-            <plank-context-menu-content>
-              <plank-context-menu-item>Edit</plank-context-menu-item>
-              <plank-context-menu-item>Duplicate</plank-context-menu-item>
-              <plank-context-menu-separator></plank-context-menu-separator>
-              <plank-context-menu-item variant="destructive"
-                >Delete</plank-context-menu-item
+            </hal-context-menu-trigger>
+            <hal-context-menu-content>
+              <hal-context-menu-item>Edit</hal-context-menu-item>
+              <hal-context-menu-item>Duplicate</hal-context-menu-item>
+              <hal-context-menu-separator></hal-context-menu-separator>
+              <hal-context-menu-item variant="destructive"
+                >Delete</hal-context-menu-item
               >
-            </plank-context-menu-content>
-          </plank-context-menu>
+            </hal-context-menu-content>
+          </hal-context-menu>
         </div>
-        <pre><code>&lt;plank-context-menu-item variant="destructive"&gt;Delete&lt;/plank-context-menu-item&gt;</code></pre>
+        <pre><code>&lt;hal-context-menu-item variant="destructive"&gt;Delete&lt;/hal-context-menu-item&gt;</code></pre>
       </section>
 
       <!-- Inset Items -->
@@ -216,26 +214,24 @@
           Use the inset attribute to align items without icons.
         </p>
         <div class="mb-4 flex items-center gap-4">
-          <plank-context-menu>
-            <plank-context-menu-trigger>
+          <hal-context-menu>
+            <hal-context-menu-trigger>
               <div
                 class="w-80 h-36 border-2 border-dashed border-muted-foreground/50 rounded-lg flex items-center justify-center text-muted-foreground"
               >
                 Right click here
               </div>
-            </plank-context-menu-trigger>
-            <plank-context-menu-content>
-              <plank-context-menu-label inset
-                >Settings</plank-context-menu-label
-              >
-              <plank-context-menu-separator></plank-context-menu-separator>
-              <plank-context-menu-item inset>Profile</plank-context-menu-item>
-              <plank-context-menu-item inset>Account</plank-context-menu-item>
-            </plank-context-menu-content>
-          </plank-context-menu>
+            </hal-context-menu-trigger>
+            <hal-context-menu-content>
+              <hal-context-menu-label inset>Settings</hal-context-menu-label>
+              <hal-context-menu-separator></hal-context-menu-separator>
+              <hal-context-menu-item inset>Profile</hal-context-menu-item>
+              <hal-context-menu-item inset>Account</hal-context-menu-item>
+            </hal-context-menu-content>
+          </hal-context-menu>
         </div>
-        <pre><code>&lt;plank-context-menu-label inset&gt;Settings&lt;/plank-context-menu-label&gt;
-&lt;plank-context-menu-item inset&gt;Profile&lt;/plank-context-menu-item&gt;</code></pre>
+        <pre><code>&lt;hal-context-menu-label inset&gt;Settings&lt;/hal-context-menu-label&gt;
+&lt;hal-context-menu-item inset&gt;Profile&lt;/hal-context-menu-item&gt;</code></pre>
       </section>
 
       <!-- Submenus -->
@@ -245,57 +241,51 @@
           Use nested submenus for hierarchical navigation.
         </p>
         <div class="mb-4 flex items-center gap-4">
-          <plank-context-menu>
-            <plank-context-menu-trigger>
+          <hal-context-menu>
+            <hal-context-menu-trigger>
               <div
                 class="w-80 h-36 border-2 border-dashed border-muted-foreground/50 rounded-lg flex items-center justify-center text-muted-foreground"
               >
                 Right click here
               </div>
-            </plank-context-menu-trigger>
-            <plank-context-menu-content>
-              <plank-context-menu-item>New Tab</plank-context-menu-item>
-              <plank-context-menu-item>New Window</plank-context-menu-item>
-              <plank-context-menu-separator></plank-context-menu-separator>
-              <plank-context-menu-sub>
-                <plank-context-menu-sub-trigger
-                  >More Tools</plank-context-menu-sub-trigger
+            </hal-context-menu-trigger>
+            <hal-context-menu-content>
+              <hal-context-menu-item>New Tab</hal-context-menu-item>
+              <hal-context-menu-item>New Window</hal-context-menu-item>
+              <hal-context-menu-separator></hal-context-menu-separator>
+              <hal-context-menu-sub>
+                <hal-context-menu-sub-trigger
+                  >More Tools</hal-context-menu-sub-trigger
                 >
-                <plank-context-menu-sub-content>
-                  <plank-context-menu-item
-                    >Save Page As...</plank-context-menu-item
+                <hal-context-menu-sub-content>
+                  <hal-context-menu-item>Save Page As...</hal-context-menu-item>
+                  <hal-context-menu-item
+                    >Create Shortcut...</hal-context-menu-item
                   >
-                  <plank-context-menu-item
-                    >Create Shortcut...</plank-context-menu-item
-                  >
-                  <plank-context-menu-item
-                    >Name Window...</plank-context-menu-item
-                  >
-                  <plank-context-menu-separator></plank-context-menu-separator>
-                  <plank-context-menu-item
-                    >Developer Tools</plank-context-menu-item
-                  >
-                </plank-context-menu-sub-content>
-              </plank-context-menu-sub>
-              <plank-context-menu-separator></plank-context-menu-separator>
-              <plank-context-menu-item>Quit</plank-context-menu-item>
-            </plank-context-menu-content>
-          </plank-context-menu>
+                  <hal-context-menu-item>Name Window...</hal-context-menu-item>
+                  <hal-context-menu-separator></hal-context-menu-separator>
+                  <hal-context-menu-item>Developer Tools</hal-context-menu-item>
+                </hal-context-menu-sub-content>
+              </hal-context-menu-sub>
+              <hal-context-menu-separator></hal-context-menu-separator>
+              <hal-context-menu-item>Quit</hal-context-menu-item>
+            </hal-context-menu-content>
+          </hal-context-menu>
         </div>
-        <pre><code>&lt;plank-context-menu-sub&gt;
-  &lt;plank-context-menu-sub-trigger&gt;More Tools&lt;/plank-context-menu-sub-trigger&gt;
-  &lt;plank-context-menu-sub-content&gt;
-    &lt;plank-context-menu-item&gt;Save Page As...&lt;/plank-context-menu-item&gt;
-    &lt;plank-context-menu-item&gt;Developer Tools&lt;/plank-context-menu-item&gt;
-  &lt;/plank-context-menu-sub-content&gt;
-&lt;/plank-context-menu-sub&gt;</code></pre>
+        <pre><code>&lt;hal-context-menu-sub&gt;
+  &lt;hal-context-menu-sub-trigger&gt;More Tools&lt;/hal-context-menu-sub-trigger&gt;
+  &lt;hal-context-menu-sub-content&gt;
+    &lt;hal-context-menu-item&gt;Save Page As...&lt;/hal-context-menu-item&gt;
+    &lt;hal-context-menu-item&gt;Developer Tools&lt;/hal-context-menu-item&gt;
+  &lt;/hal-context-menu-sub-content&gt;
+&lt;/hal-context-menu-sub&gt;</code></pre>
       </section>
 
       <!-- API -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">API</h2>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-context-menu</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-context-menu</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -363,7 +353,7 @@
         </div>
 
         <h3 class="text-xl font-semibold mt-6 mb-4">
-          plank-context-menu-content
+          hal-context-menu-content
         </h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
@@ -390,7 +380,7 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-context-menu-item</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-context-menu-item</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -433,7 +423,7 @@
         </div>
 
         <h3 class="text-xl font-semibold mt-6 mb-4">
-          plank-context-menu-checkbox-item
+          hal-context-menu-checkbox-item
         </h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
@@ -467,7 +457,7 @@
         </div>
 
         <h3 class="text-xl font-semibold mt-6 mb-4">
-          plank-context-menu-radio-group
+          hal-context-menu-radio-group
         </h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
@@ -493,7 +483,7 @@
         </div>
 
         <h3 class="text-xl font-semibold mt-6 mb-4">
-          plank-context-menu-radio-item
+          hal-context-menu-radio-item
         </h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
@@ -526,9 +516,7 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">
-          plank-context-menu-label
-        </h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-context-menu-label</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>

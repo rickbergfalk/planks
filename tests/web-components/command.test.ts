@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest"
-import "@/web-components/plank-command"
+import "@/web-components/hal-command"
 
 describe("Command (Web Component)", () => {
   let container: HTMLElement
@@ -15,36 +15,36 @@ describe("Command (Web Component)", () => {
 
   it("renders command with input and list", async () => {
     container.innerHTML = `
-      <plank-command>
-        <plank-command-input placeholder="Search..."></plank-command-input>
-        <plank-command-list>
-          <plank-command-item>Item 1</plank-command-item>
-        </plank-command-list>
-      </plank-command>
+      <hal-command>
+        <hal-command-input placeholder="Search..."></hal-command-input>
+        <hal-command-list>
+          <hal-command-item>Item 1</hal-command-item>
+        </hal-command-list>
+      </hal-command>
     `
 
-    await customElements.whenDefined("plank-command")
-    const command = container.querySelector("plank-command")!
+    await customElements.whenDefined("hal-command")
+    const command = container.querySelector("hal-command")!
     await (command as any).updateComplete
 
     expect(
       container.querySelector('input[placeholder="Search..."]')
     ).toBeTruthy()
-    expect(container.querySelector("plank-command-item")).toBeTruthy()
+    expect(container.querySelector("hal-command-item")).toBeTruthy()
   })
 
   it("has correct data-slot attributes", async () => {
     container.innerHTML = `
-      <plank-command>
-        <plank-command-input placeholder="Search..."></plank-command-input>
-        <plank-command-list>
-          <plank-command-item>Item 1</plank-command-item>
-        </plank-command-list>
-      </plank-command>
+      <hal-command>
+        <hal-command-input placeholder="Search..."></hal-command-input>
+        <hal-command-list>
+          <hal-command-item>Item 1</hal-command-item>
+        </hal-command-list>
+      </hal-command>
     `
 
-    await customElements.whenDefined("plank-command")
-    const command = container.querySelector("plank-command")!
+    await customElements.whenDefined("hal-command")
+    const command = container.querySelector("hal-command")!
     await (command as any).updateComplete
 
     expect(command.getAttribute("data-slot")).toBe("command")
@@ -52,19 +52,19 @@ describe("Command (Web Component)", () => {
 
   it("filters items based on search input", async () => {
     container.innerHTML = `
-      <plank-command>
-        <plank-command-input placeholder="Search..."></plank-command-input>
-        <plank-command-list>
-          <plank-command-empty>No results found.</plank-command-empty>
-          <plank-command-item>Apple</plank-command-item>
-          <plank-command-item>Banana</plank-command-item>
-          <plank-command-item>Orange</plank-command-item>
-        </plank-command-list>
-      </plank-command>
+      <hal-command>
+        <hal-command-input placeholder="Search..."></hal-command-input>
+        <hal-command-list>
+          <hal-command-empty>No results found.</hal-command-empty>
+          <hal-command-item>Apple</hal-command-item>
+          <hal-command-item>Banana</hal-command-item>
+          <hal-command-item>Orange</hal-command-item>
+        </hal-command-list>
+      </hal-command>
     `
 
-    await customElements.whenDefined("plank-command")
-    const command = container.querySelector("plank-command")!
+    await customElements.whenDefined("hal-command")
+    const command = container.querySelector("hal-command")!
     await (command as any).updateComplete
 
     const input = container.querySelector("input") as HTMLInputElement
@@ -74,12 +74,12 @@ describe("Command (Web Component)", () => {
 
     // Apple should be visible
     const apple = container.querySelector(
-      'plank-command-item[value="apple"], plank-command-item:first-of-type'
+      'hal-command-item[value="apple"], hal-command-item:first-of-type'
     )
     expect(apple?.textContent).toContain("Apple")
 
     // Banana and Orange should be filtered
-    const allItems = container.querySelectorAll("plank-command-item")
+    const allItems = container.querySelectorAll("hal-command-item")
     const visibleItems = Array.from(allItems).filter(
       (item) => !item.hasAttribute("hidden") && !item.closest("[hidden]")
     )
@@ -88,17 +88,17 @@ describe("Command (Web Component)", () => {
 
   it("shows empty state when no results match", async () => {
     container.innerHTML = `
-      <plank-command>
-        <plank-command-input placeholder="Search..."></plank-command-input>
-        <plank-command-list>
-          <plank-command-empty>No results found.</plank-command-empty>
-          <plank-command-item>Apple</plank-command-item>
-        </plank-command-list>
-      </plank-command>
+      <hal-command>
+        <hal-command-input placeholder="Search..."></hal-command-input>
+        <hal-command-list>
+          <hal-command-empty>No results found.</hal-command-empty>
+          <hal-command-item>Apple</hal-command-item>
+        </hal-command-list>
+      </hal-command>
     `
 
-    await customElements.whenDefined("plank-command")
-    const command = container.querySelector("plank-command")!
+    await customElements.whenDefined("hal-command")
+    const command = container.querySelector("hal-command")!
     await (command as any).updateComplete
 
     const input = container.querySelector("input") as HTMLInputElement
@@ -106,7 +106,7 @@ describe("Command (Web Component)", () => {
     input.dispatchEvent(new Event("input", { bubbles: true }))
     await new Promise((r) => setTimeout(r, 50))
 
-    const empty = container.querySelector("plank-command-empty")
+    const empty = container.querySelector("hal-command-empty")
     expect(empty).toBeTruthy()
     // Empty state should be visible (not hidden)
     expect(empty?.hasAttribute("hidden")).toBeFalsy()
@@ -114,20 +114,20 @@ describe("Command (Web Component)", () => {
 
   it("renders groups with headings", async () => {
     container.innerHTML = `
-      <plank-command>
-        <plank-command-list>
-          <plank-command-group heading="Fruits">
-            <plank-command-item>Apple</plank-command-item>
-          </plank-command-group>
-          <plank-command-group heading="Vegetables">
-            <plank-command-item>Carrot</plank-command-item>
-          </plank-command-group>
-        </plank-command-list>
-      </plank-command>
+      <hal-command>
+        <hal-command-list>
+          <hal-command-group heading="Fruits">
+            <hal-command-item>Apple</hal-command-item>
+          </hal-command-group>
+          <hal-command-group heading="Vegetables">
+            <hal-command-item>Carrot</hal-command-item>
+          </hal-command-group>
+        </hal-command-list>
+      </hal-command>
     `
 
-    await customElements.whenDefined("plank-command")
-    const command = container.querySelector("plank-command")!
+    await customElements.whenDefined("hal-command")
+    const command = container.querySelector("hal-command")!
     await (command as any).updateComplete
 
     expect(container.textContent).toContain("Fruits")
@@ -136,64 +136,64 @@ describe("Command (Web Component)", () => {
 
   it("renders separator between groups", async () => {
     container.innerHTML = `
-      <plank-command>
-        <plank-command-list>
-          <plank-command-group heading="Group 1">
-            <plank-command-item>Item 1</plank-command-item>
-          </plank-command-group>
-          <plank-command-separator></plank-command-separator>
-          <plank-command-group heading="Group 2">
-            <plank-command-item>Item 2</plank-command-item>
-          </plank-command-group>
-        </plank-command-list>
-      </plank-command>
+      <hal-command>
+        <hal-command-list>
+          <hal-command-group heading="Group 1">
+            <hal-command-item>Item 1</hal-command-item>
+          </hal-command-group>
+          <hal-command-separator></hal-command-separator>
+          <hal-command-group heading="Group 2">
+            <hal-command-item>Item 2</hal-command-item>
+          </hal-command-group>
+        </hal-command-list>
+      </hal-command>
     `
 
-    await customElements.whenDefined("plank-command")
-    const command = container.querySelector("plank-command")!
+    await customElements.whenDefined("hal-command")
+    const command = container.querySelector("hal-command")!
     await (command as any).updateComplete
 
     const separator = container.querySelector(
-      '[data-slot="command-separator"], plank-command-separator'
+      '[data-slot="command-separator"], hal-command-separator'
     )
     expect(separator).toBeTruthy()
   })
 
   it("renders shortcuts in items", async () => {
     container.innerHTML = `
-      <plank-command>
-        <plank-command-list>
-          <plank-command-item>
+      <hal-command>
+        <hal-command-list>
+          <hal-command-item>
             Settings
-            <plank-command-shortcut>⌘S</plank-command-shortcut>
-          </plank-command-item>
-        </plank-command-list>
-      </plank-command>
+            <hal-command-shortcut>⌘S</hal-command-shortcut>
+          </hal-command-item>
+        </hal-command-list>
+      </hal-command>
     `
 
-    await customElements.whenDefined("plank-command")
-    const command = container.querySelector("plank-command")!
+    await customElements.whenDefined("hal-command")
+    const command = container.querySelector("hal-command")!
     await (command as any).updateComplete
 
     expect(container.textContent).toContain("⌘S")
-    const shortcut = container.querySelector("plank-command-shortcut")
+    const shortcut = container.querySelector("hal-command-shortcut")
     expect(shortcut?.getAttribute("data-slot")).toBe("command-shortcut")
   })
 
   it("supports keyboard navigation with arrow keys", async () => {
     container.innerHTML = `
-      <plank-command>
-        <plank-command-input placeholder="Search..."></plank-command-input>
-        <plank-command-list>
-          <plank-command-item>Item 1</plank-command-item>
-          <plank-command-item>Item 2</plank-command-item>
-          <plank-command-item>Item 3</plank-command-item>
-        </plank-command-list>
-      </plank-command>
+      <hal-command>
+        <hal-command-input placeholder="Search..."></hal-command-input>
+        <hal-command-list>
+          <hal-command-item>Item 1</hal-command-item>
+          <hal-command-item>Item 2</hal-command-item>
+          <hal-command-item>Item 3</hal-command-item>
+        </hal-command-list>
+      </hal-command>
     `
 
-    await customElements.whenDefined("plank-command")
-    const command = container.querySelector("plank-command")!
+    await customElements.whenDefined("hal-command")
+    const command = container.querySelector("hal-command")!
     await (command as any).updateComplete
 
     const input = container.querySelector("input") as HTMLInputElement
@@ -217,17 +217,17 @@ describe("Command (Web Component)", () => {
   it("calls onSelect when item is clicked", async () => {
     const onSelect = vi.fn()
     container.innerHTML = `
-      <plank-command>
-        <plank-command-input placeholder="Search..."></plank-command-input>
-        <plank-command-list>
-          <plank-command-item value="item1">Item 1</plank-command-item>
-          <plank-command-item value="item2">Item 2</plank-command-item>
-        </plank-command-list>
-      </plank-command>
+      <hal-command>
+        <hal-command-input placeholder="Search..."></hal-command-input>
+        <hal-command-list>
+          <hal-command-item value="item1">Item 1</hal-command-item>
+          <hal-command-item value="item2">Item 2</hal-command-item>
+        </hal-command-list>
+      </hal-command>
     `
 
-    await customElements.whenDefined("plank-command")
-    const command = container.querySelector("plank-command")!
+    await customElements.whenDefined("hal-command")
+    const command = container.querySelector("hal-command")!
     await (command as any).updateComplete
 
     command.addEventListener("select", ((e: CustomEvent) => {
@@ -235,7 +235,7 @@ describe("Command (Web Component)", () => {
     }) as EventListener)
 
     // Click on first item
-    const item = container.querySelector("plank-command-item") as HTMLElement
+    const item = container.querySelector("hal-command-item") as HTMLElement
     item.click()
     await new Promise((r) => setTimeout(r, 50))
 
@@ -245,17 +245,17 @@ describe("Command (Web Component)", () => {
   it("calls onSelect when Enter is pressed on selected item", async () => {
     const onSelect = vi.fn()
     container.innerHTML = `
-      <plank-command>
-        <plank-command-input placeholder="Search..."></plank-command-input>
-        <plank-command-list>
-          <plank-command-item value="item1">Item 1</plank-command-item>
-          <plank-command-item value="item2">Item 2</plank-command-item>
-        </plank-command-list>
-      </plank-command>
+      <hal-command>
+        <hal-command-input placeholder="Search..."></hal-command-input>
+        <hal-command-list>
+          <hal-command-item value="item1">Item 1</hal-command-item>
+          <hal-command-item value="item2">Item 2</hal-command-item>
+        </hal-command-list>
+      </hal-command>
     `
 
-    await customElements.whenDefined("plank-command")
-    const command = container.querySelector("plank-command")!
+    await customElements.whenDefined("hal-command")
+    const command = container.querySelector("hal-command")!
     await (command as any).updateComplete
 
     command.addEventListener("select", ((e: CustomEvent) => {
@@ -276,37 +276,37 @@ describe("Command (Web Component)", () => {
 
   it("supports disabled items", async () => {
     container.innerHTML = `
-      <plank-command>
-        <plank-command-input placeholder="Search..."></plank-command-input>
-        <plank-command-list>
-          <plank-command-item disabled>Disabled Item</plank-command-item>
-          <plank-command-item>Enabled Item</plank-command-item>
-        </plank-command-list>
-      </plank-command>
+      <hal-command>
+        <hal-command-input placeholder="Search..."></hal-command-input>
+        <hal-command-list>
+          <hal-command-item disabled>Disabled Item</hal-command-item>
+          <hal-command-item>Enabled Item</hal-command-item>
+        </hal-command-list>
+      </hal-command>
     `
 
-    await customElements.whenDefined("plank-command")
-    const command = container.querySelector("plank-command")!
+    await customElements.whenDefined("hal-command")
+    const command = container.querySelector("hal-command")!
     await (command as any).updateComplete
 
     const disabledItem = container.querySelector(
-      'plank-command-item[disabled], [role="option"][aria-disabled="true"]'
+      'hal-command-item[disabled], [role="option"][aria-disabled="true"]'
     )
     expect(disabledItem).toBeTruthy()
   })
 
   it("input has combobox role", async () => {
     container.innerHTML = `
-      <plank-command>
-        <plank-command-input placeholder="Search..."></plank-command-input>
-        <plank-command-list>
-          <plank-command-item>Item 1</plank-command-item>
-        </plank-command-list>
-      </plank-command>
+      <hal-command>
+        <hal-command-input placeholder="Search..."></hal-command-input>
+        <hal-command-list>
+          <hal-command-item>Item 1</hal-command-item>
+        </hal-command-list>
+      </hal-command>
     `
 
-    await customElements.whenDefined("plank-command")
-    const command = container.querySelector("plank-command")!
+    await customElements.whenDefined("hal-command")
+    const command = container.querySelector("hal-command")!
     await (command as any).updateComplete
 
     const input = container.querySelector('[role="combobox"]')
@@ -315,15 +315,15 @@ describe("Command (Web Component)", () => {
 
   it("list has listbox role", async () => {
     container.innerHTML = `
-      <plank-command>
-        <plank-command-list>
-          <plank-command-item>Item 1</plank-command-item>
-        </plank-command-list>
-      </plank-command>
+      <hal-command>
+        <hal-command-list>
+          <hal-command-item>Item 1</hal-command-item>
+        </hal-command-list>
+      </hal-command>
     `
 
-    await customElements.whenDefined("plank-command")
-    const command = container.querySelector("plank-command")!
+    await customElements.whenDefined("hal-command")
+    const command = container.querySelector("hal-command")!
     await (command as any).updateComplete
 
     const list = container.querySelector('[role="listbox"]')
@@ -332,15 +332,15 @@ describe("Command (Web Component)", () => {
 
   it("items have option role", async () => {
     container.innerHTML = `
-      <plank-command>
-        <plank-command-list>
-          <plank-command-item>Item 1</plank-command-item>
-        </plank-command-list>
-      </plank-command>
+      <hal-command>
+        <hal-command-list>
+          <hal-command-item>Item 1</hal-command-item>
+        </hal-command-list>
+      </hal-command>
     `
 
-    await customElements.whenDefined("plank-command")
-    const command = container.querySelector("plank-command")!
+    await customElements.whenDefined("hal-command")
+    const command = container.querySelector("hal-command")!
     await (command as any).updateComplete
 
     const item = container.querySelector('[role="option"]')
@@ -349,16 +349,16 @@ describe("Command (Web Component)", () => {
 
   it("input has aria-expanded", async () => {
     container.innerHTML = `
-      <plank-command>
-        <plank-command-input placeholder="Search..."></plank-command-input>
-        <plank-command-list>
-          <plank-command-item>Item 1</plank-command-item>
-        </plank-command-list>
-      </plank-command>
+      <hal-command>
+        <hal-command-input placeholder="Search..."></hal-command-input>
+        <hal-command-list>
+          <hal-command-item>Item 1</hal-command-item>
+        </hal-command-list>
+      </hal-command>
     `
 
-    await customElements.whenDefined("plank-command")
-    const command = container.querySelector("plank-command")!
+    await customElements.whenDefined("hal-command")
+    const command = container.querySelector("hal-command")!
     await (command as any).updateComplete
 
     const input = container.querySelector('[role="combobox"]')
@@ -367,16 +367,16 @@ describe("Command (Web Component)", () => {
 
   it("input has aria-controls pointing to list", async () => {
     container.innerHTML = `
-      <plank-command>
-        <plank-command-input placeholder="Search..."></plank-command-input>
-        <plank-command-list>
-          <plank-command-item>Item 1</plank-command-item>
-        </plank-command-list>
-      </plank-command>
+      <hal-command>
+        <hal-command-input placeholder="Search..."></hal-command-input>
+        <hal-command-list>
+          <hal-command-item>Item 1</hal-command-item>
+        </hal-command-list>
+      </hal-command>
     `
 
-    await customElements.whenDefined("plank-command")
-    const command = container.querySelector("plank-command")!
+    await customElements.whenDefined("hal-command")
+    const command = container.querySelector("hal-command")!
     await (command as any).updateComplete
 
     const input = container.querySelector('[role="combobox"]')
@@ -388,18 +388,18 @@ describe("Command (Web Component)", () => {
 
   it("navigates with Home/End keys", async () => {
     container.innerHTML = `
-      <plank-command>
-        <plank-command-input placeholder="Search..."></plank-command-input>
-        <plank-command-list>
-          <plank-command-item>First</plank-command-item>
-          <plank-command-item>Middle</plank-command-item>
-          <plank-command-item>Last</plank-command-item>
-        </plank-command-list>
-      </plank-command>
+      <hal-command>
+        <hal-command-input placeholder="Search..."></hal-command-input>
+        <hal-command-list>
+          <hal-command-item>First</hal-command-item>
+          <hal-command-item>Middle</hal-command-item>
+          <hal-command-item>Last</hal-command-item>
+        </hal-command-list>
+      </hal-command>
     `
 
-    await customElements.whenDefined("plank-command")
-    const command = container.querySelector("plank-command")!
+    await customElements.whenDefined("hal-command")
+    const command = container.querySelector("hal-command")!
     await (command as any).updateComplete
 
     const input = container.querySelector("input") as HTMLInputElement
@@ -432,18 +432,18 @@ describe("Command (Web Component)", () => {
 
   it("skips disabled items during keyboard navigation", async () => {
     container.innerHTML = `
-      <plank-command>
-        <plank-command-input placeholder="Search..."></plank-command-input>
-        <plank-command-list>
-          <plank-command-item>First</plank-command-item>
-          <plank-command-item disabled>Disabled</plank-command-item>
-          <plank-command-item>Third</plank-command-item>
-        </plank-command-list>
-      </plank-command>
+      <hal-command>
+        <hal-command-input placeholder="Search..."></hal-command-input>
+        <hal-command-list>
+          <hal-command-item>First</hal-command-item>
+          <hal-command-item disabled>Disabled</hal-command-item>
+          <hal-command-item>Third</hal-command-item>
+        </hal-command-list>
+      </hal-command>
     `
 
-    await customElements.whenDefined("plank-command")
-    const command = container.querySelector("plank-command")!
+    await customElements.whenDefined("hal-command")
+    const command = container.querySelector("hal-command")!
     await (command as any).updateComplete
 
     const input = container.querySelector("input") as HTMLInputElement

@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest"
-import "@/web-components/plank-dialog"
-import "@/web-components/plank-button"
+import "@/web-components/hal-dialog"
+import "@/web-components/hal-button"
 
 describe("Dialog (Web Component)", () => {
   let container: HTMLDivElement
@@ -24,38 +24,38 @@ describe("Dialog (Web Component)", () => {
 
   it("renders trigger with correct data-slot", async () => {
     container.innerHTML = `
-      <plank-dialog>
-        <plank-dialog-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dialog-trigger>
-        <plank-dialog-content>
-          <plank-dialog-title>Title</plank-dialog-title>
-        </plank-dialog-content>
-      </plank-dialog>
+      <hal-dialog>
+        <hal-dialog-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dialog-trigger>
+        <hal-dialog-content>
+          <hal-dialog-title>Title</hal-dialog-title>
+        </hal-dialog-content>
+      </hal-dialog>
     `
 
-    await customElements.whenDefined("plank-dialog")
-    const dialog = container.querySelector("plank-dialog")!
+    await customElements.whenDefined("hal-dialog")
+    const dialog = container.querySelector("hal-dialog")!
     await (dialog as any).updateComplete
 
-    const trigger = container.querySelector("plank-dialog-trigger")
+    const trigger = container.querySelector("hal-dialog-trigger")
     expect(trigger?.dataset.slot).toBe("dialog-trigger")
   })
 
   it("dialog content is hidden by default", async () => {
     container.innerHTML = `
-      <plank-dialog>
-        <plank-dialog-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dialog-trigger>
-        <plank-dialog-content>
-          <plank-dialog-title>Title</plank-dialog-title>
-        </plank-dialog-content>
-      </plank-dialog>
+      <hal-dialog>
+        <hal-dialog-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dialog-trigger>
+        <hal-dialog-content>
+          <hal-dialog-title>Title</hal-dialog-title>
+        </hal-dialog-content>
+      </hal-dialog>
     `
 
-    await customElements.whenDefined("plank-dialog")
-    const dialog = container.querySelector("plank-dialog")!
+    await customElements.whenDefined("hal-dialog")
+    const dialog = container.querySelector("hal-dialog")!
     await (dialog as any).updateComplete
 
     const content = document.querySelector('[role="dialog"]')
@@ -64,21 +64,21 @@ describe("Dialog (Web Component)", () => {
 
   it("opens dialog on click", async () => {
     container.innerHTML = `
-      <plank-dialog>
-        <plank-dialog-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dialog-trigger>
-        <plank-dialog-content>
-          <plank-dialog-title>Dialog Title</plank-dialog-title>
-        </plank-dialog-content>
-      </plank-dialog>
+      <hal-dialog>
+        <hal-dialog-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dialog-trigger>
+        <hal-dialog-content>
+          <hal-dialog-title>Dialog Title</hal-dialog-title>
+        </hal-dialog-content>
+      </hal-dialog>
     `
 
-    await customElements.whenDefined("plank-dialog")
-    const dialog = container.querySelector("plank-dialog")!
+    await customElements.whenDefined("hal-dialog")
+    const dialog = container.querySelector("hal-dialog")!
     await (dialog as any).updateComplete
 
-    const trigger = container.querySelector("plank-dialog-trigger")!
+    const trigger = container.querySelector("hal-dialog-trigger")!
     trigger.click()
     await (dialog as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
@@ -90,18 +90,18 @@ describe("Dialog (Web Component)", () => {
 
   it("closes dialog on Escape key", async () => {
     container.innerHTML = `
-      <plank-dialog open>
-        <plank-dialog-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dialog-trigger>
-        <plank-dialog-content>
-          <plank-dialog-title>Title</plank-dialog-title>
-        </plank-dialog-content>
-      </plank-dialog>
+      <hal-dialog open>
+        <hal-dialog-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dialog-trigger>
+        <hal-dialog-content>
+          <hal-dialog-title>Title</hal-dialog-title>
+        </hal-dialog-content>
+      </hal-dialog>
     `
 
-    await customElements.whenDefined("plank-dialog")
-    const dialog = container.querySelector("plank-dialog")!
+    await customElements.whenDefined("hal-dialog")
+    const dialog = container.querySelector("hal-dialog")!
     await (dialog as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -116,18 +116,18 @@ describe("Dialog (Web Component)", () => {
 
   it("closes dialog on overlay click", async () => {
     container.innerHTML = `
-      <plank-dialog open>
-        <plank-dialog-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dialog-trigger>
-        <plank-dialog-content>
-          <plank-dialog-title>Title</plank-dialog-title>
-        </plank-dialog-content>
-      </plank-dialog>
+      <hal-dialog open>
+        <hal-dialog-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dialog-trigger>
+        <hal-dialog-content>
+          <hal-dialog-title>Title</hal-dialog-title>
+        </hal-dialog-content>
+      </hal-dialog>
     `
 
-    await customElements.whenDefined("plank-dialog")
-    const dialog = container.querySelector("plank-dialog")!
+    await customElements.whenDefined("hal-dialog")
+    const dialog = container.querySelector("hal-dialog")!
     await (dialog as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -143,18 +143,18 @@ describe("Dialog (Web Component)", () => {
 
   it("dialog content has correct data-slot", async () => {
     container.innerHTML = `
-      <plank-dialog open>
-        <plank-dialog-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dialog-trigger>
-        <plank-dialog-content>
-          <plank-dialog-title>Title</plank-dialog-title>
-        </plank-dialog-content>
-      </plank-dialog>
+      <hal-dialog open>
+        <hal-dialog-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dialog-trigger>
+        <hal-dialog-content>
+          <hal-dialog-title>Title</hal-dialog-title>
+        </hal-dialog-content>
+      </hal-dialog>
     `
 
-    await customElements.whenDefined("plank-dialog")
-    const dialog = container.querySelector("plank-dialog")!
+    await customElements.whenDefined("hal-dialog")
+    const dialog = container.querySelector("hal-dialog")!
     await (dialog as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -164,25 +164,25 @@ describe("Dialog (Web Component)", () => {
 
   it("trigger has aria-haspopup and aria-expanded", async () => {
     container.innerHTML = `
-      <plank-dialog>
-        <plank-dialog-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dialog-trigger>
-        <plank-dialog-content>
-          <plank-dialog-title>Title</plank-dialog-title>
-        </plank-dialog-content>
-      </plank-dialog>
+      <hal-dialog>
+        <hal-dialog-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dialog-trigger>
+        <hal-dialog-content>
+          <hal-dialog-title>Title</hal-dialog-title>
+        </hal-dialog-content>
+      </hal-dialog>
     `
 
-    await customElements.whenDefined("plank-dialog")
-    const dialog = container.querySelector("plank-dialog")!
+    await customElements.whenDefined("hal-dialog")
+    const dialog = container.querySelector("hal-dialog")!
     await (dialog as any).updateComplete
 
-    const button = container.querySelector("plank-button")!
+    const button = container.querySelector("hal-button")!
     expect(button.getAttribute("aria-haspopup")).toBe("dialog")
     expect(button.getAttribute("aria-expanded")).toBe("false")
 
-    const trigger = container.querySelector("plank-dialog-trigger")!
+    const trigger = container.querySelector("hal-dialog-trigger")!
     trigger.click()
     await (dialog as any).updateComplete
 
@@ -191,18 +191,18 @@ describe("Dialog (Web Component)", () => {
 
   it("can be controlled via open attribute", async () => {
     container.innerHTML = `
-      <plank-dialog open>
-        <plank-dialog-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dialog-trigger>
-        <plank-dialog-content>
-          <plank-dialog-title>Title</plank-dialog-title>
-        </plank-dialog-content>
-      </plank-dialog>
+      <hal-dialog open>
+        <hal-dialog-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dialog-trigger>
+        <hal-dialog-content>
+          <hal-dialog-title>Title</hal-dialog-title>
+        </hal-dialog-content>
+      </hal-dialog>
     `
 
-    await customElements.whenDefined("plank-dialog")
-    const dialog = container.querySelector("plank-dialog")!
+    await customElements.whenDefined("hal-dialog")
+    const dialog = container.querySelector("hal-dialog")!
     await (dialog as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -211,24 +211,24 @@ describe("Dialog (Web Component)", () => {
 
   it("fires open-change event when opened", async () => {
     container.innerHTML = `
-      <plank-dialog>
-        <plank-dialog-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dialog-trigger>
-        <plank-dialog-content>
-          <plank-dialog-title>Title</plank-dialog-title>
-        </plank-dialog-content>
-      </plank-dialog>
+      <hal-dialog>
+        <hal-dialog-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dialog-trigger>
+        <hal-dialog-content>
+          <hal-dialog-title>Title</hal-dialog-title>
+        </hal-dialog-content>
+      </hal-dialog>
     `
 
-    await customElements.whenDefined("plank-dialog")
-    const dialog = container.querySelector("plank-dialog")!
+    await customElements.whenDefined("hal-dialog")
+    const dialog = container.querySelector("hal-dialog")!
     await (dialog as any).updateComplete
 
     const openChangeSpy = vi.fn()
     dialog.addEventListener("open-change", openChangeSpy)
 
-    const trigger = container.querySelector("plank-dialog-trigger")!
+    const trigger = container.querySelector("hal-dialog-trigger")!
     trigger.click()
     await (dialog as any).updateComplete
 
@@ -241,18 +241,18 @@ describe("Dialog (Web Component)", () => {
 
   it("dialog has aria-labelledby pointing to title", async () => {
     container.innerHTML = `
-      <plank-dialog open>
-        <plank-dialog-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dialog-trigger>
-        <plank-dialog-content>
-          <plank-dialog-title>My Title</plank-dialog-title>
-        </plank-dialog-content>
-      </plank-dialog>
+      <hal-dialog open>
+        <hal-dialog-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dialog-trigger>
+        <hal-dialog-content>
+          <hal-dialog-title>My Title</hal-dialog-title>
+        </hal-dialog-content>
+      </hal-dialog>
     `
 
-    await customElements.whenDefined("plank-dialog")
-    const dialog = container.querySelector("plank-dialog")!
+    await customElements.whenDefined("hal-dialog")
+    const dialog = container.querySelector("hal-dialog")!
     await (dialog as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -265,19 +265,19 @@ describe("Dialog (Web Component)", () => {
 
   it("dialog has aria-describedby pointing to description", async () => {
     container.innerHTML = `
-      <plank-dialog open>
-        <plank-dialog-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dialog-trigger>
-        <plank-dialog-content>
-          <plank-dialog-title>Title</plank-dialog-title>
-          <plank-dialog-description>My Description</plank-dialog-description>
-        </plank-dialog-content>
-      </plank-dialog>
+      <hal-dialog open>
+        <hal-dialog-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dialog-trigger>
+        <hal-dialog-content>
+          <hal-dialog-title>Title</hal-dialog-title>
+          <hal-dialog-description>My Description</hal-dialog-description>
+        </hal-dialog-content>
+      </hal-dialog>
     `
 
-    await customElements.whenDefined("plank-dialog")
-    const dialog = container.querySelector("plank-dialog")!
+    await customElements.whenDefined("hal-dialog")
+    const dialog = container.querySelector("hal-dialog")!
     await (dialog as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -290,18 +290,18 @@ describe("Dialog (Web Component)", () => {
 
   it("has data-state attribute on content", async () => {
     container.innerHTML = `
-      <plank-dialog open>
-        <plank-dialog-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dialog-trigger>
-        <plank-dialog-content>
-          <plank-dialog-title>Title</plank-dialog-title>
-        </plank-dialog-content>
-      </plank-dialog>
+      <hal-dialog open>
+        <hal-dialog-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dialog-trigger>
+        <hal-dialog-content>
+          <hal-dialog-title>Title</hal-dialog-title>
+        </hal-dialog-content>
+      </hal-dialog>
     `
 
-    await customElements.whenDefined("plank-dialog")
-    const dialog = container.querySelector("plank-dialog")!
+    await customElements.whenDefined("hal-dialog")
+    const dialog = container.querySelector("hal-dialog")!
     await (dialog as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -311,18 +311,18 @@ describe("Dialog (Web Component)", () => {
 
   it("has overlay with correct data-slot", async () => {
     container.innerHTML = `
-      <plank-dialog open>
-        <plank-dialog-trigger>
-          <plank-button>Open</plank-button>
-        </plank-dialog-trigger>
-        <plank-dialog-content>
-          <plank-dialog-title>Title</plank-dialog-title>
-        </plank-dialog-content>
-      </plank-dialog>
+      <hal-dialog open>
+        <hal-dialog-trigger>
+          <hal-button>Open</hal-button>
+        </hal-dialog-trigger>
+        <hal-dialog-content>
+          <hal-dialog-title>Title</hal-dialog-title>
+        </hal-dialog-content>
+      </hal-dialog>
     `
 
-    await customElements.whenDefined("plank-dialog")
-    const dialog = container.querySelector("plank-dialog")!
+    await customElements.whenDefined("hal-dialog")
+    const dialog = container.querySelector("hal-dialog")!
     await (dialog as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 

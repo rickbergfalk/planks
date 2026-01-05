@@ -1,8 +1,8 @@
 import { describe, it, expect, beforeEach } from "vitest"
-import "@/web-components/plank-badge"
-import type { PlankBadge } from "@/web-components/plank-badge"
+import "@/web-components/hal-badge"
+import type { HalBadge } from "@/web-components/hal-badge"
 
-describe("PlankBadge (Web Component)", () => {
+describe("HalBadge (Web Component)", () => {
   let container: HTMLDivElement
 
   beforeEach(() => {
@@ -10,16 +10,16 @@ describe("PlankBadge (Web Component)", () => {
     document.body.appendChild(container)
   })
 
-  async function renderAndWait(html: string): Promise<PlankBadge> {
+  async function renderAndWait(html: string): Promise<HalBadge> {
     container.innerHTML = html
-    await customElements.whenDefined("plank-badge")
-    const badge = container.querySelector("plank-badge") as PlankBadge
+    await customElements.whenDefined("hal-badge")
+    const badge = container.querySelector("hal-badge") as HalBadge
     await badge.updateComplete
     return badge
   }
 
   it("renders with default variant", async () => {
-    const badge = await renderAndWait(`<plank-badge>New</plank-badge>`)
+    const badge = await renderAndWait(`<hal-badge>New</hal-badge>`)
     expect(badge).toBeDefined()
     expect(badge.textContent).toBe("New")
     expect(badge.dataset.slot).toBe("badge")
@@ -27,7 +27,7 @@ describe("PlankBadge (Web Component)", () => {
 
   it("renders with secondary variant", async () => {
     const badge = await renderAndWait(
-      `<plank-badge variant="secondary">Secondary</plank-badge>`
+      `<hal-badge variant="secondary">Secondary</hal-badge>`
     )
     expect(badge).toBeDefined()
     expect(badge.textContent).toBe("Secondary")
@@ -35,7 +35,7 @@ describe("PlankBadge (Web Component)", () => {
 
   it("renders with destructive variant", async () => {
     const badge = await renderAndWait(
-      `<plank-badge variant="destructive">Error</plank-badge>`
+      `<hal-badge variant="destructive">Error</hal-badge>`
     )
     expect(badge).toBeDefined()
     expect(badge.textContent).toBe("Error")
@@ -43,14 +43,14 @@ describe("PlankBadge (Web Component)", () => {
 
   it("renders with outline variant", async () => {
     const badge = await renderAndWait(
-      `<plank-badge variant="outline">Outline</plank-badge>`
+      `<hal-badge variant="outline">Outline</hal-badge>`
     )
     expect(badge).toBeDefined()
     expect(badge.textContent).toBe("Outline")
   })
 
   it("applies variant classes", async () => {
-    const badge = await renderAndWait(`<plank-badge>Tag</plank-badge>`)
+    const badge = await renderAndWait(`<hal-badge>Tag</hal-badge>`)
     expect(badge.classList.contains("bg-primary")).toBe(true)
     expect(badge.classList.contains("text-primary-foreground")).toBe(true)
   })

@@ -1,9 +1,9 @@
 import { describe, it, expect, beforeEach } from "vitest"
 import { page } from "vitest/browser"
-import "../../src/web-components/plank-pagination"
-import type { PlankPagination } from "../../src/web-components/plank-pagination"
+import "../../src/web-components/hal-pagination"
+import type { HalPagination } from "../../src/web-components/hal-pagination"
 
-describe("plank-pagination - Visual", () => {
+describe("hal-pagination - Visual", () => {
   let container: HTMLElement
 
   beforeEach(() => {
@@ -19,38 +19,38 @@ describe("plank-pagination - Visual", () => {
 
   it("default pagination", async () => {
     container.innerHTML = `
-      <plank-pagination>
-        <plank-pagination-content>
-          <plank-pagination-item>
-            <plank-pagination-previous href="#"></plank-pagination-previous>
-          </plank-pagination-item>
-          <plank-pagination-item>
-            <plank-pagination-link href="#">1</plank-pagination-link>
-          </plank-pagination-item>
-          <plank-pagination-item>
-            <plank-pagination-link href="#" active>2</plank-pagination-link>
-          </plank-pagination-item>
-          <plank-pagination-item>
-            <plank-pagination-link href="#">3</plank-pagination-link>
-          </plank-pagination-item>
-          <plank-pagination-item>
-            <plank-pagination-ellipsis></plank-pagination-ellipsis>
-          </plank-pagination-item>
-          <plank-pagination-item>
-            <plank-pagination-next href="#"></plank-pagination-next>
-          </plank-pagination-item>
-        </plank-pagination-content>
-      </plank-pagination>
+      <hal-pagination>
+        <hal-pagination-content>
+          <hal-pagination-item>
+            <hal-pagination-previous href="#"></hal-pagination-previous>
+          </hal-pagination-item>
+          <hal-pagination-item>
+            <hal-pagination-link href="#">1</hal-pagination-link>
+          </hal-pagination-item>
+          <hal-pagination-item>
+            <hal-pagination-link href="#" active>2</hal-pagination-link>
+          </hal-pagination-item>
+          <hal-pagination-item>
+            <hal-pagination-link href="#">3</hal-pagination-link>
+          </hal-pagination-item>
+          <hal-pagination-item>
+            <hal-pagination-ellipsis></hal-pagination-ellipsis>
+          </hal-pagination-item>
+          <hal-pagination-item>
+            <hal-pagination-next href="#"></hal-pagination-next>
+          </hal-pagination-item>
+        </hal-pagination-content>
+      </hal-pagination>
     `
-    await customElements.whenDefined("plank-pagination")
-    await customElements.whenDefined("plank-pagination-link")
+    await customElements.whenDefined("hal-pagination")
+    await customElements.whenDefined("hal-pagination-link")
     const pagination = container.querySelector(
-      "plank-pagination"
-    ) as PlankPagination
+      "hal-pagination"
+    ) as HalPagination
     await pagination.updateComplete
 
     // Wait for all nested link elements to complete their updates
-    const links = container.querySelectorAll("plank-pagination-link")
+    const links = container.querySelectorAll("hal-pagination-link")
     await Promise.all([...links].map((el: any) => el.updateComplete))
 
     await expect(page.getByTestId("container")).toMatchScreenshot(
@@ -61,35 +61,35 @@ describe("plank-pagination - Visual", () => {
   // TODO: Fix 10px height difference - same issue as navigation-menu active link
   it.skip("first page active", async () => {
     container.innerHTML = `
-      <plank-pagination>
-        <plank-pagination-content>
-          <plank-pagination-item>
-            <plank-pagination-previous href="#"></plank-pagination-previous>
-          </plank-pagination-item>
-          <plank-pagination-item>
-            <plank-pagination-link href="#" active>1</plank-pagination-link>
-          </plank-pagination-item>
-          <plank-pagination-item>
-            <plank-pagination-link href="#">2</plank-pagination-link>
-          </plank-pagination-item>
-          <plank-pagination-item>
-            <plank-pagination-link href="#">3</plank-pagination-link>
-          </plank-pagination-item>
-          <plank-pagination-item>
-            <plank-pagination-next href="#"></plank-pagination-next>
-          </plank-pagination-item>
-        </plank-pagination-content>
-      </plank-pagination>
+      <hal-pagination>
+        <hal-pagination-content>
+          <hal-pagination-item>
+            <hal-pagination-previous href="#"></hal-pagination-previous>
+          </hal-pagination-item>
+          <hal-pagination-item>
+            <hal-pagination-link href="#" active>1</hal-pagination-link>
+          </hal-pagination-item>
+          <hal-pagination-item>
+            <hal-pagination-link href="#">2</hal-pagination-link>
+          </hal-pagination-item>
+          <hal-pagination-item>
+            <hal-pagination-link href="#">3</hal-pagination-link>
+          </hal-pagination-item>
+          <hal-pagination-item>
+            <hal-pagination-next href="#"></hal-pagination-next>
+          </hal-pagination-item>
+        </hal-pagination-content>
+      </hal-pagination>
     `
-    await customElements.whenDefined("plank-pagination")
-    await customElements.whenDefined("plank-pagination-link")
+    await customElements.whenDefined("hal-pagination")
+    await customElements.whenDefined("hal-pagination-link")
     const pagination = container.querySelector(
-      "plank-pagination"
-    ) as PlankPagination
+      "hal-pagination"
+    ) as HalPagination
     await pagination.updateComplete
 
     // Wait for all nested link elements to complete their updates
-    const links = container.querySelectorAll("plank-pagination-link")
+    const links = container.querySelectorAll("hal-pagination-link")
     await Promise.all([...links].map((el: any) => el.updateComplete))
 
     // Wait for paint to complete

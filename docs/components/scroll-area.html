@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scroll Area - Planks</title>
+    <title>Scroll Area - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -20,45 +20,45 @@
           A scrollable area with a vertical scrollbar for long content.
         </p>
         <div class="mb-4">
-          <plank-scroll-area class="h-72 w-48 rounded-md border">
-            <plank-scroll-area-viewport>
+          <hal-scroll-area class="h-72 w-48 rounded-md border">
+            <hal-scroll-area-viewport>
               <div class="p-4">
                 <h4 class="mb-4 text-sm leading-none font-medium">Tags</h4>
                 <div class="text-sm">v1.2.0-beta.20</div>
-                <plank-separator class="my-2"></plank-separator>
+                <hal-separator class="my-2"></hal-separator>
                 <div class="text-sm">v1.2.0-beta.19</div>
-                <plank-separator class="my-2"></plank-separator>
+                <hal-separator class="my-2"></hal-separator>
                 <div class="text-sm">v1.2.0-beta.18</div>
-                <plank-separator class="my-2"></plank-separator>
+                <hal-separator class="my-2"></hal-separator>
                 <div class="text-sm">v1.2.0-beta.17</div>
-                <plank-separator class="my-2"></plank-separator>
+                <hal-separator class="my-2"></hal-separator>
                 <div class="text-sm">v1.2.0-beta.16</div>
-                <plank-separator class="my-2"></plank-separator>
+                <hal-separator class="my-2"></hal-separator>
                 <div class="text-sm">v1.2.0-beta.15</div>
-                <plank-separator class="my-2"></plank-separator>
+                <hal-separator class="my-2"></hal-separator>
                 <div class="text-sm">v1.2.0-beta.14</div>
-                <plank-separator class="my-2"></plank-separator>
+                <hal-separator class="my-2"></hal-separator>
                 <div class="text-sm">v1.2.0-beta.13</div>
-                <plank-separator class="my-2"></plank-separator>
+                <hal-separator class="my-2"></hal-separator>
                 <div class="text-sm">v1.2.0-beta.12</div>
-                <plank-separator class="my-2"></plank-separator>
+                <hal-separator class="my-2"></hal-separator>
                 <div class="text-sm">v1.2.0-beta.11</div>
               </div>
-            </plank-scroll-area-viewport>
-            <plank-scroll-bar></plank-scroll-bar>
-          </plank-scroll-area>
+            </hal-scroll-area-viewport>
+            <hal-scroll-bar></hal-scroll-bar>
+          </hal-scroll-area>
         </div>
-        <pre><code>&lt;plank-scroll-area class="h-72 w-48 rounded-md border"&gt;
-  &lt;plank-scroll-area-viewport&gt;
+        <pre><code>&lt;hal-scroll-area class="h-72 w-48 rounded-md border"&gt;
+  &lt;hal-scroll-area-viewport&gt;
     &lt;div class="p-4"&gt;
       &lt;h4 class="mb-4 text-sm font-medium"&gt;Tags&lt;/h4&gt;
       &lt;div class="text-sm"&gt;v1.2.0-beta.20&lt;/div&gt;
-      &lt;plank-separator class="my-2"&gt;&lt;/plank-separator&gt;
+      &lt;hal-separator class="my-2"&gt;&lt;/hal-separator&gt;
       &lt;!-- More items... --&gt;
     &lt;/div&gt;
-  &lt;/plank-scroll-area-viewport&gt;
-  &lt;plank-scroll-bar&gt;&lt;/plank-scroll-bar&gt;
-&lt;/plank-scroll-area&gt;</code></pre>
+  &lt;/hal-scroll-area-viewport&gt;
+  &lt;hal-scroll-bar&gt;&lt;/hal-scroll-bar&gt;
+&lt;/hal-scroll-area&gt;</code></pre>
       </section>
 
       <!-- Horizontal Scroll -->
@@ -68,8 +68,8 @@
           A scrollable area with a horizontal scrollbar for wide content.
         </p>
         <div class="mb-4">
-          <plank-scroll-area class="w-96 rounded-md border whitespace-nowrap">
-            <plank-scroll-area-viewport>
+          <hal-scroll-area class="w-96 rounded-md border whitespace-nowrap">
+            <hal-scroll-area-viewport>
               <div class="flex gap-4 p-4" style="width: max-content">
                 <div
                   class="w-32 h-24 bg-muted rounded-md flex items-center justify-center text-sm"
@@ -97,146 +97,144 @@
                   Item 5
                 </div>
               </div>
-            </plank-scroll-area-viewport>
-            <plank-scroll-bar orientation="horizontal"></plank-scroll-bar>
-          </plank-scroll-area>
+            </hal-scroll-area-viewport>
+            <hal-scroll-bar orientation="horizontal"></hal-scroll-bar>
+          </hal-scroll-area>
         </div>
-        <pre><code>&lt;plank-scroll-area class="w-96 rounded-md border whitespace-nowrap"&gt;
-  &lt;plank-scroll-area-viewport&gt;
+        <pre><code>&lt;hal-scroll-area class="w-96 rounded-md border whitespace-nowrap"&gt;
+  &lt;hal-scroll-area-viewport&gt;
     &lt;div class="flex gap-4 p-4" style="width: max-content"&gt;
       &lt;div class="w-32 h-24 bg-muted rounded-md"&gt;Item 1&lt;/div&gt;
       &lt;div class="w-32 h-24 bg-muted rounded-md"&gt;Item 2&lt;/div&gt;
       &lt;!-- More items... --&gt;
     &lt;/div&gt;
-  &lt;/plank-scroll-area-viewport&gt;
-  &lt;plank-scroll-bar orientation="horizontal"&gt;&lt;/plank-scroll-bar&gt;
-&lt;/plank-scroll-area&gt;</code></pre>
+  &lt;/hal-scroll-area-viewport&gt;
+  &lt;hal-scroll-bar orientation="horizontal"&gt;&lt;/hal-scroll-bar&gt;
+&lt;/hal-scroll-area&gt;</code></pre>
       </section>
 
       <!-- API -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Components</h2>
         <div class="overflow-x-auto">
-          <plank-table>
-            <plank-table-header>
-              <plank-table-row>
-                <plank-table-head>Component</plank-table-head>
-                <plank-table-head>Description</plank-table-head>
-              </plank-table-row>
-            </plank-table-header>
-            <plank-table-body>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >plank-scroll-area</plank-table-cell
+          <hal-table>
+            <hal-table-header>
+              <hal-table-row>
+                <hal-table-head>Component</hal-table-head>
+                <hal-table-head>Description</hal-table-head>
+              </hal-table-row>
+            </hal-table-header>
+            <hal-table-body>
+              <hal-table-row>
+                <hal-table-cell class="font-mono"
+                  >hal-scroll-area</hal-table-cell
                 >
-                <plank-table-cell
+                <hal-table-cell
                   >The scroll area container with custom
-                  scrollbars</plank-table-cell
+                  scrollbars</hal-table-cell
                 >
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >plank-scroll-area-viewport</plank-table-cell
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono"
+                  >hal-scroll-area-viewport</hal-table-cell
                 >
-                <plank-table-cell
-                  >The scrollable viewport containing content</plank-table-cell
+                <hal-table-cell
+                  >The scrollable viewport containing content</hal-table-cell
                 >
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >plank-scroll-bar</plank-table-cell
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono"
+                  >hal-scroll-bar</hal-table-cell
                 >
-                <plank-table-cell
-                  >Custom scrollbar (vertical by default)</plank-table-cell
+                <hal-table-cell
+                  >Custom scrollbar (vertical by default)</hal-table-cell
                 >
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >plank-scroll-area-corner</plank-table-cell
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono"
+                  >hal-scroll-area-corner</hal-table-cell
                 >
-                <plank-table-cell
+                <hal-table-cell
                   >Corner element when both scrollbars are
-                  visible</plank-table-cell
+                  visible</hal-table-cell
                 >
-              </plank-table-row>
-            </plank-table-body>
-          </plank-table>
+              </hal-table-row>
+            </hal-table-body>
+          </hal-table>
         </div>
       </section>
 
-      <!-- plank-scroll-area API -->
+      <!-- hal-scroll-area API -->
       <section class="mb-12">
-        <h3 class="text-xl font-semibold mb-4">plank-scroll-area</h3>
+        <h3 class="text-xl font-semibold mb-4">hal-scroll-area</h3>
         <div class="overflow-x-auto">
-          <plank-table>
-            <plank-table-header>
-              <plank-table-row>
-                <plank-table-head>Property</plank-table-head>
-                <plank-table-head>Type</plank-table-head>
-                <plank-table-head>Default</plank-table-head>
-                <plank-table-head>Description</plank-table-head>
-              </plank-table-row>
-            </plank-table-header>
-            <plank-table-body>
-              <plank-table-row>
-                <plank-table-cell class="font-mono">type</plank-table-cell>
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >"hover" | "scroll" | "auto" | "always"</plank-table-cell
+          <hal-table>
+            <hal-table-header>
+              <hal-table-row>
+                <hal-table-head>Property</hal-table-head>
+                <hal-table-head>Type</hal-table-head>
+                <hal-table-head>Default</hal-table-head>
+                <hal-table-head>Description</hal-table-head>
+              </hal-table-row>
+            </hal-table-header>
+            <hal-table-body>
+              <hal-table-row>
+                <hal-table-cell class="font-mono">type</hal-table-cell>
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >"hover" | "scroll" | "auto" | "always"</hal-table-cell
                 >
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >"hover"</plank-table-cell
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >"hover"</hal-table-cell
                 >
-                <plank-table-cell>When to show the scrollbar</plank-table-cell>
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >scroll-hide-delay</plank-table-cell
+                <hal-table-cell>When to show the scrollbar</hal-table-cell>
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono"
+                  >scroll-hide-delay</hal-table-cell
                 >
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >number</plank-table-cell
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >number</hal-table-cell
                 >
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >600</plank-table-cell
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >600</hal-table-cell
                 >
-                <plank-table-cell
-                  >Delay in ms before hiding the scrollbar</plank-table-cell
+                <hal-table-cell
+                  >Delay in ms before hiding the scrollbar</hal-table-cell
                 >
-              </plank-table-row>
-            </plank-table-body>
-          </plank-table>
+              </hal-table-row>
+            </hal-table-body>
+          </hal-table>
         </div>
       </section>
 
-      <!-- plank-scroll-bar API -->
+      <!-- hal-scroll-bar API -->
       <section class="mb-12">
-        <h3 class="text-xl font-semibold mb-4">plank-scroll-bar</h3>
+        <h3 class="text-xl font-semibold mb-4">hal-scroll-bar</h3>
         <div class="overflow-x-auto">
-          <plank-table>
-            <plank-table-header>
-              <plank-table-row>
-                <plank-table-head>Property</plank-table-head>
-                <plank-table-head>Type</plank-table-head>
-                <plank-table-head>Default</plank-table-head>
-                <plank-table-head>Description</plank-table-head>
-              </plank-table-row>
-            </plank-table-header>
-            <plank-table-body>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >orientation</plank-table-cell
+          <hal-table>
+            <hal-table-header>
+              <hal-table-row>
+                <hal-table-head>Property</hal-table-head>
+                <hal-table-head>Type</hal-table-head>
+                <hal-table-head>Default</hal-table-head>
+                <hal-table-head>Description</hal-table-head>
+              </hal-table-row>
+            </hal-table-header>
+            <hal-table-body>
+              <hal-table-row>
+                <hal-table-cell class="font-mono">orientation</hal-table-cell>
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >"horizontal" | "vertical"</hal-table-cell
                 >
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >"horizontal" | "vertical"</plank-table-cell
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >"vertical"</hal-table-cell
                 >
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >"vertical"</plank-table-cell
+                <hal-table-cell
+                  >The orientation of the scrollbar</hal-table-cell
                 >
-                <plank-table-cell
-                  >The orientation of the scrollbar</plank-table-cell
-                >
-              </plank-table-row>
-            </plank-table-body>
-          </plank-table>
+              </hal-table-row>
+            </hal-table-body>
+          </hal-table>
         </div>
       </section>
 

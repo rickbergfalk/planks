@@ -1,16 +1,16 @@
 import { describe, it, expect, beforeEach } from "vitest"
-import "../../src/web-components/plank-breadcrumb"
+import "../../src/web-components/hal-breadcrumb"
 import type {
-  PlankBreadcrumb,
-  PlankBreadcrumbList,
-  PlankBreadcrumbItem,
-  PlankBreadcrumbLink,
-  PlankBreadcrumbPage,
-  PlankBreadcrumbSeparator,
-  PlankBreadcrumbEllipsis,
-} from "../../src/web-components/plank-breadcrumb"
+  HalBreadcrumb,
+  HalBreadcrumbList,
+  HalBreadcrumbItem,
+  HalBreadcrumbLink,
+  HalBreadcrumbPage,
+  HalBreadcrumbSeparator,
+  HalBreadcrumbEllipsis,
+} from "../../src/web-components/hal-breadcrumb"
 
-describe("plank-breadcrumb", () => {
+describe("hal-breadcrumb", () => {
   let container: HTMLElement
 
   beforeEach(() => {
@@ -21,57 +21,57 @@ describe("plank-breadcrumb", () => {
     }
   })
 
-  describe("PlankBreadcrumb", () => {
+  describe("HalBreadcrumb", () => {
     it("renders with data-slot attribute", async () => {
-      container.innerHTML = `<plank-breadcrumb></plank-breadcrumb>`
-      await customElements.whenDefined("plank-breadcrumb")
-      const el = container.querySelector("plank-breadcrumb")!
-      await (el as PlankBreadcrumb).updateComplete
+      container.innerHTML = `<hal-breadcrumb></hal-breadcrumb>`
+      await customElements.whenDefined("hal-breadcrumb")
+      const el = container.querySelector("hal-breadcrumb")!
+      await (el as HalBreadcrumb).updateComplete
       expect(el.dataset.slot).toBe("breadcrumb")
     })
 
     it("has aria-label=breadcrumb", async () => {
-      container.innerHTML = `<plank-breadcrumb></plank-breadcrumb>`
-      await customElements.whenDefined("plank-breadcrumb")
-      const el = container.querySelector("plank-breadcrumb") as PlankBreadcrumb
+      container.innerHTML = `<hal-breadcrumb></hal-breadcrumb>`
+      await customElements.whenDefined("hal-breadcrumb")
+      const el = container.querySelector("hal-breadcrumb") as HalBreadcrumb
       await el.updateComplete
       expect(el.getAttribute("aria-label")).toBe("breadcrumb")
     })
 
     it("applies custom class", async () => {
-      container.innerHTML = `<plank-breadcrumb class="custom-class"></plank-breadcrumb>`
-      await customElements.whenDefined("plank-breadcrumb")
-      const el = container.querySelector("plank-breadcrumb") as PlankBreadcrumb
+      container.innerHTML = `<hal-breadcrumb class="custom-class"></hal-breadcrumb>`
+      await customElements.whenDefined("hal-breadcrumb")
+      const el = container.querySelector("hal-breadcrumb") as HalBreadcrumb
       await el.updateComplete
       expect(el.classList.contains("custom-class")).toBe(true)
     })
   })
 
-  describe("PlankBreadcrumbList", () => {
+  describe("HalBreadcrumbList", () => {
     it("renders with data-slot attribute", async () => {
       container.innerHTML = `
-        <plank-breadcrumb>
-          <plank-breadcrumb-list></plank-breadcrumb-list>
-        </plank-breadcrumb>
+        <hal-breadcrumb>
+          <hal-breadcrumb-list></hal-breadcrumb-list>
+        </hal-breadcrumb>
       `
-      await customElements.whenDefined("plank-breadcrumb-list")
+      await customElements.whenDefined("hal-breadcrumb-list")
       const list = container.querySelector(
-        "plank-breadcrumb-list"
-      ) as PlankBreadcrumbList
+        "hal-breadcrumb-list"
+      ) as HalBreadcrumbList
       await list.updateComplete
       expect(list.dataset.slot).toBe("breadcrumb-list")
     })
 
     it("applies flex and gap classes", async () => {
       container.innerHTML = `
-        <plank-breadcrumb>
-          <plank-breadcrumb-list></plank-breadcrumb-list>
-        </plank-breadcrumb>
+        <hal-breadcrumb>
+          <hal-breadcrumb-list></hal-breadcrumb-list>
+        </hal-breadcrumb>
       `
-      await customElements.whenDefined("plank-breadcrumb-list")
+      await customElements.whenDefined("hal-breadcrumb-list")
       const list = container.querySelector(
-        "plank-breadcrumb-list"
-      ) as PlankBreadcrumbList
+        "hal-breadcrumb-list"
+      ) as HalBreadcrumbList
       await list.updateComplete
       expect(list.classList.contains("flex")).toBe(true)
       expect(list.classList.contains("flex-wrap")).toBe(true)
@@ -79,74 +79,74 @@ describe("plank-breadcrumb", () => {
     })
   })
 
-  describe("PlankBreadcrumbItem", () => {
+  describe("HalBreadcrumbItem", () => {
     it("renders with data-slot attribute", async () => {
       container.innerHTML = `
-        <plank-breadcrumb>
-          <plank-breadcrumb-list>
-            <plank-breadcrumb-item></plank-breadcrumb-item>
-          </plank-breadcrumb-list>
-        </plank-breadcrumb>
+        <hal-breadcrumb>
+          <hal-breadcrumb-list>
+            <hal-breadcrumb-item></hal-breadcrumb-item>
+          </hal-breadcrumb-list>
+        </hal-breadcrumb>
       `
-      await customElements.whenDefined("plank-breadcrumb-item")
+      await customElements.whenDefined("hal-breadcrumb-item")
       const item = container.querySelector(
-        "plank-breadcrumb-item"
-      ) as PlankBreadcrumbItem
+        "hal-breadcrumb-item"
+      ) as HalBreadcrumbItem
       await item.updateComplete
       expect(item.dataset.slot).toBe("breadcrumb-item")
     })
 
     it("applies inline-flex and gap classes", async () => {
       container.innerHTML = `
-        <plank-breadcrumb>
-          <plank-breadcrumb-list>
-            <plank-breadcrumb-item></plank-breadcrumb-item>
-          </plank-breadcrumb-list>
-        </plank-breadcrumb>
+        <hal-breadcrumb>
+          <hal-breadcrumb-list>
+            <hal-breadcrumb-item></hal-breadcrumb-item>
+          </hal-breadcrumb-list>
+        </hal-breadcrumb>
       `
-      await customElements.whenDefined("plank-breadcrumb-item")
+      await customElements.whenDefined("hal-breadcrumb-item")
       const item = container.querySelector(
-        "plank-breadcrumb-item"
-      ) as PlankBreadcrumbItem
+        "hal-breadcrumb-item"
+      ) as HalBreadcrumbItem
       await item.updateComplete
       expect(item.classList.contains("inline-flex")).toBe(true)
       expect(item.classList.contains("items-center")).toBe(true)
     })
   })
 
-  describe("PlankBreadcrumbLink", () => {
+  describe("HalBreadcrumbLink", () => {
     it("renders with data-slot attribute", async () => {
       container.innerHTML = `
-        <plank-breadcrumb>
-          <plank-breadcrumb-list>
-            <plank-breadcrumb-item>
-              <plank-breadcrumb-link href="#">Home</plank-breadcrumb-link>
-            </plank-breadcrumb-item>
-          </plank-breadcrumb-list>
-        </plank-breadcrumb>
+        <hal-breadcrumb>
+          <hal-breadcrumb-list>
+            <hal-breadcrumb-item>
+              <hal-breadcrumb-link href="#">Home</hal-breadcrumb-link>
+            </hal-breadcrumb-item>
+          </hal-breadcrumb-list>
+        </hal-breadcrumb>
       `
-      await customElements.whenDefined("plank-breadcrumb-link")
+      await customElements.whenDefined("hal-breadcrumb-link")
       const link = container.querySelector(
-        "plank-breadcrumb-link"
-      ) as PlankBreadcrumbLink
+        "hal-breadcrumb-link"
+      ) as HalBreadcrumbLink
       await link.updateComplete
       expect(link.dataset.slot).toBe("breadcrumb-link")
     })
 
     it("renders an anchor element", async () => {
       container.innerHTML = `
-        <plank-breadcrumb>
-          <plank-breadcrumb-list>
-            <plank-breadcrumb-item>
-              <plank-breadcrumb-link href="#">Home</plank-breadcrumb-link>
-            </plank-breadcrumb-item>
-          </plank-breadcrumb-list>
-        </plank-breadcrumb>
+        <hal-breadcrumb>
+          <hal-breadcrumb-list>
+            <hal-breadcrumb-item>
+              <hal-breadcrumb-link href="#">Home</hal-breadcrumb-link>
+            </hal-breadcrumb-item>
+          </hal-breadcrumb-list>
+        </hal-breadcrumb>
       `
-      await customElements.whenDefined("plank-breadcrumb-link")
+      await customElements.whenDefined("hal-breadcrumb-link")
       const link = container.querySelector(
-        "plank-breadcrumb-link"
-      ) as PlankBreadcrumbLink
+        "hal-breadcrumb-link"
+      ) as HalBreadcrumbLink
       await link.updateComplete
       const anchor = link.querySelector("a")
       expect(anchor).toBeTruthy()
@@ -155,18 +155,18 @@ describe("plank-breadcrumb", () => {
 
     it("applies hover transition classes", async () => {
       container.innerHTML = `
-        <plank-breadcrumb>
-          <plank-breadcrumb-list>
-            <plank-breadcrumb-item>
-              <plank-breadcrumb-link href="#">Home</plank-breadcrumb-link>
-            </plank-breadcrumb-item>
-          </plank-breadcrumb-list>
-        </plank-breadcrumb>
+        <hal-breadcrumb>
+          <hal-breadcrumb-list>
+            <hal-breadcrumb-item>
+              <hal-breadcrumb-link href="#">Home</hal-breadcrumb-link>
+            </hal-breadcrumb-item>
+          </hal-breadcrumb-list>
+        </hal-breadcrumb>
       `
-      await customElements.whenDefined("plank-breadcrumb-link")
+      await customElements.whenDefined("hal-breadcrumb-link")
       const link = container.querySelector(
-        "plank-breadcrumb-link"
-      ) as PlankBreadcrumbLink
+        "hal-breadcrumb-link"
+      ) as HalBreadcrumbLink
       await link.updateComplete
       const anchor = link.querySelector("a")
       expect(anchor?.classList.contains("hover:text-foreground")).toBe(true)
@@ -174,237 +174,237 @@ describe("plank-breadcrumb", () => {
     })
   })
 
-  describe("PlankBreadcrumbPage", () => {
+  describe("HalBreadcrumbPage", () => {
     it("renders with data-slot attribute", async () => {
       container.innerHTML = `
-        <plank-breadcrumb>
-          <plank-breadcrumb-list>
-            <plank-breadcrumb-item>
-              <plank-breadcrumb-page>Current</plank-breadcrumb-page>
-            </plank-breadcrumb-item>
-          </plank-breadcrumb-list>
-        </plank-breadcrumb>
+        <hal-breadcrumb>
+          <hal-breadcrumb-list>
+            <hal-breadcrumb-item>
+              <hal-breadcrumb-page>Current</hal-breadcrumb-page>
+            </hal-breadcrumb-item>
+          </hal-breadcrumb-list>
+        </hal-breadcrumb>
       `
-      await customElements.whenDefined("plank-breadcrumb-page")
+      await customElements.whenDefined("hal-breadcrumb-page")
       const page = container.querySelector(
-        "plank-breadcrumb-page"
-      ) as PlankBreadcrumbPage
+        "hal-breadcrumb-page"
+      ) as HalBreadcrumbPage
       await page.updateComplete
       expect(page.dataset.slot).toBe("breadcrumb-page")
     })
 
     it("has role=link", async () => {
       container.innerHTML = `
-        <plank-breadcrumb>
-          <plank-breadcrumb-list>
-            <plank-breadcrumb-item>
-              <plank-breadcrumb-page>Current</plank-breadcrumb-page>
-            </plank-breadcrumb-item>
-          </plank-breadcrumb-list>
-        </plank-breadcrumb>
+        <hal-breadcrumb>
+          <hal-breadcrumb-list>
+            <hal-breadcrumb-item>
+              <hal-breadcrumb-page>Current</hal-breadcrumb-page>
+            </hal-breadcrumb-item>
+          </hal-breadcrumb-list>
+        </hal-breadcrumb>
       `
-      await customElements.whenDefined("plank-breadcrumb-page")
+      await customElements.whenDefined("hal-breadcrumb-page")
       const page = container.querySelector(
-        "plank-breadcrumb-page"
-      ) as PlankBreadcrumbPage
+        "hal-breadcrumb-page"
+      ) as HalBreadcrumbPage
       await page.updateComplete
       expect(page.getAttribute("role")).toBe("link")
     })
 
     it("has aria-disabled=true", async () => {
       container.innerHTML = `
-        <plank-breadcrumb>
-          <plank-breadcrumb-list>
-            <plank-breadcrumb-item>
-              <plank-breadcrumb-page>Current</plank-breadcrumb-page>
-            </plank-breadcrumb-item>
-          </plank-breadcrumb-list>
-        </plank-breadcrumb>
+        <hal-breadcrumb>
+          <hal-breadcrumb-list>
+            <hal-breadcrumb-item>
+              <hal-breadcrumb-page>Current</hal-breadcrumb-page>
+            </hal-breadcrumb-item>
+          </hal-breadcrumb-list>
+        </hal-breadcrumb>
       `
-      await customElements.whenDefined("plank-breadcrumb-page")
+      await customElements.whenDefined("hal-breadcrumb-page")
       const page = container.querySelector(
-        "plank-breadcrumb-page"
-      ) as PlankBreadcrumbPage
+        "hal-breadcrumb-page"
+      ) as HalBreadcrumbPage
       await page.updateComplete
       expect(page.getAttribute("aria-disabled")).toBe("true")
     })
 
     it("has aria-current=page", async () => {
       container.innerHTML = `
-        <plank-breadcrumb>
-          <plank-breadcrumb-list>
-            <plank-breadcrumb-item>
-              <plank-breadcrumb-page>Current</plank-breadcrumb-page>
-            </plank-breadcrumb-item>
-          </plank-breadcrumb-list>
-        </plank-breadcrumb>
+        <hal-breadcrumb>
+          <hal-breadcrumb-list>
+            <hal-breadcrumb-item>
+              <hal-breadcrumb-page>Current</hal-breadcrumb-page>
+            </hal-breadcrumb-item>
+          </hal-breadcrumb-list>
+        </hal-breadcrumb>
       `
-      await customElements.whenDefined("plank-breadcrumb-page")
+      await customElements.whenDefined("hal-breadcrumb-page")
       const page = container.querySelector(
-        "plank-breadcrumb-page"
-      ) as PlankBreadcrumbPage
+        "hal-breadcrumb-page"
+      ) as HalBreadcrumbPage
       await page.updateComplete
       expect(page.getAttribute("aria-current")).toBe("page")
     })
 
     it("applies foreground text color", async () => {
       container.innerHTML = `
-        <plank-breadcrumb>
-          <plank-breadcrumb-list>
-            <plank-breadcrumb-item>
-              <plank-breadcrumb-page>Current</plank-breadcrumb-page>
-            </plank-breadcrumb-item>
-          </plank-breadcrumb-list>
-        </plank-breadcrumb>
+        <hal-breadcrumb>
+          <hal-breadcrumb-list>
+            <hal-breadcrumb-item>
+              <hal-breadcrumb-page>Current</hal-breadcrumb-page>
+            </hal-breadcrumb-item>
+          </hal-breadcrumb-list>
+        </hal-breadcrumb>
       `
-      await customElements.whenDefined("plank-breadcrumb-page")
+      await customElements.whenDefined("hal-breadcrumb-page")
       const page = container.querySelector(
-        "plank-breadcrumb-page"
-      ) as PlankBreadcrumbPage
+        "hal-breadcrumb-page"
+      ) as HalBreadcrumbPage
       await page.updateComplete
       expect(page.classList.contains("text-foreground")).toBe(true)
     })
   })
 
-  describe("PlankBreadcrumbSeparator", () => {
+  describe("HalBreadcrumbSeparator", () => {
     it("renders with data-slot attribute", async () => {
       container.innerHTML = `
-        <plank-breadcrumb>
-          <plank-breadcrumb-list>
-            <plank-breadcrumb-item>
-              <plank-breadcrumb-link href="#">Home</plank-breadcrumb-link>
-            </plank-breadcrumb-item>
-            <plank-breadcrumb-separator></plank-breadcrumb-separator>
-          </plank-breadcrumb-list>
-        </plank-breadcrumb>
+        <hal-breadcrumb>
+          <hal-breadcrumb-list>
+            <hal-breadcrumb-item>
+              <hal-breadcrumb-link href="#">Home</hal-breadcrumb-link>
+            </hal-breadcrumb-item>
+            <hal-breadcrumb-separator></hal-breadcrumb-separator>
+          </hal-breadcrumb-list>
+        </hal-breadcrumb>
       `
-      await customElements.whenDefined("plank-breadcrumb-separator")
+      await customElements.whenDefined("hal-breadcrumb-separator")
       const sep = container.querySelector(
-        "plank-breadcrumb-separator"
-      ) as PlankBreadcrumbSeparator
+        "hal-breadcrumb-separator"
+      ) as HalBreadcrumbSeparator
       await sep.updateComplete
       expect(sep.dataset.slot).toBe("breadcrumb-separator")
     })
 
     it("has role=presentation", async () => {
       container.innerHTML = `
-        <plank-breadcrumb>
-          <plank-breadcrumb-list>
-            <plank-breadcrumb-separator></plank-breadcrumb-separator>
-          </plank-breadcrumb-list>
-        </plank-breadcrumb>
+        <hal-breadcrumb>
+          <hal-breadcrumb-list>
+            <hal-breadcrumb-separator></hal-breadcrumb-separator>
+          </hal-breadcrumb-list>
+        </hal-breadcrumb>
       `
-      await customElements.whenDefined("plank-breadcrumb-separator")
+      await customElements.whenDefined("hal-breadcrumb-separator")
       const sep = container.querySelector(
-        "plank-breadcrumb-separator"
-      ) as PlankBreadcrumbSeparator
+        "hal-breadcrumb-separator"
+      ) as HalBreadcrumbSeparator
       await sep.updateComplete
       expect(sep.getAttribute("role")).toBe("presentation")
     })
 
     it("has aria-hidden=true", async () => {
       container.innerHTML = `
-        <plank-breadcrumb>
-          <plank-breadcrumb-list>
-            <plank-breadcrumb-separator></plank-breadcrumb-separator>
-          </plank-breadcrumb-list>
-        </plank-breadcrumb>
+        <hal-breadcrumb>
+          <hal-breadcrumb-list>
+            <hal-breadcrumb-separator></hal-breadcrumb-separator>
+          </hal-breadcrumb-list>
+        </hal-breadcrumb>
       `
-      await customElements.whenDefined("plank-breadcrumb-separator")
+      await customElements.whenDefined("hal-breadcrumb-separator")
       const sep = container.querySelector(
-        "plank-breadcrumb-separator"
-      ) as PlankBreadcrumbSeparator
+        "hal-breadcrumb-separator"
+      ) as HalBreadcrumbSeparator
       await sep.updateComplete
       expect(sep.getAttribute("aria-hidden")).toBe("true")
     })
 
     it("renders chevron icon by default", async () => {
       container.innerHTML = `
-        <plank-breadcrumb>
-          <plank-breadcrumb-list>
-            <plank-breadcrumb-separator></plank-breadcrumb-separator>
-          </plank-breadcrumb-list>
-        </plank-breadcrumb>
+        <hal-breadcrumb>
+          <hal-breadcrumb-list>
+            <hal-breadcrumb-separator></hal-breadcrumb-separator>
+          </hal-breadcrumb-list>
+        </hal-breadcrumb>
       `
-      await customElements.whenDefined("plank-breadcrumb-separator")
+      await customElements.whenDefined("hal-breadcrumb-separator")
       const sep = container.querySelector(
-        "plank-breadcrumb-separator"
-      ) as PlankBreadcrumbSeparator
+        "hal-breadcrumb-separator"
+      ) as HalBreadcrumbSeparator
       await sep.updateComplete
       const svg = sep.querySelector("svg")
       expect(svg).toBeTruthy()
     })
   })
 
-  describe("PlankBreadcrumbEllipsis", () => {
+  describe("HalBreadcrumbEllipsis", () => {
     it("renders with data-slot attribute", async () => {
       container.innerHTML = `
-        <plank-breadcrumb>
-          <plank-breadcrumb-list>
-            <plank-breadcrumb-item>
-              <plank-breadcrumb-ellipsis></plank-breadcrumb-ellipsis>
-            </plank-breadcrumb-item>
-          </plank-breadcrumb-list>
-        </plank-breadcrumb>
+        <hal-breadcrumb>
+          <hal-breadcrumb-list>
+            <hal-breadcrumb-item>
+              <hal-breadcrumb-ellipsis></hal-breadcrumb-ellipsis>
+            </hal-breadcrumb-item>
+          </hal-breadcrumb-list>
+        </hal-breadcrumb>
       `
-      await customElements.whenDefined("plank-breadcrumb-ellipsis")
+      await customElements.whenDefined("hal-breadcrumb-ellipsis")
       const ellipsis = container.querySelector(
-        "plank-breadcrumb-ellipsis"
-      ) as PlankBreadcrumbEllipsis
+        "hal-breadcrumb-ellipsis"
+      ) as HalBreadcrumbEllipsis
       await ellipsis.updateComplete
       expect(ellipsis.dataset.slot).toBe("breadcrumb-ellipsis")
     })
 
     it("has role=presentation", async () => {
       container.innerHTML = `
-        <plank-breadcrumb>
-          <plank-breadcrumb-list>
-            <plank-breadcrumb-item>
-              <plank-breadcrumb-ellipsis></plank-breadcrumb-ellipsis>
-            </plank-breadcrumb-item>
-          </plank-breadcrumb-list>
-        </plank-breadcrumb>
+        <hal-breadcrumb>
+          <hal-breadcrumb-list>
+            <hal-breadcrumb-item>
+              <hal-breadcrumb-ellipsis></hal-breadcrumb-ellipsis>
+            </hal-breadcrumb-item>
+          </hal-breadcrumb-list>
+        </hal-breadcrumb>
       `
-      await customElements.whenDefined("plank-breadcrumb-ellipsis")
+      await customElements.whenDefined("hal-breadcrumb-ellipsis")
       const ellipsis = container.querySelector(
-        "plank-breadcrumb-ellipsis"
-      ) as PlankBreadcrumbEllipsis
+        "hal-breadcrumb-ellipsis"
+      ) as HalBreadcrumbEllipsis
       await ellipsis.updateComplete
       expect(ellipsis.getAttribute("role")).toBe("presentation")
     })
 
     it("has aria-hidden=true", async () => {
       container.innerHTML = `
-        <plank-breadcrumb>
-          <plank-breadcrumb-list>
-            <plank-breadcrumb-item>
-              <plank-breadcrumb-ellipsis></plank-breadcrumb-ellipsis>
-            </plank-breadcrumb-item>
-          </plank-breadcrumb-list>
-        </plank-breadcrumb>
+        <hal-breadcrumb>
+          <hal-breadcrumb-list>
+            <hal-breadcrumb-item>
+              <hal-breadcrumb-ellipsis></hal-breadcrumb-ellipsis>
+            </hal-breadcrumb-item>
+          </hal-breadcrumb-list>
+        </hal-breadcrumb>
       `
-      await customElements.whenDefined("plank-breadcrumb-ellipsis")
+      await customElements.whenDefined("hal-breadcrumb-ellipsis")
       const ellipsis = container.querySelector(
-        "plank-breadcrumb-ellipsis"
-      ) as PlankBreadcrumbEllipsis
+        "hal-breadcrumb-ellipsis"
+      ) as HalBreadcrumbEllipsis
       await ellipsis.updateComplete
       expect(ellipsis.getAttribute("aria-hidden")).toBe("true")
     })
 
     it("has sr-only text for accessibility", async () => {
       container.innerHTML = `
-        <plank-breadcrumb>
-          <plank-breadcrumb-list>
-            <plank-breadcrumb-item>
-              <plank-breadcrumb-ellipsis></plank-breadcrumb-ellipsis>
-            </plank-breadcrumb-item>
-          </plank-breadcrumb-list>
-        </plank-breadcrumb>
+        <hal-breadcrumb>
+          <hal-breadcrumb-list>
+            <hal-breadcrumb-item>
+              <hal-breadcrumb-ellipsis></hal-breadcrumb-ellipsis>
+            </hal-breadcrumb-item>
+          </hal-breadcrumb-list>
+        </hal-breadcrumb>
       `
-      await customElements.whenDefined("plank-breadcrumb-ellipsis")
+      await customElements.whenDefined("hal-breadcrumb-ellipsis")
       const ellipsis = container.querySelector(
-        "plank-breadcrumb-ellipsis"
-      ) as PlankBreadcrumbEllipsis
+        "hal-breadcrumb-ellipsis"
+      ) as HalBreadcrumbEllipsis
       await ellipsis.updateComplete
       const srOnly = ellipsis.querySelector(".sr-only")
       expect(srOnly?.textContent).toBe("More")

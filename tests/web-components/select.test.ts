@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest"
-import "@/web-components/plank-select"
+import "@/web-components/hal-select"
 
 describe("Select (Web Component)", () => {
   let container: HTMLElement
@@ -21,18 +21,18 @@ describe("Select (Web Component)", () => {
 
   it("renders trigger with correct data-slot", async () => {
     container.innerHTML = `
-      <plank-select>
-        <plank-select-trigger>
-          <plank-select-value placeholder="Select"></plank-select-value>
-        </plank-select-trigger>
-        <plank-select-content>
-          <plank-select-item value="apple">Apple</plank-select-item>
-        </plank-select-content>
-      </plank-select>
+      <hal-select>
+        <hal-select-trigger>
+          <hal-select-value placeholder="Select"></hal-select-value>
+        </hal-select-trigger>
+        <hal-select-content>
+          <hal-select-item value="apple">Apple</hal-select-item>
+        </hal-select-content>
+      </hal-select>
     `
 
-    await customElements.whenDefined("plank-select")
-    const select = container.querySelector("plank-select")!
+    await customElements.whenDefined("hal-select")
+    const select = container.querySelector("hal-select")!
     await (select as any).updateComplete
 
     const trigger = container.querySelector('[data-slot="select-trigger"]')
@@ -41,18 +41,18 @@ describe("Select (Web Component)", () => {
 
   it("select content is hidden by default", async () => {
     container.innerHTML = `
-      <plank-select>
-        <plank-select-trigger>
-          <plank-select-value placeholder="Select"></plank-select-value>
-        </plank-select-trigger>
-        <plank-select-content>
-          <plank-select-item value="apple">Apple</plank-select-item>
-        </plank-select-content>
-      </plank-select>
+      <hal-select>
+        <hal-select-trigger>
+          <hal-select-value placeholder="Select"></hal-select-value>
+        </hal-select-trigger>
+        <hal-select-content>
+          <hal-select-item value="apple">Apple</hal-select-item>
+        </hal-select-content>
+      </hal-select>
     `
 
-    await customElements.whenDefined("plank-select")
-    const select = container.querySelector("plank-select")!
+    await customElements.whenDefined("hal-select")
+    const select = container.querySelector("hal-select")!
     await (select as any).updateComplete
 
     const content = document.querySelector(
@@ -63,18 +63,18 @@ describe("Select (Web Component)", () => {
 
   it("shows select content on click", async () => {
     container.innerHTML = `
-      <plank-select>
-        <plank-select-trigger>
-          <plank-select-value placeholder="Select"></plank-select-value>
-        </plank-select-trigger>
-        <plank-select-content>
-          <plank-select-item value="apple">Apple</plank-select-item>
-        </plank-select-content>
-      </plank-select>
+      <hal-select>
+        <hal-select-trigger>
+          <hal-select-value placeholder="Select"></hal-select-value>
+        </hal-select-trigger>
+        <hal-select-content>
+          <hal-select-item value="apple">Apple</hal-select-item>
+        </hal-select-content>
+      </hal-select>
     `
 
-    await customElements.whenDefined("plank-select")
-    const select = container.querySelector("plank-select")!
+    await customElements.whenDefined("hal-select")
+    const select = container.querySelector("hal-select")!
     await (select as any).updateComplete
 
     const trigger = container.querySelector('[role="combobox"]') as HTMLElement
@@ -87,18 +87,18 @@ describe("Select (Web Component)", () => {
 
   it("shows placeholder when no value selected", async () => {
     container.innerHTML = `
-      <plank-select>
-        <plank-select-trigger>
-          <plank-select-value placeholder="Select a fruit"></plank-select-value>
-        </plank-select-trigger>
-        <plank-select-content>
-          <plank-select-item value="apple">Apple</plank-select-item>
-        </plank-select-content>
-      </plank-select>
+      <hal-select>
+        <hal-select-trigger>
+          <hal-select-value placeholder="Select a fruit"></hal-select-value>
+        </hal-select-trigger>
+        <hal-select-content>
+          <hal-select-item value="apple">Apple</hal-select-item>
+        </hal-select-content>
+      </hal-select>
     `
 
-    await customElements.whenDefined("plank-select")
-    const select = container.querySelector("plank-select")!
+    await customElements.whenDefined("hal-select")
+    const select = container.querySelector("hal-select")!
     await (select as any).updateComplete
 
     const trigger = container.querySelector('[role="combobox"]')
@@ -107,19 +107,19 @@ describe("Select (Web Component)", () => {
 
   it("shows selected value in trigger", async () => {
     container.innerHTML = `
-      <plank-select>
-        <plank-select-trigger>
-          <plank-select-value placeholder="Select"></plank-select-value>
-        </plank-select-trigger>
-        <plank-select-content>
-          <plank-select-item value="apple">Apple</plank-select-item>
-          <plank-select-item value="banana">Banana</plank-select-item>
-        </plank-select-content>
-      </plank-select>
+      <hal-select>
+        <hal-select-trigger>
+          <hal-select-value placeholder="Select"></hal-select-value>
+        </hal-select-trigger>
+        <hal-select-content>
+          <hal-select-item value="apple">Apple</hal-select-item>
+          <hal-select-item value="banana">Banana</hal-select-item>
+        </hal-select-content>
+      </hal-select>
     `
 
-    await customElements.whenDefined("plank-select")
-    const select = container.querySelector("plank-select")!
+    await customElements.whenDefined("hal-select")
+    const select = container.querySelector("hal-select")!
     await (select as any).updateComplete
 
     // Open the select
@@ -137,18 +137,18 @@ describe("Select (Web Component)", () => {
 
   it("closes on item selection", async () => {
     container.innerHTML = `
-      <plank-select>
-        <plank-select-trigger>
-          <plank-select-value placeholder="Select"></plank-select-value>
-        </plank-select-trigger>
-        <plank-select-content>
-          <plank-select-item value="apple">Apple</plank-select-item>
-        </plank-select-content>
-      </plank-select>
+      <hal-select>
+        <hal-select-trigger>
+          <hal-select-value placeholder="Select"></hal-select-value>
+        </hal-select-trigger>
+        <hal-select-content>
+          <hal-select-item value="apple">Apple</hal-select-item>
+        </hal-select-content>
+      </hal-select>
     `
 
-    await customElements.whenDefined("plank-select")
-    const select = container.querySelector("plank-select")!
+    await customElements.whenDefined("hal-select")
+    const select = container.querySelector("hal-select")!
     await (select as any).updateComplete
 
     // Open the select
@@ -170,19 +170,19 @@ describe("Select (Web Component)", () => {
 
   it("can be controlled via value attribute", async () => {
     container.innerHTML = `
-      <plank-select value="banana">
-        <plank-select-trigger>
-          <plank-select-value placeholder="Select"></plank-select-value>
-        </plank-select-trigger>
-        <plank-select-content>
-          <plank-select-item value="apple">Apple</plank-select-item>
-          <plank-select-item value="banana">Banana</plank-select-item>
-        </plank-select-content>
-      </plank-select>
+      <hal-select value="banana">
+        <hal-select-trigger>
+          <hal-select-value placeholder="Select"></hal-select-value>
+        </hal-select-trigger>
+        <hal-select-content>
+          <hal-select-item value="apple">Apple</hal-select-item>
+          <hal-select-item value="banana">Banana</hal-select-item>
+        </hal-select-content>
+      </hal-select>
     `
 
-    await customElements.whenDefined("plank-select")
-    const select = container.querySelector("plank-select")!
+    await customElements.whenDefined("hal-select")
+    const select = container.querySelector("hal-select")!
     await (select as any).updateComplete
 
     const trigger = container.querySelector('[role="combobox"]')
@@ -192,18 +192,18 @@ describe("Select (Web Component)", () => {
   it("fires value-change when selection changes", async () => {
     const onValueChange = vi.fn()
     container.innerHTML = `
-      <plank-select>
-        <plank-select-trigger>
-          <plank-select-value placeholder="Select"></plank-select-value>
-        </plank-select-trigger>
-        <plank-select-content>
-          <plank-select-item value="apple">Apple</plank-select-item>
-        </plank-select-content>
-      </plank-select>
+      <hal-select>
+        <hal-select-trigger>
+          <hal-select-value placeholder="Select"></hal-select-value>
+        </hal-select-trigger>
+        <hal-select-content>
+          <hal-select-item value="apple">Apple</hal-select-item>
+        </hal-select-content>
+      </hal-select>
     `
 
-    await customElements.whenDefined("plank-select")
-    const select = container.querySelector("plank-select")!
+    await customElements.whenDefined("hal-select")
+    const select = container.querySelector("hal-select")!
     select.addEventListener("value-change", (e: Event) => {
       onValueChange((e as CustomEvent).detail.value)
     })
@@ -224,18 +224,18 @@ describe("Select (Web Component)", () => {
   it("fires open-change when opened", async () => {
     const onOpenChange = vi.fn()
     container.innerHTML = `
-      <plank-select>
-        <plank-select-trigger>
-          <plank-select-value placeholder="Select"></plank-select-value>
-        </plank-select-trigger>
-        <plank-select-content>
-          <plank-select-item value="apple">Apple</plank-select-item>
-        </plank-select-content>
-      </plank-select>
+      <hal-select>
+        <hal-select-trigger>
+          <hal-select-value placeholder="Select"></hal-select-value>
+        </hal-select-trigger>
+        <hal-select-content>
+          <hal-select-item value="apple">Apple</hal-select-item>
+        </hal-select-content>
+      </hal-select>
     `
 
-    await customElements.whenDefined("plank-select")
-    const select = container.querySelector("plank-select")!
+    await customElements.whenDefined("hal-select")
+    const select = container.querySelector("hal-select")!
     select.addEventListener("open-change", (e: Event) => {
       onOpenChange((e as CustomEvent).detail.open)
     })
@@ -250,18 +250,18 @@ describe("Select (Web Component)", () => {
 
   it("trigger has correct ARIA attributes when open", async () => {
     container.innerHTML = `
-      <plank-select>
-        <plank-select-trigger>
-          <plank-select-value placeholder="Select"></plank-select-value>
-        </plank-select-trigger>
-        <plank-select-content>
-          <plank-select-item value="apple">Apple</plank-select-item>
-        </plank-select-content>
-      </plank-select>
+      <hal-select>
+        <hal-select-trigger>
+          <hal-select-value placeholder="Select"></hal-select-value>
+        </hal-select-trigger>
+        <hal-select-content>
+          <hal-select-item value="apple">Apple</hal-select-item>
+        </hal-select-content>
+      </hal-select>
     `
 
-    await customElements.whenDefined("plank-select")
-    const select = container.querySelector("plank-select")!
+    await customElements.whenDefined("hal-select")
+    const select = container.querySelector("hal-select")!
     await (select as any).updateComplete
 
     const trigger = container.querySelector('[role="combobox"]') as HTMLElement
@@ -275,18 +275,18 @@ describe("Select (Web Component)", () => {
 
   it("disabled select cannot be opened", async () => {
     container.innerHTML = `
-      <plank-select disabled>
-        <plank-select-trigger>
-          <plank-select-value placeholder="Select"></plank-select-value>
-        </plank-select-trigger>
-        <plank-select-content>
-          <plank-select-item value="apple">Apple</plank-select-item>
-        </plank-select-content>
-      </plank-select>
+      <hal-select disabled>
+        <hal-select-trigger>
+          <hal-select-value placeholder="Select"></hal-select-value>
+        </hal-select-trigger>
+        <hal-select-content>
+          <hal-select-item value="apple">Apple</hal-select-item>
+        </hal-select-content>
+      </hal-select>
     `
 
-    await customElements.whenDefined("plank-select")
-    const select = container.querySelector("plank-select")!
+    await customElements.whenDefined("hal-select")
+    const select = container.querySelector("hal-select")!
     await (select as any).updateComplete
 
     const trigger = container.querySelector('[role="combobox"]') as HTMLElement
@@ -299,19 +299,19 @@ describe("Select (Web Component)", () => {
 
   it("disabled item cannot be selected", async () => {
     container.innerHTML = `
-      <plank-select>
-        <plank-select-trigger>
-          <plank-select-value placeholder="Select"></plank-select-value>
-        </plank-select-trigger>
-        <plank-select-content>
-          <plank-select-item value="apple" disabled>Apple</plank-select-item>
-          <plank-select-item value="banana">Banana</plank-select-item>
-        </plank-select-content>
-      </plank-select>
+      <hal-select>
+        <hal-select-trigger>
+          <hal-select-value placeholder="Select"></hal-select-value>
+        </hal-select-trigger>
+        <hal-select-content>
+          <hal-select-item value="apple" disabled>Apple</hal-select-item>
+          <hal-select-item value="banana">Banana</hal-select-item>
+        </hal-select-content>
+      </hal-select>
     `
 
-    await customElements.whenDefined("plank-select")
-    const select = container.querySelector("plank-select")!
+    await customElements.whenDefined("hal-select")
+    const select = container.querySelector("hal-select")!
     await (select as any).updateComplete
 
     const trigger = container.querySelector('[role="combobox"]') as HTMLElement
@@ -326,21 +326,21 @@ describe("Select (Web Component)", () => {
 
   it("renders group with label", async () => {
     container.innerHTML = `
-      <plank-select open>
-        <plank-select-trigger>
-          <plank-select-value placeholder="Select"></plank-select-value>
-        </plank-select-trigger>
-        <plank-select-content>
-          <plank-select-group>
-            <plank-select-label>Fruits</plank-select-label>
-            <plank-select-item value="apple">Apple</plank-select-item>
-          </plank-select-group>
-        </plank-select-content>
-      </plank-select>
+      <hal-select open>
+        <hal-select-trigger>
+          <hal-select-value placeholder="Select"></hal-select-value>
+        </hal-select-trigger>
+        <hal-select-content>
+          <hal-select-group>
+            <hal-select-label>Fruits</hal-select-label>
+            <hal-select-item value="apple">Apple</hal-select-item>
+          </hal-select-group>
+        </hal-select-content>
+      </hal-select>
     `
 
-    await customElements.whenDefined("plank-select")
-    const select = container.querySelector("plank-select")!
+    await customElements.whenDefined("hal-select")
+    const select = container.querySelector("hal-select")!
     await (select as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -350,24 +350,24 @@ describe("Select (Web Component)", () => {
 
   it("renders separator between groups", async () => {
     container.innerHTML = `
-      <plank-select open>
-        <plank-select-trigger>
-          <plank-select-value placeholder="Select"></plank-select-value>
-        </plank-select-trigger>
-        <plank-select-content>
-          <plank-select-group>
-            <plank-select-item value="apple">Apple</plank-select-item>
-          </plank-select-group>
-          <plank-select-separator></plank-select-separator>
-          <plank-select-group>
-            <plank-select-item value="carrot">Carrot</plank-select-item>
-          </plank-select-group>
-        </plank-select-content>
-      </plank-select>
+      <hal-select open>
+        <hal-select-trigger>
+          <hal-select-value placeholder="Select"></hal-select-value>
+        </hal-select-trigger>
+        <hal-select-content>
+          <hal-select-group>
+            <hal-select-item value="apple">Apple</hal-select-item>
+          </hal-select-group>
+          <hal-select-separator></hal-select-separator>
+          <hal-select-group>
+            <hal-select-item value="carrot">Carrot</hal-select-item>
+          </hal-select-group>
+        </hal-select-content>
+      </hal-select>
     `
 
-    await customElements.whenDefined("plank-select")
-    const select = container.querySelector("plank-select")!
+    await customElements.whenDefined("hal-select")
+    const select = container.querySelector("hal-select")!
     await (select as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -377,18 +377,18 @@ describe("Select (Web Component)", () => {
 
   it("select content has correct data-state", async () => {
     container.innerHTML = `
-      <plank-select open>
-        <plank-select-trigger>
-          <plank-select-value placeholder="Select"></plank-select-value>
-        </plank-select-trigger>
-        <plank-select-content>
-          <plank-select-item value="apple">Apple</plank-select-item>
-        </plank-select-content>
-      </plank-select>
+      <hal-select open>
+        <hal-select-trigger>
+          <hal-select-value placeholder="Select"></hal-select-value>
+        </hal-select-trigger>
+        <hal-select-content>
+          <hal-select-item value="apple">Apple</hal-select-item>
+        </hal-select-content>
+      </hal-select>
     `
 
-    await customElements.whenDefined("plank-select")
-    const select = container.querySelector("plank-select")!
+    await customElements.whenDefined("hal-select")
+    const select = container.querySelector("hal-select")!
     await (select as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -399,18 +399,18 @@ describe("Select (Web Component)", () => {
 
   it("trigger has data-placeholder when no value", async () => {
     container.innerHTML = `
-      <plank-select>
-        <plank-select-trigger>
-          <plank-select-value placeholder="Select"></plank-select-value>
-        </plank-select-trigger>
-        <plank-select-content>
-          <plank-select-item value="apple">Apple</plank-select-item>
-        </plank-select-content>
-      </plank-select>
+      <hal-select>
+        <hal-select-trigger>
+          <hal-select-value placeholder="Select"></hal-select-value>
+        </hal-select-trigger>
+        <hal-select-content>
+          <hal-select-item value="apple">Apple</hal-select-item>
+        </hal-select-content>
+      </hal-select>
     `
 
-    await customElements.whenDefined("plank-select")
-    const select = container.querySelector("plank-select")!
+    await customElements.whenDefined("hal-select")
+    const select = container.querySelector("hal-select")!
     await (select as any).updateComplete
 
     const trigger = container.querySelector('[role="combobox"]')
@@ -419,18 +419,18 @@ describe("Select (Web Component)", () => {
 
   it("opens on keyboard Enter", async () => {
     container.innerHTML = `
-      <plank-select>
-        <plank-select-trigger>
-          <plank-select-value placeholder="Select"></plank-select-value>
-        </plank-select-trigger>
-        <plank-select-content>
-          <plank-select-item value="apple">Apple</plank-select-item>
-        </plank-select-content>
-      </plank-select>
+      <hal-select>
+        <hal-select-trigger>
+          <hal-select-value placeholder="Select"></hal-select-value>
+        </hal-select-trigger>
+        <hal-select-content>
+          <hal-select-item value="apple">Apple</hal-select-item>
+        </hal-select-content>
+      </hal-select>
     `
 
-    await customElements.whenDefined("plank-select")
-    const select = container.querySelector("plank-select")!
+    await customElements.whenDefined("hal-select")
+    const select = container.querySelector("hal-select")!
     await (select as any).updateComplete
 
     const trigger = container.querySelector('[role="combobox"]') as HTMLElement
@@ -445,18 +445,18 @@ describe("Select (Web Component)", () => {
 
   it("opens on keyboard Space", async () => {
     container.innerHTML = `
-      <plank-select>
-        <plank-select-trigger>
-          <plank-select-value placeholder="Select"></plank-select-value>
-        </plank-select-trigger>
-        <plank-select-content>
-          <plank-select-item value="apple">Apple</plank-select-item>
-        </plank-select-content>
-      </plank-select>
+      <hal-select>
+        <hal-select-trigger>
+          <hal-select-value placeholder="Select"></hal-select-value>
+        </hal-select-trigger>
+        <hal-select-content>
+          <hal-select-item value="apple">Apple</hal-select-item>
+        </hal-select-content>
+      </hal-select>
     `
 
-    await customElements.whenDefined("plank-select")
-    const select = container.querySelector("plank-select")!
+    await customElements.whenDefined("hal-select")
+    const select = container.querySelector("hal-select")!
     await (select as any).updateComplete
 
     const trigger = container.querySelector('[role="combobox"]') as HTMLElement
@@ -471,18 +471,18 @@ describe("Select (Web Component)", () => {
 
   it("opens on ArrowDown", async () => {
     container.innerHTML = `
-      <plank-select>
-        <plank-select-trigger>
-          <plank-select-value placeholder="Select"></plank-select-value>
-        </plank-select-trigger>
-        <plank-select-content>
-          <plank-select-item value="apple">Apple</plank-select-item>
-        </plank-select-content>
-      </plank-select>
+      <hal-select>
+        <hal-select-trigger>
+          <hal-select-value placeholder="Select"></hal-select-value>
+        </hal-select-trigger>
+        <hal-select-content>
+          <hal-select-item value="apple">Apple</hal-select-item>
+        </hal-select-content>
+      </hal-select>
     `
 
-    await customElements.whenDefined("plank-select")
-    const select = container.querySelector("plank-select")!
+    await customElements.whenDefined("hal-select")
+    const select = container.querySelector("hal-select")!
     await (select as any).updateComplete
 
     const trigger = container.querySelector('[role="combobox"]') as HTMLElement
@@ -497,21 +497,21 @@ describe("Select (Web Component)", () => {
 
   it("supports small size trigger", async () => {
     container.innerHTML = `
-      <plank-select>
-        <plank-select-trigger size="sm">
-          <plank-select-value placeholder="Select"></plank-select-value>
-        </plank-select-trigger>
-        <plank-select-content>
-          <plank-select-item value="apple">Apple</plank-select-item>
-        </plank-select-content>
-      </plank-select>
+      <hal-select>
+        <hal-select-trigger size="sm">
+          <hal-select-value placeholder="Select"></hal-select-value>
+        </hal-select-trigger>
+        <hal-select-content>
+          <hal-select-item value="apple">Apple</hal-select-item>
+        </hal-select-content>
+      </hal-select>
     `
 
-    await customElements.whenDefined("plank-select")
-    await customElements.whenDefined("plank-select-trigger")
-    const select = container.querySelector("plank-select")!
+    await customElements.whenDefined("hal-select")
+    await customElements.whenDefined("hal-select-trigger")
+    const select = container.querySelector("hal-select")!
     await (select as any).updateComplete
-    const triggerComponent = container.querySelector("plank-select-trigger")!
+    const triggerComponent = container.querySelector("hal-select-trigger")!
     await (triggerComponent as any).updateComplete
 
     // The button element inside the trigger has the data-size attribute
@@ -521,18 +521,18 @@ describe("Select (Web Component)", () => {
 
   it("closes on Escape key", async () => {
     container.innerHTML = `
-      <plank-select>
-        <plank-select-trigger>
-          <plank-select-value placeholder="Select"></plank-select-value>
-        </plank-select-trigger>
-        <plank-select-content>
-          <plank-select-item value="apple">Apple</plank-select-item>
-        </plank-select-content>
-      </plank-select>
+      <hal-select>
+        <hal-select-trigger>
+          <hal-select-value placeholder="Select"></hal-select-value>
+        </hal-select-trigger>
+        <hal-select-content>
+          <hal-select-item value="apple">Apple</hal-select-item>
+        </hal-select-content>
+      </hal-select>
     `
 
-    await customElements.whenDefined("plank-select")
-    const select = container.querySelector("plank-select")!
+    await customElements.whenDefined("hal-select")
+    const select = container.querySelector("hal-select")!
     await (select as any).updateComplete
 
     // Open the select
@@ -558,18 +558,18 @@ describe("Select (Web Component)", () => {
 
   it("closes on outside click", async () => {
     container.innerHTML = `
-      <plank-select>
-        <plank-select-trigger>
-          <plank-select-value placeholder="Select"></plank-select-value>
-        </plank-select-trigger>
-        <plank-select-content>
-          <plank-select-item value="apple">Apple</plank-select-item>
-        </plank-select-content>
-      </plank-select>
+      <hal-select>
+        <hal-select-trigger>
+          <hal-select-value placeholder="Select"></hal-select-value>
+        </hal-select-trigger>
+        <hal-select-content>
+          <hal-select-item value="apple">Apple</hal-select-item>
+        </hal-select-content>
+      </hal-select>
     `
 
-    await customElements.whenDefined("plank-select")
-    const select = container.querySelector("plank-select")!
+    await customElements.whenDefined("hal-select")
+    const select = container.querySelector("hal-select")!
     await (select as any).updateComplete
 
     // Open the select
@@ -595,19 +595,19 @@ describe("Select (Web Component)", () => {
 
   it("keyboard navigation with ArrowDown moves to next item", async () => {
     container.innerHTML = `
-      <plank-select open>
-        <plank-select-trigger>
-          <plank-select-value placeholder="Select"></plank-select-value>
-        </plank-select-trigger>
-        <plank-select-content>
-          <plank-select-item value="apple">Apple</plank-select-item>
-          <plank-select-item value="banana">Banana</plank-select-item>
-        </plank-select-content>
-      </plank-select>
+      <hal-select open>
+        <hal-select-trigger>
+          <hal-select-value placeholder="Select"></hal-select-value>
+        </hal-select-trigger>
+        <hal-select-content>
+          <hal-select-item value="apple">Apple</hal-select-item>
+          <hal-select-item value="banana">Banana</hal-select-item>
+        </hal-select-content>
+      </hal-select>
     `
 
-    await customElements.whenDefined("plank-select")
-    const select = container.querySelector("plank-select")!
+    await customElements.whenDefined("hal-select")
+    const select = container.querySelector("hal-select")!
     await (select as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -625,19 +625,19 @@ describe("Select (Web Component)", () => {
 
   it("keyboard selection with Enter selects highlighted item", async () => {
     container.innerHTML = `
-      <plank-select open>
-        <plank-select-trigger>
-          <plank-select-value placeholder="Select"></plank-select-value>
-        </plank-select-trigger>
-        <plank-select-content>
-          <plank-select-item value="apple">Apple</plank-select-item>
-          <plank-select-item value="banana">Banana</plank-select-item>
-        </plank-select-content>
-      </plank-select>
+      <hal-select open>
+        <hal-select-trigger>
+          <hal-select-value placeholder="Select"></hal-select-value>
+        </hal-select-trigger>
+        <hal-select-content>
+          <hal-select-item value="apple">Apple</hal-select-item>
+          <hal-select-item value="banana">Banana</hal-select-item>
+        </hal-select-content>
+      </hal-select>
     `
 
-    await customElements.whenDefined("plank-select")
-    const select = container.querySelector("plank-select")!
+    await customElements.whenDefined("hal-select")
+    const select = container.querySelector("hal-select")!
     await (select as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 

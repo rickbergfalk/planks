@@ -1,9 +1,9 @@
 import { describe, it, expect, beforeEach, afterEach } from "vitest"
 import { page } from "vitest/browser"
-import "@/web-components/plank-toggle-group"
-import type { PlankToggleGroup } from "@/web-components/plank-toggle-group"
+import "@/web-components/hal-toggle-group"
+import type { HalToggleGroup } from "@/web-components/hal-toggle-group"
 
-describe("plank-toggle-group - Visual", () => {
+describe("hal-toggle-group - Visual", () => {
   let container: HTMLDivElement
 
   beforeEach(() => {
@@ -19,16 +19,14 @@ describe("plank-toggle-group - Visual", () => {
 
   it("multiple with selection", async () => {
     container.innerHTML = `
-      <plank-toggle-group type="multiple" value="bold,italic">
-        <plank-toggle-group-item value="bold" aria-label="Bold">B</plank-toggle-group-item>
-        <plank-toggle-group-item value="italic" aria-label="Italic">I</plank-toggle-group-item>
-        <plank-toggle-group-item value="underline" aria-label="Underline">U</plank-toggle-group-item>
-      </plank-toggle-group>
+      <hal-toggle-group type="multiple" value="bold,italic">
+        <hal-toggle-group-item value="bold" aria-label="Bold">B</hal-toggle-group-item>
+        <hal-toggle-group-item value="italic" aria-label="Italic">I</hal-toggle-group-item>
+        <hal-toggle-group-item value="underline" aria-label="Underline">U</hal-toggle-group-item>
+      </hal-toggle-group>
     `
-    await customElements.whenDefined("plank-toggle-group")
-    const group = container.querySelector(
-      "plank-toggle-group"
-    ) as PlankToggleGroup
+    await customElements.whenDefined("hal-toggle-group")
+    const group = container.querySelector("hal-toggle-group") as HalToggleGroup
     await group.updateComplete
     await expect(page.getByTestId("container")).toMatchScreenshot(
       "toggle-group-multiple-selected"
@@ -37,16 +35,14 @@ describe("plank-toggle-group - Visual", () => {
 
   it("single with selection", async () => {
     container.innerHTML = `
-      <plank-toggle-group type="single" value="center">
-        <plank-toggle-group-item value="left" aria-label="Left">L</plank-toggle-group-item>
-        <plank-toggle-group-item value="center" aria-label="Center">C</plank-toggle-group-item>
-        <plank-toggle-group-item value="right" aria-label="Right">R</plank-toggle-group-item>
-      </plank-toggle-group>
+      <hal-toggle-group type="single" value="center">
+        <hal-toggle-group-item value="left" aria-label="Left">L</hal-toggle-group-item>
+        <hal-toggle-group-item value="center" aria-label="Center">C</hal-toggle-group-item>
+        <hal-toggle-group-item value="right" aria-label="Right">R</hal-toggle-group-item>
+      </hal-toggle-group>
     `
-    await customElements.whenDefined("plank-toggle-group")
-    const group = container.querySelector(
-      "plank-toggle-group"
-    ) as PlankToggleGroup
+    await customElements.whenDefined("hal-toggle-group")
+    const group = container.querySelector("hal-toggle-group") as HalToggleGroup
     await group.updateComplete
     await expect(page.getByTestId("container")).toMatchScreenshot(
       "toggle-group-single-selected"
@@ -55,16 +51,14 @@ describe("plank-toggle-group - Visual", () => {
 
   it("outline variant", async () => {
     container.innerHTML = `
-      <plank-toggle-group type="multiple" variant="outline" value="bold">
-        <plank-toggle-group-item value="bold" aria-label="Bold">B</plank-toggle-group-item>
-        <plank-toggle-group-item value="italic" aria-label="Italic">I</plank-toggle-group-item>
-        <plank-toggle-group-item value="underline" aria-label="Underline">U</plank-toggle-group-item>
-      </plank-toggle-group>
+      <hal-toggle-group type="multiple" variant="outline" value="bold">
+        <hal-toggle-group-item value="bold" aria-label="Bold">B</hal-toggle-group-item>
+        <hal-toggle-group-item value="italic" aria-label="Italic">I</hal-toggle-group-item>
+        <hal-toggle-group-item value="underline" aria-label="Underline">U</hal-toggle-group-item>
+      </hal-toggle-group>
     `
-    await customElements.whenDefined("plank-toggle-group")
-    const group = container.querySelector(
-      "plank-toggle-group"
-    ) as PlankToggleGroup
+    await customElements.whenDefined("hal-toggle-group")
+    const group = container.querySelector("hal-toggle-group") as HalToggleGroup
     await group.updateComplete
     await expect(page.getByTestId("container")).toMatchScreenshot(
       "toggle-group-outline"
@@ -73,16 +67,14 @@ describe("plank-toggle-group - Visual", () => {
 
   it("small size", async () => {
     container.innerHTML = `
-      <plank-toggle-group type="multiple" size="sm" value="bold">
-        <plank-toggle-group-item value="bold" aria-label="Bold">B</plank-toggle-group-item>
-        <plank-toggle-group-item value="italic" aria-label="Italic">I</plank-toggle-group-item>
-        <plank-toggle-group-item value="underline" aria-label="Underline">U</plank-toggle-group-item>
-      </plank-toggle-group>
+      <hal-toggle-group type="multiple" size="sm" value="bold">
+        <hal-toggle-group-item value="bold" aria-label="Bold">B</hal-toggle-group-item>
+        <hal-toggle-group-item value="italic" aria-label="Italic">I</hal-toggle-group-item>
+        <hal-toggle-group-item value="underline" aria-label="Underline">U</hal-toggle-group-item>
+      </hal-toggle-group>
     `
-    await customElements.whenDefined("plank-toggle-group")
-    const group = container.querySelector(
-      "plank-toggle-group"
-    ) as PlankToggleGroup
+    await customElements.whenDefined("hal-toggle-group")
+    const group = container.querySelector("hal-toggle-group") as HalToggleGroup
     await group.updateComplete
     await expect(page.getByTestId("container")).toMatchScreenshot(
       "toggle-group-sm"
@@ -91,16 +83,14 @@ describe("plank-toggle-group - Visual", () => {
 
   it("large size", async () => {
     container.innerHTML = `
-      <plank-toggle-group type="multiple" size="lg" value="bold">
-        <plank-toggle-group-item value="bold" aria-label="Bold">B</plank-toggle-group-item>
-        <plank-toggle-group-item value="italic" aria-label="Italic">I</plank-toggle-group-item>
-        <plank-toggle-group-item value="underline" aria-label="Underline">U</plank-toggle-group-item>
-      </plank-toggle-group>
+      <hal-toggle-group type="multiple" size="lg" value="bold">
+        <hal-toggle-group-item value="bold" aria-label="Bold">B</hal-toggle-group-item>
+        <hal-toggle-group-item value="italic" aria-label="Italic">I</hal-toggle-group-item>
+        <hal-toggle-group-item value="underline" aria-label="Underline">U</hal-toggle-group-item>
+      </hal-toggle-group>
     `
-    await customElements.whenDefined("plank-toggle-group")
-    const group = container.querySelector(
-      "plank-toggle-group"
-    ) as PlankToggleGroup
+    await customElements.whenDefined("hal-toggle-group")
+    const group = container.querySelector("hal-toggle-group") as HalToggleGroup
     await group.updateComplete
     await expect(page.getByTestId("container")).toMatchScreenshot(
       "toggle-group-lg"
@@ -109,16 +99,14 @@ describe("plank-toggle-group - Visual", () => {
 
   it("with disabled item", async () => {
     container.innerHTML = `
-      <plank-toggle-group type="multiple" value="bold">
-        <plank-toggle-group-item value="bold" aria-label="Bold">B</plank-toggle-group-item>
-        <plank-toggle-group-item value="italic" aria-label="Italic" disabled>I</plank-toggle-group-item>
-        <plank-toggle-group-item value="underline" aria-label="Underline">U</plank-toggle-group-item>
-      </plank-toggle-group>
+      <hal-toggle-group type="multiple" value="bold">
+        <hal-toggle-group-item value="bold" aria-label="Bold">B</hal-toggle-group-item>
+        <hal-toggle-group-item value="italic" aria-label="Italic" disabled>I</hal-toggle-group-item>
+        <hal-toggle-group-item value="underline" aria-label="Underline">U</hal-toggle-group-item>
+      </hal-toggle-group>
     `
-    await customElements.whenDefined("plank-toggle-group")
-    const group = container.querySelector(
-      "plank-toggle-group"
-    ) as PlankToggleGroup
+    await customElements.whenDefined("hal-toggle-group")
+    const group = container.querySelector("hal-toggle-group") as HalToggleGroup
     await group.updateComplete
     await expect(page.getByTestId("container")).toMatchScreenshot(
       "toggle-group-disabled-item"

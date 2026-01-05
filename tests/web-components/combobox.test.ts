@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest"
-import "@/web-components/plank-combobox"
+import "@/web-components/hal-combobox"
 
 describe("Combobox (Web Component)", () => {
   let container: HTMLElement
@@ -21,13 +21,13 @@ describe("Combobox (Web Component)", () => {
 
   it("renders input group with correct data-slot", async () => {
     container.innerHTML = `
-      <plank-combobox>
-        <plank-combobox-item value="next">Next.js</plank-combobox-item>
-      </plank-combobox>
+      <hal-combobox>
+        <hal-combobox-item value="next">Next.js</hal-combobox-item>
+      </hal-combobox>
     `
 
-    await customElements.whenDefined("plank-combobox")
-    const combobox = container.querySelector("plank-combobox")!
+    await customElements.whenDefined("hal-combobox")
+    const combobox = container.querySelector("hal-combobox")!
     await (combobox as any).updateComplete
 
     const inputGroup = container.querySelector('[data-slot="input-group"]')
@@ -36,13 +36,13 @@ describe("Combobox (Web Component)", () => {
 
   it("input has role combobox", async () => {
     container.innerHTML = `
-      <plank-combobox>
-        <plank-combobox-item value="next">Next.js</plank-combobox-item>
-      </plank-combobox>
+      <hal-combobox>
+        <hal-combobox-item value="next">Next.js</hal-combobox-item>
+      </hal-combobox>
     `
 
-    await customElements.whenDefined("plank-combobox")
-    const combobox = container.querySelector("plank-combobox")!
+    await customElements.whenDefined("hal-combobox")
+    const combobox = container.querySelector("hal-combobox")!
     await (combobox as any).updateComplete
 
     const input = container.querySelector('[role="combobox"]')
@@ -52,13 +52,13 @@ describe("Combobox (Web Component)", () => {
 
   it("combobox content is hidden by default", async () => {
     container.innerHTML = `
-      <plank-combobox>
-        <plank-combobox-item value="next">Next.js</plank-combobox-item>
-      </plank-combobox>
+      <hal-combobox>
+        <hal-combobox-item value="next">Next.js</hal-combobox-item>
+      </hal-combobox>
     `
 
-    await customElements.whenDefined("plank-combobox")
-    const combobox = container.querySelector("plank-combobox")!
+    await customElements.whenDefined("hal-combobox")
+    const combobox = container.querySelector("hal-combobox")!
     await (combobox as any).updateComplete
 
     const content = document.querySelector('[role="listbox"]')
@@ -67,13 +67,13 @@ describe("Combobox (Web Component)", () => {
 
   it("shows combobox content on trigger button click", async () => {
     container.innerHTML = `
-      <plank-combobox>
-        <plank-combobox-item value="next">Next.js</plank-combobox-item>
-      </plank-combobox>
+      <hal-combobox>
+        <hal-combobox-item value="next">Next.js</hal-combobox-item>
+      </hal-combobox>
     `
 
-    await customElements.whenDefined("plank-combobox")
-    const combobox = container.querySelector("plank-combobox")!
+    await customElements.whenDefined("hal-combobox")
+    const combobox = container.querySelector("hal-combobox")!
     await (combobox as any).updateComplete
 
     const triggerBtn = container.querySelector(
@@ -88,13 +88,13 @@ describe("Combobox (Web Component)", () => {
 
   it("shows placeholder in input when no value selected", async () => {
     container.innerHTML = `
-      <plank-combobox placeholder="Select framework...">
-        <plank-combobox-item value="next">Next.js</plank-combobox-item>
-      </plank-combobox>
+      <hal-combobox placeholder="Select framework...">
+        <hal-combobox-item value="next">Next.js</hal-combobox-item>
+      </hal-combobox>
     `
 
-    await customElements.whenDefined("plank-combobox")
-    const combobox = container.querySelector("plank-combobox")!
+    await customElements.whenDefined("hal-combobox")
+    const combobox = container.querySelector("hal-combobox")!
     await (combobox as any).updateComplete
 
     const input = container.querySelector(
@@ -105,14 +105,14 @@ describe("Combobox (Web Component)", () => {
 
   it("shows selected value in input", async () => {
     container.innerHTML = `
-      <plank-combobox placeholder="Select...">
-        <plank-combobox-item value="next">Next.js</plank-combobox-item>
-        <plank-combobox-item value="svelte">SvelteKit</plank-combobox-item>
-      </plank-combobox>
+      <hal-combobox placeholder="Select...">
+        <hal-combobox-item value="next">Next.js</hal-combobox-item>
+        <hal-combobox-item value="svelte">SvelteKit</hal-combobox-item>
+      </hal-combobox>
     `
 
-    await customElements.whenDefined("plank-combobox")
-    const combobox = container.querySelector("plank-combobox")!
+    await customElements.whenDefined("hal-combobox")
+    const combobox = container.querySelector("hal-combobox")!
     await (combobox as any).updateComplete
 
     // Open the combobox
@@ -135,13 +135,13 @@ describe("Combobox (Web Component)", () => {
 
   it("closes on item selection", async () => {
     container.innerHTML = `
-      <plank-combobox>
-        <plank-combobox-item value="next">Next.js</plank-combobox-item>
-      </plank-combobox>
+      <hal-combobox>
+        <hal-combobox-item value="next">Next.js</hal-combobox-item>
+      </hal-combobox>
     `
 
-    await customElements.whenDefined("plank-combobox")
-    const combobox = container.querySelector("plank-combobox")!
+    await customElements.whenDefined("hal-combobox")
+    const combobox = container.querySelector("hal-combobox")!
     await (combobox as any).updateComplete
 
     // Open the combobox
@@ -165,14 +165,14 @@ describe("Combobox (Web Component)", () => {
 
   it("can be controlled via value attribute", async () => {
     container.innerHTML = `
-      <plank-combobox value="svelte">
-        <plank-combobox-item value="next">Next.js</plank-combobox-item>
-        <plank-combobox-item value="svelte">SvelteKit</plank-combobox-item>
-      </plank-combobox>
+      <hal-combobox value="svelte">
+        <hal-combobox-item value="next">Next.js</hal-combobox-item>
+        <hal-combobox-item value="svelte">SvelteKit</hal-combobox-item>
+      </hal-combobox>
     `
 
-    await customElements.whenDefined("plank-combobox")
-    const combobox = container.querySelector("plank-combobox")!
+    await customElements.whenDefined("hal-combobox")
+    const combobox = container.querySelector("hal-combobox")!
     await (combobox as any).updateComplete
 
     const input = container.querySelector(
@@ -184,13 +184,13 @@ describe("Combobox (Web Component)", () => {
   it("fires value-change when selection changes", async () => {
     const onValueChange = vi.fn()
     container.innerHTML = `
-      <plank-combobox>
-        <plank-combobox-item value="next">Next.js</plank-combobox-item>
-      </plank-combobox>
+      <hal-combobox>
+        <hal-combobox-item value="next">Next.js</hal-combobox-item>
+      </hal-combobox>
     `
 
-    await customElements.whenDefined("plank-combobox")
-    const combobox = container.querySelector("plank-combobox")!
+    await customElements.whenDefined("hal-combobox")
+    const combobox = container.querySelector("hal-combobox")!
     combobox.addEventListener("value-change", (e: Event) => {
       onValueChange((e as CustomEvent).detail.value)
     })
@@ -213,13 +213,13 @@ describe("Combobox (Web Component)", () => {
   it("fires open-change when opened", async () => {
     const onOpenChange = vi.fn()
     container.innerHTML = `
-      <plank-combobox>
-        <plank-combobox-item value="next">Next.js</plank-combobox-item>
-      </plank-combobox>
+      <hal-combobox>
+        <hal-combobox-item value="next">Next.js</hal-combobox-item>
+      </hal-combobox>
     `
 
-    await customElements.whenDefined("plank-combobox")
-    const combobox = container.querySelector("plank-combobox")!
+    await customElements.whenDefined("hal-combobox")
+    const combobox = container.querySelector("hal-combobox")!
     combobox.addEventListener("open-change", (e: Event) => {
       onOpenChange((e as CustomEvent).detail.open)
     })
@@ -236,13 +236,13 @@ describe("Combobox (Web Component)", () => {
 
   it("input has correct ARIA attributes when open", async () => {
     container.innerHTML = `
-      <plank-combobox>
-        <plank-combobox-item value="next">Next.js</plank-combobox-item>
-      </plank-combobox>
+      <hal-combobox>
+        <hal-combobox-item value="next">Next.js</hal-combobox-item>
+      </hal-combobox>
     `
 
-    await customElements.whenDefined("plank-combobox")
-    const combobox = container.querySelector("plank-combobox")!
+    await customElements.whenDefined("hal-combobox")
+    const combobox = container.querySelector("hal-combobox")!
     await (combobox as any).updateComplete
 
     const input = container.querySelector('[role="combobox"]') as HTMLElement
@@ -259,13 +259,13 @@ describe("Combobox (Web Component)", () => {
 
   it("disabled combobox cannot be opened", async () => {
     container.innerHTML = `
-      <plank-combobox disabled>
-        <plank-combobox-item value="next">Next.js</plank-combobox-item>
-      </plank-combobox>
+      <hal-combobox disabled>
+        <hal-combobox-item value="next">Next.js</hal-combobox-item>
+      </hal-combobox>
     `
 
-    await customElements.whenDefined("plank-combobox")
-    const combobox = container.querySelector("plank-combobox")!
+    await customElements.whenDefined("hal-combobox")
+    const combobox = container.querySelector("hal-combobox")!
     await (combobox as any).updateComplete
 
     const triggerBtn = container.querySelector(
@@ -280,14 +280,14 @@ describe("Combobox (Web Component)", () => {
 
   it("disabled item cannot be selected", async () => {
     container.innerHTML = `
-      <plank-combobox>
-        <plank-combobox-item value="next" disabled>Next.js</plank-combobox-item>
-        <plank-combobox-item value="svelte">SvelteKit</plank-combobox-item>
-      </plank-combobox>
+      <hal-combobox>
+        <hal-combobox-item value="next" disabled>Next.js</hal-combobox-item>
+        <hal-combobox-item value="svelte">SvelteKit</hal-combobox-item>
+      </hal-combobox>
     `
 
-    await customElements.whenDefined("plank-combobox")
-    const combobox = container.querySelector("plank-combobox")!
+    await customElements.whenDefined("hal-combobox")
+    const combobox = container.querySelector("hal-combobox")!
     await (combobox as any).updateComplete
 
     const triggerBtn = container.querySelector(
@@ -304,13 +304,13 @@ describe("Combobox (Web Component)", () => {
 
   it("opens on keyboard ArrowDown", async () => {
     container.innerHTML = `
-      <plank-combobox>
-        <plank-combobox-item value="next">Next.js</plank-combobox-item>
-      </plank-combobox>
+      <hal-combobox>
+        <hal-combobox-item value="next">Next.js</hal-combobox-item>
+      </hal-combobox>
     `
 
-    await customElements.whenDefined("plank-combobox")
-    const combobox = container.querySelector("plank-combobox")!
+    await customElements.whenDefined("hal-combobox")
+    const combobox = container.querySelector("hal-combobox")!
     await (combobox as any).updateComplete
 
     const input = container.querySelector('[role="combobox"]') as HTMLElement
@@ -325,13 +325,13 @@ describe("Combobox (Web Component)", () => {
 
   it("closes on Escape key", async () => {
     container.innerHTML = `
-      <plank-combobox>
-        <plank-combobox-item value="next">Next.js</plank-combobox-item>
-      </plank-combobox>
+      <hal-combobox>
+        <hal-combobox-item value="next">Next.js</hal-combobox-item>
+      </hal-combobox>
     `
 
-    await customElements.whenDefined("plank-combobox")
-    const combobox = container.querySelector("plank-combobox")!
+    await customElements.whenDefined("hal-combobox")
+    const combobox = container.querySelector("hal-combobox")!
     await (combobox as any).updateComplete
 
     // Open the combobox
@@ -358,13 +358,13 @@ describe("Combobox (Web Component)", () => {
 
   it("closes on outside click", async () => {
     container.innerHTML = `
-      <plank-combobox>
-        <plank-combobox-item value="next">Next.js</plank-combobox-item>
-      </plank-combobox>
+      <hal-combobox>
+        <hal-combobox-item value="next">Next.js</hal-combobox-item>
+      </hal-combobox>
     `
 
-    await customElements.whenDefined("plank-combobox")
-    const combobox = container.querySelector("plank-combobox")!
+    await customElements.whenDefined("hal-combobox")
+    const combobox = container.querySelector("hal-combobox")!
     await (combobox as any).updateComplete
 
     // Open the combobox
@@ -392,13 +392,13 @@ describe("Combobox (Web Component)", () => {
   describe("search functionality", () => {
     it("main input is the search input", async () => {
       container.innerHTML = `
-        <plank-combobox>
-          <plank-combobox-item value="next">Next.js</plank-combobox-item>
-        </plank-combobox>
+        <hal-combobox>
+          <hal-combobox-item value="next">Next.js</hal-combobox-item>
+        </hal-combobox>
       `
 
-      await customElements.whenDefined("plank-combobox")
-      const combobox = container.querySelector("plank-combobox")!
+      await customElements.whenDefined("hal-combobox")
+      const combobox = container.querySelector("hal-combobox")!
       await (combobox as any).updateComplete
 
       const input = container.querySelector('[role="combobox"]')
@@ -407,15 +407,15 @@ describe("Combobox (Web Component)", () => {
 
     it("filters items based on input value", async () => {
       container.innerHTML = `
-        <plank-combobox>
-          <plank-combobox-item value="next">Next.js</plank-combobox-item>
-          <plank-combobox-item value="svelte">SvelteKit</plank-combobox-item>
-          <plank-combobox-item value="nuxt">Nuxt.js</plank-combobox-item>
-        </plank-combobox>
+        <hal-combobox>
+          <hal-combobox-item value="next">Next.js</hal-combobox-item>
+          <hal-combobox-item value="svelte">SvelteKit</hal-combobox-item>
+          <hal-combobox-item value="nuxt">Nuxt.js</hal-combobox-item>
+        </hal-combobox>
       `
 
-      await customElements.whenDefined("plank-combobox")
-      const combobox = container.querySelector("plank-combobox")!
+      await customElements.whenDefined("hal-combobox")
+      const combobox = container.querySelector("hal-combobox")!
       await (combobox as any).updateComplete
 
       // Focus and type to open and filter
@@ -439,14 +439,14 @@ describe("Combobox (Web Component)", () => {
 
     it("shows empty state when no items match", async () => {
       container.innerHTML = `
-        <plank-combobox emptyText="No frameworks found.">
-          <plank-combobox-item value="next">Next.js</plank-combobox-item>
-          <plank-combobox-item value="svelte">SvelteKit</plank-combobox-item>
-        </plank-combobox>
+        <hal-combobox emptyText="No frameworks found.">
+          <hal-combobox-item value="next">Next.js</hal-combobox-item>
+          <hal-combobox-item value="svelte">SvelteKit</hal-combobox-item>
+        </hal-combobox>
       `
 
-      await customElements.whenDefined("plank-combobox")
-      const combobox = container.querySelector("plank-combobox")!
+      await customElements.whenDefined("hal-combobox")
+      const combobox = container.querySelector("hal-combobox")!
       await (combobox as any).updateComplete
 
       // Focus and type to filter
@@ -472,14 +472,14 @@ describe("Combobox (Web Component)", () => {
   describe("keyboard navigation", () => {
     it("ArrowDown moves to next item", async () => {
       container.innerHTML = `
-        <plank-combobox>
-          <plank-combobox-item value="next">Next.js</plank-combobox-item>
-          <plank-combobox-item value="svelte">SvelteKit</plank-combobox-item>
-        </plank-combobox>
+        <hal-combobox>
+          <hal-combobox-item value="next">Next.js</hal-combobox-item>
+          <hal-combobox-item value="svelte">SvelteKit</hal-combobox-item>
+        </hal-combobox>
       `
 
-      await customElements.whenDefined("plank-combobox")
-      const combobox = container.querySelector("plank-combobox")!
+      await customElements.whenDefined("hal-combobox")
+      const combobox = container.querySelector("hal-combobox")!
       await (combobox as any).updateComplete
 
       // Open via focus
@@ -501,15 +501,15 @@ describe("Combobox (Web Component)", () => {
 
     it("ArrowUp moves to previous item", async () => {
       container.innerHTML = `
-        <plank-combobox>
-          <plank-combobox-item value="next">Next.js</plank-combobox-item>
-          <plank-combobox-item value="svelte">SvelteKit</plank-combobox-item>
-          <plank-combobox-item value="nuxt">Nuxt.js</plank-combobox-item>
-        </plank-combobox>
+        <hal-combobox>
+          <hal-combobox-item value="next">Next.js</hal-combobox-item>
+          <hal-combobox-item value="svelte">SvelteKit</hal-combobox-item>
+          <hal-combobox-item value="nuxt">Nuxt.js</hal-combobox-item>
+        </hal-combobox>
       `
 
-      await customElements.whenDefined("plank-combobox")
-      const combobox = container.querySelector("plank-combobox")!
+      await customElements.whenDefined("hal-combobox")
+      const combobox = container.querySelector("hal-combobox")!
       await (combobox as any).updateComplete
 
       const input = container.querySelector(
@@ -544,14 +544,14 @@ describe("Combobox (Web Component)", () => {
 
     it("Enter selects highlighted item", async () => {
       container.innerHTML = `
-        <plank-combobox>
-          <plank-combobox-item value="next">Next.js</plank-combobox-item>
-          <plank-combobox-item value="svelte">SvelteKit</plank-combobox-item>
-        </plank-combobox>
+        <hal-combobox>
+          <hal-combobox-item value="next">Next.js</hal-combobox-item>
+          <hal-combobox-item value="svelte">SvelteKit</hal-combobox-item>
+        </hal-combobox>
       `
 
-      await customElements.whenDefined("plank-combobox")
-      const combobox = container.querySelector("plank-combobox")!
+      await customElements.whenDefined("hal-combobox")
+      const combobox = container.querySelector("hal-combobox")!
       await (combobox as any).updateComplete
 
       const input = container.querySelector(
@@ -577,15 +577,15 @@ describe("Combobox (Web Component)", () => {
 
     it("Home moves to first item", async () => {
       container.innerHTML = `
-        <plank-combobox>
-          <plank-combobox-item value="next">Next.js</plank-combobox-item>
-          <plank-combobox-item value="svelte">SvelteKit</plank-combobox-item>
-          <plank-combobox-item value="nuxt">Nuxt.js</plank-combobox-item>
-        </plank-combobox>
+        <hal-combobox>
+          <hal-combobox-item value="next">Next.js</hal-combobox-item>
+          <hal-combobox-item value="svelte">SvelteKit</hal-combobox-item>
+          <hal-combobox-item value="nuxt">Nuxt.js</hal-combobox-item>
+        </hal-combobox>
       `
 
-      await customElements.whenDefined("plank-combobox")
-      const combobox = container.querySelector("plank-combobox")!
+      await customElements.whenDefined("hal-combobox")
+      const combobox = container.querySelector("hal-combobox")!
       await (combobox as any).updateComplete
 
       const input = container.querySelector(
@@ -612,15 +612,15 @@ describe("Combobox (Web Component)", () => {
 
     it("End moves to last item", async () => {
       container.innerHTML = `
-        <plank-combobox>
-          <plank-combobox-item value="next">Next.js</plank-combobox-item>
-          <plank-combobox-item value="svelte">SvelteKit</plank-combobox-item>
-          <plank-combobox-item value="nuxt">Nuxt.js</plank-combobox-item>
-        </plank-combobox>
+        <hal-combobox>
+          <hal-combobox-item value="next">Next.js</hal-combobox-item>
+          <hal-combobox-item value="svelte">SvelteKit</hal-combobox-item>
+          <hal-combobox-item value="nuxt">Nuxt.js</hal-combobox-item>
+        </hal-combobox>
       `
 
-      await customElements.whenDefined("plank-combobox")
-      const combobox = container.querySelector("plank-combobox")!
+      await customElements.whenDefined("hal-combobox")
+      const combobox = container.querySelector("hal-combobox")!
       await (combobox as any).updateComplete
 
       const input = container.querySelector(
@@ -640,15 +640,15 @@ describe("Combobox (Web Component)", () => {
 
     it("skips disabled items during navigation", async () => {
       container.innerHTML = `
-        <plank-combobox>
-          <plank-combobox-item value="next">Next.js</plank-combobox-item>
-          <plank-combobox-item value="svelte" disabled>SvelteKit</plank-combobox-item>
-          <plank-combobox-item value="nuxt">Nuxt.js</plank-combobox-item>
-        </plank-combobox>
+        <hal-combobox>
+          <hal-combobox-item value="next">Next.js</hal-combobox-item>
+          <hal-combobox-item value="svelte" disabled>SvelteKit</hal-combobox-item>
+          <hal-combobox-item value="nuxt">Nuxt.js</hal-combobox-item>
+        </hal-combobox>
       `
 
-      await customElements.whenDefined("plank-combobox")
-      const combobox = container.querySelector("plank-combobox")!
+      await customElements.whenDefined("hal-combobox")
+      const combobox = container.querySelector("hal-combobox")!
       await (combobox as any).updateComplete
 
       const input = container.querySelector(
@@ -682,13 +682,13 @@ describe("Combobox (Web Component)", () => {
   describe("selection behavior", () => {
     it("selecting same value again deselects it", async () => {
       container.innerHTML = `
-        <plank-combobox value="next">
-          <plank-combobox-item value="next">Next.js</plank-combobox-item>
-        </plank-combobox>
+        <hal-combobox value="next">
+          <hal-combobox-item value="next">Next.js</hal-combobox-item>
+        </hal-combobox>
       `
 
-      await customElements.whenDefined("plank-combobox")
-      const combobox = container.querySelector("plank-combobox")!
+      await customElements.whenDefined("hal-combobox")
+      const combobox = container.querySelector("hal-combobox")!
       await (combobox as any).updateComplete
 
       // Open and click on already selected item
@@ -708,14 +708,14 @@ describe("Combobox (Web Component)", () => {
 
     it("selected item shows checkmark", async () => {
       container.innerHTML = `
-        <plank-combobox value="next">
-          <plank-combobox-item value="next">Next.js</plank-combobox-item>
-          <plank-combobox-item value="svelte">SvelteKit</plank-combobox-item>
-        </plank-combobox>
+        <hal-combobox value="next">
+          <hal-combobox-item value="next">Next.js</hal-combobox-item>
+          <hal-combobox-item value="svelte">SvelteKit</hal-combobox-item>
+        </hal-combobox>
       `
 
-      await customElements.whenDefined("plank-combobox")
-      const combobox = container.querySelector("plank-combobox")!
+      await customElements.whenDefined("hal-combobox")
+      const combobox = container.querySelector("hal-combobox")!
       await (combobox as any).updateComplete
 
       const triggerBtn = container.querySelector(
@@ -736,13 +736,13 @@ describe("Combobox (Web Component)", () => {
   describe("accessibility", () => {
     it("input has aria-haspopup listbox", async () => {
       container.innerHTML = `
-        <plank-combobox>
-          <plank-combobox-item value="next">Next.js</plank-combobox-item>
-        </plank-combobox>
+        <hal-combobox>
+          <hal-combobox-item value="next">Next.js</hal-combobox-item>
+        </hal-combobox>
       `
 
-      await customElements.whenDefined("plank-combobox")
-      const combobox = container.querySelector("plank-combobox")!
+      await customElements.whenDefined("hal-combobox")
+      const combobox = container.querySelector("hal-combobox")!
       await (combobox as any).updateComplete
 
       const input = container.querySelector('[role="combobox"]')
@@ -751,13 +751,13 @@ describe("Combobox (Web Component)", () => {
 
     it("input has aria-controls when open", async () => {
       container.innerHTML = `
-        <plank-combobox>
-          <plank-combobox-item value="next">Next.js</plank-combobox-item>
-        </plank-combobox>
+        <hal-combobox>
+          <hal-combobox-item value="next">Next.js</hal-combobox-item>
+        </hal-combobox>
       `
 
-      await customElements.whenDefined("plank-combobox")
-      const combobox = container.querySelector("plank-combobox")!
+      await customElements.whenDefined("hal-combobox")
+      const combobox = container.querySelector("hal-combobox")!
       await (combobox as any).updateComplete
 
       const triggerBtn = container.querySelector(
@@ -775,13 +775,13 @@ describe("Combobox (Web Component)", () => {
 
     it("items have role option", async () => {
       container.innerHTML = `
-        <plank-combobox>
-          <plank-combobox-item value="next">Next.js</plank-combobox-item>
-        </plank-combobox>
+        <hal-combobox>
+          <hal-combobox-item value="next">Next.js</hal-combobox-item>
+        </hal-combobox>
       `
 
-      await customElements.whenDefined("plank-combobox")
-      const combobox = container.querySelector("plank-combobox")!
+      await customElements.whenDefined("hal-combobox")
+      const combobox = container.querySelector("hal-combobox")!
       await (combobox as any).updateComplete
 
       // Open via trigger button
@@ -799,13 +799,13 @@ describe("Combobox (Web Component)", () => {
   // getDisplayText method test
   it("getDisplayText returns display text for current value", async () => {
     container.innerHTML = `
-      <plank-combobox value="next">
-        <plank-combobox-item value="next">Next.js Framework</plank-combobox-item>
-      </plank-combobox>
+      <hal-combobox value="next">
+        <hal-combobox-item value="next">Next.js Framework</hal-combobox-item>
+      </hal-combobox>
     `
 
-    await customElements.whenDefined("plank-combobox")
-    const combobox = container.querySelector("plank-combobox")! as any
+    await customElements.whenDefined("hal-combobox")
+    const combobox = container.querySelector("hal-combobox")! as any
     await combobox.updateComplete
 
     expect(combobox.getDisplayText()).toBe("Next.js Framework")

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Textarea - Planks</title>
+    <title>Textarea - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -16,9 +16,9 @@
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Default</h2>
         <div class="max-w-sm mb-4">
-          <plank-textarea placeholder="Enter your message..."></plank-textarea>
+          <hal-textarea placeholder="Enter your message..."></hal-textarea>
         </div>
-        <pre><code>&lt;plank-textarea placeholder="Enter your message..."&gt;&lt;/plank-textarea&gt;</code></pre>
+        <pre><code>&lt;hal-textarea placeholder="Enter your message..."&gt;&lt;/hal-textarea&gt;</code></pre>
       </section>
 
       <section class="mb-12">
@@ -28,36 +28,33 @@
           with content. To set a fixed height, use Tailwind height classes.
         </p>
         <div class="max-w-sm mb-4">
-          <plank-textarea
+          <hal-textarea
             placeholder="Fixed height textarea"
             class="h-40"
-          ></plank-textarea>
+          ></hal-textarea>
         </div>
-        <pre><code>&lt;plank-textarea placeholder="Fixed height textarea" class="h-40"&gt;&lt;/plank-textarea&gt;</code></pre>
+        <pre><code>&lt;hal-textarea placeholder="Fixed height textarea" class="h-40"&gt;&lt;/hal-textarea&gt;</code></pre>
       </section>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">With Label</h2>
         <div class="max-w-sm mb-4 flex flex-col gap-2">
-          <plank-label for="bio">Bio</plank-label>
-          <plank-textarea
+          <hal-label for="bio">Bio</hal-label>
+          <hal-textarea
             id="bio"
             placeholder="Tell us about yourself..."
-          ></plank-textarea>
+          ></hal-textarea>
         </div>
-        <pre><code>&lt;plank-label for="bio"&gt;Bio&lt;/plank-label&gt;
-&lt;plank-textarea id="bio" placeholder="Tell us about yourself..."&gt;&lt;/plank-textarea&gt;</code></pre>
+        <pre><code>&lt;hal-label for="bio"&gt;Bio&lt;/hal-label&gt;
+&lt;hal-textarea id="bio" placeholder="Tell us about yourself..."&gt;&lt;/hal-textarea&gt;</code></pre>
       </section>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Disabled</h2>
         <div class="max-w-sm mb-4">
-          <plank-textarea
-            placeholder="Disabled textarea"
-            disabled
-          ></plank-textarea>
+          <hal-textarea placeholder="Disabled textarea" disabled></hal-textarea>
         </div>
-        <pre><code>&lt;plank-textarea placeholder="Disabled textarea" disabled&gt;&lt;/plank-textarea&gt;</code></pre>
+        <pre><code>&lt;hal-textarea placeholder="Disabled textarea" disabled&gt;&lt;/hal-textarea&gt;</code></pre>
       </section>
 
       <section class="mb-12">

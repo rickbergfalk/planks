@@ -1,11 +1,11 @@
 import { describe, it, expect, beforeEach, afterEach } from "vitest"
-import "@/web-components/plank-input-otp"
+import "@/web-components/hal-input-otp"
 import type {
-  PlankInputOtp,
-  PlankInputOtpSlot,
-} from "@/web-components/plank-input-otp"
+  HalInputOtp,
+  HalInputOtpSlot,
+} from "@/web-components/hal-input-otp"
 
-describe("plank-input-otp", () => {
+describe("hal-input-otp", () => {
   let container: HTMLElement
 
   beforeEach(() => {
@@ -21,16 +21,16 @@ describe("plank-input-otp", () => {
   describe("basic rendering", () => {
     it("renders with default attributes", async () => {
       container.innerHTML = `
-        <plank-input-otp max-length="6">
-          <plank-input-otp-group>
-            <plank-input-otp-slot index="0"></plank-input-otp-slot>
-            <plank-input-otp-slot index="1"></plank-input-otp-slot>
-            <plank-input-otp-slot index="2"></plank-input-otp-slot>
-          </plank-input-otp-group>
-        </plank-input-otp>
+        <hal-input-otp max-length="6">
+          <hal-input-otp-group>
+            <hal-input-otp-slot index="0"></hal-input-otp-slot>
+            <hal-input-otp-slot index="1"></hal-input-otp-slot>
+            <hal-input-otp-slot index="2"></hal-input-otp-slot>
+          </hal-input-otp-group>
+        </hal-input-otp>
       `
-      await customElements.whenDefined("plank-input-otp")
-      const otp = container.querySelector("plank-input-otp")! as PlankInputOtp
+      await customElements.whenDefined("hal-input-otp")
+      const otp = container.querySelector("hal-input-otp")! as HalInputOtp
       await otp.updateComplete
 
       expect(otp.maxLength).toBe(6)
@@ -40,14 +40,14 @@ describe("plank-input-otp", () => {
 
     it("renders hidden input for accessibility", async () => {
       container.innerHTML = `
-        <plank-input-otp max-length="4">
-          <plank-input-otp-group>
-            <plank-input-otp-slot index="0"></plank-input-otp-slot>
-          </plank-input-otp-group>
-        </plank-input-otp>
+        <hal-input-otp max-length="4">
+          <hal-input-otp-group>
+            <hal-input-otp-slot index="0"></hal-input-otp-slot>
+          </hal-input-otp-group>
+        </hal-input-otp>
       `
-      await customElements.whenDefined("plank-input-otp")
-      const otp = container.querySelector("plank-input-otp")! as PlankInputOtp
+      await customElements.whenDefined("hal-input-otp")
+      const otp = container.querySelector("hal-input-otp")! as HalInputOtp
       await otp.updateComplete
 
       const input = otp.querySelector("input")
@@ -58,48 +58,46 @@ describe("plank-input-otp", () => {
 
     it("renders with correct data-slot attributes", async () => {
       container.innerHTML = `
-        <plank-input-otp max-length="6">
-          <plank-input-otp-group>
-            <plank-input-otp-slot index="0"></plank-input-otp-slot>
-          </plank-input-otp-group>
-          <plank-input-otp-separator></plank-input-otp-separator>
-          <plank-input-otp-group>
-            <plank-input-otp-slot index="1"></plank-input-otp-slot>
-          </plank-input-otp-group>
-        </plank-input-otp>
+        <hal-input-otp max-length="6">
+          <hal-input-otp-group>
+            <hal-input-otp-slot index="0"></hal-input-otp-slot>
+          </hal-input-otp-group>
+          <hal-input-otp-separator></hal-input-otp-separator>
+          <hal-input-otp-group>
+            <hal-input-otp-slot index="1"></hal-input-otp-slot>
+          </hal-input-otp-group>
+        </hal-input-otp>
       `
-      await customElements.whenDefined("plank-input-otp")
-      const otp = container.querySelector("plank-input-otp")! as PlankInputOtp
+      await customElements.whenDefined("hal-input-otp")
+      const otp = container.querySelector("hal-input-otp")! as HalInputOtp
       await otp.updateComplete
 
       expect(otp.dataset.slot).toBe("input-otp")
       expect(
         container
-          .querySelector("plank-input-otp-group")
+          .querySelector("hal-input-otp-group")
           ?.getAttribute("data-slot")
       ).toBe("input-otp-group")
       expect(
-        container
-          .querySelector("plank-input-otp-slot")
-          ?.getAttribute("data-slot")
+        container.querySelector("hal-input-otp-slot")?.getAttribute("data-slot")
       ).toBe("input-otp-slot")
       expect(
         container
-          .querySelector("plank-input-otp-separator")
+          .querySelector("hal-input-otp-separator")
           ?.getAttribute("data-slot")
       ).toBe("input-otp-separator")
     })
   })
 
-  describe("plank-input-otp-group", () => {
+  describe("hal-input-otp-group", () => {
     it("has correct styling classes", async () => {
       container.innerHTML = `
-        <plank-input-otp>
-          <plank-input-otp-group></plank-input-otp-group>
-        </plank-input-otp>
+        <hal-input-otp>
+          <hal-input-otp-group></hal-input-otp-group>
+        </hal-input-otp>
       `
-      await customElements.whenDefined("plank-input-otp-group")
-      const group = container.querySelector("plank-input-otp-group")!
+      await customElements.whenDefined("hal-input-otp-group")
+      const group = container.querySelector("hal-input-otp-group")!
       await (group as any).updateComplete
 
       expect(group.className).toContain("flex")
@@ -107,19 +105,19 @@ describe("plank-input-otp", () => {
     })
   })
 
-  describe("plank-input-otp-slot", () => {
+  describe("hal-input-otp-slot", () => {
     it("has index property", async () => {
       container.innerHTML = `
-        <plank-input-otp>
-          <plank-input-otp-group>
-            <plank-input-otp-slot index="2"></plank-input-otp-slot>
-          </plank-input-otp-group>
-        </plank-input-otp>
+        <hal-input-otp>
+          <hal-input-otp-group>
+            <hal-input-otp-slot index="2"></hal-input-otp-slot>
+          </hal-input-otp-group>
+        </hal-input-otp>
       `
-      await customElements.whenDefined("plank-input-otp-slot")
+      await customElements.whenDefined("hal-input-otp-slot")
       const slot = container.querySelector(
-        "plank-input-otp-slot"
-      )! as PlankInputOtpSlot
+        "hal-input-otp-slot"
+      )! as HalInputOtpSlot
       await slot.updateComplete
 
       expect(slot.index).toBe(2)
@@ -127,14 +125,14 @@ describe("plank-input-otp", () => {
 
     it("has correct styling classes", async () => {
       container.innerHTML = `
-        <plank-input-otp>
-          <plank-input-otp-group>
-            <plank-input-otp-slot index="0"></plank-input-otp-slot>
-          </plank-input-otp-group>
-        </plank-input-otp>
+        <hal-input-otp>
+          <hal-input-otp-group>
+            <hal-input-otp-slot index="0"></hal-input-otp-slot>
+          </hal-input-otp-group>
+        </hal-input-otp>
       `
-      await customElements.whenDefined("plank-input-otp-slot")
-      const slot = container.querySelector("plank-input-otp-slot")!
+      await customElements.whenDefined("hal-input-otp-slot")
+      const slot = container.querySelector("hal-input-otp-slot")!
       await (slot as any).updateComplete
 
       expect(slot.className).toContain("flex")
@@ -148,37 +146,37 @@ describe("plank-input-otp", () => {
 
     it("displays character when value is set", async () => {
       container.innerHTML = `
-        <plank-input-otp max-length="6" value="123">
-          <plank-input-otp-group>
-            <plank-input-otp-slot index="0"></plank-input-otp-slot>
-            <plank-input-otp-slot index="1"></plank-input-otp-slot>
-            <plank-input-otp-slot index="2"></plank-input-otp-slot>
-          </plank-input-otp-group>
-        </plank-input-otp>
+        <hal-input-otp max-length="6" value="123">
+          <hal-input-otp-group>
+            <hal-input-otp-slot index="0"></hal-input-otp-slot>
+            <hal-input-otp-slot index="1"></hal-input-otp-slot>
+            <hal-input-otp-slot index="2"></hal-input-otp-slot>
+          </hal-input-otp-group>
+        </hal-input-otp>
       `
-      await customElements.whenDefined("plank-input-otp")
-      const otp = container.querySelector("plank-input-otp")! as PlankInputOtp
+      await customElements.whenDefined("hal-input-otp")
+      const otp = container.querySelector("hal-input-otp")! as HalInputOtp
       await otp.updateComplete
 
       // Wait for slots to update
       await new Promise((r) => setTimeout(r, 50))
 
-      const slots = container.querySelectorAll("plank-input-otp-slot")
+      const slots = container.querySelectorAll("hal-input-otp-slot")
       expect(slots[0].textContent).toContain("1")
       expect(slots[1].textContent).toContain("2")
       expect(slots[2].textContent).toContain("3")
     })
   })
 
-  describe("plank-input-otp-separator", () => {
+  describe("hal-input-otp-separator", () => {
     it("has separator role", async () => {
       container.innerHTML = `
-        <plank-input-otp>
-          <plank-input-otp-separator></plank-input-otp-separator>
-        </plank-input-otp>
+        <hal-input-otp>
+          <hal-input-otp-separator></hal-input-otp-separator>
+        </hal-input-otp>
       `
-      await customElements.whenDefined("plank-input-otp-separator")
-      const separator = container.querySelector("plank-input-otp-separator")!
+      await customElements.whenDefined("hal-input-otp-separator")
+      const separator = container.querySelector("hal-input-otp-separator")!
       await (separator as any).updateComplete
 
       expect(separator.getAttribute("role")).toBe("separator")
@@ -186,12 +184,12 @@ describe("plank-input-otp", () => {
 
     it("renders minus icon by default", async () => {
       container.innerHTML = `
-        <plank-input-otp>
-          <plank-input-otp-separator></plank-input-otp-separator>
-        </plank-input-otp>
+        <hal-input-otp>
+          <hal-input-otp-separator></hal-input-otp-separator>
+        </hal-input-otp>
       `
-      await customElements.whenDefined("plank-input-otp-separator")
-      const separator = container.querySelector("plank-input-otp-separator")!
+      await customElements.whenDefined("hal-input-otp-separator")
+      const separator = container.querySelector("hal-input-otp-separator")!
       await (separator as any).updateComplete
 
       const svg = separator.querySelector("svg")
@@ -202,14 +200,14 @@ describe("plank-input-otp", () => {
   describe("value handling", () => {
     it("accepts initial value", async () => {
       container.innerHTML = `
-        <plank-input-otp max-length="6" value="123456">
-          <plank-input-otp-group>
-            <plank-input-otp-slot index="0"></plank-input-otp-slot>
-          </plank-input-otp-group>
-        </plank-input-otp>
+        <hal-input-otp max-length="6" value="123456">
+          <hal-input-otp-group>
+            <hal-input-otp-slot index="0"></hal-input-otp-slot>
+          </hal-input-otp-group>
+        </hal-input-otp>
       `
-      await customElements.whenDefined("plank-input-otp")
-      const otp = container.querySelector("plank-input-otp")! as PlankInputOtp
+      await customElements.whenDefined("hal-input-otp")
+      const otp = container.querySelector("hal-input-otp")! as HalInputOtp
       await otp.updateComplete
 
       expect(otp.value).toBe("123456")
@@ -217,14 +215,14 @@ describe("plank-input-otp", () => {
 
     it("fires change event on input", async () => {
       container.innerHTML = `
-        <plank-input-otp max-length="6">
-          <plank-input-otp-group>
-            <plank-input-otp-slot index="0"></plank-input-otp-slot>
-          </plank-input-otp-group>
-        </plank-input-otp>
+        <hal-input-otp max-length="6">
+          <hal-input-otp-group>
+            <hal-input-otp-slot index="0"></hal-input-otp-slot>
+          </hal-input-otp-group>
+        </hal-input-otp>
       `
-      await customElements.whenDefined("plank-input-otp")
-      const otp = container.querySelector("plank-input-otp")! as PlankInputOtp
+      await customElements.whenDefined("hal-input-otp")
+      const otp = container.querySelector("hal-input-otp")! as HalInputOtp
       await otp.updateComplete
 
       let changeValue = ""
@@ -241,14 +239,14 @@ describe("plank-input-otp", () => {
 
     it("fires complete event when maxLength reached", async () => {
       container.innerHTML = `
-        <plank-input-otp max-length="4">
-          <plank-input-otp-group>
-            <plank-input-otp-slot index="0"></plank-input-otp-slot>
-          </plank-input-otp-group>
-        </plank-input-otp>
+        <hal-input-otp max-length="4">
+          <hal-input-otp-group>
+            <hal-input-otp-slot index="0"></hal-input-otp-slot>
+          </hal-input-otp-group>
+        </hal-input-otp>
       `
-      await customElements.whenDefined("plank-input-otp")
-      const otp = container.querySelector("plank-input-otp")! as PlankInputOtp
+      await customElements.whenDefined("hal-input-otp")
+      const otp = container.querySelector("hal-input-otp")! as HalInputOtp
       await otp.updateComplete
 
       let completed = false
@@ -265,14 +263,14 @@ describe("plank-input-otp", () => {
 
     it("truncates value to maxLength", async () => {
       container.innerHTML = `
-        <plank-input-otp max-length="4">
-          <plank-input-otp-group>
-            <plank-input-otp-slot index="0"></plank-input-otp-slot>
-          </plank-input-otp-group>
-        </plank-input-otp>
+        <hal-input-otp max-length="4">
+          <hal-input-otp-group>
+            <hal-input-otp-slot index="0"></hal-input-otp-slot>
+          </hal-input-otp-group>
+        </hal-input-otp>
       `
-      await customElements.whenDefined("plank-input-otp")
-      const otp = container.querySelector("plank-input-otp")! as PlankInputOtp
+      await customElements.whenDefined("hal-input-otp")
+      const otp = container.querySelector("hal-input-otp")! as HalInputOtp
       await otp.updateComplete
 
       const input = otp.querySelector("input")!
@@ -286,14 +284,14 @@ describe("plank-input-otp", () => {
   describe("pattern validation", () => {
     it("accepts digits only with pattern", async () => {
       container.innerHTML = `
-        <plank-input-otp max-length="6" pattern="^\\d+$">
-          <plank-input-otp-group>
-            <plank-input-otp-slot index="0"></plank-input-otp-slot>
-          </plank-input-otp-group>
-        </plank-input-otp>
+        <hal-input-otp max-length="6" pattern="^\\d+$">
+          <hal-input-otp-group>
+            <hal-input-otp-slot index="0"></hal-input-otp-slot>
+          </hal-input-otp-group>
+        </hal-input-otp>
       `
-      await customElements.whenDefined("plank-input-otp")
-      const otp = container.querySelector("plank-input-otp")! as PlankInputOtp
+      await customElements.whenDefined("hal-input-otp")
+      const otp = container.querySelector("hal-input-otp")! as HalInputOtp
       await otp.updateComplete
 
       const input = otp.querySelector("input")!
@@ -314,14 +312,14 @@ describe("plank-input-otp", () => {
   describe("disabled state", () => {
     it("sets disabled attribute on input", async () => {
       container.innerHTML = `
-        <plank-input-otp max-length="6" disabled>
-          <plank-input-otp-group>
-            <plank-input-otp-slot index="0"></plank-input-otp-slot>
-          </plank-input-otp-group>
-        </plank-input-otp>
+        <hal-input-otp max-length="6" disabled>
+          <hal-input-otp-group>
+            <hal-input-otp-slot index="0"></hal-input-otp-slot>
+          </hal-input-otp-group>
+        </hal-input-otp>
       `
-      await customElements.whenDefined("plank-input-otp")
-      const otp = container.querySelector("plank-input-otp")! as PlankInputOtp
+      await customElements.whenDefined("hal-input-otp")
+      const otp = container.querySelector("hal-input-otp")! as HalInputOtp
       await otp.updateComplete
 
       const input = otp.querySelector("input")!
@@ -330,14 +328,14 @@ describe("plank-input-otp", () => {
 
     it("sets data-disabled on container", async () => {
       container.innerHTML = `
-        <plank-input-otp max-length="6" disabled>
-          <plank-input-otp-group>
-            <plank-input-otp-slot index="0"></plank-input-otp-slot>
-          </plank-input-otp-group>
-        </plank-input-otp>
+        <hal-input-otp max-length="6" disabled>
+          <hal-input-otp-group>
+            <hal-input-otp-slot index="0"></hal-input-otp-slot>
+          </hal-input-otp-group>
+        </hal-input-otp>
       `
-      await customElements.whenDefined("plank-input-otp")
-      const otp = container.querySelector("plank-input-otp")! as PlankInputOtp
+      await customElements.whenDefined("hal-input-otp")
+      const otp = container.querySelector("hal-input-otp")! as HalInputOtp
       await otp.updateComplete
 
       expect(otp.dataset.disabled).toBeDefined()
@@ -347,14 +345,14 @@ describe("plank-input-otp", () => {
   describe("input mode", () => {
     it("defaults to numeric input mode", async () => {
       container.innerHTML = `
-        <plank-input-otp max-length="6">
-          <plank-input-otp-group>
-            <plank-input-otp-slot index="0"></plank-input-otp-slot>
-          </plank-input-otp-group>
-        </plank-input-otp>
+        <hal-input-otp max-length="6">
+          <hal-input-otp-group>
+            <hal-input-otp-slot index="0"></hal-input-otp-slot>
+          </hal-input-otp-group>
+        </hal-input-otp>
       `
-      await customElements.whenDefined("plank-input-otp")
-      const otp = container.querySelector("plank-input-otp")! as PlankInputOtp
+      await customElements.whenDefined("hal-input-otp")
+      const otp = container.querySelector("hal-input-otp")! as HalInputOtp
       await otp.updateComplete
 
       const input = otp.querySelector("input")!
@@ -363,14 +361,14 @@ describe("plank-input-otp", () => {
 
     it("accepts text input mode", async () => {
       container.innerHTML = `
-        <plank-input-otp max-length="6" input-mode="text">
-          <plank-input-otp-group>
-            <plank-input-otp-slot index="0"></plank-input-otp-slot>
-          </plank-input-otp-group>
-        </plank-input-otp>
+        <hal-input-otp max-length="6" input-mode="text">
+          <hal-input-otp-group>
+            <hal-input-otp-slot index="0"></hal-input-otp-slot>
+          </hal-input-otp-group>
+        </hal-input-otp>
       `
-      await customElements.whenDefined("plank-input-otp")
-      const otp = container.querySelector("plank-input-otp")! as PlankInputOtp
+      await customElements.whenDefined("hal-input-otp")
+      const otp = container.querySelector("hal-input-otp")! as HalInputOtp
       await otp.updateComplete
 
       const input = otp.querySelector("input")!
@@ -381,14 +379,14 @@ describe("plank-input-otp", () => {
   describe("public methods", () => {
     it("focus() focuses the hidden input", async () => {
       container.innerHTML = `
-        <plank-input-otp max-length="6">
-          <plank-input-otp-group>
-            <plank-input-otp-slot index="0"></plank-input-otp-slot>
-          </plank-input-otp-group>
-        </plank-input-otp>
+        <hal-input-otp max-length="6">
+          <hal-input-otp-group>
+            <hal-input-otp-slot index="0"></hal-input-otp-slot>
+          </hal-input-otp-group>
+        </hal-input-otp>
       `
-      await customElements.whenDefined("plank-input-otp")
-      const otp = container.querySelector("plank-input-otp")! as PlankInputOtp
+      await customElements.whenDefined("hal-input-otp")
+      const otp = container.querySelector("hal-input-otp")! as HalInputOtp
       await otp.updateComplete
 
       otp.focus()
@@ -399,14 +397,14 @@ describe("plank-input-otp", () => {
 
     it("clear() resets the value", async () => {
       container.innerHTML = `
-        <plank-input-otp max-length="6" value="123">
-          <plank-input-otp-group>
-            <plank-input-otp-slot index="0"></plank-input-otp-slot>
-          </plank-input-otp-group>
-        </plank-input-otp>
+        <hal-input-otp max-length="6" value="123">
+          <hal-input-otp-group>
+            <hal-input-otp-slot index="0"></hal-input-otp-slot>
+          </hal-input-otp-group>
+        </hal-input-otp>
       `
-      await customElements.whenDefined("plank-input-otp")
-      const otp = container.querySelector("plank-input-otp")! as PlankInputOtp
+      await customElements.whenDefined("hal-input-otp")
+      const otp = container.querySelector("hal-input-otp")! as HalInputOtp
       await otp.updateComplete
 
       expect(otp.value).toBe("123")
@@ -416,14 +414,14 @@ describe("plank-input-otp", () => {
 
     it("clear() fires change event", async () => {
       container.innerHTML = `
-        <plank-input-otp max-length="6" value="123">
-          <plank-input-otp-group>
-            <plank-input-otp-slot index="0"></plank-input-otp-slot>
-          </plank-input-otp-group>
-        </plank-input-otp>
+        <hal-input-otp max-length="6" value="123">
+          <hal-input-otp-group>
+            <hal-input-otp-slot index="0"></hal-input-otp-slot>
+          </hal-input-otp-group>
+        </hal-input-otp>
       `
-      await customElements.whenDefined("plank-input-otp")
-      const otp = container.querySelector("plank-input-otp")! as PlankInputOtp
+      await customElements.whenDefined("hal-input-otp")
+      const otp = container.querySelector("hal-input-otp")! as HalInputOtp
       await otp.updateComplete
 
       let changeValue: string | null = null
@@ -439,15 +437,15 @@ describe("plank-input-otp", () => {
   describe("click to focus", () => {
     it("input is not hidden from pointer events (can receive clicks)", async () => {
       container.innerHTML = `
-        <plank-input-otp max-length="6">
-          <plank-input-otp-group>
-            <plank-input-otp-slot index="0"></plank-input-otp-slot>
-            <plank-input-otp-slot index="1"></plank-input-otp-slot>
-          </plank-input-otp-group>
-        </plank-input-otp>
+        <hal-input-otp max-length="6">
+          <hal-input-otp-group>
+            <hal-input-otp-slot index="0"></hal-input-otp-slot>
+            <hal-input-otp-slot index="1"></hal-input-otp-slot>
+          </hal-input-otp-group>
+        </hal-input-otp>
       `
-      await customElements.whenDefined("plank-input-otp")
-      const otp = container.querySelector("plank-input-otp")! as PlankInputOtp
+      await customElements.whenDefined("hal-input-otp")
+      const otp = container.querySelector("hal-input-otp")! as HalInputOtp
       await otp.updateComplete
 
       const input = otp.querySelector("input")!
@@ -461,14 +459,14 @@ describe("plank-input-otp", () => {
 
     it("input covers the full component area and receives pointer events", async () => {
       container.innerHTML = `
-        <plank-input-otp max-length="6">
-          <plank-input-otp-group>
-            <plank-input-otp-slot index="0"></plank-input-otp-slot>
-          </plank-input-otp-group>
-        </plank-input-otp>
+        <hal-input-otp max-length="6">
+          <hal-input-otp-group>
+            <hal-input-otp-slot index="0"></hal-input-otp-slot>
+          </hal-input-otp-group>
+        </hal-input-otp>
       `
-      await customElements.whenDefined("plank-input-otp")
-      const otp = container.querySelector("plank-input-otp")! as PlankInputOtp
+      await customElements.whenDefined("hal-input-otp")
+      const otp = container.querySelector("hal-input-otp")! as HalInputOtp
       await otp.updateComplete
 
       const input = otp.querySelector("input")!
@@ -487,15 +485,15 @@ describe("plank-input-otp", () => {
   describe("active slot indication", () => {
     it("sets data-active on focused slot", async () => {
       container.innerHTML = `
-        <plank-input-otp max-length="6">
-          <plank-input-otp-group>
-            <plank-input-otp-slot index="0"></plank-input-otp-slot>
-            <plank-input-otp-slot index="1"></plank-input-otp-slot>
-          </plank-input-otp-group>
-        </plank-input-otp>
+        <hal-input-otp max-length="6">
+          <hal-input-otp-group>
+            <hal-input-otp-slot index="0"></hal-input-otp-slot>
+            <hal-input-otp-slot index="1"></hal-input-otp-slot>
+          </hal-input-otp-group>
+        </hal-input-otp>
       `
-      await customElements.whenDefined("plank-input-otp")
-      const otp = container.querySelector("plank-input-otp")! as PlankInputOtp
+      await customElements.whenDefined("hal-input-otp")
+      const otp = container.querySelector("hal-input-otp")! as HalInputOtp
       await otp.updateComplete
 
       const input = otp.querySelector("input")!
@@ -505,7 +503,7 @@ describe("plank-input-otp", () => {
       // Wait for state updates
       await new Promise((r) => setTimeout(r, 100))
 
-      const slot0 = container.querySelectorAll("plank-input-otp-slot")[0]
+      const slot0 = container.querySelectorAll("hal-input-otp-slot")[0]
       expect(slot0.getAttribute("data-active")).toBe("true")
     })
   })

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tabs - Planks</title>
+    <title>Tabs - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -17,114 +17,112 @@
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Basic Usage</h2>
         <div class="mb-4 w-full max-w-md">
-          <plank-tabs value="account" class="w-full">
-            <plank-tabs-list>
-              <plank-tabs-trigger value="account">Account</plank-tabs-trigger>
-              <plank-tabs-trigger value="password">Password</plank-tabs-trigger>
-            </plank-tabs-list>
-            <plank-tabs-content value="account">
+          <hal-tabs value="account" class="w-full">
+            <hal-tabs-list>
+              <hal-tabs-trigger value="account">Account</hal-tabs-trigger>
+              <hal-tabs-trigger value="password">Password</hal-tabs-trigger>
+            </hal-tabs-list>
+            <hal-tabs-content value="account">
               <div class="p-4 border rounded-md mt-2">
                 Make changes to your account here. Click save when you're done.
               </div>
-            </plank-tabs-content>
-            <plank-tabs-content value="password">
+            </hal-tabs-content>
+            <hal-tabs-content value="password">
               <div class="p-4 border rounded-md mt-2">
                 Change your password here. After saving, you'll be logged out.
               </div>
-            </plank-tabs-content>
-          </plank-tabs>
+            </hal-tabs-content>
+          </hal-tabs>
         </div>
-        <pre><code>&lt;plank-tabs value="account"&gt;
-  &lt;plank-tabs-list&gt;
-    &lt;plank-tabs-trigger value="account"&gt;Account&lt;/plank-tabs-trigger&gt;
-    &lt;plank-tabs-trigger value="password"&gt;Password&lt;/plank-tabs-trigger&gt;
-  &lt;/plank-tabs-list&gt;
-  &lt;plank-tabs-content value="account"&gt;
+        <pre><code>&lt;hal-tabs value="account"&gt;
+  &lt;hal-tabs-list&gt;
+    &lt;hal-tabs-trigger value="account"&gt;Account&lt;/hal-tabs-trigger&gt;
+    &lt;hal-tabs-trigger value="password"&gt;Password&lt;/hal-tabs-trigger&gt;
+  &lt;/hal-tabs-list&gt;
+  &lt;hal-tabs-content value="account"&gt;
     Account content...
-  &lt;/plank-tabs-content&gt;
-  &lt;plank-tabs-content value="password"&gt;
+  &lt;/hal-tabs-content&gt;
+  &lt;hal-tabs-content value="password"&gt;
     Password content...
-  &lt;/plank-tabs-content&gt;
-&lt;/plank-tabs&gt;</code></pre>
+  &lt;/hal-tabs-content&gt;
+&lt;/hal-tabs&gt;</code></pre>
       </section>
 
       <!-- Multiple Tabs -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Multiple Tabs</h2>
         <div class="mb-4 w-full max-w-md">
-          <plank-tabs value="overview" class="w-full">
-            <plank-tabs-list>
-              <plank-tabs-trigger value="overview">Overview</plank-tabs-trigger>
-              <plank-tabs-trigger value="analytics"
-                >Analytics</plank-tabs-trigger
+          <hal-tabs value="overview" class="w-full">
+            <hal-tabs-list>
+              <hal-tabs-trigger value="overview">Overview</hal-tabs-trigger>
+              <hal-tabs-trigger value="analytics">Analytics</hal-tabs-trigger>
+              <hal-tabs-trigger value="reports">Reports</hal-tabs-trigger>
+              <hal-tabs-trigger value="notifications"
+                >Notifications</hal-tabs-trigger
               >
-              <plank-tabs-trigger value="reports">Reports</plank-tabs-trigger>
-              <plank-tabs-trigger value="notifications"
-                >Notifications</plank-tabs-trigger
-              >
-            </plank-tabs-list>
-            <plank-tabs-content value="overview">
+            </hal-tabs-list>
+            <hal-tabs-content value="overview">
               <div class="p-4 border rounded-md mt-2">
                 Overview content goes here.
               </div>
-            </plank-tabs-content>
-            <plank-tabs-content value="analytics">
+            </hal-tabs-content>
+            <hal-tabs-content value="analytics">
               <div class="p-4 border rounded-md mt-2">
                 Analytics content goes here.
               </div>
-            </plank-tabs-content>
-            <plank-tabs-content value="reports">
+            </hal-tabs-content>
+            <hal-tabs-content value="reports">
               <div class="p-4 border rounded-md mt-2">
                 Reports content goes here.
               </div>
-            </plank-tabs-content>
-            <plank-tabs-content value="notifications">
+            </hal-tabs-content>
+            <hal-tabs-content value="notifications">
               <div class="p-4 border rounded-md mt-2">
                 Notifications content goes here.
               </div>
-            </plank-tabs-content>
-          </plank-tabs>
+            </hal-tabs-content>
+          </hal-tabs>
         </div>
-        <pre><code>&lt;plank-tabs value="overview"&gt;
-  &lt;plank-tabs-list&gt;
-    &lt;plank-tabs-trigger value="overview"&gt;Overview&lt;/plank-tabs-trigger&gt;
-    &lt;plank-tabs-trigger value="analytics"&gt;Analytics&lt;/plank-tabs-trigger&gt;
-    &lt;plank-tabs-trigger value="reports"&gt;Reports&lt;/plank-tabs-trigger&gt;
-    &lt;plank-tabs-trigger value="notifications"&gt;Notifications&lt;/plank-tabs-trigger&gt;
-  &lt;/plank-tabs-list&gt;
+        <pre><code>&lt;hal-tabs value="overview"&gt;
+  &lt;hal-tabs-list&gt;
+    &lt;hal-tabs-trigger value="overview"&gt;Overview&lt;/hal-tabs-trigger&gt;
+    &lt;hal-tabs-trigger value="analytics"&gt;Analytics&lt;/hal-tabs-trigger&gt;
+    &lt;hal-tabs-trigger value="reports"&gt;Reports&lt;/hal-tabs-trigger&gt;
+    &lt;hal-tabs-trigger value="notifications"&gt;Notifications&lt;/hal-tabs-trigger&gt;
+  &lt;/hal-tabs-list&gt;
   ...
-&lt;/plank-tabs&gt;</code></pre>
+&lt;/hal-tabs&gt;</code></pre>
       </section>
 
       <!-- Disabled Tab -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Disabled Tab</h2>
         <div class="mb-4 w-full max-w-md">
-          <plank-tabs value="active" class="w-full">
-            <plank-tabs-list>
-              <plank-tabs-trigger value="active">Active</plank-tabs-trigger>
-              <plank-tabs-trigger value="disabled" disabled
-                >Disabled</plank-tabs-trigger
+          <hal-tabs value="active" class="w-full">
+            <hal-tabs-list>
+              <hal-tabs-trigger value="active">Active</hal-tabs-trigger>
+              <hal-tabs-trigger value="disabled" disabled
+                >Disabled</hal-tabs-trigger
               >
-            </plank-tabs-list>
-            <plank-tabs-content value="active">
+            </hal-tabs-list>
+            <hal-tabs-content value="active">
               <div class="p-4 border rounded-md mt-2">This tab is active.</div>
-            </plank-tabs-content>
-            <plank-tabs-content value="disabled">
+            </hal-tabs-content>
+            <hal-tabs-content value="disabled">
               <div class="p-4 border rounded-md mt-2">
                 This tab cannot be accessed.
               </div>
-            </plank-tabs-content>
-          </plank-tabs>
+            </hal-tabs-content>
+          </hal-tabs>
         </div>
-        <pre><code>&lt;plank-tabs-trigger value="disabled" disabled&gt;Disabled&lt;/plank-tabs-trigger&gt;</code></pre>
+        <pre><code>&lt;hal-tabs-trigger value="disabled" disabled&gt;Disabled&lt;/hal-tabs-trigger&gt;</code></pre>
       </section>
 
       <!-- API -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">API</h2>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-tabs</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-tabs</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -170,12 +168,12 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-tabs-list</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-tabs-list</h3>
         <p class="text-muted-foreground mb-4">
           Container for tab triggers. Has role="tablist" for accessibility.
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-tabs-trigger</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-tabs-trigger</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -207,7 +205,7 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-tabs-content</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-tabs-content</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>

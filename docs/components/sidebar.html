@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sidebar - Planks</title>
+    <title>Sidebar - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -18,10 +18,10 @@
       <section class="mb-12">
         <h2 class="text-xl font-semibold mb-4">Basic Menu</h2>
         <div class="border rounded-lg p-4 bg-sidebar">
-          <plank-sidebar-provider>
-            <plank-sidebar-menu>
-              <plank-sidebar-menu-item>
-                <plank-sidebar-menu-button active>
+          <hal-sidebar-provider>
+            <hal-sidebar-menu>
+              <hal-sidebar-menu-item>
+                <hal-sidebar-menu-button active>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -37,10 +37,10 @@
                     <polyline points="9 22 9 12 15 12 15 22" />
                   </svg>
                   <span>Home</span>
-                </plank-sidebar-menu-button>
-              </plank-sidebar-menu-item>
-              <plank-sidebar-menu-item>
-                <plank-sidebar-menu-button>
+                </hal-sidebar-menu-button>
+              </hal-sidebar-menu-item>
+              <hal-sidebar-menu-item>
+                <hal-sidebar-menu-button>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -58,10 +58,10 @@
                     <polyline points="22,6 12,13 2,6" />
                   </svg>
                   <span>Inbox</span>
-                </plank-sidebar-menu-button>
-              </plank-sidebar-menu-item>
-              <plank-sidebar-menu-item>
-                <plank-sidebar-menu-button>
+                </hal-sidebar-menu-button>
+              </hal-sidebar-menu-item>
+              <hal-sidebar-menu-item>
+                <hal-sidebar-menu-button>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -79,10 +79,10 @@
                     />
                   </svg>
                   <span>Settings</span>
-                </plank-sidebar-menu-button>
-              </plank-sidebar-menu-item>
-            </plank-sidebar-menu>
-          </plank-sidebar-provider>
+                </hal-sidebar-menu-button>
+              </hal-sidebar-menu-item>
+            </hal-sidebar-menu>
+          </hal-sidebar-provider>
         </div>
       </section>
 
@@ -90,10 +90,10 @@
       <section class="mb-12">
         <h2 class="text-xl font-semibold mb-4">Menu with Badges</h2>
         <div class="border rounded-lg p-4 bg-sidebar">
-          <plank-sidebar-provider>
-            <plank-sidebar-menu>
-              <plank-sidebar-menu-item>
-                <plank-sidebar-menu-button active>
+          <hal-sidebar-provider>
+            <hal-sidebar-menu>
+              <hal-sidebar-menu-item>
+                <hal-sidebar-menu-button active>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -109,11 +109,11 @@
                     <polyline points="22,6 12,13 2,6" />
                   </svg>
                   <span>Inbox</span>
-                </plank-sidebar-menu-button>
-                <plank-sidebar-menu-badge>12</plank-sidebar-menu-badge>
-              </plank-sidebar-menu-item>
-              <plank-sidebar-menu-item>
-                <plank-sidebar-menu-button>
+                </hal-sidebar-menu-button>
+                <hal-sidebar-menu-badge>12</hal-sidebar-menu-badge>
+              </hal-sidebar-menu-item>
+              <hal-sidebar-menu-item>
+                <hal-sidebar-menu-button>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -128,11 +128,11 @@
                     />
                   </svg>
                   <span>Starred</span>
-                </plank-sidebar-menu-button>
-                <plank-sidebar-menu-badge>3</plank-sidebar-menu-badge>
-              </plank-sidebar-menu-item>
-              <plank-sidebar-menu-item>
-                <plank-sidebar-menu-button>
+                </hal-sidebar-menu-button>
+                <hal-sidebar-menu-badge>3</hal-sidebar-menu-badge>
+              </hal-sidebar-menu-item>
+              <hal-sidebar-menu-item>
+                <hal-sidebar-menu-button>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -148,10 +148,10 @@
                     />
                   </svg>
                   <span>Archive</span>
-                </plank-sidebar-menu-button>
-              </plank-sidebar-menu-item>
-            </plank-sidebar-menu>
-          </plank-sidebar-provider>
+                </hal-sidebar-menu-button>
+              </hal-sidebar-menu-item>
+            </hal-sidebar-menu>
+          </hal-sidebar-provider>
         </div>
       </section>
 
@@ -159,43 +159,43 @@
       <section class="mb-12">
         <h2 class="text-xl font-semibold mb-4">Grouped Menu</h2>
         <div class="border rounded-lg p-4 bg-sidebar" style="width: 280px">
-          <plank-sidebar-provider>
-            <plank-sidebar-group>
-              <plank-sidebar-group-label>Platform</plank-sidebar-group-label>
-              <plank-sidebar-group-content>
-                <plank-sidebar-menu>
-                  <plank-sidebar-menu-item>
-                    <plank-sidebar-menu-button>
+          <hal-sidebar-provider>
+            <hal-sidebar-group>
+              <hal-sidebar-group-label>Platform</hal-sidebar-group-label>
+              <hal-sidebar-group-content>
+                <hal-sidebar-menu>
+                  <hal-sidebar-menu-item>
+                    <hal-sidebar-menu-button>
                       <span>Dashboard</span>
-                    </plank-sidebar-menu-button>
-                  </plank-sidebar-menu-item>
-                  <plank-sidebar-menu-item>
-                    <plank-sidebar-menu-button>
+                    </hal-sidebar-menu-button>
+                  </hal-sidebar-menu-item>
+                  <hal-sidebar-menu-item>
+                    <hal-sidebar-menu-button>
                       <span>Analytics</span>
-                    </plank-sidebar-menu-button>
-                  </plank-sidebar-menu-item>
-                </plank-sidebar-menu>
-              </plank-sidebar-group-content>
-            </plank-sidebar-group>
-            <plank-sidebar-separator></plank-sidebar-separator>
-            <plank-sidebar-group>
-              <plank-sidebar-group-label>Projects</plank-sidebar-group-label>
-              <plank-sidebar-group-content>
-                <plank-sidebar-menu>
-                  <plank-sidebar-menu-item>
-                    <plank-sidebar-menu-button>
+                    </hal-sidebar-menu-button>
+                  </hal-sidebar-menu-item>
+                </hal-sidebar-menu>
+              </hal-sidebar-group-content>
+            </hal-sidebar-group>
+            <hal-sidebar-separator></hal-sidebar-separator>
+            <hal-sidebar-group>
+              <hal-sidebar-group-label>Projects</hal-sidebar-group-label>
+              <hal-sidebar-group-content>
+                <hal-sidebar-menu>
+                  <hal-sidebar-menu-item>
+                    <hal-sidebar-menu-button>
                       <span>Active Projects</span>
-                    </plank-sidebar-menu-button>
-                  </plank-sidebar-menu-item>
-                  <plank-sidebar-menu-item>
-                    <plank-sidebar-menu-button>
+                    </hal-sidebar-menu-button>
+                  </hal-sidebar-menu-item>
+                  <hal-sidebar-menu-item>
+                    <hal-sidebar-menu-button>
                       <span>Archived</span>
-                    </plank-sidebar-menu-button>
-                  </plank-sidebar-menu-item>
-                </plank-sidebar-menu>
-              </plank-sidebar-group-content>
-            </plank-sidebar-group>
-          </plank-sidebar-provider>
+                    </hal-sidebar-menu-button>
+                  </hal-sidebar-menu-item>
+                </hal-sidebar-menu>
+              </hal-sidebar-group-content>
+            </hal-sidebar-group>
+          </hal-sidebar-provider>
         </div>
       </section>
 
@@ -203,10 +203,10 @@
       <section class="mb-12">
         <h2 class="text-xl font-semibold mb-4">Submenu</h2>
         <div class="border rounded-lg p-4 bg-sidebar" style="width: 280px">
-          <plank-sidebar-provider>
-            <plank-sidebar-menu>
-              <plank-sidebar-menu-item>
-                <plank-sidebar-menu-button active>
+          <hal-sidebar-provider>
+            <hal-sidebar-menu>
+              <hal-sidebar-menu-item>
+                <hal-sidebar-menu-button active>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -221,27 +221,27 @@
                     />
                   </svg>
                   <span>Documents</span>
-                </plank-sidebar-menu-button>
-                <plank-sidebar-menu-sub>
-                  <plank-sidebar-menu-sub-item>
-                    <plank-sidebar-menu-sub-button active>
+                </hal-sidebar-menu-button>
+                <hal-sidebar-menu-sub>
+                  <hal-sidebar-menu-sub-item>
+                    <hal-sidebar-menu-sub-button active>
                       <span>Getting Started</span>
-                    </plank-sidebar-menu-sub-button>
-                  </plank-sidebar-menu-sub-item>
-                  <plank-sidebar-menu-sub-item>
-                    <plank-sidebar-menu-sub-button>
+                    </hal-sidebar-menu-sub-button>
+                  </hal-sidebar-menu-sub-item>
+                  <hal-sidebar-menu-sub-item>
+                    <hal-sidebar-menu-sub-button>
                       <span>Components</span>
-                    </plank-sidebar-menu-sub-button>
-                  </plank-sidebar-menu-sub-item>
-                  <plank-sidebar-menu-sub-item>
-                    <plank-sidebar-menu-sub-button>
+                    </hal-sidebar-menu-sub-button>
+                  </hal-sidebar-menu-sub-item>
+                  <hal-sidebar-menu-sub-item>
+                    <hal-sidebar-menu-sub-button>
                       <span>API Reference</span>
-                    </plank-sidebar-menu-sub-button>
-                  </plank-sidebar-menu-sub-item>
-                </plank-sidebar-menu-sub>
-              </plank-sidebar-menu-item>
-            </plank-sidebar-menu>
-          </plank-sidebar-provider>
+                    </hal-sidebar-menu-sub-button>
+                  </hal-sidebar-menu-sub-item>
+                </hal-sidebar-menu-sub>
+              </hal-sidebar-menu-item>
+            </hal-sidebar-menu>
+          </hal-sidebar-provider>
         </div>
       </section>
 
@@ -249,25 +249,25 @@
       <section class="mb-12">
         <h2 class="text-xl font-semibold mb-4">Loading Skeleton</h2>
         <div class="border rounded-lg p-4 bg-sidebar" style="width: 280px">
-          <plank-sidebar-provider>
-            <plank-sidebar-menu>
-              <plank-sidebar-menu-item>
-                <plank-sidebar-menu-skeleton
+          <hal-sidebar-provider>
+            <hal-sidebar-menu>
+              <hal-sidebar-menu-item>
+                <hal-sidebar-menu-skeleton
                   show-icon
-                ></plank-sidebar-menu-skeleton>
-              </plank-sidebar-menu-item>
-              <plank-sidebar-menu-item>
-                <plank-sidebar-menu-skeleton
+                ></hal-sidebar-menu-skeleton>
+              </hal-sidebar-menu-item>
+              <hal-sidebar-menu-item>
+                <hal-sidebar-menu-skeleton
                   show-icon
-                ></plank-sidebar-menu-skeleton>
-              </plank-sidebar-menu-item>
-              <plank-sidebar-menu-item>
-                <plank-sidebar-menu-skeleton
+                ></hal-sidebar-menu-skeleton>
+              </hal-sidebar-menu-item>
+              <hal-sidebar-menu-item>
+                <hal-sidebar-menu-skeleton
                   show-icon
-                ></plank-sidebar-menu-skeleton>
-              </plank-sidebar-menu-item>
-            </plank-sidebar-menu>
-          </plank-sidebar-provider>
+                ></hal-sidebar-menu-skeleton>
+              </hal-sidebar-menu-item>
+            </hal-sidebar-menu>
+          </hal-sidebar-provider>
         </div>
       </section>
 
@@ -275,7 +275,7 @@
       <section class="mb-12">
         <h2 class="text-xl font-semibold mb-4">API</h2>
 
-        <h3 class="text-lg font-medium mb-2">plank-sidebar-provider</h3>
+        <h3 class="text-lg font-medium mb-2">hal-sidebar-provider</h3>
         <p class="text-muted-foreground mb-4">
           Root component that provides sidebar state context.
         </p>
@@ -304,7 +304,7 @@
           </tbody>
         </table>
 
-        <h3 class="text-lg font-medium mb-2">plank-sidebar</h3>
+        <h3 class="text-lg font-medium mb-2">hal-sidebar</h3>
         <p class="text-muted-foreground mb-4">Main sidebar container.</p>
         <table class="w-full text-sm mb-6">
           <thead>
@@ -337,7 +337,7 @@
           </tbody>
         </table>
 
-        <h3 class="text-lg font-medium mb-2">plank-sidebar-menu-button</h3>
+        <h3 class="text-lg font-medium mb-2">hal-sidebar-menu-button</h3>
         <p class="text-muted-foreground mb-4">Button within a menu item.</p>
         <table class="w-full text-sm mb-6">
           <thead>
@@ -390,10 +390,10 @@
           <tbody>
             <tr class="border-b">
               <td class="py-2">
-                <plank-kbd-group>
-                  <plank-kbd>Ctrl</plank-kbd>
-                  <plank-kbd>B</plank-kbd>
-                </plank-kbd-group>
+                <hal-kbd-group>
+                  <hal-kbd>Ctrl</hal-kbd>
+                  <hal-kbd>B</hal-kbd>
+                </hal-kbd-group>
               </td>
               <td class="py-2">Toggle sidebar</td>
             </tr>

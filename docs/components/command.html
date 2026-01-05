@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Command - Planks</title>
+    <title>Command - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -21,30 +21,30 @@
           A simple command palette with filterable items.
         </p>
         <div class="mb-4">
-          <plank-command class="rounded-lg border shadow-md max-w-[450px]">
-            <plank-command-input
+          <hal-command class="rounded-lg border shadow-md max-w-[450px]">
+            <hal-command-input
               placeholder="Type a command or search..."
-            ></plank-command-input>
-            <plank-command-list>
-              <plank-command-empty>No results found.</plank-command-empty>
-              <plank-command-group heading="Suggestions">
-                <plank-command-item>Calendar</plank-command-item>
-                <plank-command-item>Search Emoji</plank-command-item>
-                <plank-command-item>Calculator</plank-command-item>
-              </plank-command-group>
-            </plank-command-list>
-          </plank-command>
+            ></hal-command-input>
+            <hal-command-list>
+              <hal-command-empty>No results found.</hal-command-empty>
+              <hal-command-group heading="Suggestions">
+                <hal-command-item>Calendar</hal-command-item>
+                <hal-command-item>Search Emoji</hal-command-item>
+                <hal-command-item>Calculator</hal-command-item>
+              </hal-command-group>
+            </hal-command-list>
+          </hal-command>
         </div>
-        <pre><code>&lt;plank-command class="rounded-lg border shadow-md"&gt;
-  &lt;plank-command-input placeholder="Type a command..."&gt;&lt;/plank-command-input&gt;
-  &lt;plank-command-list&gt;
-    &lt;plank-command-empty&gt;No results found.&lt;/plank-command-empty&gt;
-    &lt;plank-command-group heading="Suggestions"&gt;
-      &lt;plank-command-item&gt;Calendar&lt;/plank-command-item&gt;
-      &lt;plank-command-item&gt;Search Emoji&lt;/plank-command-item&gt;
-    &lt;/plank-command-group&gt;
-  &lt;/plank-command-list&gt;
-&lt;/plank-command&gt;</code></pre>
+        <pre><code>&lt;hal-command class="rounded-lg border shadow-md"&gt;
+  &lt;hal-command-input placeholder="Type a command..."&gt;&lt;/hal-command-input&gt;
+  &lt;hal-command-list&gt;
+    &lt;hal-command-empty&gt;No results found.&lt;/hal-command-empty&gt;
+    &lt;hal-command-group heading="Suggestions"&gt;
+      &lt;hal-command-item&gt;Calendar&lt;/hal-command-item&gt;
+      &lt;hal-command-item&gt;Search Emoji&lt;/hal-command-item&gt;
+    &lt;/hal-command-group&gt;
+  &lt;/hal-command-list&gt;
+&lt;/hal-command&gt;</code></pre>
       </section>
 
       <!-- With Groups -->
@@ -54,32 +54,32 @@
           Organize commands into logical groups with headings and separators.
         </p>
         <div class="mb-4">
-          <plank-command class="rounded-lg border shadow-md max-w-[450px]">
-            <plank-command-input
+          <hal-command class="rounded-lg border shadow-md max-w-[450px]">
+            <hal-command-input
               placeholder="Type a command or search..."
-            ></plank-command-input>
-            <plank-command-list>
-              <plank-command-empty>No results found.</plank-command-empty>
-              <plank-command-group heading="Suggestions">
-                <plank-command-item>Calendar</plank-command-item>
-                <plank-command-item>Search Emoji</plank-command-item>
-              </plank-command-group>
-              <plank-command-separator></plank-command-separator>
-              <plank-command-group heading="Settings">
-                <plank-command-item>Profile</plank-command-item>
-                <plank-command-item>Billing</plank-command-item>
-                <plank-command-item>Settings</plank-command-item>
-              </plank-command-group>
-            </plank-command-list>
-          </plank-command>
+            ></hal-command-input>
+            <hal-command-list>
+              <hal-command-empty>No results found.</hal-command-empty>
+              <hal-command-group heading="Suggestions">
+                <hal-command-item>Calendar</hal-command-item>
+                <hal-command-item>Search Emoji</hal-command-item>
+              </hal-command-group>
+              <hal-command-separator></hal-command-separator>
+              <hal-command-group heading="Settings">
+                <hal-command-item>Profile</hal-command-item>
+                <hal-command-item>Billing</hal-command-item>
+                <hal-command-item>Settings</hal-command-item>
+              </hal-command-group>
+            </hal-command-list>
+          </hal-command>
         </div>
-        <pre><code>&lt;plank-command-group heading="Suggestions"&gt;
-  &lt;plank-command-item&gt;Calendar&lt;/plank-command-item&gt;
-&lt;/plank-command-group&gt;
-&lt;plank-command-separator&gt;&lt;/plank-command-separator&gt;
-&lt;plank-command-group heading="Settings"&gt;
-  &lt;plank-command-item&gt;Profile&lt;/plank-command-item&gt;
-&lt;/plank-command-group&gt;</code></pre>
+        <pre><code>&lt;hal-command-group heading="Suggestions"&gt;
+  &lt;hal-command-item&gt;Calendar&lt;/hal-command-item&gt;
+&lt;/hal-command-group&gt;
+&lt;hal-command-separator&gt;&lt;/hal-command-separator&gt;
+&lt;hal-command-group heading="Settings"&gt;
+  &lt;hal-command-item&gt;Profile&lt;/hal-command-item&gt;
+&lt;/hal-command-group&gt;</code></pre>
       </section>
 
       <!-- With Shortcuts -->
@@ -89,32 +89,32 @@
           Display keyboard shortcuts alongside command items.
         </p>
         <div class="mb-4">
-          <plank-command class="rounded-lg border shadow-md max-w-[450px]">
-            <plank-command-input
+          <hal-command class="rounded-lg border shadow-md max-w-[450px]">
+            <hal-command-input
               placeholder="Type a command or search..."
-            ></plank-command-input>
-            <plank-command-list>
-              <plank-command-group heading="Actions">
-                <plank-command-item>
+            ></hal-command-input>
+            <hal-command-list>
+              <hal-command-group heading="Actions">
+                <hal-command-item>
                   <span>Profile</span>
-                  <plank-command-shortcut>&#8984;P</plank-command-shortcut>
-                </plank-command-item>
-                <plank-command-item>
+                  <hal-command-shortcut>&#8984;P</hal-command-shortcut>
+                </hal-command-item>
+                <hal-command-item>
                   <span>Billing</span>
-                  <plank-command-shortcut>&#8984;B</plank-command-shortcut>
-                </plank-command-item>
-                <plank-command-item>
+                  <hal-command-shortcut>&#8984;B</hal-command-shortcut>
+                </hal-command-item>
+                <hal-command-item>
                   <span>Settings</span>
-                  <plank-command-shortcut>&#8984;S</plank-command-shortcut>
-                </plank-command-item>
-              </plank-command-group>
-            </plank-command-list>
-          </plank-command>
+                  <hal-command-shortcut>&#8984;S</hal-command-shortcut>
+                </hal-command-item>
+              </hal-command-group>
+            </hal-command-list>
+          </hal-command>
         </div>
-        <pre><code>&lt;plank-command-item&gt;
+        <pre><code>&lt;hal-command-item&gt;
   &lt;span&gt;Profile&lt;/span&gt;
-  &lt;plank-command-shortcut&gt;&#8984;P&lt;/plank-command-shortcut&gt;
-&lt;/plank-command-item&gt;</code></pre>
+  &lt;hal-command-shortcut&gt;&#8984;P&lt;/hal-command-shortcut&gt;
+&lt;/hal-command-item&gt;</code></pre>
       </section>
 
       <!-- Disabled Items -->
@@ -125,29 +125,27 @@
           navigation.
         </p>
         <div class="mb-4">
-          <plank-command class="rounded-lg border shadow-md max-w-[450px]">
-            <plank-command-input
+          <hal-command class="rounded-lg border shadow-md max-w-[450px]">
+            <hal-command-input
               placeholder="Type a command or search..."
-            ></plank-command-input>
-            <plank-command-list>
-              <plank-command-group heading="Actions">
-                <plank-command-item>Enabled Action</plank-command-item>
-                <plank-command-item disabled
-                  >Disabled Action</plank-command-item
-                >
-                <plank-command-item>Another Action</plank-command-item>
-              </plank-command-group>
-            </plank-command-list>
-          </plank-command>
+            ></hal-command-input>
+            <hal-command-list>
+              <hal-command-group heading="Actions">
+                <hal-command-item>Enabled Action</hal-command-item>
+                <hal-command-item disabled>Disabled Action</hal-command-item>
+                <hal-command-item>Another Action</hal-command-item>
+              </hal-command-group>
+            </hal-command-list>
+          </hal-command>
         </div>
-        <pre><code>&lt;plank-command-item disabled&gt;Disabled Action&lt;/plank-command-item&gt;</code></pre>
+        <pre><code>&lt;hal-command-item disabled&gt;Disabled Action&lt;/hal-command-item&gt;</code></pre>
       </section>
 
       <!-- API -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">API</h2>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-command</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-command</h3>
         <p class="text-muted-foreground mb-4">
           The root container that manages state and filtering.
         </p>
@@ -174,7 +172,7 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-command-input</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-command-input</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -198,17 +196,17 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-command-list</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-command-list</h3>
         <p class="text-muted-foreground mb-4">
           Container for items. Has role="listbox" and scrollable overflow.
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-command-empty</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-command-empty</h3>
         <p class="text-muted-foreground mb-4">
           Displayed when no items match the search query.
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-command-group</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-command-group</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -232,7 +230,7 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-command-item</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-command-item</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -266,12 +264,12 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-command-separator</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-command-separator</h3>
         <p class="text-muted-foreground mb-4">
           A horizontal divider between groups.
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-command-shortcut</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-command-shortcut</h3>
         <p class="text-muted-foreground mb-4">
           Displays a keyboard shortcut aligned to the right of an item.
         </p>

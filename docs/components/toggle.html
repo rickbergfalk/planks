@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Toggle - Planks</title>
+    <title>Toggle - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -17,7 +17,7 @@
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Basic Usage</h2>
         <div class="flex flex-wrap items-center gap-4 mb-4">
-          <plank-toggle aria-label="Toggle bold">
+          <hal-toggle aria-label="Toggle bold">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -33,11 +33,11 @@
                 d="M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8"
               />
             </svg>
-          </plank-toggle>
+          </hal-toggle>
         </div>
-        <pre><code>&lt;plank-toggle aria-label="Toggle bold"&gt;
+        <pre><code>&lt;hal-toggle aria-label="Toggle bold"&gt;
   &lt;svg&gt;...&lt;/svg&gt;
-&lt;/plank-toggle&gt;</code></pre>
+&lt;/hal-toggle&gt;</code></pre>
       </section>
 
       <!-- States -->
@@ -45,16 +45,16 @@
         <h2 class="text-2xl font-semibold mb-4">States</h2>
         <div class="flex flex-wrap items-center gap-6 mb-4">
           <div class="flex items-center gap-2">
-            <plank-toggle aria-label="Toggle">B</plank-toggle>
+            <hal-toggle aria-label="Toggle">B</hal-toggle>
             <span class="text-sm text-muted-foreground">Off</span>
           </div>
           <div class="flex items-center gap-2">
-            <plank-toggle pressed aria-label="Toggle">B</plank-toggle>
+            <hal-toggle pressed aria-label="Toggle">B</hal-toggle>
             <span class="text-sm text-muted-foreground">On</span>
           </div>
         </div>
-        <pre><code>&lt;plank-toggle aria-label="Toggle"&gt;B&lt;/plank-toggle&gt;
-&lt;plank-toggle pressed aria-label="Toggle"&gt;B&lt;/plank-toggle&gt;</code></pre>
+        <pre><code>&lt;hal-toggle aria-label="Toggle"&gt;B&lt;/hal-toggle&gt;
+&lt;hal-toggle pressed aria-label="Toggle"&gt;B&lt;/hal-toggle&gt;</code></pre>
       </section>
 
       <!-- Variants -->
@@ -62,16 +62,16 @@
         <h2 class="text-2xl font-semibold mb-4">Variants</h2>
         <div class="flex flex-wrap items-center gap-6 mb-4">
           <div class="flex items-center gap-2">
-            <plank-toggle aria-label="Toggle">B</plank-toggle>
+            <hal-toggle aria-label="Toggle">B</hal-toggle>
             <span class="text-sm text-muted-foreground">Default</span>
           </div>
           <div class="flex items-center gap-2">
-            <plank-toggle variant="outline" aria-label="Toggle">B</plank-toggle>
+            <hal-toggle variant="outline" aria-label="Toggle">B</hal-toggle>
             <span class="text-sm text-muted-foreground">Outline</span>
           </div>
         </div>
-        <pre><code>&lt;plank-toggle&gt;B&lt;/plank-toggle&gt;
-&lt;plank-toggle variant="outline"&gt;B&lt;/plank-toggle&gt;</code></pre>
+        <pre><code>&lt;hal-toggle&gt;B&lt;/hal-toggle&gt;
+&lt;hal-toggle variant="outline"&gt;B&lt;/hal-toggle&gt;</code></pre>
       </section>
 
       <!-- Sizes -->
@@ -79,21 +79,21 @@
         <h2 class="text-2xl font-semibold mb-4">Sizes</h2>
         <div class="flex flex-wrap items-center gap-6 mb-4">
           <div class="flex items-center gap-2">
-            <plank-toggle size="sm" aria-label="Toggle">B</plank-toggle>
+            <hal-toggle size="sm" aria-label="Toggle">B</hal-toggle>
             <span class="text-sm text-muted-foreground">Small</span>
           </div>
           <div class="flex items-center gap-2">
-            <plank-toggle aria-label="Toggle">B</plank-toggle>
+            <hal-toggle aria-label="Toggle">B</hal-toggle>
             <span class="text-sm text-muted-foreground">Default</span>
           </div>
           <div class="flex items-center gap-2">
-            <plank-toggle size="lg" aria-label="Toggle">B</plank-toggle>
+            <hal-toggle size="lg" aria-label="Toggle">B</hal-toggle>
             <span class="text-sm text-muted-foreground">Large</span>
           </div>
         </div>
-        <pre><code>&lt;plank-toggle size="sm"&gt;B&lt;/plank-toggle&gt;
-&lt;plank-toggle&gt;B&lt;/plank-toggle&gt;
-&lt;plank-toggle size="lg"&gt;B&lt;/plank-toggle&gt;</code></pre>
+        <pre><code>&lt;hal-toggle size="sm"&gt;B&lt;/hal-toggle&gt;
+&lt;hal-toggle&gt;B&lt;/hal-toggle&gt;
+&lt;hal-toggle size="lg"&gt;B&lt;/hal-toggle&gt;</code></pre>
       </section>
 
       <!-- Disabled -->
@@ -101,18 +101,18 @@
         <h2 class="text-2xl font-semibold mb-4">Disabled</h2>
         <div class="flex flex-wrap items-center gap-6 mb-4">
           <div class="flex items-center gap-2">
-            <plank-toggle disabled aria-label="Toggle">B</plank-toggle>
+            <hal-toggle disabled aria-label="Toggle">B</hal-toggle>
             <span class="text-sm text-muted-foreground">Disabled</span>
           </div>
         </div>
-        <pre><code>&lt;plank-toggle disabled&gt;B&lt;/plank-toggle&gt;</code></pre>
+        <pre><code>&lt;hal-toggle disabled&gt;B&lt;/hal-toggle&gt;</code></pre>
       </section>
 
       <!-- With Text -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">With Text</h2>
         <div class="flex flex-wrap items-center gap-4 mb-4">
-          <plank-toggle aria-label="Toggle italic">
+          <hal-toggle aria-label="Toggle italic">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -129,12 +129,12 @@
               <line x1="15" x2="9" y1="4" y2="20" />
             </svg>
             Italic
-          </plank-toggle>
+          </hal-toggle>
         </div>
-        <pre><code>&lt;plank-toggle aria-label="Toggle italic"&gt;
+        <pre><code>&lt;hal-toggle aria-label="Toggle italic"&gt;
   &lt;svg&gt;...&lt;/svg&gt;
   Italic
-&lt;/plank-toggle&gt;</code></pre>
+&lt;/hal-toggle&gt;</code></pre>
       </section>
 
       <!-- API -->

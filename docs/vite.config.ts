@@ -18,7 +18,7 @@ const componentPages = readdirSync(resolve(__dirname, "components"))
 
 export default defineConfig({
   // Base path for GitHub Pages (repo name)
-  base: process.env.CI ? "/planks/" : "/",
+  base: process.env.CI ? "/hallucn/" : "/",
   plugins: [tailwindcss(), react()],
   resolve: {
     alias: {

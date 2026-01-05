@@ -1,10 +1,10 @@
 import { describe, it, expect, beforeEach } from "vitest"
 import { page } from "vitest/browser"
-import "../../src/web-components/plank-collapsible"
-import "../../src/web-components/plank-button"
-import type { PlankCollapsible } from "../../src/web-components/plank-collapsible"
+import "../../src/web-components/hal-collapsible"
+import "../../src/web-components/hal-button"
+import type { HalCollapsible } from "../../src/web-components/hal-collapsible"
 
-describe("plank-collapsible - Visual", () => {
+describe("hal-collapsible - Visual", () => {
   let container: HTMLElement
 
   beforeEach(() => {
@@ -18,31 +18,31 @@ describe("plank-collapsible - Visual", () => {
   it("closed state", async () => {
     container.innerHTML = `
       <div data-testid="container" style="padding: 8px; width: 350px;">
-        <plank-collapsible class="flex flex-col gap-2">
+        <hal-collapsible class="flex flex-col gap-2">
           <div class="flex items-center justify-between gap-4">
             <span class="text-sm font-semibold">Toggle me</span>
-            <plank-collapsible-trigger>
-              <plank-button variant="ghost" size="sm">Toggle</plank-button>
-            </plank-collapsible-trigger>
+            <hal-collapsible-trigger>
+              <hal-button variant="ghost" size="sm">Toggle</hal-button>
+            </hal-collapsible-trigger>
           </div>
           <div class="rounded-md border px-4 py-2 text-sm">
             Always visible
           </div>
-          <plank-collapsible-content class="flex flex-col gap-2">
+          <hal-collapsible-content class="flex flex-col gap-2">
             <div class="rounded-md border px-4 py-2 text-sm">
               Hidden content 1
             </div>
             <div class="rounded-md border px-4 py-2 text-sm">
               Hidden content 2
             </div>
-          </plank-collapsible-content>
-        </plank-collapsible>
+          </hal-collapsible-content>
+        </hal-collapsible>
       </div>
     `
-    await customElements.whenDefined("plank-collapsible")
+    await customElements.whenDefined("hal-collapsible")
     const collapsible = container.querySelector(
-      "plank-collapsible"
-    ) as PlankCollapsible
+      "hal-collapsible"
+    ) as HalCollapsible
     await collapsible.updateComplete
 
     await expect(page.getByTestId("container")).toMatchScreenshot(
@@ -53,31 +53,31 @@ describe("plank-collapsible - Visual", () => {
   it("open state", async () => {
     container.innerHTML = `
       <div data-testid="container" style="padding: 8px; width: 350px;">
-        <plank-collapsible open class="flex flex-col gap-2">
+        <hal-collapsible open class="flex flex-col gap-2">
           <div class="flex items-center justify-between gap-4">
             <span class="text-sm font-semibold">Toggle me</span>
-            <plank-collapsible-trigger>
-              <plank-button variant="ghost" size="sm">Toggle</plank-button>
-            </plank-collapsible-trigger>
+            <hal-collapsible-trigger>
+              <hal-button variant="ghost" size="sm">Toggle</hal-button>
+            </hal-collapsible-trigger>
           </div>
           <div class="rounded-md border px-4 py-2 text-sm">
             Always visible
           </div>
-          <plank-collapsible-content class="flex flex-col gap-2">
+          <hal-collapsible-content class="flex flex-col gap-2">
             <div class="rounded-md border px-4 py-2 text-sm">
               Hidden content 1
             </div>
             <div class="rounded-md border px-4 py-2 text-sm">
               Hidden content 2
             </div>
-          </plank-collapsible-content>
-        </plank-collapsible>
+          </hal-collapsible-content>
+        </hal-collapsible>
       </div>
     `
-    await customElements.whenDefined("plank-collapsible")
+    await customElements.whenDefined("hal-collapsible")
     const collapsible = container.querySelector(
-      "plank-collapsible"
-    ) as PlankCollapsible
+      "hal-collapsible"
+    ) as HalCollapsible
     await collapsible.updateComplete
 
     await expect(page.getByTestId("container")).toMatchScreenshot(

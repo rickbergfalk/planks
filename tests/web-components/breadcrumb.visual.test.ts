@@ -1,9 +1,9 @@
 import { describe, it, expect, beforeEach } from "vitest"
 import { page } from "vitest/browser"
-import "../../src/web-components/plank-breadcrumb"
-import type { PlankBreadcrumb } from "../../src/web-components/plank-breadcrumb"
+import "../../src/web-components/hal-breadcrumb"
+import type { HalBreadcrumb } from "../../src/web-components/hal-breadcrumb"
 
-describe("plank-breadcrumb - Visual", () => {
+describe("hal-breadcrumb - Visual", () => {
   let container: HTMLElement
 
   beforeEach(() => {
@@ -19,26 +19,26 @@ describe("plank-breadcrumb - Visual", () => {
 
   it("default breadcrumb", async () => {
     container.innerHTML = `
-      <plank-breadcrumb>
-        <plank-breadcrumb-list>
-          <plank-breadcrumb-item>
-            <plank-breadcrumb-link href="#">Home</plank-breadcrumb-link>
-          </plank-breadcrumb-item>
-          <plank-breadcrumb-separator></plank-breadcrumb-separator>
-          <plank-breadcrumb-item>
-            <plank-breadcrumb-link href="#">Components</plank-breadcrumb-link>
-          </plank-breadcrumb-item>
-          <plank-breadcrumb-separator></plank-breadcrumb-separator>
-          <plank-breadcrumb-item>
-            <plank-breadcrumb-page>Breadcrumb</plank-breadcrumb-page>
-          </plank-breadcrumb-item>
-        </plank-breadcrumb-list>
-      </plank-breadcrumb>
+      <hal-breadcrumb>
+        <hal-breadcrumb-list>
+          <hal-breadcrumb-item>
+            <hal-breadcrumb-link href="#">Home</hal-breadcrumb-link>
+          </hal-breadcrumb-item>
+          <hal-breadcrumb-separator></hal-breadcrumb-separator>
+          <hal-breadcrumb-item>
+            <hal-breadcrumb-link href="#">Components</hal-breadcrumb-link>
+          </hal-breadcrumb-item>
+          <hal-breadcrumb-separator></hal-breadcrumb-separator>
+          <hal-breadcrumb-item>
+            <hal-breadcrumb-page>Breadcrumb</hal-breadcrumb-page>
+          </hal-breadcrumb-item>
+        </hal-breadcrumb-list>
+      </hal-breadcrumb>
     `
-    await customElements.whenDefined("plank-breadcrumb")
+    await customElements.whenDefined("hal-breadcrumb")
     const breadcrumb = container.querySelector(
-      "plank-breadcrumb"
-    ) as PlankBreadcrumb
+      "hal-breadcrumb"
+    ) as HalBreadcrumb
     await breadcrumb.updateComplete
     await expect(page.getByTestId("container")).toMatchScreenshot(
       "breadcrumb-default"
@@ -47,30 +47,30 @@ describe("plank-breadcrumb - Visual", () => {
 
   it("breadcrumb with ellipsis", async () => {
     container.innerHTML = `
-      <plank-breadcrumb>
-        <plank-breadcrumb-list>
-          <plank-breadcrumb-item>
-            <plank-breadcrumb-link href="#">Home</plank-breadcrumb-link>
-          </plank-breadcrumb-item>
-          <plank-breadcrumb-separator></plank-breadcrumb-separator>
-          <plank-breadcrumb-item>
-            <plank-breadcrumb-ellipsis></plank-breadcrumb-ellipsis>
-          </plank-breadcrumb-item>
-          <plank-breadcrumb-separator></plank-breadcrumb-separator>
-          <plank-breadcrumb-item>
-            <plank-breadcrumb-link href="#">Components</plank-breadcrumb-link>
-          </plank-breadcrumb-item>
-          <plank-breadcrumb-separator></plank-breadcrumb-separator>
-          <plank-breadcrumb-item>
-            <plank-breadcrumb-page>Breadcrumb</plank-breadcrumb-page>
-          </plank-breadcrumb-item>
-        </plank-breadcrumb-list>
-      </plank-breadcrumb>
+      <hal-breadcrumb>
+        <hal-breadcrumb-list>
+          <hal-breadcrumb-item>
+            <hal-breadcrumb-link href="#">Home</hal-breadcrumb-link>
+          </hal-breadcrumb-item>
+          <hal-breadcrumb-separator></hal-breadcrumb-separator>
+          <hal-breadcrumb-item>
+            <hal-breadcrumb-ellipsis></hal-breadcrumb-ellipsis>
+          </hal-breadcrumb-item>
+          <hal-breadcrumb-separator></hal-breadcrumb-separator>
+          <hal-breadcrumb-item>
+            <hal-breadcrumb-link href="#">Components</hal-breadcrumb-link>
+          </hal-breadcrumb-item>
+          <hal-breadcrumb-separator></hal-breadcrumb-separator>
+          <hal-breadcrumb-item>
+            <hal-breadcrumb-page>Breadcrumb</hal-breadcrumb-page>
+          </hal-breadcrumb-item>
+        </hal-breadcrumb-list>
+      </hal-breadcrumb>
     `
-    await customElements.whenDefined("plank-breadcrumb")
+    await customElements.whenDefined("hal-breadcrumb")
     const breadcrumb = container.querySelector(
-      "plank-breadcrumb"
-    ) as PlankBreadcrumb
+      "hal-breadcrumb"
+    ) as HalBreadcrumb
     await breadcrumb.updateComplete
     await expect(page.getByTestId("container")).toMatchScreenshot(
       "breadcrumb-ellipsis"

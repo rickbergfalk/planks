@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach } from "vitest"
 import { page } from "vitest/browser"
-import "@/web-components/plank-context-menu"
+import "@/web-components/hal-context-menu"
 
 // Small pixel variance allowed for context menu tests:
 // - React uses Radix's SVG-based icons (CheckIcon, CircleIcon, ChevronRightIcon)
@@ -34,41 +34,41 @@ describe("ContextMenu (Web Component) - Visual", () => {
         data-testid="container"
         style="padding: 100px; display: flex; justify-content: center; align-items: flex-start;"
       >
-        <plank-context-menu>
-          <plank-context-menu-trigger>
+        <hal-context-menu>
+          <hal-context-menu-trigger>
             <div
               data-testid="trigger"
               style="width: 300px; height: 150px; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; border-radius: 8px;"
             >
               Right click here
             </div>
-          </plank-context-menu-trigger>
-          <plank-context-menu-content>
-            <plank-context-menu-label>My Account</plank-context-menu-label>
-            <plank-context-menu-separator></plank-context-menu-separator>
-            <plank-context-menu-group>
-              <plank-context-menu-item>
+          </hal-context-menu-trigger>
+          <hal-context-menu-content>
+            <hal-context-menu-label>My Account</hal-context-menu-label>
+            <hal-context-menu-separator></hal-context-menu-separator>
+            <hal-context-menu-group>
+              <hal-context-menu-item>
                 Profile
-                <plank-context-menu-shortcut>⇧⌘P</plank-context-menu-shortcut>
-              </plank-context-menu-item>
-              <plank-context-menu-item>
+                <hal-context-menu-shortcut>⇧⌘P</hal-context-menu-shortcut>
+              </hal-context-menu-item>
+              <hal-context-menu-item>
                 Billing
-                <plank-context-menu-shortcut>⌘B</plank-context-menu-shortcut>
-              </plank-context-menu-item>
-              <plank-context-menu-item>
+                <hal-context-menu-shortcut>⌘B</hal-context-menu-shortcut>
+              </hal-context-menu-item>
+              <hal-context-menu-item>
                 Settings
-                <plank-context-menu-shortcut>⌘S</plank-context-menu-shortcut>
-              </plank-context-menu-item>
-            </plank-context-menu-group>
-            <plank-context-menu-separator></plank-context-menu-separator>
-            <plank-context-menu-item>Log out</plank-context-menu-item>
-          </plank-context-menu-content>
-        </plank-context-menu>
+                <hal-context-menu-shortcut>⌘S</hal-context-menu-shortcut>
+              </hal-context-menu-item>
+            </hal-context-menu-group>
+            <hal-context-menu-separator></hal-context-menu-separator>
+            <hal-context-menu-item>Log out</hal-context-menu-item>
+          </hal-context-menu-content>
+        </hal-context-menu>
       </div>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const menu = container.querySelector("plank-context-menu")!
+    await customElements.whenDefined("hal-context-menu")
+    const menu = container.querySelector("hal-context-menu")!
     await (menu as any).updateComplete
 
     // Trigger the context menu with right-click at center of trigger area
@@ -97,34 +97,34 @@ describe("ContextMenu (Web Component) - Visual", () => {
         data-testid="container"
         style="padding: 100px; display: flex; justify-content: center; align-items: flex-start;"
       >
-        <plank-context-menu>
-          <plank-context-menu-trigger>
+        <hal-context-menu>
+          <hal-context-menu-trigger>
             <div
               data-testid="trigger"
               style="width: 300px; height: 150px; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; border-radius: 8px;"
             >
               Right click here
             </div>
-          </plank-context-menu-trigger>
-          <plank-context-menu-content class="w-56">
-            <plank-context-menu-label>Appearance</plank-context-menu-label>
-            <plank-context-menu-separator></plank-context-menu-separator>
-            <plank-context-menu-checkbox-item checked>
+          </hal-context-menu-trigger>
+          <hal-context-menu-content class="w-56">
+            <hal-context-menu-label>Appearance</hal-context-menu-label>
+            <hal-context-menu-separator></hal-context-menu-separator>
+            <hal-context-menu-checkbox-item checked>
               Status Bar
-            </plank-context-menu-checkbox-item>
-            <plank-context-menu-checkbox-item>
+            </hal-context-menu-checkbox-item>
+            <hal-context-menu-checkbox-item>
               Activity Bar
-            </plank-context-menu-checkbox-item>
-            <plank-context-menu-checkbox-item checked>
+            </hal-context-menu-checkbox-item>
+            <hal-context-menu-checkbox-item checked>
               Panel
-            </plank-context-menu-checkbox-item>
-          </plank-context-menu-content>
-        </plank-context-menu>
+            </hal-context-menu-checkbox-item>
+          </hal-context-menu-content>
+        </hal-context-menu>
       </div>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const menu = container.querySelector("plank-context-menu")!
+    await customElements.whenDefined("hal-context-menu")
+    const menu = container.querySelector("hal-context-menu")!
     await (menu as any).updateComplete
 
     // Trigger the context menu with right-click at center of trigger area
@@ -153,32 +153,32 @@ describe("ContextMenu (Web Component) - Visual", () => {
         data-testid="container"
         style="padding: 100px; display: flex; justify-content: center; align-items: flex-start;"
       >
-        <plank-context-menu>
-          <plank-context-menu-trigger>
+        <hal-context-menu>
+          <hal-context-menu-trigger>
             <div
               data-testid="trigger"
               style="width: 300px; height: 150px; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; border-radius: 8px;"
             >
               Right click here
             </div>
-          </plank-context-menu-trigger>
-          <plank-context-menu-content class="w-56">
-            <plank-context-menu-label>Panel Position</plank-context-menu-label>
-            <plank-context-menu-separator></plank-context-menu-separator>
-            <plank-context-menu-radio-group value="bottom">
-              <plank-context-menu-radio-item value="top">Top</plank-context-menu-radio-item>
-              <plank-context-menu-radio-item value="bottom">
+          </hal-context-menu-trigger>
+          <hal-context-menu-content class="w-56">
+            <hal-context-menu-label>Panel Position</hal-context-menu-label>
+            <hal-context-menu-separator></hal-context-menu-separator>
+            <hal-context-menu-radio-group value="bottom">
+              <hal-context-menu-radio-item value="top">Top</hal-context-menu-radio-item>
+              <hal-context-menu-radio-item value="bottom">
                 Bottom
-              </plank-context-menu-radio-item>
-              <plank-context-menu-radio-item value="right">Right</plank-context-menu-radio-item>
-            </plank-context-menu-radio-group>
-          </plank-context-menu-content>
-        </plank-context-menu>
+              </hal-context-menu-radio-item>
+              <hal-context-menu-radio-item value="right">Right</hal-context-menu-radio-item>
+            </hal-context-menu-radio-group>
+          </hal-context-menu-content>
+        </hal-context-menu>
       </div>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const menu = container.querySelector("plank-context-menu")!
+    await customElements.whenDefined("hal-context-menu")
+    const menu = container.querySelector("hal-context-menu")!
     await (menu as any).updateComplete
 
     // Trigger the context menu with right-click at center of trigger area
@@ -207,26 +207,26 @@ describe("ContextMenu (Web Component) - Visual", () => {
         data-testid="container"
         style="padding: 100px; display: flex; justify-content: center; align-items: flex-start;"
       >
-        <plank-context-menu>
-          <plank-context-menu-trigger>
+        <hal-context-menu>
+          <hal-context-menu-trigger>
             <div
               data-testid="trigger"
               style="width: 300px; height: 150px; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; border-radius: 8px;"
             >
               Right click here
             </div>
-          </plank-context-menu-trigger>
-          <plank-context-menu-content>
-            <plank-context-menu-item>Enabled Item</plank-context-menu-item>
-            <plank-context-menu-item disabled>Disabled Item</plank-context-menu-item>
-            <plank-context-menu-item>Another Enabled</plank-context-menu-item>
-          </plank-context-menu-content>
-        </plank-context-menu>
+          </hal-context-menu-trigger>
+          <hal-context-menu-content>
+            <hal-context-menu-item>Enabled Item</hal-context-menu-item>
+            <hal-context-menu-item disabled>Disabled Item</hal-context-menu-item>
+            <hal-context-menu-item>Another Enabled</hal-context-menu-item>
+          </hal-context-menu-content>
+        </hal-context-menu>
       </div>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const menu = container.querySelector("plank-context-menu")!
+    await customElements.whenDefined("hal-context-menu")
+    const menu = container.querySelector("hal-context-menu")!
     await (menu as any).updateComplete
 
     // Trigger the context menu with right-click at center of trigger area
@@ -255,27 +255,27 @@ describe("ContextMenu (Web Component) - Visual", () => {
         data-testid="container"
         style="padding: 100px; display: flex; justify-content: center; align-items: flex-start;"
       >
-        <plank-context-menu>
-          <plank-context-menu-trigger>
+        <hal-context-menu>
+          <hal-context-menu-trigger>
             <div
               data-testid="trigger"
               style="width: 300px; height: 150px; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; border-radius: 8px;"
             >
               Right click here
             </div>
-          </plank-context-menu-trigger>
-          <plank-context-menu-content>
-            <plank-context-menu-item>Edit</plank-context-menu-item>
-            <plank-context-menu-item>Duplicate</plank-context-menu-item>
-            <plank-context-menu-separator></plank-context-menu-separator>
-            <plank-context-menu-item variant="destructive">Delete</plank-context-menu-item>
-          </plank-context-menu-content>
-        </plank-context-menu>
+          </hal-context-menu-trigger>
+          <hal-context-menu-content>
+            <hal-context-menu-item>Edit</hal-context-menu-item>
+            <hal-context-menu-item>Duplicate</hal-context-menu-item>
+            <hal-context-menu-separator></hal-context-menu-separator>
+            <hal-context-menu-item variant="destructive">Delete</hal-context-menu-item>
+          </hal-context-menu-content>
+        </hal-context-menu>
       </div>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const menu = container.querySelector("plank-context-menu")!
+    await customElements.whenDefined("hal-context-menu")
+    const menu = container.querySelector("hal-context-menu")!
     await (menu as any).updateComplete
 
     // Trigger the context menu with right-click at center of trigger area
@@ -304,27 +304,27 @@ describe("ContextMenu (Web Component) - Visual", () => {
         data-testid="container"
         style="padding: 100px; display: flex; justify-content: center; align-items: flex-start;"
       >
-        <plank-context-menu>
-          <plank-context-menu-trigger>
+        <hal-context-menu>
+          <hal-context-menu-trigger>
             <div
               data-testid="trigger"
               style="width: 300px; height: 150px; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; border-radius: 8px;"
             >
               Right click here
             </div>
-          </plank-context-menu-trigger>
-          <plank-context-menu-content>
-            <plank-context-menu-label inset>Settings</plank-context-menu-label>
-            <plank-context-menu-separator></plank-context-menu-separator>
-            <plank-context-menu-item inset>Profile</plank-context-menu-item>
-            <plank-context-menu-item inset>Account</plank-context-menu-item>
-          </plank-context-menu-content>
-        </plank-context-menu>
+          </hal-context-menu-trigger>
+          <hal-context-menu-content>
+            <hal-context-menu-label inset>Settings</hal-context-menu-label>
+            <hal-context-menu-separator></hal-context-menu-separator>
+            <hal-context-menu-item inset>Profile</hal-context-menu-item>
+            <hal-context-menu-item inset>Account</hal-context-menu-item>
+          </hal-context-menu-content>
+        </hal-context-menu>
       </div>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const menu = container.querySelector("plank-context-menu")!
+    await customElements.whenDefined("hal-context-menu")
+    const menu = container.querySelector("hal-context-menu")!
     await (menu as any).updateComplete
 
     // Trigger the context menu with right-click at center of trigger area
@@ -353,38 +353,38 @@ describe("ContextMenu (Web Component) - Visual", () => {
         data-testid="container"
         style="padding: 100px; width: 500px; display: flex; justify-content: flex-start; align-items: flex-start;"
       >
-        <plank-context-menu>
-          <plank-context-menu-trigger>
+        <hal-context-menu>
+          <hal-context-menu-trigger>
             <div
               data-testid="trigger"
               style="width: 200px; height: 150px; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; border-radius: 8px;"
             >
               Right click here
             </div>
-          </plank-context-menu-trigger>
-          <plank-context-menu-content>
-            <plank-context-menu-item>New Tab</plank-context-menu-item>
-            <plank-context-menu-item>New Window</plank-context-menu-item>
-            <plank-context-menu-separator></plank-context-menu-separator>
-            <plank-context-menu-sub open>
-              <plank-context-menu-sub-trigger>More Tools</plank-context-menu-sub-trigger>
-              <plank-context-menu-sub-content>
-                <plank-context-menu-item>Save Page As...</plank-context-menu-item>
-                <plank-context-menu-item>Create Shortcut...</plank-context-menu-item>
-                <plank-context-menu-item>Name Window...</plank-context-menu-item>
-                <plank-context-menu-separator></plank-context-menu-separator>
-                <plank-context-menu-item>Developer Tools</plank-context-menu-item>
-              </plank-context-menu-sub-content>
-            </plank-context-menu-sub>
-            <plank-context-menu-separator></plank-context-menu-separator>
-            <plank-context-menu-item>Quit</plank-context-menu-item>
-          </plank-context-menu-content>
-        </plank-context-menu>
+          </hal-context-menu-trigger>
+          <hal-context-menu-content>
+            <hal-context-menu-item>New Tab</hal-context-menu-item>
+            <hal-context-menu-item>New Window</hal-context-menu-item>
+            <hal-context-menu-separator></hal-context-menu-separator>
+            <hal-context-menu-sub open>
+              <hal-context-menu-sub-trigger>More Tools</hal-context-menu-sub-trigger>
+              <hal-context-menu-sub-content>
+                <hal-context-menu-item>Save Page As...</hal-context-menu-item>
+                <hal-context-menu-item>Create Shortcut...</hal-context-menu-item>
+                <hal-context-menu-item>Name Window...</hal-context-menu-item>
+                <hal-context-menu-separator></hal-context-menu-separator>
+                <hal-context-menu-item>Developer Tools</hal-context-menu-item>
+              </hal-context-menu-sub-content>
+            </hal-context-menu-sub>
+            <hal-context-menu-separator></hal-context-menu-separator>
+            <hal-context-menu-item>Quit</hal-context-menu-item>
+          </hal-context-menu-content>
+        </hal-context-menu>
       </div>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const menu = container.querySelector("plank-context-menu")!
+    await customElements.whenDefined("hal-context-menu")
+    const menu = container.querySelector("hal-context-menu")!
     await (menu as any).updateComplete
 
     // Trigger the context menu with right-click at center of trigger area
@@ -402,7 +402,7 @@ describe("ContextMenu (Web Component) - Visual", () => {
     await new Promise((r) => setTimeout(r, 100))
 
     // Open the submenu by finding and clicking the sub-trigger
-    const subTrigger = document.querySelector("plank-context-menu-sub-trigger")!
+    const subTrigger = document.querySelector("hal-context-menu-sub-trigger")!
     ;(subTrigger as any).open = true
     await (subTrigger as any).updateComplete
 

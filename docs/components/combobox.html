@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Combobox - Planks</title>
+    <title>Combobox - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -20,19 +20,19 @@
           A simple combobox with searchable items.
         </p>
         <div class="mb-4">
-          <plank-combobox placeholder="Select framework..." class="w-[200px]">
-            <plank-combobox-item value="next">Next.js</plank-combobox-item>
-            <plank-combobox-item value="svelte">SvelteKit</plank-combobox-item>
-            <plank-combobox-item value="nuxt">Nuxt.js</plank-combobox-item>
-            <plank-combobox-item value="remix">Remix</plank-combobox-item>
-            <plank-combobox-item value="astro">Astro</plank-combobox-item>
-          </plank-combobox>
+          <hal-combobox placeholder="Select framework..." class="w-[200px]">
+            <hal-combobox-item value="next">Next.js</hal-combobox-item>
+            <hal-combobox-item value="svelte">SvelteKit</hal-combobox-item>
+            <hal-combobox-item value="nuxt">Nuxt.js</hal-combobox-item>
+            <hal-combobox-item value="remix">Remix</hal-combobox-item>
+            <hal-combobox-item value="astro">Astro</hal-combobox-item>
+          </hal-combobox>
         </div>
-        <pre><code>&lt;plank-combobox placeholder="Select framework..."&gt;
-  &lt;plank-combobox-item value="next"&gt;Next.js&lt;/plank-combobox-item&gt;
-  &lt;plank-combobox-item value="svelte"&gt;SvelteKit&lt;/plank-combobox-item&gt;
-  &lt;plank-combobox-item value="nuxt"&gt;Nuxt.js&lt;/plank-combobox-item&gt;
-&lt;/plank-combobox&gt;</code></pre>
+        <pre><code>&lt;hal-combobox placeholder="Select framework..."&gt;
+  &lt;hal-combobox-item value="next"&gt;Next.js&lt;/hal-combobox-item&gt;
+  &lt;hal-combobox-item value="svelte"&gt;SvelteKit&lt;/hal-combobox-item&gt;
+  &lt;hal-combobox-item value="nuxt"&gt;Nuxt.js&lt;/hal-combobox-item&gt;
+&lt;/hal-combobox&gt;</code></pre>
       </section>
 
       <!-- With Preselected Value -->
@@ -42,21 +42,21 @@
           Set an initial value using the value attribute.
         </p>
         <div class="mb-4">
-          <plank-combobox
+          <hal-combobox
             value="svelte"
             placeholder="Select framework..."
             class="w-[200px]"
           >
-            <plank-combobox-item value="next">Next.js</plank-combobox-item>
-            <plank-combobox-item value="svelte">SvelteKit</plank-combobox-item>
-            <plank-combobox-item value="nuxt">Nuxt.js</plank-combobox-item>
-          </plank-combobox>
+            <hal-combobox-item value="next">Next.js</hal-combobox-item>
+            <hal-combobox-item value="svelte">SvelteKit</hal-combobox-item>
+            <hal-combobox-item value="nuxt">Nuxt.js</hal-combobox-item>
+          </hal-combobox>
         </div>
-        <pre><code>&lt;plank-combobox value="svelte" placeholder="Select framework..."&gt;
-  &lt;plank-combobox-item value="next"&gt;Next.js&lt;/plank-combobox-item&gt;
-  &lt;plank-combobox-item value="svelte"&gt;SvelteKit&lt;/plank-combobox-item&gt;
-  &lt;plank-combobox-item value="nuxt"&gt;Nuxt.js&lt;/plank-combobox-item&gt;
-&lt;/plank-combobox&gt;</code></pre>
+        <pre><code>&lt;hal-combobox value="svelte" placeholder="Select framework..."&gt;
+  &lt;hal-combobox-item value="next"&gt;Next.js&lt;/hal-combobox-item&gt;
+  &lt;hal-combobox-item value="svelte"&gt;SvelteKit&lt;/hal-combobox-item&gt;
+  &lt;hal-combobox-item value="nuxt"&gt;Nuxt.js&lt;/hal-combobox-item&gt;
+&lt;/hal-combobox&gt;</code></pre>
       </section>
 
       <!-- Disabled Items -->
@@ -67,17 +67,17 @@
           navigation.
         </p>
         <div class="mb-4">
-          <plank-combobox placeholder="Select framework..." class="w-[200px]">
-            <plank-combobox-item value="next">Next.js</plank-combobox-item>
-            <plank-combobox-item value="svelte" disabled
-              >SvelteKit (Unavailable)</plank-combobox-item
+          <hal-combobox placeholder="Select framework..." class="w-[200px]">
+            <hal-combobox-item value="next">Next.js</hal-combobox-item>
+            <hal-combobox-item value="svelte" disabled
+              >SvelteKit (Unavailable)</hal-combobox-item
             >
-            <plank-combobox-item value="nuxt">Nuxt.js</plank-combobox-item>
-          </plank-combobox>
+            <hal-combobox-item value="nuxt">Nuxt.js</hal-combobox-item>
+          </hal-combobox>
         </div>
-        <pre><code>&lt;plank-combobox-item value="svelte" disabled&gt;
+        <pre><code>&lt;hal-combobox-item value="svelte" disabled&gt;
   SvelteKit (Unavailable)
-&lt;/plank-combobox-item&gt;</code></pre>
+&lt;/hal-combobox-item&gt;</code></pre>
       </section>
 
       <!-- Disabled Combobox -->
@@ -87,17 +87,17 @@
           The entire combobox can be disabled.
         </p>
         <div class="mb-4">
-          <plank-combobox
+          <hal-combobox
             disabled
             placeholder="Select framework..."
             class="w-[200px]"
           >
-            <plank-combobox-item value="next">Next.js</plank-combobox-item>
-          </plank-combobox>
+            <hal-combobox-item value="next">Next.js</hal-combobox-item>
+          </hal-combobox>
         </div>
-        <pre><code>&lt;plank-combobox disabled placeholder="Select framework..."&gt;
-  &lt;plank-combobox-item value="next"&gt;Next.js&lt;/plank-combobox-item&gt;
-&lt;/plank-combobox&gt;</code></pre>
+        <pre><code>&lt;hal-combobox disabled placeholder="Select framework..."&gt;
+  &lt;hal-combobox-item value="next"&gt;Next.js&lt;/hal-combobox-item&gt;
+&lt;/hal-combobox&gt;</code></pre>
       </section>
 
       <!-- Custom Empty Text -->
@@ -107,16 +107,16 @@
           Customize the message shown when no items match the search query.
         </p>
         <div class="mb-4">
-          <plank-combobox
+          <hal-combobox
             placeholder="Select framework..."
             emptyText="No frameworks found. Try another search."
             class="w-[250px]"
           >
-            <plank-combobox-item value="next">Next.js</plank-combobox-item>
-            <plank-combobox-item value="svelte">SvelteKit</plank-combobox-item>
-          </plank-combobox>
+            <hal-combobox-item value="next">Next.js</hal-combobox-item>
+            <hal-combobox-item value="svelte">SvelteKit</hal-combobox-item>
+          </hal-combobox>
         </div>
-        <pre><code>&lt;plank-combobox
+        <pre><code>&lt;hal-combobox
   placeholder="Select framework..."
   emptyText="No frameworks found. Try another search."
 &gt;</code></pre>
@@ -126,7 +126,7 @@
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">API</h2>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-combobox</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-combobox</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -225,7 +225,7 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-combobox-item</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-combobox-item</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>

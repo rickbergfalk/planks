@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alert - Planks</title>
+    <title>Alert - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -16,7 +16,7 @@
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Default Alert</h2>
         <div class="max-w-xl mb-4">
-          <plank-alert>
+          <hal-alert>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -31,27 +31,27 @@
               <circle cx="12" cy="12" r="10" />
               <path d="m9 12 2 2 4-4" />
             </svg>
-            <plank-alert-title
-              >Success! Your changes have been saved</plank-alert-title
+            <hal-alert-title
+              >Success! Your changes have been saved</hal-alert-title
             >
-            <plank-alert-description>
+            <hal-alert-description>
               This is an alert with icon, title and description.
-            </plank-alert-description>
-          </plank-alert>
+            </hal-alert-description>
+          </hal-alert>
         </div>
-        <pre><code>&lt;plank-alert&gt;
+        <pre><code>&lt;hal-alert&gt;
   &lt;svg&gt;...icon...&lt;/svg&gt;
-  &lt;plank-alert-title&gt;Success! Your changes have been saved&lt;/plank-alert-title&gt;
-  &lt;plank-alert-description&gt;
+  &lt;hal-alert-title&gt;Success! Your changes have been saved&lt;/hal-alert-title&gt;
+  &lt;hal-alert-description&gt;
     This is an alert with icon, title and description.
-  &lt;/plank-alert-description&gt;
-&lt;/plank-alert&gt;</code></pre>
+  &lt;/hal-alert-description&gt;
+&lt;/hal-alert&gt;</code></pre>
       </section>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Alert with Icon and Title</h2>
         <div class="max-w-xl mb-4">
-          <plank-alert>
+          <hal-alert>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -67,22 +67,22 @@
               <path d="M12 16v-4" />
               <path d="M12 8h.01" />
             </svg>
-            <plank-alert-title
+            <hal-alert-title
               >This Alert has a title and an icon. No
-              description.</plank-alert-title
+              description.</hal-alert-title
             >
-          </plank-alert>
+          </hal-alert>
         </div>
-        <pre><code>&lt;plank-alert&gt;
+        <pre><code>&lt;hal-alert&gt;
   &lt;svg&gt;...icon...&lt;/svg&gt;
-  &lt;plank-alert-title&gt;This Alert has a title and an icon. No description.&lt;/plank-alert-title&gt;
-&lt;/plank-alert&gt;</code></pre>
+  &lt;hal-alert-title&gt;This Alert has a title and an icon. No description.&lt;/hal-alert-title&gt;
+&lt;/hal-alert&gt;</code></pre>
       </section>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Destructive Alert</h2>
         <div class="max-w-xl mb-4">
-          <plank-alert variant="destructive">
+          <hal-alert variant="destructive">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -98,19 +98,19 @@
               <line x1="12" x2="12" y1="8" y2="12" />
               <line x1="12" x2="12.01" y1="16" y2="16" />
             </svg>
-            <plank-alert-title>Error</plank-alert-title>
-            <plank-alert-description>
+            <hal-alert-title>Error</hal-alert-title>
+            <hal-alert-description>
               Your session has expired. Please log in again.
-            </plank-alert-description>
-          </plank-alert>
+            </hal-alert-description>
+          </hal-alert>
         </div>
-        <pre><code>&lt;plank-alert variant="destructive"&gt;
+        <pre><code>&lt;hal-alert variant="destructive"&gt;
   &lt;svg&gt;...icon...&lt;/svg&gt;
-  &lt;plank-alert-title&gt;Error&lt;/plank-alert-title&gt;
-  &lt;plank-alert-description&gt;
+  &lt;hal-alert-title&gt;Error&lt;/hal-alert-title&gt;
+  &lt;hal-alert-description&gt;
     Your session has expired. Please log in again.
-  &lt;/plank-alert-description&gt;
-&lt;/plank-alert&gt;</code></pre>
+  &lt;/hal-alert-description&gt;
+&lt;/hal-alert&gt;</code></pre>
       </section>
 
       <section class="mb-12">
@@ -124,15 +124,15 @@
           </thead>
           <tbody>
             <tr class="border-b">
-              <td class="py-2 pr-4 font-mono">plank-alert</td>
+              <td class="py-2 pr-4 font-mono">hal-alert</td>
               <td class="py-2">The alert container</td>
             </tr>
             <tr class="border-b">
-              <td class="py-2 pr-4 font-mono">plank-alert-title</td>
+              <td class="py-2 pr-4 font-mono">hal-alert-title</td>
               <td class="py-2">The alert title</td>
             </tr>
             <tr class="border-b">
-              <td class="py-2 pr-4 font-mono">plank-alert-description</td>
+              <td class="py-2 pr-4 font-mono">hal-alert-description</td>
               <td class="py-2">The alert description</td>
             </tr>
           </tbody>

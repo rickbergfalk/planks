@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest"
-import "@/web-components/plank-popover"
-import "@/web-components/plank-button"
+import "@/web-components/hal-popover"
+import "@/web-components/hal-button"
 
 describe("Popover (Web Component)", () => {
   let container: HTMLDivElement
@@ -22,34 +22,34 @@ describe("Popover (Web Component)", () => {
 
   it("renders trigger with correct data-slot", async () => {
     container.innerHTML = `
-      <plank-popover>
-        <plank-popover-trigger>
-          <plank-button>Open</plank-button>
-        </plank-popover-trigger>
-        <plank-popover-content>Content</plank-popover-content>
-      </plank-popover>
+      <hal-popover>
+        <hal-popover-trigger>
+          <hal-button>Open</hal-button>
+        </hal-popover-trigger>
+        <hal-popover-content>Content</hal-popover-content>
+      </hal-popover>
     `
 
-    await customElements.whenDefined("plank-popover")
-    const popover = container.querySelector("plank-popover")!
+    await customElements.whenDefined("hal-popover")
+    const popover = container.querySelector("hal-popover")!
     await (popover as any).updateComplete
 
-    const trigger = container.querySelector("plank-popover-trigger")
+    const trigger = container.querySelector("hal-popover-trigger")
     expect(trigger?.dataset.slot).toBe("popover-trigger")
   })
 
   it("popover content is hidden by default", async () => {
     container.innerHTML = `
-      <plank-popover>
-        <plank-popover-trigger>
-          <plank-button>Open</plank-button>
-        </plank-popover-trigger>
-        <plank-popover-content>Content</plank-popover-content>
-      </plank-popover>
+      <hal-popover>
+        <hal-popover-trigger>
+          <hal-button>Open</hal-button>
+        </hal-popover-trigger>
+        <hal-popover-content>Content</hal-popover-content>
+      </hal-popover>
     `
 
-    await customElements.whenDefined("plank-popover")
-    const popover = container.querySelector("plank-popover")!
+    await customElements.whenDefined("hal-popover")
+    const popover = container.querySelector("hal-popover")!
     await (popover as any).updateComplete
 
     const dialog = document.querySelector('[role="dialog"]')
@@ -58,19 +58,19 @@ describe("Popover (Web Component)", () => {
 
   it("opens popover on click", async () => {
     container.innerHTML = `
-      <plank-popover>
-        <plank-popover-trigger>
-          <plank-button>Open</plank-button>
-        </plank-popover-trigger>
-        <plank-popover-content>Popover content</plank-popover-content>
-      </plank-popover>
+      <hal-popover>
+        <hal-popover-trigger>
+          <hal-button>Open</hal-button>
+        </hal-popover-trigger>
+        <hal-popover-content>Popover content</hal-popover-content>
+      </hal-popover>
     `
 
-    await customElements.whenDefined("plank-popover")
-    const popover = container.querySelector("plank-popover")!
+    await customElements.whenDefined("hal-popover")
+    const popover = container.querySelector("hal-popover")!
     await (popover as any).updateComplete
 
-    const trigger = container.querySelector("plank-popover-trigger")!
+    const trigger = container.querySelector("hal-popover-trigger")!
     trigger.click()
     await (popover as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
@@ -82,19 +82,19 @@ describe("Popover (Web Component)", () => {
 
   it("closes popover on second click", async () => {
     container.innerHTML = `
-      <plank-popover>
-        <plank-popover-trigger>
-          <plank-button>Open</plank-button>
-        </plank-popover-trigger>
-        <plank-popover-content>Content</plank-popover-content>
-      </plank-popover>
+      <hal-popover>
+        <hal-popover-trigger>
+          <hal-button>Open</hal-button>
+        </hal-popover-trigger>
+        <hal-popover-content>Content</hal-popover-content>
+      </hal-popover>
     `
 
-    await customElements.whenDefined("plank-popover")
-    const popover = container.querySelector("plank-popover")!
+    await customElements.whenDefined("hal-popover")
+    const popover = container.querySelector("hal-popover")!
     await (popover as any).updateComplete
 
-    const trigger = container.querySelector("plank-popover-trigger")!
+    const trigger = container.querySelector("hal-popover-trigger")!
     trigger.click()
     await (popover as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
@@ -110,16 +110,16 @@ describe("Popover (Web Component)", () => {
 
   it("popover content has correct data-slot", async () => {
     container.innerHTML = `
-      <plank-popover open>
-        <plank-popover-trigger>
-          <plank-button>Open</plank-button>
-        </plank-popover-trigger>
-        <plank-popover-content>Content</plank-popover-content>
-      </plank-popover>
+      <hal-popover open>
+        <hal-popover-trigger>
+          <hal-button>Open</hal-button>
+        </hal-popover-trigger>
+        <hal-popover-content>Content</hal-popover-content>
+      </hal-popover>
     `
 
-    await customElements.whenDefined("plank-popover")
-    const popover = container.querySelector("plank-popover")!
+    await customElements.whenDefined("hal-popover")
+    const popover = container.querySelector("hal-popover")!
     await (popover as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -129,23 +129,23 @@ describe("Popover (Web Component)", () => {
 
   it("trigger has aria-haspopup and aria-expanded", async () => {
     container.innerHTML = `
-      <plank-popover>
-        <plank-popover-trigger>
-          <plank-button>Open</plank-button>
-        </plank-popover-trigger>
-        <plank-popover-content>Content</plank-popover-content>
-      </plank-popover>
+      <hal-popover>
+        <hal-popover-trigger>
+          <hal-button>Open</hal-button>
+        </hal-popover-trigger>
+        <hal-popover-content>Content</hal-popover-content>
+      </hal-popover>
     `
 
-    await customElements.whenDefined("plank-popover")
-    const popover = container.querySelector("plank-popover")!
+    await customElements.whenDefined("hal-popover")
+    const popover = container.querySelector("hal-popover")!
     await (popover as any).updateComplete
 
-    const button = container.querySelector("plank-button")!
+    const button = container.querySelector("hal-button")!
     expect(button.getAttribute("aria-haspopup")).toBe("dialog")
     expect(button.getAttribute("aria-expanded")).toBe("false")
 
-    const trigger = container.querySelector("plank-popover-trigger")!
+    const trigger = container.querySelector("hal-popover-trigger")!
     trigger.click()
     await (popover as any).updateComplete
 
@@ -154,16 +154,16 @@ describe("Popover (Web Component)", () => {
 
   it("can be controlled via open attribute", async () => {
     container.innerHTML = `
-      <plank-popover open>
-        <plank-popover-trigger>
-          <plank-button>Open</plank-button>
-        </plank-popover-trigger>
-        <plank-popover-content>Content</plank-popover-content>
-      </plank-popover>
+      <hal-popover open>
+        <hal-popover-trigger>
+          <hal-button>Open</hal-button>
+        </hal-popover-trigger>
+        <hal-popover-content>Content</hal-popover-content>
+      </hal-popover>
     `
 
-    await customElements.whenDefined("plank-popover")
-    const popover = container.querySelector("plank-popover")!
+    await customElements.whenDefined("hal-popover")
+    const popover = container.querySelector("hal-popover")!
     await (popover as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -172,22 +172,22 @@ describe("Popover (Web Component)", () => {
 
   it("fires open-change event when opened", async () => {
     container.innerHTML = `
-      <plank-popover>
-        <plank-popover-trigger>
-          <plank-button>Open</plank-button>
-        </plank-popover-trigger>
-        <plank-popover-content>Content</plank-popover-content>
-      </plank-popover>
+      <hal-popover>
+        <hal-popover-trigger>
+          <hal-button>Open</hal-button>
+        </hal-popover-trigger>
+        <hal-popover-content>Content</hal-popover-content>
+      </hal-popover>
     `
 
-    await customElements.whenDefined("plank-popover")
-    const popover = container.querySelector("plank-popover")!
+    await customElements.whenDefined("hal-popover")
+    const popover = container.querySelector("hal-popover")!
     await (popover as any).updateComplete
 
     const openChangeSpy = vi.fn()
     popover.addEventListener("open-change", openChangeSpy)
 
-    const trigger = container.querySelector("plank-popover-trigger")!
+    const trigger = container.querySelector("hal-popover-trigger")!
     trigger.click()
     await (popover as any).updateComplete
 
@@ -200,16 +200,16 @@ describe("Popover (Web Component)", () => {
 
   it("closes on Escape key", async () => {
     container.innerHTML = `
-      <plank-popover open>
-        <plank-popover-trigger>
-          <plank-button>Open</plank-button>
-        </plank-popover-trigger>
-        <plank-popover-content>Content</plank-popover-content>
-      </plank-popover>
+      <hal-popover open>
+        <hal-popover-trigger>
+          <hal-button>Open</hal-button>
+        </hal-popover-trigger>
+        <hal-popover-content>Content</hal-popover-content>
+      </hal-popover>
     `
 
-    await customElements.whenDefined("plank-popover")
-    const popover = container.querySelector("plank-popover")!
+    await customElements.whenDefined("hal-popover")
+    const popover = container.querySelector("hal-popover")!
     await (popover as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -224,16 +224,16 @@ describe("Popover (Web Component)", () => {
 
   it("has data-side attribute on content", async () => {
     container.innerHTML = `
-      <plank-popover open>
-        <plank-popover-trigger>
-          <plank-button>Open</plank-button>
-        </plank-popover-trigger>
-        <plank-popover-content>Content</plank-popover-content>
-      </plank-popover>
+      <hal-popover open>
+        <hal-popover-trigger>
+          <hal-button>Open</hal-button>
+        </hal-popover-trigger>
+        <hal-popover-content>Content</hal-popover-content>
+      </hal-popover>
     `
 
-    await customElements.whenDefined("plank-popover")
-    const popover = container.querySelector("plank-popover")!
+    await customElements.whenDefined("hal-popover")
+    const popover = container.querySelector("hal-popover")!
     await (popover as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 

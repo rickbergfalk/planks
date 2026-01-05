@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Planks is a hard fork of shadcn/ui with a different goal: converting React components to framework-agnostic web components using **Lit**. Like the Ship of Theseus, we're replacing each React component "plank by plank" until we have something entirely new.
+hallucn/ui is a hard fork of shadcn/ui with a different goal: converting React components to framework-agnostic web components using **Lit**.
 
 **Target audience**: Developers already using shadcn/ui and Tailwind who want to use web components alongside their existing setup.
 
@@ -13,7 +13,7 @@ Planks is a hard fork of shadcn/ui with a different goal: converting React compo
 - **Lit** for web components
 - **Light DOM** (not Shadow DOM) for easy Tailwind integration
 - **Tailwind required** in consumer's build - components emit Tailwind classes
-- **Element prefix**: `plank-` (e.g., `<plank-button>`, class `PlankButton`)
+- **Element prefix**: `hal-` (e.g., `<hal-button>`, class `HalButton`)
 - **Test-driven conversion** - write tests for React component first, then implement web component to pass equivalent tests
 - **React components are READ-ONLY** - never modify `src/components/`, they serve as the specification
 
@@ -203,11 +203,11 @@ Exceptions where JS conditionals are acceptable:
 When converting a new component, add a test to `semantic-structure.test.ts`:
 
 ```typescript
-describe("plank-newcomponent", () => {
+describe("hal-newcomponent", () => {
   it("must contain native <element> with content inside", async () => {
-    container.innerHTML = `<plank-newcomponent>Test Content</plank-newcomponent>`
-    await customElements.whenDefined("plank-newcomponent")
-    const element = container.querySelector("plank-newcomponent")!
+    container.innerHTML = `<hal-newcomponent>Test Content</hal-newcomponent>`
+    await customElements.whenDefined("hal-newcomponent")
+    const element = container.querySelector("hal-newcomponent")!
     await (element as any).updateComplete
 
     // If component needs a native semantic element:
@@ -360,7 +360,7 @@ Reference comparison of major web component libraries (as of late 2025):
 
 *Lion uses light DOM for components where shadow DOM breaks accessibility (aria relations).
 
-**Where Planks fits:**
+**Where hallucn fits:**
 - **Framework**: Lit (like most modern libraries)
 - **Testing**: Vitest Browser Mode (uncommon - most use Web Test Runner)
 - **DOM**: Light DOM (rare - only Lion does this selectively)

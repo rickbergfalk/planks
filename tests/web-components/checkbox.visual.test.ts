@@ -1,9 +1,9 @@
 import { describe, it, expect, beforeEach, afterEach } from "vitest"
 import { page } from "vitest/browser"
-import "@/web-components/plank-checkbox"
-import type { PlankCheckbox } from "@/web-components/plank-checkbox"
+import "@/web-components/hal-checkbox"
+import type { HalCheckbox } from "@/web-components/hal-checkbox"
 
-describe("PlankCheckbox (Web Component) - Visual", () => {
+describe("HalCheckbox (Web Component) - Visual", () => {
   let container: HTMLDivElement
 
   beforeEach(() => {
@@ -17,17 +17,17 @@ describe("PlankCheckbox (Web Component) - Visual", () => {
 
   async function renderAndWait(html: string): Promise<void> {
     container.innerHTML = html
-    await customElements.whenDefined("plank-checkbox")
-    const elements = container.querySelectorAll("plank-checkbox")
+    await customElements.whenDefined("hal-checkbox")
+    const elements = container.querySelectorAll("hal-checkbox")
     await Promise.all(
-      Array.from(elements).map((el) => (el as PlankCheckbox).updateComplete)
+      Array.from(elements).map((el) => (el as HalCheckbox).updateComplete)
     )
   }
 
   it("unchecked state", async () => {
     await renderAndWait(`
       <div data-testid="container" style="padding: 8px">
-        <plank-checkbox></plank-checkbox>
+        <hal-checkbox></hal-checkbox>
       </div>
     `)
     await expect(page.getByTestId("container")).toMatchScreenshot(
@@ -38,7 +38,7 @@ describe("PlankCheckbox (Web Component) - Visual", () => {
   it("checked state", async () => {
     await renderAndWait(`
       <div data-testid="container" style="padding: 8px">
-        <plank-checkbox checked></plank-checkbox>
+        <hal-checkbox checked></hal-checkbox>
       </div>
     `)
     await expect(page.getByTestId("container")).toMatchScreenshot(
@@ -49,7 +49,7 @@ describe("PlankCheckbox (Web Component) - Visual", () => {
   it("disabled unchecked", async () => {
     await renderAndWait(`
       <div data-testid="container" style="padding: 8px">
-        <plank-checkbox disabled></plank-checkbox>
+        <hal-checkbox disabled></hal-checkbox>
       </div>
     `)
     await expect(page.getByTestId("container")).toMatchScreenshot(
@@ -60,7 +60,7 @@ describe("PlankCheckbox (Web Component) - Visual", () => {
   it("disabled checked", async () => {
     await renderAndWait(`
       <div data-testid="container" style="padding: 8px">
-        <plank-checkbox disabled checked></plank-checkbox>
+        <hal-checkbox disabled checked></hal-checkbox>
       </div>
     `)
     await expect(page.getByTestId("container")).toMatchScreenshot(

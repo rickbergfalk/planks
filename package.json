@@ -1,8 +1,8 @@
 {
-  "name": "planks",
+  "name": "hallucn",
   "version": "0.0.1",
   "private": true,
-  "description": "A web components library built plank by plank",
+  "description": "shadcn/ui components that might exist (as web components)",
   "license": "MIT",
   "type": "module",
   "author": {

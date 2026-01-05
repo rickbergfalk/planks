@@ -1,10 +1,10 @@
 import { describe, it, expect, beforeEach, afterEach } from "vitest"
-import "@/web-components/plank-button-group"
-import "@/web-components/plank-button"
-import "@/web-components/plank-separator"
-import type { PlankButtonGroup } from "@/web-components/plank-button-group"
+import "@/web-components/hal-button-group"
+import "@/web-components/hal-button"
+import "@/web-components/hal-separator"
+import type { HalButtonGroup } from "@/web-components/hal-button-group"
 
-describe("PlankButtonGroup", () => {
+describe("HalButtonGroup", () => {
   let container: HTMLDivElement
 
   beforeEach(() => {
@@ -16,12 +16,12 @@ describe("PlankButtonGroup", () => {
     container.remove()
   })
 
-  async function renderAndWait(html: string): Promise<PlankButtonGroup> {
+  async function renderAndWait(html: string): Promise<HalButtonGroup> {
     container.innerHTML = html
-    await customElements.whenDefined("plank-button-group")
+    await customElements.whenDefined("hal-button-group")
     const element = container.querySelector(
-      "plank-button-group"
-    ) as PlankButtonGroup
+      "hal-button-group"
+    ) as HalButtonGroup
     await element.updateComplete
     return element
   }
@@ -29,9 +29,9 @@ describe("PlankButtonGroup", () => {
   describe("attributes", () => {
     it("should have default horizontal orientation", async () => {
       const element = await renderAndWait(`
-        <plank-button-group>
-          <plank-button>Test</plank-button>
-        </plank-button-group>
+        <hal-button-group>
+          <hal-button>Test</hal-button>
+        </hal-button-group>
       `)
       expect(element.orientation).toBe("horizontal")
       expect(element.getAttribute("data-orientation")).toBe("horizontal")
@@ -39,9 +39,9 @@ describe("PlankButtonGroup", () => {
 
     it("should support vertical orientation", async () => {
       const element = await renderAndWait(`
-        <plank-button-group orientation="vertical">
-          <plank-button>Test</plank-button>
-        </plank-button-group>
+        <hal-button-group orientation="vertical">
+          <hal-button>Test</hal-button>
+        </hal-button-group>
       `)
       expect(element.orientation).toBe("vertical")
       expect(element.getAttribute("data-orientation")).toBe("vertical")
@@ -49,27 +49,27 @@ describe("PlankButtonGroup", () => {
 
     it("should have role=group", async () => {
       const element = await renderAndWait(`
-        <plank-button-group>
-          <plank-button>Test</plank-button>
-        </plank-button-group>
+        <hal-button-group>
+          <hal-button>Test</hal-button>
+        </hal-button-group>
       `)
       expect(element.getAttribute("role")).toBe("group")
     })
 
     it("should have data-slot=button-group", async () => {
       const element = await renderAndWait(`
-        <plank-button-group>
-          <plank-button>Test</plank-button>
-        </plank-button-group>
+        <hal-button-group>
+          <hal-button>Test</hal-button>
+        </hal-button-group>
       `)
       expect(element.dataset.slot).toBe("button-group")
     })
 
     it("should apply appropriate classes for horizontal orientation", async () => {
       const element = await renderAndWait(`
-        <plank-button-group>
-          <plank-button>Test</plank-button>
-        </plank-button-group>
+        <hal-button-group>
+          <hal-button>Test</hal-button>
+        </hal-button-group>
       `)
       expect(element.className).toContain("flex")
       expect(element.className).toContain("items-stretch")
@@ -77,9 +77,9 @@ describe("PlankButtonGroup", () => {
 
     it("should apply flex-col for vertical orientation", async () => {
       const element = await renderAndWait(`
-        <plank-button-group orientation="vertical">
-          <plank-button>Test</plank-button>
-        </plank-button-group>
+        <hal-button-group orientation="vertical">
+          <hal-button>Test</hal-button>
+        </hal-button-group>
       `)
       expect(element.className).toContain("flex-col")
     })
@@ -88,13 +88,13 @@ describe("PlankButtonGroup", () => {
   describe("children preservation", () => {
     it("should preserve button children", async () => {
       await renderAndWait(`
-        <plank-button-group>
-          <plank-button>First</plank-button>
-          <plank-button>Second</plank-button>
-          <plank-button>Third</plank-button>
-        </plank-button-group>
+        <hal-button-group>
+          <hal-button>First</hal-button>
+          <hal-button>Second</hal-button>
+          <hal-button>Third</hal-button>
+        </hal-button-group>
       `)
-      const buttons = container.querySelectorAll("plank-button")
+      const buttons = container.querySelectorAll("hal-button")
       expect(buttons.length).toBe(3)
       expect(buttons[0].textContent).toBe("First")
       expect(buttons[1].textContent).toBe("Second")
@@ -103,7 +103,7 @@ describe("PlankButtonGroup", () => {
   })
 })
 
-describe("PlankButtonGroupText", () => {
+describe("HalButtonGroupText", () => {
   let container: HTMLDivElement
 
   beforeEach(() => {
@@ -117,27 +117,27 @@ describe("PlankButtonGroupText", () => {
 
   it("should render text content", async () => {
     container.innerHTML = `
-      <plank-button-group-text>Label Text</plank-button-group-text>
+      <hal-button-group-text>Label Text</hal-button-group-text>
     `
-    await customElements.whenDefined("plank-button-group-text")
-    const element = container.querySelector("plank-button-group-text")!
+    await customElements.whenDefined("hal-button-group-text")
+    const element = container.querySelector("hal-button-group-text")!
     expect(element.textContent).toContain("Label Text")
   })
 
   it("should have muted background styling", async () => {
     container.innerHTML = `
-      <plank-button-group-text>Label</plank-button-group-text>
+      <hal-button-group-text>Label</hal-button-group-text>
     `
-    await customElements.whenDefined("plank-button-group-text")
+    await customElements.whenDefined("hal-button-group-text")
     const element = container.querySelector(
-      "plank-button-group-text"
+      "hal-button-group-text"
     ) as HTMLElement
     await (element as any).updateComplete
     expect(element.className).toContain("bg-muted")
   })
 })
 
-describe("PlankButtonGroupSeparator", () => {
+describe("HalButtonGroupSeparator", () => {
   let container: HTMLDivElement
 
   beforeEach(() => {
@@ -151,11 +151,11 @@ describe("PlankButtonGroupSeparator", () => {
 
   it("should have default vertical orientation", async () => {
     container.innerHTML = `
-      <plank-button-group-separator></plank-button-group-separator>
+      <hal-button-group-separator></hal-button-group-separator>
     `
-    await customElements.whenDefined("plank-button-group-separator")
+    await customElements.whenDefined("hal-button-group-separator")
     const element = container.querySelector(
-      "plank-button-group-separator"
+      "hal-button-group-separator"
     ) as HTMLElement
     await (element as any).updateComplete
     expect(element.getAttribute("data-orientation")).toBe("vertical")
@@ -163,11 +163,11 @@ describe("PlankButtonGroupSeparator", () => {
 
   it("should have data-slot=button-group-separator", async () => {
     container.innerHTML = `
-      <plank-button-group-separator></plank-button-group-separator>
+      <hal-button-group-separator></hal-button-group-separator>
     `
-    await customElements.whenDefined("plank-button-group-separator")
+    await customElements.whenDefined("hal-button-group-separator")
     const element = container.querySelector(
-      "plank-button-group-separator"
+      "hal-button-group-separator"
     ) as HTMLElement
     await (element as any).updateComplete
     expect(element.dataset.slot).toBe("button-group-separator")
@@ -175,11 +175,11 @@ describe("PlankButtonGroupSeparator", () => {
 
   it("should have bg-input class", async () => {
     container.innerHTML = `
-      <plank-button-group-separator></plank-button-group-separator>
+      <hal-button-group-separator></hal-button-group-separator>
     `
-    await customElements.whenDefined("plank-button-group-separator")
+    await customElements.whenDefined("hal-button-group-separator")
     const element = container.querySelector(
-      "plank-button-group-separator"
+      "hal-button-group-separator"
     ) as HTMLElement
     await (element as any).updateComplete
     expect(element.className).toContain("bg-input")

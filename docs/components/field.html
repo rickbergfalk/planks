@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Field - Planks</title>
+    <title>Field - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -17,169 +17,163 @@
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Basic Field</h2>
         <div class="max-w-sm mb-4">
-          <plank-field>
-            <plank-field-label>Email</plank-field-label>
-            <plank-input
-              type="email"
-              placeholder="email@example.com"
-            ></plank-input>
-          </plank-field>
+          <hal-field>
+            <hal-field-label>Email</hal-field-label>
+            <hal-input type="email" placeholder="email@example.com"></hal-input>
+          </hal-field>
         </div>
-        <pre><code>&lt;plank-field&gt;
-  &lt;plank-field-label&gt;Email&lt;/plank-field-label&gt;
-  &lt;plank-input type="email" placeholder="email@example.com"&gt;&lt;/plank-input&gt;
-&lt;/plank-field&gt;</code></pre>
+        <pre><code>&lt;hal-field&gt;
+  &lt;hal-field-label&gt;Email&lt;/hal-field-label&gt;
+  &lt;hal-input type="email" placeholder="email@example.com"&gt;&lt;/hal-input&gt;
+&lt;/hal-field&gt;</code></pre>
       </section>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">With Description</h2>
         <div class="max-w-sm mb-4">
-          <plank-field>
-            <plank-field-label>Username</plank-field-label>
-            <plank-input placeholder="johndoe"></plank-input>
-            <plank-field-description>
+          <hal-field>
+            <hal-field-label>Username</hal-field-label>
+            <hal-input placeholder="johndoe"></hal-input>
+            <hal-field-description>
               This will be your public display name.
-            </plank-field-description>
-          </plank-field>
+            </hal-field-description>
+          </hal-field>
         </div>
-        <pre><code>&lt;plank-field&gt;
-  &lt;plank-field-label&gt;Username&lt;/plank-field-label&gt;
-  &lt;plank-input placeholder="johndoe"&gt;&lt;/plank-input&gt;
-  &lt;plank-field-description&gt;
+        <pre><code>&lt;hal-field&gt;
+  &lt;hal-field-label&gt;Username&lt;/hal-field-label&gt;
+  &lt;hal-input placeholder="johndoe"&gt;&lt;/hal-input&gt;
+  &lt;hal-field-description&gt;
     This will be your public display name.
-  &lt;/plank-field-description&gt;
-&lt;/plank-field&gt;</code></pre>
+  &lt;/hal-field-description&gt;
+&lt;/hal-field&gt;</code></pre>
       </section>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">With Error</h2>
         <div class="max-w-sm mb-4">
-          <plank-field data-invalid="true">
-            <plank-field-label>Password</plank-field-label>
-            <plank-input type="password"></plank-input>
-            <plank-field-error>
+          <hal-field data-invalid="true">
+            <hal-field-label>Password</hal-field-label>
+            <hal-input type="password"></hal-input>
+            <hal-field-error>
               Password must be at least 8 characters.
-            </plank-field-error>
-          </plank-field>
+            </hal-field-error>
+          </hal-field>
         </div>
-        <pre><code>&lt;plank-field data-invalid="true"&gt;
-  &lt;plank-field-label&gt;Password&lt;/plank-field-label&gt;
-  &lt;plank-input type="password"&gt;&lt;/plank-input&gt;
-  &lt;plank-field-error&gt;
+        <pre><code>&lt;hal-field data-invalid="true"&gt;
+  &lt;hal-field-label&gt;Password&lt;/hal-field-label&gt;
+  &lt;hal-input type="password"&gt;&lt;/hal-input&gt;
+  &lt;hal-field-error&gt;
     Password must be at least 8 characters.
-  &lt;/plank-field-error&gt;
-&lt;/plank-field&gt;</code></pre>
+  &lt;/hal-field-error&gt;
+&lt;/hal-field&gt;</code></pre>
       </section>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Horizontal Layout</h2>
         <div class="max-w-sm mb-4">
-          <plank-field orientation="horizontal">
-            <plank-checkbox id="terms-demo"></plank-checkbox>
-            <plank-field-content>
-              <plank-field-label for="terms-demo"
-                >Accept terms and conditions</plank-field-label
+          <hal-field orientation="horizontal">
+            <hal-checkbox id="terms-demo"></hal-checkbox>
+            <hal-field-content>
+              <hal-field-label for="terms-demo"
+                >Accept terms and conditions</hal-field-label
               >
-              <plank-field-description>
+              <hal-field-description>
                 You agree to our Terms of Service and Privacy Policy.
-              </plank-field-description>
-            </plank-field-content>
-          </plank-field>
+              </hal-field-description>
+            </hal-field-content>
+          </hal-field>
         </div>
-        <pre><code>&lt;plank-field orientation="horizontal"&gt;
-  &lt;plank-checkbox id="terms"&gt;&lt;/plank-checkbox&gt;
-  &lt;plank-field-content&gt;
-    &lt;plank-field-label for="terms"&gt;Accept terms&lt;/plank-field-label&gt;
-    &lt;plank-field-description&gt;You agree to our terms.&lt;/plank-field-description&gt;
-  &lt;/plank-field-content&gt;
-&lt;/plank-field&gt;</code></pre>
+        <pre><code>&lt;hal-field orientation="horizontal"&gt;
+  &lt;hal-checkbox id="terms"&gt;&lt;/hal-checkbox&gt;
+  &lt;hal-field-content&gt;
+    &lt;hal-field-label for="terms"&gt;Accept terms&lt;/hal-field-label&gt;
+    &lt;hal-field-description&gt;You agree to our terms.&lt;/hal-field-description&gt;
+  &lt;/hal-field-content&gt;
+&lt;/hal-field&gt;</code></pre>
       </section>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Field Group</h2>
         <div class="max-w-sm mb-4">
-          <plank-field-group>
-            <plank-field>
-              <plank-field-label>First name</plank-field-label>
-              <plank-input placeholder="John"></plank-input>
-            </plank-field>
-            <plank-field>
-              <plank-field-label>Last name</plank-field-label>
-              <plank-input placeholder="Doe"></plank-input>
-            </plank-field>
-          </plank-field-group>
+          <hal-field-group>
+            <hal-field>
+              <hal-field-label>First name</hal-field-label>
+              <hal-input placeholder="John"></hal-input>
+            </hal-field>
+            <hal-field>
+              <hal-field-label>Last name</hal-field-label>
+              <hal-input placeholder="Doe"></hal-input>
+            </hal-field>
+          </hal-field-group>
         </div>
-        <pre><code>&lt;plank-field-group&gt;
-  &lt;plank-field&gt;
-    &lt;plank-field-label&gt;First name&lt;/plank-field-label&gt;
-    &lt;plank-input placeholder="John"&gt;&lt;/plank-input&gt;
-  &lt;/plank-field&gt;
-  &lt;plank-field&gt;
-    &lt;plank-field-label&gt;Last name&lt;/plank-field-label&gt;
-    &lt;plank-input placeholder="Doe"&gt;&lt;/plank-input&gt;
-  &lt;/plank-field&gt;
-&lt;/plank-field-group&gt;</code></pre>
+        <pre><code>&lt;hal-field-group&gt;
+  &lt;hal-field&gt;
+    &lt;hal-field-label&gt;First name&lt;/hal-field-label&gt;
+    &lt;hal-input placeholder="John"&gt;&lt;/hal-input&gt;
+  &lt;/hal-field&gt;
+  &lt;hal-field&gt;
+    &lt;hal-field-label&gt;Last name&lt;/hal-field-label&gt;
+    &lt;hal-input placeholder="Doe"&gt;&lt;/hal-input&gt;
+  &lt;/hal-field&gt;
+&lt;/hal-field-group&gt;</code></pre>
       </section>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">FieldSet with Legend</h2>
         <div class="max-w-sm mb-4">
-          <plank-field-set>
-            <plank-field-legend>Personal Information</plank-field-legend>
-            <plank-field-description
-              >Please fill in your details below.</plank-field-description
+          <hal-field-set>
+            <hal-field-legend>Personal Information</hal-field-legend>
+            <hal-field-description
+              >Please fill in your details below.</hal-field-description
             >
-            <plank-field-group>
-              <plank-field>
-                <plank-field-label>Name</plank-field-label>
-                <plank-input placeholder="Your name"></plank-input>
-              </plank-field>
-              <plank-field>
-                <plank-field-label>Email</plank-field-label>
-                <plank-input
+            <hal-field-group>
+              <hal-field>
+                <hal-field-label>Name</hal-field-label>
+                <hal-input placeholder="Your name"></hal-input>
+              </hal-field>
+              <hal-field>
+                <hal-field-label>Email</hal-field-label>
+                <hal-input
                   type="email"
                   placeholder="email@example.com"
-                ></plank-input>
-              </plank-field>
-            </plank-field-group>
-          </plank-field-set>
+                ></hal-input>
+              </hal-field>
+            </hal-field-group>
+          </hal-field-set>
         </div>
-        <pre><code>&lt;plank-field-set&gt;
-  &lt;plank-field-legend&gt;Personal Information&lt;/plank-field-legend&gt;
-  &lt;plank-field-description&gt;Please fill in your details.&lt;/plank-field-description&gt;
-  &lt;plank-field-group&gt;
-    &lt;plank-field&gt;...&lt;/plank-field&gt;
-    &lt;plank-field&gt;...&lt;/plank-field&gt;
-  &lt;/plank-field-group&gt;
-&lt;/plank-field-set&gt;</code></pre>
+        <pre><code>&lt;hal-field-set&gt;
+  &lt;hal-field-legend&gt;Personal Information&lt;/hal-field-legend&gt;
+  &lt;hal-field-description&gt;Please fill in your details.&lt;/hal-field-description&gt;
+  &lt;hal-field-group&gt;
+    &lt;hal-field&gt;...&lt;/hal-field&gt;
+    &lt;hal-field&gt;...&lt;/hal-field&gt;
+  &lt;/hal-field-group&gt;
+&lt;/hal-field-set&gt;</code></pre>
       </section>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Field Separator</h2>
         <div class="max-w-sm mb-4">
-          <plank-field-group>
-            <plank-field>
-              <plank-field-label>Email</plank-field-label>
-              <plank-input
+          <hal-field-group>
+            <hal-field>
+              <hal-field-label>Email</hal-field-label>
+              <hal-input
                 type="email"
                 placeholder="email@example.com"
-              ></plank-input>
-            </plank-field>
-            <plank-field-separator>or</plank-field-separator>
-            <plank-field>
-              <plank-field-label>Phone</plank-field-label>
-              <plank-input
-                type="tel"
-                placeholder="+1 (555) 000-0000"
-              ></plank-input>
-            </plank-field>
-          </plank-field-group>
+              ></hal-input>
+            </hal-field>
+            <hal-field-separator>or</hal-field-separator>
+            <hal-field>
+              <hal-field-label>Phone</hal-field-label>
+              <hal-input type="tel" placeholder="+1 (555) 000-0000"></hal-input>
+            </hal-field>
+          </hal-field-group>
         </div>
-        <pre><code>&lt;plank-field-group&gt;
-  &lt;plank-field&gt;...&lt;/plank-field&gt;
-  &lt;plank-field-separator&gt;or&lt;/plank-field-separator&gt;
-  &lt;plank-field&gt;...&lt;/plank-field&gt;
-&lt;/plank-field-group&gt;</code></pre>
+        <pre><code>&lt;hal-field-group&gt;
+  &lt;hal-field&gt;...&lt;/hal-field&gt;
+  &lt;hal-field-separator&gt;or&lt;/hal-field-separator&gt;
+  &lt;hal-field&gt;...&lt;/hal-field&gt;
+&lt;/hal-field-group&gt;</code></pre>
       </section>
 
       <section class="mb-12">
@@ -193,45 +187,45 @@
           </thead>
           <tbody>
             <tr class="border-b">
-              <td class="py-2 pr-4 font-mono">plank-field</td>
+              <td class="py-2 pr-4 font-mono">hal-field</td>
               <td class="py-2">
                 Individual field wrapper with orientation support
               </td>
             </tr>
             <tr class="border-b">
-              <td class="py-2 pr-4 font-mono">plank-field-set</td>
+              <td class="py-2 pr-4 font-mono">hal-field-set</td>
               <td class="py-2">Groups related fields together</td>
             </tr>
             <tr class="border-b">
-              <td class="py-2 pr-4 font-mono">plank-field-legend</td>
+              <td class="py-2 pr-4 font-mono">hal-field-legend</td>
               <td class="py-2">Title for a fieldset</td>
             </tr>
             <tr class="border-b">
-              <td class="py-2 pr-4 font-mono">plank-field-group</td>
+              <td class="py-2 pr-4 font-mono">hal-field-group</td>
               <td class="py-2">Container for grouping multiple fields</td>
             </tr>
             <tr class="border-b">
-              <td class="py-2 pr-4 font-mono">plank-field-content</td>
+              <td class="py-2 pr-4 font-mono">hal-field-content</td>
               <td class="py-2">Content area within a field</td>
             </tr>
             <tr class="border-b">
-              <td class="py-2 pr-4 font-mono">plank-field-label</td>
+              <td class="py-2 pr-4 font-mono">hal-field-label</td>
               <td class="py-2">Label for a field input</td>
             </tr>
             <tr class="border-b">
-              <td class="py-2 pr-4 font-mono">plank-field-title</td>
+              <td class="py-2 pr-4 font-mono">hal-field-title</td>
               <td class="py-2">Non-label title for display</td>
             </tr>
             <tr class="border-b">
-              <td class="py-2 pr-4 font-mono">plank-field-description</td>
+              <td class="py-2 pr-4 font-mono">hal-field-description</td>
               <td class="py-2">Help text for a field</td>
             </tr>
             <tr class="border-b">
-              <td class="py-2 pr-4 font-mono">plank-field-separator</td>
+              <td class="py-2 pr-4 font-mono">hal-field-separator</td>
               <td class="py-2">Visual divider with optional text</td>
             </tr>
             <tr class="border-b">
-              <td class="py-2 pr-4 font-mono">plank-field-error</td>
+              <td class="py-2 pr-4 font-mono">hal-field-error</td>
               <td class="py-2">Error message display</td>
             </tr>
           </tbody>
@@ -251,7 +245,7 @@
           </thead>
           <tbody>
             <tr class="border-b">
-              <td class="py-2 pr-4 font-mono">plank-field</td>
+              <td class="py-2 pr-4 font-mono">hal-field</td>
               <td class="py-2 pr-4">orientation</td>
               <td class="py-2 pr-4">
                 "vertical" | "horizontal" | "responsive"
@@ -259,19 +253,19 @@
               <td class="py-2">"vertical"</td>
             </tr>
             <tr class="border-b">
-              <td class="py-2 pr-4 font-mono">plank-field</td>
+              <td class="py-2 pr-4 font-mono">hal-field</td>
               <td class="py-2 pr-4">data-invalid</td>
               <td class="py-2 pr-4">"true" | "false"</td>
               <td class="py-2">-</td>
             </tr>
             <tr class="border-b">
-              <td class="py-2 pr-4 font-mono">plank-field-legend</td>
+              <td class="py-2 pr-4 font-mono">hal-field-legend</td>
               <td class="py-2 pr-4">variant</td>
               <td class="py-2 pr-4">"legend" | "label"</td>
               <td class="py-2">"legend"</td>
             </tr>
             <tr class="border-b">
-              <td class="py-2 pr-4 font-mono">plank-field-label</td>
+              <td class="py-2 pr-4 font-mono">hal-field-label</td>
               <td class="py-2 pr-4">for</td>
               <td class="py-2 pr-4">string (input ID)</td>
               <td class="py-2">-</td>

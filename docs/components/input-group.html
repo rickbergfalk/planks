@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Input Group - Planks</title>
+    <title>Input Group - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -16,8 +16,8 @@
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">With Icon</h2>
         <div class="mb-4 max-w-sm">
-          <plank-input-group>
-            <plank-input-group-addon>
+          <hal-input-group>
+            <hal-input-group-addon>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -32,99 +32,97 @@
                 <circle cx="11" cy="11" r="8"></circle>
                 <path d="m21 21-4.3-4.3"></path>
               </svg>
-            </plank-input-group-addon>
-            <plank-input-group-input
+            </hal-input-group-addon>
+            <hal-input-group-input
               placeholder="Search..."
-            ></plank-input-group-input>
-          </plank-input-group>
+            ></hal-input-group-input>
+          </hal-input-group>
         </div>
-        <pre><code>&lt;plank-input-group&gt;
-  &lt;plank-input-group-addon&gt;
+        <pre><code>&lt;hal-input-group&gt;
+  &lt;hal-input-group-addon&gt;
     &lt;svg&gt;...&lt;/svg&gt;
-  &lt;/plank-input-group-addon&gt;
-  &lt;plank-input-group-input placeholder="Search..."&gt;&lt;/plank-input-group-input&gt;
-&lt;/plank-input-group&gt;</code></pre>
+  &lt;/hal-input-group-addon&gt;
+  &lt;hal-input-group-input placeholder="Search..."&gt;&lt;/hal-input-group-input&gt;
+&lt;/hal-input-group&gt;</code></pre>
       </section>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">With Text</h2>
         <div class="mb-4 max-w-sm">
-          <plank-input-group>
-            <plank-input-group-addon>
-              <plank-input-group-text>$</plank-input-group-text>
-            </plank-input-group-addon>
-            <plank-input-group-input
-              placeholder="0.00"
-            ></plank-input-group-input>
-            <plank-input-group-addon align="inline-end">
-              <plank-input-group-text>USD</plank-input-group-text>
-            </plank-input-group-addon>
-          </plank-input-group>
+          <hal-input-group>
+            <hal-input-group-addon>
+              <hal-input-group-text>$</hal-input-group-text>
+            </hal-input-group-addon>
+            <hal-input-group-input placeholder="0.00"></hal-input-group-input>
+            <hal-input-group-addon align="inline-end">
+              <hal-input-group-text>USD</hal-input-group-text>
+            </hal-input-group-addon>
+          </hal-input-group>
         </div>
-        <pre><code>&lt;plank-input-group&gt;
-  &lt;plank-input-group-addon&gt;
-    &lt;plank-input-group-text&gt;$&lt;/plank-input-group-text&gt;
-  &lt;/plank-input-group-addon&gt;
-  &lt;plank-input-group-input placeholder="0.00"&gt;&lt;/plank-input-group-input&gt;
-  &lt;plank-input-group-addon align="inline-end"&gt;
-    &lt;plank-input-group-text&gt;USD&lt;/plank-input-group-text&gt;
-  &lt;/plank-input-group-addon&gt;
-&lt;/plank-input-group&gt;</code></pre>
+        <pre><code>&lt;hal-input-group&gt;
+  &lt;hal-input-group-addon&gt;
+    &lt;hal-input-group-text&gt;$&lt;/hal-input-group-text&gt;
+  &lt;/hal-input-group-addon&gt;
+  &lt;hal-input-group-input placeholder="0.00"&gt;&lt;/hal-input-group-input&gt;
+  &lt;hal-input-group-addon align="inline-end"&gt;
+    &lt;hal-input-group-text&gt;USD&lt;/hal-input-group-text&gt;
+  &lt;/hal-input-group-addon&gt;
+&lt;/hal-input-group&gt;</code></pre>
       </section>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">With URL Prefix</h2>
         <div class="mb-4 max-w-sm">
-          <plank-input-group>
-            <plank-input-group-addon>
-              <plank-input-group-text>https://</plank-input-group-text>
-            </plank-input-group-addon>
-            <plank-input-group-input
+          <hal-input-group>
+            <hal-input-group-addon>
+              <hal-input-group-text>https://</hal-input-group-text>
+            </hal-input-group-addon>
+            <hal-input-group-input
               placeholder="example.com"
-            ></plank-input-group-input>
-          </plank-input-group>
+            ></hal-input-group-input>
+          </hal-input-group>
         </div>
-        <pre><code>&lt;plank-input-group&gt;
-  &lt;plank-input-group-addon&gt;
-    &lt;plank-input-group-text&gt;https://&lt;/plank-input-group-text&gt;
-  &lt;/plank-input-group-addon&gt;
-  &lt;plank-input-group-input placeholder="example.com"&gt;&lt;/plank-input-group-input&gt;
-&lt;/plank-input-group&gt;</code></pre>
+        <pre><code>&lt;hal-input-group&gt;
+  &lt;hal-input-group-addon&gt;
+    &lt;hal-input-group-text&gt;https://&lt;/hal-input-group-text&gt;
+  &lt;/hal-input-group-addon&gt;
+  &lt;hal-input-group-input placeholder="example.com"&gt;&lt;/hal-input-group-input&gt;
+&lt;/hal-input-group&gt;</code></pre>
       </section>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">With Button</h2>
         <div class="mb-4 max-w-sm">
-          <plank-input-group>
-            <plank-input-group-input
+          <hal-input-group>
+            <hal-input-group-input
               placeholder="Type to search..."
-            ></plank-input-group-input>
-            <plank-input-group-addon align="inline-end">
-              <plank-input-group-button variant="secondary"
-                >Search</plank-input-group-button
+            ></hal-input-group-input>
+            <hal-input-group-addon align="inline-end">
+              <hal-input-group-button variant="secondary"
+                >Search</hal-input-group-button
               >
-            </plank-input-group-addon>
-          </plank-input-group>
+            </hal-input-group-addon>
+          </hal-input-group>
         </div>
-        <pre><code>&lt;plank-input-group&gt;
-  &lt;plank-input-group-input placeholder="Type to search..."&gt;&lt;/plank-input-group-input&gt;
-  &lt;plank-input-group-addon align="inline-end"&gt;
-    &lt;plank-input-group-button variant="secondary"&gt;Search&lt;/plank-input-group-button&gt;
-  &lt;/plank-input-group-addon&gt;
-&lt;/plank-input-group&gt;</code></pre>
+        <pre><code>&lt;hal-input-group&gt;
+  &lt;hal-input-group-input placeholder="Type to search..."&gt;&lt;/hal-input-group-input&gt;
+  &lt;hal-input-group-addon align="inline-end"&gt;
+    &lt;hal-input-group-button variant="secondary"&gt;Search&lt;/hal-input-group-button&gt;
+  &lt;/hal-input-group-addon&gt;
+&lt;/hal-input-group&gt;</code></pre>
       </section>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">With Icon Button</h2>
         <div class="mb-4 max-w-sm">
-          <plank-input-group>
-            <plank-input-group-input
+          <hal-input-group>
+            <hal-input-group-input
               placeholder="https://x.com/shadcn"
               readonly
               value="https://x.com/shadcn"
-            ></plank-input-group-input>
-            <plank-input-group-addon align="inline-end">
-              <plank-input-group-button size="icon-xs" aria-label="Copy">
+            ></hal-input-group-input>
+            <hal-input-group-addon align="inline-end">
+              <hal-input-group-button size="icon-xs" aria-label="Copy">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="14"
@@ -141,46 +139,46 @@
                     d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"
                   />
                 </svg>
-              </plank-input-group-button>
-            </plank-input-group-addon>
-          </plank-input-group>
+              </hal-input-group-button>
+            </hal-input-group-addon>
+          </hal-input-group>
         </div>
-        <pre><code>&lt;plank-input-group&gt;
-  &lt;plank-input-group-input readonly value="https://x.com/shadcn"&gt;&lt;/plank-input-group-input&gt;
-  &lt;plank-input-group-addon align="inline-end"&gt;
-    &lt;plank-input-group-button size="icon-xs" aria-label="Copy"&gt;
+        <pre><code>&lt;hal-input-group&gt;
+  &lt;hal-input-group-input readonly value="https://x.com/shadcn"&gt;&lt;/hal-input-group-input&gt;
+  &lt;hal-input-group-addon align="inline-end"&gt;
+    &lt;hal-input-group-button size="icon-xs" aria-label="Copy"&gt;
       &lt;svg&gt;...&lt;/svg&gt;
-    &lt;/plank-input-group-button&gt;
-  &lt;/plank-input-group-addon&gt;
-&lt;/plank-input-group&gt;</code></pre>
+    &lt;/hal-input-group-button&gt;
+  &lt;/hal-input-group-addon&gt;
+&lt;/hal-input-group&gt;</code></pre>
       </section>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">With Textarea</h2>
         <div class="mb-4 max-w-sm">
-          <plank-input-group>
-            <plank-input-group-textarea
+          <hal-input-group>
+            <hal-input-group-textarea
               placeholder="Enter your message..."
-            ></plank-input-group-textarea>
-            <plank-input-group-addon align="block-end">
-              <plank-input-group-text class="text-xs"
-                >120 characters left</plank-input-group-text
+            ></hal-input-group-textarea>
+            <hal-input-group-addon align="block-end">
+              <hal-input-group-text class="text-xs"
+                >120 characters left</hal-input-group-text
               >
-            </plank-input-group-addon>
-          </plank-input-group>
+            </hal-input-group-addon>
+          </hal-input-group>
         </div>
-        <pre><code>&lt;plank-input-group&gt;
-  &lt;plank-input-group-textarea placeholder="Enter your message..."&gt;&lt;/plank-input-group-textarea&gt;
-  &lt;plank-input-group-addon align="block-end"&gt;
-    &lt;plank-input-group-text&gt;120 characters left&lt;/plank-input-group-text&gt;
-  &lt;/plank-input-group-addon&gt;
-&lt;/plank-input-group&gt;</code></pre>
+        <pre><code>&lt;hal-input-group&gt;
+  &lt;hal-input-group-textarea placeholder="Enter your message..."&gt;&lt;/hal-input-group-textarea&gt;
+  &lt;hal-input-group-addon align="block-end"&gt;
+    &lt;hal-input-group-text&gt;120 characters left&lt;/hal-input-group-text&gt;
+  &lt;/hal-input-group-addon&gt;
+&lt;/hal-input-group&gt;</code></pre>
       </section>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">API</h2>
 
-        <h3 class="text-lg font-semibold mb-2 mt-6">plank-input-group</h3>
+        <h3 class="text-lg font-semibold mb-2 mt-6">hal-input-group</h3>
         <table class="w-full text-sm mb-6">
           <thead>
             <tr class="border-b">
@@ -200,7 +198,7 @@
           </tbody>
         </table>
 
-        <h3 class="text-lg font-semibold mb-2 mt-6">plank-input-group-addon</h3>
+        <h3 class="text-lg font-semibold mb-2 mt-6">hal-input-group-addon</h3>
         <table class="w-full text-sm mb-6">
           <thead>
             <tr class="border-b">
@@ -224,9 +222,7 @@
           </tbody>
         </table>
 
-        <h3 class="text-lg font-semibold mb-2 mt-6">
-          plank-input-group-button
-        </h3>
+        <h3 class="text-lg font-semibold mb-2 mt-6">hal-input-group-button</h3>
         <table class="w-full text-sm mb-6">
           <thead>
             <tr class="border-b">
@@ -263,7 +259,7 @@
           </tbody>
         </table>
 
-        <h3 class="text-lg font-semibold mb-2 mt-6">plank-input-group-input</h3>
+        <h3 class="text-lg font-semibold mb-2 mt-6">hal-input-group-input</h3>
         <table class="w-full text-sm mb-6">
           <thead>
             <tr class="border-b">
@@ -308,7 +304,7 @@
         </table>
 
         <h3 class="text-lg font-semibold mb-2 mt-6">
-          plank-input-group-textarea
+          hal-input-group-textarea
         </h3>
         <table class="w-full text-sm">
           <thead>

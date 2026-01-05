@@ -1,8 +1,8 @@
 import { describe, it, expect, beforeEach, afterEach } from "vitest"
-import "@/web-components/plank-table"
-import type { PlankTable, PlankTableRow } from "@/web-components/plank-table"
+import "@/web-components/hal-table"
+import type { HalTable, HalTableRow } from "@/web-components/hal-table"
 
-describe("PlankTable (Web Component)", () => {
+describe("HalTable (Web Component)", () => {
   let container: HTMLDivElement
 
   beforeEach(() => {
@@ -17,166 +17,164 @@ describe("PlankTable (Web Component)", () => {
   async function renderAndWait(html: string): Promise<void> {
     container.innerHTML = html
     const tableElements = [
-      "plank-table",
-      "plank-table-header",
-      "plank-table-body",
-      "plank-table-footer",
-      "plank-table-row",
-      "plank-table-head",
-      "plank-table-cell",
-      "plank-table-caption",
+      "hal-table",
+      "hal-table-header",
+      "hal-table-body",
+      "hal-table-footer",
+      "hal-table-row",
+      "hal-table-head",
+      "hal-table-cell",
+      "hal-table-caption",
     ]
     await Promise.all(
       tableElements.map((el) => customElements.whenDefined(el).catch(() => {}))
     )
     const elements = container.querySelectorAll(tableElements.join(", "))
     await Promise.all(
-      Array.from(elements).map((el) => (el as PlankTable).updateComplete)
+      Array.from(elements).map((el) => (el as HalTable).updateComplete)
     )
   }
 
-  describe("PlankTable", () => {
+  describe("HalTable", () => {
     it("renders with data-slot attribute", async () => {
-      await renderAndWait(`<plank-table></plank-table>`)
-      const table = container.querySelector("plank-table")
+      await renderAndWait(`<hal-table></hal-table>`)
+      const table = container.querySelector("hal-table")
       expect(table?.dataset.slot).toBe("table")
     })
 
     it("creates a native table element inside", async () => {
-      await renderAndWait(`<plank-table></plank-table>`)
-      const table = container.querySelector("plank-table")
+      await renderAndWait(`<hal-table></hal-table>`)
+      const table = container.querySelector("hal-table")
       const nativeTable = table?.querySelector("table")
       expect(nativeTable).toBeTruthy()
     })
 
     it("creates a scrollable container div", async () => {
-      await renderAndWait(`<plank-table></plank-table>`)
-      const table = container.querySelector("plank-table")
+      await renderAndWait(`<hal-table></hal-table>`)
+      const table = container.querySelector("hal-table")
       const containerDiv = table?.querySelector('[data-slot="table-container"]')
       expect(containerDiv).toBeTruthy()
       expect(containerDiv?.classList.contains("overflow-x-auto")).toBe(true)
     })
 
     it("applies custom class to native table", async () => {
-      await renderAndWait(`<plank-table class="border"></plank-table>`)
-      const table = container.querySelector("plank-table")
+      await renderAndWait(`<hal-table class="border"></hal-table>`)
+      const table = container.querySelector("hal-table")
       const nativeTable = table?.querySelector("table")
       expect(nativeTable?.classList.contains("border")).toBe(true)
     })
   })
 
-  describe("PlankTableHeader", () => {
+  describe("HalTableHeader", () => {
     it("renders with data-slot attribute", async () => {
-      await renderAndWait(`<plank-table-header></plank-table-header>`)
-      const header = container.querySelector("plank-table-header")
+      await renderAndWait(`<hal-table-header></hal-table-header>`)
+      const header = container.querySelector("hal-table-header")
       expect(header?.dataset.slot).toBe("table-header")
     })
 
     it("creates a native thead element inside", async () => {
-      await renderAndWait(`<plank-table-header></plank-table-header>`)
-      const header = container.querySelector("plank-table-header")
+      await renderAndWait(`<hal-table-header></hal-table-header>`)
+      const header = container.querySelector("hal-table-header")
       const thead = header?.querySelector("thead")
       expect(thead).toBeTruthy()
     })
 
     it("applies custom class to native thead", async () => {
       await renderAndWait(
-        `<plank-table-header class="bg-muted"></plank-table-header>`
+        `<hal-table-header class="bg-muted"></hal-table-header>`
       )
-      const header = container.querySelector("plank-table-header")
+      const header = container.querySelector("hal-table-header")
       const thead = header?.querySelector("thead")
       expect(thead?.classList.contains("bg-muted")).toBe(true)
     })
   })
 
-  describe("PlankTableBody", () => {
+  describe("HalTableBody", () => {
     it("renders with data-slot attribute", async () => {
-      await renderAndWait(`<plank-table-body></plank-table-body>`)
-      const body = container.querySelector("plank-table-body")
+      await renderAndWait(`<hal-table-body></hal-table-body>`)
+      const body = container.querySelector("hal-table-body")
       expect(body?.dataset.slot).toBe("table-body")
     })
 
     it("creates a native tbody element inside", async () => {
-      await renderAndWait(`<plank-table-body></plank-table-body>`)
-      const body = container.querySelector("plank-table-body")
+      await renderAndWait(`<hal-table-body></hal-table-body>`)
+      const body = container.querySelector("hal-table-body")
       const tbody = body?.querySelector("tbody")
       expect(tbody).toBeTruthy()
     })
 
     it("applies custom class to native tbody", async () => {
-      await renderAndWait(
-        `<plank-table-body class="divide-y"></plank-table-body>`
-      )
-      const body = container.querySelector("plank-table-body")
+      await renderAndWait(`<hal-table-body class="divide-y"></hal-table-body>`)
+      const body = container.querySelector("hal-table-body")
       const tbody = body?.querySelector("tbody")
       expect(tbody?.classList.contains("divide-y")).toBe(true)
     })
   })
 
-  describe("PlankTableFooter", () => {
+  describe("HalTableFooter", () => {
     it("renders with data-slot attribute", async () => {
-      await renderAndWait(`<plank-table-footer></plank-table-footer>`)
-      const footer = container.querySelector("plank-table-footer")
+      await renderAndWait(`<hal-table-footer></hal-table-footer>`)
+      const footer = container.querySelector("hal-table-footer")
       expect(footer?.dataset.slot).toBe("table-footer")
     })
 
     it("creates a native tfoot element inside", async () => {
-      await renderAndWait(`<plank-table-footer></plank-table-footer>`)
-      const footer = container.querySelector("plank-table-footer")
+      await renderAndWait(`<hal-table-footer></hal-table-footer>`)
+      const footer = container.querySelector("hal-table-footer")
       const tfoot = footer?.querySelector("tfoot")
       expect(tfoot).toBeTruthy()
     })
 
     it("applies custom class to native tfoot", async () => {
       await renderAndWait(
-        `<plank-table-footer class="font-bold"></plank-table-footer>`
+        `<hal-table-footer class="font-bold"></hal-table-footer>`
       )
-      const footer = container.querySelector("plank-table-footer")
+      const footer = container.querySelector("hal-table-footer")
       const tfoot = footer?.querySelector("tfoot")
       expect(tfoot?.classList.contains("font-bold")).toBe(true)
     })
   })
 
-  describe("PlankTableRow", () => {
+  describe("HalTableRow", () => {
     it("renders with data-slot attribute", async () => {
-      await renderAndWait(`<plank-table-row></plank-table-row>`)
-      const row = container.querySelector("plank-table-row")
+      await renderAndWait(`<hal-table-row></hal-table-row>`)
+      const row = container.querySelector("hal-table-row")
       expect(row?.dataset.slot).toBe("table-row")
     })
 
     it("creates a native tr element inside", async () => {
-      await renderAndWait(`<plank-table-row></plank-table-row>`)
-      const row = container.querySelector("plank-table-row")
+      await renderAndWait(`<hal-table-row></hal-table-row>`)
+      const row = container.querySelector("hal-table-row")
       const tr = row?.querySelector("tr")
       expect(tr).toBeTruthy()
     })
 
     it("applies custom class to native tr", async () => {
       await renderAndWait(
-        `<plank-table-row class="even:bg-muted"></plank-table-row>`
+        `<hal-table-row class="even:bg-muted"></hal-table-row>`
       )
-      const row = container.querySelector("plank-table-row")
+      const row = container.querySelector("hal-table-row")
       const tr = row?.querySelector("tr")
       expect(tr?.classList.contains("even:bg-muted")).toBe(true)
     })
 
     it("sets data-state=selected when selected", async () => {
-      await renderAndWait(`<plank-table-row selected></plank-table-row>`)
-      const row = container.querySelector("plank-table-row")
+      await renderAndWait(`<hal-table-row selected></hal-table-row>`)
+      const row = container.querySelector("hal-table-row")
       const tr = row?.querySelector("tr")
       expect(tr?.dataset.state).toBe("selected")
     })
 
     it("does not have data-state when not selected", async () => {
-      await renderAndWait(`<plank-table-row></plank-table-row>`)
-      const row = container.querySelector("plank-table-row")
+      await renderAndWait(`<hal-table-row></hal-table-row>`)
+      const row = container.querySelector("hal-table-row")
       const tr = row?.querySelector("tr")
       expect(tr?.dataset.state).toBeUndefined()
     })
 
     it("updates data-state when selected changes", async () => {
-      await renderAndWait(`<plank-table-row></plank-table-row>`)
-      const row = container.querySelector("plank-table-row") as PlankTableRow
+      await renderAndWait(`<hal-table-row></hal-table-row>`)
+      const row = container.querySelector("hal-table-row") as HalTableRow
       const tr = row?.querySelector("tr")
       expect(tr?.dataset.state).toBeUndefined()
 
@@ -190,108 +188,106 @@ describe("PlankTable (Web Component)", () => {
     })
   })
 
-  describe("PlankTableHead", () => {
+  describe("HalTableHead", () => {
     it("renders with data-slot attribute", async () => {
-      await renderAndWait(`<plank-table-head></plank-table-head>`)
-      const head = container.querySelector("plank-table-head")
+      await renderAndWait(`<hal-table-head></hal-table-head>`)
+      const head = container.querySelector("hal-table-head")
       expect(head?.dataset.slot).toBe("table-head")
     })
 
     it("creates a native th element inside", async () => {
-      await renderAndWait(`<plank-table-head></plank-table-head>`)
-      const head = container.querySelector("plank-table-head")
+      await renderAndWait(`<hal-table-head></hal-table-head>`)
+      const head = container.querySelector("hal-table-head")
       const th = head?.querySelector("th")
       expect(th).toBeTruthy()
     })
 
     it("applies custom class to native th", async () => {
-      await renderAndWait(
-        `<plank-table-head class="w-[100px]"></plank-table-head>`
-      )
-      const head = container.querySelector("plank-table-head")
+      await renderAndWait(`<hal-table-head class="w-[100px]"></hal-table-head>`)
+      const head = container.querySelector("hal-table-head")
       const th = head?.querySelector("th")
       expect(th?.classList.contains("w-[100px]")).toBe(true)
     })
 
     it("sets colspan attribute on native th", async () => {
-      await renderAndWait(`<plank-table-head colspan="3"></plank-table-head>`)
-      const head = container.querySelector("plank-table-head")
+      await renderAndWait(`<hal-table-head colspan="3"></hal-table-head>`)
+      const head = container.querySelector("hal-table-head")
       const th = head?.querySelector("th")
       expect(th?.colSpan).toBe(3)
     })
 
     it("sets rowspan attribute on native th", async () => {
-      await renderAndWait(`<plank-table-head rowspan="2"></plank-table-head>`)
-      const head = container.querySelector("plank-table-head")
+      await renderAndWait(`<hal-table-head rowspan="2"></hal-table-head>`)
+      const head = container.querySelector("hal-table-head")
       const th = head?.querySelector("th")
       expect(th?.rowSpan).toBe(2)
     })
 
     it("sets scope attribute on native th", async () => {
-      await renderAndWait(`<plank-table-head scope="col"></plank-table-head>`)
-      const head = container.querySelector("plank-table-head")
+      await renderAndWait(`<hal-table-head scope="col"></hal-table-head>`)
+      const head = container.querySelector("hal-table-head")
       const th = head?.querySelector("th")
       expect(th?.scope).toBe("col")
     })
   })
 
-  describe("PlankTableCell", () => {
+  describe("HalTableCell", () => {
     it("renders with data-slot attribute", async () => {
-      await renderAndWait(`<plank-table-cell></plank-table-cell>`)
-      const cell = container.querySelector("plank-table-cell")
+      await renderAndWait(`<hal-table-cell></hal-table-cell>`)
+      const cell = container.querySelector("hal-table-cell")
       expect(cell?.dataset.slot).toBe("table-cell")
     })
 
     it("creates a native td element inside", async () => {
-      await renderAndWait(`<plank-table-cell></plank-table-cell>`)
-      const cell = container.querySelector("plank-table-cell")
+      await renderAndWait(`<hal-table-cell></hal-table-cell>`)
+      const cell = container.querySelector("hal-table-cell")
       const td = cell?.querySelector("td")
       expect(td).toBeTruthy()
     })
 
     it("applies custom class to native td", async () => {
       await renderAndWait(
-        `<plank-table-cell class="text-right"></plank-table-cell>`
+        `<hal-table-cell class="text-right"></hal-table-cell>`
       )
-      const cell = container.querySelector("plank-table-cell")
+      const cell = container.querySelector("hal-table-cell")
       const td = cell?.querySelector("td")
       expect(td?.classList.contains("text-right")).toBe(true)
     })
 
     it("sets colspan attribute on native td", async () => {
-      await renderAndWait(`<plank-table-cell colspan="3"></plank-table-cell>`)
-      const cell = container.querySelector("plank-table-cell")
+      await renderAndWait(`<hal-table-cell colspan="3"></hal-table-cell>`)
+      const cell = container.querySelector("hal-table-cell")
       const td = cell?.querySelector("td")
       expect(td?.colSpan).toBe(3)
     })
 
     it("sets rowspan attribute on native td", async () => {
-      await renderAndWait(`<plank-table-cell rowspan="2"></plank-table-cell>`)
-      const cell = container.querySelector("plank-table-cell")
+      await renderAndWait(`<hal-table-cell rowspan="2"></hal-table-cell>`)
+      const cell = container.querySelector("hal-table-cell")
       const td = cell?.querySelector("td")
       expect(td?.rowSpan).toBe(2)
     })
   })
 
-  describe("PlankTableCaption", () => {
+  describe("HalTableCaption", () => {
     it("renders with data-slot attribute", async () => {
-      await renderAndWait(`<plank-table-caption></plank-table-caption>`)
-      const caption = container.querySelector("plank-table-caption")
+      await renderAndWait(`<hal-table-caption></hal-table-caption>`)
+      const caption = container.querySelector("hal-table-caption")
       expect(caption?.dataset.slot).toBe("table-caption")
     })
 
     it("creates a native caption element inside", async () => {
-      await renderAndWait(`<plank-table-caption></plank-table-caption>`)
-      const captionEl = container.querySelector("plank-table-caption")
+      await renderAndWait(`<hal-table-caption></hal-table-caption>`)
+      const captionEl = container.querySelector("hal-table-caption")
       const caption = captionEl?.querySelector("caption")
       expect(caption).toBeTruthy()
     })
 
     it("applies custom class to native caption", async () => {
       await renderAndWait(
-        `<plank-table-caption class="text-left"></plank-table-caption>`
+        `<hal-table-caption class="text-left"></hal-table-caption>`
       )
-      const captionEl = container.querySelector("plank-table-caption")
+      const captionEl = container.querySelector("hal-table-caption")
       const caption = captionEl?.querySelector("caption")
       expect(caption?.classList.contains("text-left")).toBe(true)
     })
@@ -300,37 +296,37 @@ describe("PlankTable (Web Component)", () => {
   describe("Full Table Composition", () => {
     it("renders a complete table with all parts", async () => {
       await renderAndWait(`
-        <plank-table>
-          <plank-table-caption>A list of invoices</plank-table-caption>
-          <plank-table-header>
-            <plank-table-row>
-              <plank-table-head>Invoice</plank-table-head>
-              <plank-table-head>Status</plank-table-head>
-              <plank-table-head class="text-right">Amount</plank-table-head>
-            </plank-table-row>
-          </plank-table-header>
-          <plank-table-body>
-            <plank-table-row>
-              <plank-table-cell>INV001</plank-table-cell>
-              <plank-table-cell>Paid</plank-table-cell>
-              <plank-table-cell class="text-right">$250.00</plank-table-cell>
-            </plank-table-row>
-            <plank-table-row>
-              <plank-table-cell>INV002</plank-table-cell>
-              <plank-table-cell>Pending</plank-table-cell>
-              <plank-table-cell class="text-right">$150.00</plank-table-cell>
-            </plank-table-row>
-          </plank-table-body>
-          <plank-table-footer>
-            <plank-table-row>
-              <plank-table-cell colspan="2">Total</plank-table-cell>
-              <plank-table-cell class="text-right">$400.00</plank-table-cell>
-            </plank-table-row>
-          </plank-table-footer>
-        </plank-table>
+        <hal-table>
+          <hal-table-caption>A list of invoices</hal-table-caption>
+          <hal-table-header>
+            <hal-table-row>
+              <hal-table-head>Invoice</hal-table-head>
+              <hal-table-head>Status</hal-table-head>
+              <hal-table-head class="text-right">Amount</hal-table-head>
+            </hal-table-row>
+          </hal-table-header>
+          <hal-table-body>
+            <hal-table-row>
+              <hal-table-cell>INV001</hal-table-cell>
+              <hal-table-cell>Paid</hal-table-cell>
+              <hal-table-cell class="text-right">$250.00</hal-table-cell>
+            </hal-table-row>
+            <hal-table-row>
+              <hal-table-cell>INV002</hal-table-cell>
+              <hal-table-cell>Pending</hal-table-cell>
+              <hal-table-cell class="text-right">$150.00</hal-table-cell>
+            </hal-table-row>
+          </hal-table-body>
+          <hal-table-footer>
+            <hal-table-row>
+              <hal-table-cell colspan="2">Total</hal-table-cell>
+              <hal-table-cell class="text-right">$400.00</hal-table-cell>
+            </hal-table-row>
+          </hal-table-footer>
+        </hal-table>
       `)
 
-      const table = container.querySelector("plank-table")
+      const table = container.querySelector("hal-table")
       expect(table).toBeTruthy()
 
       // Check native table structure
@@ -360,13 +356,13 @@ describe("PlankTable (Web Component)", () => {
 
     it("preserves text content inside cells", async () => {
       await renderAndWait(`
-        <plank-table>
-          <plank-table-body>
-            <plank-table-row>
-              <plank-table-cell>Cell Content</plank-table-cell>
-            </plank-table-row>
-          </plank-table-body>
-        </plank-table>
+        <hal-table>
+          <hal-table-body>
+            <hal-table-row>
+              <hal-table-cell>Cell Content</hal-table-cell>
+            </hal-table-row>
+          </hal-table-body>
+        </hal-table>
       `)
 
       const td = container.querySelector("td")
@@ -375,13 +371,13 @@ describe("PlankTable (Web Component)", () => {
 
     it("preserves text content inside header cells", async () => {
       await renderAndWait(`
-        <plank-table>
-          <plank-table-header>
-            <plank-table-row>
-              <plank-table-head>Header Text</plank-table-head>
-            </plank-table-row>
-          </plank-table-header>
-        </plank-table>
+        <hal-table>
+          <hal-table-header>
+            <hal-table-row>
+              <hal-table-head>Header Text</hal-table-head>
+            </hal-table-row>
+          </hal-table-header>
+        </hal-table>
       `)
 
       const th = container.querySelector("th")
@@ -390,16 +386,16 @@ describe("PlankTable (Web Component)", () => {
 
     it("handles selected rows", async () => {
       await renderAndWait(`
-        <plank-table>
-          <plank-table-body>
-            <plank-table-row selected>
-              <plank-table-cell>Selected Row</plank-table-cell>
-            </plank-table-row>
-            <plank-table-row>
-              <plank-table-cell>Normal Row</plank-table-cell>
-            </plank-table-row>
-          </plank-table-body>
-        </plank-table>
+        <hal-table>
+          <hal-table-body>
+            <hal-table-row selected>
+              <hal-table-cell>Selected Row</hal-table-cell>
+            </hal-table-row>
+            <hal-table-row>
+              <hal-table-cell>Normal Row</hal-table-cell>
+            </hal-table-row>
+          </hal-table-body>
+        </hal-table>
       `)
 
       const rows = container.querySelectorAll("tr")

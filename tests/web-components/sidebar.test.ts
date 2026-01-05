@@ -1,13 +1,13 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest"
-import "@/web-components/plank-sidebar"
-import "@/web-components/plank-button"
-import "@/web-components/plank-separator"
-import "@/web-components/plank-skeleton"
-import "@/web-components/plank-input"
-import "@/web-components/plank-sheet"
-import "@/web-components/plank-tooltip"
+import "@/web-components/hal-sidebar"
+import "@/web-components/hal-button"
+import "@/web-components/hal-separator"
+import "@/web-components/hal-skeleton"
+import "@/web-components/hal-input"
+import "@/web-components/hal-sheet"
+import "@/web-components/hal-tooltip"
 
-describe("plank-sidebar", () => {
+describe("hal-sidebar", () => {
   let container: HTMLElement
 
   beforeEach(() => {
@@ -19,15 +19,15 @@ describe("plank-sidebar", () => {
     container.remove()
   })
 
-  describe("PlankSidebarProvider", () => {
+  describe("HalSidebarProvider", () => {
     it("renders with default state (expanded)", async () => {
       container.innerHTML = `
-        <plank-sidebar-provider>
+        <hal-sidebar-provider>
           <span>Content</span>
-        </plank-sidebar-provider>
+        </hal-sidebar-provider>
       `
-      await customElements.whenDefined("plank-sidebar-provider")
-      const provider = container.querySelector("plank-sidebar-provider")!
+      await customElements.whenDefined("hal-sidebar-provider")
+      const provider = container.querySelector("hal-sidebar-provider")!
       await (provider as any).updateComplete
 
       expect(provider.dataset.slot).toBe("sidebar-wrapper")
@@ -37,12 +37,12 @@ describe("plank-sidebar", () => {
 
     it("respects default-open=false", async () => {
       container.innerHTML = `
-        <plank-sidebar-provider default-open="false">
+        <hal-sidebar-provider default-open="false">
           <span>Content</span>
-        </plank-sidebar-provider>
+        </hal-sidebar-provider>
       `
-      await customElements.whenDefined("plank-sidebar-provider")
-      const provider = container.querySelector("plank-sidebar-provider")! as any
+      await customElements.whenDefined("hal-sidebar-provider")
+      const provider = container.querySelector("hal-sidebar-provider")! as any
       await provider.updateComplete
 
       expect(provider.state).toBe("collapsed")
@@ -50,12 +50,12 @@ describe("plank-sidebar", () => {
 
     it("exposes state property", async () => {
       container.innerHTML = `
-        <plank-sidebar-provider>
+        <hal-sidebar-provider>
           <span>Content</span>
-        </plank-sidebar-provider>
+        </hal-sidebar-provider>
       `
-      await customElements.whenDefined("plank-sidebar-provider")
-      const provider = container.querySelector("plank-sidebar-provider")! as any
+      await customElements.whenDefined("hal-sidebar-provider")
+      const provider = container.querySelector("hal-sidebar-provider")! as any
       await provider.updateComplete
 
       expect(provider.state).toBe("expanded")
@@ -66,12 +66,12 @@ describe("plank-sidebar", () => {
     it("toggleSidebar toggles state (desktop)", async () => {
       // Force desktop mode by directly setting _isMobile
       container.innerHTML = `
-        <plank-sidebar-provider>
+        <hal-sidebar-provider>
           <span>Content</span>
-        </plank-sidebar-provider>
+        </hal-sidebar-provider>
       `
-      await customElements.whenDefined("plank-sidebar-provider")
-      const provider = container.querySelector("plank-sidebar-provider")! as any
+      await customElements.whenDefined("hal-sidebar-provider")
+      const provider = container.querySelector("hal-sidebar-provider")! as any
       await provider.updateComplete
 
       // Force desktop mode for this test
@@ -86,12 +86,12 @@ describe("plank-sidebar", () => {
 
     it("toggleSidebar toggles mobile state (mobile)", async () => {
       container.innerHTML = `
-        <plank-sidebar-provider>
+        <hal-sidebar-provider>
           <span>Content</span>
-        </plank-sidebar-provider>
+        </hal-sidebar-provider>
       `
-      await customElements.whenDefined("plank-sidebar-provider")
-      const provider = container.querySelector("plank-sidebar-provider")! as any
+      await customElements.whenDefined("hal-sidebar-provider")
+      const provider = container.querySelector("hal-sidebar-provider")! as any
       await provider.updateComplete
 
       // Force mobile mode for this test
@@ -106,12 +106,12 @@ describe("plank-sidebar", () => {
 
     it("fires open-change event", async () => {
       container.innerHTML = `
-        <plank-sidebar-provider>
+        <hal-sidebar-provider>
           <span>Content</span>
-        </plank-sidebar-provider>
+        </hal-sidebar-provider>
       `
-      await customElements.whenDefined("plank-sidebar-provider")
-      const provider = container.querySelector("plank-sidebar-provider")! as any
+      await customElements.whenDefined("hal-sidebar-provider")
+      const provider = container.querySelector("hal-sidebar-provider")! as any
       await provider.updateComplete
 
       const handler = vi.fn()
@@ -124,12 +124,12 @@ describe("plank-sidebar", () => {
 
     it("sets CSS custom properties", async () => {
       container.innerHTML = `
-        <plank-sidebar-provider>
+        <hal-sidebar-provider>
           <span>Content</span>
-        </plank-sidebar-provider>
+        </hal-sidebar-provider>
       `
-      await customElements.whenDefined("plank-sidebar-provider")
-      const provider = container.querySelector("plank-sidebar-provider")!
+      await customElements.whenDefined("hal-sidebar-provider")
+      const provider = container.querySelector("hal-sidebar-provider")!
       await (provider as any).updateComplete
 
       expect(provider.style.getPropertyValue("--sidebar-width")).toBe("16rem")
@@ -140,12 +140,12 @@ describe("plank-sidebar", () => {
 
     it("responds to keyboard shortcut (Ctrl+B)", async () => {
       container.innerHTML = `
-        <plank-sidebar-provider>
+        <hal-sidebar-provider>
           <span>Content</span>
-        </plank-sidebar-provider>
+        </hal-sidebar-provider>
       `
-      await customElements.whenDefined("plank-sidebar-provider")
-      const provider = container.querySelector("plank-sidebar-provider")! as any
+      await customElements.whenDefined("hal-sidebar-provider")
+      const provider = container.querySelector("hal-sidebar-provider")! as any
       await provider.updateComplete
 
       // Force desktop mode for this test
@@ -165,17 +165,17 @@ describe("plank-sidebar", () => {
     })
   })
 
-  describe("PlankSidebar", () => {
+  describe("HalSidebar", () => {
     it("renders with default props", async () => {
       container.innerHTML = `
-        <plank-sidebar-provider>
-          <plank-sidebar>
+        <hal-sidebar-provider>
+          <hal-sidebar>
             <span>Sidebar content</span>
-          </plank-sidebar>
-        </plank-sidebar-provider>
+          </hal-sidebar>
+        </hal-sidebar-provider>
       `
-      await customElements.whenDefined("plank-sidebar")
-      const sidebar = container.querySelector("plank-sidebar")!
+      await customElements.whenDefined("hal-sidebar")
+      const sidebar = container.querySelector("hal-sidebar")!
       await (sidebar as any).updateComplete
 
       expect(sidebar.dataset.slot).toBe("sidebar")
@@ -185,14 +185,14 @@ describe("plank-sidebar", () => {
 
     it("accepts side prop", async () => {
       container.innerHTML = `
-        <plank-sidebar-provider>
-          <plank-sidebar side="right">
+        <hal-sidebar-provider>
+          <hal-sidebar side="right">
             <span>Content</span>
-          </plank-sidebar>
-        </plank-sidebar-provider>
+          </hal-sidebar>
+        </hal-sidebar-provider>
       `
-      await customElements.whenDefined("plank-sidebar")
-      const sidebar = container.querySelector("plank-sidebar")!
+      await customElements.whenDefined("hal-sidebar")
+      const sidebar = container.querySelector("hal-sidebar")!
       await (sidebar as any).updateComplete
 
       expect(sidebar.dataset.side).toBe("right")
@@ -200,14 +200,14 @@ describe("plank-sidebar", () => {
 
     it("accepts variant prop", async () => {
       container.innerHTML = `
-        <plank-sidebar-provider>
-          <plank-sidebar variant="floating">
+        <hal-sidebar-provider>
+          <hal-sidebar variant="floating">
             <span>Content</span>
-          </plank-sidebar>
-        </plank-sidebar-provider>
+          </hal-sidebar>
+        </hal-sidebar-provider>
       `
-      await customElements.whenDefined("plank-sidebar")
-      const sidebar = container.querySelector("plank-sidebar")!
+      await customElements.whenDefined("hal-sidebar")
+      const sidebar = container.querySelector("hal-sidebar")!
       await (sidebar as any).updateComplete
 
       expect(sidebar.dataset.variant).toBe("floating")
@@ -215,15 +215,15 @@ describe("plank-sidebar", () => {
 
     it("accepts collapsible prop", async () => {
       container.innerHTML = `
-        <plank-sidebar-provider>
-          <plank-sidebar collapsible="icon">
+        <hal-sidebar-provider>
+          <hal-sidebar collapsible="icon">
             <span>Content</span>
-          </plank-sidebar>
-        </plank-sidebar-provider>
+          </hal-sidebar>
+        </hal-sidebar-provider>
       `
-      await customElements.whenDefined("plank-sidebar")
-      const sidebar = container.querySelector("plank-sidebar")!
-      const provider = container.querySelector("plank-sidebar-provider")! as any
+      await customElements.whenDefined("hal-sidebar")
+      const sidebar = container.querySelector("hal-sidebar")!
+      const provider = container.querySelector("hal-sidebar-provider")! as any
       await (sidebar as any).updateComplete
 
       // When expanded, collapsible should be empty
@@ -237,14 +237,14 @@ describe("plank-sidebar", () => {
 
     it("renders non-collapsible sidebar correctly", async () => {
       container.innerHTML = `
-        <plank-sidebar-provider>
-          <plank-sidebar collapsible="none">
+        <hal-sidebar-provider>
+          <hal-sidebar collapsible="none">
             <span>Static sidebar</span>
-          </plank-sidebar>
-        </plank-sidebar-provider>
+          </hal-sidebar>
+        </hal-sidebar-provider>
       `
-      await customElements.whenDefined("plank-sidebar")
-      const sidebar = container.querySelector("plank-sidebar")!
+      await customElements.whenDefined("hal-sidebar")
+      const sidebar = container.querySelector("hal-sidebar")!
       await (sidebar as any).updateComplete
 
       expect(sidebar.className).toContain("bg-sidebar")
@@ -253,18 +253,18 @@ describe("plank-sidebar", () => {
     })
   })
 
-  describe("PlankSidebarTrigger", () => {
+  describe("HalSidebarTrigger", () => {
     it("renders with button", async () => {
       container.innerHTML = `
-        <plank-sidebar-provider>
-          <plank-sidebar-trigger></plank-sidebar-trigger>
-        </plank-sidebar-provider>
+        <hal-sidebar-provider>
+          <hal-sidebar-trigger></hal-sidebar-trigger>
+        </hal-sidebar-provider>
       `
-      await customElements.whenDefined("plank-sidebar-trigger")
-      const trigger = container.querySelector("plank-sidebar-trigger")!
+      await customElements.whenDefined("hal-sidebar-trigger")
+      const trigger = container.querySelector("hal-sidebar-trigger")!
       await (trigger as any).updateComplete
 
-      const button = trigger.querySelector("plank-button")
+      const button = trigger.querySelector("hal-button")
       expect(button).toBeTruthy()
       expect(button?.getAttribute("variant")).toBe("ghost")
       expect(button?.getAttribute("size")).toBe("icon")
@@ -272,13 +272,13 @@ describe("plank-sidebar", () => {
 
     it("toggles sidebar on click", async () => {
       container.innerHTML = `
-        <plank-sidebar-provider>
-          <plank-sidebar-trigger></plank-sidebar-trigger>
-        </plank-sidebar-provider>
+        <hal-sidebar-provider>
+          <hal-sidebar-trigger></hal-sidebar-trigger>
+        </hal-sidebar-provider>
       `
-      await customElements.whenDefined("plank-sidebar-trigger")
-      const trigger = container.querySelector("plank-sidebar-trigger")!
-      const provider = container.querySelector("plank-sidebar-provider")! as any
+      await customElements.whenDefined("hal-sidebar-trigger")
+      const trigger = container.querySelector("hal-sidebar-trigger")!
+      const provider = container.querySelector("hal-sidebar-provider")! as any
       await (trigger as any).updateComplete
 
       // Force desktop mode for this test
@@ -286,7 +286,7 @@ describe("plank-sidebar", () => {
 
       expect(provider.isOpen).toBe(true)
 
-      const button = trigger.querySelector("plank-button")!
+      const button = trigger.querySelector("hal-button")!
       button.click()
 
       expect(provider.isOpen).toBe(false)
@@ -294,12 +294,12 @@ describe("plank-sidebar", () => {
 
     it("has accessible label", async () => {
       container.innerHTML = `
-        <plank-sidebar-provider>
-          <plank-sidebar-trigger></plank-sidebar-trigger>
-        </plank-sidebar-provider>
+        <hal-sidebar-provider>
+          <hal-sidebar-trigger></hal-sidebar-trigger>
+        </hal-sidebar-provider>
       `
-      await customElements.whenDefined("plank-sidebar-trigger")
-      const trigger = container.querySelector("plank-sidebar-trigger")!
+      await customElements.whenDefined("hal-sidebar-trigger")
+      const trigger = container.querySelector("hal-sidebar-trigger")!
       await (trigger as any).updateComplete
 
       const srOnly = trigger.querySelector(".sr-only")
@@ -307,17 +307,17 @@ describe("plank-sidebar", () => {
     })
   })
 
-  describe("PlankSidebarInset", () => {
+  describe("HalSidebarInset", () => {
     it("renders as main element", async () => {
       container.innerHTML = `
-        <plank-sidebar-provider>
-          <plank-sidebar-inset>
+        <hal-sidebar-provider>
+          <hal-sidebar-inset>
             <span>Main content</span>
-          </plank-sidebar-inset>
-        </plank-sidebar-provider>
+          </hal-sidebar-inset>
+        </hal-sidebar-provider>
       `
-      await customElements.whenDefined("plank-sidebar-inset")
-      const inset = container.querySelector("plank-sidebar-inset")!
+      await customElements.whenDefined("hal-sidebar-inset")
+      const inset = container.querySelector("hal-sidebar-inset")!
       await (inset as any).updateComplete
 
       expect(inset.dataset.slot).toBe("sidebar-inset")
@@ -327,15 +327,15 @@ describe("plank-sidebar", () => {
     })
   })
 
-  describe("PlankSidebarHeader", () => {
+  describe("HalSidebarHeader", () => {
     it("renders with correct classes", async () => {
       container.innerHTML = `
-        <plank-sidebar-header>
+        <hal-sidebar-header>
           <span>Header</span>
-        </plank-sidebar-header>
+        </hal-sidebar-header>
       `
-      await customElements.whenDefined("plank-sidebar-header")
-      const header = container.querySelector("plank-sidebar-header")!
+      await customElements.whenDefined("hal-sidebar-header")
+      const header = container.querySelector("hal-sidebar-header")!
       await (header as any).updateComplete
 
       expect(header.dataset.slot).toBe("sidebar-header")
@@ -347,15 +347,15 @@ describe("plank-sidebar", () => {
     })
   })
 
-  describe("PlankSidebarFooter", () => {
+  describe("HalSidebarFooter", () => {
     it("renders with correct classes", async () => {
       container.innerHTML = `
-        <plank-sidebar-footer>
+        <hal-sidebar-footer>
           <span>Footer</span>
-        </plank-sidebar-footer>
+        </hal-sidebar-footer>
       `
-      await customElements.whenDefined("plank-sidebar-footer")
-      const footer = container.querySelector("plank-sidebar-footer")!
+      await customElements.whenDefined("hal-sidebar-footer")
+      const footer = container.querySelector("hal-sidebar-footer")!
       await (footer as any).updateComplete
 
       expect(footer.dataset.slot).toBe("sidebar-footer")
@@ -367,15 +367,15 @@ describe("plank-sidebar", () => {
     })
   })
 
-  describe("PlankSidebarContent", () => {
+  describe("HalSidebarContent", () => {
     it("renders with correct classes", async () => {
       container.innerHTML = `
-        <plank-sidebar-content>
+        <hal-sidebar-content>
           <span>Content</span>
-        </plank-sidebar-content>
+        </hal-sidebar-content>
       `
-      await customElements.whenDefined("plank-sidebar-content")
-      const content = container.querySelector("plank-sidebar-content")!
+      await customElements.whenDefined("hal-sidebar-content")
+      const content = container.querySelector("hal-sidebar-content")!
       await (content as any).updateComplete
 
       expect(content.dataset.slot).toBe("sidebar-content")
@@ -386,15 +386,15 @@ describe("plank-sidebar", () => {
     })
   })
 
-  describe("PlankSidebarGroup", () => {
+  describe("HalSidebarGroup", () => {
     it("renders with correct classes", async () => {
       container.innerHTML = `
-        <plank-sidebar-group>
+        <hal-sidebar-group>
           <span>Group content</span>
-        </plank-sidebar-group>
+        </hal-sidebar-group>
       `
-      await customElements.whenDefined("plank-sidebar-group")
-      const group = container.querySelector("plank-sidebar-group")!
+      await customElements.whenDefined("hal-sidebar-group")
+      const group = container.querySelector("hal-sidebar-group")!
       await (group as any).updateComplete
 
       expect(group.dataset.slot).toBe("sidebar-group")
@@ -406,15 +406,15 @@ describe("plank-sidebar", () => {
     })
   })
 
-  describe("PlankSidebarGroupLabel", () => {
+  describe("HalSidebarGroupLabel", () => {
     it("renders with correct classes", async () => {
       container.innerHTML = `
-        <plank-sidebar-group-label>
+        <hal-sidebar-group-label>
           <span>Label</span>
-        </plank-sidebar-group-label>
+        </hal-sidebar-group-label>
       `
-      await customElements.whenDefined("plank-sidebar-group-label")
-      const label = container.querySelector("plank-sidebar-group-label")!
+      await customElements.whenDefined("hal-sidebar-group-label")
+      const label = container.querySelector("hal-sidebar-group-label")!
       await (label as any).updateComplete
 
       expect(label.dataset.slot).toBe("sidebar-group-label")
@@ -423,15 +423,15 @@ describe("plank-sidebar", () => {
     })
   })
 
-  describe("PlankSidebarMenu", () => {
+  describe("HalSidebarMenu", () => {
     it("renders with correct classes", async () => {
       container.innerHTML = `
-        <plank-sidebar-menu>
-          <plank-sidebar-menu-item>Item</plank-sidebar-menu-item>
-        </plank-sidebar-menu>
+        <hal-sidebar-menu>
+          <hal-sidebar-menu-item>Item</hal-sidebar-menu-item>
+        </hal-sidebar-menu>
       `
-      await customElements.whenDefined("plank-sidebar-menu")
-      const menu = container.querySelector("plank-sidebar-menu")!
+      await customElements.whenDefined("hal-sidebar-menu")
+      const menu = container.querySelector("hal-sidebar-menu")!
       await (menu as any).updateComplete
 
       expect(menu.dataset.slot).toBe("sidebar-menu")
@@ -442,15 +442,15 @@ describe("plank-sidebar", () => {
     })
   })
 
-  describe("PlankSidebarMenuItem", () => {
+  describe("HalSidebarMenuItem", () => {
     it("renders with correct classes", async () => {
       container.innerHTML = `
-        <plank-sidebar-menu-item>
+        <hal-sidebar-menu-item>
           <span>Item content</span>
-        </plank-sidebar-menu-item>
+        </hal-sidebar-menu-item>
       `
-      await customElements.whenDefined("plank-sidebar-menu-item")
-      const item = container.querySelector("plank-sidebar-menu-item")!
+      await customElements.whenDefined("hal-sidebar-menu-item")
+      const item = container.querySelector("hal-sidebar-menu-item")!
       await (item as any).updateComplete
 
       expect(item.dataset.slot).toBe("sidebar-menu-item")
@@ -460,17 +460,17 @@ describe("plank-sidebar", () => {
     })
   })
 
-  describe("PlankSidebarMenuButton", () => {
+  describe("HalSidebarMenuButton", () => {
     it("renders with default props", async () => {
       container.innerHTML = `
-        <plank-sidebar-provider>
-          <plank-sidebar-menu-button>
+        <hal-sidebar-provider>
+          <hal-sidebar-menu-button>
             <span>Button</span>
-          </plank-sidebar-menu-button>
-        </plank-sidebar-provider>
+          </hal-sidebar-menu-button>
+        </hal-sidebar-provider>
       `
-      await customElements.whenDefined("plank-sidebar-menu-button")
-      const button = container.querySelector("plank-sidebar-menu-button")!
+      await customElements.whenDefined("hal-sidebar-menu-button")
+      const button = container.querySelector("hal-sidebar-menu-button")!
       await (button as any).updateComplete
 
       expect(button.dataset.slot).toBe("sidebar-menu-button")
@@ -483,14 +483,14 @@ describe("plank-sidebar", () => {
 
     it("accepts active prop", async () => {
       container.innerHTML = `
-        <plank-sidebar-provider>
-          <plank-sidebar-menu-button active>
+        <hal-sidebar-provider>
+          <hal-sidebar-menu-button active>
             <span>Active Button</span>
-          </plank-sidebar-menu-button>
-        </plank-sidebar-provider>
+          </hal-sidebar-menu-button>
+        </hal-sidebar-provider>
       `
-      await customElements.whenDefined("plank-sidebar-menu-button")
-      const button = container.querySelector("plank-sidebar-menu-button")!
+      await customElements.whenDefined("hal-sidebar-menu-button")
+      const button = container.querySelector("hal-sidebar-menu-button")!
       await (button as any).updateComplete
 
       expect(button.dataset.active).toBe("true")
@@ -498,14 +498,14 @@ describe("plank-sidebar", () => {
 
     it("accepts size prop", async () => {
       container.innerHTML = `
-        <plank-sidebar-provider>
-          <plank-sidebar-menu-button size="sm">
+        <hal-sidebar-provider>
+          <hal-sidebar-menu-button size="sm">
             <span>Small Button</span>
-          </plank-sidebar-menu-button>
-        </plank-sidebar-provider>
+          </hal-sidebar-menu-button>
+        </hal-sidebar-provider>
       `
-      await customElements.whenDefined("plank-sidebar-menu-button")
-      const button = container.querySelector("plank-sidebar-menu-button")!
+      await customElements.whenDefined("hal-sidebar-menu-button")
+      const button = container.querySelector("hal-sidebar-menu-button")!
       await (button as any).updateComplete
 
       expect(button.dataset.size).toBe("sm")
@@ -515,14 +515,14 @@ describe("plank-sidebar", () => {
 
     it("accepts variant prop", async () => {
       container.innerHTML = `
-        <plank-sidebar-provider>
-          <plank-sidebar-menu-button variant="outline">
+        <hal-sidebar-provider>
+          <hal-sidebar-menu-button variant="outline">
             <span>Outline Button</span>
-          </plank-sidebar-menu-button>
-        </plank-sidebar-provider>
+          </hal-sidebar-menu-button>
+        </hal-sidebar-provider>
       `
-      await customElements.whenDefined("plank-sidebar-menu-button")
-      const button = container.querySelector("plank-sidebar-menu-button")!
+      await customElements.whenDefined("hal-sidebar-menu-button")
+      const button = container.querySelector("hal-sidebar-menu-button")!
       await (button as any).updateComplete
 
       expect(button.className).toContain("bg-background")
@@ -530,13 +530,13 @@ describe("plank-sidebar", () => {
     })
   })
 
-  describe("PlankSidebarMenuBadge", () => {
+  describe("HalSidebarMenuBadge", () => {
     it("renders with correct classes", async () => {
       container.innerHTML = `
-        <plank-sidebar-menu-badge>5</plank-sidebar-menu-badge>
+        <hal-sidebar-menu-badge>5</hal-sidebar-menu-badge>
       `
-      await customElements.whenDefined("plank-sidebar-menu-badge")
-      const badge = container.querySelector("plank-sidebar-menu-badge")!
+      await customElements.whenDefined("hal-sidebar-menu-badge")
+      const badge = container.querySelector("hal-sidebar-menu-badge")!
       await (badge as any).updateComplete
 
       expect(badge.dataset.slot).toBe("sidebar-menu-badge")
@@ -547,16 +547,16 @@ describe("plank-sidebar", () => {
     })
   })
 
-  describe("PlankSidebarMenuSkeleton", () => {
+  describe("HalSidebarMenuSkeleton", () => {
     it("renders skeleton without icon", async () => {
       container.innerHTML = `
-        <plank-sidebar-menu-skeleton></plank-sidebar-menu-skeleton>
+        <hal-sidebar-menu-skeleton></hal-sidebar-menu-skeleton>
       `
-      await customElements.whenDefined("plank-sidebar-menu-skeleton")
-      const skeleton = container.querySelector("plank-sidebar-menu-skeleton")!
+      await customElements.whenDefined("hal-sidebar-menu-skeleton")
+      const skeleton = container.querySelector("hal-sidebar-menu-skeleton")!
       await (skeleton as any).updateComplete
 
-      const skeletons = skeleton.querySelectorAll("plank-skeleton")
+      const skeletons = skeleton.querySelectorAll("hal-skeleton")
       expect(skeletons.length).toBe(1) // Just text skeleton
 
       expect(skeleton.dataset.slot).toBe("sidebar-menu-skeleton")
@@ -564,26 +564,26 @@ describe("plank-sidebar", () => {
 
     it("renders skeleton with icon", async () => {
       container.innerHTML = `
-        <plank-sidebar-menu-skeleton show-icon></plank-sidebar-menu-skeleton>
+        <hal-sidebar-menu-skeleton show-icon></hal-sidebar-menu-skeleton>
       `
-      await customElements.whenDefined("plank-sidebar-menu-skeleton")
-      const skeleton = container.querySelector("plank-sidebar-menu-skeleton")!
+      await customElements.whenDefined("hal-sidebar-menu-skeleton")
+      const skeleton = container.querySelector("hal-sidebar-menu-skeleton")!
       await (skeleton as any).updateComplete
 
-      const skeletons = skeleton.querySelectorAll("plank-skeleton")
+      const skeletons = skeleton.querySelectorAll("hal-skeleton")
       expect(skeletons.length).toBe(2) // Icon + text skeletons
     })
   })
 
-  describe("PlankSidebarMenuSub", () => {
+  describe("HalSidebarMenuSub", () => {
     it("renders with correct classes", async () => {
       container.innerHTML = `
-        <plank-sidebar-menu-sub>
-          <plank-sidebar-menu-sub-item>Sub item</plank-sidebar-menu-sub-item>
-        </plank-sidebar-menu-sub>
+        <hal-sidebar-menu-sub>
+          <hal-sidebar-menu-sub-item>Sub item</hal-sidebar-menu-sub-item>
+        </hal-sidebar-menu-sub>
       `
-      await customElements.whenDefined("plank-sidebar-menu-sub")
-      const sub = container.querySelector("plank-sidebar-menu-sub")!
+      await customElements.whenDefined("hal-sidebar-menu-sub")
+      const sub = container.querySelector("hal-sidebar-menu-sub")!
       await (sub as any).updateComplete
 
       expect(sub.dataset.slot).toBe("sidebar-menu-sub")
@@ -593,15 +593,15 @@ describe("plank-sidebar", () => {
     })
   })
 
-  describe("PlankSidebarMenuSubItem", () => {
+  describe("HalSidebarMenuSubItem", () => {
     it("renders with correct classes", async () => {
       container.innerHTML = `
-        <plank-sidebar-menu-sub-item>
+        <hal-sidebar-menu-sub-item>
           <span>Sub item content</span>
-        </plank-sidebar-menu-sub-item>
+        </hal-sidebar-menu-sub-item>
       `
-      await customElements.whenDefined("plank-sidebar-menu-sub-item")
-      const item = container.querySelector("plank-sidebar-menu-sub-item")!
+      await customElements.whenDefined("hal-sidebar-menu-sub-item")
+      const item = container.querySelector("hal-sidebar-menu-sub-item")!
       await (item as any).updateComplete
 
       expect(item.dataset.slot).toBe("sidebar-menu-sub-item")
@@ -610,15 +610,15 @@ describe("plank-sidebar", () => {
     })
   })
 
-  describe("PlankSidebarMenuSubButton", () => {
+  describe("HalSidebarMenuSubButton", () => {
     it("renders with default props", async () => {
       container.innerHTML = `
-        <plank-sidebar-menu-sub-button>
+        <hal-sidebar-menu-sub-button>
           <span>Sub button</span>
-        </plank-sidebar-menu-sub-button>
+        </hal-sidebar-menu-sub-button>
       `
-      await customElements.whenDefined("plank-sidebar-menu-sub-button")
-      const button = container.querySelector("plank-sidebar-menu-sub-button")!
+      await customElements.whenDefined("hal-sidebar-menu-sub-button")
+      const button = container.querySelector("hal-sidebar-menu-sub-button")!
       await (button as any).updateComplete
 
       expect(button.dataset.slot).toBe("sidebar-menu-sub-button")
@@ -629,12 +629,12 @@ describe("plank-sidebar", () => {
 
     it("accepts href prop and renders anchor", async () => {
       container.innerHTML = `
-        <plank-sidebar-menu-sub-button href="/link">
+        <hal-sidebar-menu-sub-button href="/link">
           <span>Link</span>
-        </plank-sidebar-menu-sub-button>
+        </hal-sidebar-menu-sub-button>
       `
-      await customElements.whenDefined("plank-sidebar-menu-sub-button")
-      const button = container.querySelector("plank-sidebar-menu-sub-button")!
+      await customElements.whenDefined("hal-sidebar-menu-sub-button")
+      const button = container.querySelector("hal-sidebar-menu-sub-button")!
       await (button as any).updateComplete
 
       const anchor = button.querySelector("a")
@@ -644,12 +644,12 @@ describe("plank-sidebar", () => {
 
     it("accepts active prop", async () => {
       container.innerHTML = `
-        <plank-sidebar-menu-sub-button active>
+        <hal-sidebar-menu-sub-button active>
           <span>Active</span>
-        </plank-sidebar-menu-sub-button>
+        </hal-sidebar-menu-sub-button>
       `
-      await customElements.whenDefined("plank-sidebar-menu-sub-button")
-      const button = container.querySelector("plank-sidebar-menu-sub-button")!
+      await customElements.whenDefined("hal-sidebar-menu-sub-button")
+      const button = container.querySelector("hal-sidebar-menu-sub-button")!
       await (button as any).updateComplete
 
       expect(button.dataset.active).toBe("true")
@@ -657,12 +657,12 @@ describe("plank-sidebar", () => {
 
     it("accepts size prop", async () => {
       container.innerHTML = `
-        <plank-sidebar-menu-sub-button size="sm">
+        <hal-sidebar-menu-sub-button size="sm">
           <span>Small</span>
-        </plank-sidebar-menu-sub-button>
+        </hal-sidebar-menu-sub-button>
       `
-      await customElements.whenDefined("plank-sidebar-menu-sub-button")
-      const button = container.querySelector("plank-sidebar-menu-sub-button")!
+      await customElements.whenDefined("hal-sidebar-menu-sub-button")
+      const button = container.querySelector("hal-sidebar-menu-sub-button")!
       await (button as any).updateComplete
 
       expect(button.dataset.size).toBe("sm")
@@ -670,46 +670,46 @@ describe("plank-sidebar", () => {
     })
   })
 
-  describe("PlankSidebarSeparator", () => {
+  describe("HalSidebarSeparator", () => {
     it("renders separator component", async () => {
       container.innerHTML = `
-        <plank-sidebar-separator></plank-sidebar-separator>
+        <hal-sidebar-separator></hal-sidebar-separator>
       `
-      await customElements.whenDefined("plank-sidebar-separator")
-      const sep = container.querySelector("plank-sidebar-separator")!
+      await customElements.whenDefined("hal-sidebar-separator")
+      const sep = container.querySelector("hal-sidebar-separator")!
       await (sep as any).updateComplete
 
       expect(sep.dataset.slot).toBe("sidebar-separator")
-      const innerSep = sep.querySelector("plank-separator")
+      const innerSep = sep.querySelector("hal-separator")
       expect(innerSep).toBeTruthy()
     })
   })
 
-  describe("PlankSidebarInput", () => {
+  describe("HalSidebarInput", () => {
     it("renders input component", async () => {
       container.innerHTML = `
-        <plank-sidebar-input placeholder="Search..."></plank-sidebar-input>
+        <hal-sidebar-input placeholder="Search..."></hal-sidebar-input>
       `
-      await customElements.whenDefined("plank-sidebar-input")
-      const input = container.querySelector("plank-sidebar-input")!
+      await customElements.whenDefined("hal-sidebar-input")
+      const input = container.querySelector("hal-sidebar-input")!
       await (input as any).updateComplete
 
       expect(input.dataset.slot).toBe("sidebar-input")
-      const innerInput = input.querySelector("plank-input")
+      const innerInput = input.querySelector("hal-input")
       expect(innerInput).toBeTruthy()
       expect(innerInput?.getAttribute("placeholder")).toBe("Search...")
     })
   })
 
-  describe("PlankSidebarRail", () => {
+  describe("HalSidebarRail", () => {
     it("renders with correct classes", async () => {
       container.innerHTML = `
-        <plank-sidebar-provider>
-          <plank-sidebar-rail></plank-sidebar-rail>
-        </plank-sidebar-provider>
+        <hal-sidebar-provider>
+          <hal-sidebar-rail></hal-sidebar-rail>
+        </hal-sidebar-provider>
       `
-      await customElements.whenDefined("plank-sidebar-rail")
-      const rail = container.querySelector("plank-sidebar-rail")!
+      await customElements.whenDefined("hal-sidebar-rail")
+      const rail = container.querySelector("hal-sidebar-rail")!
       await (rail as any).updateComplete
 
       expect(rail.dataset.slot).toBe("sidebar-rail")
@@ -719,13 +719,13 @@ describe("plank-sidebar", () => {
 
     it("toggles sidebar on click", async () => {
       container.innerHTML = `
-        <plank-sidebar-provider>
-          <plank-sidebar-rail></plank-sidebar-rail>
-        </plank-sidebar-provider>
+        <hal-sidebar-provider>
+          <hal-sidebar-rail></hal-sidebar-rail>
+        </hal-sidebar-provider>
       `
-      await customElements.whenDefined("plank-sidebar-rail")
-      const rail = container.querySelector("plank-sidebar-rail")!
-      const provider = container.querySelector("plank-sidebar-provider")! as any
+      await customElements.whenDefined("hal-sidebar-rail")
+      const rail = container.querySelector("hal-sidebar-rail")!
+      const provider = container.querySelector("hal-sidebar-provider")! as any
       await (rail as any).updateComplete
 
       // Force desktop mode for this test
@@ -741,12 +741,12 @@ describe("plank-sidebar", () => {
 
     it("has accessible label", async () => {
       container.innerHTML = `
-        <plank-sidebar-provider>
-          <plank-sidebar-rail></plank-sidebar-rail>
-        </plank-sidebar-provider>
+        <hal-sidebar-provider>
+          <hal-sidebar-rail></hal-sidebar-rail>
+        </hal-sidebar-provider>
       `
-      await customElements.whenDefined("plank-sidebar-rail")
-      const rail = container.querySelector("plank-sidebar-rail")!
+      await customElements.whenDefined("hal-sidebar-rail")
+      const rail = container.querySelector("hal-sidebar-rail")!
       await (rail as any).updateComplete
 
       const button = rail.querySelector("button")
@@ -758,65 +758,65 @@ describe("plank-sidebar", () => {
   describe("Full sidebar composition", () => {
     it("renders complete sidebar layout", async () => {
       container.innerHTML = `
-        <plank-sidebar-provider>
-          <plank-sidebar>
-            <plank-sidebar-header>
+        <hal-sidebar-provider>
+          <hal-sidebar>
+            <hal-sidebar-header>
               <span>Logo</span>
-            </plank-sidebar-header>
-            <plank-sidebar-content>
-              <plank-sidebar-group>
-                <plank-sidebar-group-label>Menu</plank-sidebar-group-label>
-                <plank-sidebar-group-content>
-                  <plank-sidebar-menu>
-                    <plank-sidebar-menu-item>
-                      <plank-sidebar-menu-button active>
+            </hal-sidebar-header>
+            <hal-sidebar-content>
+              <hal-sidebar-group>
+                <hal-sidebar-group-label>Menu</hal-sidebar-group-label>
+                <hal-sidebar-group-content>
+                  <hal-sidebar-menu>
+                    <hal-sidebar-menu-item>
+                      <hal-sidebar-menu-button active>
                         <span>Home</span>
-                      </plank-sidebar-menu-button>
-                    </plank-sidebar-menu-item>
-                    <plank-sidebar-menu-item>
-                      <plank-sidebar-menu-button>
+                      </hal-sidebar-menu-button>
+                    </hal-sidebar-menu-item>
+                    <hal-sidebar-menu-item>
+                      <hal-sidebar-menu-button>
                         <span>Settings</span>
-                      </plank-sidebar-menu-button>
-                    </plank-sidebar-menu-item>
-                  </plank-sidebar-menu>
-                </plank-sidebar-group-content>
-              </plank-sidebar-group>
-            </plank-sidebar-content>
-            <plank-sidebar-footer>
+                      </hal-sidebar-menu-button>
+                    </hal-sidebar-menu-item>
+                  </hal-sidebar-menu>
+                </hal-sidebar-group-content>
+              </hal-sidebar-group>
+            </hal-sidebar-content>
+            <hal-sidebar-footer>
               <span>Footer</span>
-            </plank-sidebar-footer>
-          </plank-sidebar>
-          <plank-sidebar-inset>
-            <plank-sidebar-trigger></plank-sidebar-trigger>
+            </hal-sidebar-footer>
+          </hal-sidebar>
+          <hal-sidebar-inset>
+            <hal-sidebar-trigger></hal-sidebar-trigger>
             <main>Main content</main>
-          </plank-sidebar-inset>
-        </plank-sidebar-provider>
+          </hal-sidebar-inset>
+        </hal-sidebar-provider>
       `
-      await customElements.whenDefined("plank-sidebar-provider")
-      await customElements.whenDefined("plank-sidebar")
-      await customElements.whenDefined("plank-sidebar-header")
-      await customElements.whenDefined("plank-sidebar-content")
-      await customElements.whenDefined("plank-sidebar-footer")
-      await customElements.whenDefined("plank-sidebar-inset")
-      await customElements.whenDefined("plank-sidebar-trigger")
+      await customElements.whenDefined("hal-sidebar-provider")
+      await customElements.whenDefined("hal-sidebar")
+      await customElements.whenDefined("hal-sidebar-header")
+      await customElements.whenDefined("hal-sidebar-content")
+      await customElements.whenDefined("hal-sidebar-footer")
+      await customElements.whenDefined("hal-sidebar-inset")
+      await customElements.whenDefined("hal-sidebar-trigger")
 
-      const provider = container.querySelector("plank-sidebar-provider")! as any
+      const provider = container.querySelector("hal-sidebar-provider")! as any
       await provider.updateComplete
 
       // Verify structure
-      expect(container.querySelector("plank-sidebar")).toBeTruthy()
-      expect(container.querySelector("plank-sidebar-header")).toBeTruthy()
-      expect(container.querySelector("plank-sidebar-content")).toBeTruthy()
-      expect(container.querySelector("plank-sidebar-footer")).toBeTruthy()
-      expect(container.querySelector("plank-sidebar-inset")).toBeTruthy()
-      expect(container.querySelector("plank-sidebar-trigger")).toBeTruthy()
-      expect(container.querySelector("plank-sidebar-menu")).toBeTruthy()
+      expect(container.querySelector("hal-sidebar")).toBeTruthy()
+      expect(container.querySelector("hal-sidebar-header")).toBeTruthy()
+      expect(container.querySelector("hal-sidebar-content")).toBeTruthy()
+      expect(container.querySelector("hal-sidebar-footer")).toBeTruthy()
+      expect(container.querySelector("hal-sidebar-inset")).toBeTruthy()
+      expect(container.querySelector("hal-sidebar-trigger")).toBeTruthy()
+      expect(container.querySelector("hal-sidebar-menu")).toBeTruthy()
       // Query desktop container only (mobile container has cloned items)
       const desktopSidebar = container.querySelector(
         "[data-slot='sidebar-inner']"
       )
       expect(
-        desktopSidebar?.querySelectorAll("plank-sidebar-menu-item").length
+        desktopSidebar?.querySelectorAll("hal-sidebar-menu-item").length
       ).toBe(2)
     })
   })

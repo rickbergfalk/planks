@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Radio Group - Planks</title>
+    <title>Radio Group - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -17,89 +17,87 @@
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Basic Usage</h2>
         <div class="mb-4">
-          <plank-radio-group value="comfortable">
+          <hal-radio-group value="comfortable">
             <div class="flex items-center gap-3">
-              <plank-radio-group-item value="default"></plank-radio-group-item>
-              <plank-label for-value="default">Default</plank-label>
+              <hal-radio-group-item value="default"></hal-radio-group-item>
+              <hal-label for-value="default">Default</hal-label>
             </div>
             <div class="flex items-center gap-3">
-              <plank-radio-group-item
-                value="comfortable"
-              ></plank-radio-group-item>
-              <plank-label for-value="comfortable">Comfortable</plank-label>
+              <hal-radio-group-item value="comfortable"></hal-radio-group-item>
+              <hal-label for-value="comfortable">Comfortable</hal-label>
             </div>
             <div class="flex items-center gap-3">
-              <plank-radio-group-item value="compact"></plank-radio-group-item>
-              <plank-label for-value="compact">Compact</plank-label>
+              <hal-radio-group-item value="compact"></hal-radio-group-item>
+              <hal-label for-value="compact">Compact</hal-label>
             </div>
-          </plank-radio-group>
+          </hal-radio-group>
         </div>
-        <pre><code>&lt;plank-radio-group value="comfortable"&gt;
+        <pre><code>&lt;hal-radio-group value="comfortable"&gt;
   &lt;div class="flex items-center gap-3"&gt;
-    &lt;plank-radio-group-item value="default"&gt;&lt;/plank-radio-group-item&gt;
-    &lt;plank-label&gt;Default&lt;/plank-label&gt;
+    &lt;hal-radio-group-item value="default"&gt;&lt;/hal-radio-group-item&gt;
+    &lt;hal-label&gt;Default&lt;/hal-label&gt;
   &lt;/div&gt;
   &lt;div class="flex items-center gap-3"&gt;
-    &lt;plank-radio-group-item value="comfortable"&gt;&lt;/plank-radio-group-item&gt;
-    &lt;plank-label&gt;Comfortable&lt;/plank-label&gt;
+    &lt;hal-radio-group-item value="comfortable"&gt;&lt;/hal-radio-group-item&gt;
+    &lt;hal-label&gt;Comfortable&lt;/hal-label&gt;
   &lt;/div&gt;
   &lt;div class="flex items-center gap-3"&gt;
-    &lt;plank-radio-group-item value="compact"&gt;&lt;/plank-radio-group-item&gt;
-    &lt;plank-label&gt;Compact&lt;/plank-label&gt;
+    &lt;hal-radio-group-item value="compact"&gt;&lt;/hal-radio-group-item&gt;
+    &lt;hal-label&gt;Compact&lt;/hal-label&gt;
   &lt;/div&gt;
-&lt;/plank-radio-group&gt;</code></pre>
+&lt;/hal-radio-group&gt;</code></pre>
       </section>
 
       <!-- Disabled State -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Disabled State</h2>
         <div class="mb-4">
-          <plank-radio-group value="option1">
+          <hal-radio-group value="option1">
             <div class="flex items-center gap-3">
-              <plank-radio-group-item value="option1"></plank-radio-group-item>
-              <plank-label>Option 1</plank-label>
+              <hal-radio-group-item value="option1"></hal-radio-group-item>
+              <hal-label>Option 1</hal-label>
             </div>
             <div class="flex items-center gap-3">
-              <plank-radio-group-item
+              <hal-radio-group-item
                 value="option2"
                 disabled
-              ></plank-radio-group-item>
-              <plank-label class="opacity-50">Option 2 (disabled)</plank-label>
+              ></hal-radio-group-item>
+              <hal-label class="opacity-50">Option 2 (disabled)</hal-label>
             </div>
             <div class="flex items-center gap-3">
-              <plank-radio-group-item value="option3"></plank-radio-group-item>
-              <plank-label>Option 3</plank-label>
+              <hal-radio-group-item value="option3"></hal-radio-group-item>
+              <hal-label>Option 3</hal-label>
             </div>
-          </plank-radio-group>
+          </hal-radio-group>
         </div>
-        <pre><code>&lt;plank-radio-group-item value="option2" disabled&gt;&lt;/plank-radio-group-item&gt;</code></pre>
+        <pre><code>&lt;hal-radio-group-item value="option2" disabled&gt;&lt;/hal-radio-group-item&gt;</code></pre>
       </section>
 
       <!-- Disabled Group -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Disabled Group</h2>
         <div class="mb-4">
-          <plank-radio-group value="first" disabled>
+          <hal-radio-group value="first" disabled>
             <div class="flex items-center gap-3">
-              <plank-radio-group-item value="first"></plank-radio-group-item>
-              <plank-label class="opacity-50">First</plank-label>
+              <hal-radio-group-item value="first"></hal-radio-group-item>
+              <hal-label class="opacity-50">First</hal-label>
             </div>
             <div class="flex items-center gap-3">
-              <plank-radio-group-item value="second"></plank-radio-group-item>
-              <plank-label class="opacity-50">Second</plank-label>
+              <hal-radio-group-item value="second"></hal-radio-group-item>
+              <hal-label class="opacity-50">Second</hal-label>
             </div>
-          </plank-radio-group>
+          </hal-radio-group>
         </div>
-        <pre><code>&lt;plank-radio-group value="first" disabled&gt;
+        <pre><code>&lt;hal-radio-group value="first" disabled&gt;
   ...
-&lt;/plank-radio-group&gt;</code></pre>
+&lt;/hal-radio-group&gt;</code></pre>
       </section>
 
       <!-- API -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">API</h2>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-radio-group</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-radio-group</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -153,7 +151,7 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-radio-group-item</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-radio-group-item</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>

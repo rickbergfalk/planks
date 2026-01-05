@@ -1,27 +1,27 @@
 import { describe, it, expect, beforeEach, afterEach } from "vitest"
-import "@/web-components/plank-button"
-import "@/web-components/plank-badge"
-import "@/web-components/plank-label"
-import "@/web-components/plank-input"
-import "@/web-components/plank-textarea"
-import "@/web-components/plank-separator"
-import "@/web-components/plank-switch"
-import "@/web-components/plank-tooltip"
-import "@/web-components/plank-popover"
-import "@/web-components/plank-dialog"
-import "@/web-components/plank-dropdown-menu"
-import "@/web-components/plank-context-menu"
-import "@/web-components/plank-sheet"
-import "@/web-components/plank-drawer"
-import "@/web-components/plank-hover-card"
-import "@/web-components/plank-select"
-import "@/web-components/plank-command"
-import "@/web-components/plank-combobox"
-import "@/web-components/plank-table"
-import "@/web-components/plank-calendar"
-import "@/web-components/plank-native-select"
-import "@/web-components/plank-spinner"
-import "@/web-components/plank-button-group"
+import "@/web-components/hal-button"
+import "@/web-components/hal-badge"
+import "@/web-components/hal-label"
+import "@/web-components/hal-input"
+import "@/web-components/hal-textarea"
+import "@/web-components/hal-separator"
+import "@/web-components/hal-switch"
+import "@/web-components/hal-tooltip"
+import "@/web-components/hal-popover"
+import "@/web-components/hal-dialog"
+import "@/web-components/hal-dropdown-menu"
+import "@/web-components/hal-context-menu"
+import "@/web-components/hal-sheet"
+import "@/web-components/hal-drawer"
+import "@/web-components/hal-hover-card"
+import "@/web-components/hal-select"
+import "@/web-components/hal-command"
+import "@/web-components/hal-combobox"
+import "@/web-components/hal-table"
+import "@/web-components/hal-calendar"
+import "@/web-components/hal-native-select"
+import "@/web-components/hal-spinner"
+import "@/web-components/hal-button-group"
 
 /**
  * Semantic Structure Tests
@@ -50,13 +50,13 @@ describe("Semantic Structure", () => {
     container.remove()
   })
 
-  describe("plank-button", () => {
+  describe("hal-button", () => {
     it("must have button role and accessible text", async () => {
       const testContent = "Click Me"
-      container.innerHTML = `<plank-button>${testContent}</plank-button>`
+      container.innerHTML = `<hal-button>${testContent}</hal-button>`
 
-      await customElements.whenDefined("plank-button")
-      const element = container.querySelector("plank-button")!
+      await customElements.whenDefined("hal-button")
+      const element = container.querySelector("hal-button")!
       await (element as any).updateComplete
 
       // Must have button role or be a button element
@@ -72,13 +72,13 @@ describe("Semantic Structure", () => {
     })
   })
 
-  describe("plank-badge", () => {
+  describe("hal-badge", () => {
     it("text must be accessible", async () => {
       const testContent = "New"
-      container.innerHTML = `<plank-badge>${testContent}</plank-badge>`
+      container.innerHTML = `<hal-badge>${testContent}</hal-badge>`
 
-      await customElements.whenDefined("plank-badge")
-      const element = container.querySelector("plank-badge")!
+      await customElements.whenDefined("hal-badge")
+      const element = container.querySelector("hal-badge")!
       await (element as any).updateComplete
 
       // Badge is presentational - just verify text is accessible
@@ -86,13 +86,13 @@ describe("Semantic Structure", () => {
     })
   })
 
-  describe("plank-label", () => {
+  describe("hal-label", () => {
     it("text must be inside native <label> element", async () => {
       const testContent = "Username"
-      container.innerHTML = `<plank-label for="test">${testContent}</plank-label>`
+      container.innerHTML = `<hal-label for="test">${testContent}</hal-label>`
 
-      await customElements.whenDefined("plank-label")
-      const element = container.querySelector("plank-label")!
+      await customElements.whenDefined("hal-label")
+      const element = container.querySelector("hal-label")!
       await (element as any).updateComplete
 
       // Must have a native <label> element for accessibility
@@ -109,12 +109,12 @@ describe("Semantic Structure", () => {
 
     it("for attribute must connect to input", async () => {
       container.innerHTML = `
-        <plank-label for="test-input">Label</plank-label>
+        <hal-label for="test-input">Label</hal-label>
         <input id="test-input" />
       `
 
-      await customElements.whenDefined("plank-label")
-      const element = container.querySelector("plank-label")!
+      await customElements.whenDefined("hal-label")
+      const element = container.querySelector("hal-label")!
       await (element as any).updateComplete
 
       const labelElement = element.querySelector("label")
@@ -122,12 +122,12 @@ describe("Semantic Structure", () => {
     })
   })
 
-  describe("plank-input", () => {
+  describe("hal-input", () => {
     it("must contain native <input> element", async () => {
-      container.innerHTML = `<plank-input placeholder="Enter text"></plank-input>`
+      container.innerHTML = `<hal-input placeholder="Enter text"></hal-input>`
 
-      await customElements.whenDefined("plank-input")
-      const element = container.querySelector("plank-input")!
+      await customElements.whenDefined("hal-input")
+      const element = container.querySelector("hal-input")!
       await (element as any).updateComplete
 
       const inputElement = element.querySelector("input")
@@ -136,10 +136,10 @@ describe("Semantic Structure", () => {
     })
 
     it("disabled state must be on native input", async () => {
-      container.innerHTML = `<plank-input disabled></plank-input>`
+      container.innerHTML = `<hal-input disabled></hal-input>`
 
-      await customElements.whenDefined("plank-input")
-      const element = container.querySelector("plank-input")!
+      await customElements.whenDefined("hal-input")
+      const element = container.querySelector("hal-input")!
       await (element as any).updateComplete
 
       const inputElement = element.querySelector("input")
@@ -147,12 +147,12 @@ describe("Semantic Structure", () => {
     })
   })
 
-  describe("plank-textarea", () => {
+  describe("hal-textarea", () => {
     it("must contain native <textarea> element", async () => {
-      container.innerHTML = `<plank-textarea placeholder="Enter message"></plank-textarea>`
+      container.innerHTML = `<hal-textarea placeholder="Enter message"></hal-textarea>`
 
-      await customElements.whenDefined("plank-textarea")
-      const element = container.querySelector("plank-textarea")!
+      await customElements.whenDefined("hal-textarea")
+      const element = container.querySelector("hal-textarea")!
       await (element as any).updateComplete
 
       const textareaElement = element.querySelector("textarea")
@@ -164,10 +164,10 @@ describe("Semantic Structure", () => {
     })
 
     it("disabled state must be on native textarea", async () => {
-      container.innerHTML = `<plank-textarea disabled></plank-textarea>`
+      container.innerHTML = `<hal-textarea disabled></hal-textarea>`
 
-      await customElements.whenDefined("plank-textarea")
-      const element = container.querySelector("plank-textarea")!
+      await customElements.whenDefined("hal-textarea")
+      const element = container.querySelector("hal-textarea")!
       await (element as any).updateComplete
 
       const textareaElement = element.querySelector("textarea")
@@ -178,22 +178,22 @@ describe("Semantic Structure", () => {
     })
   })
 
-  describe("plank-separator", () => {
+  describe("hal-separator", () => {
     it("decorative separator must have role=none", async () => {
-      container.innerHTML = `<plank-separator></plank-separator>`
+      container.innerHTML = `<hal-separator></hal-separator>`
 
-      await customElements.whenDefined("plank-separator")
-      const element = container.querySelector("plank-separator")!
+      await customElements.whenDefined("hal-separator")
+      const element = container.querySelector("hal-separator")!
       await (element as any).updateComplete
 
       expect(element.getAttribute("role")).toBe("none")
     })
 
     it("non-decorative separator must have role=separator", async () => {
-      container.innerHTML = `<plank-separator decorative="false"></plank-separator>`
+      container.innerHTML = `<hal-separator decorative="false"></hal-separator>`
 
-      await customElements.whenDefined("plank-separator")
-      const element = container.querySelector("plank-separator")!
+      await customElements.whenDefined("hal-separator")
+      const element = container.querySelector("hal-separator")!
       // Need to set the property, not just attribute
       ;(element as any).decorative = false
       await (element as any).updateComplete
@@ -202,12 +202,12 @@ describe("Semantic Structure", () => {
     })
   })
 
-  describe("plank-switch", () => {
+  describe("hal-switch", () => {
     it("must have role=switch and aria-checked", async () => {
-      container.innerHTML = `<plank-switch></plank-switch>`
+      container.innerHTML = `<hal-switch></hal-switch>`
 
-      await customElements.whenDefined("plank-switch")
-      const element = container.querySelector("plank-switch")!
+      await customElements.whenDefined("hal-switch")
+      const element = container.querySelector("hal-switch")!
       await (element as any).updateComplete
 
       expect(element.getAttribute("role")).toBe("switch")
@@ -215,10 +215,10 @@ describe("Semantic Structure", () => {
     })
 
     it("must have thumb element with correct data-state", async () => {
-      container.innerHTML = `<plank-switch></plank-switch>`
+      container.innerHTML = `<hal-switch></hal-switch>`
 
-      await customElements.whenDefined("plank-switch")
-      const element = container.querySelector("plank-switch")!
+      await customElements.whenDefined("hal-switch")
+      const element = container.querySelector("hal-switch")!
       await (element as any).updateComplete
 
       const thumb = element.querySelector('[data-slot="switch-thumb"]')
@@ -227,10 +227,10 @@ describe("Semantic Structure", () => {
     })
 
     it("checked state updates aria-checked and data-state", async () => {
-      container.innerHTML = `<plank-switch checked></plank-switch>`
+      container.innerHTML = `<hal-switch checked></hal-switch>`
 
-      await customElements.whenDefined("plank-switch")
-      const element = container.querySelector("plank-switch")!
+      await customElements.whenDefined("hal-switch")
+      const element = container.querySelector("hal-switch")!
       await (element as any).updateComplete
 
       expect(element.getAttribute("aria-checked")).toBe("true")
@@ -241,7 +241,7 @@ describe("Semantic Structure", () => {
     })
   })
 
-  describe("plank-tooltip", () => {
+  describe("hal-tooltip", () => {
     afterEach(() => {
       // Clean up portaled content
       document
@@ -253,16 +253,16 @@ describe("Semantic Structure", () => {
 
     it("tooltip content must have role=tooltip when open", async () => {
       container.innerHTML = `
-        <plank-tooltip open>
-          <plank-tooltip-trigger>
+        <hal-tooltip open>
+          <hal-tooltip-trigger>
             <button>Trigger</button>
-          </plank-tooltip-trigger>
-          <plank-tooltip-content>Tooltip text</plank-tooltip-content>
-        </plank-tooltip>
+          </hal-tooltip-trigger>
+          <hal-tooltip-content>Tooltip text</hal-tooltip-content>
+        </hal-tooltip>
       `
 
-      await customElements.whenDefined("plank-tooltip")
-      const tooltip = container.querySelector("plank-tooltip")!
+      await customElements.whenDefined("hal-tooltip")
+      const tooltip = container.querySelector("hal-tooltip")!
       await (tooltip as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -273,16 +273,16 @@ describe("Semantic Structure", () => {
 
     it("trigger element must have aria-describedby when open", async () => {
       container.innerHTML = `
-        <plank-tooltip open>
-          <plank-tooltip-trigger>
+        <hal-tooltip open>
+          <hal-tooltip-trigger>
             <button>Trigger</button>
-          </plank-tooltip-trigger>
-          <plank-tooltip-content>Tooltip text</plank-tooltip-content>
-        </plank-tooltip>
+          </hal-tooltip-trigger>
+          <hal-tooltip-content>Tooltip text</hal-tooltip-content>
+        </hal-tooltip>
       `
 
-      await customElements.whenDefined("plank-tooltip")
-      const tooltip = container.querySelector("plank-tooltip")!
+      await customElements.whenDefined("hal-tooltip")
+      const tooltip = container.querySelector("hal-tooltip")!
       await (tooltip as any).updateComplete
 
       const button = container.querySelector("button")
@@ -303,16 +303,16 @@ describe("Semantic Structure", () => {
 
     it("tooltip content must have correct data-slot", async () => {
       container.innerHTML = `
-        <plank-tooltip open>
-          <plank-tooltip-trigger>
+        <hal-tooltip open>
+          <hal-tooltip-trigger>
             <button>Trigger</button>
-          </plank-tooltip-trigger>
-          <plank-tooltip-content>Tooltip text</plank-tooltip-content>
-        </plank-tooltip>
+          </hal-tooltip-trigger>
+          <hal-tooltip-content>Tooltip text</hal-tooltip-content>
+        </hal-tooltip>
       `
 
-      await customElements.whenDefined("plank-tooltip")
-      const tooltip = container.querySelector("plank-tooltip")!
+      await customElements.whenDefined("hal-tooltip")
+      const tooltip = container.querySelector("hal-tooltip")!
       await (tooltip as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -321,7 +321,7 @@ describe("Semantic Structure", () => {
     })
   })
 
-  describe("plank-popover", () => {
+  describe("hal-popover", () => {
     afterEach(() => {
       // Clean up portaled content
       document
@@ -333,16 +333,16 @@ describe("Semantic Structure", () => {
 
     it("popover content must have role=dialog when open", async () => {
       container.innerHTML = `
-        <plank-popover open>
-          <plank-popover-trigger>
+        <hal-popover open>
+          <hal-popover-trigger>
             <button>Trigger</button>
-          </plank-popover-trigger>
-          <plank-popover-content>Popover text</plank-popover-content>
-        </plank-popover>
+          </hal-popover-trigger>
+          <hal-popover-content>Popover text</hal-popover-content>
+        </hal-popover>
       `
 
-      await customElements.whenDefined("plank-popover")
-      const popover = container.querySelector("plank-popover")!
+      await customElements.whenDefined("hal-popover")
+      const popover = container.querySelector("hal-popover")!
       await (popover as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -353,16 +353,16 @@ describe("Semantic Structure", () => {
 
     it("trigger element must have aria-haspopup=dialog", async () => {
       container.innerHTML = `
-        <plank-popover>
-          <plank-popover-trigger>
+        <hal-popover>
+          <hal-popover-trigger>
             <button>Trigger</button>
-          </plank-popover-trigger>
-          <plank-popover-content>Popover text</plank-popover-content>
-        </plank-popover>
+          </hal-popover-trigger>
+          <hal-popover-content>Popover text</hal-popover-content>
+        </hal-popover>
       `
 
-      await customElements.whenDefined("plank-popover")
-      const popover = container.querySelector("plank-popover")!
+      await customElements.whenDefined("hal-popover")
+      const popover = container.querySelector("hal-popover")!
       await (popover as any).updateComplete
 
       const button = container.querySelector("button")
@@ -374,16 +374,16 @@ describe("Semantic Structure", () => {
 
     it("trigger element must have aria-expanded", async () => {
       container.innerHTML = `
-        <plank-popover>
-          <plank-popover-trigger>
+        <hal-popover>
+          <hal-popover-trigger>
             <button>Trigger</button>
-          </plank-popover-trigger>
-          <plank-popover-content>Popover text</plank-popover-content>
-        </plank-popover>
+          </hal-popover-trigger>
+          <hal-popover-content>Popover text</hal-popover-content>
+        </hal-popover>
       `
 
-      await customElements.whenDefined("plank-popover")
-      const popover = container.querySelector("plank-popover")!
+      await customElements.whenDefined("hal-popover")
+      const popover = container.querySelector("hal-popover")!
       await (popover as any).updateComplete
 
       const button = container.querySelector("button")
@@ -404,16 +404,16 @@ describe("Semantic Structure", () => {
 
     it("trigger element must have aria-controls when open", async () => {
       container.innerHTML = `
-        <plank-popover open>
-          <plank-popover-trigger>
+        <hal-popover open>
+          <hal-popover-trigger>
             <button>Trigger</button>
-          </plank-popover-trigger>
-          <plank-popover-content>Popover text</plank-popover-content>
-        </plank-popover>
+          </hal-popover-trigger>
+          <hal-popover-content>Popover text</hal-popover-content>
+        </hal-popover>
       `
 
-      await customElements.whenDefined("plank-popover")
-      const popover = container.querySelector("plank-popover")!
+      await customElements.whenDefined("hal-popover")
+      const popover = container.querySelector("hal-popover")!
       await (popover as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -432,16 +432,16 @@ describe("Semantic Structure", () => {
 
     it("popover content must have correct data-slot", async () => {
       container.innerHTML = `
-        <plank-popover open>
-          <plank-popover-trigger>
+        <hal-popover open>
+          <hal-popover-trigger>
             <button>Trigger</button>
-          </plank-popover-trigger>
-          <plank-popover-content>Popover text</plank-popover-content>
-        </plank-popover>
+          </hal-popover-trigger>
+          <hal-popover-content>Popover text</hal-popover-content>
+        </hal-popover>
       `
 
-      await customElements.whenDefined("plank-popover")
-      const popover = container.querySelector("plank-popover")!
+      await customElements.whenDefined("hal-popover")
+      const popover = container.querySelector("hal-popover")!
       await (popover as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -450,7 +450,7 @@ describe("Semantic Structure", () => {
     })
   })
 
-  describe("plank-dialog", () => {
+  describe("hal-dialog", () => {
     afterEach(() => {
       // Clean up portaled content
       document
@@ -464,19 +464,19 @@ describe("Semantic Structure", () => {
 
     it("dialog content must have role=dialog when open", async () => {
       container.innerHTML = `
-        <plank-dialog open>
-          <plank-dialog-trigger>
+        <hal-dialog open>
+          <hal-dialog-trigger>
             <button>Open</button>
-          </plank-dialog-trigger>
-          <plank-dialog-content>
-            <plank-dialog-title>Dialog Title</plank-dialog-title>
+          </hal-dialog-trigger>
+          <hal-dialog-content>
+            <hal-dialog-title>Dialog Title</hal-dialog-title>
             Dialog content
-          </plank-dialog-content>
-        </plank-dialog>
+          </hal-dialog-content>
+        </hal-dialog>
       `
 
-      await customElements.whenDefined("plank-dialog")
-      const dialog = container.querySelector("plank-dialog")!
+      await customElements.whenDefined("hal-dialog")
+      const dialog = container.querySelector("hal-dialog")!
       await (dialog as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -487,18 +487,18 @@ describe("Semantic Structure", () => {
 
     it("trigger element must have aria-haspopup=dialog", async () => {
       container.innerHTML = `
-        <plank-dialog>
-          <plank-dialog-trigger>
+        <hal-dialog>
+          <hal-dialog-trigger>
             <button>Open</button>
-          </plank-dialog-trigger>
-          <plank-dialog-content>
-            <plank-dialog-title>Title</plank-dialog-title>
-          </plank-dialog-content>
-        </plank-dialog>
+          </hal-dialog-trigger>
+          <hal-dialog-content>
+            <hal-dialog-title>Title</hal-dialog-title>
+          </hal-dialog-content>
+        </hal-dialog>
       `
 
-      await customElements.whenDefined("plank-dialog")
-      const dialog = container.querySelector("plank-dialog")!
+      await customElements.whenDefined("hal-dialog")
+      const dialog = container.querySelector("hal-dialog")!
       await (dialog as any).updateComplete
 
       const button = container.querySelector("button")
@@ -510,18 +510,18 @@ describe("Semantic Structure", () => {
 
     it("trigger element must have aria-expanded", async () => {
       container.innerHTML = `
-        <plank-dialog>
-          <plank-dialog-trigger>
+        <hal-dialog>
+          <hal-dialog-trigger>
             <button>Open</button>
-          </plank-dialog-trigger>
-          <plank-dialog-content>
-            <plank-dialog-title>Title</plank-dialog-title>
-          </plank-dialog-content>
-        </plank-dialog>
+          </hal-dialog-trigger>
+          <hal-dialog-content>
+            <hal-dialog-title>Title</hal-dialog-title>
+          </hal-dialog-content>
+        </hal-dialog>
       `
 
-      await customElements.whenDefined("plank-dialog")
-      const dialog = container.querySelector("plank-dialog")!
+      await customElements.whenDefined("hal-dialog")
+      const dialog = container.querySelector("hal-dialog")!
       await (dialog as any).updateComplete
 
       const button = container.querySelector("button")
@@ -542,18 +542,18 @@ describe("Semantic Structure", () => {
 
     it("dialog must have aria-labelledby pointing to title", async () => {
       container.innerHTML = `
-        <plank-dialog open>
-          <plank-dialog-trigger>
+        <hal-dialog open>
+          <hal-dialog-trigger>
             <button>Open</button>
-          </plank-dialog-trigger>
-          <plank-dialog-content>
-            <plank-dialog-title>My Dialog Title</plank-dialog-title>
-          </plank-dialog-content>
-        </plank-dialog>
+          </hal-dialog-trigger>
+          <hal-dialog-content>
+            <hal-dialog-title>My Dialog Title</hal-dialog-title>
+          </hal-dialog-content>
+        </hal-dialog>
       `
 
-      await customElements.whenDefined("plank-dialog")
-      const dialog = container.querySelector("plank-dialog")!
+      await customElements.whenDefined("hal-dialog")
+      const dialog = container.querySelector("hal-dialog")!
       await (dialog as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -568,19 +568,19 @@ describe("Semantic Structure", () => {
 
     it("dialog must have aria-describedby pointing to description", async () => {
       container.innerHTML = `
-        <plank-dialog open>
-          <plank-dialog-trigger>
+        <hal-dialog open>
+          <hal-dialog-trigger>
             <button>Open</button>
-          </plank-dialog-trigger>
-          <plank-dialog-content>
-            <plank-dialog-title>Title</plank-dialog-title>
-            <plank-dialog-description>My Description</plank-dialog-description>
-          </plank-dialog-content>
-        </plank-dialog>
+          </hal-dialog-trigger>
+          <hal-dialog-content>
+            <hal-dialog-title>Title</hal-dialog-title>
+            <hal-dialog-description>My Description</hal-dialog-description>
+          </hal-dialog-content>
+        </hal-dialog>
       `
 
-      await customElements.whenDefined("plank-dialog")
-      const dialog = container.querySelector("plank-dialog")!
+      await customElements.whenDefined("hal-dialog")
+      const dialog = container.querySelector("hal-dialog")!
       await (dialog as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -598,18 +598,18 @@ describe("Semantic Structure", () => {
 
     it("trigger element must have aria-controls when open", async () => {
       container.innerHTML = `
-        <plank-dialog open>
-          <plank-dialog-trigger>
+        <hal-dialog open>
+          <hal-dialog-trigger>
             <button>Open</button>
-          </plank-dialog-trigger>
-          <plank-dialog-content>
-            <plank-dialog-title>Title</plank-dialog-title>
-          </plank-dialog-content>
-        </plank-dialog>
+          </hal-dialog-trigger>
+          <hal-dialog-content>
+            <hal-dialog-title>Title</hal-dialog-title>
+          </hal-dialog-content>
+        </hal-dialog>
       `
 
-      await customElements.whenDefined("plank-dialog")
-      const dialog = container.querySelector("plank-dialog")!
+      await customElements.whenDefined("hal-dialog")
+      const dialog = container.querySelector("hal-dialog")!
       await (dialog as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -628,18 +628,18 @@ describe("Semantic Structure", () => {
 
     it("dialog overlay must have correct data-slot", async () => {
       container.innerHTML = `
-        <plank-dialog open>
-          <plank-dialog-trigger>
+        <hal-dialog open>
+          <hal-dialog-trigger>
             <button>Open</button>
-          </plank-dialog-trigger>
-          <plank-dialog-content>
-            <plank-dialog-title>Title</plank-dialog-title>
-          </plank-dialog-content>
-        </plank-dialog>
+          </hal-dialog-trigger>
+          <hal-dialog-content>
+            <hal-dialog-title>Title</hal-dialog-title>
+          </hal-dialog-content>
+        </hal-dialog>
       `
 
-      await customElements.whenDefined("plank-dialog")
-      const dialog = container.querySelector("plank-dialog")!
+      await customElements.whenDefined("hal-dialog")
+      const dialog = container.querySelector("hal-dialog")!
       await (dialog as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -649,18 +649,18 @@ describe("Semantic Structure", () => {
 
     it("dialog content must have correct data-slot", async () => {
       container.innerHTML = `
-        <plank-dialog open>
-          <plank-dialog-trigger>
+        <hal-dialog open>
+          <hal-dialog-trigger>
             <button>Open</button>
-          </plank-dialog-trigger>
-          <plank-dialog-content>
-            <plank-dialog-title>Title</plank-dialog-title>
-          </plank-dialog-content>
-        </plank-dialog>
+          </hal-dialog-trigger>
+          <hal-dialog-content>
+            <hal-dialog-title>Title</hal-dialog-title>
+          </hal-dialog-content>
+        </hal-dialog>
       `
 
-      await customElements.whenDefined("plank-dialog")
-      const dialog = container.querySelector("plank-dialog")!
+      await customElements.whenDefined("hal-dialog")
+      const dialog = container.querySelector("hal-dialog")!
       await (dialog as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -669,7 +669,7 @@ describe("Semantic Structure", () => {
     })
   })
 
-  describe("plank-dropdown-menu", () => {
+  describe("hal-dropdown-menu", () => {
     afterEach(() => {
       // Clean up portaled content
       document
@@ -679,18 +679,18 @@ describe("Semantic Structure", () => {
 
     it("dropdown menu content must have role=menu when open", async () => {
       container.innerHTML = `
-        <plank-dropdown-menu open>
-          <plank-dropdown-menu-trigger>
+        <hal-dropdown-menu open>
+          <hal-dropdown-menu-trigger>
             <button>Open</button>
-          </plank-dropdown-menu-trigger>
-          <plank-dropdown-menu-content>
-            <plank-dropdown-menu-item>Item</plank-dropdown-menu-item>
-          </plank-dropdown-menu-content>
-        </plank-dropdown-menu>
+          </hal-dropdown-menu-trigger>
+          <hal-dropdown-menu-content>
+            <hal-dropdown-menu-item>Item</hal-dropdown-menu-item>
+          </hal-dropdown-menu-content>
+        </hal-dropdown-menu>
       `
 
-      await customElements.whenDefined("plank-dropdown-menu")
-      const menu = container.querySelector("plank-dropdown-menu")!
+      await customElements.whenDefined("hal-dropdown-menu")
+      const menu = container.querySelector("hal-dropdown-menu")!
       await (menu as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -700,18 +700,18 @@ describe("Semantic Structure", () => {
 
     it("trigger element must have aria-haspopup=menu", async () => {
       container.innerHTML = `
-        <plank-dropdown-menu>
-          <plank-dropdown-menu-trigger>
+        <hal-dropdown-menu>
+          <hal-dropdown-menu-trigger>
             <button>Open</button>
-          </plank-dropdown-menu-trigger>
-          <plank-dropdown-menu-content>
-            <plank-dropdown-menu-item>Item</plank-dropdown-menu-item>
-          </plank-dropdown-menu-content>
-        </plank-dropdown-menu>
+          </hal-dropdown-menu-trigger>
+          <hal-dropdown-menu-content>
+            <hal-dropdown-menu-item>Item</hal-dropdown-menu-item>
+          </hal-dropdown-menu-content>
+        </hal-dropdown-menu>
       `
 
-      await customElements.whenDefined("plank-dropdown-menu")
-      const menu = container.querySelector("plank-dropdown-menu")!
+      await customElements.whenDefined("hal-dropdown-menu")
+      const menu = container.querySelector("hal-dropdown-menu")!
       await (menu as any).updateComplete
 
       const button = container.querySelector("button")
@@ -723,18 +723,18 @@ describe("Semantic Structure", () => {
 
     it("trigger element must have aria-expanded", async () => {
       container.innerHTML = `
-        <plank-dropdown-menu>
-          <plank-dropdown-menu-trigger>
+        <hal-dropdown-menu>
+          <hal-dropdown-menu-trigger>
             <button>Open</button>
-          </plank-dropdown-menu-trigger>
-          <plank-dropdown-menu-content>
-            <plank-dropdown-menu-item>Item</plank-dropdown-menu-item>
-          </plank-dropdown-menu-content>
-        </plank-dropdown-menu>
+          </hal-dropdown-menu-trigger>
+          <hal-dropdown-menu-content>
+            <hal-dropdown-menu-item>Item</hal-dropdown-menu-item>
+          </hal-dropdown-menu-content>
+        </hal-dropdown-menu>
       `
 
-      await customElements.whenDefined("plank-dropdown-menu")
-      const menu = container.querySelector("plank-dropdown-menu")!
+      await customElements.whenDefined("hal-dropdown-menu")
+      const menu = container.querySelector("hal-dropdown-menu")!
       await (menu as any).updateComplete
 
       const button = container.querySelector("button")
@@ -755,19 +755,19 @@ describe("Semantic Structure", () => {
 
     it("menu items must have role=menuitem", async () => {
       container.innerHTML = `
-        <plank-dropdown-menu open>
-          <plank-dropdown-menu-trigger>
+        <hal-dropdown-menu open>
+          <hal-dropdown-menu-trigger>
             <button>Open</button>
-          </plank-dropdown-menu-trigger>
-          <plank-dropdown-menu-content>
-            <plank-dropdown-menu-item>Profile</plank-dropdown-menu-item>
-            <plank-dropdown-menu-item>Settings</plank-dropdown-menu-item>
-          </plank-dropdown-menu-content>
-        </plank-dropdown-menu>
+          </hal-dropdown-menu-trigger>
+          <hal-dropdown-menu-content>
+            <hal-dropdown-menu-item>Profile</hal-dropdown-menu-item>
+            <hal-dropdown-menu-item>Settings</hal-dropdown-menu-item>
+          </hal-dropdown-menu-content>
+        </hal-dropdown-menu>
       `
 
-      await customElements.whenDefined("plank-dropdown-menu")
-      const menu = container.querySelector("plank-dropdown-menu")!
+      await customElements.whenDefined("hal-dropdown-menu")
+      const menu = container.querySelector("hal-dropdown-menu")!
       await (menu as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -779,18 +779,18 @@ describe("Semantic Structure", () => {
 
     it("checkbox items must have role=menuitemcheckbox", async () => {
       container.innerHTML = `
-        <plank-dropdown-menu open>
-          <plank-dropdown-menu-trigger>
+        <hal-dropdown-menu open>
+          <hal-dropdown-menu-trigger>
             <button>Open</button>
-          </plank-dropdown-menu-trigger>
-          <plank-dropdown-menu-content>
-            <plank-dropdown-menu-checkbox-item checked>Enabled</plank-dropdown-menu-checkbox-item>
-          </plank-dropdown-menu-content>
-        </plank-dropdown-menu>
+          </hal-dropdown-menu-trigger>
+          <hal-dropdown-menu-content>
+            <hal-dropdown-menu-checkbox-item checked>Enabled</hal-dropdown-menu-checkbox-item>
+          </hal-dropdown-menu-content>
+        </hal-dropdown-menu>
       `
 
-      await customElements.whenDefined("plank-dropdown-menu")
-      const menu = container.querySelector("plank-dropdown-menu")!
+      await customElements.whenDefined("hal-dropdown-menu")
+      const menu = container.querySelector("hal-dropdown-menu")!
       await (menu as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -801,21 +801,21 @@ describe("Semantic Structure", () => {
 
     it("radio items must have role=menuitemradio", async () => {
       container.innerHTML = `
-        <plank-dropdown-menu open>
-          <plank-dropdown-menu-trigger>
+        <hal-dropdown-menu open>
+          <hal-dropdown-menu-trigger>
             <button>Open</button>
-          </plank-dropdown-menu-trigger>
-          <plank-dropdown-menu-content>
-            <plank-dropdown-menu-radio-group value="top">
-              <plank-dropdown-menu-radio-item value="top">Top</plank-dropdown-menu-radio-item>
-              <plank-dropdown-menu-radio-item value="bottom">Bottom</plank-dropdown-menu-radio-item>
-            </plank-dropdown-menu-radio-group>
-          </plank-dropdown-menu-content>
-        </plank-dropdown-menu>
+          </hal-dropdown-menu-trigger>
+          <hal-dropdown-menu-content>
+            <hal-dropdown-menu-radio-group value="top">
+              <hal-dropdown-menu-radio-item value="top">Top</hal-dropdown-menu-radio-item>
+              <hal-dropdown-menu-radio-item value="bottom">Bottom</hal-dropdown-menu-radio-item>
+            </hal-dropdown-menu-radio-group>
+          </hal-dropdown-menu-content>
+        </hal-dropdown-menu>
       `
 
-      await customElements.whenDefined("plank-dropdown-menu")
-      const menu = container.querySelector("plank-dropdown-menu")!
+      await customElements.whenDefined("hal-dropdown-menu")
+      const menu = container.querySelector("hal-dropdown-menu")!
       await (menu as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -827,20 +827,20 @@ describe("Semantic Structure", () => {
 
     it("separators must have role=separator", async () => {
       container.innerHTML = `
-        <plank-dropdown-menu open>
-          <plank-dropdown-menu-trigger>
+        <hal-dropdown-menu open>
+          <hal-dropdown-menu-trigger>
             <button>Open</button>
-          </plank-dropdown-menu-trigger>
-          <plank-dropdown-menu-content>
-            <plank-dropdown-menu-item>Item 1</plank-dropdown-menu-item>
-            <plank-dropdown-menu-separator></plank-dropdown-menu-separator>
-            <plank-dropdown-menu-item>Item 2</plank-dropdown-menu-item>
-          </plank-dropdown-menu-content>
-        </plank-dropdown-menu>
+          </hal-dropdown-menu-trigger>
+          <hal-dropdown-menu-content>
+            <hal-dropdown-menu-item>Item 1</hal-dropdown-menu-item>
+            <hal-dropdown-menu-separator></hal-dropdown-menu-separator>
+            <hal-dropdown-menu-item>Item 2</hal-dropdown-menu-item>
+          </hal-dropdown-menu-content>
+        </hal-dropdown-menu>
       `
 
-      await customElements.whenDefined("plank-dropdown-menu")
-      const menu = container.querySelector("plank-dropdown-menu")!
+      await customElements.whenDefined("hal-dropdown-menu")
+      const menu = container.querySelector("hal-dropdown-menu")!
       await (menu as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -850,18 +850,18 @@ describe("Semantic Structure", () => {
 
     it("disabled items must have aria-disabled", async () => {
       container.innerHTML = `
-        <plank-dropdown-menu open>
-          <plank-dropdown-menu-trigger>
+        <hal-dropdown-menu open>
+          <hal-dropdown-menu-trigger>
             <button>Open</button>
-          </plank-dropdown-menu-trigger>
-          <plank-dropdown-menu-content>
-            <plank-dropdown-menu-item disabled>Disabled Item</plank-dropdown-menu-item>
-          </plank-dropdown-menu-content>
-        </plank-dropdown-menu>
+          </hal-dropdown-menu-trigger>
+          <hal-dropdown-menu-content>
+            <hal-dropdown-menu-item disabled>Disabled Item</hal-dropdown-menu-item>
+          </hal-dropdown-menu-content>
+        </hal-dropdown-menu>
       `
 
-      await customElements.whenDefined("plank-dropdown-menu")
-      const menu = container.querySelector("plank-dropdown-menu")!
+      await customElements.whenDefined("hal-dropdown-menu")
+      const menu = container.querySelector("hal-dropdown-menu")!
       await (menu as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -874,18 +874,18 @@ describe("Semantic Structure", () => {
 
     it("dropdown menu content must have correct data-slot", async () => {
       container.innerHTML = `
-        <plank-dropdown-menu open>
-          <plank-dropdown-menu-trigger>
+        <hal-dropdown-menu open>
+          <hal-dropdown-menu-trigger>
             <button>Open</button>
-          </plank-dropdown-menu-trigger>
-          <plank-dropdown-menu-content>
-            <plank-dropdown-menu-item>Item</plank-dropdown-menu-item>
-          </plank-dropdown-menu-content>
-        </plank-dropdown-menu>
+          </hal-dropdown-menu-trigger>
+          <hal-dropdown-menu-content>
+            <hal-dropdown-menu-item>Item</hal-dropdown-menu-item>
+          </hal-dropdown-menu-content>
+        </hal-dropdown-menu>
       `
 
-      await customElements.whenDefined("plank-dropdown-menu")
-      const menu = container.querySelector("plank-dropdown-menu")!
+      await customElements.whenDefined("hal-dropdown-menu")
+      const menu = container.querySelector("hal-dropdown-menu")!
       await (menu as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -899,7 +899,7 @@ describe("Semantic Structure", () => {
     })
   })
 
-  describe("plank-context-menu", () => {
+  describe("hal-context-menu", () => {
     afterEach(() => {
       // Clean up portaled content
       document
@@ -909,18 +909,18 @@ describe("Semantic Structure", () => {
 
     it("context menu content must have role=menu when open", async () => {
       container.innerHTML = `
-        <plank-context-menu>
-          <plank-context-menu-trigger>
+        <hal-context-menu>
+          <hal-context-menu-trigger>
             <div data-testid="trigger" style="width: 100px; height: 100px;">Right click</div>
-          </plank-context-menu-trigger>
-          <plank-context-menu-content>
-            <plank-context-menu-item>Item</plank-context-menu-item>
-          </plank-context-menu-content>
-        </plank-context-menu>
+          </hal-context-menu-trigger>
+          <hal-context-menu-content>
+            <hal-context-menu-item>Item</hal-context-menu-item>
+          </hal-context-menu-content>
+        </hal-context-menu>
       `
 
-      await customElements.whenDefined("plank-context-menu")
-      const menu = container.querySelector("plank-context-menu")!
+      await customElements.whenDefined("hal-context-menu")
+      const menu = container.querySelector("hal-context-menu")!
       await (menu as any).updateComplete
 
       // Trigger via contextmenu event
@@ -940,19 +940,19 @@ describe("Semantic Structure", () => {
 
     it("menu items must have role=menuitem", async () => {
       container.innerHTML = `
-        <plank-context-menu>
-          <plank-context-menu-trigger>
+        <hal-context-menu>
+          <hal-context-menu-trigger>
             <div data-testid="trigger" style="width: 100px; height: 100px;">Right click</div>
-          </plank-context-menu-trigger>
-          <plank-context-menu-content>
-            <plank-context-menu-item>Profile</plank-context-menu-item>
-            <plank-context-menu-item>Settings</plank-context-menu-item>
-          </plank-context-menu-content>
-        </plank-context-menu>
+          </hal-context-menu-trigger>
+          <hal-context-menu-content>
+            <hal-context-menu-item>Profile</hal-context-menu-item>
+            <hal-context-menu-item>Settings</hal-context-menu-item>
+          </hal-context-menu-content>
+        </hal-context-menu>
       `
 
-      await customElements.whenDefined("plank-context-menu")
-      const menu = container.querySelector("plank-context-menu")!
+      await customElements.whenDefined("hal-context-menu")
+      const menu = container.querySelector("hal-context-menu")!
       await (menu as any).updateComplete
 
       // Trigger via contextmenu event
@@ -974,18 +974,18 @@ describe("Semantic Structure", () => {
 
     it("checkbox items must have role=menuitemcheckbox", async () => {
       container.innerHTML = `
-        <plank-context-menu>
-          <plank-context-menu-trigger>
+        <hal-context-menu>
+          <hal-context-menu-trigger>
             <div data-testid="trigger" style="width: 100px; height: 100px;">Right click</div>
-          </plank-context-menu-trigger>
-          <plank-context-menu-content>
-            <plank-context-menu-checkbox-item checked>Enabled</plank-context-menu-checkbox-item>
-          </plank-context-menu-content>
-        </plank-context-menu>
+          </hal-context-menu-trigger>
+          <hal-context-menu-content>
+            <hal-context-menu-checkbox-item checked>Enabled</hal-context-menu-checkbox-item>
+          </hal-context-menu-content>
+        </hal-context-menu>
       `
 
-      await customElements.whenDefined("plank-context-menu")
-      const menu = container.querySelector("plank-context-menu")!
+      await customElements.whenDefined("hal-context-menu")
+      const menu = container.querySelector("hal-context-menu")!
       await (menu as any).updateComplete
 
       // Trigger via contextmenu event
@@ -1006,21 +1006,21 @@ describe("Semantic Structure", () => {
 
     it("radio items must have role=menuitemradio", async () => {
       container.innerHTML = `
-        <plank-context-menu>
-          <plank-context-menu-trigger>
+        <hal-context-menu>
+          <hal-context-menu-trigger>
             <div data-testid="trigger" style="width: 100px; height: 100px;">Right click</div>
-          </plank-context-menu-trigger>
-          <plank-context-menu-content>
-            <plank-context-menu-radio-group value="top">
-              <plank-context-menu-radio-item value="top">Top</plank-context-menu-radio-item>
-              <plank-context-menu-radio-item value="bottom">Bottom</plank-context-menu-radio-item>
-            </plank-context-menu-radio-group>
-          </plank-context-menu-content>
-        </plank-context-menu>
+          </hal-context-menu-trigger>
+          <hal-context-menu-content>
+            <hal-context-menu-radio-group value="top">
+              <hal-context-menu-radio-item value="top">Top</hal-context-menu-radio-item>
+              <hal-context-menu-radio-item value="bottom">Bottom</hal-context-menu-radio-item>
+            </hal-context-menu-radio-group>
+          </hal-context-menu-content>
+        </hal-context-menu>
       `
 
-      await customElements.whenDefined("plank-context-menu")
-      const menu = container.querySelector("plank-context-menu")!
+      await customElements.whenDefined("hal-context-menu")
+      const menu = container.querySelector("hal-context-menu")!
       await (menu as any).updateComplete
 
       // Trigger via contextmenu event
@@ -1042,20 +1042,20 @@ describe("Semantic Structure", () => {
 
     it("separators must have role=separator", async () => {
       container.innerHTML = `
-        <plank-context-menu>
-          <plank-context-menu-trigger>
+        <hal-context-menu>
+          <hal-context-menu-trigger>
             <div data-testid="trigger" style="width: 100px; height: 100px;">Right click</div>
-          </plank-context-menu-trigger>
-          <plank-context-menu-content>
-            <plank-context-menu-item>Item 1</plank-context-menu-item>
-            <plank-context-menu-separator></plank-context-menu-separator>
-            <plank-context-menu-item>Item 2</plank-context-menu-item>
-          </plank-context-menu-content>
-        </plank-context-menu>
+          </hal-context-menu-trigger>
+          <hal-context-menu-content>
+            <hal-context-menu-item>Item 1</hal-context-menu-item>
+            <hal-context-menu-separator></hal-context-menu-separator>
+            <hal-context-menu-item>Item 2</hal-context-menu-item>
+          </hal-context-menu-content>
+        </hal-context-menu>
       `
 
-      await customElements.whenDefined("plank-context-menu")
-      const menu = container.querySelector("plank-context-menu")!
+      await customElements.whenDefined("hal-context-menu")
+      const menu = container.querySelector("hal-context-menu")!
       await (menu as any).updateComplete
 
       // Trigger via contextmenu event
@@ -1075,18 +1075,18 @@ describe("Semantic Structure", () => {
 
     it("disabled items must have aria-disabled", async () => {
       container.innerHTML = `
-        <plank-context-menu>
-          <plank-context-menu-trigger>
+        <hal-context-menu>
+          <hal-context-menu-trigger>
             <div data-testid="trigger" style="width: 100px; height: 100px;">Right click</div>
-          </plank-context-menu-trigger>
-          <plank-context-menu-content>
-            <plank-context-menu-item disabled>Disabled Item</plank-context-menu-item>
-          </plank-context-menu-content>
-        </plank-context-menu>
+          </hal-context-menu-trigger>
+          <hal-context-menu-content>
+            <hal-context-menu-item disabled>Disabled Item</hal-context-menu-item>
+          </hal-context-menu-content>
+        </hal-context-menu>
       `
 
-      await customElements.whenDefined("plank-context-menu")
-      const menu = container.querySelector("plank-context-menu")!
+      await customElements.whenDefined("hal-context-menu")
+      const menu = container.querySelector("hal-context-menu")!
       await (menu as any).updateComplete
 
       // Trigger via contextmenu event
@@ -1109,18 +1109,18 @@ describe("Semantic Structure", () => {
 
     it("context menu content must have correct data-slot", async () => {
       container.innerHTML = `
-        <plank-context-menu>
-          <plank-context-menu-trigger>
+        <hal-context-menu>
+          <hal-context-menu-trigger>
             <div data-testid="trigger" style="width: 100px; height: 100px;">Right click</div>
-          </plank-context-menu-trigger>
-          <plank-context-menu-content>
-            <plank-context-menu-item>Item</plank-context-menu-item>
-          </plank-context-menu-content>
-        </plank-context-menu>
+          </hal-context-menu-trigger>
+          <hal-context-menu-content>
+            <hal-context-menu-item>Item</hal-context-menu-item>
+          </hal-context-menu-content>
+        </hal-context-menu>
       `
 
-      await customElements.whenDefined("plank-context-menu")
-      const menu = container.querySelector("plank-context-menu")!
+      await customElements.whenDefined("hal-context-menu")
+      const menu = container.querySelector("hal-context-menu")!
       await (menu as any).updateComplete
 
       // Trigger via contextmenu event
@@ -1141,7 +1141,7 @@ describe("Semantic Structure", () => {
     })
   })
 
-  describe("plank-sheet", () => {
+  describe("hal-sheet", () => {
     afterEach(() => {
       // Clean up portaled content
       document
@@ -1155,19 +1155,19 @@ describe("Semantic Structure", () => {
 
     it("sheet content must have role=dialog when open", async () => {
       container.innerHTML = `
-        <plank-sheet open>
-          <plank-sheet-trigger>
+        <hal-sheet open>
+          <hal-sheet-trigger>
             <button>Open</button>
-          </plank-sheet-trigger>
-          <plank-sheet-content>
-            <plank-sheet-title>Sheet Title</plank-sheet-title>
+          </hal-sheet-trigger>
+          <hal-sheet-content>
+            <hal-sheet-title>Sheet Title</hal-sheet-title>
             Sheet content
-          </plank-sheet-content>
-        </plank-sheet>
+          </hal-sheet-content>
+        </hal-sheet>
       `
 
-      await customElements.whenDefined("plank-sheet")
-      const sheet = container.querySelector("plank-sheet")!
+      await customElements.whenDefined("hal-sheet")
+      const sheet = container.querySelector("hal-sheet")!
       await (sheet as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -1178,18 +1178,18 @@ describe("Semantic Structure", () => {
 
     it("trigger element must have aria-haspopup=dialog", async () => {
       container.innerHTML = `
-        <plank-sheet>
-          <plank-sheet-trigger>
+        <hal-sheet>
+          <hal-sheet-trigger>
             <button>Open</button>
-          </plank-sheet-trigger>
-          <plank-sheet-content>
-            <plank-sheet-title>Title</plank-sheet-title>
-          </plank-sheet-content>
-        </plank-sheet>
+          </hal-sheet-trigger>
+          <hal-sheet-content>
+            <hal-sheet-title>Title</hal-sheet-title>
+          </hal-sheet-content>
+        </hal-sheet>
       `
 
-      await customElements.whenDefined("plank-sheet")
-      const sheet = container.querySelector("plank-sheet")!
+      await customElements.whenDefined("hal-sheet")
+      const sheet = container.querySelector("hal-sheet")!
       await (sheet as any).updateComplete
 
       const button = container.querySelector("button")
@@ -1201,18 +1201,18 @@ describe("Semantic Structure", () => {
 
     it("trigger element must have aria-expanded", async () => {
       container.innerHTML = `
-        <plank-sheet>
-          <plank-sheet-trigger>
+        <hal-sheet>
+          <hal-sheet-trigger>
             <button>Open</button>
-          </plank-sheet-trigger>
-          <plank-sheet-content>
-            <plank-sheet-title>Title</plank-sheet-title>
-          </plank-sheet-content>
-        </plank-sheet>
+          </hal-sheet-trigger>
+          <hal-sheet-content>
+            <hal-sheet-title>Title</hal-sheet-title>
+          </hal-sheet-content>
+        </hal-sheet>
       `
 
-      await customElements.whenDefined("plank-sheet")
-      const sheet = container.querySelector("plank-sheet")!
+      await customElements.whenDefined("hal-sheet")
+      const sheet = container.querySelector("hal-sheet")!
       await (sheet as any).updateComplete
 
       const button = container.querySelector("button")
@@ -1233,18 +1233,18 @@ describe("Semantic Structure", () => {
 
     it("sheet must have aria-labelledby pointing to title", async () => {
       container.innerHTML = `
-        <plank-sheet open>
-          <plank-sheet-trigger>
+        <hal-sheet open>
+          <hal-sheet-trigger>
             <button>Open</button>
-          </plank-sheet-trigger>
-          <plank-sheet-content>
-            <plank-sheet-title>My Sheet Title</plank-sheet-title>
-          </plank-sheet-content>
-        </plank-sheet>
+          </hal-sheet-trigger>
+          <hal-sheet-content>
+            <hal-sheet-title>My Sheet Title</hal-sheet-title>
+          </hal-sheet-content>
+        </hal-sheet>
       `
 
-      await customElements.whenDefined("plank-sheet")
-      const sheet = container.querySelector("plank-sheet")!
+      await customElements.whenDefined("hal-sheet")
+      const sheet = container.querySelector("hal-sheet")!
       await (sheet as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -1259,19 +1259,19 @@ describe("Semantic Structure", () => {
 
     it("sheet must have aria-describedby pointing to description", async () => {
       container.innerHTML = `
-        <plank-sheet open>
-          <plank-sheet-trigger>
+        <hal-sheet open>
+          <hal-sheet-trigger>
             <button>Open</button>
-          </plank-sheet-trigger>
-          <plank-sheet-content>
-            <plank-sheet-title>Title</plank-sheet-title>
-            <plank-sheet-description>My Description</plank-sheet-description>
-          </plank-sheet-content>
-        </plank-sheet>
+          </hal-sheet-trigger>
+          <hal-sheet-content>
+            <hal-sheet-title>Title</hal-sheet-title>
+            <hal-sheet-description>My Description</hal-sheet-description>
+          </hal-sheet-content>
+        </hal-sheet>
       `
 
-      await customElements.whenDefined("plank-sheet")
-      const sheet = container.querySelector("plank-sheet")!
+      await customElements.whenDefined("hal-sheet")
+      const sheet = container.querySelector("hal-sheet")!
       await (sheet as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -1289,18 +1289,18 @@ describe("Semantic Structure", () => {
 
     it("trigger element must have aria-controls when open", async () => {
       container.innerHTML = `
-        <plank-sheet open>
-          <plank-sheet-trigger>
+        <hal-sheet open>
+          <hal-sheet-trigger>
             <button>Open</button>
-          </plank-sheet-trigger>
-          <plank-sheet-content>
-            <plank-sheet-title>Title</plank-sheet-title>
-          </plank-sheet-content>
-        </plank-sheet>
+          </hal-sheet-trigger>
+          <hal-sheet-content>
+            <hal-sheet-title>Title</hal-sheet-title>
+          </hal-sheet-content>
+        </hal-sheet>
       `
 
-      await customElements.whenDefined("plank-sheet")
-      const sheet = container.querySelector("plank-sheet")!
+      await customElements.whenDefined("hal-sheet")
+      const sheet = container.querySelector("hal-sheet")!
       await (sheet as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -1319,18 +1319,18 @@ describe("Semantic Structure", () => {
 
     it("sheet overlay must have correct data-slot", async () => {
       container.innerHTML = `
-        <plank-sheet open>
-          <plank-sheet-trigger>
+        <hal-sheet open>
+          <hal-sheet-trigger>
             <button>Open</button>
-          </plank-sheet-trigger>
-          <plank-sheet-content>
-            <plank-sheet-title>Title</plank-sheet-title>
-          </plank-sheet-content>
-        </plank-sheet>
+          </hal-sheet-trigger>
+          <hal-sheet-content>
+            <hal-sheet-title>Title</hal-sheet-title>
+          </hal-sheet-content>
+        </hal-sheet>
       `
 
-      await customElements.whenDefined("plank-sheet")
-      const sheet = container.querySelector("plank-sheet")!
+      await customElements.whenDefined("hal-sheet")
+      const sheet = container.querySelector("hal-sheet")!
       await (sheet as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -1340,18 +1340,18 @@ describe("Semantic Structure", () => {
 
     it("sheet content must have correct data-slot", async () => {
       container.innerHTML = `
-        <plank-sheet open>
-          <plank-sheet-trigger>
+        <hal-sheet open>
+          <hal-sheet-trigger>
             <button>Open</button>
-          </plank-sheet-trigger>
-          <plank-sheet-content>
-            <plank-sheet-title>Title</plank-sheet-title>
-          </plank-sheet-content>
-        </plank-sheet>
+          </hal-sheet-trigger>
+          <hal-sheet-content>
+            <hal-sheet-title>Title</hal-sheet-title>
+          </hal-sheet-content>
+        </hal-sheet>
       `
 
-      await customElements.whenDefined("plank-sheet")
-      const sheet = container.querySelector("plank-sheet")!
+      await customElements.whenDefined("hal-sheet")
+      const sheet = container.querySelector("hal-sheet")!
       await (sheet as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -1361,18 +1361,18 @@ describe("Semantic Structure", () => {
 
     it("sheet must support side attribute for positioning", async () => {
       container.innerHTML = `
-        <plank-sheet open>
-          <plank-sheet-trigger>
+        <hal-sheet open>
+          <hal-sheet-trigger>
             <button>Open</button>
-          </plank-sheet-trigger>
-          <plank-sheet-content side="left">
-            <plank-sheet-title>Title</plank-sheet-title>
-          </plank-sheet-content>
-        </plank-sheet>
+          </hal-sheet-trigger>
+          <hal-sheet-content side="left">
+            <hal-sheet-title>Title</hal-sheet-title>
+          </hal-sheet-content>
+        </hal-sheet>
       `
 
-      await customElements.whenDefined("plank-sheet")
-      const sheet = container.querySelector("plank-sheet")!
+      await customElements.whenDefined("hal-sheet")
+      const sheet = container.querySelector("hal-sheet")!
       await (sheet as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -1382,7 +1382,7 @@ describe("Semantic Structure", () => {
     })
   })
 
-  describe("plank-drawer", () => {
+  describe("hal-drawer", () => {
     afterEach(() => {
       // Clean up portaled content
       document
@@ -1399,19 +1399,19 @@ describe("Semantic Structure", () => {
 
     it("drawer content must have role=dialog when open", async () => {
       container.innerHTML = `
-        <plank-drawer open>
-          <plank-drawer-trigger>
+        <hal-drawer open>
+          <hal-drawer-trigger>
             <button>Open</button>
-          </plank-drawer-trigger>
-          <plank-drawer-content>
-            <plank-drawer-title>Drawer Title</plank-drawer-title>
+          </hal-drawer-trigger>
+          <hal-drawer-content>
+            <hal-drawer-title>Drawer Title</hal-drawer-title>
             Drawer content
-          </plank-drawer-content>
-        </plank-drawer>
+          </hal-drawer-content>
+        </hal-drawer>
       `
 
-      await customElements.whenDefined("plank-drawer")
-      const drawer = container.querySelector("plank-drawer")!
+      await customElements.whenDefined("hal-drawer")
+      const drawer = container.querySelector("hal-drawer")!
       await (drawer as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -1422,18 +1422,18 @@ describe("Semantic Structure", () => {
 
     it("trigger element must have aria-haspopup=dialog", async () => {
       container.innerHTML = `
-        <plank-drawer>
-          <plank-drawer-trigger>
+        <hal-drawer>
+          <hal-drawer-trigger>
             <button>Open</button>
-          </plank-drawer-trigger>
-          <plank-drawer-content>
-            <plank-drawer-title>Title</plank-drawer-title>
-          </plank-drawer-content>
-        </plank-drawer>
+          </hal-drawer-trigger>
+          <hal-drawer-content>
+            <hal-drawer-title>Title</hal-drawer-title>
+          </hal-drawer-content>
+        </hal-drawer>
       `
 
-      await customElements.whenDefined("plank-drawer")
-      const drawer = container.querySelector("plank-drawer")!
+      await customElements.whenDefined("hal-drawer")
+      const drawer = container.querySelector("hal-drawer")!
       await (drawer as any).updateComplete
 
       const button = container.querySelector("button")
@@ -1445,18 +1445,18 @@ describe("Semantic Structure", () => {
 
     it("trigger element must have aria-expanded", async () => {
       container.innerHTML = `
-        <plank-drawer>
-          <plank-drawer-trigger>
+        <hal-drawer>
+          <hal-drawer-trigger>
             <button>Open</button>
-          </plank-drawer-trigger>
-          <plank-drawer-content>
-            <plank-drawer-title>Title</plank-drawer-title>
-          </plank-drawer-content>
-        </plank-drawer>
+          </hal-drawer-trigger>
+          <hal-drawer-content>
+            <hal-drawer-title>Title</hal-drawer-title>
+          </hal-drawer-content>
+        </hal-drawer>
       `
 
-      await customElements.whenDefined("plank-drawer")
-      const drawer = container.querySelector("plank-drawer")!
+      await customElements.whenDefined("hal-drawer")
+      const drawer = container.querySelector("hal-drawer")!
       await (drawer as any).updateComplete
 
       const button = container.querySelector("button")
@@ -1477,18 +1477,18 @@ describe("Semantic Structure", () => {
 
     it("drawer must have aria-labelledby pointing to title", async () => {
       container.innerHTML = `
-        <plank-drawer open>
-          <plank-drawer-trigger>
+        <hal-drawer open>
+          <hal-drawer-trigger>
             <button>Open</button>
-          </plank-drawer-trigger>
-          <plank-drawer-content>
-            <plank-drawer-title>My Drawer Title</plank-drawer-title>
-          </plank-drawer-content>
-        </plank-drawer>
+          </hal-drawer-trigger>
+          <hal-drawer-content>
+            <hal-drawer-title>My Drawer Title</hal-drawer-title>
+          </hal-drawer-content>
+        </hal-drawer>
       `
 
-      await customElements.whenDefined("plank-drawer")
-      const drawer = container.querySelector("plank-drawer")!
+      await customElements.whenDefined("hal-drawer")
+      const drawer = container.querySelector("hal-drawer")!
       await (drawer as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -1503,19 +1503,19 @@ describe("Semantic Structure", () => {
 
     it("drawer must have aria-describedby pointing to description", async () => {
       container.innerHTML = `
-        <plank-drawer open>
-          <plank-drawer-trigger>
+        <hal-drawer open>
+          <hal-drawer-trigger>
             <button>Open</button>
-          </plank-drawer-trigger>
-          <plank-drawer-content>
-            <plank-drawer-title>Title</plank-drawer-title>
-            <plank-drawer-description>My Description</plank-drawer-description>
-          </plank-drawer-content>
-        </plank-drawer>
+          </hal-drawer-trigger>
+          <hal-drawer-content>
+            <hal-drawer-title>Title</hal-drawer-title>
+            <hal-drawer-description>My Description</hal-drawer-description>
+          </hal-drawer-content>
+        </hal-drawer>
       `
 
-      await customElements.whenDefined("plank-drawer")
-      const drawer = container.querySelector("plank-drawer")!
+      await customElements.whenDefined("hal-drawer")
+      const drawer = container.querySelector("hal-drawer")!
       await (drawer as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -1533,18 +1533,18 @@ describe("Semantic Structure", () => {
 
     it("trigger element must have aria-controls when open", async () => {
       container.innerHTML = `
-        <plank-drawer open>
-          <plank-drawer-trigger>
+        <hal-drawer open>
+          <hal-drawer-trigger>
             <button>Open</button>
-          </plank-drawer-trigger>
-          <plank-drawer-content>
-            <plank-drawer-title>Title</plank-drawer-title>
-          </plank-drawer-content>
-        </plank-drawer>
+          </hal-drawer-trigger>
+          <hal-drawer-content>
+            <hal-drawer-title>Title</hal-drawer-title>
+          </hal-drawer-content>
+        </hal-drawer>
       `
 
-      await customElements.whenDefined("plank-drawer")
-      const drawer = container.querySelector("plank-drawer")!
+      await customElements.whenDefined("hal-drawer")
+      const drawer = container.querySelector("hal-drawer")!
       await (drawer as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -1563,18 +1563,18 @@ describe("Semantic Structure", () => {
 
     it("drawer overlay must have correct data-slot", async () => {
       container.innerHTML = `
-        <plank-drawer open>
-          <plank-drawer-trigger>
+        <hal-drawer open>
+          <hal-drawer-trigger>
             <button>Open</button>
-          </plank-drawer-trigger>
-          <plank-drawer-content>
-            <plank-drawer-title>Title</plank-drawer-title>
-          </plank-drawer-content>
-        </plank-drawer>
+          </hal-drawer-trigger>
+          <hal-drawer-content>
+            <hal-drawer-title>Title</hal-drawer-title>
+          </hal-drawer-content>
+        </hal-drawer>
       `
 
-      await customElements.whenDefined("plank-drawer")
-      const drawer = container.querySelector("plank-drawer")!
+      await customElements.whenDefined("hal-drawer")
+      const drawer = container.querySelector("hal-drawer")!
       await (drawer as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -1584,18 +1584,18 @@ describe("Semantic Structure", () => {
 
     it("drawer content must have correct data-slot", async () => {
       container.innerHTML = `
-        <plank-drawer open>
-          <plank-drawer-trigger>
+        <hal-drawer open>
+          <hal-drawer-trigger>
             <button>Open</button>
-          </plank-drawer-trigger>
-          <plank-drawer-content>
-            <plank-drawer-title>Title</plank-drawer-title>
-          </plank-drawer-content>
-        </plank-drawer>
+          </hal-drawer-trigger>
+          <hal-drawer-content>
+            <hal-drawer-title>Title</hal-drawer-title>
+          </hal-drawer-content>
+        </hal-drawer>
       `
 
-      await customElements.whenDefined("plank-drawer")
-      const drawer = container.querySelector("plank-drawer")!
+      await customElements.whenDefined("hal-drawer")
+      const drawer = container.querySelector("hal-drawer")!
       await (drawer as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -1605,18 +1605,18 @@ describe("Semantic Structure", () => {
 
     it("drawer must support direction attribute for positioning", async () => {
       container.innerHTML = `
-        <plank-drawer open>
-          <plank-drawer-trigger>
+        <hal-drawer open>
+          <hal-drawer-trigger>
             <button>Open</button>
-          </plank-drawer-trigger>
-          <plank-drawer-content direction="left">
-            <plank-drawer-title>Title</plank-drawer-title>
-          </plank-drawer-content>
-        </plank-drawer>
+          </hal-drawer-trigger>
+          <hal-drawer-content direction="left">
+            <hal-drawer-title>Title</hal-drawer-title>
+          </hal-drawer-content>
+        </hal-drawer>
       `
 
-      await customElements.whenDefined("plank-drawer")
-      const drawer = container.querySelector("plank-drawer")!
+      await customElements.whenDefined("hal-drawer")
+      const drawer = container.querySelector("hal-drawer")!
       await (drawer as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -1626,7 +1626,7 @@ describe("Semantic Structure", () => {
     })
   })
 
-  describe("plank-hover-card", () => {
+  describe("hal-hover-card", () => {
     afterEach(() => {
       // Clean up portaled content
       document
@@ -1638,16 +1638,16 @@ describe("Semantic Structure", () => {
 
     it("hover card content must have correct data-slot when open", async () => {
       container.innerHTML = `
-        <plank-hover-card open>
-          <plank-hover-card-trigger>
+        <hal-hover-card open>
+          <hal-hover-card-trigger>
             <button>Trigger</button>
-          </plank-hover-card-trigger>
-          <plank-hover-card-content>Hover card text</plank-hover-card-content>
-        </plank-hover-card>
+          </hal-hover-card-trigger>
+          <hal-hover-card-content>Hover card text</hal-hover-card-content>
+        </hal-hover-card>
       `
 
-      await customElements.whenDefined("plank-hover-card")
-      const hoverCard = container.querySelector("plank-hover-card")!
+      await customElements.whenDefined("hal-hover-card")
+      const hoverCard = container.querySelector("hal-hover-card")!
       await (hoverCard as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -1661,16 +1661,16 @@ describe("Semantic Structure", () => {
 
     it("hover card content must have data-state attribute", async () => {
       container.innerHTML = `
-        <plank-hover-card open>
-          <plank-hover-card-trigger>
+        <hal-hover-card open>
+          <hal-hover-card-trigger>
             <button>Trigger</button>
-          </plank-hover-card-trigger>
-          <plank-hover-card-content>Content</plank-hover-card-content>
-        </plank-hover-card>
+          </hal-hover-card-trigger>
+          <hal-hover-card-content>Content</hal-hover-card-content>
+        </hal-hover-card>
       `
 
-      await customElements.whenDefined("plank-hover-card")
-      const hoverCard = container.querySelector("plank-hover-card")!
+      await customElements.whenDefined("hal-hover-card")
+      const hoverCard = container.querySelector("hal-hover-card")!
       await (hoverCard as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -1686,16 +1686,16 @@ describe("Semantic Structure", () => {
 
     it("hover card content must have data-side attribute", async () => {
       container.innerHTML = `
-        <plank-hover-card open>
-          <plank-hover-card-trigger>
+        <hal-hover-card open>
+          <hal-hover-card-trigger>
             <button>Trigger</button>
-          </plank-hover-card-trigger>
-          <plank-hover-card-content>Content</plank-hover-card-content>
-        </plank-hover-card>
+          </hal-hover-card-trigger>
+          <hal-hover-card-content>Content</hal-hover-card-content>
+        </hal-hover-card>
       `
 
-      await customElements.whenDefined("plank-hover-card")
-      const hoverCard = container.querySelector("plank-hover-card")!
+      await customElements.whenDefined("hal-hover-card")
+      const hoverCard = container.querySelector("hal-hover-card")!
       await (hoverCard as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -1711,16 +1711,16 @@ describe("Semantic Structure", () => {
 
     it("trigger element must have data-state attribute", async () => {
       container.innerHTML = `
-        <plank-hover-card open>
-          <plank-hover-card-trigger>
+        <hal-hover-card open>
+          <hal-hover-card-trigger>
             <button>Trigger</button>
-          </plank-hover-card-trigger>
-          <plank-hover-card-content>Content</plank-hover-card-content>
-        </plank-hover-card>
+          </hal-hover-card-trigger>
+          <hal-hover-card-content>Content</hal-hover-card-content>
+        </hal-hover-card>
       `
 
-      await customElements.whenDefined("plank-hover-card")
-      const hoverCard = container.querySelector("plank-hover-card")!
+      await customElements.whenDefined("hal-hover-card")
+      const hoverCard = container.querySelector("hal-hover-card")!
       await (hoverCard as any).updateComplete
 
       // Radix HoverCard uses data-state on the trigger (unlike tooltip which uses aria-describedby)
@@ -1732,7 +1732,7 @@ describe("Semantic Structure", () => {
     })
   })
 
-  describe("plank-select", () => {
+  describe("hal-select", () => {
     afterEach(() => {
       // Clean up portaled content
       document
@@ -1744,18 +1744,18 @@ describe("Semantic Structure", () => {
 
     it("trigger must have role='combobox'", async () => {
       container.innerHTML = `
-        <plank-select>
-          <plank-select-trigger>
-            <plank-select-value placeholder="Select"></plank-select-value>
-          </plank-select-trigger>
-          <plank-select-content>
-            <plank-select-item value="apple">Apple</plank-select-item>
-          </plank-select-content>
-        </plank-select>
+        <hal-select>
+          <hal-select-trigger>
+            <hal-select-value placeholder="Select"></hal-select-value>
+          </hal-select-trigger>
+          <hal-select-content>
+            <hal-select-item value="apple">Apple</hal-select-item>
+          </hal-select-content>
+        </hal-select>
       `
 
-      await customElements.whenDefined("plank-select")
-      const select = container.querySelector("plank-select")!
+      await customElements.whenDefined("hal-select")
+      const select = container.querySelector("hal-select")!
       await (select as any).updateComplete
 
       const trigger = container.querySelector('[role="combobox"]')
@@ -1764,18 +1764,18 @@ describe("Semantic Structure", () => {
 
     it("trigger must have aria-expanded attribute", async () => {
       container.innerHTML = `
-        <plank-select>
-          <plank-select-trigger>
-            <plank-select-value placeholder="Select"></plank-select-value>
-          </plank-select-trigger>
-          <plank-select-content>
-            <plank-select-item value="apple">Apple</plank-select-item>
-          </plank-select-content>
-        </plank-select>
+        <hal-select>
+          <hal-select-trigger>
+            <hal-select-value placeholder="Select"></hal-select-value>
+          </hal-select-trigger>
+          <hal-select-content>
+            <hal-select-item value="apple">Apple</hal-select-item>
+          </hal-select-content>
+        </hal-select>
       `
 
-      await customElements.whenDefined("plank-select")
-      const select = container.querySelector("plank-select")!
+      await customElements.whenDefined("hal-select")
+      const select = container.querySelector("hal-select")!
       await (select as any).updateComplete
 
       const trigger = container.querySelector('[role="combobox"]')
@@ -1787,18 +1787,18 @@ describe("Semantic Structure", () => {
 
     it("content must have role='listbox' when open", async () => {
       container.innerHTML = `
-        <plank-select open>
-          <plank-select-trigger>
-            <plank-select-value placeholder="Select"></plank-select-value>
-          </plank-select-trigger>
-          <plank-select-content>
-            <plank-select-item value="apple">Apple</plank-select-item>
-          </plank-select-content>
-        </plank-select>
+        <hal-select open>
+          <hal-select-trigger>
+            <hal-select-value placeholder="Select"></hal-select-value>
+          </hal-select-trigger>
+          <hal-select-content>
+            <hal-select-item value="apple">Apple</hal-select-item>
+          </hal-select-content>
+        </hal-select>
       `
 
-      await customElements.whenDefined("plank-select")
-      const select = container.querySelector("plank-select")!
+      await customElements.whenDefined("hal-select")
+      const select = container.querySelector("hal-select")!
       await (select as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -1809,19 +1809,19 @@ describe("Semantic Structure", () => {
 
     it("items must have role='option'", async () => {
       container.innerHTML = `
-        <plank-select open>
-          <plank-select-trigger>
-            <plank-select-value placeholder="Select"></plank-select-value>
-          </plank-select-trigger>
-          <plank-select-content>
-            <plank-select-item value="apple">Apple</plank-select-item>
-            <plank-select-item value="banana">Banana</plank-select-item>
-          </plank-select-content>
-        </plank-select>
+        <hal-select open>
+          <hal-select-trigger>
+            <hal-select-value placeholder="Select"></hal-select-value>
+          </hal-select-trigger>
+          <hal-select-content>
+            <hal-select-item value="apple">Apple</hal-select-item>
+            <hal-select-item value="banana">Banana</hal-select-item>
+          </hal-select-content>
+        </hal-select>
       `
 
-      await customElements.whenDefined("plank-select")
-      const select = container.querySelector("plank-select")!
+      await customElements.whenDefined("hal-select")
+      const select = container.querySelector("hal-select")!
       await (select as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -1831,19 +1831,19 @@ describe("Semantic Structure", () => {
 
     it("selected item must have aria-selected='true'", async () => {
       container.innerHTML = `
-        <plank-select value="banana" open>
-          <plank-select-trigger>
-            <plank-select-value placeholder="Select"></plank-select-value>
-          </plank-select-trigger>
-          <plank-select-content>
-            <plank-select-item value="apple">Apple</plank-select-item>
-            <plank-select-item value="banana">Banana</plank-select-item>
-          </plank-select-content>
-        </plank-select>
+        <hal-select value="banana" open>
+          <hal-select-trigger>
+            <hal-select-value placeholder="Select"></hal-select-value>
+          </hal-select-trigger>
+          <hal-select-content>
+            <hal-select-item value="apple">Apple</hal-select-item>
+            <hal-select-item value="banana">Banana</hal-select-item>
+          </hal-select-content>
+        </hal-select>
       `
 
-      await customElements.whenDefined("plank-select")
-      const select = container.querySelector("plank-select")!
+      await customElements.whenDefined("hal-select")
+      const select = container.querySelector("hal-select")!
       await (select as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -1859,18 +1859,18 @@ describe("Semantic Structure", () => {
 
     it("disabled item must have aria-disabled='true'", async () => {
       container.innerHTML = `
-        <plank-select open>
-          <plank-select-trigger>
-            <plank-select-value placeholder="Select"></plank-select-value>
-          </plank-select-trigger>
-          <plank-select-content>
-            <plank-select-item value="apple" disabled>Apple</plank-select-item>
-          </plank-select-content>
-        </plank-select>
+        <hal-select open>
+          <hal-select-trigger>
+            <hal-select-value placeholder="Select"></hal-select-value>
+          </hal-select-trigger>
+          <hal-select-content>
+            <hal-select-item value="apple" disabled>Apple</hal-select-item>
+          </hal-select-content>
+        </hal-select>
       `
 
-      await customElements.whenDefined("plank-select")
-      const select = container.querySelector("plank-select")!
+      await customElements.whenDefined("hal-select")
+      const select = container.querySelector("hal-select")!
       await (select as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -1885,18 +1885,18 @@ describe("Semantic Structure", () => {
 
     it("select content must have correct data-slot when open", async () => {
       container.innerHTML = `
-        <plank-select open>
-          <plank-select-trigger>
-            <plank-select-value placeholder="Select"></plank-select-value>
-          </plank-select-trigger>
-          <plank-select-content>
-            <plank-select-item value="apple">Apple</plank-select-item>
-          </plank-select-content>
-        </plank-select>
+        <hal-select open>
+          <hal-select-trigger>
+            <hal-select-value placeholder="Select"></hal-select-value>
+          </hal-select-trigger>
+          <hal-select-content>
+            <hal-select-item value="apple">Apple</hal-select-item>
+          </hal-select-content>
+        </hal-select>
       `
 
-      await customElements.whenDefined("plank-select")
-      const select = container.querySelector("plank-select")!
+      await customElements.whenDefined("hal-select")
+      const select = container.querySelector("hal-select")!
       await (select as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -1909,18 +1909,18 @@ describe("Semantic Structure", () => {
 
     it("trigger must show placeholder when no value", async () => {
       container.innerHTML = `
-        <plank-select>
-          <plank-select-trigger>
-            <plank-select-value placeholder="Select a fruit"></plank-select-value>
-          </plank-select-trigger>
-          <plank-select-content>
-            <plank-select-item value="apple">Apple</plank-select-item>
-          </plank-select-content>
-        </plank-select>
+        <hal-select>
+          <hal-select-trigger>
+            <hal-select-value placeholder="Select a fruit"></hal-select-value>
+          </hal-select-trigger>
+          <hal-select-content>
+            <hal-select-item value="apple">Apple</hal-select-item>
+          </hal-select-content>
+        </hal-select>
       `
 
-      await customElements.whenDefined("plank-select")
-      const select = container.querySelector("plank-select")!
+      await customElements.whenDefined("hal-select")
+      const select = container.querySelector("hal-select")!
       await (select as any).updateComplete
 
       const trigger = container.querySelector('[role="combobox"]')
@@ -1930,19 +1930,19 @@ describe("Semantic Structure", () => {
     })
   })
 
-  describe("plank-command", () => {
+  describe("hal-command", () => {
     it("input must have role='combobox'", async () => {
       container.innerHTML = `
-        <plank-command>
-          <plank-command-input placeholder="Search..."></plank-command-input>
-          <plank-command-list>
-            <plank-command-item>Item 1</plank-command-item>
-          </plank-command-list>
-        </plank-command>
+        <hal-command>
+          <hal-command-input placeholder="Search..."></hal-command-input>
+          <hal-command-list>
+            <hal-command-item>Item 1</hal-command-item>
+          </hal-command-list>
+        </hal-command>
       `
 
-      await customElements.whenDefined("plank-command")
-      const command = container.querySelector("plank-command")!
+      await customElements.whenDefined("hal-command")
+      const command = container.querySelector("hal-command")!
       await (command as any).updateComplete
 
       const input = container.querySelector('[role="combobox"]')
@@ -1951,16 +1951,16 @@ describe("Semantic Structure", () => {
 
     it("input must have aria-expanded attribute", async () => {
       container.innerHTML = `
-        <plank-command>
-          <plank-command-input placeholder="Search..."></plank-command-input>
-          <plank-command-list>
-            <plank-command-item>Item 1</plank-command-item>
-          </plank-command-list>
-        </plank-command>
+        <hal-command>
+          <hal-command-input placeholder="Search..."></hal-command-input>
+          <hal-command-list>
+            <hal-command-item>Item 1</hal-command-item>
+          </hal-command-list>
+        </hal-command>
       `
 
-      await customElements.whenDefined("plank-command")
-      const command = container.querySelector("plank-command")!
+      await customElements.whenDefined("hal-command")
+      const command = container.querySelector("hal-command")!
       await (command as any).updateComplete
 
       const input = container.querySelector('[role="combobox"]')
@@ -1972,16 +1972,16 @@ describe("Semantic Structure", () => {
 
     it("list must have role='listbox'", async () => {
       container.innerHTML = `
-        <plank-command>
-          <plank-command-input placeholder="Search..."></plank-command-input>
-          <plank-command-list>
-            <plank-command-item>Item 1</plank-command-item>
-          </plank-command-list>
-        </plank-command>
+        <hal-command>
+          <hal-command-input placeholder="Search..."></hal-command-input>
+          <hal-command-list>
+            <hal-command-item>Item 1</hal-command-item>
+          </hal-command-list>
+        </hal-command>
       `
 
-      await customElements.whenDefined("plank-command")
-      const command = container.querySelector("plank-command")!
+      await customElements.whenDefined("hal-command")
+      const command = container.querySelector("hal-command")!
       await (command as any).updateComplete
 
       const list = container.querySelector('[role="listbox"]')
@@ -1990,16 +1990,16 @@ describe("Semantic Structure", () => {
 
     it("items must have role='option'", async () => {
       container.innerHTML = `
-        <plank-command>
-          <plank-command-input placeholder="Search..."></plank-command-input>
-          <plank-command-list>
-            <plank-command-item>Item 1</plank-command-item>
-          </plank-command-list>
-        </plank-command>
+        <hal-command>
+          <hal-command-input placeholder="Search..."></hal-command-input>
+          <hal-command-list>
+            <hal-command-item>Item 1</hal-command-item>
+          </hal-command-list>
+        </hal-command>
       `
 
-      await customElements.whenDefined("plank-command")
-      const command = container.querySelector("plank-command")!
+      await customElements.whenDefined("hal-command")
+      const command = container.querySelector("hal-command")!
       await (command as any).updateComplete
 
       const item = container.querySelector('[role="option"]')
@@ -2009,16 +2009,16 @@ describe("Semantic Structure", () => {
 
     it("input must have aria-controls pointing to list", async () => {
       container.innerHTML = `
-        <plank-command>
-          <plank-command-input placeholder="Search..."></plank-command-input>
-          <plank-command-list>
-            <plank-command-item>Item 1</plank-command-item>
-          </plank-command-list>
-        </plank-command>
+        <hal-command>
+          <hal-command-input placeholder="Search..."></hal-command-input>
+          <hal-command-list>
+            <hal-command-item>Item 1</hal-command-item>
+          </hal-command-list>
+        </hal-command>
       `
 
-      await customElements.whenDefined("plank-command")
-      const command = container.querySelector("plank-command")!
+      await customElements.whenDefined("hal-command")
+      const command = container.querySelector("hal-command")!
       await (command as any).updateComplete
 
       const input = container.querySelector('[role="combobox"]')
@@ -2031,17 +2031,17 @@ describe("Semantic Structure", () => {
 
     it("group must have role='group'", async () => {
       container.innerHTML = `
-        <plank-command>
-          <plank-command-list>
-            <plank-command-group heading="Suggestions">
-              <plank-command-item>Item 1</plank-command-item>
-            </plank-command-group>
-          </plank-command-list>
-        </plank-command>
+        <hal-command>
+          <hal-command-list>
+            <hal-command-group heading="Suggestions">
+              <hal-command-item>Item 1</hal-command-item>
+            </hal-command-group>
+          </hal-command-list>
+        </hal-command>
       `
 
-      await customElements.whenDefined("plank-command")
-      const command = container.querySelector("plank-command")!
+      await customElements.whenDefined("hal-command")
+      const command = container.querySelector("hal-command")!
       await (command as any).updateComplete
 
       const group = container.querySelector('[role="group"]')
@@ -2050,17 +2050,17 @@ describe("Semantic Structure", () => {
 
     it("separator must have role='separator'", async () => {
       container.innerHTML = `
-        <plank-command>
-          <plank-command-list>
-            <plank-command-item>Item 1</plank-command-item>
-            <plank-command-separator></plank-command-separator>
-            <plank-command-item>Item 2</plank-command-item>
-          </plank-command-list>
-        </plank-command>
+        <hal-command>
+          <hal-command-list>
+            <hal-command-item>Item 1</hal-command-item>
+            <hal-command-separator></hal-command-separator>
+            <hal-command-item>Item 2</hal-command-item>
+          </hal-command-list>
+        </hal-command>
       `
 
-      await customElements.whenDefined("plank-command")
-      const command = container.querySelector("plank-command")!
+      await customElements.whenDefined("hal-command")
+      const command = container.querySelector("hal-command")!
       await (command as any).updateComplete
 
       const separator = container.querySelector('[role="separator"]')
@@ -2072,15 +2072,15 @@ describe("Semantic Structure", () => {
 
     it("disabled items must have aria-disabled", async () => {
       container.innerHTML = `
-        <plank-command>
-          <plank-command-list>
-            <plank-command-item disabled>Disabled Item</plank-command-item>
-          </plank-command-list>
-        </plank-command>
+        <hal-command>
+          <hal-command-list>
+            <hal-command-item disabled>Disabled Item</hal-command-item>
+          </hal-command-list>
+        </hal-command>
       `
 
-      await customElements.whenDefined("plank-command")
-      const command = container.querySelector("plank-command")!
+      await customElements.whenDefined("hal-command")
+      const command = container.querySelector("hal-command")!
       await (command as any).updateComplete
 
       const item = container.querySelector('[role="option"]')
@@ -2091,7 +2091,7 @@ describe("Semantic Structure", () => {
     })
   })
 
-  describe("plank-combobox", () => {
+  describe("hal-combobox", () => {
     afterEach(() => {
       // Clean up any portaled content
       document
@@ -2103,13 +2103,13 @@ describe("Semantic Structure", () => {
 
     it("trigger must have role='combobox'", async () => {
       container.innerHTML = `
-        <plank-combobox>
-          <plank-combobox-item value="test">Test</plank-combobox-item>
-        </plank-combobox>
+        <hal-combobox>
+          <hal-combobox-item value="test">Test</hal-combobox-item>
+        </hal-combobox>
       `
 
-      await customElements.whenDefined("plank-combobox")
-      const combobox = container.querySelector("plank-combobox")!
+      await customElements.whenDefined("hal-combobox")
+      const combobox = container.querySelector("hal-combobox")!
       await (combobox as any).updateComplete
 
       const trigger = container.querySelector('[role="combobox"]')
@@ -2118,13 +2118,13 @@ describe("Semantic Structure", () => {
 
     it("trigger must have aria-haspopup='listbox'", async () => {
       container.innerHTML = `
-        <plank-combobox>
-          <plank-combobox-item value="test">Test</plank-combobox-item>
-        </plank-combobox>
+        <hal-combobox>
+          <hal-combobox-item value="test">Test</hal-combobox-item>
+        </hal-combobox>
       `
 
-      await customElements.whenDefined("plank-combobox")
-      const combobox = container.querySelector("plank-combobox")!
+      await customElements.whenDefined("hal-combobox")
+      const combobox = container.querySelector("hal-combobox")!
       await (combobox as any).updateComplete
 
       const trigger = container.querySelector('[role="combobox"]')
@@ -2136,13 +2136,13 @@ describe("Semantic Structure", () => {
 
     it("trigger must have aria-expanded when closed", async () => {
       container.innerHTML = `
-        <plank-combobox>
-          <plank-combobox-item value="test">Test</plank-combobox-item>
-        </plank-combobox>
+        <hal-combobox>
+          <hal-combobox-item value="test">Test</hal-combobox-item>
+        </hal-combobox>
       `
 
-      await customElements.whenDefined("plank-combobox")
-      const combobox = container.querySelector("plank-combobox")!
+      await customElements.whenDefined("hal-combobox")
+      const combobox = container.querySelector("hal-combobox")!
       await (combobox as any).updateComplete
 
       const trigger = container.querySelector('[role="combobox"]')
@@ -2154,13 +2154,13 @@ describe("Semantic Structure", () => {
 
     it("listbox must have role='listbox' when open", async () => {
       container.innerHTML = `
-        <plank-combobox>
-          <plank-combobox-item value="test">Test</plank-combobox-item>
-        </plank-combobox>
+        <hal-combobox>
+          <hal-combobox-item value="test">Test</hal-combobox-item>
+        </hal-combobox>
       `
 
-      await customElements.whenDefined("plank-combobox")
-      const combobox = container.querySelector("plank-combobox")!
+      await customElements.whenDefined("hal-combobox")
+      const combobox = container.querySelector("hal-combobox")!
       await (combobox as any).updateComplete
 
       // Open the combobox by focusing the input (combobox opens on focus)
@@ -2176,13 +2176,13 @@ describe("Semantic Structure", () => {
 
     it("trigger must have aria-controls pointing to listbox", async () => {
       container.innerHTML = `
-        <plank-combobox>
-          <plank-combobox-item value="test">Test</plank-combobox-item>
-        </plank-combobox>
+        <hal-combobox>
+          <hal-combobox-item value="test">Test</hal-combobox-item>
+        </hal-combobox>
       `
 
-      await customElements.whenDefined("plank-combobox")
-      const combobox = container.querySelector("plank-combobox")!
+      await customElements.whenDefined("hal-combobox")
+      const combobox = container.querySelector("hal-combobox")!
       await (combobox as any).updateComplete
 
       // Open the combobox by focusing the input (combobox opens on focus)
@@ -2202,13 +2202,13 @@ describe("Semantic Structure", () => {
 
     it("items must have role='option'", async () => {
       container.innerHTML = `
-        <plank-combobox>
-          <plank-combobox-item value="test">Test</plank-combobox-item>
-        </plank-combobox>
+        <hal-combobox>
+          <hal-combobox-item value="test">Test</hal-combobox-item>
+        </hal-combobox>
       `
 
-      await customElements.whenDefined("plank-combobox")
-      const combobox = container.querySelector("plank-combobox")!
+      await customElements.whenDefined("hal-combobox")
+      const combobox = container.querySelector("hal-combobox")!
       await (combobox as any).updateComplete
 
       // Open the combobox by focusing the input (combobox opens on focus)
@@ -2224,14 +2224,14 @@ describe("Semantic Structure", () => {
 
     it("selected item must have aria-selected='true'", async () => {
       container.innerHTML = `
-        <plank-combobox value="test">
-          <plank-combobox-item value="test">Test</plank-combobox-item>
-          <plank-combobox-item value="other">Other</plank-combobox-item>
-        </plank-combobox>
+        <hal-combobox value="test">
+          <hal-combobox-item value="test">Test</hal-combobox-item>
+          <hal-combobox-item value="other">Other</hal-combobox-item>
+        </hal-combobox>
       `
 
-      await customElements.whenDefined("plank-combobox")
-      const combobox = container.querySelector("plank-combobox")!
+      await customElements.whenDefined("hal-combobox")
+      const combobox = container.querySelector("hal-combobox")!
       await (combobox as any).updateComplete
 
       // Open the combobox by focusing the input (combobox opens on focus)
@@ -2251,13 +2251,13 @@ describe("Semantic Structure", () => {
 
     it("disabled items must have aria-disabled='true'", async () => {
       container.innerHTML = `
-        <plank-combobox>
-          <plank-combobox-item value="test" disabled>Disabled</plank-combobox-item>
-        </plank-combobox>
+        <hal-combobox>
+          <hal-combobox-item value="test" disabled>Disabled</hal-combobox-item>
+        </hal-combobox>
       `
 
-      await customElements.whenDefined("plank-combobox")
-      const combobox = container.querySelector("plank-combobox")!
+      await customElements.whenDefined("hal-combobox")
+      const combobox = container.querySelector("hal-combobox")!
       await (combobox as any).updateComplete
 
       // Open the combobox by focusing the input (combobox opens on focus)
@@ -2275,24 +2275,24 @@ describe("Semantic Structure", () => {
     })
   })
 
-  describe("plank-table", () => {
+  describe("hal-table", () => {
     it("must contain native <table> element", async () => {
       container.innerHTML = `
-        <plank-table>
-          <plank-table-body>
-            <plank-table-row>
-              <plank-table-cell>Content</plank-table-cell>
-            </plank-table-row>
-          </plank-table-body>
-        </plank-table>
+        <hal-table>
+          <hal-table-body>
+            <hal-table-row>
+              <hal-table-cell>Content</hal-table-cell>
+            </hal-table-row>
+          </hal-table-body>
+        </hal-table>
       `
 
-      await customElements.whenDefined("plank-table")
+      await customElements.whenDefined("hal-table")
       const tableElements = [
-        "plank-table",
-        "plank-table-body",
-        "plank-table-row",
-        "plank-table-cell",
+        "hal-table",
+        "hal-table-body",
+        "hal-table-row",
+        "hal-table-cell",
       ]
       await Promise.all(
         tableElements.map((el) =>
@@ -2304,28 +2304,28 @@ describe("Semantic Structure", () => {
         Array.from(elements).map((el) => (el as any).updateComplete)
       )
 
-      const table = container.querySelector("plank-table")
+      const table = container.querySelector("hal-table")
       const nativeTable = table?.querySelector("table")
       expect(nativeTable, "Must contain native <table> element").toBeTruthy()
     })
 
     it("must contain native <thead> element", async () => {
       container.innerHTML = `
-        <plank-table>
-          <plank-table-header>
-            <plank-table-row>
-              <plank-table-head>Header</plank-table-head>
-            </plank-table-row>
-          </plank-table-header>
-        </plank-table>
+        <hal-table>
+          <hal-table-header>
+            <hal-table-row>
+              <hal-table-head>Header</hal-table-head>
+            </hal-table-row>
+          </hal-table-header>
+        </hal-table>
       `
 
-      await customElements.whenDefined("plank-table")
+      await customElements.whenDefined("hal-table")
       const tableElements = [
-        "plank-table",
-        "plank-table-header",
-        "plank-table-row",
-        "plank-table-head",
+        "hal-table",
+        "hal-table-header",
+        "hal-table-row",
+        "hal-table-head",
       ]
       await Promise.all(
         tableElements.map((el) =>
@@ -2337,28 +2337,28 @@ describe("Semantic Structure", () => {
         Array.from(elements).map((el) => (el as any).updateComplete)
       )
 
-      const header = container.querySelector("plank-table-header")
+      const header = container.querySelector("hal-table-header")
       const thead = header?.querySelector("thead")
       expect(thead, "Must contain native <thead> element").toBeTruthy()
     })
 
     it("must contain native <tbody> element", async () => {
       container.innerHTML = `
-        <plank-table>
-          <plank-table-body>
-            <plank-table-row>
-              <plank-table-cell>Content</plank-table-cell>
-            </plank-table-row>
-          </plank-table-body>
-        </plank-table>
+        <hal-table>
+          <hal-table-body>
+            <hal-table-row>
+              <hal-table-cell>Content</hal-table-cell>
+            </hal-table-row>
+          </hal-table-body>
+        </hal-table>
       `
 
-      await customElements.whenDefined("plank-table")
+      await customElements.whenDefined("hal-table")
       const tableElements = [
-        "plank-table",
-        "plank-table-body",
-        "plank-table-row",
-        "plank-table-cell",
+        "hal-table",
+        "hal-table-body",
+        "hal-table-row",
+        "hal-table-cell",
       ]
       await Promise.all(
         tableElements.map((el) =>
@@ -2370,28 +2370,28 @@ describe("Semantic Structure", () => {
         Array.from(elements).map((el) => (el as any).updateComplete)
       )
 
-      const body = container.querySelector("plank-table-body")
+      const body = container.querySelector("hal-table-body")
       const tbody = body?.querySelector("tbody")
       expect(tbody, "Must contain native <tbody> element").toBeTruthy()
     })
 
     it("must contain native <tfoot> element", async () => {
       container.innerHTML = `
-        <plank-table>
-          <plank-table-footer>
-            <plank-table-row>
-              <plank-table-cell>Footer</plank-table-cell>
-            </plank-table-row>
-          </plank-table-footer>
-        </plank-table>
+        <hal-table>
+          <hal-table-footer>
+            <hal-table-row>
+              <hal-table-cell>Footer</hal-table-cell>
+            </hal-table-row>
+          </hal-table-footer>
+        </hal-table>
       `
 
-      await customElements.whenDefined("plank-table")
+      await customElements.whenDefined("hal-table")
       const tableElements = [
-        "plank-table",
-        "plank-table-footer",
-        "plank-table-row",
-        "plank-table-cell",
+        "hal-table",
+        "hal-table-footer",
+        "hal-table-row",
+        "hal-table-cell",
       ]
       await Promise.all(
         tableElements.map((el) =>
@@ -2403,28 +2403,28 @@ describe("Semantic Structure", () => {
         Array.from(elements).map((el) => (el as any).updateComplete)
       )
 
-      const footer = container.querySelector("plank-table-footer")
+      const footer = container.querySelector("hal-table-footer")
       const tfoot = footer?.querySelector("tfoot")
       expect(tfoot, "Must contain native <tfoot> element").toBeTruthy()
     })
 
     it("must contain native <tr> element", async () => {
       container.innerHTML = `
-        <plank-table>
-          <plank-table-body>
-            <plank-table-row>
-              <plank-table-cell>Content</plank-table-cell>
-            </plank-table-row>
-          </plank-table-body>
-        </plank-table>
+        <hal-table>
+          <hal-table-body>
+            <hal-table-row>
+              <hal-table-cell>Content</hal-table-cell>
+            </hal-table-row>
+          </hal-table-body>
+        </hal-table>
       `
 
-      await customElements.whenDefined("plank-table")
+      await customElements.whenDefined("hal-table")
       const tableElements = [
-        "plank-table",
-        "plank-table-body",
-        "plank-table-row",
-        "plank-table-cell",
+        "hal-table",
+        "hal-table-body",
+        "hal-table-row",
+        "hal-table-cell",
       ]
       await Promise.all(
         tableElements.map((el) =>
@@ -2436,28 +2436,28 @@ describe("Semantic Structure", () => {
         Array.from(elements).map((el) => (el as any).updateComplete)
       )
 
-      const row = container.querySelector("plank-table-row")
+      const row = container.querySelector("hal-table-row")
       const tr = row?.querySelector("tr")
       expect(tr, "Must contain native <tr> element").toBeTruthy()
     })
 
     it("must contain native <th> element with content inside", async () => {
       container.innerHTML = `
-        <plank-table>
-          <plank-table-header>
-            <plank-table-row>
-              <plank-table-head>Header Text</plank-table-head>
-            </plank-table-row>
-          </plank-table-header>
-        </plank-table>
+        <hal-table>
+          <hal-table-header>
+            <hal-table-row>
+              <hal-table-head>Header Text</hal-table-head>
+            </hal-table-row>
+          </hal-table-header>
+        </hal-table>
       `
 
-      await customElements.whenDefined("plank-table")
+      await customElements.whenDefined("hal-table")
       const tableElements = [
-        "plank-table",
-        "plank-table-header",
-        "plank-table-row",
-        "plank-table-head",
+        "hal-table",
+        "hal-table-header",
+        "hal-table-row",
+        "hal-table-head",
       ]
       await Promise.all(
         tableElements.map((el) =>
@@ -2478,21 +2478,21 @@ describe("Semantic Structure", () => {
 
     it("must contain native <td> element with content inside", async () => {
       container.innerHTML = `
-        <plank-table>
-          <plank-table-body>
-            <plank-table-row>
-              <plank-table-cell>Cell Content</plank-table-cell>
-            </plank-table-row>
-          </plank-table-body>
-        </plank-table>
+        <hal-table>
+          <hal-table-body>
+            <hal-table-row>
+              <hal-table-cell>Cell Content</hal-table-cell>
+            </hal-table-row>
+          </hal-table-body>
+        </hal-table>
       `
 
-      await customElements.whenDefined("plank-table")
+      await customElements.whenDefined("hal-table")
       const tableElements = [
-        "plank-table",
-        "plank-table-body",
-        "plank-table-row",
-        "plank-table-cell",
+        "hal-table",
+        "hal-table-body",
+        "hal-table-row",
+        "hal-table-cell",
       ]
       await Promise.all(
         tableElements.map((el) =>
@@ -2513,13 +2513,13 @@ describe("Semantic Structure", () => {
 
     it("must contain native <caption> element with content inside", async () => {
       container.innerHTML = `
-        <plank-table>
-          <plank-table-caption>Table Caption</plank-table-caption>
-        </plank-table>
+        <hal-table>
+          <hal-table-caption>Table Caption</hal-table-caption>
+        </hal-table>
       `
 
-      await customElements.whenDefined("plank-table")
-      const tableElements = ["plank-table", "plank-table-caption"]
+      await customElements.whenDefined("hal-table")
+      const tableElements = ["hal-table", "hal-table-caption"]
       await Promise.all(
         tableElements.map((el) =>
           customElements.whenDefined(el).catch(() => {})
@@ -2538,12 +2538,12 @@ describe("Semantic Structure", () => {
     })
   })
 
-  describe("plank-calendar", () => {
+  describe("hal-calendar", () => {
     it("must have role='application' with aria-label", async () => {
-      container.innerHTML = `<plank-calendar default-month="2025-01-01"></plank-calendar>`
+      container.innerHTML = `<hal-calendar default-month="2025-01-01"></hal-calendar>`
 
-      await customElements.whenDefined("plank-calendar")
-      const calendar = container.querySelector("plank-calendar")!
+      await customElements.whenDefined("hal-calendar")
+      const calendar = container.querySelector("hal-calendar")!
       await (calendar as any).updateComplete
 
       const calendarEl = calendar.querySelector('[role="application"]')
@@ -2555,10 +2555,10 @@ describe("Semantic Structure", () => {
     })
 
     it("must have native button elements for navigation", async () => {
-      container.innerHTML = `<plank-calendar default-month="2025-01-01"></plank-calendar>`
+      container.innerHTML = `<hal-calendar default-month="2025-01-01"></hal-calendar>`
 
-      await customElements.whenDefined("plank-calendar")
-      const calendar = container.querySelector("plank-calendar")!
+      await customElements.whenDefined("hal-calendar")
+      const calendar = container.querySelector("hal-calendar")!
       await (calendar as any).updateComplete
 
       const prevButton = calendar.querySelector(
@@ -2572,10 +2572,10 @@ describe("Semantic Structure", () => {
     })
 
     it("must have native button elements for day selection", async () => {
-      container.innerHTML = `<plank-calendar default-month="2025-01-01"></plank-calendar>`
+      container.innerHTML = `<hal-calendar default-month="2025-01-01"></hal-calendar>`
 
-      await customElements.whenDefined("plank-calendar")
-      const calendar = container.querySelector("plank-calendar")!
+      await customElements.whenDefined("hal-calendar")
+      const calendar = container.querySelector("hal-calendar")!
       await (calendar as any).updateComplete
 
       const dayButtons = calendar.querySelectorAll('[data-slot="day"] button')
@@ -2591,15 +2591,15 @@ describe("Semantic Structure", () => {
 
     it("selected date must have aria-pressed='true'", async () => {
       container.innerHTML = `
-        <plank-calendar
+        <hal-calendar
           mode="single"
           default-month="2025-01-01"
           selected="2025-01-15"
-        ></plank-calendar>
+        ></hal-calendar>
       `
 
-      await customElements.whenDefined("plank-calendar")
-      const calendar = container.querySelector("plank-calendar")!
+      await customElements.whenDefined("hal-calendar")
+      const calendar = container.querySelector("hal-calendar")!
       await (calendar as any).updateComplete
 
       const selectedButton = calendar.querySelector(
@@ -2614,14 +2614,14 @@ describe("Semantic Structure", () => {
 
     it("disabled dates must have disabled attribute", async () => {
       container.innerHTML = `
-        <plank-calendar
+        <hal-calendar
           default-month="2025-01-01"
           min-date="2025-01-10"
-        ></plank-calendar>
+        ></hal-calendar>
       `
 
-      await customElements.whenDefined("plank-calendar")
-      const calendar = container.querySelector("plank-calendar")!
+      await customElements.whenDefined("hal-calendar")
+      const calendar = container.querySelector("hal-calendar")!
       await (calendar as any).updateComplete
 
       // Jan 5 should be disabled (before min-date)
@@ -2636,10 +2636,10 @@ describe("Semantic Structure", () => {
     })
 
     it("weekday headers must have proper structure", async () => {
-      container.innerHTML = `<plank-calendar default-month="2025-01-01"></plank-calendar>`
+      container.innerHTML = `<hal-calendar default-month="2025-01-01"></hal-calendar>`
 
-      await customElements.whenDefined("plank-calendar")
-      const calendar = container.querySelector("plank-calendar")!
+      await customElements.whenDefined("hal-calendar")
+      const calendar = container.querySelector("hal-calendar")!
       await (calendar as any).updateComplete
 
       const weekdays = calendar.querySelectorAll('[data-slot="weekday"]')
@@ -2647,16 +2647,16 @@ describe("Semantic Structure", () => {
     })
   })
 
-  describe("plank-native-select", () => {
+  describe("hal-native-select", () => {
     it("must contain native <select> element", async () => {
       container.innerHTML = `
-        <plank-native-select>
-          <plank-native-select-option value="a">Option A</plank-native-select-option>
-        </plank-native-select>
+        <hal-native-select>
+          <hal-native-select-option value="a">Option A</hal-native-select-option>
+        </hal-native-select>
       `
 
-      await customElements.whenDefined("plank-native-select")
-      const element = container.querySelector("plank-native-select")!
+      await customElements.whenDefined("hal-native-select")
+      const element = container.querySelector("hal-native-select")!
       await (element as any).updateComplete
 
       const select = element.querySelector("select")
@@ -2666,14 +2666,14 @@ describe("Semantic Structure", () => {
 
     it("options must be inside native <select>", async () => {
       container.innerHTML = `
-        <plank-native-select>
-          <plank-native-select-option value="apple">Apple</plank-native-select-option>
-          <plank-native-select-option value="banana">Banana</plank-native-select-option>
-        </plank-native-select>
+        <hal-native-select>
+          <hal-native-select-option value="apple">Apple</hal-native-select-option>
+          <hal-native-select-option value="banana">Banana</hal-native-select-option>
+        </hal-native-select>
       `
 
-      await customElements.whenDefined("plank-native-select")
-      const element = container.querySelector("plank-native-select")!
+      await customElements.whenDefined("hal-native-select")
+      const element = container.querySelector("hal-native-select")!
       await (element as any).updateComplete
 
       const select = element.querySelector("select")!
@@ -2685,15 +2685,15 @@ describe("Semantic Structure", () => {
 
     it("optgroup must be inside native <select> with options inside", async () => {
       container.innerHTML = `
-        <plank-native-select>
-          <plank-native-select-optgroup label="Fruits">
-            <plank-native-select-option value="apple">Apple</plank-native-select-option>
-          </plank-native-select-optgroup>
-        </plank-native-select>
+        <hal-native-select>
+          <hal-native-select-optgroup label="Fruits">
+            <hal-native-select-option value="apple">Apple</hal-native-select-option>
+          </hal-native-select-optgroup>
+        </hal-native-select>
       `
 
-      await customElements.whenDefined("plank-native-select")
-      const element = container.querySelector("plank-native-select")!
+      await customElements.whenDefined("hal-native-select")
+      const element = container.querySelector("hal-native-select")!
       await (element as any).updateComplete
 
       const select = element.querySelector("select")!
@@ -2707,10 +2707,10 @@ describe("Semantic Structure", () => {
     })
 
     it("must have chevron icon", async () => {
-      container.innerHTML = `<plank-native-select></plank-native-select>`
+      container.innerHTML = `<hal-native-select></hal-native-select>`
 
-      await customElements.whenDefined("plank-native-select")
-      const element = container.querySelector("plank-native-select")!
+      await customElements.whenDefined("hal-native-select")
+      const element = container.querySelector("hal-native-select")!
       await (element as any).updateComplete
 
       const icon = element.querySelector("svg")
@@ -2719,12 +2719,12 @@ describe("Semantic Structure", () => {
     })
   })
 
-  describe("plank-spinner", () => {
+  describe("hal-spinner", () => {
     it("must contain SVG with role=status", async () => {
-      container.innerHTML = `<plank-spinner></plank-spinner>`
+      container.innerHTML = `<hal-spinner></hal-spinner>`
 
-      await customElements.whenDefined("plank-spinner")
-      const element = container.querySelector("plank-spinner")!
+      await customElements.whenDefined("hal-spinner")
+      const element = container.querySelector("hal-spinner")!
       await (element as any).updateComplete
 
       const svg = element.querySelector("svg")
@@ -2735,10 +2735,10 @@ describe("Semantic Structure", () => {
     })
 
     it("must have aria-label for accessibility", async () => {
-      container.innerHTML = `<plank-spinner></plank-spinner>`
+      container.innerHTML = `<hal-spinner></hal-spinner>`
 
-      await customElements.whenDefined("plank-spinner")
-      const element = container.querySelector("plank-spinner")!
+      await customElements.whenDefined("hal-spinner")
+      const element = container.querySelector("hal-spinner")!
       await (element as any).updateComplete
 
       const svg = element.querySelector("svg")
@@ -2748,16 +2748,16 @@ describe("Semantic Structure", () => {
     })
   })
 
-  describe("plank-button-group", () => {
+  describe("hal-button-group", () => {
     it("must have role=group for accessibility", async () => {
       container.innerHTML = `
-        <plank-button-group>
-          <plank-button>Test</plank-button>
-        </plank-button-group>
+        <hal-button-group>
+          <hal-button>Test</hal-button>
+        </hal-button-group>
       `
 
-      await customElements.whenDefined("plank-button-group")
-      const element = container.querySelector("plank-button-group")!
+      await customElements.whenDefined("hal-button-group")
+      const element = container.querySelector("hal-button-group")!
       await (element as any).updateComplete
 
       expect(
@@ -2768,13 +2768,13 @@ describe("Semantic Structure", () => {
 
     it("must have data-slot=button-group", async () => {
       container.innerHTML = `
-        <plank-button-group>
-          <plank-button>Test</plank-button>
-        </plank-button-group>
+        <hal-button-group>
+          <hal-button>Test</hal-button>
+        </hal-button-group>
       `
 
-      await customElements.whenDefined("plank-button-group")
-      const element = container.querySelector("plank-button-group")!
+      await customElements.whenDefined("hal-button-group")
+      const element = container.querySelector("hal-button-group")!
       await (element as any).updateComplete
 
       expect(element.dataset.slot).toBe("button-group")
@@ -2782,17 +2782,17 @@ describe("Semantic Structure", () => {
 
     it("children must be preserved inside button-group", async () => {
       container.innerHTML = `
-        <plank-button-group>
-          <plank-button>First</plank-button>
-          <plank-button>Second</plank-button>
-        </plank-button-group>
+        <hal-button-group>
+          <hal-button>First</hal-button>
+          <hal-button>Second</hal-button>
+        </hal-button-group>
       `
 
-      await customElements.whenDefined("plank-button-group")
-      const element = container.querySelector("plank-button-group")!
+      await customElements.whenDefined("hal-button-group")
+      const element = container.querySelector("hal-button-group")!
       await (element as any).updateComplete
 
-      const buttons = element.querySelectorAll("plank-button")
+      const buttons = element.querySelectorAll("hal-button")
       expect(buttons.length, "Must preserve all button children").toBe(2)
       expect(buttons[0].textContent).toContain("First")
       expect(buttons[1].textContent).toContain("Second")

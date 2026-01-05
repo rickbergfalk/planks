@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tooltip - Planks</title>
+    <title>Tooltip - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -18,65 +18,61 @@
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Basic Usage</h2>
         <div class="mb-4 flex items-center gap-4">
-          <plank-tooltip>
-            <plank-tooltip-trigger>
-              <plank-button variant="outline">Hover me</plank-button>
-            </plank-tooltip-trigger>
-            <plank-tooltip-content>Add to library</plank-tooltip-content>
-          </plank-tooltip>
+          <hal-tooltip>
+            <hal-tooltip-trigger>
+              <hal-button variant="outline">Hover me</hal-button>
+            </hal-tooltip-trigger>
+            <hal-tooltip-content>Add to library</hal-tooltip-content>
+          </hal-tooltip>
         </div>
-        <pre><code>&lt;plank-tooltip&gt;
-  &lt;plank-tooltip-trigger&gt;
-    &lt;plank-button variant="outline"&gt;Hover me&lt;/plank-button&gt;
-  &lt;/plank-tooltip-trigger&gt;
-  &lt;plank-tooltip-content&gt;Add to library&lt;/plank-tooltip-content&gt;
-&lt;/plank-tooltip&gt;</code></pre>
+        <pre><code>&lt;hal-tooltip&gt;
+  &lt;hal-tooltip-trigger&gt;
+    &lt;hal-button variant="outline"&gt;Hover me&lt;/hal-button&gt;
+  &lt;/hal-tooltip-trigger&gt;
+  &lt;hal-tooltip-content&gt;Add to library&lt;/hal-tooltip-content&gt;
+&lt;/hal-tooltip&gt;</code></pre>
       </section>
 
       <!-- Different Sides -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Different Sides</h2>
         <div class="mb-4 flex flex-wrap items-center gap-4">
-          <plank-tooltip>
-            <plank-tooltip-trigger>
-              <plank-button variant="outline">Top</plank-button>
-            </plank-tooltip-trigger>
-            <plank-tooltip-content side="top"
-              >Top tooltip</plank-tooltip-content
-            >
-          </plank-tooltip>
+          <hal-tooltip>
+            <hal-tooltip-trigger>
+              <hal-button variant="outline">Top</hal-button>
+            </hal-tooltip-trigger>
+            <hal-tooltip-content side="top">Top tooltip</hal-tooltip-content>
+          </hal-tooltip>
 
-          <plank-tooltip>
-            <plank-tooltip-trigger>
-              <plank-button variant="outline">Right</plank-button>
-            </plank-tooltip-trigger>
-            <plank-tooltip-content side="right"
-              >Right tooltip</plank-tooltip-content
+          <hal-tooltip>
+            <hal-tooltip-trigger>
+              <hal-button variant="outline">Right</hal-button>
+            </hal-tooltip-trigger>
+            <hal-tooltip-content side="right"
+              >Right tooltip</hal-tooltip-content
             >
-          </plank-tooltip>
+          </hal-tooltip>
 
-          <plank-tooltip>
-            <plank-tooltip-trigger>
-              <plank-button variant="outline">Bottom</plank-button>
-            </plank-tooltip-trigger>
-            <plank-tooltip-content side="bottom"
-              >Bottom tooltip</plank-tooltip-content
+          <hal-tooltip>
+            <hal-tooltip-trigger>
+              <hal-button variant="outline">Bottom</hal-button>
+            </hal-tooltip-trigger>
+            <hal-tooltip-content side="bottom"
+              >Bottom tooltip</hal-tooltip-content
             >
-          </plank-tooltip>
+          </hal-tooltip>
 
-          <plank-tooltip>
-            <plank-tooltip-trigger>
-              <plank-button variant="outline">Left</plank-button>
-            </plank-tooltip-trigger>
-            <plank-tooltip-content side="left"
-              >Left tooltip</plank-tooltip-content
-            >
-          </plank-tooltip>
+          <hal-tooltip>
+            <hal-tooltip-trigger>
+              <hal-button variant="outline">Left</hal-button>
+            </hal-tooltip-trigger>
+            <hal-tooltip-content side="left">Left tooltip</hal-tooltip-content>
+          </hal-tooltip>
         </div>
-        <pre><code>&lt;plank-tooltip-content side="top"&gt;...&lt;/plank-tooltip-content&gt;
-&lt;plank-tooltip-content side="right"&gt;...&lt;/plank-tooltip-content&gt;
-&lt;plank-tooltip-content side="bottom"&gt;...&lt;/plank-tooltip-content&gt;
-&lt;plank-tooltip-content side="left"&gt;...&lt;/plank-tooltip-content&gt;</code></pre>
+        <pre><code>&lt;hal-tooltip-content side="top"&gt;...&lt;/hal-tooltip-content&gt;
+&lt;hal-tooltip-content side="right"&gt;...&lt;/hal-tooltip-content&gt;
+&lt;hal-tooltip-content side="bottom"&gt;...&lt;/hal-tooltip-content&gt;
+&lt;hal-tooltip-content side="left"&gt;...&lt;/hal-tooltip-content&gt;</code></pre>
       </section>
 
       <!-- With Delay -->
@@ -87,18 +83,16 @@
           appears.
         </p>
         <div class="mb-4 flex items-center gap-4">
-          <plank-tooltip delay-duration="500">
-            <plank-tooltip-trigger>
-              <plank-button variant="outline">500ms delay</plank-button>
-            </plank-tooltip-trigger>
-            <plank-tooltip-content
-              >This has a 500ms delay</plank-tooltip-content
-            >
-          </plank-tooltip>
+          <hal-tooltip delay-duration="500">
+            <hal-tooltip-trigger>
+              <hal-button variant="outline">500ms delay</hal-button>
+            </hal-tooltip-trigger>
+            <hal-tooltip-content>This has a 500ms delay</hal-tooltip-content>
+          </hal-tooltip>
         </div>
-        <pre><code>&lt;plank-tooltip delay-duration="500"&gt;
+        <pre><code>&lt;hal-tooltip delay-duration="500"&gt;
   ...
-&lt;/plank-tooltip&gt;</code></pre>
+&lt;/hal-tooltip&gt;</code></pre>
       </section>
 
       <!-- Controlled -->
@@ -108,25 +102,25 @@
           Use the open attribute to control the tooltip state programmatically.
         </p>
         <div class="mb-4 flex items-center gap-4">
-          <plank-tooltip open id="controlled-tooltip">
-            <plank-tooltip-trigger>
-              <plank-button variant="outline">Always open</plank-button>
-            </plank-tooltip-trigger>
-            <plank-tooltip-content
-              >This tooltip is controlled</plank-tooltip-content
+          <hal-tooltip open id="controlled-tooltip">
+            <hal-tooltip-trigger>
+              <hal-button variant="outline">Always open</hal-button>
+            </hal-tooltip-trigger>
+            <hal-tooltip-content
+              >This tooltip is controlled</hal-tooltip-content
             >
-          </plank-tooltip>
+          </hal-tooltip>
         </div>
-        <pre><code>&lt;plank-tooltip open&gt;
+        <pre><code>&lt;hal-tooltip open&gt;
   ...
-&lt;/plank-tooltip&gt;</code></pre>
+&lt;/hal-tooltip&gt;</code></pre>
       </section>
 
       <!-- API -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">API</h2>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-tooltip</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-tooltip</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -180,13 +174,13 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-tooltip-trigger</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-tooltip-trigger</h3>
         <p class="text-muted-foreground mb-4">
           The element that triggers the tooltip. Shows tooltip on hover and
           focus.
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-tooltip-content</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-tooltip-content</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>

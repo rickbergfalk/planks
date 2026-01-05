@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Drawer - Planks</title>
+    <title>Drawer - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -18,9 +18,9 @@
       <section class="mb-8 p-4 border rounded-lg bg-muted/50">
         <h3 class="text-sm font-semibold mb-2">Visual Variance Note</h3>
         <p class="text-sm text-muted-foreground">
-          The plank-drawer web component allows up to 2% visual variance
-          compared to the React drawer. This is due to differences between the
-          native vaul library (used in React) and our Lit implementation. The
+          The hal-drawer web component allows up to 2% visual variance compared
+          to the React drawer. This is due to differences between the native
+          vaul library (used in React) and our Lit implementation. The
           functionality and layout are identical, but minor subpixel rendering
           differences may occur.
         </p>
@@ -33,46 +33,46 @@
           By default, the drawer slides in from the bottom with a drag handle.
         </p>
         <div class="mb-4 flex items-center gap-4">
-          <plank-drawer>
-            <plank-drawer-trigger>
-              <plank-button variant="outline">Open Drawer</plank-button>
-            </plank-drawer-trigger>
-            <plank-drawer-content>
-              <plank-drawer-header>
-                <plank-drawer-title>Edit profile</plank-drawer-title>
-                <plank-drawer-description>
+          <hal-drawer>
+            <hal-drawer-trigger>
+              <hal-button variant="outline">Open Drawer</hal-button>
+            </hal-drawer-trigger>
+            <hal-drawer-content>
+              <hal-drawer-header>
+                <hal-drawer-title>Edit profile</hal-drawer-title>
+                <hal-drawer-description>
                   Make changes to your profile here. Click save when you're
                   done.
-                </plank-drawer-description>
-              </plank-drawer-header>
+                </hal-drawer-description>
+              </hal-drawer-header>
               <div class="py-4">
                 <p class="text-sm">Drawer content goes here.</p>
               </div>
-              <plank-drawer-footer>
-                <plank-button>Save changes</plank-button>
-              </plank-drawer-footer>
-            </plank-drawer-content>
-          </plank-drawer>
+              <hal-drawer-footer>
+                <hal-button>Save changes</hal-button>
+              </hal-drawer-footer>
+            </hal-drawer-content>
+          </hal-drawer>
         </div>
-        <pre><code>&lt;plank-drawer&gt;
-  &lt;plank-drawer-trigger&gt;
-    &lt;plank-button variant="outline"&gt;Open Drawer&lt;/plank-button&gt;
-  &lt;/plank-drawer-trigger&gt;
-  &lt;plank-drawer-content&gt;
-    &lt;plank-drawer-header&gt;
-      &lt;plank-drawer-title&gt;Edit profile&lt;/plank-drawer-title&gt;
-      &lt;plank-drawer-description&gt;
+        <pre><code>&lt;hal-drawer&gt;
+  &lt;hal-drawer-trigger&gt;
+    &lt;hal-button variant="outline"&gt;Open Drawer&lt;/hal-button&gt;
+  &lt;/hal-drawer-trigger&gt;
+  &lt;hal-drawer-content&gt;
+    &lt;hal-drawer-header&gt;
+      &lt;hal-drawer-title&gt;Edit profile&lt;/hal-drawer-title&gt;
+      &lt;hal-drawer-description&gt;
         Make changes to your profile here. Click save when you're done.
-      &lt;/plank-drawer-description&gt;
-    &lt;/plank-drawer-header&gt;
+      &lt;/hal-drawer-description&gt;
+    &lt;/hal-drawer-header&gt;
     &lt;div class="py-4"&gt;
       &lt;p class="text-sm"&gt;Drawer content goes here.&lt;/p&gt;
     &lt;/div&gt;
-    &lt;plank-drawer-footer&gt;
-      &lt;plank-button&gt;Save changes&lt;/plank-button&gt;
-    &lt;/plank-drawer-footer&gt;
-  &lt;/plank-drawer-content&gt;
-&lt;/plank-drawer&gt;</code></pre>
+    &lt;hal-drawer-footer&gt;
+      &lt;hal-button&gt;Save changes&lt;/hal-button&gt;
+    &lt;/hal-drawer-footer&gt;
+  &lt;/hal-drawer-content&gt;
+&lt;/hal-drawer&gt;</code></pre>
       </section>
 
       <!-- Direction Variations -->
@@ -83,73 +83,73 @@
           from.
         </p>
         <div class="mb-4 flex flex-wrap items-center gap-4">
-          <plank-drawer>
-            <plank-drawer-trigger>
-              <plank-button variant="outline">Bottom (Default)</plank-button>
-            </plank-drawer-trigger>
-            <plank-drawer-content direction="bottom">
-              <plank-drawer-header>
-                <plank-drawer-title>Bottom Drawer</plank-drawer-title>
-                <plank-drawer-description>
+          <hal-drawer>
+            <hal-drawer-trigger>
+              <hal-button variant="outline">Bottom (Default)</hal-button>
+            </hal-drawer-trigger>
+            <hal-drawer-content direction="bottom">
+              <hal-drawer-header>
+                <hal-drawer-title>Bottom Drawer</hal-drawer-title>
+                <hal-drawer-description>
                   This drawer slides in from the bottom.
-                </plank-drawer-description>
-              </plank-drawer-header>
-            </plank-drawer-content>
-          </plank-drawer>
+                </hal-drawer-description>
+              </hal-drawer-header>
+            </hal-drawer-content>
+          </hal-drawer>
 
-          <plank-drawer>
-            <plank-drawer-trigger>
-              <plank-button variant="outline">Top</plank-button>
-            </plank-drawer-trigger>
-            <plank-drawer-content direction="top">
-              <plank-drawer-header>
-                <plank-drawer-title>Top Drawer</plank-drawer-title>
-                <plank-drawer-description>
+          <hal-drawer>
+            <hal-drawer-trigger>
+              <hal-button variant="outline">Top</hal-button>
+            </hal-drawer-trigger>
+            <hal-drawer-content direction="top">
+              <hal-drawer-header>
+                <hal-drawer-title>Top Drawer</hal-drawer-title>
+                <hal-drawer-description>
                   This drawer slides in from the top.
-                </plank-drawer-description>
-              </plank-drawer-header>
-            </plank-drawer-content>
-          </plank-drawer>
+                </hal-drawer-description>
+              </hal-drawer-header>
+            </hal-drawer-content>
+          </hal-drawer>
 
-          <plank-drawer>
-            <plank-drawer-trigger>
-              <plank-button variant="outline">Left</plank-button>
-            </plank-drawer-trigger>
-            <plank-drawer-content direction="left">
-              <plank-drawer-header>
-                <plank-drawer-title>Left Drawer</plank-drawer-title>
-                <plank-drawer-description>
+          <hal-drawer>
+            <hal-drawer-trigger>
+              <hal-button variant="outline">Left</hal-button>
+            </hal-drawer-trigger>
+            <hal-drawer-content direction="left">
+              <hal-drawer-header>
+                <hal-drawer-title>Left Drawer</hal-drawer-title>
+                <hal-drawer-description>
                   This drawer slides in from the left.
-                </plank-drawer-description>
-              </plank-drawer-header>
-            </plank-drawer-content>
-          </plank-drawer>
+                </hal-drawer-description>
+              </hal-drawer-header>
+            </hal-drawer-content>
+          </hal-drawer>
 
-          <plank-drawer>
-            <plank-drawer-trigger>
-              <plank-button variant="outline">Right</plank-button>
-            </plank-drawer-trigger>
-            <plank-drawer-content direction="right">
-              <plank-drawer-header>
-                <plank-drawer-title>Right Drawer</plank-drawer-title>
-                <plank-drawer-description>
+          <hal-drawer>
+            <hal-drawer-trigger>
+              <hal-button variant="outline">Right</hal-button>
+            </hal-drawer-trigger>
+            <hal-drawer-content direction="right">
+              <hal-drawer-header>
+                <hal-drawer-title>Right Drawer</hal-drawer-title>
+                <hal-drawer-description>
                   This drawer slides in from the right.
-                </plank-drawer-description>
-              </plank-drawer-header>
-            </plank-drawer-content>
-          </plank-drawer>
+                </hal-drawer-description>
+              </hal-drawer-header>
+            </hal-drawer-content>
+          </hal-drawer>
         </div>
-        <pre><code>&lt;plank-drawer-content direction="top"&gt;
+        <pre><code>&lt;hal-drawer-content direction="top"&gt;
   ...
-&lt;/plank-drawer-content&gt;
+&lt;/hal-drawer-content&gt;
 
-&lt;plank-drawer-content direction="left"&gt;
+&lt;hal-drawer-content direction="left"&gt;
   ...
-&lt;/plank-drawer-content&gt;
+&lt;/hal-drawer-content&gt;
 
-&lt;plank-drawer-content direction="right"&gt;
+&lt;hal-drawer-content direction="right"&gt;
   ...
-&lt;/plank-drawer-content&gt;</code></pre>
+&lt;/hal-drawer-content&gt;</code></pre>
       </section>
 
       <!-- Navigation Menu Example -->
@@ -159,25 +159,25 @@
           A common use case is a mobile navigation menu sliding from the left.
         </p>
         <div class="mb-4 flex items-center gap-4">
-          <plank-drawer>
-            <plank-drawer-trigger>
-              <plank-button variant="outline">Menu</plank-button>
-            </plank-drawer-trigger>
-            <plank-drawer-content direction="left">
-              <plank-drawer-header>
-                <plank-drawer-title>Navigation</plank-drawer-title>
-                <plank-drawer-description>
+          <hal-drawer>
+            <hal-drawer-trigger>
+              <hal-button variant="outline">Menu</hal-button>
+            </hal-drawer-trigger>
+            <hal-drawer-content direction="left">
+              <hal-drawer-header>
+                <hal-drawer-title>Navigation</hal-drawer-title>
+                <hal-drawer-description>
                   Browse our sections.
-                </plank-drawer-description>
-              </plank-drawer-header>
+                </hal-drawer-description>
+              </hal-drawer-header>
               <nav class="flex flex-col gap-2 py-4">
                 <a href="#" class="text-sm hover:underline">Home</a>
                 <a href="#" class="text-sm hover:underline">About</a>
                 <a href="#" class="text-sm hover:underline">Products</a>
                 <a href="#" class="text-sm hover:underline">Contact</a>
               </nav>
-            </plank-drawer-content>
-          </plank-drawer>
+            </hal-drawer-content>
+          </hal-drawer>
         </div>
       </section>
 
@@ -189,23 +189,23 @@
           show-close-button to add one.
         </p>
         <div class="mb-4 flex items-center gap-4">
-          <plank-drawer>
-            <plank-drawer-trigger>
-              <plank-button variant="outline">Open Drawer</plank-button>
-            </plank-drawer-trigger>
-            <plank-drawer-content show-close-button>
-              <plank-drawer-header>
-                <plank-drawer-title>With Close Button</plank-drawer-title>
-                <plank-drawer-description>
+          <hal-drawer>
+            <hal-drawer-trigger>
+              <hal-button variant="outline">Open Drawer</hal-button>
+            </hal-drawer-trigger>
+            <hal-drawer-content show-close-button>
+              <hal-drawer-header>
+                <hal-drawer-title>With Close Button</hal-drawer-title>
+                <hal-drawer-description>
                   This drawer has a close button in the top-right corner.
-                </plank-drawer-description>
-              </plank-drawer-header>
-            </plank-drawer-content>
-          </plank-drawer>
+                </hal-drawer-description>
+              </hal-drawer-header>
+            </hal-drawer-content>
+          </hal-drawer>
         </div>
-        <pre><code>&lt;plank-drawer-content show-close-button&gt;
+        <pre><code>&lt;hal-drawer-content show-close-button&gt;
   ...
-&lt;/plank-drawer-content&gt;</code></pre>
+&lt;/hal-drawer-content&gt;</code></pre>
       </section>
 
       <!-- Drawer vs Sheet -->
@@ -254,7 +254,7 @@
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">API</h2>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-drawer</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-drawer</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -300,12 +300,12 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-drawer-trigger</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-drawer-trigger</h3>
         <p class="text-muted-foreground mb-4">
           The element that triggers the drawer. Opens drawer on click.
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-drawer-content</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-drawer-content</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -347,30 +347,28 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-drawer-close</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-drawer-close</h3>
         <p class="text-muted-foreground mb-4">
           A button that closes the drawer when clicked.
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-drawer-header</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-drawer-header</h3>
         <p class="text-muted-foreground mb-4">
           Container for title and description. Text is centered for top/bottom
           drawers.
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-drawer-footer</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-drawer-footer</h3>
         <p class="text-muted-foreground mb-4">
           Container for action buttons. Uses mt-auto to stick to the bottom.
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-drawer-title</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-drawer-title</h3>
         <p class="text-muted-foreground mb-4">
           The drawer title. Used for aria-labelledby.
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">
-          plank-drawer-description
-        </h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-drawer-description</h3>
         <p class="text-muted-foreground mb-4">
           The drawer description. Used for aria-describedby.
         </p>

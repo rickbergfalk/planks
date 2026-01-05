@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Empty - Planks</title>
+    <title>Empty - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -17,9 +17,9 @@
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Full Empty State</h2>
         <div class="max-w-md mb-4">
-          <plank-empty class="border">
-            <plank-empty-header>
-              <plank-empty-media variant="icon">
+          <hal-empty class="border">
+            <hal-empty-header>
+              <hal-empty-media variant="icon">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -36,40 +36,40 @@
                     d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"
                   />
                 </svg>
-              </plank-empty-media>
-              <plank-empty-title>No messages</plank-empty-title>
-              <plank-empty-description>
+              </hal-empty-media>
+              <hal-empty-title>No messages</hal-empty-title>
+              <hal-empty-description>
                 You don't have any messages yet. When you receive messages, they
                 will appear here.
-              </plank-empty-description>
-            </plank-empty-header>
-            <plank-empty-content>
-              <plank-button>Compose message</plank-button>
-            </plank-empty-content>
-          </plank-empty>
+              </hal-empty-description>
+            </hal-empty-header>
+            <hal-empty-content>
+              <hal-button>Compose message</hal-button>
+            </hal-empty-content>
+          </hal-empty>
         </div>
-        <pre><code>&lt;plank-empty class="border"&gt;
-  &lt;plank-empty-header&gt;
-    &lt;plank-empty-media variant="icon"&gt;
+        <pre><code>&lt;hal-empty class="border"&gt;
+  &lt;hal-empty-header&gt;
+    &lt;hal-empty-media variant="icon"&gt;
       &lt;!-- SVG icon here --&gt;
-    &lt;/plank-empty-media&gt;
-    &lt;plank-empty-title&gt;No messages&lt;/plank-empty-title&gt;
-    &lt;plank-empty-description&gt;
+    &lt;/hal-empty-media&gt;
+    &lt;hal-empty-title&gt;No messages&lt;/hal-empty-title&gt;
+    &lt;hal-empty-description&gt;
       You don't have any messages yet.
-    &lt;/plank-empty-description&gt;
-  &lt;/plank-empty-header&gt;
-  &lt;plank-empty-content&gt;
-    &lt;plank-button&gt;Compose message&lt;/plank-button&gt;
-  &lt;/plank-empty-content&gt;
-&lt;/plank-empty&gt;</code></pre>
+    &lt;/hal-empty-description&gt;
+  &lt;/hal-empty-header&gt;
+  &lt;hal-empty-content&gt;
+    &lt;hal-button&gt;Compose message&lt;/hal-button&gt;
+  &lt;/hal-empty-content&gt;
+&lt;/hal-empty&gt;</code></pre>
       </section>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Default Media Variant</h2>
         <div class="max-w-md mb-4">
-          <plank-empty class="border">
-            <plank-empty-header>
-              <plank-empty-media>
+          <hal-empty class="border">
+            <hal-empty-header>
+              <hal-empty-media>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -84,41 +84,41 @@
                   <circle cx="11" cy="11" r="8" />
                   <path d="m21 21-4.3-4.3" />
                 </svg>
-              </plank-empty-media>
-              <plank-empty-title>No results found</plank-empty-title>
-              <plank-empty-description>
+              </hal-empty-media>
+              <hal-empty-title>No results found</hal-empty-title>
+              <hal-empty-description>
                 Try adjusting your search or filters.
-              </plank-empty-description>
-            </plank-empty-header>
-          </plank-empty>
+              </hal-empty-description>
+            </hal-empty-header>
+          </hal-empty>
         </div>
-        <pre><code>&lt;plank-empty class="border"&gt;
-  &lt;plank-empty-header&gt;
-    &lt;plank-empty-media&gt;
+        <pre><code>&lt;hal-empty class="border"&gt;
+  &lt;hal-empty-header&gt;
+    &lt;hal-empty-media&gt;
       &lt;!-- SVG icon here --&gt;
-    &lt;/plank-empty-media&gt;
-    &lt;plank-empty-title&gt;No results found&lt;/plank-empty-title&gt;
-    &lt;plank-empty-description&gt;
+    &lt;/hal-empty-media&gt;
+    &lt;hal-empty-title&gt;No results found&lt;/hal-empty-title&gt;
+    &lt;hal-empty-description&gt;
       Try adjusting your search or filters.
-    &lt;/plank-empty-description&gt;
-  &lt;/plank-empty-header&gt;
-&lt;/plank-empty&gt;</code></pre>
+    &lt;/hal-empty-description&gt;
+  &lt;/hal-empty-header&gt;
+&lt;/hal-empty&gt;</code></pre>
       </section>
 
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Minimal</h2>
         <div class="max-w-md mb-4">
-          <plank-empty class="border">
-            <plank-empty-header>
-              <plank-empty-title>Nothing here yet</plank-empty-title>
-            </plank-empty-header>
-          </plank-empty>
+          <hal-empty class="border">
+            <hal-empty-header>
+              <hal-empty-title>Nothing here yet</hal-empty-title>
+            </hal-empty-header>
+          </hal-empty>
         </div>
-        <pre><code>&lt;plank-empty class="border"&gt;
-  &lt;plank-empty-header&gt;
-    &lt;plank-empty-title&gt;Nothing here yet&lt;/plank-empty-title&gt;
-  &lt;/plank-empty-header&gt;
-&lt;/plank-empty&gt;</code></pre>
+        <pre><code>&lt;hal-empty class="border"&gt;
+  &lt;hal-empty-header&gt;
+    &lt;hal-empty-title&gt;Nothing here yet&lt;/hal-empty-title&gt;
+  &lt;/hal-empty-header&gt;
+&lt;/hal-empty&gt;</code></pre>
       </section>
 
       <section class="mb-12">
@@ -132,29 +132,29 @@
           </thead>
           <tbody>
             <tr class="border-b">
-              <td class="py-2 pr-4 font-mono">plank-empty</td>
+              <td class="py-2 pr-4 font-mono">hal-empty</td>
               <td class="py-2">The empty state container</td>
             </tr>
             <tr class="border-b">
-              <td class="py-2 pr-4 font-mono">plank-empty-header</td>
+              <td class="py-2 pr-4 font-mono">hal-empty-header</td>
               <td class="py-2">Contains the icon, title, and description</td>
             </tr>
             <tr class="border-b">
-              <td class="py-2 pr-4 font-mono">plank-empty-media</td>
+              <td class="py-2 pr-4 font-mono">hal-empty-media</td>
               <td class="py-2">
                 The icon/media container (variant: "default" | "icon")
               </td>
             </tr>
             <tr class="border-b">
-              <td class="py-2 pr-4 font-mono">plank-empty-title</td>
+              <td class="py-2 pr-4 font-mono">hal-empty-title</td>
               <td class="py-2">The empty state title</td>
             </tr>
             <tr class="border-b">
-              <td class="py-2 pr-4 font-mono">plank-empty-description</td>
+              <td class="py-2 pr-4 font-mono">hal-empty-description</td>
               <td class="py-2">The empty state description</td>
             </tr>
             <tr class="border-b">
-              <td class="py-2 pr-4 font-mono">plank-empty-content</td>
+              <td class="py-2 pr-4 font-mono">hal-empty-content</td>
               <td class="py-2">The content area (usually for actions)</td>
             </tr>
           </tbody>
@@ -174,7 +174,7 @@
           </thead>
           <tbody>
             <tr class="border-b">
-              <td class="py-2 pr-4 font-mono">plank-empty-media</td>
+              <td class="py-2 pr-4 font-mono">hal-empty-media</td>
               <td class="py-2 pr-4">variant</td>
               <td class="py-2 pr-4">"default" | "icon"</td>
               <td class="py-2">"default"</td>

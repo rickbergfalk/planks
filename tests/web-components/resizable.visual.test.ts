@@ -1,8 +1,8 @@
 import { describe, it, expect, beforeEach } from "vitest"
 import { page } from "vitest/browser"
-import "../../src/web-components/plank-resizable"
+import "../../src/web-components/hal-resizable"
 
-describe("plank-resizable - Visual", () => {
+describe("hal-resizable - Visual", () => {
   let container: HTMLElement
 
   beforeEach(() => {
@@ -18,22 +18,22 @@ describe("plank-resizable - Visual", () => {
 
   it("horizontal resizable panels", async () => {
     container.innerHTML = `
-      <plank-resizable-panel-group direction="horizontal" class="min-h-[200px] rounded-lg border">
-        <plank-resizable-panel default-size="50">
+      <hal-resizable-panel-group direction="horizontal" class="min-h-[200px] rounded-lg border">
+        <hal-resizable-panel default-size="50">
           <div class="flex h-full items-center justify-center p-6">
             <span class="font-semibold">One</span>
           </div>
-        </plank-resizable-panel>
-        <plank-resizable-handle></plank-resizable-handle>
-        <plank-resizable-panel default-size="50">
+        </hal-resizable-panel>
+        <hal-resizable-handle></hal-resizable-handle>
+        <hal-resizable-panel default-size="50">
           <div class="flex h-full items-center justify-center p-6">
             <span class="font-semibold">Two</span>
           </div>
-        </plank-resizable-panel>
-      </plank-resizable-panel-group>
+        </hal-resizable-panel>
+      </hal-resizable-panel-group>
     `
-    await customElements.whenDefined("plank-resizable-panel-group")
-    const group = container.querySelector("plank-resizable-panel-group")!
+    await customElements.whenDefined("hal-resizable-panel-group")
+    const group = container.querySelector("hal-resizable-panel-group")!
     await (group as any).updateComplete
 
     // Wait for layout
@@ -47,22 +47,22 @@ describe("plank-resizable - Visual", () => {
 
   it("vertical resizable panels", async () => {
     container.innerHTML = `
-      <plank-resizable-panel-group direction="vertical" class="min-h-[200px] rounded-lg border">
-        <plank-resizable-panel default-size="25">
+      <hal-resizable-panel-group direction="vertical" class="min-h-[200px] rounded-lg border">
+        <hal-resizable-panel default-size="25">
           <div class="flex h-full items-center justify-center p-6">
             <span class="font-semibold">Header</span>
           </div>
-        </plank-resizable-panel>
-        <plank-resizable-handle></plank-resizable-handle>
-        <plank-resizable-panel default-size="75">
+        </hal-resizable-panel>
+        <hal-resizable-handle></hal-resizable-handle>
+        <hal-resizable-panel default-size="75">
           <div class="flex h-full items-center justify-center p-6">
             <span class="font-semibold">Content</span>
           </div>
-        </plank-resizable-panel>
-      </plank-resizable-panel-group>
+        </hal-resizable-panel>
+      </hal-resizable-panel-group>
     `
-    await customElements.whenDefined("plank-resizable-panel-group")
-    const group = container.querySelector("plank-resizable-panel-group")!
+    await customElements.whenDefined("hal-resizable-panel-group")
+    const group = container.querySelector("hal-resizable-panel-group")!
     await (group as any).updateComplete
 
     // Wait for layout
@@ -76,22 +76,22 @@ describe("plank-resizable - Visual", () => {
 
   it("resizable with handle grip", async () => {
     container.innerHTML = `
-      <plank-resizable-panel-group direction="horizontal" class="min-h-[200px] rounded-lg border">
-        <plank-resizable-panel default-size="50">
+      <hal-resizable-panel-group direction="horizontal" class="min-h-[200px] rounded-lg border">
+        <hal-resizable-panel default-size="50">
           <div class="flex h-full items-center justify-center p-6">
             <span class="font-semibold">One</span>
           </div>
-        </plank-resizable-panel>
-        <plank-resizable-handle with-handle></plank-resizable-handle>
-        <plank-resizable-panel default-size="50">
+        </hal-resizable-panel>
+        <hal-resizable-handle with-handle></hal-resizable-handle>
+        <hal-resizable-panel default-size="50">
           <div class="flex h-full items-center justify-center p-6">
             <span class="font-semibold">Two</span>
           </div>
-        </plank-resizable-panel>
-      </plank-resizable-panel-group>
+        </hal-resizable-panel>
+      </hal-resizable-panel-group>
     `
-    await customElements.whenDefined("plank-resizable-panel-group")
-    const group = container.querySelector("plank-resizable-panel-group")!
+    await customElements.whenDefined("hal-resizable-panel-group")
+    const group = container.querySelector("hal-resizable-panel-group")!
     await (group as any).updateComplete
 
     // Wait for layout
@@ -105,32 +105,32 @@ describe("plank-resizable - Visual", () => {
 
   it("nested resizable panels", async () => {
     container.innerHTML = `
-      <plank-resizable-panel-group direction="horizontal" class="min-h-[200px] rounded-lg border">
-        <plank-resizable-panel default-size="50">
+      <hal-resizable-panel-group direction="horizontal" class="min-h-[200px] rounded-lg border">
+        <hal-resizable-panel default-size="50">
           <div class="flex h-full items-center justify-center p-6">
             <span class="font-semibold">One</span>
           </div>
-        </plank-resizable-panel>
-        <plank-resizable-handle with-handle></plank-resizable-handle>
-        <plank-resizable-panel default-size="50">
-          <plank-resizable-panel-group direction="vertical">
-            <plank-resizable-panel default-size="25">
+        </hal-resizable-panel>
+        <hal-resizable-handle with-handle></hal-resizable-handle>
+        <hal-resizable-panel default-size="50">
+          <hal-resizable-panel-group direction="vertical">
+            <hal-resizable-panel default-size="25">
               <div class="flex h-full items-center justify-center p-6">
                 <span class="font-semibold">Two</span>
               </div>
-            </plank-resizable-panel>
-            <plank-resizable-handle with-handle></plank-resizable-handle>
-            <plank-resizable-panel default-size="75">
+            </hal-resizable-panel>
+            <hal-resizable-handle with-handle></hal-resizable-handle>
+            <hal-resizable-panel default-size="75">
               <div class="flex h-full items-center justify-center p-6">
                 <span class="font-semibold">Three</span>
               </div>
-            </plank-resizable-panel>
-          </plank-resizable-panel-group>
-        </plank-resizable-panel>
-      </plank-resizable-panel-group>
+            </hal-resizable-panel>
+          </hal-resizable-panel-group>
+        </hal-resizable-panel>
+      </hal-resizable-panel-group>
     `
-    await customElements.whenDefined("plank-resizable-panel-group")
-    const groups = container.querySelectorAll("plank-resizable-panel-group")
+    await customElements.whenDefined("hal-resizable-panel-group")
+    const groups = container.querySelectorAll("hal-resizable-panel-group")
     for (const group of groups) {
       await (group as any).updateComplete
     }

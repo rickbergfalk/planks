@@ -1,12 +1,12 @@
 import { describe, it, expect, beforeEach, afterEach } from "vitest"
-import "@/web-components/plank-avatar"
+import "@/web-components/hal-avatar"
 import type {
-  PlankAvatar,
-  PlankAvatarImage,
-  PlankAvatarFallback,
-} from "@/web-components/plank-avatar"
+  HalAvatar,
+  HalAvatarImage,
+  HalAvatarFallback,
+} from "@/web-components/hal-avatar"
 
-describe("PlankAvatar (Web Component)", () => {
+describe("HalAvatar (Web Component)", () => {
   let container: HTMLDivElement
 
   beforeEach(() => {
@@ -18,20 +18,20 @@ describe("PlankAvatar (Web Component)", () => {
     container.remove()
   })
 
-  describe("PlankAvatar", () => {
+  describe("HalAvatar", () => {
     it("renders with correct data-slot", async () => {
-      container.innerHTML = `<plank-avatar></plank-avatar>`
-      await customElements.whenDefined("plank-avatar")
-      const avatar = container.querySelector("plank-avatar") as PlankAvatar
+      container.innerHTML = `<hal-avatar></hal-avatar>`
+      await customElements.whenDefined("hal-avatar")
+      const avatar = container.querySelector("hal-avatar") as HalAvatar
       await avatar.updateComplete
 
       expect(avatar.dataset.slot).toBe("avatar")
     })
 
     it("applies base classes", async () => {
-      container.innerHTML = `<plank-avatar></plank-avatar>`
-      await customElements.whenDefined("plank-avatar")
-      const avatar = container.querySelector("plank-avatar") as PlankAvatar
+      container.innerHTML = `<hal-avatar></hal-avatar>`
+      await customElements.whenDefined("hal-avatar")
+      const avatar = container.querySelector("hal-avatar") as HalAvatar
       await avatar.updateComplete
 
       expect(avatar.classList.contains("relative")).toBe(true)
@@ -40,33 +40,33 @@ describe("PlankAvatar (Web Component)", () => {
     })
 
     it("applies custom class", async () => {
-      container.innerHTML = `<plank-avatar class="rounded-lg"></plank-avatar>`
-      await customElements.whenDefined("plank-avatar")
-      const avatar = container.querySelector("plank-avatar") as PlankAvatar
+      container.innerHTML = `<hal-avatar class="rounded-lg"></hal-avatar>`
+      await customElements.whenDefined("hal-avatar")
+      const avatar = container.querySelector("hal-avatar") as HalAvatar
       await avatar.updateComplete
 
       expect(avatar.classList.contains("rounded-lg")).toBe(true)
     })
   })
 
-  describe("PlankAvatarImage", () => {
+  describe("HalAvatarImage", () => {
     it("renders with correct data-slot", async () => {
-      container.innerHTML = `<plank-avatar-image src="test.jpg" alt="Test"></plank-avatar-image>`
-      await customElements.whenDefined("plank-avatar-image")
+      container.innerHTML = `<hal-avatar-image src="test.jpg" alt="Test"></hal-avatar-image>`
+      await customElements.whenDefined("hal-avatar-image")
       const avatarImage = container.querySelector(
-        "plank-avatar-image"
-      ) as PlankAvatarImage
+        "hal-avatar-image"
+      ) as HalAvatarImage
       await avatarImage.updateComplete
 
       expect(avatarImage.dataset.slot).toBe("avatar-image")
     })
 
     it("creates an img element", async () => {
-      container.innerHTML = `<plank-avatar-image src="test.jpg" alt="Test"></plank-avatar-image>`
-      await customElements.whenDefined("plank-avatar-image")
+      container.innerHTML = `<hal-avatar-image src="test.jpg" alt="Test"></hal-avatar-image>`
+      await customElements.whenDefined("hal-avatar-image")
       const avatarImage = container.querySelector(
-        "plank-avatar-image"
-      ) as PlankAvatarImage
+        "hal-avatar-image"
+      ) as HalAvatarImage
       await avatarImage.updateComplete
 
       const img = avatarImage.querySelector("img")
@@ -76,11 +76,11 @@ describe("PlankAvatar (Web Component)", () => {
     })
 
     it("passes src and alt attributes", async () => {
-      container.innerHTML = `<plank-avatar-image src="avatar.png" alt="User avatar"></plank-avatar-image>`
-      await customElements.whenDefined("plank-avatar-image")
+      container.innerHTML = `<hal-avatar-image src="avatar.png" alt="User avatar"></hal-avatar-image>`
+      await customElements.whenDefined("hal-avatar-image")
       const avatarImage = container.querySelector(
-        "plank-avatar-image"
-      ) as PlankAvatarImage
+        "hal-avatar-image"
+      ) as HalAvatarImage
       await avatarImage.updateComplete
 
       const img = avatarImage.querySelector("img")
@@ -89,24 +89,24 @@ describe("PlankAvatar (Web Component)", () => {
     })
   })
 
-  describe("PlankAvatarFallback", () => {
+  describe("HalAvatarFallback", () => {
     it("renders with correct data-slot", async () => {
-      container.innerHTML = `<plank-avatar-fallback>CN</plank-avatar-fallback>`
-      await customElements.whenDefined("plank-avatar-fallback")
+      container.innerHTML = `<hal-avatar-fallback>CN</hal-avatar-fallback>`
+      await customElements.whenDefined("hal-avatar-fallback")
       const fallback = container.querySelector(
-        "plank-avatar-fallback"
-      ) as PlankAvatarFallback
+        "hal-avatar-fallback"
+      ) as HalAvatarFallback
       await fallback.updateComplete
 
       expect(fallback.dataset.slot).toBe("avatar-fallback")
     })
 
     it("applies base classes", async () => {
-      container.innerHTML = `<plank-avatar-fallback>CN</plank-avatar-fallback>`
-      await customElements.whenDefined("plank-avatar-fallback")
+      container.innerHTML = `<hal-avatar-fallback>CN</hal-avatar-fallback>`
+      await customElements.whenDefined("hal-avatar-fallback")
       const fallback = container.querySelector(
-        "plank-avatar-fallback"
-      ) as PlankAvatarFallback
+        "hal-avatar-fallback"
+      ) as HalAvatarFallback
       await fallback.updateComplete
 
       expect(fallback.classList.contains("bg-muted")).toBe(true)
@@ -116,11 +116,11 @@ describe("PlankAvatar (Web Component)", () => {
     })
 
     it("preserves children content", async () => {
-      container.innerHTML = `<plank-avatar-fallback>AB</plank-avatar-fallback>`
-      await customElements.whenDefined("plank-avatar-fallback")
+      container.innerHTML = `<hal-avatar-fallback>AB</hal-avatar-fallback>`
+      await customElements.whenDefined("hal-avatar-fallback")
       const fallback = container.querySelector(
-        "plank-avatar-fallback"
-      ) as PlankAvatarFallback
+        "hal-avatar-fallback"
+      ) as HalAvatarFallback
       await fallback.updateComplete
 
       expect(fallback.textContent).toContain("AB")
@@ -130,22 +130,22 @@ describe("PlankAvatar (Web Component)", () => {
   describe("Avatar composition", () => {
     it("renders complete avatar with image and fallback", async () => {
       container.innerHTML = `
-        <plank-avatar>
-          <plank-avatar-image src="test.jpg" alt="Test"></plank-avatar-image>
-          <plank-avatar-fallback>CN</plank-avatar-fallback>
-        </plank-avatar>
+        <hal-avatar>
+          <hal-avatar-image src="test.jpg" alt="Test"></hal-avatar-image>
+          <hal-avatar-fallback>CN</hal-avatar-fallback>
+        </hal-avatar>
       `
-      await customElements.whenDefined("plank-avatar")
-      await customElements.whenDefined("plank-avatar-image")
-      await customElements.whenDefined("plank-avatar-fallback")
+      await customElements.whenDefined("hal-avatar")
+      await customElements.whenDefined("hal-avatar-image")
+      await customElements.whenDefined("hal-avatar-fallback")
 
-      const avatar = container.querySelector("plank-avatar") as PlankAvatar
+      const avatar = container.querySelector("hal-avatar") as HalAvatar
       const image = container.querySelector(
-        "plank-avatar-image"
-      ) as PlankAvatarImage
+        "hal-avatar-image"
+      ) as HalAvatarImage
       const fallback = container.querySelector(
-        "plank-avatar-fallback"
-      ) as PlankAvatarFallback
+        "hal-avatar-fallback"
+      ) as HalAvatarFallback
 
       await avatar.updateComplete
       await image.updateComplete

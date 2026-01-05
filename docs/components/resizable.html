@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resizable - Planks</title>
+    <title>Resizable - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -21,32 +21,32 @@
           Two panels side by side with a draggable handle between them.
         </p>
         <div class="mb-4">
-          <plank-resizable-panel-group
+          <hal-resizable-panel-group
             direction="horizontal"
             class="min-h-[200px] max-w-md rounded-lg border"
           >
-            <plank-resizable-panel default-size="50">
+            <hal-resizable-panel default-size="50">
               <div class="flex h-full items-center justify-center p-6">
                 <span class="font-semibold">One</span>
               </div>
-            </plank-resizable-panel>
-            <plank-resizable-handle></plank-resizable-handle>
-            <plank-resizable-panel default-size="50">
+            </hal-resizable-panel>
+            <hal-resizable-handle></hal-resizable-handle>
+            <hal-resizable-panel default-size="50">
               <div class="flex h-full items-center justify-center p-6">
                 <span class="font-semibold">Two</span>
               </div>
-            </plank-resizable-panel>
-          </plank-resizable-panel-group>
+            </hal-resizable-panel>
+          </hal-resizable-panel-group>
         </div>
-        <pre><code>&lt;plank-resizable-panel-group direction="horizontal" class="min-h-[200px] rounded-lg border"&gt;
-  &lt;plank-resizable-panel default-size="50"&gt;
+        <pre><code>&lt;hal-resizable-panel-group direction="horizontal" class="min-h-[200px] rounded-lg border"&gt;
+  &lt;hal-resizable-panel default-size="50"&gt;
     &lt;div class="flex h-full items-center justify-center"&gt;One&lt;/div&gt;
-  &lt;/plank-resizable-panel&gt;
-  &lt;plank-resizable-handle&gt;&lt;/plank-resizable-handle&gt;
-  &lt;plank-resizable-panel default-size="50"&gt;
+  &lt;/hal-resizable-panel&gt;
+  &lt;hal-resizable-handle&gt;&lt;/hal-resizable-handle&gt;
+  &lt;hal-resizable-panel default-size="50"&gt;
     &lt;div class="flex h-full items-center justify-center"&gt;Two&lt;/div&gt;
-  &lt;/plank-resizable-panel&gt;
-&lt;/plank-resizable-panel-group&gt;</code></pre>
+  &lt;/hal-resizable-panel&gt;
+&lt;/hal-resizable-panel-group&gt;</code></pre>
       </section>
 
       <!-- Vertical -->
@@ -56,32 +56,32 @@
           Panels stacked vertically with a horizontal handle.
         </p>
         <div class="mb-4">
-          <plank-resizable-panel-group
+          <hal-resizable-panel-group
             direction="vertical"
             class="min-h-[200px] max-w-md rounded-lg border"
           >
-            <plank-resizable-panel default-size="25">
+            <hal-resizable-panel default-size="25">
               <div class="flex h-full items-center justify-center p-6">
                 <span class="font-semibold">Header</span>
               </div>
-            </plank-resizable-panel>
-            <plank-resizable-handle></plank-resizable-handle>
-            <plank-resizable-panel default-size="75">
+            </hal-resizable-panel>
+            <hal-resizable-handle></hal-resizable-handle>
+            <hal-resizable-panel default-size="75">
               <div class="flex h-full items-center justify-center p-6">
                 <span class="font-semibold">Content</span>
               </div>
-            </plank-resizable-panel>
-          </plank-resizable-panel-group>
+            </hal-resizable-panel>
+          </hal-resizable-panel-group>
         </div>
-        <pre><code>&lt;plank-resizable-panel-group direction="vertical" class="min-h-[200px] rounded-lg border"&gt;
-  &lt;plank-resizable-panel default-size="25"&gt;
+        <pre><code>&lt;hal-resizable-panel-group direction="vertical" class="min-h-[200px] rounded-lg border"&gt;
+  &lt;hal-resizable-panel default-size="25"&gt;
     &lt;div class="flex h-full items-center justify-center"&gt;Header&lt;/div&gt;
-  &lt;/plank-resizable-panel&gt;
-  &lt;plank-resizable-handle&gt;&lt;/plank-resizable-handle&gt;
-  &lt;plank-resizable-panel default-size="75"&gt;
+  &lt;/hal-resizable-panel&gt;
+  &lt;hal-resizable-handle&gt;&lt;/hal-resizable-handle&gt;
+  &lt;hal-resizable-panel default-size="75"&gt;
     &lt;div class="flex h-full items-center justify-center"&gt;Content&lt;/div&gt;
-  &lt;/plank-resizable-panel&gt;
-&lt;/plank-resizable-panel-group&gt;</code></pre>
+  &lt;/hal-resizable-panel&gt;
+&lt;/hal-resizable-panel-group&gt;</code></pre>
       </section>
 
       <!-- With Handle -->
@@ -91,32 +91,32 @@
           Shows a visible grip icon on the handle for better discoverability.
         </p>
         <div class="mb-4">
-          <plank-resizable-panel-group
+          <hal-resizable-panel-group
             direction="horizontal"
             class="min-h-[200px] max-w-md rounded-lg border"
           >
-            <plank-resizable-panel default-size="50">
+            <hal-resizable-panel default-size="50">
               <div class="flex h-full items-center justify-center p-6">
                 <span class="font-semibold">One</span>
               </div>
-            </plank-resizable-panel>
-            <plank-resizable-handle with-handle></plank-resizable-handle>
-            <plank-resizable-panel default-size="50">
+            </hal-resizable-panel>
+            <hal-resizable-handle with-handle></hal-resizable-handle>
+            <hal-resizable-panel default-size="50">
               <div class="flex h-full items-center justify-center p-6">
                 <span class="font-semibold">Two</span>
               </div>
-            </plank-resizable-panel>
-          </plank-resizable-panel-group>
+            </hal-resizable-panel>
+          </hal-resizable-panel-group>
         </div>
-        <pre><code>&lt;plank-resizable-panel-group direction="horizontal" class="min-h-[200px] rounded-lg border"&gt;
-  &lt;plank-resizable-panel default-size="50"&gt;
+        <pre><code>&lt;hal-resizable-panel-group direction="horizontal" class="min-h-[200px] rounded-lg border"&gt;
+  &lt;hal-resizable-panel default-size="50"&gt;
     &lt;div&gt;One&lt;/div&gt;
-  &lt;/plank-resizable-panel&gt;
-  &lt;plank-resizable-handle with-handle&gt;&lt;/plank-resizable-handle&gt;
-  &lt;plank-resizable-panel default-size="50"&gt;
+  &lt;/hal-resizable-panel&gt;
+  &lt;hal-resizable-handle with-handle&gt;&lt;/hal-resizable-handle&gt;
+  &lt;hal-resizable-panel default-size="50"&gt;
     &lt;div&gt;Two&lt;/div&gt;
-  &lt;/plank-resizable-panel&gt;
-&lt;/plank-resizable-panel-group&gt;</code></pre>
+  &lt;/hal-resizable-panel&gt;
+&lt;/hal-resizable-panel-group&gt;</code></pre>
       </section>
 
       <!-- Nested -->
@@ -127,203 +127,193 @@
           vertical.
         </p>
         <div class="mb-4">
-          <plank-resizable-panel-group
+          <hal-resizable-panel-group
             direction="horizontal"
             class="min-h-[200px] max-w-md rounded-lg border"
           >
-            <plank-resizable-panel default-size="50">
+            <hal-resizable-panel default-size="50">
               <div class="flex h-full items-center justify-center p-6">
                 <span class="font-semibold">One</span>
               </div>
-            </plank-resizable-panel>
-            <plank-resizable-handle with-handle></plank-resizable-handle>
-            <plank-resizable-panel default-size="50">
-              <plank-resizable-panel-group direction="vertical">
-                <plank-resizable-panel default-size="25">
+            </hal-resizable-panel>
+            <hal-resizable-handle with-handle></hal-resizable-handle>
+            <hal-resizable-panel default-size="50">
+              <hal-resizable-panel-group direction="vertical">
+                <hal-resizable-panel default-size="25">
                   <div class="flex h-full items-center justify-center p-6">
                     <span class="font-semibold">Two</span>
                   </div>
-                </plank-resizable-panel>
-                <plank-resizable-handle with-handle></plank-resizable-handle>
-                <plank-resizable-panel default-size="75">
+                </hal-resizable-panel>
+                <hal-resizable-handle with-handle></hal-resizable-handle>
+                <hal-resizable-panel default-size="75">
                   <div class="flex h-full items-center justify-center p-6">
                     <span class="font-semibold">Three</span>
                   </div>
-                </plank-resizable-panel>
-              </plank-resizable-panel-group>
-            </plank-resizable-panel>
-          </plank-resizable-panel-group>
+                </hal-resizable-panel>
+              </hal-resizable-panel-group>
+            </hal-resizable-panel>
+          </hal-resizable-panel-group>
         </div>
-        <pre><code>&lt;plank-resizable-panel-group direction="horizontal" class="min-h-[200px] rounded-lg border"&gt;
-  &lt;plank-resizable-panel default-size="50"&gt;
+        <pre><code>&lt;hal-resizable-panel-group direction="horizontal" class="min-h-[200px] rounded-lg border"&gt;
+  &lt;hal-resizable-panel default-size="50"&gt;
     &lt;div&gt;One&lt;/div&gt;
-  &lt;/plank-resizable-panel&gt;
-  &lt;plank-resizable-handle with-handle&gt;&lt;/plank-resizable-handle&gt;
-  &lt;plank-resizable-panel default-size="50"&gt;
-    &lt;plank-resizable-panel-group direction="vertical"&gt;
-      &lt;plank-resizable-panel default-size="25"&gt;
+  &lt;/hal-resizable-panel&gt;
+  &lt;hal-resizable-handle with-handle&gt;&lt;/hal-resizable-handle&gt;
+  &lt;hal-resizable-panel default-size="50"&gt;
+    &lt;hal-resizable-panel-group direction="vertical"&gt;
+      &lt;hal-resizable-panel default-size="25"&gt;
         &lt;div&gt;Two&lt;/div&gt;
-      &lt;/plank-resizable-panel&gt;
-      &lt;plank-resizable-handle with-handle&gt;&lt;/plank-resizable-handle&gt;
-      &lt;plank-resizable-panel default-size="75"&gt;
+      &lt;/hal-resizable-panel&gt;
+      &lt;hal-resizable-handle with-handle&gt;&lt;/hal-resizable-handle&gt;
+      &lt;hal-resizable-panel default-size="75"&gt;
         &lt;div&gt;Three&lt;/div&gt;
-      &lt;/plank-resizable-panel&gt;
-    &lt;/plank-resizable-panel-group&gt;
-  &lt;/plank-resizable-panel&gt;
-&lt;/plank-resizable-panel-group&gt;</code></pre>
+      &lt;/hal-resizable-panel&gt;
+    &lt;/hal-resizable-panel-group&gt;
+  &lt;/hal-resizable-panel&gt;
+&lt;/hal-resizable-panel-group&gt;</code></pre>
       </section>
 
       <!-- API -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Components</h2>
         <div class="overflow-x-auto">
-          <plank-table>
-            <plank-table-header>
-              <plank-table-row>
-                <plank-table-head>Component</plank-table-head>
-                <plank-table-head>Description</plank-table-head>
-              </plank-table-row>
-            </plank-table-header>
-            <plank-table-body>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >plank-resizable-panel-group</plank-table-cell
+          <hal-table>
+            <hal-table-header>
+              <hal-table-row>
+                <hal-table-head>Component</hal-table-head>
+                <hal-table-head>Description</hal-table-head>
+              </hal-table-row>
+            </hal-table-header>
+            <hal-table-body>
+              <hal-table-row>
+                <hal-table-cell class="font-mono"
+                  >hal-resizable-panel-group</hal-table-cell
                 >
-                <plank-table-cell
-                  >Container for resizable panels</plank-table-cell
+                <hal-table-cell>Container for resizable panels</hal-table-cell>
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono"
+                  >hal-resizable-panel</hal-table-cell
                 >
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >plank-resizable-panel</plank-table-cell
+                <hal-table-cell>A resizable panel</hal-table-cell>
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono"
+                  >hal-resizable-handle</hal-table-cell
                 >
-                <plank-table-cell>A resizable panel</plank-table-cell>
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >plank-resizable-handle</plank-table-cell
-                >
-                <plank-table-cell
-                  >Draggable handle between panels</plank-table-cell
-                >
-              </plank-table-row>
-            </plank-table-body>
-          </plank-table>
+                <hal-table-cell>Draggable handle between panels</hal-table-cell>
+              </hal-table-row>
+            </hal-table-body>
+          </hal-table>
         </div>
       </section>
 
       <!-- Panel Group API -->
       <section class="mb-12">
-        <h3 class="text-xl font-semibold mb-4">plank-resizable-panel-group</h3>
+        <h3 class="text-xl font-semibold mb-4">hal-resizable-panel-group</h3>
         <div class="overflow-x-auto">
-          <plank-table>
-            <plank-table-header>
-              <plank-table-row>
-                <plank-table-head>Property</plank-table-head>
-                <plank-table-head>Type</plank-table-head>
-                <plank-table-head>Default</plank-table-head>
-                <plank-table-head>Description</plank-table-head>
-              </plank-table-row>
-            </plank-table-header>
-            <plank-table-body>
-              <plank-table-row>
-                <plank-table-cell class="font-mono">direction</plank-table-cell>
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >"horizontal" | "vertical"</plank-table-cell
+          <hal-table>
+            <hal-table-header>
+              <hal-table-row>
+                <hal-table-head>Property</hal-table-head>
+                <hal-table-head>Type</hal-table-head>
+                <hal-table-head>Default</hal-table-head>
+                <hal-table-head>Description</hal-table-head>
+              </hal-table-row>
+            </hal-table-header>
+            <hal-table-body>
+              <hal-table-row>
+                <hal-table-cell class="font-mono">direction</hal-table-cell>
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >"horizontal" | "vertical"</hal-table-cell
                 >
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >"horizontal"</plank-table-cell
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >"horizontal"</hal-table-cell
                 >
-                <plank-table-cell
-                  >Direction of panel arrangement</plank-table-cell
-                >
-              </plank-table-row>
-            </plank-table-body>
-          </plank-table>
+                <hal-table-cell>Direction of panel arrangement</hal-table-cell>
+              </hal-table-row>
+            </hal-table-body>
+          </hal-table>
         </div>
       </section>
 
       <!-- Panel API -->
       <section class="mb-12">
-        <h3 class="text-xl font-semibold mb-4">plank-resizable-panel</h3>
+        <h3 class="text-xl font-semibold mb-4">hal-resizable-panel</h3>
         <div class="overflow-x-auto">
-          <plank-table>
-            <plank-table-header>
-              <plank-table-row>
-                <plank-table-head>Property</plank-table-head>
-                <plank-table-head>Type</plank-table-head>
-                <plank-table-head>Default</plank-table-head>
-                <plank-table-head>Description</plank-table-head>
-              </plank-table-row>
-            </plank-table-header>
-            <plank-table-body>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >default-size</plank-table-cell
+          <hal-table>
+            <hal-table-header>
+              <hal-table-row>
+                <hal-table-head>Property</hal-table-head>
+                <hal-table-head>Type</hal-table-head>
+                <hal-table-head>Default</hal-table-head>
+                <hal-table-head>Description</hal-table-head>
+              </hal-table-row>
+            </hal-table-header>
+            <hal-table-body>
+              <hal-table-row>
+                <hal-table-cell class="font-mono">default-size</hal-table-cell>
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >number</hal-table-cell
                 >
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >number</plank-table-cell
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >-</hal-table-cell
                 >
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >-</plank-table-cell
+                <hal-table-cell
+                  >Initial size as percentage (0-100)</hal-table-cell
                 >
-                <plank-table-cell
-                  >Initial size as percentage (0-100)</plank-table-cell
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono">min-size</hal-table-cell>
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >number</hal-table-cell
                 >
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono">min-size</plank-table-cell>
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >number</plank-table-cell
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >0</hal-table-cell
                 >
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >0</plank-table-cell
+                <hal-table-cell>Minimum size as percentage</hal-table-cell>
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono">max-size</hal-table-cell>
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >number</hal-table-cell
                 >
-                <plank-table-cell>Minimum size as percentage</plank-table-cell>
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono">max-size</plank-table-cell>
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >number</plank-table-cell
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >100</hal-table-cell
                 >
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >100</plank-table-cell
-                >
-                <plank-table-cell>Maximum size as percentage</plank-table-cell>
-              </plank-table-row>
-            </plank-table-body>
-          </plank-table>
+                <hal-table-cell>Maximum size as percentage</hal-table-cell>
+              </hal-table-row>
+            </hal-table-body>
+          </hal-table>
         </div>
       </section>
 
       <!-- Handle API -->
       <section class="mb-12">
-        <h3 class="text-xl font-semibold mb-4">plank-resizable-handle</h3>
+        <h3 class="text-xl font-semibold mb-4">hal-resizable-handle</h3>
         <div class="overflow-x-auto">
-          <plank-table>
-            <plank-table-header>
-              <plank-table-row>
-                <plank-table-head>Property</plank-table-head>
-                <plank-table-head>Type</plank-table-head>
-                <plank-table-head>Default</plank-table-head>
-                <plank-table-head>Description</plank-table-head>
-              </plank-table-row>
-            </plank-table-header>
-            <plank-table-body>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >with-handle</plank-table-cell
+          <hal-table>
+            <hal-table-header>
+              <hal-table-row>
+                <hal-table-head>Property</hal-table-head>
+                <hal-table-head>Type</hal-table-head>
+                <hal-table-head>Default</hal-table-head>
+                <hal-table-head>Description</hal-table-head>
+              </hal-table-row>
+            </hal-table-header>
+            <hal-table-body>
+              <hal-table-row>
+                <hal-table-cell class="font-mono">with-handle</hal-table-cell>
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >boolean</hal-table-cell
                 >
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >boolean</plank-table-cell
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >false</hal-table-cell
                 >
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >false</plank-table-cell
-                >
-                <plank-table-cell>Show visible grip icon</plank-table-cell>
-              </plank-table-row>
-            </plank-table-body>
-          </plank-table>
+                <hal-table-cell>Show visible grip icon</hal-table-cell>
+              </hal-table-row>
+            </hal-table-body>
+          </hal-table>
         </div>
       </section>
 
@@ -331,26 +321,24 @@
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Events</h2>
         <div class="overflow-x-auto">
-          <plank-table>
-            <plank-table-header>
-              <plank-table-row>
-                <plank-table-head>Event</plank-table-head>
-                <plank-table-head>Detail</plank-table-head>
-                <plank-table-head>Description</plank-table-head>
-              </plank-table-row>
-            </plank-table-header>
-            <plank-table-body>
-              <plank-table-row>
-                <plank-table-cell class="font-mono">resize</plank-table-cell>
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >{ sizes: number[] }</plank-table-cell
+          <hal-table>
+            <hal-table-header>
+              <hal-table-row>
+                <hal-table-head>Event</hal-table-head>
+                <hal-table-head>Detail</hal-table-head>
+                <hal-table-head>Description</hal-table-head>
+              </hal-table-row>
+            </hal-table-header>
+            <hal-table-body>
+              <hal-table-row>
+                <hal-table-cell class="font-mono">resize</hal-table-cell>
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >{ sizes: number[] }</hal-table-cell
                 >
-                <plank-table-cell
-                  >Fired when panel sizes change</plank-table-cell
-                >
-              </plank-table-row>
-            </plank-table-body>
-          </plank-table>
+                <hal-table-cell>Fired when panel sizes change</hal-table-cell>
+              </hal-table-row>
+            </hal-table-body>
+          </hal-table>
         </div>
       </section>
 

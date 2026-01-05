@@ -1,8 +1,6 @@
-# planks
+# hallucn
 
 [shadcn/ui](https://github.com/shadcn-ui/ui) but web components instead of React.
-
-Like the [Ship of Theseus](https://en.wikipedia.org/wiki/Ship_of_Theseus), we're replacing each React component plank by plank until we have something entirely new.
 
 ## Why
 
@@ -13,7 +11,7 @@ But React comes with costs:
 1. **Runtime overhead** — [React hurts real-world performance](https://infrequently.org/2024/11/if-not-react-then-what/)
 2. **Framework lock-in** — Your components only work in React projects
 
-planks brings shadcn's components to the web platform. Use them in React, Vue, Svelte, vanilla JS—or anywhere HTML works.
+hallucn brings shadcn's components to the web platform. Use them in React, Vue, Svelte, vanilla JS—or anywhere HTML works.
 
 ## Tech Choices
 

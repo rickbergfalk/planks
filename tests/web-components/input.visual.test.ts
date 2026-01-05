@@ -1,16 +1,16 @@
 import { describe, it, expect, beforeEach } from "vitest"
 import { page } from "vitest/browser"
-import "@/web-components/plank-input"
-import type { PlankInput } from "@/web-components/plank-input"
+import "@/web-components/hal-input"
+import type { HalInput } from "@/web-components/hal-input"
 
 /**
- * Visual tests for PlankInput web component.
+ * Visual tests for HalInput web component.
  *
  * These tests compare against the React component screenshots directly
  * (configured in vitest.config.ts via resolveScreenshotPath).
  * The React screenshots serve as the baseline/source of truth.
  */
-describe("PlankInput (Web Component) - Visual", () => {
+describe("HalInput (Web Component) - Visual", () => {
   let container: HTMLDivElement
 
   beforeEach(() => {
@@ -20,17 +20,17 @@ describe("PlankInput (Web Component) - Visual", () => {
 
   async function renderAndWait(html: string): Promise<void> {
     container.innerHTML = html
-    await customElements.whenDefined("plank-input")
-    const inputs = container.querySelectorAll("plank-input")
+    await customElements.whenDefined("hal-input")
+    const inputs = container.querySelectorAll("hal-input")
     await Promise.all(
-      Array.from(inputs).map((i) => (i as PlankInput).updateComplete)
+      Array.from(inputs).map((i) => (i as HalInput).updateComplete)
     )
   }
 
   it("default input matches React", async () => {
     await renderAndWait(`
       <div data-testid="container" style="padding: 8px; width: 250px;">
-        <plank-input placeholder="Enter text..."></plank-input>
+        <hal-input placeholder="Enter text..."></hal-input>
       </div>
     `)
     await expect(page.getByTestId("container")).toMatchScreenshot(
@@ -41,7 +41,7 @@ describe("PlankInput (Web Component) - Visual", () => {
   it("disabled input matches React", async () => {
     await renderAndWait(`
       <div data-testid="container" style="padding: 8px; width: 250px;">
-        <plank-input placeholder="Disabled" disabled></plank-input>
+        <hal-input placeholder="Disabled" disabled></hal-input>
       </div>
     `)
     await expect(page.getByTestId("container")).toMatchScreenshot(
@@ -52,7 +52,7 @@ describe("PlankInput (Web Component) - Visual", () => {
   it("input with value matches React", async () => {
     await renderAndWait(`
       <div data-testid="container" style="padding: 8px; width: 250px;">
-        <plank-input value="Hello world"></plank-input>
+        <hal-input value="Hello world"></hal-input>
       </div>
     `)
     await expect(page.getByTestId("container")).toMatchScreenshot(

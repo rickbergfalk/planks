@@ -1,14 +1,14 @@
 import { describe, it, expect, beforeEach, vi } from "vitest"
-import "../../src/web-components/plank-navigation-menu"
+import "../../src/web-components/hal-navigation-menu"
 import type {
-  PlankNavigationMenu,
-  PlankNavigationMenuItem,
-  PlankNavigationMenuTrigger,
-  PlankNavigationMenuContent,
-  PlankNavigationMenuLink,
-} from "../../src/web-components/plank-navigation-menu"
+  HalNavigationMenu,
+  HalNavigationMenuItem,
+  HalNavigationMenuTrigger,
+  HalNavigationMenuContent,
+  HalNavigationMenuLink,
+} from "../../src/web-components/hal-navigation-menu"
 
-describe("plank-navigation-menu", () => {
+describe("hal-navigation-menu", () => {
   let container: HTMLElement
 
   beforeEach(() => {
@@ -21,21 +21,21 @@ describe("plank-navigation-menu", () => {
 
   it("renders with default attributes", async () => {
     container.innerHTML = `
-      <plank-navigation-menu>
-        <plank-navigation-menu-list>
-          <plank-navigation-menu-item>
-            <plank-navigation-menu-trigger>Menu</plank-navigation-menu-trigger>
-            <plank-navigation-menu-content>
+      <hal-navigation-menu>
+        <hal-navigation-menu-list>
+          <hal-navigation-menu-item>
+            <hal-navigation-menu-trigger>Menu</hal-navigation-menu-trigger>
+            <hal-navigation-menu-content>
               <div>Content</div>
-            </plank-navigation-menu-content>
-          </plank-navigation-menu-item>
-        </plank-navigation-menu-list>
-      </plank-navigation-menu>
+            </hal-navigation-menu-content>
+          </hal-navigation-menu-item>
+        </hal-navigation-menu-list>
+      </hal-navigation-menu>
     `
-    await customElements.whenDefined("plank-navigation-menu")
+    await customElements.whenDefined("hal-navigation-menu")
     const menu = container.querySelector(
-      "plank-navigation-menu"
-    ) as PlankNavigationMenu
+      "hal-navigation-menu"
+    ) as HalNavigationMenu
     await menu.updateComplete
 
     expect(menu.dataset.slot).toBe("navigation-menu")
@@ -45,21 +45,21 @@ describe("plank-navigation-menu", () => {
 
   it("renders with viewport=false", async () => {
     container.innerHTML = `
-      <plank-navigation-menu viewport="false">
-        <plank-navigation-menu-list>
-          <plank-navigation-menu-item>
-            <plank-navigation-menu-trigger>Menu</plank-navigation-menu-trigger>
-            <plank-navigation-menu-content>
+      <hal-navigation-menu viewport="false">
+        <hal-navigation-menu-list>
+          <hal-navigation-menu-item>
+            <hal-navigation-menu-trigger>Menu</hal-navigation-menu-trigger>
+            <hal-navigation-menu-content>
               <div>Content</div>
-            </plank-navigation-menu-content>
-          </plank-navigation-menu-item>
-        </plank-navigation-menu-list>
-      </plank-navigation-menu>
+            </hal-navigation-menu-content>
+          </hal-navigation-menu-item>
+        </hal-navigation-menu-list>
+      </hal-navigation-menu>
     `
-    await customElements.whenDefined("plank-navigation-menu")
+    await customElements.whenDefined("hal-navigation-menu")
     const menu = container.querySelector(
-      "plank-navigation-menu"
-    ) as PlankNavigationMenu
+      "hal-navigation-menu"
+    ) as HalNavigationMenu
     // Need to set the property, not just attribute for boolean
     menu.viewport = false
     await menu.updateComplete
@@ -69,14 +69,14 @@ describe("plank-navigation-menu", () => {
 
   it("has correct delay duration properties", async () => {
     container.innerHTML = `
-      <plank-navigation-menu delay-duration="100" skip-delay-duration="200">
-        <plank-navigation-menu-list></plank-navigation-menu-list>
-      </plank-navigation-menu>
+      <hal-navigation-menu delay-duration="100" skip-delay-duration="200">
+        <hal-navigation-menu-list></hal-navigation-menu-list>
+      </hal-navigation-menu>
     `
-    await customElements.whenDefined("plank-navigation-menu")
+    await customElements.whenDefined("hal-navigation-menu")
     const menu = container.querySelector(
-      "plank-navigation-menu"
-    ) as PlankNavigationMenu
+      "hal-navigation-menu"
+    ) as HalNavigationMenu
     await menu.updateComplete
 
     expect(menu.delayDuration).toBe(100)
@@ -84,7 +84,7 @@ describe("plank-navigation-menu", () => {
   })
 })
 
-describe("plank-navigation-menu-list", () => {
+describe("hal-navigation-menu-list", () => {
   let container: HTMLElement
 
   beforeEach(() => {
@@ -97,14 +97,14 @@ describe("plank-navigation-menu-list", () => {
 
   it("renders with correct classes", async () => {
     container.innerHTML = `
-      <plank-navigation-menu>
-        <plank-navigation-menu-list>
-          <plank-navigation-menu-item></plank-navigation-menu-item>
-        </plank-navigation-menu-list>
-      </plank-navigation-menu>
+      <hal-navigation-menu>
+        <hal-navigation-menu-list>
+          <hal-navigation-menu-item></hal-navigation-menu-item>
+        </hal-navigation-menu-list>
+      </hal-navigation-menu>
     `
-    await customElements.whenDefined("plank-navigation-menu-list")
-    const list = container.querySelector("plank-navigation-menu-list")!
+    await customElements.whenDefined("hal-navigation-menu-list")
+    const list = container.querySelector("hal-navigation-menu-list")!
     await (list as any).updateComplete
 
     expect(list.dataset.slot).toBe("navigation-menu-list")
@@ -113,7 +113,7 @@ describe("plank-navigation-menu-list", () => {
   })
 })
 
-describe("plank-navigation-menu-item", () => {
+describe("hal-navigation-menu-item", () => {
   let container: HTMLElement
 
   beforeEach(() => {
@@ -126,18 +126,18 @@ describe("plank-navigation-menu-item", () => {
 
   it("renders with correct slot", async () => {
     container.innerHTML = `
-      <plank-navigation-menu>
-        <plank-navigation-menu-list>
-          <plank-navigation-menu-item>
-            <plank-navigation-menu-trigger>Menu</plank-navigation-menu-trigger>
-          </plank-navigation-menu-item>
-        </plank-navigation-menu-list>
-      </plank-navigation-menu>
+      <hal-navigation-menu>
+        <hal-navigation-menu-list>
+          <hal-navigation-menu-item>
+            <hal-navigation-menu-trigger>Menu</hal-navigation-menu-trigger>
+          </hal-navigation-menu-item>
+        </hal-navigation-menu-list>
+      </hal-navigation-menu>
     `
-    await customElements.whenDefined("plank-navigation-menu-item")
+    await customElements.whenDefined("hal-navigation-menu-item")
     const item = container.querySelector(
-      "plank-navigation-menu-item"
-    ) as PlankNavigationMenuItem
+      "hal-navigation-menu-item"
+    ) as HalNavigationMenuItem
     await item.updateComplete
 
     expect(item.dataset.slot).toBe("navigation-menu-item")
@@ -146,26 +146,26 @@ describe("plank-navigation-menu-item", () => {
 
   it("opens and closes correctly", async () => {
     container.innerHTML = `
-      <plank-navigation-menu>
-        <plank-navigation-menu-list>
-          <plank-navigation-menu-item>
-            <plank-navigation-menu-trigger>Menu</plank-navigation-menu-trigger>
-            <plank-navigation-menu-content>
+      <hal-navigation-menu>
+        <hal-navigation-menu-list>
+          <hal-navigation-menu-item>
+            <hal-navigation-menu-trigger>Menu</hal-navigation-menu-trigger>
+            <hal-navigation-menu-content>
               <div>Content</div>
-            </plank-navigation-menu-content>
-          </plank-navigation-menu-item>
-        </plank-navigation-menu-list>
-      </plank-navigation-menu>
+            </hal-navigation-menu-content>
+          </hal-navigation-menu-item>
+        </hal-navigation-menu-list>
+      </hal-navigation-menu>
     `
-    await customElements.whenDefined("plank-navigation-menu-item")
+    await customElements.whenDefined("hal-navigation-menu-item")
     const item = container.querySelector(
-      "plank-navigation-menu-item"
-    ) as PlankNavigationMenuItem
+      "hal-navigation-menu-item"
+    ) as HalNavigationMenuItem
     await item.updateComplete
 
     const content = container.querySelector(
-      "plank-navigation-menu-content"
-    ) as PlankNavigationMenuContent
+      "hal-navigation-menu-content"
+    ) as HalNavigationMenuContent
     await content.updateComplete
 
     // Initially closed
@@ -185,7 +185,7 @@ describe("plank-navigation-menu-item", () => {
   })
 })
 
-describe("plank-navigation-menu-trigger", () => {
+describe("hal-navigation-menu-trigger", () => {
   let container: HTMLElement
 
   beforeEach(() => {
@@ -198,18 +198,18 @@ describe("plank-navigation-menu-trigger", () => {
 
   it("renders button with chevron", async () => {
     container.innerHTML = `
-      <plank-navigation-menu>
-        <plank-navigation-menu-list>
-          <plank-navigation-menu-item>
-            <plank-navigation-menu-trigger>Menu</plank-navigation-menu-trigger>
-          </plank-navigation-menu-item>
-        </plank-navigation-menu-list>
-      </plank-navigation-menu>
+      <hal-navigation-menu>
+        <hal-navigation-menu-list>
+          <hal-navigation-menu-item>
+            <hal-navigation-menu-trigger>Menu</hal-navigation-menu-trigger>
+          </hal-navigation-menu-item>
+        </hal-navigation-menu-list>
+      </hal-navigation-menu>
     `
-    await customElements.whenDefined("plank-navigation-menu-trigger")
+    await customElements.whenDefined("hal-navigation-menu-trigger")
     const trigger = container.querySelector(
-      "plank-navigation-menu-trigger"
-    ) as PlankNavigationMenuTrigger
+      "hal-navigation-menu-trigger"
+    ) as HalNavigationMenuTrigger
     await trigger.updateComplete
 
     const button = trigger.querySelector("button")
@@ -223,19 +223,19 @@ describe("plank-navigation-menu-trigger", () => {
 
   it("has correct ARIA attributes", async () => {
     container.innerHTML = `
-      <plank-navigation-menu>
-        <plank-navigation-menu-list>
-          <plank-navigation-menu-item>
-            <plank-navigation-menu-trigger>Menu</plank-navigation-menu-trigger>
-            <plank-navigation-menu-content>Content</plank-navigation-menu-content>
-          </plank-navigation-menu-item>
-        </plank-navigation-menu-list>
-      </plank-navigation-menu>
+      <hal-navigation-menu>
+        <hal-navigation-menu-list>
+          <hal-navigation-menu-item>
+            <hal-navigation-menu-trigger>Menu</hal-navigation-menu-trigger>
+            <hal-navigation-menu-content>Content</hal-navigation-menu-content>
+          </hal-navigation-menu-item>
+        </hal-navigation-menu-list>
+      </hal-navigation-menu>
     `
-    await customElements.whenDefined("plank-navigation-menu-trigger")
+    await customElements.whenDefined("hal-navigation-menu-trigger")
     const trigger = container.querySelector(
-      "plank-navigation-menu-trigger"
-    ) as PlankNavigationMenuTrigger
+      "hal-navigation-menu-trigger"
+    ) as HalNavigationMenuTrigger
     await trigger.updateComplete
 
     const button = trigger.querySelector("button")!
@@ -243,15 +243,15 @@ describe("plank-navigation-menu-trigger", () => {
 
     // Open the item
     const item = container.querySelector(
-      "plank-navigation-menu-item"
-    ) as PlankNavigationMenuItem
+      "hal-navigation-menu-item"
+    ) as HalNavigationMenuItem
     item._open()
 
     expect(trigger.getAttribute("aria-expanded")).toBe("true")
   })
 })
 
-describe("plank-navigation-menu-content", () => {
+describe("hal-navigation-menu-content", () => {
   let container: HTMLElement
 
   beforeEach(() => {
@@ -264,21 +264,21 @@ describe("plank-navigation-menu-content", () => {
 
   it("is hidden by default", async () => {
     container.innerHTML = `
-      <plank-navigation-menu>
-        <plank-navigation-menu-list>
-          <plank-navigation-menu-item>
-            <plank-navigation-menu-trigger>Menu</plank-navigation-menu-trigger>
-            <plank-navigation-menu-content>
+      <hal-navigation-menu>
+        <hal-navigation-menu-list>
+          <hal-navigation-menu-item>
+            <hal-navigation-menu-trigger>Menu</hal-navigation-menu-trigger>
+            <hal-navigation-menu-content>
               <div>Content here</div>
-            </plank-navigation-menu-content>
-          </plank-navigation-menu-item>
-        </plank-navigation-menu-list>
-      </plank-navigation-menu>
+            </hal-navigation-menu-content>
+          </hal-navigation-menu-item>
+        </hal-navigation-menu-list>
+      </hal-navigation-menu>
     `
-    await customElements.whenDefined("plank-navigation-menu-content")
+    await customElements.whenDefined("hal-navigation-menu-content")
     const content = container.querySelector(
-      "plank-navigation-menu-content"
-    ) as PlankNavigationMenuContent
+      "hal-navigation-menu-content"
+    ) as HalNavigationMenuContent
     await content.updateComplete
 
     expect(content.style.display).toBe("none")
@@ -287,21 +287,21 @@ describe("plank-navigation-menu-content", () => {
 
   it("has correct positioning classes", async () => {
     container.innerHTML = `
-      <plank-navigation-menu>
-        <plank-navigation-menu-list>
-          <plank-navigation-menu-item>
-            <plank-navigation-menu-trigger>Menu</plank-navigation-menu-trigger>
-            <plank-navigation-menu-content>
+      <hal-navigation-menu>
+        <hal-navigation-menu-list>
+          <hal-navigation-menu-item>
+            <hal-navigation-menu-trigger>Menu</hal-navigation-menu-trigger>
+            <hal-navigation-menu-content>
               <div>Content</div>
-            </plank-navigation-menu-content>
-          </plank-navigation-menu-item>
-        </plank-navigation-menu-list>
-      </plank-navigation-menu>
+            </hal-navigation-menu-content>
+          </hal-navigation-menu-item>
+        </hal-navigation-menu-list>
+      </hal-navigation-menu>
     `
-    await customElements.whenDefined("plank-navigation-menu-content")
+    await customElements.whenDefined("hal-navigation-menu-content")
     const content = container.querySelector(
-      "plank-navigation-menu-content"
-    ) as PlankNavigationMenuContent
+      "hal-navigation-menu-content"
+    ) as HalNavigationMenuContent
     await content.updateComplete
 
     expect(content.dataset.slot).toBe("navigation-menu-content")
@@ -310,7 +310,7 @@ describe("plank-navigation-menu-content", () => {
   })
 })
 
-describe("plank-navigation-menu-link", () => {
+describe("hal-navigation-menu-link", () => {
   let container: HTMLElement
 
   beforeEach(() => {
@@ -323,12 +323,12 @@ describe("plank-navigation-menu-link", () => {
 
   it("renders anchor element", async () => {
     container.innerHTML = `
-      <plank-navigation-menu-link href="/test">Link Text</plank-navigation-menu-link>
+      <hal-navigation-menu-link href="/test">Link Text</hal-navigation-menu-link>
     `
-    await customElements.whenDefined("plank-navigation-menu-link")
+    await customElements.whenDefined("hal-navigation-menu-link")
     const link = container.querySelector(
-      "plank-navigation-menu-link"
-    ) as PlankNavigationMenuLink
+      "hal-navigation-menu-link"
+    ) as HalNavigationMenuLink
     await link.updateComplete
 
     const anchor = link.querySelector("a")
@@ -338,12 +338,12 @@ describe("plank-navigation-menu-link", () => {
 
   it("handles active state", async () => {
     container.innerHTML = `
-      <plank-navigation-menu-link href="/test" active>Active Link</plank-navigation-menu-link>
+      <hal-navigation-menu-link href="/test" active>Active Link</hal-navigation-menu-link>
     `
-    await customElements.whenDefined("plank-navigation-menu-link")
+    await customElements.whenDefined("hal-navigation-menu-link")
     const link = container.querySelector(
-      "plank-navigation-menu-link"
-    ) as PlankNavigationMenuLink
+      "hal-navigation-menu-link"
+    ) as HalNavigationMenuLink
     await link.updateComplete
 
     expect(link.dataset.active).toBe("true")
@@ -353,12 +353,12 @@ describe("plank-navigation-menu-link", () => {
 
   it("has correct styling classes", async () => {
     container.innerHTML = `
-      <plank-navigation-menu-link href="/test">Link</plank-navigation-menu-link>
+      <hal-navigation-menu-link href="/test">Link</hal-navigation-menu-link>
     `
-    await customElements.whenDefined("plank-navigation-menu-link")
+    await customElements.whenDefined("hal-navigation-menu-link")
     const link = container.querySelector(
-      "plank-navigation-menu-link"
-    ) as PlankNavigationMenuLink
+      "hal-navigation-menu-link"
+    ) as HalNavigationMenuLink
     await link.updateComplete
 
     const anchor = link.querySelector("a")!
@@ -368,7 +368,7 @@ describe("plank-navigation-menu-link", () => {
   })
 })
 
-describe("plank-navigation-menu - interaction", () => {
+describe("hal-navigation-menu - interaction", () => {
   let container: HTMLElement
 
   beforeEach(() => {
@@ -383,27 +383,27 @@ describe("plank-navigation-menu - interaction", () => {
 
   it("opens on trigger hover after delay", async () => {
     container.innerHTML = `
-      <plank-navigation-menu delay-duration="100">
-        <plank-navigation-menu-list>
-          <plank-navigation-menu-item>
-            <plank-navigation-menu-trigger>Menu</plank-navigation-menu-trigger>
-            <plank-navigation-menu-content>
+      <hal-navigation-menu delay-duration="100">
+        <hal-navigation-menu-list>
+          <hal-navigation-menu-item>
+            <hal-navigation-menu-trigger>Menu</hal-navigation-menu-trigger>
+            <hal-navigation-menu-content>
               <div>Content</div>
-            </plank-navigation-menu-content>
-          </plank-navigation-menu-item>
-        </plank-navigation-menu-list>
-      </plank-navigation-menu>
+            </hal-navigation-menu-content>
+          </hal-navigation-menu-item>
+        </hal-navigation-menu-list>
+      </hal-navigation-menu>
     `
-    await customElements.whenDefined("plank-navigation-menu")
+    await customElements.whenDefined("hal-navigation-menu")
     const menu = container.querySelector(
-      "plank-navigation-menu"
-    ) as PlankNavigationMenu
+      "hal-navigation-menu"
+    ) as HalNavigationMenu
     await menu.updateComplete
 
-    const trigger = container.querySelector("plank-navigation-menu-trigger")!
+    const trigger = container.querySelector("hal-navigation-menu-trigger")!
     const content = container.querySelector(
-      "plank-navigation-menu-content"
-    ) as PlankNavigationMenuContent
+      "hal-navigation-menu-content"
+    ) as HalNavigationMenuContent
 
     // Initially hidden
     expect(content.style.display).toBe("none")
@@ -421,29 +421,29 @@ describe("plank-navigation-menu - interaction", () => {
 
   it("closes on Escape key", async () => {
     container.innerHTML = `
-      <plank-navigation-menu delay-duration="0">
-        <plank-navigation-menu-list>
-          <plank-navigation-menu-item>
-            <plank-navigation-menu-trigger>Menu</plank-navigation-menu-trigger>
-            <plank-navigation-menu-content>
+      <hal-navigation-menu delay-duration="0">
+        <hal-navigation-menu-list>
+          <hal-navigation-menu-item>
+            <hal-navigation-menu-trigger>Menu</hal-navigation-menu-trigger>
+            <hal-navigation-menu-content>
               <div>Content</div>
-            </plank-navigation-menu-content>
-          </plank-navigation-menu-item>
-        </plank-navigation-menu-list>
-      </plank-navigation-menu>
+            </hal-navigation-menu-content>
+          </hal-navigation-menu-item>
+        </hal-navigation-menu-list>
+      </hal-navigation-menu>
     `
-    await customElements.whenDefined("plank-navigation-menu")
+    await customElements.whenDefined("hal-navigation-menu")
     const menu = container.querySelector(
-      "plank-navigation-menu"
-    ) as PlankNavigationMenu
+      "hal-navigation-menu"
+    ) as HalNavigationMenu
     await menu.updateComplete
 
     const item = container.querySelector(
-      "plank-navigation-menu-item"
-    ) as PlankNavigationMenuItem
+      "hal-navigation-menu-item"
+    ) as HalNavigationMenuItem
     const content = container.querySelector(
-      "plank-navigation-menu-content"
-    ) as PlankNavigationMenuContent
+      "hal-navigation-menu-content"
+    ) as HalNavigationMenuContent
 
     // Open through menu so it tracks _activeItem
     menu._openItem(item)
@@ -457,29 +457,29 @@ describe("plank-navigation-menu - interaction", () => {
 
   it("closes on click outside", async () => {
     container.innerHTML = `
-      <plank-navigation-menu delay-duration="0">
-        <plank-navigation-menu-list>
-          <plank-navigation-menu-item>
-            <plank-navigation-menu-trigger>Menu</plank-navigation-menu-trigger>
-            <plank-navigation-menu-content>
+      <hal-navigation-menu delay-duration="0">
+        <hal-navigation-menu-list>
+          <hal-navigation-menu-item>
+            <hal-navigation-menu-trigger>Menu</hal-navigation-menu-trigger>
+            <hal-navigation-menu-content>
               <div>Content</div>
-            </plank-navigation-menu-content>
-          </plank-navigation-menu-item>
-        </plank-navigation-menu-list>
-      </plank-navigation-menu>
+            </hal-navigation-menu-content>
+          </hal-navigation-menu-item>
+        </hal-navigation-menu-list>
+      </hal-navigation-menu>
     `
-    await customElements.whenDefined("plank-navigation-menu")
+    await customElements.whenDefined("hal-navigation-menu")
     const menu = container.querySelector(
-      "plank-navigation-menu"
-    ) as PlankNavigationMenu
+      "hal-navigation-menu"
+    ) as HalNavigationMenu
     await menu.updateComplete
 
     const item = container.querySelector(
-      "plank-navigation-menu-item"
-    ) as PlankNavigationMenuItem
+      "hal-navigation-menu-item"
+    ) as HalNavigationMenuItem
     const content = container.querySelector(
-      "plank-navigation-menu-content"
-    ) as PlankNavigationMenuContent
+      "hal-navigation-menu-content"
+    ) as HalNavigationMenuContent
 
     // Open through menu so it tracks _activeItem
     menu._openItem(item)

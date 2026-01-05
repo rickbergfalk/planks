@@ -1,16 +1,16 @@
 import { describe, it, expect, beforeEach } from "vitest"
 import { page } from "vitest/browser"
-import "@/web-components/plank-spinner"
-import type { PlankSpinner } from "@/web-components/plank-spinner"
+import "@/web-components/hal-spinner"
+import type { HalSpinner } from "@/web-components/hal-spinner"
 
 /**
- * Visual tests for PlankSpinner web component.
+ * Visual tests for HalSpinner web component.
  *
  * These tests compare against the React component screenshots directly
  * (configured in vitest.config.ts via resolveScreenshotPath).
  * The React screenshots serve as the baseline/source of truth.
  */
-describe("PlankSpinner (Web Component) - Visual", () => {
+describe("HalSpinner (Web Component) - Visual", () => {
   let container: HTMLDivElement
 
   beforeEach(() => {
@@ -20,17 +20,17 @@ describe("PlankSpinner (Web Component) - Visual", () => {
 
   async function renderAndWait(html: string): Promise<void> {
     container.innerHTML = html
-    await customElements.whenDefined("plank-spinner")
-    const spinners = container.querySelectorAll("plank-spinner")
+    await customElements.whenDefined("hal-spinner")
+    const spinners = container.querySelectorAll("hal-spinner")
     await Promise.all(
-      Array.from(spinners).map((s) => (s as PlankSpinner).updateComplete)
+      Array.from(spinners).map((s) => (s as HalSpinner).updateComplete)
     )
   }
 
   it("default spinner matches React", async () => {
     await renderAndWait(`
       <div data-testid="container" style="padding: 16px;">
-        <plank-spinner></plank-spinner>
+        <hal-spinner></hal-spinner>
       </div>
     `)
     await expect(page.getByTestId("container")).toMatchScreenshot(
@@ -41,7 +41,7 @@ describe("PlankSpinner (Web Component) - Visual", () => {
   it("spinner with custom size matches React", async () => {
     await renderAndWait(`
       <div data-testid="container" style="padding: 16px;">
-        <plank-spinner class="size-8"></plank-spinner>
+        <hal-spinner class="size-8"></hal-spinner>
       </div>
     `)
     await expect(page.getByTestId("container")).toMatchScreenshot(
@@ -52,7 +52,7 @@ describe("PlankSpinner (Web Component) - Visual", () => {
   it("spinner with custom color matches React", async () => {
     await renderAndWait(`
       <div data-testid="container" style="padding: 16px;">
-        <plank-spinner class="text-primary"></plank-spinner>
+        <hal-spinner class="text-primary"></hal-spinner>
       </div>
     `)
     await expect(page.getByTestId("container")).toMatchScreenshot(

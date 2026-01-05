@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HoverCard - Planks</title>
+    <title>HoverCard - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -17,15 +17,15 @@
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Basic Usage</h2>
         <div class="mb-4 flex items-center gap-4">
-          <plank-hover-card>
-            <plank-hover-card-trigger>
-              <plank-button variant="link">@nextjs</plank-button>
-            </plank-hover-card-trigger>
-            <plank-hover-card-content class="w-80">
+          <hal-hover-card>
+            <hal-hover-card-trigger>
+              <hal-button variant="link">@nextjs</hal-button>
+            </hal-hover-card-trigger>
+            <hal-hover-card-content class="w-80">
               <div class="flex justify-between gap-4">
-                <plank-avatar>
-                  <plank-avatar-fallback>VC</plank-avatar-fallback>
-                </plank-avatar>
+                <hal-avatar>
+                  <hal-avatar-fallback>VC</hal-avatar-fallback>
+                </hal-avatar>
                 <div class="space-y-1">
                   <h4 class="text-sm font-semibold">@nextjs</h4>
                   <p class="text-sm">
@@ -36,62 +36,62 @@
                   </div>
                 </div>
               </div>
-            </plank-hover-card-content>
-          </plank-hover-card>
+            </hal-hover-card-content>
+          </hal-hover-card>
         </div>
-        <pre><code>&lt;plank-hover-card&gt;
-  &lt;plank-hover-card-trigger&gt;
-    &lt;plank-button variant="link"&gt;@nextjs&lt;/plank-button&gt;
-  &lt;/plank-hover-card-trigger&gt;
-  &lt;plank-hover-card-content class="w-80"&gt;
+        <pre><code>&lt;hal-hover-card&gt;
+  &lt;hal-hover-card-trigger&gt;
+    &lt;hal-button variant="link"&gt;@nextjs&lt;/hal-button&gt;
+  &lt;/hal-hover-card-trigger&gt;
+  &lt;hal-hover-card-content class="w-80"&gt;
     &lt;div class="flex justify-between gap-4"&gt;
-      &lt;plank-avatar&gt;
-        &lt;plank-avatar-fallback&gt;VC&lt;/plank-avatar-fallback&gt;
-      &lt;/plank-avatar&gt;
+      &lt;hal-avatar&gt;
+        &lt;hal-avatar-fallback&gt;VC&lt;/hal-avatar-fallback&gt;
+      &lt;/hal-avatar&gt;
       &lt;div class="space-y-1"&gt;
         &lt;h4 class="text-sm font-semibold"&gt;@nextjs&lt;/h4&gt;
         &lt;p class="text-sm"&gt;The React Framework – created and maintained by @vercel.&lt;/p&gt;
         &lt;div class="text-muted-foreground text-xs"&gt;Joined December 2021&lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
-  &lt;/plank-hover-card-content&gt;
-&lt;/plank-hover-card&gt;</code></pre>
+  &lt;/hal-hover-card-content&gt;
+&lt;/hal-hover-card&gt;</code></pre>
       </section>
 
       <!-- Different Alignments -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Different Alignments</h2>
         <div class="mb-4 flex flex-wrap items-center gap-4">
-          <plank-hover-card>
-            <plank-hover-card-trigger>
-              <plank-button variant="outline">Start aligned</plank-button>
-            </plank-hover-card-trigger>
-            <plank-hover-card-content align="start">
+          <hal-hover-card>
+            <hal-hover-card-trigger>
+              <hal-button variant="outline">Start aligned</hal-button>
+            </hal-hover-card-trigger>
+            <hal-hover-card-content align="start">
               <p class="text-sm">This hover card is aligned to the start.</p>
-            </plank-hover-card-content>
-          </plank-hover-card>
+            </hal-hover-card-content>
+          </hal-hover-card>
 
-          <plank-hover-card>
-            <plank-hover-card-trigger>
-              <plank-button variant="outline">Center aligned</plank-button>
-            </plank-hover-card-trigger>
-            <plank-hover-card-content align="center">
+          <hal-hover-card>
+            <hal-hover-card-trigger>
+              <hal-button variant="outline">Center aligned</hal-button>
+            </hal-hover-card-trigger>
+            <hal-hover-card-content align="center">
               <p class="text-sm">This hover card is centered.</p>
-            </plank-hover-card-content>
-          </plank-hover-card>
+            </hal-hover-card-content>
+          </hal-hover-card>
 
-          <plank-hover-card>
-            <plank-hover-card-trigger>
-              <plank-button variant="outline">End aligned</plank-button>
-            </plank-hover-card-trigger>
-            <plank-hover-card-content align="end">
+          <hal-hover-card>
+            <hal-hover-card-trigger>
+              <hal-button variant="outline">End aligned</hal-button>
+            </hal-hover-card-trigger>
+            <hal-hover-card-content align="end">
               <p class="text-sm">This hover card is aligned to the end.</p>
-            </plank-hover-card-content>
-          </plank-hover-card>
+            </hal-hover-card-content>
+          </hal-hover-card>
         </div>
-        <pre><code>&lt;plank-hover-card-content align="start"&gt;...&lt;/plank-hover-card-content&gt;
-&lt;plank-hover-card-content align="center"&gt;...&lt;/plank-hover-card-content&gt;
-&lt;plank-hover-card-content align="end"&gt;...&lt;/plank-hover-card-content&gt;</code></pre>
+        <pre><code>&lt;hal-hover-card-content align="start"&gt;...&lt;/hal-hover-card-content&gt;
+&lt;hal-hover-card-content align="center"&gt;...&lt;/hal-hover-card-content&gt;
+&lt;hal-hover-card-content align="end"&gt;...&lt;/hal-hover-card-content&gt;</code></pre>
       </section>
 
       <!-- With Delays -->
@@ -102,31 +102,31 @@
           Default is 700ms open delay and 300ms close delay.
         </p>
         <div class="mb-4 flex items-center gap-4">
-          <plank-hover-card open-delay="0" close-delay="0">
-            <plank-hover-card-trigger>
-              <plank-button variant="outline">No delay</plank-button>
-            </plank-hover-card-trigger>
-            <plank-hover-card-content>
+          <hal-hover-card open-delay="0" close-delay="0">
+            <hal-hover-card-trigger>
+              <hal-button variant="outline">No delay</hal-button>
+            </hal-hover-card-trigger>
+            <hal-hover-card-content>
               <p class="text-sm">This appears instantly!</p>
-            </plank-hover-card-content>
-          </plank-hover-card>
+            </hal-hover-card-content>
+          </hal-hover-card>
 
-          <plank-hover-card open-delay="1000">
-            <plank-hover-card-trigger>
-              <plank-button variant="outline">1 second delay</plank-button>
-            </plank-hover-card-trigger>
-            <plank-hover-card-content>
+          <hal-hover-card open-delay="1000">
+            <hal-hover-card-trigger>
+              <hal-button variant="outline">1 second delay</hal-button>
+            </hal-hover-card-trigger>
+            <hal-hover-card-content>
               <p class="text-sm">This took a full second to appear.</p>
-            </plank-hover-card-content>
-          </plank-hover-card>
+            </hal-hover-card-content>
+          </hal-hover-card>
         </div>
-        <pre><code>&lt;plank-hover-card open-delay="0" close-delay="0"&gt;
+        <pre><code>&lt;hal-hover-card open-delay="0" close-delay="0"&gt;
   ...
-&lt;/plank-hover-card&gt;
+&lt;/hal-hover-card&gt;
 
-&lt;plank-hover-card open-delay="1000"&gt;
+&lt;hal-hover-card open-delay="1000"&gt;
   ...
-&lt;/plank-hover-card&gt;</code></pre>
+&lt;/hal-hover-card&gt;</code></pre>
       </section>
 
       <!-- Controlled -->
@@ -137,25 +137,25 @@
           programmatically.
         </p>
         <div class="mb-4 flex items-center gap-4">
-          <plank-hover-card open>
-            <plank-hover-card-trigger>
-              <plank-button variant="link">Always open</plank-button>
-            </plank-hover-card-trigger>
-            <plank-hover-card-content>
+          <hal-hover-card open>
+            <hal-hover-card-trigger>
+              <hal-button variant="link">Always open</hal-button>
+            </hal-hover-card-trigger>
+            <hal-hover-card-content>
               <p class="text-sm">This hover card is always open.</p>
-            </plank-hover-card-content>
-          </plank-hover-card>
+            </hal-hover-card-content>
+          </hal-hover-card>
         </div>
-        <pre><code>&lt;plank-hover-card open&gt;
+        <pre><code>&lt;hal-hover-card open&gt;
   ...
-&lt;/plank-hover-card&gt;</code></pre>
+&lt;/hal-hover-card&gt;</code></pre>
       </section>
 
       <!-- API -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">API</h2>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-hover-card</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-hover-card</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -217,17 +217,13 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">
-          plank-hover-card-trigger
-        </h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-hover-card-trigger</h3>
         <p class="text-muted-foreground mb-4">
           The element that triggers the hover card. Shows on hover (mouse only)
           and keyboard focus.
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">
-          plank-hover-card-content
-        </h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-hover-card-content</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>

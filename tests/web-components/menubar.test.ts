@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach, vi } from "vitest"
-import "../../src/web-components/plank-menubar"
+import "../../src/web-components/hal-menubar"
 
-describe("plank-menubar", () => {
+describe("hal-menubar", () => {
   let container: HTMLElement
 
   beforeEach(() => {
@@ -12,17 +12,17 @@ describe("plank-menubar", () => {
     }
   })
 
-  describe("PlankMenubar", () => {
+  describe("HalMenubar", () => {
     it("renders with correct role", async () => {
       container.innerHTML = `
-        <plank-menubar>
-          <plank-menubar-menu>
-            <plank-menubar-trigger>File</plank-menubar-trigger>
-          </plank-menubar-menu>
-        </plank-menubar>
+        <hal-menubar>
+          <hal-menubar-menu>
+            <hal-menubar-trigger>File</hal-menubar-trigger>
+          </hal-menubar-menu>
+        </hal-menubar>
       `
-      await customElements.whenDefined("plank-menubar")
-      const menubar = container.querySelector("plank-menubar")!
+      await customElements.whenDefined("hal-menubar")
+      const menubar = container.querySelector("hal-menubar")!
       await (menubar as any).updateComplete
 
       expect(menubar.getAttribute("role")).toBe("menubar")
@@ -30,14 +30,14 @@ describe("plank-menubar", () => {
 
     it("has correct styling classes", async () => {
       container.innerHTML = `
-        <plank-menubar>
-          <plank-menubar-menu>
-            <plank-menubar-trigger>File</plank-menubar-trigger>
-          </plank-menubar-menu>
-        </plank-menubar>
+        <hal-menubar>
+          <hal-menubar-menu>
+            <hal-menubar-trigger>File</hal-menubar-trigger>
+          </hal-menubar-menu>
+        </hal-menubar>
       `
-      await customElements.whenDefined("plank-menubar")
-      const menubar = container.querySelector("plank-menubar")!
+      await customElements.whenDefined("hal-menubar")
+      const menubar = container.querySelector("hal-menubar")!
       await (menubar as any).updateComplete
 
       expect(menubar.className).toContain("flex")
@@ -47,41 +47,41 @@ describe("plank-menubar", () => {
     })
   })
 
-  describe("PlankMenubarMenu", () => {
+  describe("HalMenubarMenu", () => {
     it("renders trigger and content", async () => {
       container.innerHTML = `
-        <plank-menubar>
-          <plank-menubar-menu>
-            <plank-menubar-trigger>File</plank-menubar-trigger>
-            <plank-menubar-content>
-              <plank-menubar-item>New</plank-menubar-item>
-            </plank-menubar-content>
-          </plank-menubar-menu>
-        </plank-menubar>
+        <hal-menubar>
+          <hal-menubar-menu>
+            <hal-menubar-trigger>File</hal-menubar-trigger>
+            <hal-menubar-content>
+              <hal-menubar-item>New</hal-menubar-item>
+            </hal-menubar-content>
+          </hal-menubar-menu>
+        </hal-menubar>
       `
-      await customElements.whenDefined("plank-menubar")
-      const menu = container.querySelector("plank-menubar-menu")!
+      await customElements.whenDefined("hal-menubar")
+      const menu = container.querySelector("hal-menubar-menu")!
       await (menu as any).updateComplete
 
-      const trigger = container.querySelector("plank-menubar-trigger")
-      const content = container.querySelector("plank-menubar-content")
+      const trigger = container.querySelector("hal-menubar-trigger")
+      const content = container.querySelector("hal-menubar-content")
 
       expect(trigger).toBeTruthy()
       expect(content).toBeTruthy()
     })
   })
 
-  describe("PlankMenubarTrigger", () => {
+  describe("HalMenubarTrigger", () => {
     it("has correct accessibility attributes", async () => {
       container.innerHTML = `
-        <plank-menubar>
-          <plank-menubar-menu>
-            <plank-menubar-trigger>File</plank-menubar-trigger>
-          </plank-menubar-menu>
-        </plank-menubar>
+        <hal-menubar>
+          <hal-menubar-menu>
+            <hal-menubar-trigger>File</hal-menubar-trigger>
+          </hal-menubar-menu>
+        </hal-menubar>
       `
-      await customElements.whenDefined("plank-menubar")
-      const trigger = container.querySelector("plank-menubar-trigger")!
+      await customElements.whenDefined("hal-menubar")
+      const trigger = container.querySelector("hal-menubar-trigger")!
       await (trigger as any).updateComplete
 
       expect(trigger.getAttribute("role")).toBe("menuitem")
@@ -91,19 +91,19 @@ describe("plank-menubar", () => {
 
     it("opens menu on click", async () => {
       container.innerHTML = `
-        <plank-menubar>
-          <plank-menubar-menu>
-            <plank-menubar-trigger>File</plank-menubar-trigger>
-            <plank-menubar-content>
-              <plank-menubar-item>New</plank-menubar-item>
-            </plank-menubar-content>
-          </plank-menubar-menu>
-        </plank-menubar>
+        <hal-menubar>
+          <hal-menubar-menu>
+            <hal-menubar-trigger>File</hal-menubar-trigger>
+            <hal-menubar-content>
+              <hal-menubar-item>New</hal-menubar-item>
+            </hal-menubar-content>
+          </hal-menubar-menu>
+        </hal-menubar>
       `
-      await customElements.whenDefined("plank-menubar")
-      const menubar = container.querySelector("plank-menubar")!
-      const trigger = container.querySelector("plank-menubar-trigger")!
-      const content = container.querySelector("plank-menubar-content")!
+      await customElements.whenDefined("hal-menubar")
+      const menubar = container.querySelector("hal-menubar")!
+      const trigger = container.querySelector("hal-menubar-trigger")!
+      const content = container.querySelector("hal-menubar-content")!
       await (menubar as any).updateComplete
       await (trigger as any).updateComplete
       await new Promise((r) => setTimeout(r, 0))
@@ -118,19 +118,19 @@ describe("plank-menubar", () => {
 
     it("closes menu on second click", async () => {
       container.innerHTML = `
-        <plank-menubar>
-          <plank-menubar-menu>
-            <plank-menubar-trigger>File</plank-menubar-trigger>
-            <plank-menubar-content>
-              <plank-menubar-item>New</plank-menubar-item>
-            </plank-menubar-content>
-          </plank-menubar-menu>
-        </plank-menubar>
+        <hal-menubar>
+          <hal-menubar-menu>
+            <hal-menubar-trigger>File</hal-menubar-trigger>
+            <hal-menubar-content>
+              <hal-menubar-item>New</hal-menubar-item>
+            </hal-menubar-content>
+          </hal-menubar-menu>
+        </hal-menubar>
       `
-      await customElements.whenDefined("plank-menubar")
-      const menubar = container.querySelector("plank-menubar")!
-      const trigger = container.querySelector("plank-menubar-trigger")!
-      const content = container.querySelector("plank-menubar-content")!
+      await customElements.whenDefined("hal-menubar")
+      const menubar = container.querySelector("hal-menubar")!
+      const trigger = container.querySelector("hal-menubar-trigger")!
+      const content = container.querySelector("hal-menubar-content")!
       await (menubar as any).updateComplete
       await new Promise((r) => setTimeout(r, 0))
 
@@ -144,40 +144,40 @@ describe("plank-menubar", () => {
     })
   })
 
-  describe("PlankMenubarContent", () => {
+  describe("HalMenubarContent", () => {
     it("has correct role", async () => {
       container.innerHTML = `
-        <plank-menubar>
-          <plank-menubar-menu>
-            <plank-menubar-trigger>File</plank-menubar-trigger>
-            <plank-menubar-content>
-              <plank-menubar-item>New</plank-menubar-item>
-            </plank-menubar-content>
-          </plank-menubar-menu>
-        </plank-menubar>
+        <hal-menubar>
+          <hal-menubar-menu>
+            <hal-menubar-trigger>File</hal-menubar-trigger>
+            <hal-menubar-content>
+              <hal-menubar-item>New</hal-menubar-item>
+            </hal-menubar-content>
+          </hal-menubar-menu>
+        </hal-menubar>
       `
-      await customElements.whenDefined("plank-menubar")
-      const content = container.querySelector("plank-menubar-content")!
+      await customElements.whenDefined("hal-menubar")
+      const content = container.querySelector("hal-menubar-content")!
       await (content as any).updateComplete
 
       expect(content.getAttribute("role")).toBe("menu")
     })
   })
 
-  describe("PlankMenubarItem", () => {
+  describe("HalMenubarItem", () => {
     it("has correct role", async () => {
       container.innerHTML = `
-        <plank-menubar>
-          <plank-menubar-menu>
-            <plank-menubar-trigger>File</plank-menubar-trigger>
-            <plank-menubar-content>
-              <plank-menubar-item>New</plank-menubar-item>
-            </plank-menubar-content>
-          </plank-menubar-menu>
-        </plank-menubar>
+        <hal-menubar>
+          <hal-menubar-menu>
+            <hal-menubar-trigger>File</hal-menubar-trigger>
+            <hal-menubar-content>
+              <hal-menubar-item>New</hal-menubar-item>
+            </hal-menubar-content>
+          </hal-menubar-menu>
+        </hal-menubar>
       `
-      await customElements.whenDefined("plank-menubar")
-      const item = container.querySelector("plank-menubar-item")!
+      await customElements.whenDefined("hal-menubar")
+      const item = container.querySelector("hal-menubar-item")!
       await (item as any).updateComplete
 
       expect(item.getAttribute("role")).toBe("menuitem")
@@ -185,19 +185,19 @@ describe("plank-menubar", () => {
 
     it("fires select event when clicked", async () => {
       container.innerHTML = `
-        <plank-menubar>
-          <plank-menubar-menu>
-            <plank-menubar-trigger>File</plank-menubar-trigger>
-            <plank-menubar-content>
-              <plank-menubar-item>New</plank-menubar-item>
-            </plank-menubar-content>
-          </plank-menubar-menu>
-        </plank-menubar>
+        <hal-menubar>
+          <hal-menubar-menu>
+            <hal-menubar-trigger>File</hal-menubar-trigger>
+            <hal-menubar-content>
+              <hal-menubar-item>New</hal-menubar-item>
+            </hal-menubar-content>
+          </hal-menubar-menu>
+        </hal-menubar>
       `
-      await customElements.whenDefined("plank-menubar")
-      const menubar = container.querySelector("plank-menubar")!
-      const trigger = container.querySelector("plank-menubar-trigger")!
-      const item = container.querySelector("plank-menubar-item")!
+      await customElements.whenDefined("hal-menubar")
+      const menubar = container.querySelector("hal-menubar")!
+      const trigger = container.querySelector("hal-menubar-trigger")!
+      const item = container.querySelector("hal-menubar-item")!
       await (menubar as any).updateComplete
       await new Promise((r) => setTimeout(r, 0))
 
@@ -215,20 +215,20 @@ describe("plank-menubar", () => {
 
     it("closes menu after selection", async () => {
       container.innerHTML = `
-        <plank-menubar>
-          <plank-menubar-menu>
-            <plank-menubar-trigger>File</plank-menubar-trigger>
-            <plank-menubar-content>
-              <plank-menubar-item>New</plank-menubar-item>
-            </plank-menubar-content>
-          </plank-menubar-menu>
-        </plank-menubar>
+        <hal-menubar>
+          <hal-menubar-menu>
+            <hal-menubar-trigger>File</hal-menubar-trigger>
+            <hal-menubar-content>
+              <hal-menubar-item>New</hal-menubar-item>
+            </hal-menubar-content>
+          </hal-menubar-menu>
+        </hal-menubar>
       `
-      await customElements.whenDefined("plank-menubar")
-      const menubar = container.querySelector("plank-menubar")!
-      const trigger = container.querySelector("plank-menubar-trigger")!
-      const content = container.querySelector("plank-menubar-content")!
-      const item = container.querySelector("plank-menubar-item")!
+      await customElements.whenDefined("hal-menubar")
+      const menubar = container.querySelector("hal-menubar")!
+      const trigger = container.querySelector("hal-menubar-trigger")!
+      const content = container.querySelector("hal-menubar-content")!
+      const item = container.querySelector("hal-menubar-item")!
       await (menubar as any).updateComplete
       await new Promise((r) => setTimeout(r, 0))
 
@@ -243,17 +243,17 @@ describe("plank-menubar", () => {
 
     it("supports disabled state", async () => {
       container.innerHTML = `
-        <plank-menubar>
-          <plank-menubar-menu>
-            <plank-menubar-trigger>File</plank-menubar-trigger>
-            <plank-menubar-content>
-              <plank-menubar-item disabled>New</plank-menubar-item>
-            </plank-menubar-content>
-          </plank-menubar-menu>
-        </plank-menubar>
+        <hal-menubar>
+          <hal-menubar-menu>
+            <hal-menubar-trigger>File</hal-menubar-trigger>
+            <hal-menubar-content>
+              <hal-menubar-item disabled>New</hal-menubar-item>
+            </hal-menubar-content>
+          </hal-menubar-menu>
+        </hal-menubar>
       `
-      await customElements.whenDefined("plank-menubar")
-      const item = container.querySelector("plank-menubar-item")!
+      await customElements.whenDefined("hal-menubar")
+      const item = container.querySelector("hal-menubar-item")!
       await (item as any).updateComplete
 
       expect(item.getAttribute("aria-disabled")).toBe("true")
@@ -261,17 +261,17 @@ describe("plank-menubar", () => {
 
     it("supports inset variant", async () => {
       container.innerHTML = `
-        <plank-menubar>
-          <plank-menubar-menu>
-            <plank-menubar-trigger>File</plank-menubar-trigger>
-            <plank-menubar-content>
-              <plank-menubar-item inset>New</plank-menubar-item>
-            </plank-menubar-content>
-          </plank-menubar-menu>
-        </plank-menubar>
+        <hal-menubar>
+          <hal-menubar-menu>
+            <hal-menubar-trigger>File</hal-menubar-trigger>
+            <hal-menubar-content>
+              <hal-menubar-item inset>New</hal-menubar-item>
+            </hal-menubar-content>
+          </hal-menubar-menu>
+        </hal-menubar>
       `
-      await customElements.whenDefined("plank-menubar")
-      const item = container.querySelector("plank-menubar-item")!
+      await customElements.whenDefined("hal-menubar")
+      const item = container.querySelector("hal-menubar-item")!
       await (item as any).updateComplete
 
       expect(item.dataset.inset).toBe("true")
@@ -279,37 +279,37 @@ describe("plank-menubar", () => {
 
     it("supports destructive variant", async () => {
       container.innerHTML = `
-        <plank-menubar>
-          <plank-menubar-menu>
-            <plank-menubar-trigger>File</plank-menubar-trigger>
-            <plank-menubar-content>
-              <plank-menubar-item variant="destructive">Delete</plank-menubar-item>
-            </plank-menubar-content>
-          </plank-menubar-menu>
-        </plank-menubar>
+        <hal-menubar>
+          <hal-menubar-menu>
+            <hal-menubar-trigger>File</hal-menubar-trigger>
+            <hal-menubar-content>
+              <hal-menubar-item variant="destructive">Delete</hal-menubar-item>
+            </hal-menubar-content>
+          </hal-menubar-menu>
+        </hal-menubar>
       `
-      await customElements.whenDefined("plank-menubar")
-      const item = container.querySelector("plank-menubar-item")!
+      await customElements.whenDefined("hal-menubar")
+      const item = container.querySelector("hal-menubar-item")!
       await (item as any).updateComplete
 
       expect(item.dataset.variant).toBe("destructive")
     })
   })
 
-  describe("PlankMenubarCheckboxItem", () => {
+  describe("HalMenubarCheckboxItem", () => {
     it("has correct role", async () => {
       container.innerHTML = `
-        <plank-menubar>
-          <plank-menubar-menu>
-            <plank-menubar-trigger>View</plank-menubar-trigger>
-            <plank-menubar-content>
-              <plank-menubar-checkbox-item>Show Toolbar</plank-menubar-checkbox-item>
-            </plank-menubar-content>
-          </plank-menubar-menu>
-        </plank-menubar>
+        <hal-menubar>
+          <hal-menubar-menu>
+            <hal-menubar-trigger>View</hal-menubar-trigger>
+            <hal-menubar-content>
+              <hal-menubar-checkbox-item>Show Toolbar</hal-menubar-checkbox-item>
+            </hal-menubar-content>
+          </hal-menubar-menu>
+        </hal-menubar>
       `
-      await customElements.whenDefined("plank-menubar")
-      const item = container.querySelector("plank-menubar-checkbox-item")!
+      await customElements.whenDefined("hal-menubar")
+      const item = container.querySelector("hal-menubar-checkbox-item")!
       await (item as any).updateComplete
 
       expect(item.getAttribute("role")).toBe("menuitemcheckbox")
@@ -317,17 +317,17 @@ describe("plank-menubar", () => {
 
     it("toggles checked state on click", async () => {
       container.innerHTML = `
-        <plank-menubar>
-          <plank-menubar-menu>
-            <plank-menubar-trigger>View</plank-menubar-trigger>
-            <plank-menubar-content>
-              <plank-menubar-checkbox-item>Show Toolbar</plank-menubar-checkbox-item>
-            </plank-menubar-content>
-          </plank-menubar-menu>
-        </plank-menubar>
+        <hal-menubar>
+          <hal-menubar-menu>
+            <hal-menubar-trigger>View</hal-menubar-trigger>
+            <hal-menubar-content>
+              <hal-menubar-checkbox-item>Show Toolbar</hal-menubar-checkbox-item>
+            </hal-menubar-content>
+          </hal-menubar-menu>
+        </hal-menubar>
       `
-      await customElements.whenDefined("plank-menubar")
-      const item = container.querySelector("plank-menubar-checkbox-item") as any
+      await customElements.whenDefined("hal-menubar")
+      const item = container.querySelector("hal-menubar-checkbox-item") as any
       await item.updateComplete
 
       expect(item.checked).toBe(false)
@@ -340,18 +340,18 @@ describe("plank-menubar", () => {
 
     it("fires checked-change event", async () => {
       container.innerHTML = `
-        <plank-menubar>
-          <plank-menubar-menu>
-            <plank-menubar-trigger>View</plank-menubar-trigger>
-            <plank-menubar-content>
-              <plank-menubar-checkbox-item>Show Toolbar</plank-menubar-checkbox-item>
-            </plank-menubar-content>
-          </plank-menubar-menu>
-        </plank-menubar>
+        <hal-menubar>
+          <hal-menubar-menu>
+            <hal-menubar-trigger>View</hal-menubar-trigger>
+            <hal-menubar-content>
+              <hal-menubar-checkbox-item>Show Toolbar</hal-menubar-checkbox-item>
+            </hal-menubar-content>
+          </hal-menubar-menu>
+        </hal-menubar>
       `
-      await customElements.whenDefined("plank-menubar")
-      const menubar = container.querySelector("plank-menubar")!
-      const item = container.querySelector("plank-menubar-checkbox-item") as any
+      await customElements.whenDefined("hal-menubar")
+      const menubar = container.querySelector("hal-menubar")!
+      const item = container.querySelector("hal-menubar-checkbox-item") as any
       await item.updateComplete
 
       const handler = vi.fn()
@@ -368,23 +368,23 @@ describe("plank-menubar", () => {
     })
   })
 
-  describe("PlankMenubarRadioGroup", () => {
+  describe("HalMenubarRadioGroup", () => {
     it("has correct role", async () => {
       container.innerHTML = `
-        <plank-menubar>
-          <plank-menubar-menu>
-            <plank-menubar-trigger>Options</plank-menubar-trigger>
-            <plank-menubar-content>
-              <plank-menubar-radio-group value="a">
-                <plank-menubar-radio-item value="a">Option A</plank-menubar-radio-item>
-                <plank-menubar-radio-item value="b">Option B</plank-menubar-radio-item>
-              </plank-menubar-radio-group>
-            </plank-menubar-content>
-          </plank-menubar-menu>
-        </plank-menubar>
+        <hal-menubar>
+          <hal-menubar-menu>
+            <hal-menubar-trigger>Options</hal-menubar-trigger>
+            <hal-menubar-content>
+              <hal-menubar-radio-group value="a">
+                <hal-menubar-radio-item value="a">Option A</hal-menubar-radio-item>
+                <hal-menubar-radio-item value="b">Option B</hal-menubar-radio-item>
+              </hal-menubar-radio-group>
+            </hal-menubar-content>
+          </hal-menubar-menu>
+        </hal-menubar>
       `
-      await customElements.whenDefined("plank-menubar")
-      const group = container.querySelector("plank-menubar-radio-group")!
+      await customElements.whenDefined("hal-menubar")
+      const group = container.querySelector("hal-menubar-radio-group")!
       await (group as any).updateComplete
 
       expect(group.getAttribute("role")).toBe("group")
@@ -392,21 +392,21 @@ describe("plank-menubar", () => {
 
     it("manages radio selection", async () => {
       container.innerHTML = `
-        <plank-menubar>
-          <plank-menubar-menu>
-            <plank-menubar-trigger>Options</plank-menubar-trigger>
-            <plank-menubar-content>
-              <plank-menubar-radio-group value="a">
-                <plank-menubar-radio-item value="a">Option A</plank-menubar-radio-item>
-                <plank-menubar-radio-item value="b">Option B</plank-menubar-radio-item>
-              </plank-menubar-radio-group>
-            </plank-menubar-content>
-          </plank-menubar-menu>
-        </plank-menubar>
+        <hal-menubar>
+          <hal-menubar-menu>
+            <hal-menubar-trigger>Options</hal-menubar-trigger>
+            <hal-menubar-content>
+              <hal-menubar-radio-group value="a">
+                <hal-menubar-radio-item value="a">Option A</hal-menubar-radio-item>
+                <hal-menubar-radio-item value="b">Option B</hal-menubar-radio-item>
+              </hal-menubar-radio-group>
+            </hal-menubar-content>
+          </hal-menubar-menu>
+        </hal-menubar>
       `
-      await customElements.whenDefined("plank-menubar")
-      const group = container.querySelector("plank-menubar-radio-group") as any
-      const items = container.querySelectorAll("plank-menubar-radio-item")
+      await customElements.whenDefined("hal-menubar")
+      const group = container.querySelector("hal-menubar-radio-group") as any
+      const items = container.querySelectorAll("hal-menubar-radio-item")
       await group.updateComplete
       await new Promise((r) => setTimeout(r, 0))
 
@@ -416,21 +416,21 @@ describe("plank-menubar", () => {
 
     it("fires value-change event", async () => {
       container.innerHTML = `
-        <plank-menubar>
-          <plank-menubar-menu>
-            <plank-menubar-trigger>Options</plank-menubar-trigger>
-            <plank-menubar-content>
-              <plank-menubar-radio-group value="a">
-                <plank-menubar-radio-item value="a">Option A</plank-menubar-radio-item>
-                <plank-menubar-radio-item value="b">Option B</plank-menubar-radio-item>
-              </plank-menubar-radio-group>
-            </plank-menubar-content>
-          </plank-menubar-menu>
-        </plank-menubar>
+        <hal-menubar>
+          <hal-menubar-menu>
+            <hal-menubar-trigger>Options</hal-menubar-trigger>
+            <hal-menubar-content>
+              <hal-menubar-radio-group value="a">
+                <hal-menubar-radio-item value="a">Option A</hal-menubar-radio-item>
+                <hal-menubar-radio-item value="b">Option B</hal-menubar-radio-item>
+              </hal-menubar-radio-group>
+            </hal-menubar-content>
+          </hal-menubar-menu>
+        </hal-menubar>
       `
-      await customElements.whenDefined("plank-menubar")
-      const menubar = container.querySelector("plank-menubar")!
-      const items = container.querySelectorAll("plank-menubar-radio-item")
+      await customElements.whenDefined("hal-menubar")
+      const menubar = container.querySelector("hal-menubar")!
+      const items = container.querySelectorAll("hal-menubar-radio-item")
       await (menubar as any).updateComplete
       await new Promise((r) => setTimeout(r, 0))
 
@@ -448,65 +448,65 @@ describe("plank-menubar", () => {
     })
   })
 
-  describe("PlankMenubarLabel", () => {
+  describe("HalMenubarLabel", () => {
     it("renders with correct styling", async () => {
       container.innerHTML = `
-        <plank-menubar>
-          <plank-menubar-menu>
-            <plank-menubar-trigger>File</plank-menubar-trigger>
-            <plank-menubar-content>
-              <plank-menubar-label>Actions</plank-menubar-label>
-            </plank-menubar-content>
-          </plank-menubar-menu>
-        </plank-menubar>
+        <hal-menubar>
+          <hal-menubar-menu>
+            <hal-menubar-trigger>File</hal-menubar-trigger>
+            <hal-menubar-content>
+              <hal-menubar-label>Actions</hal-menubar-label>
+            </hal-menubar-content>
+          </hal-menubar-menu>
+        </hal-menubar>
       `
-      await customElements.whenDefined("plank-menubar")
-      const label = container.querySelector("plank-menubar-label")!
+      await customElements.whenDefined("hal-menubar")
+      const label = container.querySelector("hal-menubar-label")!
       await (label as any).updateComplete
 
       expect(label.className).toContain("font-medium")
     })
   })
 
-  describe("PlankMenubarSeparator", () => {
+  describe("HalMenubarSeparator", () => {
     it("has correct role", async () => {
       container.innerHTML = `
-        <plank-menubar>
-          <plank-menubar-menu>
-            <plank-menubar-trigger>File</plank-menubar-trigger>
-            <plank-menubar-content>
-              <plank-menubar-item>New</plank-menubar-item>
-              <plank-menubar-separator></plank-menubar-separator>
-              <plank-menubar-item>Open</plank-menubar-item>
-            </plank-menubar-content>
-          </plank-menubar-menu>
-        </plank-menubar>
+        <hal-menubar>
+          <hal-menubar-menu>
+            <hal-menubar-trigger>File</hal-menubar-trigger>
+            <hal-menubar-content>
+              <hal-menubar-item>New</hal-menubar-item>
+              <hal-menubar-separator></hal-menubar-separator>
+              <hal-menubar-item>Open</hal-menubar-item>
+            </hal-menubar-content>
+          </hal-menubar-menu>
+        </hal-menubar>
       `
-      await customElements.whenDefined("plank-menubar")
-      const separator = container.querySelector("plank-menubar-separator")!
+      await customElements.whenDefined("hal-menubar")
+      const separator = container.querySelector("hal-menubar-separator")!
       await (separator as any).updateComplete
 
       expect(separator.getAttribute("role")).toBe("separator")
     })
   })
 
-  describe("PlankMenubarShortcut", () => {
+  describe("HalMenubarShortcut", () => {
     it("renders with correct styling", async () => {
       container.innerHTML = `
-        <plank-menubar>
-          <plank-menubar-menu>
-            <plank-menubar-trigger>File</plank-menubar-trigger>
-            <plank-menubar-content>
-              <plank-menubar-item>
+        <hal-menubar>
+          <hal-menubar-menu>
+            <hal-menubar-trigger>File</hal-menubar-trigger>
+            <hal-menubar-content>
+              <hal-menubar-item>
                 New
-                <plank-menubar-shortcut>⌘N</plank-menubar-shortcut>
-              </plank-menubar-item>
-            </plank-menubar-content>
-          </plank-menubar-menu>
-        </plank-menubar>
+                <hal-menubar-shortcut>⌘N</hal-menubar-shortcut>
+              </hal-menubar-item>
+            </hal-menubar-content>
+          </hal-menubar-menu>
+        </hal-menubar>
       `
-      await customElements.whenDefined("plank-menubar")
-      const shortcut = container.querySelector("plank-menubar-shortcut")!
+      await customElements.whenDefined("hal-menubar")
+      const shortcut = container.querySelector("hal-menubar-shortcut")!
       await (shortcut as any).updateComplete
 
       expect(shortcut.className).toContain("ml-auto")
@@ -517,19 +517,19 @@ describe("plank-menubar", () => {
   describe("Keyboard Navigation", () => {
     it("opens menu on Enter key", async () => {
       container.innerHTML = `
-        <plank-menubar>
-          <plank-menubar-menu>
-            <plank-menubar-trigger>File</plank-menubar-trigger>
-            <plank-menubar-content>
-              <plank-menubar-item>New</plank-menubar-item>
-            </plank-menubar-content>
-          </plank-menubar-menu>
-        </plank-menubar>
+        <hal-menubar>
+          <hal-menubar-menu>
+            <hal-menubar-trigger>File</hal-menubar-trigger>
+            <hal-menubar-content>
+              <hal-menubar-item>New</hal-menubar-item>
+            </hal-menubar-content>
+          </hal-menubar-menu>
+        </hal-menubar>
       `
-      await customElements.whenDefined("plank-menubar")
-      const menubar = container.querySelector("plank-menubar")!
-      const trigger = container.querySelector("plank-menubar-trigger")!
-      const content = container.querySelector("plank-menubar-content")!
+      await customElements.whenDefined("hal-menubar")
+      const menubar = container.querySelector("hal-menubar")!
+      const trigger = container.querySelector("hal-menubar-trigger")!
+      const content = container.querySelector("hal-menubar-content")!
       await (menubar as any).updateComplete
       await new Promise((r) => setTimeout(r, 0))
 
@@ -541,19 +541,19 @@ describe("plank-menubar", () => {
 
     it("opens menu on ArrowDown key", async () => {
       container.innerHTML = `
-        <plank-menubar>
-          <plank-menubar-menu>
-            <plank-menubar-trigger>File</plank-menubar-trigger>
-            <plank-menubar-content>
-              <plank-menubar-item>New</plank-menubar-item>
-            </plank-menubar-content>
-          </plank-menubar-menu>
-        </plank-menubar>
+        <hal-menubar>
+          <hal-menubar-menu>
+            <hal-menubar-trigger>File</hal-menubar-trigger>
+            <hal-menubar-content>
+              <hal-menubar-item>New</hal-menubar-item>
+            </hal-menubar-content>
+          </hal-menubar-menu>
+        </hal-menubar>
       `
-      await customElements.whenDefined("plank-menubar")
-      const menubar = container.querySelector("plank-menubar")!
-      const trigger = container.querySelector("plank-menubar-trigger")!
-      const content = container.querySelector("plank-menubar-content")!
+      await customElements.whenDefined("hal-menubar")
+      const menubar = container.querySelector("hal-menubar")!
+      const trigger = container.querySelector("hal-menubar-trigger")!
+      const content = container.querySelector("hal-menubar-content")!
       await (menubar as any).updateComplete
       await new Promise((r) => setTimeout(r, 0))
 
@@ -565,19 +565,19 @@ describe("plank-menubar", () => {
 
     it("closes menu on Escape key", async () => {
       container.innerHTML = `
-        <plank-menubar>
-          <plank-menubar-menu>
-            <plank-menubar-trigger>File</plank-menubar-trigger>
-            <plank-menubar-content>
-              <plank-menubar-item>New</plank-menubar-item>
-            </plank-menubar-content>
-          </plank-menubar-menu>
-        </plank-menubar>
+        <hal-menubar>
+          <hal-menubar-menu>
+            <hal-menubar-trigger>File</hal-menubar-trigger>
+            <hal-menubar-content>
+              <hal-menubar-item>New</hal-menubar-item>
+            </hal-menubar-content>
+          </hal-menubar-menu>
+        </hal-menubar>
       `
-      await customElements.whenDefined("plank-menubar")
-      const menubar = container.querySelector("plank-menubar")!
-      const trigger = container.querySelector("plank-menubar-trigger")!
-      const content = container.querySelector("plank-menubar-content")!
+      await customElements.whenDefined("hal-menubar")
+      const menubar = container.querySelector("hal-menubar")!
+      const trigger = container.querySelector("hal-menubar-trigger")!
+      const content = container.querySelector("hal-menubar-content")!
       await (menubar as any).updateComplete
       await new Promise((r) => setTimeout(r, 0))
 
@@ -595,22 +595,22 @@ describe("plank-menubar", () => {
   describe("Submenus", () => {
     it("renders submenu trigger with chevron", async () => {
       container.innerHTML = `
-        <plank-menubar>
-          <plank-menubar-menu>
-            <plank-menubar-trigger>File</plank-menubar-trigger>
-            <plank-menubar-content>
-              <plank-menubar-sub>
-                <plank-menubar-sub-trigger>More</plank-menubar-sub-trigger>
-                <plank-menubar-sub-content>
-                  <plank-menubar-item>Item 1</plank-menubar-item>
-                </plank-menubar-sub-content>
-              </plank-menubar-sub>
-            </plank-menubar-content>
-          </plank-menubar-menu>
-        </plank-menubar>
+        <hal-menubar>
+          <hal-menubar-menu>
+            <hal-menubar-trigger>File</hal-menubar-trigger>
+            <hal-menubar-content>
+              <hal-menubar-sub>
+                <hal-menubar-sub-trigger>More</hal-menubar-sub-trigger>
+                <hal-menubar-sub-content>
+                  <hal-menubar-item>Item 1</hal-menubar-item>
+                </hal-menubar-sub-content>
+              </hal-menubar-sub>
+            </hal-menubar-content>
+          </hal-menubar-menu>
+        </hal-menubar>
       `
-      await customElements.whenDefined("plank-menubar")
-      const subTrigger = container.querySelector("plank-menubar-sub-trigger")!
+      await customElements.whenDefined("hal-menubar")
+      const subTrigger = container.querySelector("hal-menubar-sub-trigger")!
       await (subTrigger as any).updateComplete
 
       const svg = subTrigger.querySelector("svg")
@@ -619,22 +619,22 @@ describe("plank-menubar", () => {
 
     it("has correct accessibility attributes on sub-trigger", async () => {
       container.innerHTML = `
-        <plank-menubar>
-          <plank-menubar-menu>
-            <plank-menubar-trigger>File</plank-menubar-trigger>
-            <plank-menubar-content>
-              <plank-menubar-sub>
-                <plank-menubar-sub-trigger>More</plank-menubar-sub-trigger>
-                <plank-menubar-sub-content>
-                  <plank-menubar-item>Item 1</plank-menubar-item>
-                </plank-menubar-sub-content>
-              </plank-menubar-sub>
-            </plank-menubar-content>
-          </plank-menubar-menu>
-        </plank-menubar>
+        <hal-menubar>
+          <hal-menubar-menu>
+            <hal-menubar-trigger>File</hal-menubar-trigger>
+            <hal-menubar-content>
+              <hal-menubar-sub>
+                <hal-menubar-sub-trigger>More</hal-menubar-sub-trigger>
+                <hal-menubar-sub-content>
+                  <hal-menubar-item>Item 1</hal-menubar-item>
+                </hal-menubar-sub-content>
+              </hal-menubar-sub>
+            </hal-menubar-content>
+          </hal-menubar-menu>
+        </hal-menubar>
       `
-      await customElements.whenDefined("plank-menubar")
-      const subTrigger = container.querySelector("plank-menubar-sub-trigger")!
+      await customElements.whenDefined("hal-menubar")
+      const subTrigger = container.querySelector("hal-menubar-sub-trigger")!
       await (subTrigger as any).updateComplete
 
       expect(subTrigger.getAttribute("role")).toBe("menuitem")

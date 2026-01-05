@@ -1,9 +1,9 @@
 import { describe, it, expect, beforeEach, afterEach } from "vitest"
 import { page } from "vitest/browser"
-import "@/web-components/plank-toggle"
-import type { PlankToggle } from "@/web-components/plank-toggle"
+import "@/web-components/hal-toggle"
+import type { HalToggle } from "@/web-components/hal-toggle"
 
-describe("PlankToggle (Web Component) - Visual", () => {
+describe("HalToggle (Web Component) - Visual", () => {
   let container: HTMLDivElement
 
   beforeEach(() => {
@@ -17,17 +17,17 @@ describe("PlankToggle (Web Component) - Visual", () => {
 
   async function renderAndWait(html: string): Promise<void> {
     container.innerHTML = html
-    await customElements.whenDefined("plank-toggle")
-    const elements = container.querySelectorAll("plank-toggle")
+    await customElements.whenDefined("hal-toggle")
+    const elements = container.querySelectorAll("hal-toggle")
     await Promise.all(
-      Array.from(elements).map((el) => (el as PlankToggle).updateComplete)
+      Array.from(elements).map((el) => (el as HalToggle).updateComplete)
     )
   }
 
   it("default unpressed", async () => {
     await renderAndWait(`
       <div data-testid="container" style="padding: 8px">
-        <plank-toggle aria-label="Toggle">B</plank-toggle>
+        <hal-toggle aria-label="Toggle">B</hal-toggle>
       </div>
     `)
     await expect(page.getByTestId("container")).toMatchScreenshot(
@@ -38,7 +38,7 @@ describe("PlankToggle (Web Component) - Visual", () => {
   it("default pressed", async () => {
     await renderAndWait(`
       <div data-testid="container" style="padding: 8px">
-        <plank-toggle aria-label="Toggle" pressed>B</plank-toggle>
+        <hal-toggle aria-label="Toggle" pressed>B</hal-toggle>
       </div>
     `)
     await expect(page.getByTestId("container")).toMatchScreenshot(
@@ -49,7 +49,7 @@ describe("PlankToggle (Web Component) - Visual", () => {
   it("outline variant", async () => {
     await renderAndWait(`
       <div data-testid="container" style="padding: 8px">
-        <plank-toggle variant="outline" aria-label="Toggle">B</plank-toggle>
+        <hal-toggle variant="outline" aria-label="Toggle">B</hal-toggle>
       </div>
     `)
     await expect(page.getByTestId("container")).toMatchScreenshot(
@@ -60,7 +60,7 @@ describe("PlankToggle (Web Component) - Visual", () => {
   it("size sm", async () => {
     await renderAndWait(`
       <div data-testid="container" style="padding: 8px">
-        <plank-toggle size="sm" aria-label="Toggle">B</plank-toggle>
+        <hal-toggle size="sm" aria-label="Toggle">B</hal-toggle>
       </div>
     `)
     await expect(page.getByTestId("container")).toMatchScreenshot("toggle-sm")
@@ -69,7 +69,7 @@ describe("PlankToggle (Web Component) - Visual", () => {
   it("size lg", async () => {
     await renderAndWait(`
       <div data-testid="container" style="padding: 8px">
-        <plank-toggle size="lg" aria-label="Toggle">B</plank-toggle>
+        <hal-toggle size="lg" aria-label="Toggle">B</hal-toggle>
       </div>
     `)
     await expect(page.getByTestId("container")).toMatchScreenshot("toggle-lg")
@@ -78,7 +78,7 @@ describe("PlankToggle (Web Component) - Visual", () => {
   it("disabled", async () => {
     await renderAndWait(`
       <div data-testid="container" style="padding: 8px">
-        <plank-toggle aria-label="Toggle" disabled>B</plank-toggle>
+        <hal-toggle aria-label="Toggle" disabled>B</hal-toggle>
       </div>
     `)
     await expect(page.getByTestId("container")).toMatchScreenshot(

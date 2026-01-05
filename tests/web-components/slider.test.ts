@@ -1,8 +1,8 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest"
-import "@/web-components/plank-slider"
-import type { PlankSlider } from "@/web-components/plank-slider"
+import "@/web-components/hal-slider"
+import type { HalSlider } from "@/web-components/hal-slider"
 
-describe("PlankSlider (Web Component)", () => {
+describe("HalSlider (Web Component)", () => {
   let container: HTMLDivElement
 
   beforeEach(() => {
@@ -16,9 +16,9 @@ describe("PlankSlider (Web Component)", () => {
 
   describe("rendering", () => {
     it("renders with default values", async () => {
-      container.innerHTML = `<plank-slider></plank-slider>`
-      await customElements.whenDefined("plank-slider")
-      const slider = container.querySelector("plank-slider") as PlankSlider
+      container.innerHTML = `<hal-slider></hal-slider>`
+      await customElements.whenDefined("hal-slider")
+      const slider = container.querySelector("hal-slider") as HalSlider
       await slider.updateComplete
 
       expect(slider).toBeDefined()
@@ -29,9 +29,9 @@ describe("PlankSlider (Web Component)", () => {
     })
 
     it("renders track, range, and thumb elements", async () => {
-      container.innerHTML = `<plank-slider value="50"></plank-slider>`
-      await customElements.whenDefined("plank-slider")
-      const slider = container.querySelector("plank-slider") as PlankSlider
+      container.innerHTML = `<hal-slider value="50"></hal-slider>`
+      await customElements.whenDefined("hal-slider")
+      const slider = container.querySelector("hal-slider") as HalSlider
       await slider.updateComplete
 
       const track = slider.querySelector('[data-slot="slider-track"]')
@@ -44,9 +44,9 @@ describe("PlankSlider (Web Component)", () => {
     })
 
     it("respects min/max/step attributes", async () => {
-      container.innerHTML = `<plank-slider min="10" max="90" step="5"></plank-slider>`
-      await customElements.whenDefined("plank-slider")
-      const slider = container.querySelector("plank-slider") as PlankSlider
+      container.innerHTML = `<hal-slider min="10" max="90" step="5"></hal-slider>`
+      await customElements.whenDefined("hal-slider")
+      const slider = container.querySelector("hal-slider") as HalSlider
       await slider.updateComplete
 
       expect(slider.min).toBe(10)
@@ -55,9 +55,9 @@ describe("PlankSlider (Web Component)", () => {
     })
 
     it("renders with initial value", async () => {
-      container.innerHTML = `<plank-slider value="30"></plank-slider>`
-      await customElements.whenDefined("plank-slider")
-      const slider = container.querySelector("plank-slider") as PlankSlider
+      container.innerHTML = `<hal-slider value="30"></hal-slider>`
+      await customElements.whenDefined("hal-slider")
+      const slider = container.querySelector("hal-slider") as HalSlider
       await slider.updateComplete
 
       expect(slider.value).toBe(30)
@@ -66,9 +66,9 @@ describe("PlankSlider (Web Component)", () => {
 
   describe("accessibility", () => {
     it("has role slider on thumb", async () => {
-      container.innerHTML = `<plank-slider value="50"></plank-slider>`
-      await customElements.whenDefined("plank-slider")
-      const slider = container.querySelector("plank-slider") as PlankSlider
+      container.innerHTML = `<hal-slider value="50"></hal-slider>`
+      await customElements.whenDefined("hal-slider")
+      const slider = container.querySelector("hal-slider") as HalSlider
       await slider.updateComplete
 
       const thumb = slider.querySelector('[data-slot="slider-thumb"]')
@@ -76,9 +76,9 @@ describe("PlankSlider (Web Component)", () => {
     })
 
     it("has aria-valuemin, aria-valuemax, aria-valuenow", async () => {
-      container.innerHTML = `<plank-slider min="10" max="90" value="50"></plank-slider>`
-      await customElements.whenDefined("plank-slider")
-      const slider = container.querySelector("plank-slider") as PlankSlider
+      container.innerHTML = `<hal-slider min="10" max="90" value="50"></hal-slider>`
+      await customElements.whenDefined("hal-slider")
+      const slider = container.querySelector("hal-slider") as HalSlider
       await slider.updateComplete
 
       const thumb = slider.querySelector('[data-slot="slider-thumb"]')
@@ -88,9 +88,9 @@ describe("PlankSlider (Web Component)", () => {
     })
 
     it("thumb is focusable", async () => {
-      container.innerHTML = `<plank-slider value="50"></plank-slider>`
-      await customElements.whenDefined("plank-slider")
-      const slider = container.querySelector("plank-slider") as PlankSlider
+      container.innerHTML = `<hal-slider value="50"></hal-slider>`
+      await customElements.whenDefined("hal-slider")
+      const slider = container.querySelector("hal-slider") as HalSlider
       await slider.updateComplete
 
       const thumb = slider.querySelector('[data-slot="slider-thumb"]')
@@ -98,9 +98,9 @@ describe("PlankSlider (Web Component)", () => {
     })
 
     it("thumb is not focusable when disabled", async () => {
-      container.innerHTML = `<plank-slider value="50" disabled></plank-slider>`
-      await customElements.whenDefined("plank-slider")
-      const slider = container.querySelector("plank-slider") as PlankSlider
+      container.innerHTML = `<hal-slider value="50" disabled></hal-slider>`
+      await customElements.whenDefined("hal-slider")
+      const slider = container.querySelector("hal-slider") as HalSlider
       await slider.updateComplete
 
       const thumb = slider.querySelector('[data-slot="slider-thumb"]')
@@ -108,9 +108,9 @@ describe("PlankSlider (Web Component)", () => {
     })
 
     it("has aria-orientation when vertical", async () => {
-      container.innerHTML = `<plank-slider orientation="vertical" value="50"></plank-slider>`
-      await customElements.whenDefined("plank-slider")
-      const slider = container.querySelector("plank-slider") as PlankSlider
+      container.innerHTML = `<hal-slider orientation="vertical" value="50"></hal-slider>`
+      await customElements.whenDefined("hal-slider")
+      const slider = container.querySelector("hal-slider") as HalSlider
       await slider.updateComplete
 
       const thumb = slider.querySelector('[data-slot="slider-thumb"]')
@@ -120,9 +120,9 @@ describe("PlankSlider (Web Component)", () => {
 
   describe("keyboard interaction", () => {
     it("increases value with ArrowRight", async () => {
-      container.innerHTML = `<plank-slider value="50"></plank-slider>`
-      await customElements.whenDefined("plank-slider")
-      const slider = container.querySelector("plank-slider") as PlankSlider
+      container.innerHTML = `<hal-slider value="50"></hal-slider>`
+      await customElements.whenDefined("hal-slider")
+      const slider = container.querySelector("hal-slider") as HalSlider
       await slider.updateComplete
 
       const thumb = slider.querySelector(
@@ -137,9 +137,9 @@ describe("PlankSlider (Web Component)", () => {
     })
 
     it("increases value with ArrowUp", async () => {
-      container.innerHTML = `<plank-slider value="50"></plank-slider>`
-      await customElements.whenDefined("plank-slider")
-      const slider = container.querySelector("plank-slider") as PlankSlider
+      container.innerHTML = `<hal-slider value="50"></hal-slider>`
+      await customElements.whenDefined("hal-slider")
+      const slider = container.querySelector("hal-slider") as HalSlider
       await slider.updateComplete
 
       const thumb = slider.querySelector(
@@ -154,9 +154,9 @@ describe("PlankSlider (Web Component)", () => {
     })
 
     it("decreases value with ArrowLeft", async () => {
-      container.innerHTML = `<plank-slider value="50"></plank-slider>`
-      await customElements.whenDefined("plank-slider")
-      const slider = container.querySelector("plank-slider") as PlankSlider
+      container.innerHTML = `<hal-slider value="50"></hal-slider>`
+      await customElements.whenDefined("hal-slider")
+      const slider = container.querySelector("hal-slider") as HalSlider
       await slider.updateComplete
 
       const thumb = slider.querySelector(
@@ -171,9 +171,9 @@ describe("PlankSlider (Web Component)", () => {
     })
 
     it("decreases value with ArrowDown", async () => {
-      container.innerHTML = `<plank-slider value="50"></plank-slider>`
-      await customElements.whenDefined("plank-slider")
-      const slider = container.querySelector("plank-slider") as PlankSlider
+      container.innerHTML = `<hal-slider value="50"></hal-slider>`
+      await customElements.whenDefined("hal-slider")
+      const slider = container.querySelector("hal-slider") as HalSlider
       await slider.updateComplete
 
       const thumb = slider.querySelector(
@@ -188,9 +188,9 @@ describe("PlankSlider (Web Component)", () => {
     })
 
     it("jumps to min with Home key", async () => {
-      container.innerHTML = `<plank-slider value="50" min="10"></plank-slider>`
-      await customElements.whenDefined("plank-slider")
-      const slider = container.querySelector("plank-slider") as PlankSlider
+      container.innerHTML = `<hal-slider value="50" min="10"></hal-slider>`
+      await customElements.whenDefined("hal-slider")
+      const slider = container.querySelector("hal-slider") as HalSlider
       await slider.updateComplete
 
       const thumb = slider.querySelector(
@@ -205,9 +205,9 @@ describe("PlankSlider (Web Component)", () => {
     })
 
     it("jumps to max with End key", async () => {
-      container.innerHTML = `<plank-slider value="50" max="90"></plank-slider>`
-      await customElements.whenDefined("plank-slider")
-      const slider = container.querySelector("plank-slider") as PlankSlider
+      container.innerHTML = `<hal-slider value="50" max="90"></hal-slider>`
+      await customElements.whenDefined("hal-slider")
+      const slider = container.querySelector("hal-slider") as HalSlider
       await slider.updateComplete
 
       const thumb = slider.querySelector(
@@ -222,9 +222,9 @@ describe("PlankSlider (Web Component)", () => {
     })
 
     it("respects step increment", async () => {
-      container.innerHTML = `<plank-slider value="50" step="5"></plank-slider>`
-      await customElements.whenDefined("plank-slider")
-      const slider = container.querySelector("plank-slider") as PlankSlider
+      container.innerHTML = `<hal-slider value="50" step="5"></hal-slider>`
+      await customElements.whenDefined("hal-slider")
+      const slider = container.querySelector("hal-slider") as HalSlider
       await slider.updateComplete
 
       const thumb = slider.querySelector(
@@ -239,9 +239,9 @@ describe("PlankSlider (Web Component)", () => {
     })
 
     it("does not go below min", async () => {
-      container.innerHTML = `<plank-slider value="10" min="10"></plank-slider>`
-      await customElements.whenDefined("plank-slider")
-      const slider = container.querySelector("plank-slider") as PlankSlider
+      container.innerHTML = `<hal-slider value="10" min="10"></hal-slider>`
+      await customElements.whenDefined("hal-slider")
+      const slider = container.querySelector("hal-slider") as HalSlider
       await slider.updateComplete
 
       const thumb = slider.querySelector(
@@ -256,9 +256,9 @@ describe("PlankSlider (Web Component)", () => {
     })
 
     it("does not go above max", async () => {
-      container.innerHTML = `<plank-slider value="90" max="90"></plank-slider>`
-      await customElements.whenDefined("plank-slider")
-      const slider = container.querySelector("plank-slider") as PlankSlider
+      container.innerHTML = `<hal-slider value="90" max="90"></hal-slider>`
+      await customElements.whenDefined("hal-slider")
+      const slider = container.querySelector("hal-slider") as HalSlider
       await slider.updateComplete
 
       const thumb = slider.querySelector(
@@ -273,9 +273,9 @@ describe("PlankSlider (Web Component)", () => {
     })
 
     it("does not respond to keyboard when disabled", async () => {
-      container.innerHTML = `<plank-slider value="50" disabled></plank-slider>`
-      await customElements.whenDefined("plank-slider")
-      const slider = container.querySelector("plank-slider") as PlankSlider
+      container.innerHTML = `<hal-slider value="50" disabled></hal-slider>`
+      await customElements.whenDefined("hal-slider")
+      const slider = container.querySelector("hal-slider") as HalSlider
       await slider.updateComplete
 
       const thumb = slider.querySelector(
@@ -292,9 +292,9 @@ describe("PlankSlider (Web Component)", () => {
 
   describe("events", () => {
     it("fires value-change event on keyboard input", async () => {
-      container.innerHTML = `<plank-slider value="50"></plank-slider>`
-      await customElements.whenDefined("plank-slider")
-      const slider = container.querySelector("plank-slider") as PlankSlider
+      container.innerHTML = `<hal-slider value="50"></hal-slider>`
+      await customElements.whenDefined("hal-slider")
+      const slider = container.querySelector("hal-slider") as HalSlider
       await slider.updateComplete
 
       const handler = vi.fn()
@@ -313,9 +313,9 @@ describe("PlankSlider (Web Component)", () => {
     })
 
     it("does not fire event when disabled", async () => {
-      container.innerHTML = `<plank-slider value="50" disabled></plank-slider>`
-      await customElements.whenDefined("plank-slider")
-      const slider = container.querySelector("plank-slider") as PlankSlider
+      container.innerHTML = `<hal-slider value="50" disabled></hal-slider>`
+      await customElements.whenDefined("hal-slider")
+      const slider = container.querySelector("hal-slider") as HalSlider
       await slider.updateComplete
 
       const handler = vi.fn()
@@ -335,18 +335,18 @@ describe("PlankSlider (Web Component)", () => {
 
   describe("disabled state", () => {
     it("has data-disabled attribute when disabled", async () => {
-      container.innerHTML = `<plank-slider disabled></plank-slider>`
-      await customElements.whenDefined("plank-slider")
-      const slider = container.querySelector("plank-slider") as PlankSlider
+      container.innerHTML = `<hal-slider disabled></hal-slider>`
+      await customElements.whenDefined("hal-slider")
+      const slider = container.querySelector("hal-slider") as HalSlider
       await slider.updateComplete
 
       expect(slider.hasAttribute("data-disabled")).toBe(true)
     })
 
     it("thumb has aria-disabled when slider is disabled", async () => {
-      container.innerHTML = `<plank-slider value="50" disabled></plank-slider>`
-      await customElements.whenDefined("plank-slider")
-      const slider = container.querySelector("plank-slider") as PlankSlider
+      container.innerHTML = `<hal-slider value="50" disabled></hal-slider>`
+      await customElements.whenDefined("hal-slider")
+      const slider = container.querySelector("hal-slider") as HalSlider
       await slider.updateComplete
 
       const thumb = slider.querySelector('[data-slot="slider-thumb"]')
@@ -356,18 +356,18 @@ describe("PlankSlider (Web Component)", () => {
 
   describe("orientation", () => {
     it("defaults to horizontal", async () => {
-      container.innerHTML = `<plank-slider value="50"></plank-slider>`
-      await customElements.whenDefined("plank-slider")
-      const slider = container.querySelector("plank-slider") as PlankSlider
+      container.innerHTML = `<hal-slider value="50"></hal-slider>`
+      await customElements.whenDefined("hal-slider")
+      const slider = container.querySelector("hal-slider") as HalSlider
       await slider.updateComplete
 
       expect(slider.getAttribute("data-orientation")).toBe("horizontal")
     })
 
     it("can be set to vertical", async () => {
-      container.innerHTML = `<plank-slider orientation="vertical" value="50"></plank-slider>`
-      await customElements.whenDefined("plank-slider")
-      const slider = container.querySelector("plank-slider") as PlankSlider
+      container.innerHTML = `<hal-slider orientation="vertical" value="50"></hal-slider>`
+      await customElements.whenDefined("hal-slider")
+      const slider = container.querySelector("hal-slider") as HalSlider
       await slider.updateComplete
 
       expect(slider.getAttribute("data-orientation")).toBe("vertical")
@@ -376,9 +376,9 @@ describe("PlankSlider (Web Component)", () => {
 
   describe("range position", () => {
     it("range fills based on value percentage", async () => {
-      container.innerHTML = `<plank-slider value="50" min="0" max="100"></plank-slider>`
-      await customElements.whenDefined("plank-slider")
-      const slider = container.querySelector("plank-slider") as PlankSlider
+      container.innerHTML = `<hal-slider value="50" min="0" max="100"></hal-slider>`
+      await customElements.whenDefined("hal-slider")
+      const slider = container.querySelector("hal-slider") as HalSlider
       await slider.updateComplete
 
       const range = slider.querySelector(
@@ -389,9 +389,9 @@ describe("PlankSlider (Web Component)", () => {
     })
 
     it("thumb position reflects value", async () => {
-      container.innerHTML = `<plank-slider value="50" min="0" max="100"></plank-slider>`
-      await customElements.whenDefined("plank-slider")
-      const slider = container.querySelector("plank-slider") as PlankSlider
+      container.innerHTML = `<hal-slider value="50" min="0" max="100"></hal-slider>`
+      await customElements.whenDefined("hal-slider")
+      const slider = container.querySelector("hal-slider") as HalSlider
       await slider.updateComplete
 
       const thumb = slider.querySelector(

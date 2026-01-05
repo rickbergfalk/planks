@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest"
-import "@/web-components/plank-context-menu"
+import "@/web-components/hal-context-menu"
 
 describe("ContextMenu (Web Component)", () => {
   let container: HTMLDivElement
@@ -20,35 +20,35 @@ describe("ContextMenu (Web Component)", () => {
 
   it("renders trigger with correct data-slot", async () => {
     container.innerHTML = `
-      <plank-context-menu>
-        <plank-context-menu-trigger>
+      <hal-context-menu>
+        <hal-context-menu-trigger>
           <div>Right click here</div>
-        </plank-context-menu-trigger>
-        <plank-context-menu-content>
-          <plank-context-menu-item>Item</plank-context-menu-item>
-        </plank-context-menu-content>
-      </plank-context-menu>
+        </hal-context-menu-trigger>
+        <hal-context-menu-content>
+          <hal-context-menu-item>Item</hal-context-menu-item>
+        </hal-context-menu-content>
+      </hal-context-menu>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const trigger = container.querySelector("plank-context-menu-trigger")
+    await customElements.whenDefined("hal-context-menu")
+    const trigger = container.querySelector("hal-context-menu-trigger")
     expect(trigger?.dataset.slot).toBe("context-menu-trigger")
   })
 
   it("menu content is hidden by default", async () => {
     container.innerHTML = `
-      <plank-context-menu>
-        <plank-context-menu-trigger>
+      <hal-context-menu>
+        <hal-context-menu-trigger>
           <div>Right click here</div>
-        </plank-context-menu-trigger>
-        <plank-context-menu-content>
-          <plank-context-menu-item>Item</plank-context-menu-item>
-        </plank-context-menu-content>
-      </plank-context-menu>
+        </hal-context-menu-trigger>
+        <hal-context-menu-content>
+          <hal-context-menu-item>Item</hal-context-menu-item>
+        </hal-context-menu-content>
+      </hal-context-menu>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const menu = container.querySelector("plank-context-menu")!
+    await customElements.whenDefined("hal-context-menu")
+    const menu = container.querySelector("hal-context-menu")!
     await (menu as any).updateComplete
 
     const menuContent = document.querySelector('[role="menu"]')
@@ -57,19 +57,19 @@ describe("ContextMenu (Web Component)", () => {
 
   it("opens menu on right click (contextmenu event)", async () => {
     container.innerHTML = `
-      <plank-context-menu>
-        <plank-context-menu-trigger>
+      <hal-context-menu>
+        <hal-context-menu-trigger>
           <div data-testid="trigger-area">Right click here</div>
-        </plank-context-menu-trigger>
-        <plank-context-menu-content>
-          <plank-context-menu-item>Profile</plank-context-menu-item>
-          <plank-context-menu-item>Settings</plank-context-menu-item>
-        </plank-context-menu-content>
-      </plank-context-menu>
+        </hal-context-menu-trigger>
+        <hal-context-menu-content>
+          <hal-context-menu-item>Profile</hal-context-menu-item>
+          <hal-context-menu-item>Settings</hal-context-menu-item>
+        </hal-context-menu-content>
+      </hal-context-menu>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const menu = container.querySelector("plank-context-menu")!
+    await customElements.whenDefined("hal-context-menu")
+    const menu = container.querySelector("hal-context-menu")!
     await (menu as any).updateComplete
 
     const trigger = container.querySelector('[data-testid="trigger-area"]')!
@@ -91,18 +91,18 @@ describe("ContextMenu (Web Component)", () => {
 
   it("closes menu on clicking outside", async () => {
     container.innerHTML = `
-      <plank-context-menu>
-        <plank-context-menu-trigger>
+      <hal-context-menu>
+        <hal-context-menu-trigger>
           <div data-testid="trigger-area">Right click here</div>
-        </plank-context-menu-trigger>
-        <plank-context-menu-content>
-          <plank-context-menu-item>Item</plank-context-menu-item>
-        </plank-context-menu-content>
-      </plank-context-menu>
+        </hal-context-menu-trigger>
+        <hal-context-menu-content>
+          <hal-context-menu-item>Item</hal-context-menu-item>
+        </hal-context-menu-content>
+      </hal-context-menu>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const menu = container.querySelector("plank-context-menu")!
+    await customElements.whenDefined("hal-context-menu")
+    const menu = container.querySelector("hal-context-menu")!
     await (menu as any).updateComplete
 
     const trigger = container.querySelector('[data-testid="trigger-area"]')!
@@ -129,18 +129,18 @@ describe("ContextMenu (Web Component)", () => {
 
   it("menu content has correct data-slot", async () => {
     container.innerHTML = `
-      <plank-context-menu open>
-        <plank-context-menu-trigger>
+      <hal-context-menu open>
+        <hal-context-menu-trigger>
           <div>Right click here</div>
-        </plank-context-menu-trigger>
-        <plank-context-menu-content>
-          <plank-context-menu-item>Item</plank-context-menu-item>
-        </plank-context-menu-content>
-      </plank-context-menu>
+        </hal-context-menu-trigger>
+        <hal-context-menu-content>
+          <hal-context-menu-item>Item</hal-context-menu-item>
+        </hal-context-menu-content>
+      </hal-context-menu>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const menu = container.querySelector("plank-context-menu")!
+    await customElements.whenDefined("hal-context-menu")
+    const menu = container.querySelector("hal-context-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -150,18 +150,18 @@ describe("ContextMenu (Web Component)", () => {
 
   it("fires open-change event when opened", async () => {
     container.innerHTML = `
-      <plank-context-menu>
-        <plank-context-menu-trigger>
+      <hal-context-menu>
+        <hal-context-menu-trigger>
           <div data-testid="trigger-area">Right click here</div>
-        </plank-context-menu-trigger>
-        <plank-context-menu-content>
-          <plank-context-menu-item>Item</plank-context-menu-item>
-        </plank-context-menu-content>
-      </plank-context-menu>
+        </hal-context-menu-trigger>
+        <hal-context-menu-content>
+          <hal-context-menu-item>Item</hal-context-menu-item>
+        </hal-context-menu-content>
+      </hal-context-menu>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const menu = container.querySelector("plank-context-menu")!
+    await customElements.whenDefined("hal-context-menu")
+    const menu = container.querySelector("hal-context-menu")!
     await (menu as any).updateComplete
 
     const onOpenChange = vi.fn()
@@ -186,18 +186,18 @@ describe("ContextMenu (Web Component)", () => {
 
   it("closes on Escape key", async () => {
     container.innerHTML = `
-      <plank-context-menu open>
-        <plank-context-menu-trigger>
+      <hal-context-menu open>
+        <hal-context-menu-trigger>
           <div>Right click here</div>
-        </plank-context-menu-trigger>
-        <plank-context-menu-content>
-          <plank-context-menu-item>Item</plank-context-menu-item>
-        </plank-context-menu-content>
-      </plank-context-menu>
+        </hal-context-menu-trigger>
+        <hal-context-menu-content>
+          <hal-context-menu-item>Item</hal-context-menu-item>
+        </hal-context-menu-content>
+      </hal-context-menu>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const menu = container.querySelector("plank-context-menu")!
+    await customElements.whenDefined("hal-context-menu")
+    const menu = container.querySelector("hal-context-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -212,18 +212,18 @@ describe("ContextMenu (Web Component)", () => {
 
   it("has data-side attribute on content", async () => {
     container.innerHTML = `
-      <plank-context-menu open>
-        <plank-context-menu-trigger>
+      <hal-context-menu open>
+        <hal-context-menu-trigger>
           <div>Right click here</div>
-        </plank-context-menu-trigger>
-        <plank-context-menu-content>
-          <plank-context-menu-item>Item</plank-context-menu-item>
-        </plank-context-menu-content>
-      </plank-context-menu>
+        </hal-context-menu-trigger>
+        <hal-context-menu-content>
+          <hal-context-menu-item>Item</hal-context-menu-item>
+        </hal-context-menu-content>
+      </hal-context-menu>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const menu = container.querySelector("plank-context-menu")!
+    await customElements.whenDefined("hal-context-menu")
+    const menu = container.querySelector("hal-context-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -233,18 +233,18 @@ describe("ContextMenu (Web Component)", () => {
 
   it("menu item has correct data-slot", async () => {
     container.innerHTML = `
-      <plank-context-menu open>
-        <plank-context-menu-trigger>
+      <hal-context-menu open>
+        <hal-context-menu-trigger>
           <div>Right click here</div>
-        </plank-context-menu-trigger>
-        <plank-context-menu-content>
-          <plank-context-menu-item>Profile</plank-context-menu-item>
-        </plank-context-menu-content>
-      </plank-context-menu>
+        </hal-context-menu-trigger>
+        <hal-context-menu-content>
+          <hal-context-menu-item>Profile</hal-context-menu-item>
+        </hal-context-menu-content>
+      </hal-context-menu>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const menu = container.querySelector("plank-context-menu")!
+    await customElements.whenDefined("hal-context-menu")
+    const menu = container.querySelector("hal-context-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -254,18 +254,18 @@ describe("ContextMenu (Web Component)", () => {
 
   it("menu item fires select event", async () => {
     container.innerHTML = `
-      <plank-context-menu open>
-        <plank-context-menu-trigger>
+      <hal-context-menu open>
+        <hal-context-menu-trigger>
           <div>Right click here</div>
-        </plank-context-menu-trigger>
-        <plank-context-menu-content>
-          <plank-context-menu-item>Profile</plank-context-menu-item>
-        </plank-context-menu-content>
-      </plank-context-menu>
+        </hal-context-menu-trigger>
+        <hal-context-menu-content>
+          <hal-context-menu-item>Profile</hal-context-menu-item>
+        </hal-context-menu-content>
+      </hal-context-menu>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const menu = container.querySelector("plank-context-menu")!
+    await customElements.whenDefined("hal-context-menu")
+    const menu = container.querySelector("hal-context-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -281,18 +281,18 @@ describe("ContextMenu (Web Component)", () => {
 
   it("closes menu when item is selected", async () => {
     container.innerHTML = `
-      <plank-context-menu open>
-        <plank-context-menu-trigger>
+      <hal-context-menu open>
+        <hal-context-menu-trigger>
           <div>Right click here</div>
-        </plank-context-menu-trigger>
-        <plank-context-menu-content>
-          <plank-context-menu-item>Profile</plank-context-menu-item>
-        </plank-context-menu-content>
-      </plank-context-menu>
+        </hal-context-menu-trigger>
+        <hal-context-menu-content>
+          <hal-context-menu-item>Profile</hal-context-menu-item>
+        </hal-context-menu-content>
+      </hal-context-menu>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const menu = container.querySelector("plank-context-menu")!
+    await customElements.whenDefined("hal-context-menu")
+    const menu = container.querySelector("hal-context-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -309,18 +309,18 @@ describe("ContextMenu (Web Component)", () => {
 
   it("disabled item has correct attributes", async () => {
     container.innerHTML = `
-      <plank-context-menu open>
-        <plank-context-menu-trigger>
+      <hal-context-menu open>
+        <hal-context-menu-trigger>
           <div>Right click here</div>
-        </plank-context-menu-trigger>
-        <plank-context-menu-content>
-          <plank-context-menu-item disabled>Disabled Item</plank-context-menu-item>
-        </plank-context-menu-content>
-      </plank-context-menu>
+        </hal-context-menu-trigger>
+        <hal-context-menu-content>
+          <hal-context-menu-item disabled>Disabled Item</hal-context-menu-item>
+        </hal-context-menu-content>
+      </hal-context-menu>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const menu = container.querySelector("plank-context-menu")!
+    await customElements.whenDefined("hal-context-menu")
+    const menu = container.querySelector("hal-context-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -330,18 +330,18 @@ describe("ContextMenu (Web Component)", () => {
 
   it("checkbox item toggles checked state", async () => {
     container.innerHTML = `
-      <plank-context-menu open>
-        <plank-context-menu-trigger>
+      <hal-context-menu open>
+        <hal-context-menu-trigger>
           <div>Right click here</div>
-        </plank-context-menu-trigger>
-        <plank-context-menu-content>
-          <plank-context-menu-checkbox-item>Show Status Bar</plank-context-menu-checkbox-item>
-        </plank-context-menu-content>
-      </plank-context-menu>
+        </hal-context-menu-trigger>
+        <hal-context-menu-content>
+          <hal-context-menu-checkbox-item>Show Status Bar</hal-context-menu-checkbox-item>
+        </hal-context-menu-content>
+      </hal-context-menu>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const menu = container.querySelector("plank-context-menu")!
+    await customElements.whenDefined("hal-context-menu")
+    const menu = container.querySelector("hal-context-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -361,18 +361,18 @@ describe("ContextMenu (Web Component)", () => {
 
   it("checkbox item has correct data-slot", async () => {
     container.innerHTML = `
-      <plank-context-menu open>
-        <plank-context-menu-trigger>
+      <hal-context-menu open>
+        <hal-context-menu-trigger>
           <div>Right click here</div>
-        </plank-context-menu-trigger>
-        <plank-context-menu-content>
-          <plank-context-menu-checkbox-item checked>Show Status Bar</plank-context-menu-checkbox-item>
-        </plank-context-menu-content>
-      </plank-context-menu>
+        </hal-context-menu-trigger>
+        <hal-context-menu-content>
+          <hal-context-menu-checkbox-item checked>Show Status Bar</hal-context-menu-checkbox-item>
+        </hal-context-menu-content>
+      </hal-context-menu>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const menu = container.querySelector("plank-context-menu")!
+    await customElements.whenDefined("hal-context-menu")
+    const menu = container.querySelector("hal-context-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -382,21 +382,21 @@ describe("ContextMenu (Web Component)", () => {
 
   it("radio group manages selection", async () => {
     container.innerHTML = `
-      <plank-context-menu open>
-        <plank-context-menu-trigger>
+      <hal-context-menu open>
+        <hal-context-menu-trigger>
           <div>Right click here</div>
-        </plank-context-menu-trigger>
-        <plank-context-menu-content>
-          <plank-context-menu-radio-group value="top">
-            <plank-context-menu-radio-item value="top">Top</plank-context-menu-radio-item>
-            <plank-context-menu-radio-item value="bottom">Bottom</plank-context-menu-radio-item>
-          </plank-context-menu-radio-group>
-        </plank-context-menu-content>
-      </plank-context-menu>
+        </hal-context-menu-trigger>
+        <hal-context-menu-content>
+          <hal-context-menu-radio-group value="top">
+            <hal-context-menu-radio-item value="top">Top</hal-context-menu-radio-item>
+            <hal-context-menu-radio-item value="bottom">Bottom</hal-context-menu-radio-item>
+          </hal-context-menu-radio-group>
+        </hal-context-menu-content>
+      </hal-context-menu>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const menu = container.querySelector("plank-context-menu")!
+    await customElements.whenDefined("hal-context-menu")
+    const menu = container.querySelector("hal-context-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -414,20 +414,20 @@ describe("ContextMenu (Web Component)", () => {
 
   it("radio item has correct data-slot", async () => {
     container.innerHTML = `
-      <plank-context-menu open>
-        <plank-context-menu-trigger>
+      <hal-context-menu open>
+        <hal-context-menu-trigger>
           <div>Right click here</div>
-        </plank-context-menu-trigger>
-        <plank-context-menu-content>
-          <plank-context-menu-radio-group value="top">
-            <plank-context-menu-radio-item value="top">Top</plank-context-menu-radio-item>
-          </plank-context-menu-radio-group>
-        </plank-context-menu-content>
-      </plank-context-menu>
+        </hal-context-menu-trigger>
+        <hal-context-menu-content>
+          <hal-context-menu-radio-group value="top">
+            <hal-context-menu-radio-item value="top">Top</hal-context-menu-radio-item>
+          </hal-context-menu-radio-group>
+        </hal-context-menu-content>
+      </hal-context-menu>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const menu = container.querySelector("plank-context-menu")!
+    await customElements.whenDefined("hal-context-menu")
+    const menu = container.querySelector("hal-context-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -437,19 +437,19 @@ describe("ContextMenu (Web Component)", () => {
 
   it("label has correct data-slot", async () => {
     container.innerHTML = `
-      <plank-context-menu open>
-        <plank-context-menu-trigger>
+      <hal-context-menu open>
+        <hal-context-menu-trigger>
           <div>Right click here</div>
-        </plank-context-menu-trigger>
-        <plank-context-menu-content>
-          <plank-context-menu-label>My Account</plank-context-menu-label>
-          <plank-context-menu-item>Item</plank-context-menu-item>
-        </plank-context-menu-content>
-      </plank-context-menu>
+        </hal-context-menu-trigger>
+        <hal-context-menu-content>
+          <hal-context-menu-label>My Account</hal-context-menu-label>
+          <hal-context-menu-item>Item</hal-context-menu-item>
+        </hal-context-menu-content>
+      </hal-context-menu>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const menu = container.querySelector("plank-context-menu")!
+    await customElements.whenDefined("hal-context-menu")
+    const menu = container.querySelector("hal-context-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -460,20 +460,20 @@ describe("ContextMenu (Web Component)", () => {
 
   it("separator has correct data-slot", async () => {
     container.innerHTML = `
-      <plank-context-menu open>
-        <plank-context-menu-trigger>
+      <hal-context-menu open>
+        <hal-context-menu-trigger>
           <div>Right click here</div>
-        </plank-context-menu-trigger>
-        <plank-context-menu-content>
-          <plank-context-menu-item>Item 1</plank-context-menu-item>
-          <plank-context-menu-separator></plank-context-menu-separator>
-          <plank-context-menu-item>Item 2</plank-context-menu-item>
-        </plank-context-menu-content>
-      </plank-context-menu>
+        </hal-context-menu-trigger>
+        <hal-context-menu-content>
+          <hal-context-menu-item>Item 1</hal-context-menu-item>
+          <hal-context-menu-separator></hal-context-menu-separator>
+          <hal-context-menu-item>Item 2</hal-context-menu-item>
+        </hal-context-menu-content>
+      </hal-context-menu>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const menu = container.querySelector("plank-context-menu")!
+    await customElements.whenDefined("hal-context-menu")
+    const menu = container.querySelector("hal-context-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -485,21 +485,21 @@ describe("ContextMenu (Web Component)", () => {
 
   it("shortcut has correct data-slot", async () => {
     container.innerHTML = `
-      <plank-context-menu open>
-        <plank-context-menu-trigger>
+      <hal-context-menu open>
+        <hal-context-menu-trigger>
           <div>Right click here</div>
-        </plank-context-menu-trigger>
-        <plank-context-menu-content>
-          <plank-context-menu-item>
+        </hal-context-menu-trigger>
+        <hal-context-menu-content>
+          <hal-context-menu-item>
             Profile
-            <plank-context-menu-shortcut>⇧⌘P</plank-context-menu-shortcut>
-          </plank-context-menu-item>
-        </plank-context-menu-content>
-      </plank-context-menu>
+            <hal-context-menu-shortcut>⇧⌘P</hal-context-menu-shortcut>
+          </hal-context-menu-item>
+        </hal-context-menu-content>
+      </hal-context-menu>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const menu = container.querySelector("plank-context-menu")!
+    await customElements.whenDefined("hal-context-menu")
+    const menu = container.querySelector("hal-context-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -512,21 +512,21 @@ describe("ContextMenu (Web Component)", () => {
 
   it("group has correct data-slot", async () => {
     container.innerHTML = `
-      <plank-context-menu open>
-        <plank-context-menu-trigger>
+      <hal-context-menu open>
+        <hal-context-menu-trigger>
           <div>Right click here</div>
-        </plank-context-menu-trigger>
-        <plank-context-menu-content>
-          <plank-context-menu-group>
-            <plank-context-menu-item>Profile</plank-context-menu-item>
-            <plank-context-menu-item>Settings</plank-context-menu-item>
-          </plank-context-menu-group>
-        </plank-context-menu-content>
-      </plank-context-menu>
+        </hal-context-menu-trigger>
+        <hal-context-menu-content>
+          <hal-context-menu-group>
+            <hal-context-menu-item>Profile</hal-context-menu-item>
+            <hal-context-menu-item>Settings</hal-context-menu-item>
+          </hal-context-menu-group>
+        </hal-context-menu-content>
+      </hal-context-menu>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const menu = container.querySelector("plank-context-menu")!
+    await customElements.whenDefined("hal-context-menu")
+    const menu = container.querySelector("hal-context-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -536,20 +536,20 @@ describe("ContextMenu (Web Component)", () => {
 
   it("navigates items with arrow keys", async () => {
     container.innerHTML = `
-      <plank-context-menu open>
-        <plank-context-menu-trigger>
+      <hal-context-menu open>
+        <hal-context-menu-trigger>
           <div>Right click here</div>
-        </plank-context-menu-trigger>
-        <plank-context-menu-content>
-          <plank-context-menu-item>Profile</plank-context-menu-item>
-          <plank-context-menu-item>Settings</plank-context-menu-item>
-          <plank-context-menu-item>Logout</plank-context-menu-item>
-        </plank-context-menu-content>
-      </plank-context-menu>
+        </hal-context-menu-trigger>
+        <hal-context-menu-content>
+          <hal-context-menu-item>Profile</hal-context-menu-item>
+          <hal-context-menu-item>Settings</hal-context-menu-item>
+          <hal-context-menu-item>Logout</hal-context-menu-item>
+        </hal-context-menu-content>
+      </hal-context-menu>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const menu = container.querySelector("plank-context-menu")!
+    await customElements.whenDefined("hal-context-menu")
+    const menu = container.querySelector("hal-context-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -564,18 +564,18 @@ describe("ContextMenu (Web Component)", () => {
 
   it("supports destructive variant on item", async () => {
     container.innerHTML = `
-      <plank-context-menu open>
-        <plank-context-menu-trigger>
+      <hal-context-menu open>
+        <hal-context-menu-trigger>
           <div>Right click here</div>
-        </plank-context-menu-trigger>
-        <plank-context-menu-content>
-          <plank-context-menu-item variant="destructive">Delete</plank-context-menu-item>
-        </plank-context-menu-content>
-      </plank-context-menu>
+        </hal-context-menu-trigger>
+        <hal-context-menu-content>
+          <hal-context-menu-item variant="destructive">Delete</hal-context-menu-item>
+        </hal-context-menu-content>
+      </hal-context-menu>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const menu = container.querySelector("plank-context-menu")!
+    await customElements.whenDefined("hal-context-menu")
+    const menu = container.querySelector("hal-context-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -585,18 +585,18 @@ describe("ContextMenu (Web Component)", () => {
 
   it("supports inset on item", async () => {
     container.innerHTML = `
-      <plank-context-menu open>
-        <plank-context-menu-trigger>
+      <hal-context-menu open>
+        <hal-context-menu-trigger>
           <div>Right click here</div>
-        </plank-context-menu-trigger>
-        <plank-context-menu-content>
-          <plank-context-menu-item inset>Inset Item</plank-context-menu-item>
-        </plank-context-menu-content>
-      </plank-context-menu>
+        </hal-context-menu-trigger>
+        <hal-context-menu-content>
+          <hal-context-menu-item inset>Inset Item</hal-context-menu-item>
+        </hal-context-menu-content>
+      </hal-context-menu>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const menu = container.querySelector("plank-context-menu")!
+    await customElements.whenDefined("hal-context-menu")
+    const menu = container.querySelector("hal-context-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -606,19 +606,19 @@ describe("ContextMenu (Web Component)", () => {
 
   it("supports inset on label", async () => {
     container.innerHTML = `
-      <plank-context-menu open>
-        <plank-context-menu-trigger>
+      <hal-context-menu open>
+        <hal-context-menu-trigger>
           <div>Right click here</div>
-        </plank-context-menu-trigger>
-        <plank-context-menu-content>
-          <plank-context-menu-label inset>Inset Label</plank-context-menu-label>
-          <plank-context-menu-item>Item</plank-context-menu-item>
-        </plank-context-menu-content>
-      </plank-context-menu>
+        </hal-context-menu-trigger>
+        <hal-context-menu-content>
+          <hal-context-menu-label inset>Inset Label</hal-context-menu-label>
+          <hal-context-menu-item>Item</hal-context-menu-item>
+        </hal-context-menu-content>
+      </hal-context-menu>
     `
 
-    await customElements.whenDefined("plank-context-menu")
-    const menu = container.querySelector("plank-context-menu")!
+    await customElements.whenDefined("hal-context-menu")
+    const menu = container.querySelector("hal-context-menu")!
     await (menu as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -629,23 +629,23 @@ describe("ContextMenu (Web Component)", () => {
   describe("submenus", () => {
     it("sub trigger has correct data-slot", async () => {
       container.innerHTML = `
-        <plank-context-menu open>
-          <plank-context-menu-trigger>
+        <hal-context-menu open>
+          <hal-context-menu-trigger>
             <div>Right click here</div>
-          </plank-context-menu-trigger>
-          <plank-context-menu-content>
-            <plank-context-menu-sub>
-              <plank-context-menu-sub-trigger>More options</plank-context-menu-sub-trigger>
-              <plank-context-menu-sub-content>
-                <plank-context-menu-item>Sub item</plank-context-menu-item>
-              </plank-context-menu-sub-content>
-            </plank-context-menu-sub>
-          </plank-context-menu-content>
-        </plank-context-menu>
+          </hal-context-menu-trigger>
+          <hal-context-menu-content>
+            <hal-context-menu-sub>
+              <hal-context-menu-sub-trigger>More options</hal-context-menu-sub-trigger>
+              <hal-context-menu-sub-content>
+                <hal-context-menu-item>Sub item</hal-context-menu-item>
+              </hal-context-menu-sub-content>
+            </hal-context-menu-sub>
+          </hal-context-menu-content>
+        </hal-context-menu>
       `
 
-      await customElements.whenDefined("plank-context-menu")
-      const menu = container.querySelector("plank-context-menu")!
+      await customElements.whenDefined("hal-context-menu")
+      const menu = container.querySelector("hal-context-menu")!
       await (menu as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -657,23 +657,23 @@ describe("ContextMenu (Web Component)", () => {
 
     it("opens submenu on hover", async () => {
       container.innerHTML = `
-        <plank-context-menu open>
-          <plank-context-menu-trigger>
+        <hal-context-menu open>
+          <hal-context-menu-trigger>
             <div>Right click here</div>
-          </plank-context-menu-trigger>
-          <plank-context-menu-content>
-            <plank-context-menu-sub>
-              <plank-context-menu-sub-trigger>More options</plank-context-menu-sub-trigger>
-              <plank-context-menu-sub-content>
-                <plank-context-menu-item>Sub item</plank-context-menu-item>
-              </plank-context-menu-sub-content>
-            </plank-context-menu-sub>
-          </plank-context-menu-content>
-        </plank-context-menu>
+          </hal-context-menu-trigger>
+          <hal-context-menu-content>
+            <hal-context-menu-sub>
+              <hal-context-menu-sub-trigger>More options</hal-context-menu-sub-trigger>
+              <hal-context-menu-sub-content>
+                <hal-context-menu-item>Sub item</hal-context-menu-item>
+              </hal-context-menu-sub-content>
+            </hal-context-menu-sub>
+          </hal-context-menu-content>
+        </hal-context-menu>
       `
 
-      await customElements.whenDefined("plank-context-menu")
-      const menu = container.querySelector("plank-context-menu")!
+      await customElements.whenDefined("hal-context-menu")
+      const menu = container.querySelector("hal-context-menu")!
       await (menu as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 
@@ -695,23 +695,23 @@ describe("ContextMenu (Web Component)", () => {
 
     it("sub content has correct data-slot", async () => {
       container.innerHTML = `
-        <plank-context-menu open>
-          <plank-context-menu-trigger>
+        <hal-context-menu open>
+          <hal-context-menu-trigger>
             <div>Right click here</div>
-          </plank-context-menu-trigger>
-          <plank-context-menu-content>
-            <plank-context-menu-sub open>
-              <plank-context-menu-sub-trigger>More options</plank-context-menu-sub-trigger>
-              <plank-context-menu-sub-content>
-                <plank-context-menu-item>Sub item</plank-context-menu-item>
-              </plank-context-menu-sub-content>
-            </plank-context-menu-sub>
-          </plank-context-menu-content>
-        </plank-context-menu>
+          </hal-context-menu-trigger>
+          <hal-context-menu-content>
+            <hal-context-menu-sub open>
+              <hal-context-menu-sub-trigger>More options</hal-context-menu-sub-trigger>
+              <hal-context-menu-sub-content>
+                <hal-context-menu-item>Sub item</hal-context-menu-item>
+              </hal-context-menu-sub-content>
+            </hal-context-menu-sub>
+          </hal-context-menu-content>
+        </hal-context-menu>
       `
 
-      await customElements.whenDefined("plank-context-menu")
-      const menu = container.querySelector("plank-context-menu")!
+      await customElements.whenDefined("hal-context-menu")
+      const menu = container.querySelector("hal-context-menu")!
       await (menu as any).updateComplete
       await new Promise((r) => setTimeout(r, 50))
 

@@ -1,8 +1,8 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest"
-import "@/web-components/plank-toggle"
-import type { PlankToggle } from "@/web-components/plank-toggle"
+import "@/web-components/hal-toggle"
+import type { HalToggle } from "@/web-components/hal-toggle"
 
-describe("PlankToggle (Web Component)", () => {
+describe("HalToggle (Web Component)", () => {
   let container: HTMLDivElement
 
   beforeEach(() => {
@@ -15,9 +15,9 @@ describe("PlankToggle (Web Component)", () => {
   })
 
   it("renders with default unpressed state", async () => {
-    container.innerHTML = `<plank-toggle>Toggle</plank-toggle>`
-    await customElements.whenDefined("plank-toggle")
-    const toggle = container.querySelector("plank-toggle") as PlankToggle
+    container.innerHTML = `<hal-toggle>Toggle</hal-toggle>`
+    await customElements.whenDefined("hal-toggle")
+    const toggle = container.querySelector("hal-toggle") as HalToggle
     await toggle.updateComplete
 
     expect(toggle).toBeDefined()
@@ -28,9 +28,9 @@ describe("PlankToggle (Web Component)", () => {
   })
 
   it("renders in pressed state when pressed attribute present", async () => {
-    container.innerHTML = `<plank-toggle pressed>Toggle</plank-toggle>`
-    await customElements.whenDefined("plank-toggle")
-    const toggle = container.querySelector("plank-toggle") as PlankToggle
+    container.innerHTML = `<hal-toggle pressed>Toggle</hal-toggle>`
+    await customElements.whenDefined("hal-toggle")
+    const toggle = container.querySelector("hal-toggle") as HalToggle
     await toggle.updateComplete
 
     expect(toggle.dataset.state).toBe("on")
@@ -38,9 +38,9 @@ describe("PlankToggle (Web Component)", () => {
   })
 
   it("can be disabled", async () => {
-    container.innerHTML = `<plank-toggle disabled>Toggle</plank-toggle>`
-    await customElements.whenDefined("plank-toggle")
-    const toggle = container.querySelector("plank-toggle") as PlankToggle
+    container.innerHTML = `<hal-toggle disabled>Toggle</hal-toggle>`
+    await customElements.whenDefined("hal-toggle")
+    const toggle = container.querySelector("hal-toggle") as HalToggle
     await toggle.updateComplete
 
     expect(toggle.hasAttribute("disabled")).toBe(true)
@@ -48,9 +48,9 @@ describe("PlankToggle (Web Component)", () => {
   })
 
   it("toggles state on click", async () => {
-    container.innerHTML = `<plank-toggle>Toggle</plank-toggle>`
-    await customElements.whenDefined("plank-toggle")
-    const toggle = container.querySelector("plank-toggle") as PlankToggle
+    container.innerHTML = `<hal-toggle>Toggle</hal-toggle>`
+    await customElements.whenDefined("hal-toggle")
+    const toggle = container.querySelector("hal-toggle") as HalToggle
     await toggle.updateComplete
 
     expect(toggle.dataset.state).toBe("off")
@@ -63,9 +63,9 @@ describe("PlankToggle (Web Component)", () => {
   })
 
   it("toggles state on Space key", async () => {
-    container.innerHTML = `<plank-toggle>Toggle</plank-toggle>`
-    await customElements.whenDefined("plank-toggle")
-    const toggle = container.querySelector("plank-toggle") as PlankToggle
+    container.innerHTML = `<hal-toggle>Toggle</hal-toggle>`
+    await customElements.whenDefined("hal-toggle")
+    const toggle = container.querySelector("hal-toggle") as HalToggle
     await toggle.updateComplete
 
     expect(toggle.dataset.state).toBe("off")
@@ -78,9 +78,9 @@ describe("PlankToggle (Web Component)", () => {
   })
 
   it("toggles state on Enter key", async () => {
-    container.innerHTML = `<plank-toggle>Toggle</plank-toggle>`
-    await customElements.whenDefined("plank-toggle")
-    const toggle = container.querySelector("plank-toggle") as PlankToggle
+    container.innerHTML = `<hal-toggle>Toggle</hal-toggle>`
+    await customElements.whenDefined("hal-toggle")
+    const toggle = container.querySelector("hal-toggle") as HalToggle
     await toggle.updateComplete
 
     expect(toggle.dataset.state).toBe("off")
@@ -93,9 +93,9 @@ describe("PlankToggle (Web Component)", () => {
   })
 
   it("fires pressed-change event on toggle", async () => {
-    container.innerHTML = `<plank-toggle>Toggle</plank-toggle>`
-    await customElements.whenDefined("plank-toggle")
-    const toggle = container.querySelector("plank-toggle") as PlankToggle
+    container.innerHTML = `<hal-toggle>Toggle</hal-toggle>`
+    await customElements.whenDefined("hal-toggle")
+    const toggle = container.querySelector("hal-toggle") as HalToggle
     await toggle.updateComplete
 
     const handler = vi.fn()
@@ -109,9 +109,9 @@ describe("PlankToggle (Web Component)", () => {
   })
 
   it("does not toggle when disabled", async () => {
-    container.innerHTML = `<plank-toggle disabled>Toggle</plank-toggle>`
-    await customElements.whenDefined("plank-toggle")
-    const toggle = container.querySelector("plank-toggle") as PlankToggle
+    container.innerHTML = `<hal-toggle disabled>Toggle</hal-toggle>`
+    await customElements.whenDefined("hal-toggle")
+    const toggle = container.querySelector("hal-toggle") as HalToggle
     await toggle.updateComplete
 
     const handler = vi.fn()
@@ -125,9 +125,9 @@ describe("PlankToggle (Web Component)", () => {
   })
 
   it("is keyboard accessible", async () => {
-    container.innerHTML = `<plank-toggle>Toggle</plank-toggle>`
-    await customElements.whenDefined("plank-toggle")
-    const toggle = container.querySelector("plank-toggle") as PlankToggle
+    container.innerHTML = `<hal-toggle>Toggle</hal-toggle>`
+    await customElements.whenDefined("hal-toggle")
+    const toggle = container.querySelector("hal-toggle") as HalToggle
     await toggle.updateComplete
 
     expect(toggle.getAttribute("role")).toBe("button")
@@ -135,54 +135,54 @@ describe("PlankToggle (Web Component)", () => {
   })
 
   it("has tabindex -1 when disabled", async () => {
-    container.innerHTML = `<plank-toggle disabled>Toggle</plank-toggle>`
-    await customElements.whenDefined("plank-toggle")
-    const toggle = container.querySelector("plank-toggle") as PlankToggle
+    container.innerHTML = `<hal-toggle disabled>Toggle</hal-toggle>`
+    await customElements.whenDefined("hal-toggle")
+    const toggle = container.querySelector("hal-toggle") as HalToggle
     await toggle.updateComplete
 
     expect(toggle.getAttribute("tabindex")).toBe("-1")
   })
 
   it("supports outline variant", async () => {
-    container.innerHTML = `<plank-toggle variant="outline">Toggle</plank-toggle>`
-    await customElements.whenDefined("plank-toggle")
-    const toggle = container.querySelector("plank-toggle") as PlankToggle
+    container.innerHTML = `<hal-toggle variant="outline">Toggle</hal-toggle>`
+    await customElements.whenDefined("hal-toggle")
+    const toggle = container.querySelector("hal-toggle") as HalToggle
     await toggle.updateComplete
 
     expect(toggle.classList.contains("border")).toBe(true)
   })
 
   it("supports size sm", async () => {
-    container.innerHTML = `<plank-toggle size="sm">Toggle</plank-toggle>`
-    await customElements.whenDefined("plank-toggle")
-    const toggle = container.querySelector("plank-toggle") as PlankToggle
+    container.innerHTML = `<hal-toggle size="sm">Toggle</hal-toggle>`
+    await customElements.whenDefined("hal-toggle")
+    const toggle = container.querySelector("hal-toggle") as HalToggle
     await toggle.updateComplete
 
     expect(toggle.classList.contains("h-8")).toBe(true)
   })
 
   it("supports size lg", async () => {
-    container.innerHTML = `<plank-toggle size="lg">Toggle</plank-toggle>`
-    await customElements.whenDefined("plank-toggle")
-    const toggle = container.querySelector("plank-toggle") as PlankToggle
+    container.innerHTML = `<hal-toggle size="lg">Toggle</hal-toggle>`
+    await customElements.whenDefined("hal-toggle")
+    const toggle = container.querySelector("hal-toggle") as HalToggle
     await toggle.updateComplete
 
     expect(toggle.classList.contains("h-10")).toBe(true)
   })
 
   it("applies custom class", async () => {
-    container.innerHTML = `<plank-toggle class="custom-class">Toggle</plank-toggle>`
-    await customElements.whenDefined("plank-toggle")
-    const toggle = container.querySelector("plank-toggle") as PlankToggle
+    container.innerHTML = `<hal-toggle class="custom-class">Toggle</hal-toggle>`
+    await customElements.whenDefined("hal-toggle")
+    const toggle = container.querySelector("hal-toggle") as HalToggle
     await toggle.updateComplete
 
     expect(toggle.classList.contains("custom-class")).toBe(true)
   })
 
   it("preserves children content", async () => {
-    container.innerHTML = `<plank-toggle><span>Icon</span> Text</plank-toggle>`
-    await customElements.whenDefined("plank-toggle")
-    const toggle = container.querySelector("plank-toggle") as PlankToggle
+    container.innerHTML = `<hal-toggle><span>Icon</span> Text</hal-toggle>`
+    await customElements.whenDefined("hal-toggle")
+    const toggle = container.querySelector("hal-toggle") as HalToggle
     await toggle.updateComplete
 
     expect(toggle.textContent).toContain("Icon")

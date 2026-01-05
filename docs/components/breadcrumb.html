@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Breadcrumb - Planks</title>
+    <title>Breadcrumb - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -20,39 +20,37 @@
           A simple breadcrumb navigation with links and current page indicator.
         </p>
         <div class="mb-4">
-          <plank-breadcrumb>
-            <plank-breadcrumb-list>
-              <plank-breadcrumb-item>
-                <plank-breadcrumb-link href="#">Home</plank-breadcrumb-link>
-              </plank-breadcrumb-item>
-              <plank-breadcrumb-separator></plank-breadcrumb-separator>
-              <plank-breadcrumb-item>
-                <plank-breadcrumb-link href="#"
-                  >Components</plank-breadcrumb-link
-                >
-              </plank-breadcrumb-item>
-              <plank-breadcrumb-separator></plank-breadcrumb-separator>
-              <plank-breadcrumb-item>
-                <plank-breadcrumb-page>Breadcrumb</plank-breadcrumb-page>
-              </plank-breadcrumb-item>
-            </plank-breadcrumb-list>
-          </plank-breadcrumb>
+          <hal-breadcrumb>
+            <hal-breadcrumb-list>
+              <hal-breadcrumb-item>
+                <hal-breadcrumb-link href="#">Home</hal-breadcrumb-link>
+              </hal-breadcrumb-item>
+              <hal-breadcrumb-separator></hal-breadcrumb-separator>
+              <hal-breadcrumb-item>
+                <hal-breadcrumb-link href="#">Components</hal-breadcrumb-link>
+              </hal-breadcrumb-item>
+              <hal-breadcrumb-separator></hal-breadcrumb-separator>
+              <hal-breadcrumb-item>
+                <hal-breadcrumb-page>Breadcrumb</hal-breadcrumb-page>
+              </hal-breadcrumb-item>
+            </hal-breadcrumb-list>
+          </hal-breadcrumb>
         </div>
-        <pre><code>&lt;plank-breadcrumb&gt;
-  &lt;plank-breadcrumb-list&gt;
-    &lt;plank-breadcrumb-item&gt;
-      &lt;plank-breadcrumb-link href="#"&gt;Home&lt;/plank-breadcrumb-link&gt;
-    &lt;/plank-breadcrumb-item&gt;
-    &lt;plank-breadcrumb-separator&gt;&lt;/plank-breadcrumb-separator&gt;
-    &lt;plank-breadcrumb-item&gt;
-      &lt;plank-breadcrumb-link href="#"&gt;Components&lt;/plank-breadcrumb-link&gt;
-    &lt;/plank-breadcrumb-item&gt;
-    &lt;plank-breadcrumb-separator&gt;&lt;/plank-breadcrumb-separator&gt;
-    &lt;plank-breadcrumb-item&gt;
-      &lt;plank-breadcrumb-page&gt;Breadcrumb&lt;/plank-breadcrumb-page&gt;
-    &lt;/plank-breadcrumb-item&gt;
-  &lt;/plank-breadcrumb-list&gt;
-&lt;/plank-breadcrumb&gt;</code></pre>
+        <pre><code>&lt;hal-breadcrumb&gt;
+  &lt;hal-breadcrumb-list&gt;
+    &lt;hal-breadcrumb-item&gt;
+      &lt;hal-breadcrumb-link href="#"&gt;Home&lt;/hal-breadcrumb-link&gt;
+    &lt;/hal-breadcrumb-item&gt;
+    &lt;hal-breadcrumb-separator&gt;&lt;/hal-breadcrumb-separator&gt;
+    &lt;hal-breadcrumb-item&gt;
+      &lt;hal-breadcrumb-link href="#"&gt;Components&lt;/hal-breadcrumb-link&gt;
+    &lt;/hal-breadcrumb-item&gt;
+    &lt;hal-breadcrumb-separator&gt;&lt;/hal-breadcrumb-separator&gt;
+    &lt;hal-breadcrumb-item&gt;
+      &lt;hal-breadcrumb-page&gt;Breadcrumb&lt;/hal-breadcrumb-page&gt;
+    &lt;/hal-breadcrumb-item&gt;
+  &lt;/hal-breadcrumb-list&gt;
+&lt;/hal-breadcrumb&gt;</code></pre>
       </section>
 
       <!-- With Ellipsis -->
@@ -62,148 +60,142 @@
           Use the ellipsis component to indicate collapsed breadcrumb items.
         </p>
         <div class="mb-4">
-          <plank-breadcrumb>
-            <plank-breadcrumb-list>
-              <plank-breadcrumb-item>
-                <plank-breadcrumb-link href="#">Home</plank-breadcrumb-link>
-              </plank-breadcrumb-item>
-              <plank-breadcrumb-separator></plank-breadcrumb-separator>
-              <plank-breadcrumb-item>
-                <plank-breadcrumb-ellipsis></plank-breadcrumb-ellipsis>
-              </plank-breadcrumb-item>
-              <plank-breadcrumb-separator></plank-breadcrumb-separator>
-              <plank-breadcrumb-item>
-                <plank-breadcrumb-link href="#"
-                  >Components</plank-breadcrumb-link
-                >
-              </plank-breadcrumb-item>
-              <plank-breadcrumb-separator></plank-breadcrumb-separator>
-              <plank-breadcrumb-item>
-                <plank-breadcrumb-page>Breadcrumb</plank-breadcrumb-page>
-              </plank-breadcrumb-item>
-            </plank-breadcrumb-list>
-          </plank-breadcrumb>
+          <hal-breadcrumb>
+            <hal-breadcrumb-list>
+              <hal-breadcrumb-item>
+                <hal-breadcrumb-link href="#">Home</hal-breadcrumb-link>
+              </hal-breadcrumb-item>
+              <hal-breadcrumb-separator></hal-breadcrumb-separator>
+              <hal-breadcrumb-item>
+                <hal-breadcrumb-ellipsis></hal-breadcrumb-ellipsis>
+              </hal-breadcrumb-item>
+              <hal-breadcrumb-separator></hal-breadcrumb-separator>
+              <hal-breadcrumb-item>
+                <hal-breadcrumb-link href="#">Components</hal-breadcrumb-link>
+              </hal-breadcrumb-item>
+              <hal-breadcrumb-separator></hal-breadcrumb-separator>
+              <hal-breadcrumb-item>
+                <hal-breadcrumb-page>Breadcrumb</hal-breadcrumb-page>
+              </hal-breadcrumb-item>
+            </hal-breadcrumb-list>
+          </hal-breadcrumb>
         </div>
-        <pre><code>&lt;plank-breadcrumb&gt;
-  &lt;plank-breadcrumb-list&gt;
-    &lt;plank-breadcrumb-item&gt;
-      &lt;plank-breadcrumb-link href="#"&gt;Home&lt;/plank-breadcrumb-link&gt;
-    &lt;/plank-breadcrumb-item&gt;
-    &lt;plank-breadcrumb-separator&gt;&lt;/plank-breadcrumb-separator&gt;
-    &lt;plank-breadcrumb-item&gt;
-      &lt;plank-breadcrumb-ellipsis&gt;&lt;/plank-breadcrumb-ellipsis&gt;
-    &lt;/plank-breadcrumb-item&gt;
-    &lt;plank-breadcrumb-separator&gt;&lt;/plank-breadcrumb-separator&gt;
-    &lt;plank-breadcrumb-item&gt;
-      &lt;plank-breadcrumb-link href="#"&gt;Components&lt;/plank-breadcrumb-link&gt;
-    &lt;/plank-breadcrumb-item&gt;
-    &lt;plank-breadcrumb-separator&gt;&lt;/plank-breadcrumb-separator&gt;
-    &lt;plank-breadcrumb-item&gt;
-      &lt;plank-breadcrumb-page&gt;Breadcrumb&lt;/plank-breadcrumb-page&gt;
-    &lt;/plank-breadcrumb-item&gt;
-  &lt;/plank-breadcrumb-list&gt;
-&lt;/plank-breadcrumb&gt;</code></pre>
+        <pre><code>&lt;hal-breadcrumb&gt;
+  &lt;hal-breadcrumb-list&gt;
+    &lt;hal-breadcrumb-item&gt;
+      &lt;hal-breadcrumb-link href="#"&gt;Home&lt;/hal-breadcrumb-link&gt;
+    &lt;/hal-breadcrumb-item&gt;
+    &lt;hal-breadcrumb-separator&gt;&lt;/hal-breadcrumb-separator&gt;
+    &lt;hal-breadcrumb-item&gt;
+      &lt;hal-breadcrumb-ellipsis&gt;&lt;/hal-breadcrumb-ellipsis&gt;
+    &lt;/hal-breadcrumb-item&gt;
+    &lt;hal-breadcrumb-separator&gt;&lt;/hal-breadcrumb-separator&gt;
+    &lt;hal-breadcrumb-item&gt;
+      &lt;hal-breadcrumb-link href="#"&gt;Components&lt;/hal-breadcrumb-link&gt;
+    &lt;/hal-breadcrumb-item&gt;
+    &lt;hal-breadcrumb-separator&gt;&lt;/hal-breadcrumb-separator&gt;
+    &lt;hal-breadcrumb-item&gt;
+      &lt;hal-breadcrumb-page&gt;Breadcrumb&lt;/hal-breadcrumb-page&gt;
+    &lt;/hal-breadcrumb-item&gt;
+  &lt;/hal-breadcrumb-list&gt;
+&lt;/hal-breadcrumb&gt;</code></pre>
       </section>
 
       <!-- API -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Components</h2>
         <div class="overflow-x-auto">
-          <plank-table>
-            <plank-table-header>
-              <plank-table-row>
-                <plank-table-head>Component</plank-table-head>
-                <plank-table-head>Description</plank-table-head>
-              </plank-table-row>
-            </plank-table-header>
-            <plank-table-body>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >plank-breadcrumb</plank-table-cell
+          <hal-table>
+            <hal-table-header>
+              <hal-table-row>
+                <hal-table-head>Component</hal-table-head>
+                <hal-table-head>Description</hal-table-head>
+              </hal-table-row>
+            </hal-table-header>
+            <hal-table-body>
+              <hal-table-row>
+                <hal-table-cell class="font-mono"
+                  >hal-breadcrumb</hal-table-cell
                 >
-                <plank-table-cell
+                <hal-table-cell
                   >The navigation container with
-                  aria-label="breadcrumb"</plank-table-cell
+                  aria-label="breadcrumb"</hal-table-cell
                 >
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >plank-breadcrumb-list</plank-table-cell
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono"
+                  >hal-breadcrumb-list</hal-table-cell
                 >
-                <plank-table-cell
+                <hal-table-cell
                   >Container for breadcrumb items with flex
-                  layout</plank-table-cell
+                  layout</hal-table-cell
                 >
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >plank-breadcrumb-item</plank-table-cell
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono"
+                  >hal-breadcrumb-item</hal-table-cell
                 >
-                <plank-table-cell
-                  >Wrapper for individual breadcrumb elements</plank-table-cell
+                <hal-table-cell
+                  >Wrapper for individual breadcrumb elements</hal-table-cell
                 >
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >plank-breadcrumb-link</plank-table-cell
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono"
+                  >hal-breadcrumb-link</hal-table-cell
                 >
-                <plank-table-cell>A navigable link to a page</plank-table-cell>
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >plank-breadcrumb-page</plank-table-cell
+                <hal-table-cell>A navigable link to a page</hal-table-cell>
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono"
+                  >hal-breadcrumb-page</hal-table-cell
                 >
-                <plank-table-cell
-                  >The current page (not a link)</plank-table-cell
+                <hal-table-cell>The current page (not a link)</hal-table-cell>
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono"
+                  >hal-breadcrumb-separator</hal-table-cell
                 >
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >plank-breadcrumb-separator</plank-table-cell
+                <hal-table-cell>Chevron separator between items</hal-table-cell>
+              </hal-table-row>
+              <hal-table-row>
+                <hal-table-cell class="font-mono"
+                  >hal-breadcrumb-ellipsis</hal-table-cell
                 >
-                <plank-table-cell
-                  >Chevron separator between items</plank-table-cell
+                <hal-table-cell
+                  >Ellipsis indicator for collapsed items</hal-table-cell
                 >
-              </plank-table-row>
-              <plank-table-row>
-                <plank-table-cell class="font-mono"
-                  >plank-breadcrumb-ellipsis</plank-table-cell
-                >
-                <plank-table-cell
-                  >Ellipsis indicator for collapsed items</plank-table-cell
-                >
-              </plank-table-row>
-            </plank-table-body>
-          </plank-table>
+              </hal-table-row>
+            </hal-table-body>
+          </hal-table>
         </div>
       </section>
 
-      <!-- plank-breadcrumb-link API -->
+      <!-- hal-breadcrumb-link API -->
       <section class="mb-12">
-        <h3 class="text-xl font-semibold mb-4">plank-breadcrumb-link</h3>
+        <h3 class="text-xl font-semibold mb-4">hal-breadcrumb-link</h3>
         <div class="overflow-x-auto">
-          <plank-table>
-            <plank-table-header>
-              <plank-table-row>
-                <plank-table-head>Property</plank-table-head>
-                <plank-table-head>Type</plank-table-head>
-                <plank-table-head>Default</plank-table-head>
-                <plank-table-head>Description</plank-table-head>
-              </plank-table-row>
-            </plank-table-header>
-            <plank-table-body>
-              <plank-table-row>
-                <plank-table-cell class="font-mono">href</plank-table-cell>
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >string</plank-table-cell
+          <hal-table>
+            <hal-table-header>
+              <hal-table-row>
+                <hal-table-head>Property</hal-table-head>
+                <hal-table-head>Type</hal-table-head>
+                <hal-table-head>Default</hal-table-head>
+                <hal-table-head>Description</hal-table-head>
+              </hal-table-row>
+            </hal-table-header>
+            <hal-table-body>
+              <hal-table-row>
+                <hal-table-cell class="font-mono">href</hal-table-cell>
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >string</hal-table-cell
                 >
-                <plank-table-cell class="font-mono text-muted-foreground"
-                  >""</plank-table-cell
+                <hal-table-cell class="font-mono text-muted-foreground"
+                  >""</hal-table-cell
                 >
-                <plank-table-cell>The URL for the link</plank-table-cell>
-              </plank-table-row>
-            </plank-table-body>
-          </plank-table>
+                <hal-table-cell>The URL for the link</hal-table-cell>
+              </hal-table-row>
+            </hal-table-body>
+          </hal-table>
         </div>
       </section>
 

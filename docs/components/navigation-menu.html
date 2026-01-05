@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Navigation Menu - Planks</title>
+    <title>Navigation Menu - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -18,18 +18,18 @@
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Basic Usage</h2>
         <div class="mb-4">
-          <plank-navigation-menu>
-            <plank-navigation-menu-list>
-              <plank-navigation-menu-item>
-                <plank-navigation-menu-trigger
-                  >Getting Started</plank-navigation-menu-trigger
+          <hal-navigation-menu>
+            <hal-navigation-menu-list>
+              <hal-navigation-menu-item>
+                <hal-navigation-menu-trigger
+                  >Getting Started</hal-navigation-menu-trigger
                 >
-                <plank-navigation-menu-content>
+                <hal-navigation-menu-content>
                   <ul
                     class="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]"
                   >
                     <li>
-                      <plank-navigation-menu-link href="#">
+                      <hal-navigation-menu-link href="#">
                         <div class="text-sm font-medium leading-none">
                           Introduction
                         </div>
@@ -38,10 +38,10 @@
                         >
                           Re-usable components built using Lit and Tailwind CSS.
                         </p>
-                      </plank-navigation-menu-link>
+                      </hal-navigation-menu-link>
                     </li>
                     <li>
-                      <plank-navigation-menu-link href="#">
+                      <hal-navigation-menu-link href="#">
                         <div class="text-sm font-medium leading-none">
                           Installation
                         </div>
@@ -50,10 +50,10 @@
                         >
                           How to install dependencies and structure your app.
                         </p>
-                      </plank-navigation-menu-link>
+                      </hal-navigation-menu-link>
                     </li>
                     <li>
-                      <plank-navigation-menu-link href="#">
+                      <hal-navigation-menu-link href="#">
                         <div class="text-sm font-medium leading-none">
                           Typography
                         </div>
@@ -62,21 +62,21 @@
                         >
                           Styles for headings, paragraphs, lists, and more.
                         </p>
-                      </plank-navigation-menu-link>
+                      </hal-navigation-menu-link>
                     </li>
                   </ul>
-                </plank-navigation-menu-content>
-              </plank-navigation-menu-item>
-              <plank-navigation-menu-item>
-                <plank-navigation-menu-trigger
-                  >Components</plank-navigation-menu-trigger
+                </hal-navigation-menu-content>
+              </hal-navigation-menu-item>
+              <hal-navigation-menu-item>
+                <hal-navigation-menu-trigger
+                  >Components</hal-navigation-menu-trigger
                 >
-                <plank-navigation-menu-content>
+                <hal-navigation-menu-content>
                   <ul
                     class="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]"
                   >
                     <li>
-                      <plank-navigation-menu-link href="#">
+                      <hal-navigation-menu-link href="#">
                         <div class="text-sm font-medium leading-none">
                           Button
                         </div>
@@ -86,10 +86,10 @@
                           Displays a button or a component that looks like a
                           button.
                         </p>
-                      </plank-navigation-menu-link>
+                      </hal-navigation-menu-link>
                     </li>
                     <li>
-                      <plank-navigation-menu-link href="#">
+                      <hal-navigation-menu-link href="#">
                         <div class="text-sm font-medium leading-none">
                           Dialog
                         </div>
@@ -98,39 +98,39 @@
                         >
                           A modal dialog that interrupts the user.
                         </p>
-                      </plank-navigation-menu-link>
+                      </hal-navigation-menu-link>
                     </li>
                   </ul>
-                </plank-navigation-menu-content>
-              </plank-navigation-menu-item>
-              <plank-navigation-menu-item>
-                <plank-navigation-menu-link href="#"
-                  >Documentation</plank-navigation-menu-link
+                </hal-navigation-menu-content>
+              </hal-navigation-menu-item>
+              <hal-navigation-menu-item>
+                <hal-navigation-menu-link href="#"
+                  >Documentation</hal-navigation-menu-link
                 >
-              </plank-navigation-menu-item>
-            </plank-navigation-menu-list>
-          </plank-navigation-menu>
+              </hal-navigation-menu-item>
+            </hal-navigation-menu-list>
+          </hal-navigation-menu>
         </div>
-        <pre><code>&lt;plank-navigation-menu&gt;
-  &lt;plank-navigation-menu-list&gt;
-    &lt;plank-navigation-menu-item&gt;
-      &lt;plank-navigation-menu-trigger&gt;Getting Started&lt;/plank-navigation-menu-trigger&gt;
-      &lt;plank-navigation-menu-content&gt;
+        <pre><code>&lt;hal-navigation-menu&gt;
+  &lt;hal-navigation-menu-list&gt;
+    &lt;hal-navigation-menu-item&gt;
+      &lt;hal-navigation-menu-trigger&gt;Getting Started&lt;/hal-navigation-menu-trigger&gt;
+      &lt;hal-navigation-menu-content&gt;
         &lt;ul class="grid gap-3 p-4"&gt;
           &lt;li&gt;
-            &lt;plank-navigation-menu-link href="#"&gt;
+            &lt;hal-navigation-menu-link href="#"&gt;
               &lt;div class="font-medium"&gt;Introduction&lt;/div&gt;
-              &lt;p class="text-muted-foreground"&gt;Get started with Planks.&lt;/p&gt;
-            &lt;/plank-navigation-menu-link&gt;
+              &lt;p class="text-muted-foreground"&gt;Get started with hallucn.&lt;/p&gt;
+            &lt;/hal-navigation-menu-link&gt;
           &lt;/li&gt;
         &lt;/ul&gt;
-      &lt;/plank-navigation-menu-content&gt;
-    &lt;/plank-navigation-menu-item&gt;
-    &lt;plank-navigation-menu-item&gt;
-      &lt;plank-navigation-menu-link href="#"&gt;Documentation&lt;/plank-navigation-menu-link&gt;
-    &lt;/plank-navigation-menu-item&gt;
-  &lt;/plank-navigation-menu-list&gt;
-&lt;/plank-navigation-menu&gt;</code></pre>
+      &lt;/hal-navigation-menu-content&gt;
+    &lt;/hal-navigation-menu-item&gt;
+    &lt;hal-navigation-menu-item&gt;
+      &lt;hal-navigation-menu-link href="#"&gt;Documentation&lt;/hal-navigation-menu-link&gt;
+    &lt;/hal-navigation-menu-item&gt;
+  &lt;/hal-navigation-menu-list&gt;
+&lt;/hal-navigation-menu&gt;</code></pre>
       </section>
 
       <!-- Simple Links -->
@@ -141,41 +141,41 @@
           navigation.
         </p>
         <div class="mb-4">
-          <plank-navigation-menu>
-            <plank-navigation-menu-list>
-              <plank-navigation-menu-item>
-                <plank-navigation-menu-link href="#" active
-                  >Home</plank-navigation-menu-link
+          <hal-navigation-menu>
+            <hal-navigation-menu-list>
+              <hal-navigation-menu-item>
+                <hal-navigation-menu-link href="#" active
+                  >Home</hal-navigation-menu-link
                 >
-              </plank-navigation-menu-item>
-              <plank-navigation-menu-item>
-                <plank-navigation-menu-link href="#"
-                  >About</plank-navigation-menu-link
+              </hal-navigation-menu-item>
+              <hal-navigation-menu-item>
+                <hal-navigation-menu-link href="#"
+                  >About</hal-navigation-menu-link
                 >
-              </plank-navigation-menu-item>
-              <plank-navigation-menu-item>
-                <plank-navigation-menu-link href="#"
-                  >Services</plank-navigation-menu-link
+              </hal-navigation-menu-item>
+              <hal-navigation-menu-item>
+                <hal-navigation-menu-link href="#"
+                  >Services</hal-navigation-menu-link
                 >
-              </plank-navigation-menu-item>
-              <plank-navigation-menu-item>
-                <plank-navigation-menu-link href="#"
-                  >Contact</plank-navigation-menu-link
+              </hal-navigation-menu-item>
+              <hal-navigation-menu-item>
+                <hal-navigation-menu-link href="#"
+                  >Contact</hal-navigation-menu-link
                 >
-              </plank-navigation-menu-item>
-            </plank-navigation-menu-list>
-          </plank-navigation-menu>
+              </hal-navigation-menu-item>
+            </hal-navigation-menu-list>
+          </hal-navigation-menu>
         </div>
-        <pre><code>&lt;plank-navigation-menu&gt;
-  &lt;plank-navigation-menu-list&gt;
-    &lt;plank-navigation-menu-item&gt;
-      &lt;plank-navigation-menu-link href="#" active&gt;Home&lt;/plank-navigation-menu-link&gt;
-    &lt;/plank-navigation-menu-item&gt;
-    &lt;plank-navigation-menu-item&gt;
-      &lt;plank-navigation-menu-link href="#"&gt;About&lt;/plank-navigation-menu-link&gt;
-    &lt;/plank-navigation-menu-item&gt;
-  &lt;/plank-navigation-menu-list&gt;
-&lt;/plank-navigation-menu&gt;</code></pre>
+        <pre><code>&lt;hal-navigation-menu&gt;
+  &lt;hal-navigation-menu-list&gt;
+    &lt;hal-navigation-menu-item&gt;
+      &lt;hal-navigation-menu-link href="#" active&gt;Home&lt;/hal-navigation-menu-link&gt;
+    &lt;/hal-navigation-menu-item&gt;
+    &lt;hal-navigation-menu-item&gt;
+      &lt;hal-navigation-menu-link href="#"&gt;About&lt;/hal-navigation-menu-link&gt;
+    &lt;/hal-navigation-menu-item&gt;
+  &lt;/hal-navigation-menu-list&gt;
+&lt;/hal-navigation-menu&gt;</code></pre>
       </section>
 
       <!-- Without Viewport -->
@@ -186,38 +186,38 @@
           viewport container.
         </p>
         <div class="mb-4">
-          <plank-navigation-menu viewport="false">
-            <plank-navigation-menu-list>
-              <plank-navigation-menu-item>
-                <plank-navigation-menu-trigger
-                  >Products</plank-navigation-menu-trigger
+          <hal-navigation-menu viewport="false">
+            <hal-navigation-menu-list>
+              <hal-navigation-menu-item>
+                <hal-navigation-menu-trigger
+                  >Products</hal-navigation-menu-trigger
                 >
-                <plank-navigation-menu-content>
+                <hal-navigation-menu-content>
                   <ul class="grid w-[200px] gap-2 p-4">
                     <li>
-                      <plank-navigation-menu-link href="#">
+                      <hal-navigation-menu-link href="#">
                         <div class="text-sm font-medium">Software</div>
-                      </plank-navigation-menu-link>
+                      </hal-navigation-menu-link>
                     </li>
                     <li>
-                      <plank-navigation-menu-link href="#">
+                      <hal-navigation-menu-link href="#">
                         <div class="text-sm font-medium">Hardware</div>
-                      </plank-navigation-menu-link>
+                      </hal-navigation-menu-link>
                     </li>
                     <li>
-                      <plank-navigation-menu-link href="#">
+                      <hal-navigation-menu-link href="#">
                         <div class="text-sm font-medium">Services</div>
-                      </plank-navigation-menu-link>
+                      </hal-navigation-menu-link>
                     </li>
                   </ul>
-                </plank-navigation-menu-content>
-              </plank-navigation-menu-item>
-            </plank-navigation-menu-list>
-          </plank-navigation-menu>
+                </hal-navigation-menu-content>
+              </hal-navigation-menu-item>
+            </hal-navigation-menu-list>
+          </hal-navigation-menu>
         </div>
-        <pre><code>&lt;plank-navigation-menu viewport="false"&gt;
+        <pre><code>&lt;hal-navigation-menu viewport="false"&gt;
   ...
-&lt;/plank-navigation-menu&gt;</code></pre>
+&lt;/hal-navigation-menu&gt;</code></pre>
       </section>
 
       <!-- Delay Duration -->
@@ -228,33 +228,33 @@
           milliseconds).
         </p>
         <div class="mb-4">
-          <plank-navigation-menu delay-duration="500">
-            <plank-navigation-menu-list>
-              <plank-navigation-menu-item>
-                <plank-navigation-menu-trigger
-                  >Slow Open</plank-navigation-menu-trigger
+          <hal-navigation-menu delay-duration="500">
+            <hal-navigation-menu-list>
+              <hal-navigation-menu-item>
+                <hal-navigation-menu-trigger
+                  >Slow Open</hal-navigation-menu-trigger
                 >
-                <plank-navigation-menu-content>
+                <hal-navigation-menu-content>
                   <div class="p-4 w-[200px]">
                     <p class="text-sm text-muted-foreground">
                       This menu has a 500ms delay before opening.
                     </p>
                   </div>
-                </plank-navigation-menu-content>
-              </plank-navigation-menu-item>
-            </plank-navigation-menu-list>
-          </plank-navigation-menu>
+                </hal-navigation-menu-content>
+              </hal-navigation-menu-item>
+            </hal-navigation-menu-list>
+          </hal-navigation-menu>
         </div>
-        <pre><code>&lt;plank-navigation-menu delay-duration="500"&gt;
+        <pre><code>&lt;hal-navigation-menu delay-duration="500"&gt;
   ...
-&lt;/plank-navigation-menu&gt;</code></pre>
+&lt;/hal-navigation-menu&gt;</code></pre>
       </section>
 
       <!-- API -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">API</h2>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-navigation-menu</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-navigation-menu</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -297,7 +297,7 @@
         </div>
 
         <h3 class="text-xl font-semibold mt-6 mb-4">
-          plank-navigation-menu-trigger
+          hal-navigation-menu-trigger
         </h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
@@ -323,7 +323,7 @@
         </div>
 
         <h3 class="text-xl font-semibold mt-6 mb-4">
-          plank-navigation-menu-link
+          hal-navigation-menu-link
         </h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
@@ -376,7 +376,7 @@
                   { value: string }
                 </td>
                 <td class="py-2">
-                  Fired on plank-navigation-menu when the open item changes
+                  Fired on hal-navigation-menu when the open item changes
                 </td>
               </tr>
             </tbody>

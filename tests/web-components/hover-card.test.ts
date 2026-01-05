@@ -1,8 +1,8 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest"
-import "@/web-components/plank-hover-card"
-import "@/web-components/plank-button"
+import "@/web-components/hal-hover-card"
+import "@/web-components/hal-button"
 
-describe("plank-hover-card", () => {
+describe("hal-hover-card", () => {
   let container: HTMLDivElement
 
   beforeEach(() => {
@@ -22,34 +22,34 @@ describe("plank-hover-card", () => {
 
   it("renders trigger with correct data-slot", async () => {
     container.innerHTML = `
-      <plank-hover-card>
-        <plank-hover-card-trigger>
-          <plank-button variant="link">@nextjs</plank-button>
-        </plank-hover-card-trigger>
-        <plank-hover-card-content>Content</plank-hover-card-content>
-      </plank-hover-card>
+      <hal-hover-card>
+        <hal-hover-card-trigger>
+          <hal-button variant="link">@nextjs</hal-button>
+        </hal-hover-card-trigger>
+        <hal-hover-card-content>Content</hal-hover-card-content>
+      </hal-hover-card>
     `
 
-    await customElements.whenDefined("plank-hover-card")
-    const hoverCard = container.querySelector("plank-hover-card")!
+    await customElements.whenDefined("hal-hover-card")
+    const hoverCard = container.querySelector("hal-hover-card")!
     await (hoverCard as any).updateComplete
 
-    const trigger = container.querySelector("plank-hover-card-trigger")
+    const trigger = container.querySelector("hal-hover-card-trigger")
     expect(trigger?.dataset.slot).toBe("hover-card-trigger")
   })
 
   it("hover card content is hidden by default", async () => {
     container.innerHTML = `
-      <plank-hover-card>
-        <plank-hover-card-trigger>
-          <plank-button variant="link">@nextjs</plank-button>
-        </plank-hover-card-trigger>
-        <plank-hover-card-content>Content</plank-hover-card-content>
-      </plank-hover-card>
+      <hal-hover-card>
+        <hal-hover-card-trigger>
+          <hal-button variant="link">@nextjs</hal-button>
+        </hal-hover-card-trigger>
+        <hal-hover-card-content>Content</hal-hover-card-content>
+      </hal-hover-card>
     `
 
-    await customElements.whenDefined("plank-hover-card")
-    const hoverCard = container.querySelector("plank-hover-card")!
+    await customElements.whenDefined("hal-hover-card")
+    const hoverCard = container.querySelector("hal-hover-card")!
     await (hoverCard as any).updateComplete
 
     // Look for the portaled content (should not exist)
@@ -61,19 +61,19 @@ describe("plank-hover-card", () => {
 
   it("shows hover card on hover", async () => {
     container.innerHTML = `
-      <plank-hover-card open-delay="0">
-        <plank-hover-card-trigger>
-          <plank-button variant="link">@nextjs</plank-button>
-        </plank-hover-card-trigger>
-        <plank-hover-card-content>Hover card content</plank-hover-card-content>
-      </plank-hover-card>
+      <hal-hover-card open-delay="0">
+        <hal-hover-card-trigger>
+          <hal-button variant="link">@nextjs</hal-button>
+        </hal-hover-card-trigger>
+        <hal-hover-card-content>Hover card content</hal-hover-card-content>
+      </hal-hover-card>
     `
 
-    await customElements.whenDefined("plank-hover-card")
-    const hoverCard = container.querySelector("plank-hover-card")!
+    await customElements.whenDefined("hal-hover-card")
+    const hoverCard = container.querySelector("hal-hover-card")!
     await (hoverCard as any).updateComplete
 
-    const trigger = container.querySelector("plank-hover-card-trigger")!
+    const trigger = container.querySelector("hal-hover-card-trigger")!
     trigger.dispatchEvent(new PointerEvent("pointerenter", { bubbles: true }))
 
     await new Promise((r) => setTimeout(r, 50))
@@ -85,19 +85,19 @@ describe("plank-hover-card", () => {
 
   it("hides hover card on mouse leave", async () => {
     container.innerHTML = `
-      <plank-hover-card open-delay="0" close-delay="0">
-        <plank-hover-card-trigger>
-          <plank-button variant="link">@nextjs</plank-button>
-        </plank-hover-card-trigger>
-        <plank-hover-card-content>Content</plank-hover-card-content>
-      </plank-hover-card>
+      <hal-hover-card open-delay="0" close-delay="0">
+        <hal-hover-card-trigger>
+          <hal-button variant="link">@nextjs</hal-button>
+        </hal-hover-card-trigger>
+        <hal-hover-card-content>Content</hal-hover-card-content>
+      </hal-hover-card>
     `
 
-    await customElements.whenDefined("plank-hover-card")
-    const hoverCard = container.querySelector("plank-hover-card")!
+    await customElements.whenDefined("hal-hover-card")
+    const hoverCard = container.querySelector("hal-hover-card")!
     await (hoverCard as any).updateComplete
 
-    const trigger = container.querySelector("plank-hover-card-trigger")!
+    const trigger = container.querySelector("hal-hover-card-trigger")!
     trigger.dispatchEvent(new PointerEvent("pointerenter", { bubbles: true }))
 
     await new Promise((r) => setTimeout(r, 50))
@@ -117,16 +117,16 @@ describe("plank-hover-card", () => {
 
   it("shows hover card on focus", async () => {
     container.innerHTML = `
-      <plank-hover-card open-delay="0">
-        <plank-hover-card-trigger>
+      <hal-hover-card open-delay="0">
+        <hal-hover-card-trigger>
           <button>@nextjs</button>
-        </plank-hover-card-trigger>
-        <plank-hover-card-content>Content</plank-hover-card-content>
-      </plank-hover-card>
+        </hal-hover-card-trigger>
+        <hal-hover-card-content>Content</hal-hover-card-content>
+      </hal-hover-card>
     `
 
-    await customElements.whenDefined("plank-hover-card")
-    const hoverCard = container.querySelector("plank-hover-card")!
+    await customElements.whenDefined("hal-hover-card")
+    const hoverCard = container.querySelector("hal-hover-card")!
     await (hoverCard as any).updateComplete
 
     const button = container.querySelector("button")!
@@ -140,16 +140,16 @@ describe("plank-hover-card", () => {
 
   it("hover card content has correct data-slot", async () => {
     container.innerHTML = `
-      <plank-hover-card open>
-        <plank-hover-card-trigger>
-          <plank-button variant="link">@nextjs</plank-button>
-        </plank-hover-card-trigger>
-        <plank-hover-card-content>Content</plank-hover-card-content>
-      </plank-hover-card>
+      <hal-hover-card open>
+        <hal-hover-card-trigger>
+          <hal-button variant="link">@nextjs</hal-button>
+        </hal-hover-card-trigger>
+        <hal-hover-card-content>Content</hal-hover-card-content>
+      </hal-hover-card>
     `
 
-    await customElements.whenDefined("plank-hover-card")
-    const hoverCard = container.querySelector("plank-hover-card")!
+    await customElements.whenDefined("hal-hover-card")
+    const hoverCard = container.querySelector("hal-hover-card")!
     await (hoverCard as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -162,16 +162,16 @@ describe("plank-hover-card", () => {
 
   it("hover card content has data-side attribute", async () => {
     container.innerHTML = `
-      <plank-hover-card open>
-        <plank-hover-card-trigger>
-          <plank-button variant="link">@nextjs</plank-button>
-        </plank-hover-card-trigger>
-        <plank-hover-card-content>Content</plank-hover-card-content>
-      </plank-hover-card>
+      <hal-hover-card open>
+        <hal-hover-card-trigger>
+          <hal-button variant="link">@nextjs</hal-button>
+        </hal-hover-card-trigger>
+        <hal-hover-card-content>Content</hal-hover-card-content>
+      </hal-hover-card>
     `
 
-    await customElements.whenDefined("plank-hover-card")
-    const hoverCard = container.querySelector("plank-hover-card")!
+    await customElements.whenDefined("hal-hover-card")
+    const hoverCard = container.querySelector("hal-hover-card")!
     await (hoverCard as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -184,16 +184,16 @@ describe("plank-hover-card", () => {
 
   it("hover card content has data-state attribute", async () => {
     container.innerHTML = `
-      <plank-hover-card open>
-        <plank-hover-card-trigger>
-          <plank-button variant="link">@nextjs</plank-button>
-        </plank-hover-card-trigger>
-        <plank-hover-card-content>Content</plank-hover-card-content>
-      </plank-hover-card>
+      <hal-hover-card open>
+        <hal-hover-card-trigger>
+          <hal-button variant="link">@nextjs</hal-button>
+        </hal-hover-card-trigger>
+        <hal-hover-card-content>Content</hal-hover-card-content>
+      </hal-hover-card>
     `
 
-    await customElements.whenDefined("plank-hover-card")
-    const hoverCard = container.querySelector("plank-hover-card")!
+    await customElements.whenDefined("hal-hover-card")
+    const hoverCard = container.querySelector("hal-hover-card")!
     await (hoverCard as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -206,16 +206,16 @@ describe("plank-hover-card", () => {
 
   it("can be controlled via open attribute", async () => {
     container.innerHTML = `
-      <plank-hover-card open>
-        <plank-hover-card-trigger>
-          <plank-button variant="link">@nextjs</plank-button>
-        </plank-hover-card-trigger>
-        <plank-hover-card-content>Content</plank-hover-card-content>
-      </plank-hover-card>
+      <hal-hover-card open>
+        <hal-hover-card-trigger>
+          <hal-button variant="link">@nextjs</hal-button>
+        </hal-hover-card-trigger>
+        <hal-hover-card-content>Content</hal-hover-card-content>
+      </hal-hover-card>
     `
 
-    await customElements.whenDefined("plank-hover-card")
-    const hoverCard = container.querySelector("plank-hover-card")!
+    await customElements.whenDefined("hal-hover-card")
+    const hoverCard = container.querySelector("hal-hover-card")!
     await (hoverCard as any).updateComplete
     await new Promise((r) => setTimeout(r, 50))
 
@@ -228,22 +228,22 @@ describe("plank-hover-card", () => {
 
   it("fires open-change when opened", async () => {
     container.innerHTML = `
-      <plank-hover-card open-delay="0">
-        <plank-hover-card-trigger>
-          <plank-button variant="link">@nextjs</plank-button>
-        </plank-hover-card-trigger>
-        <plank-hover-card-content>Content</plank-hover-card-content>
-      </plank-hover-card>
+      <hal-hover-card open-delay="0">
+        <hal-hover-card-trigger>
+          <hal-button variant="link">@nextjs</hal-button>
+        </hal-hover-card-trigger>
+        <hal-hover-card-content>Content</hal-hover-card-content>
+      </hal-hover-card>
     `
 
-    await customElements.whenDefined("plank-hover-card")
-    const hoverCard = container.querySelector("plank-hover-card")!
+    await customElements.whenDefined("hal-hover-card")
+    const hoverCard = container.querySelector("hal-hover-card")!
     await (hoverCard as any).updateComplete
 
     const onOpenChange = vi.fn()
     hoverCard.addEventListener("open-change", onOpenChange)
 
-    const trigger = container.querySelector("plank-hover-card-trigger")!
+    const trigger = container.querySelector("hal-hover-card-trigger")!
     trigger.dispatchEvent(new PointerEvent("pointerenter", { bubbles: true }))
 
     await new Promise((r) => setTimeout(r, 50))
@@ -254,22 +254,22 @@ describe("plank-hover-card", () => {
 
   it("respects openDelay property", async () => {
     container.innerHTML = `
-      <plank-hover-card open-delay="100">
-        <plank-hover-card-trigger>
-          <plank-button variant="link">@nextjs</plank-button>
-        </plank-hover-card-trigger>
-        <plank-hover-card-content>Content</plank-hover-card-content>
-      </plank-hover-card>
+      <hal-hover-card open-delay="100">
+        <hal-hover-card-trigger>
+          <hal-button variant="link">@nextjs</hal-button>
+        </hal-hover-card-trigger>
+        <hal-hover-card-content>Content</hal-hover-card-content>
+      </hal-hover-card>
     `
 
-    await customElements.whenDefined("plank-hover-card")
-    const hoverCard = container.querySelector("plank-hover-card")!
+    await customElements.whenDefined("hal-hover-card")
+    const hoverCard = container.querySelector("hal-hover-card")!
     await (hoverCard as any).updateComplete
 
     const onOpenChange = vi.fn()
     hoverCard.addEventListener("open-change", onOpenChange)
 
-    const trigger = container.querySelector("plank-hover-card-trigger")!
+    const trigger = container.querySelector("hal-hover-card-trigger")!
     trigger.dispatchEvent(new PointerEvent("pointerenter", { bubbles: true }))
 
     // Should not be open immediately
@@ -284,19 +284,19 @@ describe("plank-hover-card", () => {
 
   it("respects closeDelay property", async () => {
     container.innerHTML = `
-      <plank-hover-card open-delay="0" close-delay="100">
-        <plank-hover-card-trigger>
-          <plank-button variant="link">@nextjs</plank-button>
-        </plank-hover-card-trigger>
-        <plank-hover-card-content>Content</plank-hover-card-content>
-      </plank-hover-card>
+      <hal-hover-card open-delay="0" close-delay="100">
+        <hal-hover-card-trigger>
+          <hal-button variant="link">@nextjs</hal-button>
+        </hal-hover-card-trigger>
+        <hal-hover-card-content>Content</hal-hover-card-content>
+      </hal-hover-card>
     `
 
-    await customElements.whenDefined("plank-hover-card")
-    const hoverCard = container.querySelector("plank-hover-card")!
+    await customElements.whenDefined("hal-hover-card")
+    const hoverCard = container.querySelector("hal-hover-card")!
     await (hoverCard as any).updateComplete
 
-    const trigger = container.querySelector("plank-hover-card-trigger")!
+    const trigger = container.querySelector("hal-hover-card-trigger")!
 
     // Open the hover card
     trigger.dispatchEvent(new PointerEvent("pointerenter", { bubbles: true }))
@@ -320,22 +320,22 @@ describe("plank-hover-card", () => {
 
   it("does not open on touch events", async () => {
     container.innerHTML = `
-      <plank-hover-card open-delay="0">
-        <plank-hover-card-trigger>
-          <plank-button variant="link">@nextjs</plank-button>
-        </plank-hover-card-trigger>
-        <plank-hover-card-content>Content</plank-hover-card-content>
-      </plank-hover-card>
+      <hal-hover-card open-delay="0">
+        <hal-hover-card-trigger>
+          <hal-button variant="link">@nextjs</hal-button>
+        </hal-hover-card-trigger>
+        <hal-hover-card-content>Content</hal-hover-card-content>
+      </hal-hover-card>
     `
 
-    await customElements.whenDefined("plank-hover-card")
-    const hoverCard = container.querySelector("plank-hover-card")!
+    await customElements.whenDefined("hal-hover-card")
+    const hoverCard = container.querySelector("hal-hover-card")!
     await (hoverCard as any).updateComplete
 
     const onOpenChange = vi.fn()
     hoverCard.addEventListener("open-change", onOpenChange)
 
-    const trigger = container.querySelector("plank-hover-card-trigger")!
+    const trigger = container.querySelector("hal-hover-card-trigger")!
 
     // Simulate touch event - hover card should not open
     trigger.dispatchEvent(
@@ -353,16 +353,16 @@ describe("plank-hover-card", () => {
 
   it("trigger has data-state attribute", async () => {
     container.innerHTML = `
-      <plank-hover-card open>
-        <plank-hover-card-trigger>
+      <hal-hover-card open>
+        <hal-hover-card-trigger>
           <button>@nextjs</button>
-        </plank-hover-card-trigger>
-        <plank-hover-card-content>Content</plank-hover-card-content>
-      </plank-hover-card>
+        </hal-hover-card-trigger>
+        <hal-hover-card-content>Content</hal-hover-card-content>
+      </hal-hover-card>
     `
 
-    await customElements.whenDefined("plank-hover-card")
-    const hoverCard = container.querySelector("plank-hover-card")!
+    await customElements.whenDefined("hal-hover-card")
+    const hoverCard = container.querySelector("hal-hover-card")!
     await (hoverCard as any).updateComplete
 
     const button = container.querySelector("button")
@@ -371,19 +371,19 @@ describe("plank-hover-card", () => {
 
   it("stays open when hovering over content", async () => {
     container.innerHTML = `
-      <plank-hover-card open-delay="0" close-delay="0">
-        <plank-hover-card-trigger>
-          <plank-button variant="link">@nextjs</plank-button>
-        </plank-hover-card-trigger>
-        <plank-hover-card-content>Content</plank-hover-card-content>
-      </plank-hover-card>
+      <hal-hover-card open-delay="0" close-delay="0">
+        <hal-hover-card-trigger>
+          <hal-button variant="link">@nextjs</hal-button>
+        </hal-hover-card-trigger>
+        <hal-hover-card-content>Content</hal-hover-card-content>
+      </hal-hover-card>
     `
 
-    await customElements.whenDefined("plank-hover-card")
-    const hoverCard = container.querySelector("plank-hover-card")!
+    await customElements.whenDefined("hal-hover-card")
+    const hoverCard = container.querySelector("hal-hover-card")!
     await (hoverCard as any).updateComplete
 
-    const trigger = container.querySelector("plank-hover-card-trigger")!
+    const trigger = container.querySelector("hal-hover-card-trigger")!
 
     // Open the hover card
     trigger.dispatchEvent(new PointerEvent("pointerenter", { bubbles: true }))

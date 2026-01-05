@@ -1,8 +1,8 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest"
-import "@/web-components/plank-sonner"
-import { toast, PlankToaster } from "@/web-components/plank-sonner"
+import "@/web-components/hal-sonner"
+import { toast, HalToaster } from "@/web-components/hal-sonner"
 
-describe("plank-toaster", () => {
+describe("hal-toaster", () => {
   let container: HTMLElement
 
   beforeEach(() => {
@@ -17,9 +17,9 @@ describe("plank-toaster", () => {
 
   describe("basic rendering", () => {
     it("renders with default attributes", async () => {
-      container.innerHTML = `<plank-toaster></plank-toaster>`
-      await customElements.whenDefined("plank-toaster")
-      const toaster = container.querySelector("plank-toaster")! as PlankToaster
+      container.innerHTML = `<hal-toaster></hal-toaster>`
+      await customElements.whenDefined("hal-toaster")
+      const toaster = container.querySelector("hal-toaster")! as HalToaster
       await toaster.updateComplete
 
       expect(toaster.position).toBe("bottom-right")
@@ -27,9 +27,9 @@ describe("plank-toaster", () => {
     })
 
     it("supports position attribute", async () => {
-      container.innerHTML = `<plank-toaster position="top-center"></plank-toaster>`
-      await customElements.whenDefined("plank-toaster")
-      const toaster = container.querySelector("plank-toaster")! as PlankToaster
+      container.innerHTML = `<hal-toaster position="top-center"></hal-toaster>`
+      await customElements.whenDefined("hal-toaster")
+      const toaster = container.querySelector("hal-toaster")! as HalToaster
       await toaster.updateComplete
 
       expect(toaster.position).toBe("top-center")
@@ -37,9 +37,9 @@ describe("plank-toaster", () => {
     })
 
     it("has correct styling classes for bottom-right", async () => {
-      container.innerHTML = `<plank-toaster position="bottom-right"></plank-toaster>`
-      await customElements.whenDefined("plank-toaster")
-      const toaster = container.querySelector("plank-toaster")! as PlankToaster
+      container.innerHTML = `<hal-toaster position="bottom-right"></hal-toaster>`
+      await customElements.whenDefined("hal-toaster")
+      const toaster = container.querySelector("hal-toaster")! as HalToaster
       await toaster.updateComplete
 
       expect(toaster.className).toContain("fixed")
@@ -48,9 +48,9 @@ describe("plank-toaster", () => {
     })
 
     it("has correct styling classes for top-left", async () => {
-      container.innerHTML = `<plank-toaster position="top-left"></plank-toaster>`
-      await customElements.whenDefined("plank-toaster")
-      const toaster = container.querySelector("plank-toaster")! as PlankToaster
+      container.innerHTML = `<hal-toaster position="top-left"></hal-toaster>`
+      await customElements.whenDefined("hal-toaster")
+      const toaster = container.querySelector("hal-toaster")! as HalToaster
       await toaster.updateComplete
 
       expect(toaster.className).toContain("top-4")
@@ -60,9 +60,9 @@ describe("plank-toaster", () => {
 
   describe("toast API", () => {
     it("toast() adds a default toast", async () => {
-      container.innerHTML = `<plank-toaster></plank-toaster>`
-      await customElements.whenDefined("plank-toaster")
-      const toaster = container.querySelector("plank-toaster")! as PlankToaster
+      container.innerHTML = `<hal-toaster></hal-toaster>`
+      await customElements.whenDefined("hal-toaster")
+      const toaster = container.querySelector("hal-toaster")! as HalToaster
       await toaster.updateComplete
 
       toast("Test message")
@@ -75,9 +75,9 @@ describe("plank-toaster", () => {
     })
 
     it("toast.success() adds a success toast", async () => {
-      container.innerHTML = `<plank-toaster></plank-toaster>`
-      await customElements.whenDefined("plank-toaster")
-      const toaster = container.querySelector("plank-toaster")! as PlankToaster
+      container.innerHTML = `<hal-toaster></hal-toaster>`
+      await customElements.whenDefined("hal-toaster")
+      const toaster = container.querySelector("hal-toaster")! as HalToaster
       await toaster.updateComplete
 
       toast.success("Success!")
@@ -92,9 +92,9 @@ describe("plank-toaster", () => {
     })
 
     it("toast.error() adds an error toast", async () => {
-      container.innerHTML = `<plank-toaster></plank-toaster>`
-      await customElements.whenDefined("plank-toaster")
-      const toaster = container.querySelector("plank-toaster")! as PlankToaster
+      container.innerHTML = `<hal-toaster></hal-toaster>`
+      await customElements.whenDefined("hal-toaster")
+      const toaster = container.querySelector("hal-toaster")! as HalToaster
       await toaster.updateComplete
 
       toast.error("Error occurred")
@@ -109,9 +109,9 @@ describe("plank-toaster", () => {
     })
 
     it("toast.warning() adds a warning toast", async () => {
-      container.innerHTML = `<plank-toaster></plank-toaster>`
-      await customElements.whenDefined("plank-toaster")
-      const toaster = container.querySelector("plank-toaster")! as PlankToaster
+      container.innerHTML = `<hal-toaster></hal-toaster>`
+      await customElements.whenDefined("hal-toaster")
+      const toaster = container.querySelector("hal-toaster")! as HalToaster
       await toaster.updateComplete
 
       toast.warning("Warning!")
@@ -126,9 +126,9 @@ describe("plank-toaster", () => {
     })
 
     it("toast.info() adds an info toast", async () => {
-      container.innerHTML = `<plank-toaster></plank-toaster>`
-      await customElements.whenDefined("plank-toaster")
-      const toaster = container.querySelector("plank-toaster")! as PlankToaster
+      container.innerHTML = `<hal-toaster></hal-toaster>`
+      await customElements.whenDefined("hal-toaster")
+      const toaster = container.querySelector("hal-toaster")! as HalToaster
       await toaster.updateComplete
 
       toast.info("Info message")
@@ -143,9 +143,9 @@ describe("plank-toaster", () => {
     })
 
     it("toast.loading() adds a loading toast", async () => {
-      container.innerHTML = `<plank-toaster></plank-toaster>`
-      await customElements.whenDefined("plank-toaster")
-      const toaster = container.querySelector("plank-toaster")! as PlankToaster
+      container.innerHTML = `<hal-toaster></hal-toaster>`
+      await customElements.whenDefined("hal-toaster")
+      const toaster = container.querySelector("hal-toaster")! as HalToaster
       await toaster.updateComplete
 
       toast.loading("Loading...")
@@ -162,9 +162,9 @@ describe("plank-toaster", () => {
 
   describe("toast options", () => {
     it("supports description option", async () => {
-      container.innerHTML = `<plank-toaster></plank-toaster>`
-      await customElements.whenDefined("plank-toaster")
-      const toaster = container.querySelector("plank-toaster")! as PlankToaster
+      container.innerHTML = `<hal-toaster></hal-toaster>`
+      await customElements.whenDefined("hal-toaster")
+      const toaster = container.querySelector("hal-toaster")! as HalToaster
       await toaster.updateComplete
 
       toast("Title", { description: "Description text" })
@@ -177,9 +177,9 @@ describe("plank-toaster", () => {
     })
 
     it("supports action option", async () => {
-      container.innerHTML = `<plank-toaster></plank-toaster>`
-      await customElements.whenDefined("plank-toaster")
-      const toaster = container.querySelector("plank-toaster")! as PlankToaster
+      container.innerHTML = `<hal-toaster></hal-toaster>`
+      await customElements.whenDefined("hal-toaster")
+      const toaster = container.querySelector("hal-toaster")! as HalToaster
       await toaster.updateComplete
 
       const onClick = vi.fn()
@@ -200,9 +200,9 @@ describe("plank-toaster", () => {
 
   describe("toast dismissal", () => {
     it("dismiss button removes toast", async () => {
-      container.innerHTML = `<plank-toaster></plank-toaster>`
-      await customElements.whenDefined("plank-toaster")
-      const toaster = container.querySelector("plank-toaster")! as PlankToaster
+      container.innerHTML = `<hal-toaster></hal-toaster>`
+      await customElements.whenDefined("hal-toaster")
+      const toaster = container.querySelector("hal-toaster")! as HalToaster
       await toaster.updateComplete
 
       toast("Message")
@@ -219,9 +219,9 @@ describe("plank-toaster", () => {
     })
 
     it("toast.dismiss() removes toast by id", async () => {
-      container.innerHTML = `<plank-toaster></plank-toaster>`
-      await customElements.whenDefined("plank-toaster")
-      const toaster = container.querySelector("plank-toaster")! as PlankToaster
+      container.innerHTML = `<hal-toaster></hal-toaster>`
+      await customElements.whenDefined("hal-toaster")
+      const toaster = container.querySelector("hal-toaster")! as HalToaster
       await toaster.updateComplete
 
       const id = toast("Message")
@@ -237,9 +237,9 @@ describe("plank-toaster", () => {
     })
 
     it("toast.dismiss() without id clears all toasts", async () => {
-      container.innerHTML = `<plank-toaster></plank-toaster>`
-      await customElements.whenDefined("plank-toaster")
-      const toaster = container.querySelector("plank-toaster")! as PlankToaster
+      container.innerHTML = `<hal-toaster></hal-toaster>`
+      await customElements.whenDefined("hal-toaster")
+      const toaster = container.querySelector("hal-toaster")! as HalToaster
       await toaster.updateComplete
 
       toast("Message 1")
@@ -259,9 +259,9 @@ describe("plank-toaster", () => {
 
   describe("visible toasts limit", () => {
     it("limits visible toasts based on visible-toasts attribute", async () => {
-      container.innerHTML = `<plank-toaster visible-toasts="2"></plank-toaster>`
-      await customElements.whenDefined("plank-toaster")
-      const toaster = container.querySelector("plank-toaster")! as PlankToaster
+      container.innerHTML = `<hal-toaster visible-toasts="2"></hal-toaster>`
+      await customElements.whenDefined("hal-toaster")
+      const toaster = container.querySelector("hal-toaster")! as HalToaster
       await toaster.updateComplete
 
       toast("Message 1")
@@ -278,9 +278,9 @@ describe("plank-toaster", () => {
 
   describe("accessibility", () => {
     it("toasts have role=status", async () => {
-      container.innerHTML = `<plank-toaster></plank-toaster>`
-      await customElements.whenDefined("plank-toaster")
-      const toaster = container.querySelector("plank-toaster")! as PlankToaster
+      container.innerHTML = `<hal-toaster></hal-toaster>`
+      await customElements.whenDefined("hal-toaster")
+      const toaster = container.querySelector("hal-toaster")! as HalToaster
       await toaster.updateComplete
 
       toast("Message")
@@ -292,9 +292,9 @@ describe("plank-toaster", () => {
     })
 
     it("toasts have aria-live=polite", async () => {
-      container.innerHTML = `<plank-toaster></plank-toaster>`
-      await customElements.whenDefined("plank-toaster")
-      const toaster = container.querySelector("plank-toaster")! as PlankToaster
+      container.innerHTML = `<hal-toaster></hal-toaster>`
+      await customElements.whenDefined("hal-toaster")
+      const toaster = container.querySelector("hal-toaster")! as HalToaster
       await toaster.updateComplete
 
       toast("Message")
@@ -306,9 +306,9 @@ describe("plank-toaster", () => {
     })
 
     it("dismiss button has aria-label", async () => {
-      container.innerHTML = `<plank-toaster></plank-toaster>`
-      await customElements.whenDefined("plank-toaster")
-      const toaster = container.querySelector("plank-toaster")! as PlankToaster
+      container.innerHTML = `<hal-toaster></hal-toaster>`
+      await customElements.whenDefined("hal-toaster")
+      const toaster = container.querySelector("hal-toaster")! as HalToaster
       await toaster.updateComplete
 
       toast("Message")

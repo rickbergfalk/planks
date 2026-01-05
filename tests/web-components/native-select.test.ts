@@ -1,12 +1,12 @@
 import { describe, it, expect, beforeEach, afterEach } from "vitest"
-import "@/web-components/plank-native-select"
+import "@/web-components/hal-native-select"
 import type {
-  PlankNativeSelect,
-  PlankNativeSelectOption,
-  PlankNativeSelectOptGroup,
-} from "@/web-components/plank-native-select"
+  HalNativeSelect,
+  HalNativeSelectOption,
+  HalNativeSelectOptGroup,
+} from "@/web-components/hal-native-select"
 
-describe("PlankNativeSelect (Web Component)", () => {
+describe("HalNativeSelect (Web Component)", () => {
   let container: HTMLDivElement
 
   beforeEach(() => {
@@ -18,20 +18,20 @@ describe("PlankNativeSelect (Web Component)", () => {
     container.remove()
   })
 
-  async function renderAndWait(html: string): Promise<PlankNativeSelect> {
+  async function renderAndWait(html: string): Promise<HalNativeSelect> {
     container.innerHTML = html
-    await customElements.whenDefined("plank-native-select")
+    await customElements.whenDefined("hal-native-select")
     const select = container.querySelector(
-      "plank-native-select"
-    ) as PlankNativeSelect
+      "hal-native-select"
+    ) as HalNativeSelect
     await select.updateComplete
     return select
   }
 
-  describe("PlankNativeSelect", () => {
+  describe("HalNativeSelect", () => {
     it("renders with data-slot attribute", async () => {
       const selectEl = await renderAndWait(
-        `<plank-native-select></plank-native-select>`
+        `<hal-native-select></hal-native-select>`
       )
       expect(selectEl).toBeDefined()
       expect(selectEl.dataset.slot).toBe("native-select-wrapper")
@@ -39,7 +39,7 @@ describe("PlankNativeSelect (Web Component)", () => {
 
     it("contains a native select element", async () => {
       const selectEl = await renderAndWait(
-        `<plank-native-select></plank-native-select>`
+        `<hal-native-select></hal-native-select>`
       )
       const nativeSelect = selectEl.querySelector("select")
       expect(nativeSelect).toBeTruthy()
@@ -48,7 +48,7 @@ describe("PlankNativeSelect (Web Component)", () => {
 
     it("contains a chevron icon", async () => {
       const selectEl = await renderAndWait(
-        `<plank-native-select></plank-native-select>`
+        `<hal-native-select></hal-native-select>`
       )
       const icon = selectEl.querySelector("svg")
       expect(icon).toBeTruthy()
@@ -57,7 +57,7 @@ describe("PlankNativeSelect (Web Component)", () => {
 
     it("supports disabled attribute", async () => {
       const selectEl = await renderAndWait(
-        `<plank-native-select disabled></plank-native-select>`
+        `<hal-native-select disabled></hal-native-select>`
       )
       const nativeSelect = selectEl.querySelector("select") as HTMLSelectElement
       expect(nativeSelect.disabled).toBe(true)
@@ -65,7 +65,7 @@ describe("PlankNativeSelect (Web Component)", () => {
 
     it("supports size attribute", async () => {
       const selectEl = await renderAndWait(
-        `<plank-native-select size="sm"></plank-native-select>`
+        `<hal-native-select size="sm"></hal-native-select>`
       )
       const nativeSelect = selectEl.querySelector("select") as HTMLSelectElement
       expect(nativeSelect.dataset.size).toBe("sm")
@@ -73,7 +73,7 @@ describe("PlankNativeSelect (Web Component)", () => {
 
     it("supports name attribute", async () => {
       const selectEl = await renderAndWait(
-        `<plank-native-select name="fruit"></plank-native-select>`
+        `<hal-native-select name="fruit"></hal-native-select>`
       )
       const nativeSelect = selectEl.querySelector("select") as HTMLSelectElement
       expect(nativeSelect.name).toBe("fruit")
@@ -81,10 +81,10 @@ describe("PlankNativeSelect (Web Component)", () => {
 
     it("moves child options into native select", async () => {
       const selectEl = await renderAndWait(`
-        <plank-native-select>
-          <plank-native-select-option value="a">Option A</plank-native-select-option>
-          <plank-native-select-option value="b">Option B</plank-native-select-option>
-        </plank-native-select>
+        <hal-native-select>
+          <hal-native-select-option value="a">Option A</hal-native-select-option>
+          <hal-native-select-option value="b">Option B</hal-native-select-option>
+        </hal-native-select>
       `)
       const nativeSelect = selectEl.querySelector("select") as HTMLSelectElement
       const options = nativeSelect.querySelectorAll("option")
@@ -97,10 +97,10 @@ describe("PlankNativeSelect (Web Component)", () => {
 
     it("supports value property", async () => {
       const selectEl = await renderAndWait(`
-        <plank-native-select value="b">
-          <plank-native-select-option value="a">Option A</plank-native-select-option>
-          <plank-native-select-option value="b">Option B</plank-native-select-option>
-        </plank-native-select>
+        <hal-native-select value="b">
+          <hal-native-select-option value="a">Option A</hal-native-select-option>
+          <hal-native-select-option value="b">Option B</hal-native-select-option>
+        </hal-native-select>
       `)
       const nativeSelect = selectEl.querySelector("select") as HTMLSelectElement
       expect(nativeSelect.value).toBe("b")
@@ -108,10 +108,10 @@ describe("PlankNativeSelect (Web Component)", () => {
 
     it("fires change event when selection changes", async () => {
       const selectEl = await renderAndWait(`
-        <plank-native-select>
-          <plank-native-select-option value="a">Option A</plank-native-select-option>
-          <plank-native-select-option value="b">Option B</plank-native-select-option>
-        </plank-native-select>
+        <hal-native-select>
+          <hal-native-select-option value="a">Option A</hal-native-select-option>
+          <hal-native-select-option value="b">Option B</hal-native-select-option>
+        </hal-native-select>
       `)
       const nativeSelect = selectEl.querySelector("select") as HTMLSelectElement
 
@@ -127,22 +127,22 @@ describe("PlankNativeSelect (Web Component)", () => {
     })
   })
 
-  describe("PlankNativeSelectOption", () => {
+  describe("HalNativeSelectOption", () => {
     it("renders with data-slot attribute", async () => {
-      await customElements.whenDefined("plank-native-select-option")
-      container.innerHTML = `<plank-native-select-option value="test">Test</plank-native-select-option>`
+      await customElements.whenDefined("hal-native-select-option")
+      container.innerHTML = `<hal-native-select-option value="test">Test</hal-native-select-option>`
       const option = container.querySelector(
-        "plank-native-select-option"
-      ) as PlankNativeSelectOption
+        "hal-native-select-option"
+      ) as HalNativeSelectOption
       await option.updateComplete
       expect(option.dataset.slot).toBe("native-select-option")
     })
 
     it("creates native option element", async () => {
       await renderAndWait(`
-        <plank-native-select>
-          <plank-native-select-option value="test">Test Content</plank-native-select-option>
-        </plank-native-select>
+        <hal-native-select>
+          <hal-native-select-option value="test">Test Content</hal-native-select-option>
+        </hal-native-select>
       `)
       const nativeOption = container.querySelector(
         "option"
@@ -154,9 +154,9 @@ describe("PlankNativeSelect (Web Component)", () => {
 
     it("supports disabled attribute", async () => {
       await renderAndWait(`
-        <plank-native-select>
-          <plank-native-select-option value="test" disabled>Disabled</plank-native-select-option>
-        </plank-native-select>
+        <hal-native-select>
+          <hal-native-select-option value="test" disabled>Disabled</hal-native-select-option>
+        </hal-native-select>
       `)
       const nativeOption = container.querySelector(
         "option"
@@ -165,24 +165,24 @@ describe("PlankNativeSelect (Web Component)", () => {
     })
   })
 
-  describe("PlankNativeSelectOptGroup", () => {
+  describe("HalNativeSelectOptGroup", () => {
     it("renders with data-slot attribute", async () => {
-      await customElements.whenDefined("plank-native-select-optgroup")
-      container.innerHTML = `<plank-native-select-optgroup label="Group"></plank-native-select-optgroup>`
+      await customElements.whenDefined("hal-native-select-optgroup")
+      container.innerHTML = `<hal-native-select-optgroup label="Group"></hal-native-select-optgroup>`
       const optgroup = container.querySelector(
-        "plank-native-select-optgroup"
-      ) as PlankNativeSelectOptGroup
+        "hal-native-select-optgroup"
+      ) as HalNativeSelectOptGroup
       await optgroup.updateComplete
       expect(optgroup.dataset.slot).toBe("native-select-optgroup")
     })
 
     it("creates native optgroup element", async () => {
       await renderAndWait(`
-        <plank-native-select>
-          <plank-native-select-optgroup label="Fruits">
-            <plank-native-select-option value="apple">Apple</plank-native-select-option>
-          </plank-native-select-optgroup>
-        </plank-native-select>
+        <hal-native-select>
+          <hal-native-select-optgroup label="Fruits">
+            <hal-native-select-option value="apple">Apple</hal-native-select-option>
+          </hal-native-select-optgroup>
+        </hal-native-select>
       `)
       const nativeOptgroup = container.querySelector(
         "optgroup"
@@ -196,11 +196,11 @@ describe("PlankNativeSelect (Web Component)", () => {
 
     it("supports disabled attribute", async () => {
       await renderAndWait(`
-        <plank-native-select>
-          <plank-native-select-optgroup label="Disabled Group" disabled>
-            <plank-native-select-option value="test">Test</plank-native-select-option>
-          </plank-native-select-optgroup>
-        </plank-native-select>
+        <hal-native-select>
+          <hal-native-select-optgroup label="Disabled Group" disabled>
+            <hal-native-select-option value="test">Test</hal-native-select-option>
+          </hal-native-select-optgroup>
+        </hal-native-select>
       `)
       const nativeOptgroup = container.querySelector(
         "optgroup"

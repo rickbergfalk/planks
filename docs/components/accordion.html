@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Accordion - Planks</title>
+    <title>Accordion - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -18,72 +18,68 @@
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Basic Usage</h2>
         <div class="mb-4 w-full max-w-md">
-          <plank-accordion collapsible class="w-full">
-            <plank-accordion-item value="item-1">
-              <plank-accordion-trigger
-                >Is it accessible?</plank-accordion-trigger
-              >
-              <plank-accordion-content>
+          <hal-accordion collapsible class="w-full">
+            <hal-accordion-item value="item-1">
+              <hal-accordion-trigger>Is it accessible?</hal-accordion-trigger>
+              <hal-accordion-content>
                 Yes. It adheres to the WAI-ARIA design pattern.
-              </plank-accordion-content>
-            </plank-accordion-item>
-            <plank-accordion-item value="item-2">
-              <plank-accordion-trigger>Is it styled?</plank-accordion-trigger>
-              <plank-accordion-content>
+              </hal-accordion-content>
+            </hal-accordion-item>
+            <hal-accordion-item value="item-2">
+              <hal-accordion-trigger>Is it styled?</hal-accordion-trigger>
+              <hal-accordion-content>
                 Yes. It comes with default styles that matches the other
                 components.
-              </plank-accordion-content>
-            </plank-accordion-item>
-            <plank-accordion-item value="item-3">
-              <plank-accordion-trigger>Is it animated?</plank-accordion-trigger>
-              <plank-accordion-content>
+              </hal-accordion-content>
+            </hal-accordion-item>
+            <hal-accordion-item value="item-3">
+              <hal-accordion-trigger>Is it animated?</hal-accordion-trigger>
+              <hal-accordion-content>
                 Yes. It's animated by default.
-              </plank-accordion-content>
-            </plank-accordion-item>
-          </plank-accordion>
+              </hal-accordion-content>
+            </hal-accordion-item>
+          </hal-accordion>
         </div>
-        <pre><code>&lt;plank-accordion collapsible class="w-full"&gt;
-  &lt;plank-accordion-item value="item-1"&gt;
-    &lt;plank-accordion-trigger&gt;Is it accessible?&lt;/plank-accordion-trigger&gt;
-    &lt;plank-accordion-content&gt;
+        <pre><code>&lt;hal-accordion collapsible class="w-full"&gt;
+  &lt;hal-accordion-item value="item-1"&gt;
+    &lt;hal-accordion-trigger&gt;Is it accessible?&lt;/hal-accordion-trigger&gt;
+    &lt;hal-accordion-content&gt;
       Yes. It adheres to the WAI-ARIA design pattern.
-    &lt;/plank-accordion-content&gt;
-  &lt;/plank-accordion-item&gt;
-  &lt;plank-accordion-item value="item-2"&gt;
-    &lt;plank-accordion-trigger&gt;Is it styled?&lt;/plank-accordion-trigger&gt;
-    &lt;plank-accordion-content&gt;
+    &lt;/hal-accordion-content&gt;
+  &lt;/hal-accordion-item&gt;
+  &lt;hal-accordion-item value="item-2"&gt;
+    &lt;hal-accordion-trigger&gt;Is it styled?&lt;/hal-accordion-trigger&gt;
+    &lt;hal-accordion-content&gt;
       Yes. It comes with default styles.
-    &lt;/plank-accordion-content&gt;
-  &lt;/plank-accordion-item&gt;
-&lt;/plank-accordion&gt;</code></pre>
+    &lt;/hal-accordion-content&gt;
+  &lt;/hal-accordion-item&gt;
+&lt;/hal-accordion&gt;</code></pre>
       </section>
 
       <!-- Open by default -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Default Open Item</h2>
         <div class="mb-4 w-full max-w-md">
-          <plank-accordion value="item-1" class="w-full">
-            <plank-accordion-item value="item-1">
-              <plank-accordion-trigger
-                >First Item (Open)</plank-accordion-trigger
-              >
-              <plank-accordion-content>
+          <hal-accordion value="item-1" class="w-full">
+            <hal-accordion-item value="item-1">
+              <hal-accordion-trigger>First Item (Open)</hal-accordion-trigger>
+              <hal-accordion-content>
                 This item is open by default using the value attribute.
-              </plank-accordion-content>
-            </plank-accordion-item>
-            <plank-accordion-item value="item-2">
-              <plank-accordion-trigger>Second Item</plank-accordion-trigger>
-              <plank-accordion-content>
+              </hal-accordion-content>
+            </hal-accordion-item>
+            <hal-accordion-item value="item-2">
+              <hal-accordion-trigger>Second Item</hal-accordion-trigger>
+              <hal-accordion-content>
                 Click to open this item.
-              </plank-accordion-content>
-            </plank-accordion-item>
-          </plank-accordion>
+              </hal-accordion-content>
+            </hal-accordion-item>
+          </hal-accordion>
         </div>
-        <pre><code>&lt;plank-accordion value="item-1"&gt;
-  &lt;plank-accordion-item value="item-1"&gt;
+        <pre><code>&lt;hal-accordion value="item-1"&gt;
+  &lt;hal-accordion-item value="item-1"&gt;
     ...
-  &lt;/plank-accordion-item&gt;
-&lt;/plank-accordion&gt;</code></pre>
+  &lt;/hal-accordion-item&gt;
+&lt;/hal-accordion&gt;</code></pre>
       </section>
 
       <!-- Multiple Mode -->
@@ -93,24 +89,24 @@
           Set type="multiple" to allow multiple items to be open at once.
         </p>
         <div class="mb-4 w-full max-w-md">
-          <plank-accordion type="multiple" class="w-full">
-            <plank-accordion-item value="item-1">
-              <plank-accordion-trigger>Item One</plank-accordion-trigger>
-              <plank-accordion-content>
+          <hal-accordion type="multiple" class="w-full">
+            <hal-accordion-item value="item-1">
+              <hal-accordion-trigger>Item One</hal-accordion-trigger>
+              <hal-accordion-content>
                 Multiple items can be open at the same time.
-              </plank-accordion-content>
-            </plank-accordion-item>
-            <plank-accordion-item value="item-2">
-              <plank-accordion-trigger>Item Two</plank-accordion-trigger>
-              <plank-accordion-content>
+              </hal-accordion-content>
+            </hal-accordion-item>
+            <hal-accordion-item value="item-2">
+              <hal-accordion-trigger>Item Two</hal-accordion-trigger>
+              <hal-accordion-content>
                 Try opening both items at once.
-              </plank-accordion-content>
-            </plank-accordion-item>
-          </plank-accordion>
+              </hal-accordion-content>
+            </hal-accordion-item>
+          </hal-accordion>
         </div>
-        <pre><code>&lt;plank-accordion type="multiple"&gt;
+        <pre><code>&lt;hal-accordion type="multiple"&gt;
   ...
-&lt;/plank-accordion&gt;</code></pre>
+&lt;/hal-accordion&gt;</code></pre>
       </section>
 
       <!-- Collapsible -->
@@ -120,47 +116,43 @@
           Set collapsible to allow closing all items in single mode.
         </p>
         <div class="mb-4 w-full max-w-md">
-          <plank-accordion collapsible class="w-full">
-            <plank-accordion-item value="item-1">
-              <plank-accordion-trigger
-                >Collapsible Item</plank-accordion-trigger
-              >
-              <plank-accordion-content>
+          <hal-accordion collapsible class="w-full">
+            <hal-accordion-item value="item-1">
+              <hal-accordion-trigger>Collapsible Item</hal-accordion-trigger>
+              <hal-accordion-content>
                 Click the trigger again to collapse this item.
-              </plank-accordion-content>
-            </plank-accordion-item>
-          </plank-accordion>
+              </hal-accordion-content>
+            </hal-accordion-item>
+          </hal-accordion>
         </div>
-        <pre><code>&lt;plank-accordion collapsible&gt;
+        <pre><code>&lt;hal-accordion collapsible&gt;
   ...
-&lt;/plank-accordion&gt;</code></pre>
+&lt;/hal-accordion&gt;</code></pre>
       </section>
 
       <!-- Disabled -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Disabled</h2>
         <div class="mb-4 w-full max-w-md">
-          <plank-accordion disabled class="w-full">
-            <plank-accordion-item value="item-1">
-              <plank-accordion-trigger
-                >Disabled Accordion</plank-accordion-trigger
-              >
-              <plank-accordion-content>
+          <hal-accordion disabled class="w-full">
+            <hal-accordion-item value="item-1">
+              <hal-accordion-trigger>Disabled Accordion</hal-accordion-trigger>
+              <hal-accordion-content>
                 This content cannot be revealed.
-              </plank-accordion-content>
-            </plank-accordion-item>
-          </plank-accordion>
+              </hal-accordion-content>
+            </hal-accordion-item>
+          </hal-accordion>
         </div>
-        <pre><code>&lt;plank-accordion disabled&gt;
+        <pre><code>&lt;hal-accordion disabled&gt;
   ...
-&lt;/plank-accordion&gt;</code></pre>
+&lt;/hal-accordion&gt;</code></pre>
       </section>
 
       <!-- API -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">API</h2>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-accordion</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-accordion</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -236,7 +228,7 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-accordion-item</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-accordion-item</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -268,14 +260,14 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-accordion-trigger</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-accordion-trigger</h3>
         <p class="text-muted-foreground mb-4">
           The button that toggles the accordion item. Automatically sets up ARIA
           attributes (role="button", aria-expanded, aria-controls) and includes
           a chevron icon.
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-accordion-content</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-accordion-content</h3>
         <p class="text-muted-foreground mb-4">
           The collapsible content. Hidden when closed, visible when open.
           Automatically gets an id for aria-controls.

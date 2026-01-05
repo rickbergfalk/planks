@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dialog - Planks</title>
+    <title>Dialog - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -18,48 +18,48 @@
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Basic Usage</h2>
         <div class="mb-4 flex items-center gap-4">
-          <plank-dialog>
-            <plank-dialog-trigger>
-              <plank-button variant="outline">Edit Profile</plank-button>
-            </plank-dialog-trigger>
-            <plank-dialog-content>
-              <plank-dialog-header>
-                <plank-dialog-title>Edit profile</plank-dialog-title>
-                <plank-dialog-description>
+          <hal-dialog>
+            <hal-dialog-trigger>
+              <hal-button variant="outline">Edit Profile</hal-button>
+            </hal-dialog-trigger>
+            <hal-dialog-content>
+              <hal-dialog-header>
+                <hal-dialog-title>Edit profile</hal-dialog-title>
+                <hal-dialog-description>
                   Make changes to your profile here. Click save when you're
                   done.
-                </plank-dialog-description>
-              </plank-dialog-header>
+                </hal-dialog-description>
+              </hal-dialog-header>
               <div class="py-4">
                 <p class="text-sm">Dialog content goes here.</p>
               </div>
-              <plank-dialog-footer>
-                <plank-button variant="outline">Cancel</plank-button>
-                <plank-button>Save changes</plank-button>
-              </plank-dialog-footer>
-            </plank-dialog-content>
-          </plank-dialog>
+              <hal-dialog-footer>
+                <hal-button variant="outline">Cancel</hal-button>
+                <hal-button>Save changes</hal-button>
+              </hal-dialog-footer>
+            </hal-dialog-content>
+          </hal-dialog>
         </div>
-        <pre><code>&lt;plank-dialog&gt;
-  &lt;plank-dialog-trigger&gt;
-    &lt;plank-button variant="outline"&gt;Edit Profile&lt;/plank-button&gt;
-  &lt;/plank-dialog-trigger&gt;
-  &lt;plank-dialog-content&gt;
-    &lt;plank-dialog-header&gt;
-      &lt;plank-dialog-title&gt;Edit profile&lt;/plank-dialog-title&gt;
-      &lt;plank-dialog-description&gt;
+        <pre><code>&lt;hal-dialog&gt;
+  &lt;hal-dialog-trigger&gt;
+    &lt;hal-button variant="outline"&gt;Edit Profile&lt;/hal-button&gt;
+  &lt;/hal-dialog-trigger&gt;
+  &lt;hal-dialog-content&gt;
+    &lt;hal-dialog-header&gt;
+      &lt;hal-dialog-title&gt;Edit profile&lt;/hal-dialog-title&gt;
+      &lt;hal-dialog-description&gt;
         Make changes to your profile here. Click save when you're done.
-      &lt;/plank-dialog-description&gt;
-    &lt;/plank-dialog-header&gt;
+      &lt;/hal-dialog-description&gt;
+    &lt;/hal-dialog-header&gt;
     &lt;div class="py-4"&gt;
       &lt;p class="text-sm"&gt;Dialog content goes here.&lt;/p&gt;
     &lt;/div&gt;
-    &lt;plank-dialog-footer&gt;
-      &lt;plank-button variant="outline"&gt;Cancel&lt;/plank-button&gt;
-      &lt;plank-button&gt;Save changes&lt;/plank-button&gt;
-    &lt;/plank-dialog-footer&gt;
-  &lt;/plank-dialog-content&gt;
-&lt;/plank-dialog&gt;</code></pre>
+    &lt;hal-dialog-footer&gt;
+      &lt;hal-button variant="outline"&gt;Cancel&lt;/hal-button&gt;
+      &lt;hal-button&gt;Save changes&lt;/hal-button&gt;
+    &lt;/hal-dialog-footer&gt;
+  &lt;/hal-dialog-content&gt;
+&lt;/hal-dialog&gt;</code></pre>
       </section>
 
       <!-- Simple Dialog -->
@@ -69,29 +69,29 @@
           A dialog with just a title and content.
         </p>
         <div class="mb-4 flex items-center gap-4">
-          <plank-dialog>
-            <plank-dialog-trigger>
-              <plank-button variant="outline">View Details</plank-button>
-            </plank-dialog-trigger>
-            <plank-dialog-content>
-              <plank-dialog-header>
-                <plank-dialog-title>Details</plank-dialog-title>
-              </plank-dialog-header>
+          <hal-dialog>
+            <hal-dialog-trigger>
+              <hal-button variant="outline">View Details</hal-button>
+            </hal-dialog-trigger>
+            <hal-dialog-content>
+              <hal-dialog-header>
+                <hal-dialog-title>Details</hal-dialog-title>
+              </hal-dialog-header>
               <p class="text-sm">This is a simple dialog with just a title.</p>
-            </plank-dialog-content>
-          </plank-dialog>
+            </hal-dialog-content>
+          </hal-dialog>
         </div>
-        <pre><code>&lt;plank-dialog&gt;
-  &lt;plank-dialog-trigger&gt;
-    &lt;plank-button variant="outline"&gt;View Details&lt;/plank-button&gt;
-  &lt;/plank-dialog-trigger&gt;
-  &lt;plank-dialog-content&gt;
-    &lt;plank-dialog-header&gt;
-      &lt;plank-dialog-title&gt;Details&lt;/plank-dialog-title&gt;
-    &lt;/plank-dialog-header&gt;
+        <pre><code>&lt;hal-dialog&gt;
+  &lt;hal-dialog-trigger&gt;
+    &lt;hal-button variant="outline"&gt;View Details&lt;/hal-button&gt;
+  &lt;/hal-dialog-trigger&gt;
+  &lt;hal-dialog-content&gt;
+    &lt;hal-dialog-header&gt;
+      &lt;hal-dialog-title&gt;Details&lt;/hal-dialog-title&gt;
+    &lt;/hal-dialog-header&gt;
     &lt;p class="text-sm"&gt;This is a simple dialog with just a title.&lt;/p&gt;
-  &lt;/plank-dialog-content&gt;
-&lt;/plank-dialog&gt;</code></pre>
+  &lt;/hal-dialog-content&gt;
+&lt;/hal-dialog&gt;</code></pre>
       </section>
 
       <!-- Without Close Button -->
@@ -101,24 +101,24 @@
           Use show-close-button="false" to hide the default close button.
         </p>
         <div class="mb-4 flex items-center gap-4">
-          <plank-dialog>
-            <plank-dialog-trigger>
-              <plank-button variant="outline">Open Dialog</plank-button>
-            </plank-dialog-trigger>
-            <plank-dialog-content show-close-button="false">
-              <plank-dialog-header>
-                <plank-dialog-title>No Close Button</plank-dialog-title>
-                <plank-dialog-description>
+          <hal-dialog>
+            <hal-dialog-trigger>
+              <hal-button variant="outline">Open Dialog</hal-button>
+            </hal-dialog-trigger>
+            <hal-dialog-content show-close-button="false">
+              <hal-dialog-header>
+                <hal-dialog-title>No Close Button</hal-dialog-title>
+                <hal-dialog-description>
                   This dialog has no default close button. Press Escape or click
                   outside to close.
-                </plank-dialog-description>
-              </plank-dialog-header>
-            </plank-dialog-content>
-          </plank-dialog>
+                </hal-dialog-description>
+              </hal-dialog-header>
+            </hal-dialog-content>
+          </hal-dialog>
         </div>
-        <pre><code>&lt;plank-dialog-content show-close-button="false"&gt;
+        <pre><code>&lt;hal-dialog-content show-close-button="false"&gt;
   ...
-&lt;/plank-dialog-content&gt;</code></pre>
+&lt;/hal-dialog-content&gt;</code></pre>
       </section>
 
       <!-- Custom Styling -->
@@ -128,35 +128,35 @@
           Use the class attribute to add custom styles.
         </p>
         <div class="mb-4 flex items-center gap-4">
-          <plank-dialog>
-            <plank-dialog-trigger>
-              <plank-button>Wide Dialog</plank-button>
-            </plank-dialog-trigger>
-            <plank-dialog-content class="sm:max-w-2xl">
-              <plank-dialog-header>
-                <plank-dialog-title>Wide Dialog</plank-dialog-title>
-                <plank-dialog-description>
+          <hal-dialog>
+            <hal-dialog-trigger>
+              <hal-button>Wide Dialog</hal-button>
+            </hal-dialog-trigger>
+            <hal-dialog-content class="sm:max-w-2xl">
+              <hal-dialog-header>
+                <hal-dialog-title>Wide Dialog</hal-dialog-title>
+                <hal-dialog-description>
                   This dialog uses a custom max-width.
-                </plank-dialog-description>
-              </plank-dialog-header>
+                </hal-dialog-description>
+              </hal-dialog-header>
               <div class="py-4">
                 <p class="text-sm">
                   Content can be wider with sm:max-w-2xl or other utilities.
                 </p>
               </div>
-            </plank-dialog-content>
-          </plank-dialog>
+            </hal-dialog-content>
+          </hal-dialog>
         </div>
-        <pre><code>&lt;plank-dialog-content class="sm:max-w-2xl"&gt;
+        <pre><code>&lt;hal-dialog-content class="sm:max-w-2xl"&gt;
   ...
-&lt;/plank-dialog-content&gt;</code></pre>
+&lt;/hal-dialog-content&gt;</code></pre>
       </section>
 
       <!-- API -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">API</h2>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-dialog</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-dialog</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -202,12 +202,12 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-dialog-trigger</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-dialog-trigger</h3>
         <p class="text-muted-foreground mb-4">
           The element that triggers the dialog. Opens dialog on click.
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-dialog-content</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-dialog-content</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -239,24 +239,22 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-dialog-header</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-dialog-header</h3>
         <p class="text-muted-foreground mb-4">
           Container for title and description. Provides proper spacing.
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-dialog-footer</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-dialog-footer</h3>
         <p class="text-muted-foreground mb-4">
           Container for action buttons. Stacks on mobile, row on desktop.
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-dialog-title</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-dialog-title</h3>
         <p class="text-muted-foreground mb-4">
           The dialog title. Used for aria-labelledby.
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">
-          plank-dialog-description
-        </h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-dialog-description</h3>
         <p class="text-muted-foreground mb-4">
           The dialog description. Used for aria-describedby.
         </p>

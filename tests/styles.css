@@ -129,20 +129,20 @@
 
 /* Plank accordion animations - self-contained, no Radix dependency */
 /* Must animate padding too because box-sizing: border-box prevents height < padding */
-@keyframes plank-accordion-down {
+@keyframes hal-accordion-down {
   from {
     height: 0;
     padding-top: 0;
     padding-bottom: 0;
   }
   to {
-    height: var(--plank-accordion-content-height);
+    height: var(--hal-accordion-content-height);
   }
 }
 
-@keyframes plank-accordion-up {
+@keyframes hal-accordion-up {
   from {
-    height: var(--plank-accordion-content-height);
+    height: var(--hal-accordion-content-height);
   }
   to {
     height: 0;
@@ -151,17 +151,17 @@
   }
 }
 
-.animate-plank-accordion-down {
-  animation: plank-accordion-down 0.2s ease-out;
+.animate-hal-accordion-down {
+  animation: hal-accordion-down 0.2s ease-out;
   /* No forwards - element naturally has correct height/padding when open */
 }
 
-.animate-plank-accordion-up {
-  animation: plank-accordion-up 0.2s ease-out forwards;
+.animate-hal-accordion-up {
+  animation: hal-accordion-up 0.2s ease-out forwards;
 }
 
 /* Plank drawer animations - self-contained, no vaul dependency */
-@keyframes plank-drawer-slide-in-from-bottom {
+@keyframes hal-drawer-slide-in-from-bottom {
   from {
     transform: translate3d(0, 100%, 0);
   }
@@ -170,7 +170,7 @@
   }
 }
 
-@keyframes plank-drawer-slide-in-from-top {
+@keyframes hal-drawer-slide-in-from-top {
   from {
     transform: translate3d(0, -100%, 0);
   }
@@ -179,7 +179,7 @@
   }
 }
 
-@keyframes plank-drawer-slide-in-from-left {
+@keyframes hal-drawer-slide-in-from-left {
   from {
     transform: translate3d(-100%, 0, 0);
   }
@@ -188,7 +188,7 @@
   }
 }
 
-@keyframes plank-drawer-slide-in-from-right {
+@keyframes hal-drawer-slide-in-from-right {
   from {
     transform: translate3d(100%, 0, 0);
   }
@@ -197,20 +197,18 @@
   }
 }
 
-.animate-plank-drawer-slide-in-from-bottom {
-  animation: plank-drawer-slide-in-from-bottom 0.5s
-    cubic-bezier(0.32, 0.72, 0, 1);
+.animate-hal-drawer-slide-in-from-bottom {
+  animation: hal-drawer-slide-in-from-bottom 0.5s cubic-bezier(0.32, 0.72, 0, 1);
 }
 
-.animate-plank-drawer-slide-in-from-top {
-  animation: plank-drawer-slide-in-from-top 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+.animate-hal-drawer-slide-in-from-top {
+  animation: hal-drawer-slide-in-from-top 0.5s cubic-bezier(0.32, 0.72, 0, 1);
 }
 
-.animate-plank-drawer-slide-in-from-left {
-  animation: plank-drawer-slide-in-from-left 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+.animate-hal-drawer-slide-in-from-left {
+  animation: hal-drawer-slide-in-from-left 0.5s cubic-bezier(0.32, 0.72, 0, 1);
 }
 
-.animate-plank-drawer-slide-in-from-right {
-  animation: plank-drawer-slide-in-from-right 0.5s
-    cubic-bezier(0.32, 0.72, 0, 1);
+.animate-hal-drawer-slide-in-from-right {
+  animation: hal-drawer-slide-in-from-right 0.5s cubic-bezier(0.32, 0.72, 0, 1);
 }

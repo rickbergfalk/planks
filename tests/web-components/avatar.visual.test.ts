@@ -1,9 +1,9 @@
 import { describe, it, expect, beforeEach, afterEach } from "vitest"
 import { page } from "vitest/browser"
-import "@/web-components/plank-avatar"
-import type { PlankAvatar } from "@/web-components/plank-avatar"
+import "@/web-components/hal-avatar"
+import type { HalAvatar } from "@/web-components/hal-avatar"
 
-describe("PlankAvatar (Web Component) - Visual", () => {
+describe("HalAvatar (Web Component) - Visual", () => {
   let container: HTMLDivElement
 
   beforeEach(() => {
@@ -17,20 +17,20 @@ describe("PlankAvatar (Web Component) - Visual", () => {
 
   async function renderAndWait(html: string): Promise<void> {
     container.innerHTML = html
-    await customElements.whenDefined("plank-avatar")
-    await customElements.whenDefined("plank-avatar-fallback")
-    const elements = container.querySelectorAll("plank-avatar")
+    await customElements.whenDefined("hal-avatar")
+    await customElements.whenDefined("hal-avatar-fallback")
+    const elements = container.querySelectorAll("hal-avatar")
     await Promise.all(
-      Array.from(elements).map((el) => (el as PlankAvatar).updateComplete)
+      Array.from(elements).map((el) => (el as HalAvatar).updateComplete)
     )
   }
 
   it("with fallback only", async () => {
     await renderAndWait(`
       <div data-testid="container" style="padding: 8px">
-        <plank-avatar>
-          <plank-avatar-fallback>CN</plank-avatar-fallback>
-        </plank-avatar>
+        <hal-avatar>
+          <hal-avatar-fallback>CN</hal-avatar-fallback>
+        </hal-avatar>
       </div>
     `)
     await expect(page.getByTestId("container")).toMatchScreenshot(
@@ -41,9 +41,9 @@ describe("PlankAvatar (Web Component) - Visual", () => {
   it("with custom rounded-lg", async () => {
     await renderAndWait(`
       <div data-testid="container" style="padding: 8px">
-        <plank-avatar class="rounded-lg">
-          <plank-avatar-fallback>ER</plank-avatar-fallback>
-        </plank-avatar>
+        <hal-avatar class="rounded-lg">
+          <hal-avatar-fallback>ER</hal-avatar-fallback>
+        </hal-avatar>
       </div>
     `)
     await expect(page.getByTestId("container")).toMatchScreenshot(
@@ -55,15 +55,15 @@ describe("PlankAvatar (Web Component) - Visual", () => {
     await renderAndWait(`
       <div data-testid="container" style="padding: 8px">
         <div class="flex -space-x-2">
-          <plank-avatar>
-            <plank-avatar-fallback>A</plank-avatar-fallback>
-          </plank-avatar>
-          <plank-avatar>
-            <plank-avatar-fallback>B</plank-avatar-fallback>
-          </plank-avatar>
-          <plank-avatar>
-            <plank-avatar-fallback>C</plank-avatar-fallback>
-          </plank-avatar>
+          <hal-avatar>
+            <hal-avatar-fallback>A</hal-avatar-fallback>
+          </hal-avatar>
+          <hal-avatar>
+            <hal-avatar-fallback>B</hal-avatar-fallback>
+          </hal-avatar>
+          <hal-avatar>
+            <hal-avatar-fallback>C</hal-avatar-fallback>
+          </hal-avatar>
         </div>
       </div>
     `)

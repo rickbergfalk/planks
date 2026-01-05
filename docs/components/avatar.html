@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Avatar - Planks</title>
+    <title>Avatar - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -17,18 +17,18 @@
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Basic Usage</h2>
         <div class="flex flex-wrap items-center gap-4 mb-4">
-          <plank-avatar>
-            <plank-avatar-image
+          <hal-avatar>
+            <hal-avatar-image
               src="https://github.com/shadcn.png"
               alt="@shadcn"
-            ></plank-avatar-image>
-            <plank-avatar-fallback>CN</plank-avatar-fallback>
-          </plank-avatar>
+            ></hal-avatar-image>
+            <hal-avatar-fallback>CN</hal-avatar-fallback>
+          </hal-avatar>
         </div>
-        <pre><code>&lt;plank-avatar&gt;
-  &lt;plank-avatar-image src="..." alt="@username"&gt;&lt;/plank-avatar-image&gt;
-  &lt;plank-avatar-fallback&gt;CN&lt;/plank-avatar-fallback&gt;
-&lt;/plank-avatar&gt;</code></pre>
+        <pre><code>&lt;hal-avatar&gt;
+  &lt;hal-avatar-image src="..." alt="@username"&gt;&lt;/hal-avatar-image&gt;
+  &lt;hal-avatar-fallback&gt;CN&lt;/hal-avatar-fallback&gt;
+&lt;/hal-avatar&gt;</code></pre>
       </section>
 
       <!-- Fallback Only -->
@@ -36,21 +36,21 @@
         <h2 class="text-2xl font-semibold mb-4">Fallback Only</h2>
         <div class="flex flex-wrap items-center gap-6 mb-4">
           <div class="flex items-center gap-2">
-            <plank-avatar>
-              <plank-avatar-fallback>CN</plank-avatar-fallback>
-            </plank-avatar>
+            <hal-avatar>
+              <hal-avatar-fallback>CN</hal-avatar-fallback>
+            </hal-avatar>
             <span class="text-sm text-muted-foreground">Initials</span>
           </div>
           <div class="flex items-center gap-2">
-            <plank-avatar>
-              <plank-avatar-fallback>AB</plank-avatar-fallback>
-            </plank-avatar>
+            <hal-avatar>
+              <hal-avatar-fallback>AB</hal-avatar-fallback>
+            </hal-avatar>
             <span class="text-sm text-muted-foreground">Initials</span>
           </div>
         </div>
-        <pre><code>&lt;plank-avatar&gt;
-  &lt;plank-avatar-fallback&gt;CN&lt;/plank-avatar-fallback&gt;
-&lt;/plank-avatar&gt;</code></pre>
+        <pre><code>&lt;hal-avatar&gt;
+  &lt;hal-avatar-fallback&gt;CN&lt;/hal-avatar-fallback&gt;
+&lt;/hal-avatar&gt;</code></pre>
       </section>
 
       <!-- Custom Shapes -->
@@ -58,27 +58,27 @@
         <h2 class="text-2xl font-semibold mb-4">Custom Shapes</h2>
         <div class="flex flex-wrap items-center gap-6 mb-4">
           <div class="flex items-center gap-2">
-            <plank-avatar>
-              <plank-avatar-fallback>CN</plank-avatar-fallback>
-            </plank-avatar>
+            <hal-avatar>
+              <hal-avatar-fallback>CN</hal-avatar-fallback>
+            </hal-avatar>
             <span class="text-sm text-muted-foreground">Circle (default)</span>
           </div>
           <div class="flex items-center gap-2">
-            <plank-avatar class="rounded-lg">
-              <plank-avatar-fallback>ER</plank-avatar-fallback>
-            </plank-avatar>
+            <hal-avatar class="rounded-lg">
+              <hal-avatar-fallback>ER</hal-avatar-fallback>
+            </hal-avatar>
             <span class="text-sm text-muted-foreground">Rounded</span>
           </div>
           <div class="flex items-center gap-2">
-            <plank-avatar class="rounded-none">
-              <plank-avatar-fallback>SQ</plank-avatar-fallback>
-            </plank-avatar>
+            <hal-avatar class="rounded-none">
+              <hal-avatar-fallback>SQ</hal-avatar-fallback>
+            </hal-avatar>
             <span class="text-sm text-muted-foreground">Square</span>
           </div>
         </div>
-        <pre><code>&lt;plank-avatar&gt;...&lt;/plank-avatar&gt;
-&lt;plank-avatar class="rounded-lg"&gt;...&lt;/plank-avatar&gt;
-&lt;plank-avatar class="rounded-none"&gt;...&lt;/plank-avatar&gt;</code></pre>
+        <pre><code>&lt;hal-avatar&gt;...&lt;/hal-avatar&gt;
+&lt;hal-avatar class="rounded-lg"&gt;...&lt;/hal-avatar&gt;
+&lt;hal-avatar class="rounded-none"&gt;...&lt;/hal-avatar&gt;</code></pre>
       </section>
 
       <!-- Stacked Avatars -->
@@ -86,21 +86,21 @@
         <h2 class="text-2xl font-semibold mb-4">Stacked Avatars</h2>
         <div class="flex flex-wrap items-center gap-4 mb-4">
           <div class="flex -space-x-2">
-            <plank-avatar class="ring-2 ring-background">
-              <plank-avatar-fallback>A</plank-avatar-fallback>
-            </plank-avatar>
-            <plank-avatar class="ring-2 ring-background">
-              <plank-avatar-fallback>B</plank-avatar-fallback>
-            </plank-avatar>
-            <plank-avatar class="ring-2 ring-background">
-              <plank-avatar-fallback>C</plank-avatar-fallback>
-            </plank-avatar>
+            <hal-avatar class="ring-2 ring-background">
+              <hal-avatar-fallback>A</hal-avatar-fallback>
+            </hal-avatar>
+            <hal-avatar class="ring-2 ring-background">
+              <hal-avatar-fallback>B</hal-avatar-fallback>
+            </hal-avatar>
+            <hal-avatar class="ring-2 ring-background">
+              <hal-avatar-fallback>C</hal-avatar-fallback>
+            </hal-avatar>
           </div>
         </div>
         <pre><code>&lt;div class="flex -space-x-2"&gt;
-  &lt;plank-avatar class="ring-2 ring-background"&gt;...&lt;/plank-avatar&gt;
-  &lt;plank-avatar class="ring-2 ring-background"&gt;...&lt;/plank-avatar&gt;
-  &lt;plank-avatar class="ring-2 ring-background"&gt;...&lt;/plank-avatar&gt;
+  &lt;hal-avatar class="ring-2 ring-background"&gt;...&lt;/hal-avatar&gt;
+  &lt;hal-avatar class="ring-2 ring-background"&gt;...&lt;/hal-avatar&gt;
+  &lt;hal-avatar class="ring-2 ring-background"&gt;...&lt;/hal-avatar&gt;
 &lt;/div&gt;</code></pre>
       </section>
 
@@ -108,12 +108,12 @@
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">API</h2>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-avatar</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-avatar</h3>
         <p class="text-muted-foreground mb-4">
           The container component. Contains the image and fallback.
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-avatar-image</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-avatar-image</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -142,7 +142,7 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-avatar-fallback</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-avatar-fallback</h3>
         <p class="text-muted-foreground">
           Displays fallback content (typically initials) when the image is not
           available. Children are rendered as the fallback content.

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alert Dialog - Planks</title>
+    <title>Alert Dialog - hallucn/ui</title>
     <script type="module" src="../src/main.ts"></script>
   </head>
   <body class="min-h-screen">
@@ -19,45 +19,45 @@
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Basic Usage</h2>
         <div class="mb-4 flex items-center gap-4">
-          <plank-alert-dialog>
-            <plank-alert-dialog-trigger>
-              <plank-button variant="destructive">Delete Account</plank-button>
-            </plank-alert-dialog-trigger>
-            <plank-alert-dialog-content>
-              <plank-alert-dialog-header>
-                <plank-alert-dialog-title
-                  >Are you absolutely sure?</plank-alert-dialog-title
+          <hal-alert-dialog>
+            <hal-alert-dialog-trigger>
+              <hal-button variant="destructive">Delete Account</hal-button>
+            </hal-alert-dialog-trigger>
+            <hal-alert-dialog-content>
+              <hal-alert-dialog-header>
+                <hal-alert-dialog-title
+                  >Are you absolutely sure?</hal-alert-dialog-title
                 >
-                <plank-alert-dialog-description>
+                <hal-alert-dialog-description>
                   This action cannot be undone. This will permanently delete
                   your account and remove your data from our servers.
-                </plank-alert-dialog-description>
-              </plank-alert-dialog-header>
-              <plank-alert-dialog-footer>
-                <plank-alert-dialog-cancel>Cancel</plank-alert-dialog-cancel>
-                <plank-alert-dialog-action>Continue</plank-alert-dialog-action>
-              </plank-alert-dialog-footer>
-            </plank-alert-dialog-content>
-          </plank-alert-dialog>
+                </hal-alert-dialog-description>
+              </hal-alert-dialog-header>
+              <hal-alert-dialog-footer>
+                <hal-alert-dialog-cancel>Cancel</hal-alert-dialog-cancel>
+                <hal-alert-dialog-action>Continue</hal-alert-dialog-action>
+              </hal-alert-dialog-footer>
+            </hal-alert-dialog-content>
+          </hal-alert-dialog>
         </div>
-        <pre><code>&lt;plank-alert-dialog&gt;
-  &lt;plank-alert-dialog-trigger&gt;
-    &lt;plank-button variant="destructive"&gt;Delete Account&lt;/plank-button&gt;
-  &lt;/plank-alert-dialog-trigger&gt;
-  &lt;plank-alert-dialog-content&gt;
-    &lt;plank-alert-dialog-header&gt;
-      &lt;plank-alert-dialog-title&gt;Are you absolutely sure?&lt;/plank-alert-dialog-title&gt;
-      &lt;plank-alert-dialog-description&gt;
+        <pre><code>&lt;hal-alert-dialog&gt;
+  &lt;hal-alert-dialog-trigger&gt;
+    &lt;hal-button variant="destructive"&gt;Delete Account&lt;/hal-button&gt;
+  &lt;/hal-alert-dialog-trigger&gt;
+  &lt;hal-alert-dialog-content&gt;
+    &lt;hal-alert-dialog-header&gt;
+      &lt;hal-alert-dialog-title&gt;Are you absolutely sure?&lt;/hal-alert-dialog-title&gt;
+      &lt;hal-alert-dialog-description&gt;
         This action cannot be undone. This will permanently delete
         your account and remove your data from our servers.
-      &lt;/plank-alert-dialog-description&gt;
-    &lt;/plank-alert-dialog-header&gt;
-    &lt;plank-alert-dialog-footer&gt;
-      &lt;plank-alert-dialog-cancel&gt;Cancel&lt;/plank-alert-dialog-cancel&gt;
-      &lt;plank-alert-dialog-action&gt;Continue&lt;/plank-alert-dialog-action&gt;
-    &lt;/plank-alert-dialog-footer&gt;
-  &lt;/plank-alert-dialog-content&gt;
-&lt;/plank-alert-dialog&gt;</code></pre>
+      &lt;/hal-alert-dialog-description&gt;
+    &lt;/hal-alert-dialog-header&gt;
+    &lt;hal-alert-dialog-footer&gt;
+      &lt;hal-alert-dialog-cancel&gt;Cancel&lt;/hal-alert-dialog-cancel&gt;
+      &lt;hal-alert-dialog-action&gt;Continue&lt;/hal-alert-dialog-action&gt;
+    &lt;/hal-alert-dialog-footer&gt;
+  &lt;/hal-alert-dialog-content&gt;
+&lt;/hal-alert-dialog&gt;</code></pre>
       </section>
 
       <!-- Simple Confirmation -->
@@ -67,48 +67,48 @@
           A simpler alert dialog for quick confirmations.
         </p>
         <div class="mb-4 flex items-center gap-4">
-          <plank-alert-dialog>
-            <plank-alert-dialog-trigger>
-              <plank-button variant="outline">Delete Item</plank-button>
-            </plank-alert-dialog-trigger>
-            <plank-alert-dialog-content>
-              <plank-alert-dialog-header>
-                <plank-alert-dialog-title>Delete Item</plank-alert-dialog-title>
-                <plank-alert-dialog-description>
+          <hal-alert-dialog>
+            <hal-alert-dialog-trigger>
+              <hal-button variant="outline">Delete Item</hal-button>
+            </hal-alert-dialog-trigger>
+            <hal-alert-dialog-content>
+              <hal-alert-dialog-header>
+                <hal-alert-dialog-title>Delete Item</hal-alert-dialog-title>
+                <hal-alert-dialog-description>
                   Are you sure you want to delete this item?
-                </plank-alert-dialog-description>
-              </plank-alert-dialog-header>
-              <plank-alert-dialog-footer>
-                <plank-alert-dialog-cancel>No</plank-alert-dialog-cancel>
-                <plank-alert-dialog-action>Yes</plank-alert-dialog-action>
-              </plank-alert-dialog-footer>
-            </plank-alert-dialog-content>
-          </plank-alert-dialog>
+                </hal-alert-dialog-description>
+              </hal-alert-dialog-header>
+              <hal-alert-dialog-footer>
+                <hal-alert-dialog-cancel>No</hal-alert-dialog-cancel>
+                <hal-alert-dialog-action>Yes</hal-alert-dialog-action>
+              </hal-alert-dialog-footer>
+            </hal-alert-dialog-content>
+          </hal-alert-dialog>
         </div>
-        <pre><code>&lt;plank-alert-dialog&gt;
-  &lt;plank-alert-dialog-trigger&gt;
-    &lt;plank-button variant="outline"&gt;Delete Item&lt;/plank-button&gt;
-  &lt;/plank-alert-dialog-trigger&gt;
-  &lt;plank-alert-dialog-content&gt;
-    &lt;plank-alert-dialog-header&gt;
-      &lt;plank-alert-dialog-title&gt;Delete Item&lt;/plank-alert-dialog-title&gt;
-      &lt;plank-alert-dialog-description&gt;
+        <pre><code>&lt;hal-alert-dialog&gt;
+  &lt;hal-alert-dialog-trigger&gt;
+    &lt;hal-button variant="outline"&gt;Delete Item&lt;/hal-button&gt;
+  &lt;/hal-alert-dialog-trigger&gt;
+  &lt;hal-alert-dialog-content&gt;
+    &lt;hal-alert-dialog-header&gt;
+      &lt;hal-alert-dialog-title&gt;Delete Item&lt;/hal-alert-dialog-title&gt;
+      &lt;hal-alert-dialog-description&gt;
         Are you sure you want to delete this item?
-      &lt;/plank-alert-dialog-description&gt;
-    &lt;/plank-alert-dialog-header&gt;
-    &lt;plank-alert-dialog-footer&gt;
-      &lt;plank-alert-dialog-cancel&gt;No&lt;/plank-alert-dialog-cancel&gt;
-      &lt;plank-alert-dialog-action&gt;Yes&lt;/plank-alert-dialog-action&gt;
-    &lt;/plank-alert-dialog-footer&gt;
-  &lt;/plank-alert-dialog-content&gt;
-&lt;/plank-alert-dialog&gt;</code></pre>
+      &lt;/hal-alert-dialog-description&gt;
+    &lt;/hal-alert-dialog-header&gt;
+    &lt;hal-alert-dialog-footer&gt;
+      &lt;hal-alert-dialog-cancel&gt;No&lt;/hal-alert-dialog-cancel&gt;
+      &lt;hal-alert-dialog-action&gt;Yes&lt;/hal-alert-dialog-action&gt;
+    &lt;/hal-alert-dialog-footer&gt;
+  &lt;/hal-alert-dialog-content&gt;
+&lt;/hal-alert-dialog&gt;</code></pre>
       </section>
 
       <!-- API -->
       <section class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">API</h2>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">plank-alert-dialog</h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-alert-dialog</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
@@ -155,14 +155,14 @@
         </div>
 
         <h3 class="text-xl font-semibold mt-6 mb-4">
-          plank-alert-dialog-trigger
+          hal-alert-dialog-trigger
         </h3>
         <p class="text-muted-foreground mb-4">
           The element that triggers the alert dialog. Opens dialog on click.
         </p>
 
         <h3 class="text-xl font-semibold mt-6 mb-4">
-          plank-alert-dialog-content
+          hal-alert-dialog-content
         </h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
@@ -187,45 +187,35 @@
           </table>
         </div>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">
-          plank-alert-dialog-header
-        </h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-alert-dialog-header</h3>
         <p class="text-muted-foreground mb-4">
           Container for title and description. Provides proper spacing.
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">
-          plank-alert-dialog-footer
-        </h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-alert-dialog-footer</h3>
         <p class="text-muted-foreground mb-4">
           Container for action buttons. Stacks on mobile, row on desktop.
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">
-          plank-alert-dialog-title
-        </h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-alert-dialog-title</h3>
         <p class="text-muted-foreground mb-4">
           The dialog title. Used for aria-labelledby.
         </p>
 
         <h3 class="text-xl font-semibold mt-6 mb-4">
-          plank-alert-dialog-description
+          hal-alert-dialog-description
         </h3>
         <p class="text-muted-foreground mb-4">
           The dialog description. Used for aria-describedby.
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">
-          plank-alert-dialog-action
-        </h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-alert-dialog-action</h3>
         <p class="text-muted-foreground mb-4">
           The confirm/action button. Has primary button styling. Closes the
           dialog when clicked.
         </p>
 
-        <h3 class="text-xl font-semibold mt-6 mb-4">
-          plank-alert-dialog-cancel
-        </h3>
+        <h3 class="text-xl font-semibold mt-6 mb-4">hal-alert-dialog-cancel</h3>
         <p class="text-muted-foreground mb-4">
           The cancel button. Has outline button styling. Closes the dialog when
           clicked.
