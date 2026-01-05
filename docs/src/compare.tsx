@@ -138,13 +138,6 @@ import {
 } from "@/components/table"
 import { Calendar } from "@/components/calendar"
 import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/carousel"
-import {
   Pagination,
   PaginationContent,
   PaginationItem,
@@ -1269,81 +1262,6 @@ function ComparisonPage() {
         title="Calendar"
         reactContent={<Calendar className="rounded-md border" />}
         hallucnHtml={`<hal-calendar class="rounded-md border"></hal-calendar>`}
-      />
-
-      {/* Carousel */}
-      <ComparisonRow
-        title="Carousel"
-        reactContent={
-          <Carousel className="w-full max-w-xs mx-auto">
-            <CarouselContent>
-              <CarouselItem>
-                <div className="p-1">
-                  <Card>
-                    <CardContent className="flex aspect-square items-center justify-center p-6">
-                      <span className="text-4xl font-semibold">1</span>
-                    </CardContent>
-                  </Card>
-                </div>
-              </CarouselItem>
-              <CarouselItem>
-                <div className="p-1">
-                  <Card>
-                    <CardContent className="flex aspect-square items-center justify-center p-6">
-                      <span className="text-4xl font-semibold">2</span>
-                    </CardContent>
-                  </Card>
-                </div>
-              </CarouselItem>
-              <CarouselItem>
-                <div className="p-1">
-                  <Card>
-                    <CardContent className="flex aspect-square items-center justify-center p-6">
-                      <span className="text-4xl font-semibold">3</span>
-                    </CardContent>
-                  </Card>
-                </div>
-              </CarouselItem>
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
-        }
-        hallucnHtml={`
-          <hal-carousel class="w-full max-w-xs mx-auto">
-            <hal-carousel-content>
-              <hal-carousel-item>
-                <div class="p-1">
-                  <hal-card>
-                    <hal-card-content class="flex aspect-square items-center justify-center p-6">
-                      <span class="text-4xl font-semibold">1</span>
-                    </hal-card-content>
-                  </hal-card>
-                </div>
-              </hal-carousel-item>
-              <hal-carousel-item>
-                <div class="p-1">
-                  <hal-card>
-                    <hal-card-content class="flex aspect-square items-center justify-center p-6">
-                      <span class="text-4xl font-semibold">2</span>
-                    </hal-card-content>
-                  </hal-card>
-                </div>
-              </hal-carousel-item>
-              <hal-carousel-item>
-                <div class="p-1">
-                  <hal-card>
-                    <hal-card-content class="flex aspect-square items-center justify-center p-6">
-                      <span class="text-4xl font-semibold">3</span>
-                    </hal-card-content>
-                  </hal-card>
-                </div>
-              </hal-carousel-item>
-            </hal-carousel-content>
-            <hal-carousel-previous></hal-carousel-previous>
-            <hal-carousel-next></hal-carousel-next>
-          </hal-carousel>
-        `}
       />
 
       {/* Pagination */}
