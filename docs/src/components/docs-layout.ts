@@ -236,7 +236,7 @@ export class DocsLayout extends LitElement {
 
           <hal-sidebar-footer class="border-t px-4 py-4">
             <a
-              href="https://github.com/rickbergfalk/planks"
+              href="https://github.com/rickbergfalk/hallucn-ui"
               class="text-sm text-muted-foreground hover:text-foreground"
               target="_blank"
               rel="noopener noreferrer"
