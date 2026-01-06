@@ -50,17 +50,22 @@ type ButtonSize = VariantProps<typeof buttonVariants>["size"]
  */
 @customElement("hal-pagination")
 export class HalPagination extends LitElement {
-  @property({ type: String }) class: string = ""
+  private _userClass: string = ""
 
   createRenderRoot() {
     return this
+  }
+
+  connectedCallback() {
+    this._userClass = this.getAttribute("class") || ""
+    super.connectedCallback()
   }
 
   willUpdate() {
     this.dataset.slot = "pagination"
     this.setAttribute("role", "navigation")
     this.setAttribute("aria-label", "pagination")
-    this.className = cn("mx-auto flex w-full justify-center", this.class)
+    this.className = cn("mx-auto flex w-full justify-center", this._userClass)
   }
 
   render() {
@@ -73,15 +78,20 @@ export class HalPagination extends LitElement {
  */
 @customElement("hal-pagination-content")
 export class HalPaginationContent extends LitElement {
-  @property({ type: String }) class: string = ""
+  private _userClass: string = ""
 
   createRenderRoot() {
     return this
   }
 
+  connectedCallback() {
+    this._userClass = this.getAttribute("class") || ""
+    super.connectedCallback()
+  }
+
   willUpdate() {
     this.dataset.slot = "pagination-content"
-    this.className = cn("flex flex-row items-center gap-1", this.class)
+    this.className = cn("flex flex-row items-center gap-1", this._userClass)
   }
 
   render() {
@@ -94,15 +104,20 @@ export class HalPaginationContent extends LitElement {
  */
 @customElement("hal-pagination-item")
 export class HalPaginationItem extends LitElement {
-  @property({ type: String }) class: string = ""
+  private _userClass: string = ""
 
   createRenderRoot() {
     return this
   }
 
+  connectedCallback() {
+    this._userClass = this.getAttribute("class") || ""
+    super.connectedCallback()
+  }
+
   willUpdate() {
     this.dataset.slot = "pagination-item"
-    this.className = cn("contents", this.class)
+    this.className = cn("contents", this._userClass)
   }
 
   render() {
@@ -118,16 +133,18 @@ export class HalPaginationLink extends LitElement {
   @property({ type: String }) href: string = ""
   @property({ type: Boolean, reflect: true }) active: boolean = false
   @property({ type: String }) size: ButtonSize = "icon"
-  @property({ type: String }) class: string = ""
 
-  // Store original children before any render
+  // Store original children and user class before any render
   private _originalChildren: Node[] = []
+  private _userClass: string = ""
 
   createRenderRoot() {
     return this
   }
 
   connectedCallback() {
+    // Capture user's class before super.connectedCallback() triggers updates
+    this._userClass = this.getAttribute("class") || ""
     super.connectedCallback()
     // Capture children before first render
     this._originalChildren = [...this.childNodes]
@@ -157,7 +174,7 @@ export class HalPaginationLink extends LitElement {
         variant: this.active ? "outline" : "ghost",
         size: this.size,
       }),
-      this.class
+      this._userClass
     )
 
     return html`
@@ -178,10 +195,16 @@ export class HalPaginationLink extends LitElement {
 @customElement("hal-pagination-previous")
 export class HalPaginationPrevious extends LitElement {
   @property({ type: String }) href: string = ""
-  @property({ type: String }) class: string = ""
+
+  private _userClass: string = ""
 
   createRenderRoot() {
     return this
+  }
+
+  connectedCallback() {
+    this._userClass = this.getAttribute("class") || ""
+    super.connectedCallback()
   }
 
   willUpdate() {
@@ -193,7 +216,7 @@ export class HalPaginationPrevious extends LitElement {
     const linkClass = cn(
       buttonVariants({ variant: "ghost", size: "default" }),
       "gap-1 px-2.5 sm:pl-2.5",
-      this.class
+      this._userClass
     )
 
     return html`
@@ -224,10 +247,16 @@ export class HalPaginationPrevious extends LitElement {
 @customElement("hal-pagination-next")
 export class HalPaginationNext extends LitElement {
   @property({ type: String }) href: string = ""
-  @property({ type: String }) class: string = ""
+
+  private _userClass: string = ""
 
   createRenderRoot() {
     return this
+  }
+
+  connectedCallback() {
+    this._userClass = this.getAttribute("class") || ""
+    super.connectedCallback()
   }
 
   willUpdate() {
@@ -239,7 +268,7 @@ export class HalPaginationNext extends LitElement {
     const linkClass = cn(
       buttonVariants({ variant: "ghost", size: "default" }),
       "gap-1 px-2.5 sm:pr-2.5",
-      this.class
+      this._userClass
     )
 
     return html`
@@ -269,16 +298,24 @@ export class HalPaginationNext extends LitElement {
  */
 @customElement("hal-pagination-ellipsis")
 export class HalPaginationEllipsis extends LitElement {
-  @property({ type: String }) class: string = ""
+  private _userClass: string = ""
 
   createRenderRoot() {
     return this
   }
 
+  connectedCallback() {
+    this._userClass = this.getAttribute("class") || ""
+    super.connectedCallback()
+  }
+
   willUpdate() {
     this.dataset.slot = "pagination-ellipsis"
     this.setAttribute("aria-hidden", "true")
-    this.className = cn("flex size-9 items-center justify-center", this.class)
+    this.className = cn(
+      "flex size-9 items-center justify-center",
+      this._userClass
+    )
   }
 
   render() {
