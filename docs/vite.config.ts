@@ -63,7 +63,6 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, "index.html"),
-        compare: resolve(__dirname, "compare.html"),
         ...componentPages,
       },
     },
