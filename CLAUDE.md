@@ -255,6 +255,14 @@ describe("hal-newcomponent", () => {
     - **Add React vs Web Component comparison section** (see below)
     - Verify with `npm run docs:dev` that component renders correctly
 
+### Dogfooding in Docs
+
+When building docs features or enhancements, **use hal components whenever possible** instead of raw HTML elements. This helps us dogfood our own work and catch issues. Examples:
+- Use `<hal-button>` instead of `<button>`
+- Use `<hal-table>` for data tables
+- Use `toast()` from `hal-sonner` for notifications
+- Use `<hal-toaster>` in `docs-layout.ts` for site-wide toast support
+
 ### Adding Comparison Section to Docs Pages
 
 Every component docs page must have a "React vs Web Component" comparison section at the top (after the description, before other sections). This allows visual verification that the web component matches the React implementation.
