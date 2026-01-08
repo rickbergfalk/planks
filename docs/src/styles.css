@@ -230,3 +230,17 @@ code {
 .animate-hal-drawer-slide-in-from-right {
   animation: hal-drawer-slide-in-from-right 0.5s cubic-bezier(0.32, 0.72, 0, 1);
 }
+
+/* Heading anchor links */
+.heading-anchor {
+  opacity: 0;
+  margin-left: 0.25rem;
+  transition: opacity 0.2s;
+}
+
+h1:hover .heading-anchor,
+h2:hover .heading-anchor,
+h3:hover .heading-anchor,
+h4:hover .heading-anchor {
+  opacity: 1;
+}

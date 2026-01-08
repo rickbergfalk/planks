@@ -4,6 +4,9 @@ import "./styles.css"
 // Import docs-specific components
 import "./components/docs-layout"
 
+// Import docs enhancements
+import "./heading-anchors"
+
 // Import all hallucn web components
 import "@/web-components/hal-button"
 import "@/web-components/hal-badge"

@@ -268,6 +268,7 @@ export class DocsLayout extends LitElement {
           <main class="flex-1 px-4 py-8 md:px-6 lg:px-8 max-w-4xl"></main>
         </hal-sidebar-inset>
       </hal-sidebar-provider>
+      <hal-toaster position="bottom-right"></hal-toaster>
     `
   }
 
