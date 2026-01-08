@@ -18,6 +18,9 @@ export class HalLabel extends LitElement {
   @property({ type: String, reflect: true })
   for: string = ""
 
+  @property({ type: String })
+  class: string = ""
+
   // Light DOM - no shadow root
   createRenderRoot() {
     return this
@@ -26,7 +29,8 @@ export class HalLabel extends LitElement {
   willUpdate() {
     // Apply classes to the custom element container
     this.className = cn(
-      "flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50"
+      "flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50",
+      this.class
     )
     this.dataset.slot = "label"
   }

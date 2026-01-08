@@ -24,6 +24,9 @@ export class HalSwitch extends LitElement {
   @property({ type: Boolean, reflect: true })
   disabled = false
 
+  @property({ type: String })
+  class: string = ""
+
   private _input: HTMLInputElement | null = null
   private _associatedLabels: Element[] = []
 
@@ -150,7 +153,8 @@ export class HalSwitch extends LitElement {
     // Style the track (the element itself)
     this.className = cn(
       switchTrackClasses,
-      this.disabled && "pointer-events-none opacity-50"
+      this.disabled && "pointer-events-none opacity-50",
+      this.class
     )
 
     // Set data-slot for styling hooks

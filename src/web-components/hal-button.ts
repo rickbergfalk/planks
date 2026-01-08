@@ -56,6 +56,9 @@ export class HalButton extends LitElement {
   @property({ type: Boolean, reflect: true })
   disabled = false
 
+  @property({ type: String })
+  class: string = ""
+
   // Light DOM - no shadow root
   createRenderRoot() {
     return this
@@ -104,7 +107,8 @@ export class HalButton extends LitElement {
     // Note: disabled: variants don't work on custom elements, so we add them explicitly
     this.className = cn(
       buttonVariants({ variant: this.variant, size: this.size }),
-      this.disabled && "pointer-events-none opacity-50"
+      this.disabled && "pointer-events-none opacity-50",
+      this.class
     )
 
     // Set data attributes

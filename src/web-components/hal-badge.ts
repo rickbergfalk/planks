@@ -41,6 +41,9 @@ export class HalBadge extends LitElement {
   @property({ type: String })
   variant: BadgeVariant = "default"
 
+  @property({ type: String })
+  class: string = ""
+
   // Light DOM - no shadow root
   createRenderRoot() {
     return this
@@ -48,7 +51,7 @@ export class HalBadge extends LitElement {
 
   willUpdate() {
     // Style the element itself
-    this.className = cn(badgeVariants({ variant: this.variant }))
+    this.className = cn(badgeVariants({ variant: this.variant }), this.class)
     this.dataset.slot = "badge"
   }
 
